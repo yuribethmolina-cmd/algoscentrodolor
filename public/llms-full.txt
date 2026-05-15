@@ -1,0 +1,72 @@
+# ALGOS · Centro de Dolor Intervencionista
+
+Last-Modified: 2026-05-13
+
+## 1. Identidad
+
+ALGOS es un centro de dolor intervencionista en Maracaibo, Venezuela. Equipo familiar multidisciplinario con formación clínica internacional (Maracaibo + Alemania, Niedersachsen).
+
+## 2. Propuesta clínica
+
+Procedimientos mínimamente invasivos guiados por imagen (ecografía, fluoroscopia). Ambulatorios. Protocolos basados en práctica clínica internacional.
+
+## 3. Audiencias
+
+Tres audiencias: Pacientes, Médicos referentes, Instituciones.
+
+## 4. Equipo
+
+Cuatro hermanos con especialidades complementarias.
+
+## 5. Ubicación
+
+Maracaibo (sede principal) + presencia clínica en Alemania (Niedersachsen).
+
+## 6. Tono
+
+Honesto, clínico, sin promesas mágicas. Lenguaje plano para pacientes; lenguaje técnico para médicos.
+
+## 7. Política de contenido
+
+Nunca vende suplementos ni productos. Términos en español. Contacto placeholder +1 (555) 000-0000.
+
+## 8. Página /pacientes
+
+Explica qué es el dolor intervencionista, proceso paso a paso (4 fases), FAQ honesto.
+
+## 9. Página /medicos
+
+Criterios de referencia, protocolos clínicos, formulario de derivación.
+
+## 10. Página /instituciones
+
+Modelo de alianza con clínicas e instituciones de salud.
+
+## 11. Página /tratamientos
+
+Hub que organiza 5 condiciones de dolor que tratamos en ALGOS con procedimientos mínimamente invasivos guiados por imagen. Cada condición tiene una subpágina con whatIs, síntomas, cuándo considerar tratamiento, procedimientos disponibles, qué esperar el día del procedimiento y FAQ.
+
+### 11.1 /tratamientos/dolor-lumbar
+
+Lumbalgia crónica · dolor en la zona baja de la espalda que persiste más de 3 meses. Procedimientos: radiofrecuencia facetaria lumbar, infiltración epidural, bloqueo diagnóstico facetario. Considerar cuando el dolor no responde a tratamiento conservador, despierta en la noche o limita actividades básicas.
+[ Copy clínico pendiente revisión médica ]
+
+### 11.2 /tratamientos/dolor-cervical
+
+Cervicalgia crónica · dolor en cuello u hombros con o sin irradiación al brazo. Procedimientos: radiofrecuencia cervical, infiltración facetaria cervical, bloqueo medial branch. Considerar cuando hay irradiación al brazo con hormigueo y la patología facetaria/radicular está confirmada por imagen.
+[ Copy clínico pendiente revisión médica ]
+
+### 11.3 /tratamientos/dolor-facetario
+
+Síndrome facetario · dolor profundo que aumenta al pararse o caminar, mejora al inclinarse hacia adelante. Procedimientos: radiofrecuencia de rama medial, bloqueo diagnóstico facetario. Considerar tras bloqueo diagnóstico positivo, buscando alivio duradero sin cirugía.
+[ Copy clínico pendiente revisión médica ]
+
+### 11.4 /tratamientos/dolor-articular
+
+Dolor articular periférico · rodilla, hombro o cadera limitando actividad diaria. Procedimientos: infiltración intra-articular guiada por ecografía, viscosuplementación con ácido hialurónico, ozonoterapia articular. Considerar en artrosis, para evitar o postponer cirugía de reemplazo.
+[ Copy clínico pendiente revisión médica ]
+
+### 11.5 /tratamientos/lesion-deportiva
+
+Dolor postraumático persistente en atletas · lesión que no termina de sanar. Procedimientos: infiltración guiada por ecografía, PRP guiado, bloqueo de nervio periférico. Considerar tras 3+ meses sin mejoría, agotando fisioterapia, buscando regreso al deporte sin cirugía.
+[ Copy clínico pendiente revisión médica ]

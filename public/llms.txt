@@ -1,0 +1,21 @@
+# ALGOS · Centro de Dolor Intervencionista
+
+> Centro de dolor intervencionista en Maracaibo, Venezuela. Procedimientos mínimamente invasivos guiados por imagen, con equipo de formación clínica internacional (Maracaibo + Alemania).
+
+## Páginas principales
+
+- /: Home — hub para pacientes, médicos referentes e instituciones
+- /pacientes: Información para pacientes — qué esperar, cómo agendar valoración
+- /medicos: Información para médicos referentes — protocolos y referencias
+- /instituciones: Modelo de alianza con clínicas e instituciones
+- /equipo: Equipo médico multidisciplinario
+- /contacto: Formulario y datos de contacto
+
+## Páginas adicionales
+
+- /tratamientos: Hub de tratamientos para dolor crónico — 5 condiciones con procedimientos guiados por imagen
+- /tratamientos/dolor-lumbar: Tratamiento del dolor lumbar crónico (lumbalgia)
+- /tratamientos/dolor-cervical: Tratamiento del dolor cervical crónico (cervicalgia)
+- /tratamientos/dolor-facetario: Tratamiento del síndrome facetario (radiofrecuencia medial branch)
+- /tratamientos/dolor-articular: Tratamiento del dolor articular periférico (rodilla, hombro, cadera)
+- /tratamientos/lesion-deportiva: Tratamiento del dolor postraumático persistente en atletas

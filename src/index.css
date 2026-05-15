@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ALGOS Brand Tokens — LOCKED palette
+ * Deep Teal   #1a4a55  hsl(190 53% 22%)
+ * Brand Teal  #3d8b96  hsl(188 42% 41%)
+ * Algos Gold  #c69636  hsl(38 57% 50%)
+ * Cream       #f5f0e8  hsl(38 39% 93%)
+ * Steel Teal  #2a6270  hsl(193 45% 30%)
+ */
+
+@layer base {
+  :root {
+    --background: 38 39% 93%;
+    --foreground: 190 53% 22%;
+
+    --card: 38 39% 96%;
+    --card-foreground: 190 53% 22%;
+
+    --popover: 38 39% 96%;
+    --popover-foreground: 190 53% 22%;
+
+    --primary: 190 53% 22%;
+    --primary-foreground: 38 39% 93%;
+
+    --secondary: 188 42% 41%;
+    --secondary-foreground: 38 39% 96%;
+
+    --muted: 38 25% 88%;
+    --muted-foreground: 193 45% 30%;
+
+    --accent: 38 57% 50%;
+    --accent-foreground: 190 53% 22%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 25% 82%;
+    --input: 38 25% 82%;
+    --ring: 190 53% 22%;
+
+    --radius: 0.5rem;
+
+    --navbar: 190 53% 22%;
+
+    --sidebar-background: 190 53% 18%;
+    --sidebar-foreground: 38 39% 93%;
+    --sidebar-primary: 188 42% 41%;
+    --sidebar-primary-foreground: 38 39% 96%;
+    --sidebar-accent: 190 53% 25%;
+    --sidebar-accent-foreground: 38 39% 93%;
+    --sidebar-border: 190 40% 30%;
+    --sidebar-ring: 188 42% 41%;
+  }
+
+  .dark {
+    --background: 192 52% 8%;
+    --foreground: 40 33% 94%;
+
+    --card: 192 52% 10%;
+    --card-foreground: 40 33% 94%;
+
+    --popover: 192 52% 10%;
+    --popover-foreground: 40 33% 94%;
+
+    --primary: 40 33% 94%;
+    --primary-foreground: 192 52% 22%;
+
+    --secondary: 189 42% 30%;
+    --secondary-foreground: 40 33% 94%;
+
+    --muted: 192 30% 18%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 40 50% 45%;
+    --accent-foreground: 40 33% 94%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 192 30% 20%;
+    --input: 192 30% 20%;
+    --ring: 40 33% 94%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    @apply bg-background text-foreground font-ui;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+
+  @media (min-width: 981px) {
+    body { font-size: 16px; }
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* A11y: visible focus for keyboard users on all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid #c69636; /* Algos Gold */
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(
+      170deg,
+      hsl(var(--primary) / 0.92) 0%,
+      hsl(var(--primary) / 0.7) 40%,
+      hsl(var(--primary) / 0.45) 70%,
+      hsl(var(--primary) / 0.3) 100%
+    );
+  }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+.scroll-reveal-delay-3 { transition-delay: 0.3s; }
+.scroll-reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+ * Cinematic animation layer
+ * ============================================================ */
+
+/* Headline word stagger — host toggles .in-view */
+.headline-stagger .hw-inner {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.headline-stagger.in-view .hw-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Audience numerals slide-up */
+.audience-row .ar-numeral {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.audience-row.in-view .ar-numeral {
+  opacity: 1;
+  transform: translateY(0);
+}
+.audience-row .ar-content > * {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.audience-row.in-view .ar-content > *:nth-child(1) { transition-delay: 200ms; opacity: 1; transform: none; }
+.audience-row.in-view .ar-content > *:nth-child(2) { transition-delay: 260ms; opacity: 1; transform: none; }
+.audience-row.in-view .ar-content > *:nth-child(3) { transition-delay: 320ms; opacity: 1; transform: none; }
+.audience-row.in-view .ar-content > *:nth-child(4) { transition-delay: 380ms; opacity: 1; transform: none; }
+.audience-row.in-view .ar-content > *:nth-child(5) { transition-delay: 440ms; opacity: 1; transform: none; }
+
+/* Keystone dot one-shot pulse */
+@keyframes pulse-keystone {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 8px #f5f0e8, 0 0 0 9px rgba(198,150,54,0.2); }
+  50%  { transform: scale(1.15); box-shadow: 0 0 0 14px #f5f0e8, 0 0 0 16px rgba(198,150,54,0.3); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 8px #f5f0e8, 0 0 0 9px rgba(198,150,54,0.2); }
+}
+.keystone-dot {
+  display: inline-block;
+  transform-origin: center;
+}
+.keystone-dot.in-view {
+  animation: pulse-keystone 1400ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+}
+
+/* Generic reveal-up — toggle .in-view on host */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal-up.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Anatomy card target dot fade-in (the SVG paths are handled via JS) */
+.anatomy-card .target-mark {
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 1100ms;
+}
+.anatomy-card.in-view .target-mark { opacity: 1; }
+
+/* Treatment card photo banner */
+.tx-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+  display: block;
+  filter: grayscale(85%) brightness(0.95);
+  transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anatomy-card:hover .tx-photo,
+.anatomy-card:focus-within .tx-photo {
+  filter: grayscale(50%) brightness(1);
+}
+@media (max-width: 980px) {
+  .tx-photo { height: 160px; }
+}
+
+/* Honor reduced motion globally */
+/* ============================================================
+ * SIGNAL wave hero background
+ * ============================================================ */
+.signal-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.signal-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.signal-wave {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  animation: signal-draw 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.signal-wave-secondary {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  opacity: 0;
+  animation: signal-draw 4s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+}
+@keyframes signal-draw {
+  from { stroke-dashoffset: 3000; opacity: 0; }
+  20%  { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+.signal-dot {
+  offset-path: path("M -100 280 C 220 180, 460 420, 760 380 C 980 350, 1180 220, 1340 320 C 1460 380, 1540 480, 1600 540");
+  offset-distance: 0%;
+  opacity: 0;
+  animation: signal-travel 12s linear 4s infinite;
+  filter: drop-shadow(0 0 8px rgba(198, 150, 54, 0.4));
+}
+@keyframes signal-travel {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.15); }
+}
+.status-dot {
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot { animation: none; opacity: 1; }
+}
+
+@media (max-width: 980px) {
+  .signal-wave { stroke: rgba(26, 74, 85, 0.06) !important; }
+  .signal-wave-secondary { stroke: rgba(198, 150, 54, 0.035) !important; }
+  .signal-dot { r: 4; opacity: 0.7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-wave,
+  .signal-wave-secondary {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .signal-dot {
+    animation: none !important;
+    offset-distance: 50% !important;
+    opacity: 1 !important;
+  }
+  .headline-stagger .hw-inner,
+  .audience-row .ar-numeral,
+  .audience-row .ar-content > *,
+  .anatomy-card .target-mark,
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .keystone-dot.in-view { animation: none !important; }
+  [class*="animate-"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video { display: none !important; }
+}

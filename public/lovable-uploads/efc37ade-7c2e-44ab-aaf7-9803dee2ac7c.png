@@ -1,0 +1,74 @@
+<svg viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Teal brand background -->
+  <rect width="600" height="390" fill="#0D5F68"/>
+
+  <!-- Baseline reference line (faint) -->
+  <line x1="72" y1="148" x2="528" y2="148" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
+
+  <!-- Waveform path -->
+  <path
+    d="M 72,148
+       C 88,148 94,170 112,173
+       C 130,176 145,102 168,97
+       C 188,92 196,148 210,148
+       C 222,148 236,46 262,42
+       C 288,38 292,148 306,148
+       C 318,148 328,100 350,98
+       C 372,96 380,154 402,151
+       C 424,149 465,145 528,141"
+    stroke="white"
+    stroke-width="2.6"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Gold accent circle at main peak -->
+  <circle cx="262" cy="42" r="10.5" fill="#C49B2A"/>
+
+  <!-- Brand name ALGOS -->
+  <text
+    x="291"
+    y="265"
+    text-anchor="middle"
+    fill="white"
+    font-family="'Raleway', 'Century Gothic', 'Futura', sans-serif"
+    font-weight="200"
+    font-size="78"
+    letter-spacing="18"
+  >ALGOS</text>
+
+  <!-- Thin separator line -->
+  <line x1="195" y1="283" x2="407" y2="283" stroke="rgba(255,255,255,0.18)" stroke-width="0.6"/>
+
+  <!-- Subtitle line 1 -->
+  <text
+    x="297"
+    y="305"
+    text-anchor="middle"
+    fill="rgba(255,255,255,0.56)"
+    font-family="'Raleway', 'Century Gothic', 'Futura', sans-serif"
+    font-weight="300"
+    font-size="12.5"
+    letter-spacing="5.5"
+  >CENTRO DE DOLOR</text>
+
+  <!-- Subtitle line 2 -->
+  <text
+    x="297"
+    y="326"
+    text-anchor="middle"
+    fill="rgba(255,255,255,0.56)"
+    font-family="'Raleway', 'Century Gothic', 'Futura', sans-serif"
+    font-weight="300"
+    font-size="12.5"
+    letter-spacing="5.5"
+  >INTERVENCIONISTA</text>
+
+</svg>
