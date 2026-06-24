@@ -291,33 +291,45 @@ function RowContent({ row, color }: { row: Row; color: string }) {
         {row.body}
       </p>
       {row.uduzNote && row.uduzHref && (
-        <p
-          className="font-ui"
+        <div
           style={{
-            marginTop: "14px",
-            fontSize: "13px",
-            color: "#2a6270",
-            lineHeight: 1.55,
+            marginTop: 18,
+            backgroundColor: "#fbfaf5",
+            border: "1px solid rgba(110, 168, 46, 0.25)",
+            borderLeft: "3px solid #6ea82e",
+            borderRadius: 6,
+            padding: "14px 16px",
             maxWidth: "52ch",
           }}
         >
-          {row.uduzNote}{" "}
-          <a
-            href={row.uduzHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <p
+            className="font-ui"
             style={{
-              color: "#c69636",
-              fontWeight: 600,
-              borderBottom: "1px solid #c69636",
-              paddingBottom: 1,
-              textDecoration: "none",
+              margin: 0,
+              fontSize: "13px",
+              color: "#1a4a55",
+              lineHeight: 1.6,
             }}
           >
-            Agendar estudio →
-          </a>
-        </p>
+            ¿Necesitas tomografía o ecografía antes de la consulta? <strong style={{ fontWeight: 700 }}>UDUZ Paraíso</strong> — a metros de aquí — las tiene desde <strong style={{ fontWeight: 700 }}>$25</strong>, disponible <strong style={{ fontWeight: 700 }}>24/7</strong>.{" "}
+            <a
+              href={row.uduzHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#c69636",
+                fontWeight: 700,
+                borderBottom: "1px solid #c69636",
+                paddingBottom: 1,
+                textDecoration: "none",
+              }}
+            >
+              Agendar estudio →
+            </a>
+          </p>
+        </div>
       )}
+
       <div style={{ marginTop: "28px" }}>
         <RowLink to={row.ctaHref} color={color}>
           {row.ctaLabel}
