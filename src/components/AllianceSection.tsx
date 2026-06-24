@@ -289,6 +289,22 @@ export default function AllianceSection() {
           </span>
         </div>
 
+        <p
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(16px, 1.2vw, 18px)",
+            fontWeight: 400,
+            color: "rgba(250, 246, 239, 0.92)",
+            lineHeight: 1.7,
+            marginBottom: 32,
+            maxWidth: "58ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>ALGOS</strong> opera en alianza institucional con <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>UDUZ</strong>. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
+        </p>
+
         <h2
           style={{
             fontFamily: "'Sora', serif",
@@ -306,23 +322,8 @@ export default function AllianceSection() {
             Sin traslados.
           </span>
         </h2>
-
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(16px, 1.2vw, 18px)",
-            fontWeight: 400,
-            color: "rgba(250, 246, 239, 0.92)",
-            lineHeight: 1.7,
-            marginTop: 24,
-            maxWidth: "58ch",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          ALGOS opera en alianza institucional con UDUZ. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
-        </p>
       </div>
+
 
       {/* ── BENEFIT BLOCKS ──────────────────────────────────────── */}
       <div
