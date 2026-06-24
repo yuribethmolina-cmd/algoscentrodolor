@@ -1,4 +1,4 @@
-import algosLogoCream from "@/assets/algos-logo-cream.png";
+import algosLogoFull from "@/assets/logo-transparent.png";
 
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
@@ -59,23 +59,15 @@ export default function AllianceSection() {
         >
           <div>
             <img
-              src={algosLogoCream}
+              src={algosLogoFull}
               alt="ALGOS — Centro de Dolor Intervencionista"
-              style={{ height: 44, width: "auto", marginBottom: 28 }}
-            />
-            <p
               style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: GOLD,
-                marginBottom: 20,
+                height: 120,
+                width: "auto",
+                marginBottom: 36,
+                filter: "brightness(0) invert(1)",
               }}
-            >
-              Centro de Dolor Intervencionista
-            </p>
+            />
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {algosServices.map((s) => (
                 <li

@@ -18,8 +18,8 @@ export default function Index() {
       <HeroSection />
       <AudienceRouter />
       <TratamientosSection />
-      <EquipoSection />
       <AllianceSection />
+      <EquipoSection />
       <StatsStrip />
       <FinalCTA />
       <HomeFooter />
