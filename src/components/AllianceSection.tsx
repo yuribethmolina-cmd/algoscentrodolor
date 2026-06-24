@@ -88,7 +88,7 @@ export default function AllianceSection() {
         >
           <div>
             <img
-              src={algosLogoDark}
+              src={algosLogoFull.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
               style={{
                 height: 72,
