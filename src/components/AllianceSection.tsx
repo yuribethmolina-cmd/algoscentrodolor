@@ -23,21 +23,43 @@ const uduzServices = [
   { label: "Laboratorio clínico", detail: "pre-procedimiento" },
 ];
 
-const benefits = [
+type BenefitBody = (React.ReactNode)[];
+const benefits: { number: string; title: string; body: BenefitBody; uduzHighlight: React.ReactNode }[] = [
   {
     number: "01",
     title: "DIAGNÓSTICO INTEGRADO",
-    body: "Tomografía de columna ($25 · 24/7), ecografía ($15) y Rayos X ($8) en UDUZ Paraíso — a metros de la consulta. El Dr. Atilio revisa tus imágenes antes de recibirte.",
+    body: [
+      "El Dr. Atilio revisa tus imágenes antes de recibirte — sin pasos intermedios.",
+    ],
+    uduzHighlight: (
+      <>
+        Tomografía <strong>$25 · 24/7</strong> · Ecografía <strong>$15</strong> · Rayos X <strong>$8</strong> en <strong>UDUZ Paraíso</strong> — a metros de la consulta.
+      </>
+    ),
   },
   {
     number: "02",
     title: "UN SOLO EXPEDIENTE",
-    body: "Tu historia clínica viaja entre ALGOS y UDUZ sin que tengas que repetirla. Llegas con los estudios; el equipo ya los conoce.",
+    body: [
+      "Tu historia clínica viaja sin que tengas que repetirla. Llegas con los estudios; el equipo ya los conoce.",
+    ],
+    uduzHighlight: (
+      <>
+        Expediente compartido entre <strong>ALGOS</strong> y <strong>UDUZ</strong>.
+      </>
+    ),
   },
   {
     number: "03",
     title: "SALA DE PROCEDIMIENTOS",
-    body: "Los procedimientos se realizan en instalaciones de UDUZ — con fluoroscopio y sala equipada — mientras el Local 4 termina su adecuación.",
+    body: [
+      "Con fluoroscopio y sala equipada, mientras el Local 4 termina su adecuación.",
+    ],
+    uduzHighlight: (
+      <>
+        Los procedimientos se realizan en instalaciones de <strong>UDUZ</strong>.
+      </>
+    ),
   },
 ];
 
