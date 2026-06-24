@@ -132,9 +132,9 @@ export default function HomeFooter() {
           {/* Brand */}
           <div className="col-span-2 mdx:col-span-1">
             <img
-              src={algosLogo}
+              src={algosLogo.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
-              style={{ height: 36, width: "auto", display: "block", marginBottom: 18 }}
+              style={{ height: 56, width: "auto", display: "block", marginBottom: 18 }}
             />
 
           </div>
