@@ -1,4 +1,4 @@
-import algosLogoCream from "@/assets/algos-logo-cream.svg";
+import algosLogoDark from "@/assets/algos-logo-dark.png";
 
 const CREAM = "#f5f0e8";
 const CREAM_STRONG = "#faf6ef";
