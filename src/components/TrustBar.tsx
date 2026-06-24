@@ -1,5 +1,4 @@
 const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
 const GOLD_DEEP = "#9a7320";
 
 /**
