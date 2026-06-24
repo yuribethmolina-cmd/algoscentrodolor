@@ -102,19 +102,21 @@
 
   body {
     @apply bg-background text-foreground font-ui;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
   }
 
   @media (min-width: 981px) {
     body { font-size: 17px; }
   }
 
-  h1, h2, h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 700;
+  h1, h2, h3, h4 {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   html {
