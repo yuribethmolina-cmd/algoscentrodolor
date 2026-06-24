@@ -4,8 +4,7 @@ const GOLD_DEEP = "#9a7320";
 
 /**
  * Trust bar — surfaces institutional alliances directly under the hero
- * so visitors immediately see the diagnostic partner (UDUZ) and the
- * German reference center (WZaS München).
+ * so visitors immediately see the diagnostic partner (UDUZ).
  */
 export default function TrustBar() {
   return (
