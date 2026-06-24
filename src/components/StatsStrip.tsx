@@ -68,7 +68,6 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
       <div
         style={{
           fontFamily: "'Sora', serif",
-          fontStyle: "italic",
           fontWeight: 400,
           fontSize: "clamp(68px, 14vw, 156px)",
           color: DEEP_TEAL,
@@ -84,7 +83,6 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
           <span
             style={{
               color: GOLD,
-              fontStyle: "italic",
               fontSize: "clamp(28px, 5vw, 56px)",
               verticalAlign: "top",
               marginLeft: 4,

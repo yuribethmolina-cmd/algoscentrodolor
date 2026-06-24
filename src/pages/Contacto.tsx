@@ -90,7 +90,7 @@ export default function Contacto() {
             </p>
             <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
               ¿En qué podemos{" "}
-              <em className="text-[#c69636] italic font-bold">ayudarte</em>?
+              <span className="text-[#c69636] font-bold">ayudarte</span>?
             </h1>
             <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
               Cada consulta tiene un camino diferente. Elige el que mejor describe tu necesidad y te conectamos con la persona correcta.
@@ -169,7 +169,7 @@ export default function Contacto() {
                     ))
                   )}
                   {note && (
-                    <p className="text-[#1a4a55]/50 text-xs italic mt-3">
+                    <p className="text-[#1a4a55]/50 text-xs mt-3">
                       {note}
                     </p>
                   )}

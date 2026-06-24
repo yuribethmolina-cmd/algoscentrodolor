@@ -61,8 +61,8 @@ export default function AboutSection() {
             <div className="p-4 rounded-xl bg-accent/5 border border-accent/15 mb-8">
               <p className="text-sm text-foreground/80 font-light leading-relaxed">
                 <span className="font-medium text-accent">ALGOS</span> — del griego{" "}
-                <span className="italic">ἄλγος</span> (dolor). Raíz de <em>analgesia</em>,{" "}
-                <em>neuralgia</em>, <em>mialgia</em>. No es un nombre de fantasía:{" "}
+                <span className="">ἄλγος</span> (dolor). Raíz de <span>analgesia</span>,{" "}
+                <span>neuralgia</span>, <span>mialgia</span>. No es un nombre de fantasía:{" "}
                 <span className="font-medium text-foreground">es una declaración de especialidad.</span>
               </p>
             </div>

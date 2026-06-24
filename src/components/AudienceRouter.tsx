@@ -101,12 +101,12 @@ export default function AudienceRouter() {
                 }}
               >
                 Tres caminos.{" "}
-                <em
-                  className="italic"
-                  style={{ color: "#c69636", fontStyle: "italic" }}
+                <span
+                  className=""
+                  style={{ color: "#c69636"}}
                 >
                   Una misma señal.
-                </em>
+                </span>
               </h2>
               <p
                 className="font-ui text-steel-teal"
@@ -165,8 +165,8 @@ export default function AudienceRouter() {
           >
             <div>
               <p
-                className="font-display italic font-semibold text-deep-teal"
-                style={{ fontSize: "20px", fontStyle: "italic" }}
+                className="font-display font-semibold text-deep-teal"
+                style={{ fontSize: "20px"}}
               >
                 ¿No sabes cuál camino te corresponde?
               </p>
@@ -199,12 +199,11 @@ function AudienceRow({ row }: { row: Row }) {
       {/* Mobile uses 2-col; desktop overrides via inline media-like style not possible — use class */}
       <div className="contents mdx:hidden">
         <div
-          className="ar-numeral font-display italic"
+          className="ar-numeral font-display"
           style={{
             color,
             fontSize: "80px",
             fontWeight: 400,
-            fontStyle: "italic",
             lineHeight: 1,
           }}
         >
@@ -220,12 +219,11 @@ function AudienceRow({ row }: { row: Row }) {
         }}
       >
         <div
-          className="ar-numeral font-display italic"
+          className="ar-numeral font-display"
           style={{
             color,
             fontSize: "144px",
             fontWeight: 400,
-            fontStyle: "italic",
             lineHeight: 1,
           }}
         >
@@ -273,12 +271,12 @@ function RowContent({ row, color }: { row: Row; color: string }) {
         }}
       >
         {row.headingStart}
-        <em
-          className="italic"
-          style={{ fontStyle: "italic", fontWeight: 400 }}
+        <span
+          className=""
+          style={{ fontWeight: 400 }}
         >
           {row.headingItalic}
-        </em>
+        </span>
         {row.headingEnd}
       </h3>
       <p

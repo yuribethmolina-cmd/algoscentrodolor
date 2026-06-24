@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 space-y-2">
-          <p className="text-primary-foreground/40 text-xs font-light text-center italic">
+          <p className="text-primary-foreground/40 text-xs font-light text-center">
             Un proyecto venezolano construido para el Zulia
           </p>
           <p className="text-primary-foreground/30 text-xs font-light text-center">

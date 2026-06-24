@@ -82,9 +82,9 @@ export function BioModal({ isOpen, onClose, member }: BioModalProps) {
         aria-modal="true"
         aria-labelledby="bio-modal-name"
         className="fixed z-[51] bg-cream overflow-y-auto shadow-[0_24px_64px_rgba(0,0,0,0.25)]
-          inset-0 max-h-screen p-8 rounded-none
-          md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2
-          md:w-[720px] md:max-w-[calc(100vw-48px)] md:max-h-[85vh] md:p-16 md:rounded-lg"
+ inset-0 max-h-screen p-8 rounded-none
+ md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2
+ md:w-[720px] md:max-w-[calc(100vw-48px)] md:max-h-[85vh] md:p-16 md:rounded-lg"
       >
         {/* Close button */}
         <button
@@ -108,7 +108,7 @@ export function BioModal({ isOpen, onClose, member }: BioModalProps) {
             />
           ) : (
             <span
-              className="font-display italic font-normal text-algos-gold leading-none"
+              className="font-display font-normal text-algos-gold leading-none"
               style={{ fontSize: 120 }}
             >
               {member.index}
@@ -126,7 +126,7 @@ export function BioModal({ isOpen, onClose, member }: BioModalProps) {
           id="bio-modal-name"
           className="mt-6 text-center font-display text-deep-teal leading-[1.05] tracking-[-0.025em] text-[40px] md:text-[56px]"
         >
-          <span className="italic font-normal">{member.givenName}</span>{" "}
+          <span className="font-normal">{member.givenName}</span>{" "}
           <span className="font-bold">{member.familyName}</span>
         </h2>
 

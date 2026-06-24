@@ -142,7 +142,7 @@ export function useCountUp(target: number, durationMs: number, start: boolean) {
 /** Splits text into <span class="hw"> word spans with staggered delays.
  *  Wraps result in a host span. The PARENT element should toggle `.in-view`
  *  to trigger the animation. Use baseDelay (ms) to offset by chunk position.
- *  italic / color make a single emphasized run with slower stagger (120ms). */
+ *  color makes a single emphasized run with slower stagger (120ms). */
 type Chunk = {
   text: string;
   italic?: boolean;
@@ -189,16 +189,14 @@ export function HeadlineReveal({
         </span>
       );
       out.push(
-        <span
-          key={`${ci}-w-${wordIdx++}`}
-          className="hw"
-          style={{
-            display: "inline-block",
-            fontStyle: c.italic ? "italic" : undefined,
-            color: c.color,
-            fontWeight: c.italic ? 600 : undefined,
-          }}
-        >
+      <span
+        key={`${ci}-w-${wordIdx++}`}
+        className="hw"
+        style={{
+          display: "inline-block",
+          color: c.color,
+        }}
+      >
           {inner}
         </span>
       );

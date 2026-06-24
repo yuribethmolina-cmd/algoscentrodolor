@@ -140,7 +140,7 @@ export default function TratamientoDetalle() {
             <ol className="space-y-6">
               {condition.whatToExpect.map((step, i) => (
                 <li key={step} className="flex items-start gap-5">
-                  <span className="font-display italic font-bold text-[#c69636] text-3xl md:text-4xl leading-none shrink-0 w-14">
+                  <span className="font-display font-bold text-[#c69636] text-3xl md:text-4xl leading-none shrink-0 w-14">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="font-sans text-[#f5f0e8]/90 text-base md:text-lg leading-relaxed pt-2">

@@ -257,9 +257,9 @@ export default function AllianceSection() {
           }}
         >
           Un ecosistema clínico completo.{" "}
-          <em style={{ fontStyle: "italic", fontWeight: 700, color: GOLD }}>
+          <span style={{ fontWeight: 700, color: GOLD }}>
             Sin traslados.
-          </em>
+          </span>
         </h2>
 
         <p
@@ -308,7 +308,6 @@ export default function AllianceSection() {
                 <p
                   style={{
                     fontFamily: "'Sora', serif",
-                    fontStyle: "italic",
                     fontWeight: 600,
                     fontSize: 44,
                     color: GOLD_DEEP,
