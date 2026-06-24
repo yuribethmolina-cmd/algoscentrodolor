@@ -108,7 +108,7 @@ export default function HeroSection() {
             className="font-ui font-bold uppercase"
             style={{ color: "#9a7320", fontSize: "13px", letterSpacing: "0.3em" }}
           >
-            MARACAIBO · ALEMANIA
+            MARACAIBO, EDO ZULIA
           </p>
 
           <AnimatedHeadline
@@ -130,7 +130,7 @@ export default function HeroSection() {
             className="font-ui mt-8 max-w-xl"
             style={{ fontSize: "19px", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
-            Cuatro especialistas — dos en Venezuela, dos en Alemania — que
+            Tres especialistas  dos en Venezuela, uno en Alemania, que
             ven tu caso como uno solo. Procedimientos sin hospitalización,
             en el Sector Paraíso, en alianza diagnóstica con <strong style={{ fontWeight: 700 }}>UDUZ</strong>.
 
