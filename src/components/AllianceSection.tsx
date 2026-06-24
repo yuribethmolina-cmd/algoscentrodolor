@@ -246,7 +246,7 @@ export default function AllianceSection() {
 
         <h2
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Sora', serif",
             fontWeight: 700,
             fontSize: "clamp(36px, 5vw, 60px)",
             lineHeight: 1.08,
@@ -307,7 +307,7 @@ export default function AllianceSection() {
               <div key={b.number}>
                 <p
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Sora', serif",
                     fontStyle: "italic",
                     fontWeight: 600,
                     fontSize: 44,

@@ -229,7 +229,7 @@ export default function TratamientosSection() {
           <div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Sora', serif",
                 fontWeight: 700,
                 fontSize: "clamp(44px, 6vw, 72px)",
                 lineHeight: 1.05,
@@ -385,7 +385,7 @@ function TratamientoCard({ card, image }: { card: Card; image?: { src: string; a
 
       <h3
         style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Sora', serif",
           fontWeight: 600,
           fontSize: "clamp(26px, 2.4vw, 32px)",
           lineHeight: 1.15,

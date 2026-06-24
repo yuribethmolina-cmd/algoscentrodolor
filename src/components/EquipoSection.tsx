@@ -75,7 +75,7 @@ function NameRole({ m }: { m: Member }) {
     <div>
       <h3
         style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Sora', serif",
           fontSize: "clamp(26px, 3.2vw, 44px)",
           letterSpacing: "-0.02em",
           color: DEEP_TEAL,
@@ -121,7 +121,7 @@ function Location({ m, align = "right" }: { m: Member; align?: "left" | "right" 
     <div style={{ textAlign: align }}>
       <p
         style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Sora', serif",
           fontStyle: "italic",
           fontWeight: 600,
           fontSize: 18,
@@ -207,7 +207,7 @@ function RosterRow({ m }: { m: Member }) {
         ) : (
           <span
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Sora', serif",
               fontStyle: "italic",
               fontWeight: 400,
               fontSize: 56,
@@ -225,7 +225,7 @@ function RosterRow({ m }: { m: Member }) {
           className="justify-self-end transition-all duration-300 group-hover:text-[color:var(--gold-c)] group-hover:translate-x-2 group-hover:opacity-100"
           style={
             {
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Sora', serif",
               fontSize: 28,
               color: DEEP_TEAL,
               opacity: 0.4,
@@ -262,7 +262,7 @@ function RosterRow({ m }: { m: Member }) {
           ) : (
             <span
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Sora', serif",
                 fontStyle: "italic",
                 fontWeight: 400,
                 fontSize: 36,
@@ -343,7 +343,7 @@ export default function EquipoSection() {
           <div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Sora', serif",
                 fontWeight: 700,
                 fontSize: "clamp(44px, 6vw, 72px)",
                 lineHeight: 1.05,
@@ -384,7 +384,7 @@ export default function EquipoSection() {
           >
             <em
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Sora', serif",
                 fontStyle: "italic",
                 fontWeight: 600,
                 color: DEEP_TEAL,
