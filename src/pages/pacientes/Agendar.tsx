@@ -20,6 +20,21 @@ export default function Agendar() {
             </p>
           </div>
 
+          <div className="scroll-reveal mb-8 p-6 rounded-2xl border border-border bg-card">
+            <h3 className="text-base font-medium text-foreground mb-2">¿Tienes estudios de imagen recientes?</h3>
+            <p className="text-muted-foreground font-light text-sm mb-4 leading-relaxed">
+              Si tienes tomografía, ecografía o Rayos X de los últimos 6 meses, tráelos a la consulta — aceleran el diagnóstico. Si no los tienes, puedes hacerlos en UDUZ Paraíso antes de venir.
+            </p>
+            <a
+              href="https://uduz.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-medium text-secondary border-b border-secondary/30 hover:border-secondary pb-0.5 transition-colors"
+            >
+              Tomografía 24/7 desde $25 · Ecografía $15 · Rayos X $8 — Agendar en UDUZ →
+            </a>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact options */}
             <div className="space-y-6">

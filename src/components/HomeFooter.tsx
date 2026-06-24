@@ -157,6 +157,21 @@ export default function HomeFooter() {
               </p>
             </div>
             <div style={{ marginBottom: 16 }}>
+              <p style={blockLabel}>RED DIAGNÓSTICA</p>
+              <a
+                href="https://uduz.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ ...blockValue, color: STEEL_TEAL, textDecoration: "none", display: "block" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = STEEL_TEAL)}
+              >
+                UDUZ Paraíso · misma zona
+                <br />
+                Tomografía 24/7 · desde $8
+              </a>
+            </div>
+            <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>HORARIO</p>
               <p style={blockValue}>
                 Lunes a viernes · 8:00 – 18:00

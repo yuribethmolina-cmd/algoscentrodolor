@@ -10,7 +10,7 @@ const benefits = [
   {
     number: "01",
     title: "DIAGNÓSTICO INTEGRADO",
-    body: "Tomografía y ecografía disponibles en la misma red. El Dr. Atilio recibe los resultados antes de tu próxima consulta.",
+    body: "Tomografía de columna ($25 · 24/7), ecografía ($15) y Rayos X ($8) en UDUZ Paraíso — a metros de la consulta. El Dr. Atilio revisa tus imágenes antes de recibirte.",
   },
   {
     number: "02",
@@ -179,7 +179,7 @@ export default function AllianceSection() {
         </div>
 
         {/* CTA */}
-        <div>
+        <div className="flex flex-col mdx:flex-row gap-4 mdx:gap-8 mdx:items-center">
           <a
             href="https://uduz.vercel.app"
             target="_blank"
@@ -197,7 +197,26 @@ export default function AllianceSection() {
               display: "inline-block",
             }}
           >
-            Conoce UDUZ →
+            Agendar estudio diagnóstico →
+          </a>
+          <a
+            href="https://uduz.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: STEEL_TEAL,
+              borderBottom: `1.5px solid rgba(42,98,112,0.4)`,
+              paddingBottom: 4,
+              textDecoration: "none",
+              display: "inline-block",
+            }}
+          >
+            Ver servicios y precios →
           </a>
         </div>
       </div>

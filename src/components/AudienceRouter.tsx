@@ -19,6 +19,8 @@ type Row = {
   body: string;
   ctaLabel: string;
   ctaHref: string;
+  uduzNote?: string;
+  uduzHref?: string;
 };
 
 const rows: Row[] = [
@@ -32,6 +34,8 @@ const rows: Row[] = [
     body: "El Dr. Atilio evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana — ambulatorio, sin hospitalización.",
     ctaLabel: "Agendar cita",
     ctaHref: "/pacientes/agendar",
+    uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso — a metros de aquí — las tiene desde $25, disponible 24/7.",
+    uduzHref: "https://uduz.vercel.app",
   },
   {
     numeral: "02",
@@ -288,6 +292,34 @@ function RowContent({ row, color }: { row: Row; color: string }) {
       >
         {row.body}
       </p>
+      {row.uduzNote && row.uduzHref && (
+        <p
+          className="font-ui"
+          style={{
+            marginTop: "14px",
+            fontSize: "13px",
+            color: "#2a6270",
+            lineHeight: 1.55,
+            maxWidth: "52ch",
+          }}
+        >
+          {row.uduzNote}{" "}
+          <a
+            href={row.uduzHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#c69636",
+              fontWeight: 600,
+              borderBottom: "1px solid #c69636",
+              paddingBottom: 1,
+              textDecoration: "none",
+            }}
+          >
+            Agendar estudio →
+          </a>
+        </p>
+      )}
       <div style={{ marginTop: "28px" }}>
         <RowLink to={row.ctaHref} color={color}>
           {row.ctaLabel}

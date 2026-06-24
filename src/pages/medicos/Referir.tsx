@@ -34,6 +34,20 @@ export default function Referir() {
             </div>
 
             <div className="space-y-4">
+              <div className="scroll-reveal p-6 rounded-2xl border border-secondary/20 bg-secondary/5">
+                <h3 className="text-base font-medium text-foreground mb-3">Estudios previos al procedimiento</h3>
+                <p className="text-muted-foreground font-light text-sm leading-relaxed mb-3">
+                  Al referir, puede indicar los estudios de imagen directamente en UDUZ Paraíso — en la misma zona que ALGOS. Tomografía desde $25 (24/7), ecografía desde $15. El Dr. Atilio recibe los resultados antes de la valoración.
+                </p>
+                <a
+                  href="https://uduz.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-secondary border-b border-secondary/30 hover:border-secondary pb-0.5 transition-colors"
+                >
+                  Ver servicios UDUZ →
+                </a>
+              </div>
               <div className="scroll-reveal scroll-reveal-delay-1 p-6 rounded-2xl border border-border bg-card">
                 <h3 className="text-lg font-medium text-foreground mb-4">Referir ahora</h3>
                 <div className="space-y-3">

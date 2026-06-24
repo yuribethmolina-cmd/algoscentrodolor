@@ -39,6 +39,7 @@ type Card = {
   indication: string;
   technique: string;
   svg: React.ReactNode;
+  uduzRef?: string;
 };
 
 const strokeCream = CREAM;
@@ -76,6 +77,7 @@ const cards: Card[] = [
       "Para dolor crónico de origen articular en la columna lumbar baja, con o sin irradiación a la cadera.",
     technique:
       "infiltración facetaria guiada por fluoroscopia · ambulatorio · sin anestesia general.",
+    uduzRef: "Rayos X lumbar desde $8 · Tomografía desde $25 en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 60 18 L 110 18 L 116 32 L 56 32 Z" fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -102,6 +104,7 @@ const cards: Card[] = [
       "Para dolor radicular cervical con compromiso de raíz nerviosa específica, irradiación a hombro o brazo.",
     technique:
       "infiltración perirradicular guiada por fluoroscopia o tomografía · ambulatorio.",
+    uduzRef: "Tomografía cervical disponible 24/7 desde $25 en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 78 14 L 102 14 L 106 22 L 74 22 Z" fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -156,6 +159,7 @@ const cards: Card[] = [
       "Para tendinopatías, bursitis, infiltraciones articulares periféricas. Diagnóstico dinámico en la misma sesión.",
     technique:
       "ecógrafo portátil · visualización en tiempo real · ambulatorio.",
+    uduzRef: "Ecografía diagnóstica previa disponible en UDUZ Paraíso desde $15",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <rect x={56} y={14} width={68} height={14} rx={3} fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -419,6 +423,25 @@ function TratamientoCard({ card, image }: { card: Card; image?: { src: string; a
       >
         <strong style={{ color: GOLD, fontWeight: 700 }}>Técnica:</strong> {card.technique}
       </p>
+      {card.uduzRef && (
+        <a
+          href="https://uduz.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 11,
+            color: GOLD,
+            letterSpacing: "0.04em",
+            paddingTop: 10,
+            borderTop: "1px solid rgba(198, 150, 54, 0.2)",
+            display: "block",
+            textDecoration: "none",
+          }}
+        >
+          {card.uduzRef} →
+        </a>
+      )}
     </article>
   );
 }
