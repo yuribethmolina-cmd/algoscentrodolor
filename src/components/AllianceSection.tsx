@@ -350,7 +350,17 @@ export default function AllianceSection() {
             }}
           >
             {benefits.map((b) => (
-              <div key={b.number}>
+              <div
+                key={b.number}
+                style={{
+                  backgroundColor: CREAM_STRONG,
+                  border: "1px solid rgba(26, 74, 85, 0.10)",
+                  borderRadius: 8,
+                  padding: "clamp(24px, 2.4vw, 32px)",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <p
                   style={{
                     fontFamily: "'Sora', serif",
@@ -388,8 +398,26 @@ export default function AllianceSection() {
                 >
                   {b.body}
                 </p>
+                {/* UDUZ highlight card — fondo más claro */}
+                <div
+                  style={{
+                    marginTop: 18,
+                    backgroundColor: "#fbfaf5",
+                    border: `1px solid ${UDUZ_GREEN}33`,
+                    borderLeft: `3px solid ${UDUZ_GREEN}`,
+                    borderRadius: 6,
+                    padding: "12px 14px",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 13,
+                    lineHeight: 1.55,
+                    color: DEEP_TEAL,
+                  }}
+                >
+                  {b.uduzHighlight}
+                </div>
               </div>
             ))}
+
           </div>
 
           {/* CTA buttons */}
