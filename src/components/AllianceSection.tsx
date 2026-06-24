@@ -342,7 +342,7 @@ export default function AllianceSection() {
           }}
         >
           <div
-            className="grid grid-cols-1 mdx:grid-cols-3 gap-5 sm:gap-6 mdx:gap-7"
+            className="grid grid-cols-1 md:grid-cols-2 mdx:grid-cols-3 gap-5 sm:gap-6 md:gap-6 mdx:gap-7"
             style={{
               alignItems: "stretch",
               paddingBottom: "clamp(40px, 5vw, 56px)",
@@ -358,7 +358,7 @@ export default function AllianceSection() {
                   backgroundColor: CREAM_STRONG,
                   border: "1px solid rgba(26, 74, 85, 0.12)",
                   borderRadius: 10,
-                  padding: "clamp(20px, 4vw, 30px)",
+                  padding: "clamp(20px, 3.2vw, 28px)",
                   display: "flex",
                   flexDirection: "column",
                   gap: "clamp(12px, 1.6vw, 16px)",
@@ -368,7 +368,7 @@ export default function AllianceSection() {
                   style={{
                     fontFamily: "'Sora', serif",
                     fontWeight: 600,
-                    fontSize: "clamp(36px, 5vw, 44px)",
+                    fontSize: "clamp(32px, 4.6vw, 44px)",
                     color: GOLD_DEEP,
                     letterSpacing: "-0.03em",
                     lineHeight: 1,
@@ -380,7 +380,7 @@ export default function AllianceSection() {
                 <p
                   style={{
                     fontFamily: "Inter, sans-serif",
-                    fontSize: 12,
+                    fontSize: "clamp(10.5px, 1.1vw, 12px)",
                     fontWeight: 700,
                     letterSpacing: "0.22em",
                     textTransform: "uppercase",
@@ -393,7 +393,7 @@ export default function AllianceSection() {
                 <p
                   style={{
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "clamp(15px, 1.15vw, 16px)",
+                    fontSize: "clamp(14.5px, 1.15vw, 16px)",
                     color: BODY,
                     lineHeight: 1.65,
                     margin: 0,
@@ -412,9 +412,9 @@ export default function AllianceSection() {
                     border: `1px solid ${UDUZ_GREEN}55`,
                     borderLeft: `4px solid ${UDUZ_GREEN}`,
                     borderRadius: 6,
-                    padding: "clamp(12px, 1.4vw, 14px) clamp(14px, 1.6vw, 16px)",
+                    padding: "clamp(14px, 1.6vw, 16px) clamp(16px, 1.8vw, 18px)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "clamp(13px, 0.95vw, 13.5px)",
+                    fontSize: "clamp(13px, 1vw, 14px)",
                     lineHeight: 1.55,
                     color: DEEP_TEAL,
                     boxShadow: `inset 0 0 0 1px ${UDUZ_GREEN}10`,
@@ -423,7 +423,7 @@ export default function AllianceSection() {
                   <p
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontSize: 10,
+                      fontSize: "clamp(10px, 0.85vw, 11px)",
                       fontWeight: 800,
                       letterSpacing: "0.26em",
                       textTransform: "uppercase",
