@@ -46,7 +46,7 @@ export default function Referir() {
                   <Button asChild variant="outline" size="lg" className="w-full rounded-full gap-2">
                     <a href="tel:+584246467944">
                       <Phone size={20} />
-                      +1 (555) 000-0000
+                      +58 424 646 7944
                     </a>
                   </Button>
                 </div>

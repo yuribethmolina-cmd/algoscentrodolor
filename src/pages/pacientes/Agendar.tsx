@@ -35,7 +35,7 @@ export default function Agendar() {
                   <Button asChild variant="outline" size="lg" className="w-full rounded-full gap-2">
                     <a href="tel:+584246467944">
                       <Phone size={20} />
-                      Llamar al +1 (555) 000-0000
+                      Llamar al +58 424 646 7944
                     </a>
                   </Button>
                 </div>

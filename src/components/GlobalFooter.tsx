@@ -46,9 +46,9 @@ export default function GlobalFooter() {
                 <MapPin size={16} />
                 Torre RAB · Sector Paraíso, Maracaibo
               </a>
-              <a href="tel:+15550000000" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
+              <a href="tel:+584246467944" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Phone size={16} />
-                +1 (555) 000-0000
+                +58 424 646 7944
               </a>
               <a href="mailto:info@algos.com" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Mail size={16} />

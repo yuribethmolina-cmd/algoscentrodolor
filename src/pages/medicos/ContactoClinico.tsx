@@ -24,7 +24,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal p-6 rounded-2xl border border-border bg-card space-y-4">
               <Phone className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Teléfono</h3>
-              <a href="tel:+584246467944" className="text-secondary font-light hover:underline">+1 (555) 000-0000</a>
+              <a href="tel:+584246467944" className="text-secondary font-light hover:underline">+58 424 646 7944</a>
             </div>
             <div className="scroll-reveal scroll-reveal-delay-1 p-6 rounded-2xl border border-border bg-card space-y-4">
               <Mail className="w-8 h-8 text-secondary" />

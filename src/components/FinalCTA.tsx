@@ -20,8 +20,8 @@ type ContactOption = {
 };
 
 const contactOptions: ContactOption[] = [
-  { label: "WHATSAPP DIRECTO", value: "+58 414 000 0000", href: WHATSAPP_HREF },
-  { label: "LLAMAR AL CONSULTORIO", value: "+58 261 000 0000", href: "tel:+582610000000" },
+  { label: "WHATSAPP DIRECTO", value: "+58 424 646 7944", href: WHATSAPP_HREF },
+  { label: "LLAMAR AL CONSULTORIO", value: "+58 424 646 7944", href: "tel:+584246467944" },
   { label: "ESCRIBIR POR CORREO", value: "consulta@algos.lovable.app", href: "mailto:consulta@algos.lovable.app" },
 ];
 
