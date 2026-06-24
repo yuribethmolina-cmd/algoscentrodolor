@@ -323,7 +323,7 @@ export default function EquipoSection() {
                 lineHeight: 1.6,
               }}
             >
-              Dos hermanos en Maracaibo, dos en Alemania. Cuatro especialidades distintas que convergen en el mismo expediente clínico.
+              Dos hermanos en Maracaibo, uno en Alemania. Tres especialidades distintas que convergen en el mismo expediente clínico.
             </p>
           </div>
           <div>
@@ -338,7 +338,7 @@ export default function EquipoSection() {
                 margin: 0,
               }}
             >
-              Cuatro especialistas.{" "}
+              Tres especialistas.{" "}
               <span style={{ fontWeight: 400, color: GOLD }}>
                 Dos continentes.
               </span>
@@ -375,9 +375,9 @@ export default function EquipoSection() {
                 color: DEEP_TEAL,
               }}
             >
-              Cuatro de cuatro.
+              Tres de tres.
             </span>{" "}
-            Cuando un caso lo requiere, los cuatro especialistas lo revisan. Así funciona cuando el equipo es familia.
+            Cuando un caso lo requiere, los tres especialistas lo revisan. Así funciona cuando el equipo es familia.
           </p>
           <a
             href="/equipo"
