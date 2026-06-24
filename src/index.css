@@ -44,6 +44,11 @@
 
     --navbar: 190 53% 22%;
 
+    /* Readability tokens */
+    --text-body: 195 35% 20%;       /* deeper than deep-teal/80, AAA on cream */
+    --gold-deep: 36 65% 33%;        /* AA-safe dorado sobre cream (#9a7320) */
+    --cream-strong: 38 47% 96%;     /* cream alto contraste sobre teal */
+
     --sidebar-background: 190 53% 18%;
     --sidebar-foreground: 38 39% 93%;
     --sidebar-primary: 188 42% 41%;
@@ -98,11 +103,13 @@
   body {
     @apply bg-background text-foreground font-ui;
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
 
   @media (min-width: 981px) {
-    body { font-size: 16px; }
+    body { font-size: 17px; }
   }
 
   h1, h2, h3 {
