@@ -91,7 +91,7 @@ export default function AllianceSection() {
               src={algosLogoFull.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
               style={{
-                height: 72,
+                height: 112,
                 width: "auto",
                 marginBottom: 32,
                 display: "block",
