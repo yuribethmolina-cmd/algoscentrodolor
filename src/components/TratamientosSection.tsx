@@ -70,7 +70,7 @@ const cards: Card[] = [
     index: "01 / 04",
     headline: (
       <>
-        Bloqueo facetario lumbar <em className="italic font-normal">L4–L5</em>
+        Bloqueo facetario lumbar <span className="font-normal">L4–L5</span>
       </>
     ),
     indication:
@@ -97,7 +97,7 @@ const cards: Card[] = [
     index: "02 / 04",
     headline: (
       <>
-        Bloqueo radicular cervical <em className="italic font-normal">selectivo</em>
+        Bloqueo radicular cervical <span className="font-normal">selectivo</span>
       </>
     ),
     indication:
@@ -127,7 +127,7 @@ const cards: Card[] = [
     index: "03 / 04",
     headline: (
       <>
-        Bloqueo de nervio <em className="italic font-normal">periférico</em>
+        Bloqueo de nervio <span className="font-normal">periférico</span>
       </>
     ),
     indication:
@@ -152,7 +152,7 @@ const cards: Card[] = [
     index: "04 / 04",
     headline: (
       <>
-        Infiltración guiada por <em className="italic font-normal">ecografía</em>
+        Infiltración guiada por <span className="font-normal">ecografía</span>
       </>
     ),
     indication:
@@ -239,15 +239,14 @@ export default function TratamientosSection() {
               }}
             >
               Procedimientos{" "}
-              <em
+              <span
                 style={{
-                  fontStyle: "italic",
                   fontWeight: 400,
                   color: GOLD,
                 }}
               >
                 de precisión.
-              </em>
+              </span>
             </h2>
           </div>
         </div>

@@ -107,7 +107,7 @@ export default function Medicos() {
             <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
               {/* Indicaciones primarias */}
               <div>
-                <h3 className="font-display italic font-normal text-[22px] text-cream/90">
+                <h3 className="font-display font-normal text-[22px] text-cream/90">
                   Indicaciones primarias
                 </h3>
                 <ul className="mt-6 space-y-3 font-sans text-[16px] leading-[1.7] text-cream/80">
@@ -129,7 +129,7 @@ export default function Medicos() {
 
               {/* Red flags */}
               <div>
-                <h3 className="font-display italic font-normal text-[22px] text-cream/90">
+                <h3 className="font-display font-normal text-[22px] text-cream/90">
                   Red flags · referir prioritariamente
                 </h3>
                 <div className="mt-6 p-8 border border-algos-gold/40 rounded-[4px]">
@@ -159,7 +159,7 @@ export default function Medicos() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Cuatro pasos. Sin formularios{" "}
-              <span className="font-normal italic text-algos-gold">interminables.</span>
+              <span className="font-normal text-algos-gold">interminables.</span>
             </h2>
 
             <div className="mt-10 md:mt-16 flex flex-col gap-10 md:gap-14">
@@ -190,7 +190,7 @@ export default function Medicos() {
                   className="reveal-up grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-6"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="font-display italic font-normal text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
+                  <div className="font-display font-normal text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
                     {step.idx}
                   </div>
                   <div>
@@ -226,7 +226,7 @@ export default function Medicos() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Todo lo que necesitas,{" "}
-              <span className="font-normal italic text-algos-gold">en tu bandeja de entrada.</span>
+              <span className="font-normal text-algos-gold">en tu bandeja de entrada.</span>
             </h2>
 
             <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -275,7 +275,7 @@ export default function Medicos() {
             </p>
             <h2 className="mt-7 mx-auto font-display font-bold text-cream leading-[0.98] tracking-[-0.028em] text-[44px] md:text-[72px] max-w-[18ch]">
               Hablamos{" "}
-              <span className="font-normal italic text-algos-gold">de colega a colega.</span>
+              <span className="font-normal text-algos-gold">de colega a colega.</span>
             </h2>
             <p className="mt-7 mx-auto font-sans text-cream/80 leading-[1.6] text-[16px] md:text-[17px] max-w-[56ch]">
               Línea de contacto dedicada exclusivamente a médicos referentes — distinta de la línea de pacientes. Respuesta en horario clínico.

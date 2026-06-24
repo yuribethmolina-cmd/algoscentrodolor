@@ -84,7 +84,7 @@ function NameRole({ m }: { m: Member }) {
           marginBottom: 10,
         }}
       >
-        <span style={{ fontStyle: "italic", fontWeight: 400 }}>{m.nameItalic}</span>{" "}
+        <span style={{ fontWeight: 400 }}>{m.nameItalic}</span>{" "}
         <span style={{ fontWeight: 700 }}>{m.nameBold}</span>
       </h3>
       <p
@@ -121,8 +121,7 @@ function Location({ m, align = "right" }: { m: Member; align?: "left" | "right" 
     <div style={{ textAlign: align }}>
       <p
         style={{
-          fontFamily: "'Sora', serif",
-          fontStyle: "italic",
+          fontFamily: "'Sora', serif"
           fontWeight: 600,
           fontSize: 18,
           color: DEEP_TEAL,
@@ -207,8 +206,7 @@ function RosterRow({ m }: { m: Member }) {
         ) : (
           <span
             style={{
-              fontFamily: "'Sora', serif",
-              fontStyle: "italic",
+              fontFamily: "'Sora', serif"
               fontWeight: 400,
               fontSize: 56,
               color: GOLD,
@@ -262,8 +260,7 @@ function RosterRow({ m }: { m: Member }) {
           ) : (
             <span
               style={{
-                fontFamily: "'Sora', serif",
-                fontStyle: "italic",
+                fontFamily: "'Sora', serif"
                 fontWeight: 400,
                 fontSize: 36,
                 color: GOLD,
@@ -353,9 +350,9 @@ export default function EquipoSection() {
               }}
             >
               Cuatro especialistas.{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: GOLD }}>
+              <span style={{ fontWeight: 400, color: GOLD }}>
                 Dos continentes.
-              </em>
+              </span>
             </h2>
           </div>
         </div>
@@ -382,16 +379,15 @@ export default function EquipoSection() {
               margin: 0,
             }}
           >
-            <em
+            <span
               style={{
-                fontFamily: "'Sora', serif",
-                fontStyle: "italic",
+                fontFamily: "'Sora', serif"
                 fontWeight: 600,
                 color: DEEP_TEAL,
               }}
             >
               Cuatro de cuatro.
-            </em>{" "}
+            </span>{" "}
             Cuando un caso lo requiere, los cuatro especialistas lo revisan. Así funciona cuando el equipo es familia.
           </p>
           <a

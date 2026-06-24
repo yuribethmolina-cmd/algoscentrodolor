@@ -24,7 +24,7 @@ function PersonRow({
       type="button"
       onClick={() => onOpen(member.slug)}
       className="group w-full text-left grid items-center gap-4 md:gap-8 py-8 md:py-12 border-b border-deep-teal/15 transition-all duration-300 hover:pl-4
-        grid-cols-[48px_1fr] md:grid-cols-[80px_1fr_280px_60px]"
+ grid-cols-[48px_1fr] md:grid-cols-[80px_1fr_280px_60px]"
     >
       {/* Photo / Index */}
       {member.photoUrl ? (
@@ -36,7 +36,7 @@ function PersonRow({
           />
         </span>
       ) : (
-        <span className="font-display italic font-normal text-[36px] md:text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
+        <span className="font-display font-normal text-[36px] md:text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
           {member.index}
         </span>
       )}
@@ -55,7 +55,7 @@ function PersonRow({
 
         {/* Mobile location */}
         <div className="md:hidden mt-4 text-left">
-          <p className="font-display italic font-semibold text-[18px] text-deep-teal tracking-[-0.01em]">
+          <p className="font-display font-semibold text-[18px] text-deep-teal tracking-[-0.01em]">
             {member.city}
           </p>
           <p className="mt-1 font-sans font-bold uppercase text-steel-teal text-[11px] tracking-[0.22em]">
@@ -71,7 +71,7 @@ function PersonRow({
 
       {/* Location desktop */}
       <div className="hidden md:block text-right">
-        <p className="font-display italic font-semibold text-[18px] text-deep-teal tracking-[-0.01em]">
+        <p className="font-display font-semibold text-[18px] text-deep-teal tracking-[-0.01em]">
           {member.city}
         </p>
         <p className="mt-1 font-sans font-bold uppercase text-steel-teal text-[11px] tracking-[0.22em]">
@@ -100,16 +100,16 @@ function AspirationalSlotRow({ slot }: { slot: AspirationalSlot }) {
     <a
       href="/#solicitar"
       className="group w-full grid items-center gap-4 md:gap-8 py-8 md:py-12 border-b border-dashed border-deep-teal/25 transition-all duration-300 hover:pl-4
-        grid-cols-[48px_1fr] md:grid-cols-[80px_1fr_280px_60px]"
+ grid-cols-[48px_1fr] md:grid-cols-[80px_1fr_280px_60px]"
     >
       {/* Index */}
-      <span className="font-display italic font-normal text-[36px] md:text-[56px] text-steel-teal/50 leading-none tracking-[-0.03em]">
+      <span className="font-display font-normal text-[36px] md:text-[56px] text-steel-teal/50 leading-none tracking-[-0.03em]">
         —
       </span>
 
       {/* Role-as-name + profile */}
       <div className="min-w-0">
-        <h3 className="font-display italic font-normal text-deep-teal/80 leading-tight tracking-[-0.02em] text-[26px] md:text-[44px]">
+        <h3 className="font-display font-normal text-deep-teal/80 leading-tight tracking-[-0.02em] text-[26px] md:text-[44px]">
           {slot.roleAsName}
         </h3>
         <p className="mt-2.5 font-sans font-bold uppercase text-algos-gold text-[11px] md:text-[13px] tracking-[0.2em]">
@@ -121,7 +121,7 @@ function AspirationalSlotRow({ slot }: { slot: AspirationalSlot }) {
 
         {/* Mobile location */}
         <div className="md:hidden mt-4 text-left">
-          <p className="font-display italic font-semibold text-[18px] text-deep-teal/80 tracking-[-0.01em]">
+          <p className="font-display font-semibold text-[18px] text-deep-teal/80 tracking-[-0.01em]">
             {slot.city}
           </p>
           <p className="mt-1 font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
@@ -132,7 +132,7 @@ function AspirationalSlotRow({ slot }: { slot: AspirationalSlot }) {
 
       {/* Location desktop */}
       <div className="hidden md:block text-right">
-        <p className="font-display italic font-semibold text-[18px] text-deep-teal/80 tracking-[-0.01em]">
+        <p className="font-display font-semibold text-[18px] text-deep-teal/80 tracking-[-0.01em]">
           {slot.city}
         </p>
         <p className="mt-1 font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
@@ -252,7 +252,7 @@ export default function EquipoPage() {
           headline={
             <>
               Procedimientos{" "}
-              <span className="font-normal italic text-algos-gold">
+              <span className="font-normal text-algos-gold">
                 guiados por imagen.
               </span>
             </>
@@ -267,7 +267,7 @@ export default function EquipoPage() {
           headline={
             <>
               Práctica clínica{" "}
-              <span className="font-normal italic text-algos-gold">
+              <span className="font-normal text-algos-gold">
                 entre continentes.
               </span>
             </>
@@ -280,7 +280,7 @@ export default function EquipoPage() {
         <GroupBlock
           eyebrow="03 · Soporte clínico integral"
           headline={
-            <span className="font-normal italic text-algos-gold">
+            <span className="font-normal text-algos-gold">
               El dolor crónico no es solo físico.
             </span>
           }
@@ -298,7 +298,7 @@ export default function EquipoPage() {
 
             <h2 className="mt-6 font-display font-bold text-cream leading-[1.05] text-[36px] md:text-[56px] max-w-[18ch] mx-auto">
               Cada caso, revisado{" "}
-              <span className="font-normal italic text-algos-gold">
+              <span className="font-normal text-algos-gold">
                 en conjunto.
               </span>
             </h2>

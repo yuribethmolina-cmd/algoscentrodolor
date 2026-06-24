@@ -52,7 +52,7 @@ export default function Tratamientos() {
               </p>
               <h1 className="font-display font-bold text-[#1a4a55] text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
                 Tratamientos para el dolor{" "}
-                <em className="text-[#c69636] italic font-bold">crónico</em>
+                <span className="text-[#c69636] font-bold">crónico</span>
               </h1>
               <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl">
                 Cinco condiciones de dolor que tratamos en ALGOS con procedimientos mínimamente invasivos guiados por imagen, basados en protocolos de formación clínica internacional.
@@ -80,7 +80,7 @@ export default function Tratamientos() {
                 CÓMO TRABAJAMOS
               </p>
               <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-4xl lg:text-5xl">
-                Lo que aplica a <em className="text-[#c69636] italic">todos</em> nuestros procedimientos
+                Lo que aplica a <span className="text-[#c69636]">todos</span> nuestros procedimientos
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">

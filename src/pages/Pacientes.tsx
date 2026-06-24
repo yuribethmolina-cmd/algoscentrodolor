@@ -162,7 +162,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[24ch]">
               Procedimientos pensados para{" "}
-              <span className="font-normal italic text-algos-gold">tu vida diaria.</span>
+              <span className="font-normal text-algos-gold">tu vida diaria.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -195,7 +195,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-4 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Cuatro pasos,{" "}
-              <span className="font-normal italic text-algos-gold">sin sorpresas.</span>
+              <span className="font-normal text-algos-gold">sin sorpresas.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 flex flex-col gap-10 md:gap-14">
@@ -205,7 +205,7 @@ export default function Pacientes() {
                   className="reveal-up grid grid-cols-1 md:grid-cols-[80px_1fr] gap-3 md:gap-6"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="font-display italic font-normal text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
+                  <div className="font-display font-normal text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
                     {s.idx}
                   </div>
                   <div>
@@ -230,7 +230,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Lo que{" "}
-              <span className="font-normal italic text-algos-gold">casi nadie te dice.</span>
+              <span className="font-normal text-algos-gold">casi nadie te dice.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 flex flex-col gap-10">
@@ -261,7 +261,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-6 mx-auto font-display font-bold text-cream leading-[0.98] tracking-[-0.028em] text-[44px] md:text-[72px] max-w-[18ch]">
               Solo necesitas{" "}
-              <span className="font-normal italic text-algos-gold">conversar.</span>
+              <span className="font-normal text-algos-gold">conversar.</span>
             </h2>
             <p className="mt-7 mx-auto font-sans text-cream/80 leading-[1.65] text-[17px] max-w-[56ch]">
               Una valoración inicial es gratuita y sin compromiso. Nos cuentas qué te pasa, nosotros te decimos honestamente si podemos ayudarte.
