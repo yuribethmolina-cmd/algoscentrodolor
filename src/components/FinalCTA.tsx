@@ -94,7 +94,7 @@ export default function FinalCTA() {
           as="h2"
           threshold={0.3}
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Sora', serif",
             fontWeight: 700,
             fontSize: "clamp(48px, 8vw, 96px)",
             lineHeight: 0.98,

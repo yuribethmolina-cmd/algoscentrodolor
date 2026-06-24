@@ -67,7 +67,7 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
     <div className="text-center" style={{ paddingLeft: 12, paddingRight: 12, paddingTop: 32, paddingBottom: 32 }}>
       <div
         style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Sora', serif",
           fontStyle: "italic",
           fontWeight: 400,
           fontSize: "clamp(96px, 11vw, 156px)",

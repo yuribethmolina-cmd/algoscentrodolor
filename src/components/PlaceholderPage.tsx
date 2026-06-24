@@ -56,7 +56,7 @@ export default function PlaceholderPage({
           <h1
             className="mx-auto"
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Sora', Georgia, serif",
               fontWeight: 700,
               fontSize: "clamp(40px, 6vw, 64px)",
               lineHeight: 1.05,

@@ -93,7 +93,7 @@ export function BioModal({ isOpen, onClose, member }: BioModalProps) {
           onClick={onClose}
           aria-label="Cerrar biografía"
           className="absolute top-6 right-6 w-11 h-11 flex items-center justify-center bg-transparent border-none cursor-pointer text-deep-teal hover:text-algos-gold transition-all duration-300 hover:rotate-90 focus-visible:outline-2 focus-visible:outline-algos-gold focus-visible:outline-offset-4"
-          style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, lineHeight: 1 }}
+          style={{ fontFamily: "'Sora', serif", fontSize: 32, lineHeight: 1 }}
         >
           ×
         </button>
