@@ -409,26 +409,27 @@ export default function AllianceSection() {
                 <div
                   style={{
                     backgroundColor: "#fbfaf5",
-                    border: `1px solid ${UDUZ_GREEN}55`,
+                    border: `1px solid ${UDUZ_GREEN}66`,
                     borderLeft: `4px solid ${UDUZ_GREEN}`,
                     borderRadius: 6,
-                    padding: "clamp(14px, 1.6vw, 16px) clamp(16px, 1.8vw, 18px)",
+                    padding: "clamp(16px, 2vw, 20px) clamp(18px, 2.2vw, 22px)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "clamp(13px, 1vw, 14px)",
-                    lineHeight: 1.55,
+                    fontSize: "clamp(14px, 1.2vw, 15px)",
+                    lineHeight: 1.6,
                     color: DEEP_TEAL,
-                    boxShadow: `inset 0 0 0 1px ${UDUZ_GREEN}10`,
+                    boxShadow: `inset 0 0 0 1px ${UDUZ_GREEN}18`,
+                    wordWrap: "break-word",
                   }}
                 >
                   <p
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontSize: "clamp(10px, 0.85vw, 11px)",
+                      fontSize: "clamp(11px, 0.95vw, 12px)",
                       fontWeight: 800,
                       letterSpacing: "0.26em",
                       textTransform: "uppercase",
                       color: UDUZ_GREEN,
-                      margin: "0 0 6px",
+                      margin: "0 0 8px",
                     }}
                   >
                     Vía UDUZ
