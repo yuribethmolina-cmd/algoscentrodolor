@@ -429,18 +429,24 @@ function TratamientoCard({ card, image }: { card: Card; image?: { src: string; a
           rel="noopener noreferrer"
           style={{
             fontFamily: "Inter, sans-serif",
-            fontSize: 11,
+            fontSize: 12,
+            fontWeight: 700,
             color: GOLD,
-            letterSpacing: "0.04em",
-            paddingTop: 10,
-            borderTop: "1px solid rgba(198, 150, 54, 0.2)",
+            letterSpacing: "0.03em",
+            lineHeight: 1.55,
+            marginTop: 10,
+            padding: "10px 12px",
+            borderLeft: `3px solid ${GOLD}`,
+            backgroundColor: "rgba(198, 150, 54, 0.08)",
             display: "block",
             textDecoration: "none",
+            borderRadius: 4,
           }}
         >
           {card.uduzRef} →
         </a>
       )}
+
     </article>
   );
 }
