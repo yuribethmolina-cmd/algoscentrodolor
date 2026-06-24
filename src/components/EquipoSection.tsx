@@ -46,17 +46,6 @@ const roster: Member[] = [
     photoUrl: photoLuis,
   },
   {
-    slug: "dra-aliseth",
-    index: "03",
-    nameItalic: "Dra. Aliseth",
-    nameBold: "Rodríguez",
-    role: "APOYO INTERNACIONAL",
-    specialty: "Ortopedia · Práctica clínica en Krefeld, Alemania",
-    city: "Krefeld",
-    country: "ALEMANIA",
-    coords: "51°20′N · 6°34′E",
-  },
-  {
     slug: "lcdo-daniel",
     index: "04",
     nameItalic: "Lcdo. Daniel",
