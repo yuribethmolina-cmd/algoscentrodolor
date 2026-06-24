@@ -1,11 +1,9 @@
 const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
 const GOLD_DEEP = "#9a7320";
 
 /**
  * Trust bar — surfaces institutional alliances directly under the hero
- * so visitors immediately see the diagnostic partner (UDUZ) and the
- * German reference center (WZaS München).
+ * so visitors immediately see the diagnostic partner (UDUZ).
  */
 export default function TrustBar() {
   return (
@@ -68,47 +66,6 @@ export default function TrustBar() {
             />
           </a>
 
-          {/* Vertical divider — hidden on small screens */}
-          <span
-            aria-hidden
-            className="hidden sm:inline-block"
-            style={{ width: 1, height: 40, backgroundColor: "rgba(26, 74, 85, 0.22)" }}
-          />
-
-          {/* WZaS München — text lockup (no SVG asset on record) */}
-          <div
-            style={{
-              display: "inline-flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              lineHeight: 1.1,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(18px, 2vw, 22px)",
-                letterSpacing: "-0.01em",
-                color: DEEP_TEAL,
-              }}
-            >
-              WZaS München
-            </span>
-            <span
-              style={{
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: 10,
-                fontWeight: 600,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "rgba(26, 74, 85, 0.7)",
-                marginTop: 4,
-              }}
-            >
-              Wirbelsäulenzentrum am Stiglmaierplatz
-            </span>
-          </div>
         </div>
       </div>
     </section>
