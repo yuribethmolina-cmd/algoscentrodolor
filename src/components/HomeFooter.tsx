@@ -134,7 +134,7 @@ export default function HomeFooter() {
             <img
               src={algosLogo.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
-              style={{ height: 56, width: "auto", display: "block", marginBottom: 18 }}
+              style={{ height: 112, width: "auto", display: "block", marginBottom: 18 }}
             />
 
           </div>
