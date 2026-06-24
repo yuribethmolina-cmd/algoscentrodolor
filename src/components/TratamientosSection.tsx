@@ -78,6 +78,7 @@ const cards: Card[] = [
     technique:
       "infiltración facetaria guiada por fluoroscopia · ambulatorio · sin anestesia general.",
     uduzRef: "Rayos X lumbar desde $8 · Tomografía desde $25 en UDUZ Paraíso",
+
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 60 18 L 110 18 L 116 32 L 56 32 Z" fill="none" stroke={strokeCream} strokeWidth={1.5} />
