@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" role="img" aria-label="ALGOS — Centro de Dolor Intervencionista">
+  <!-- Wave -->
+  <path
+    d="M 95 80 C 130 80, 145 30, 180 30 C 215 30, 225 95, 260 95 C 280 95, 290 60, 310 60 C 330 60, 340 90, 360 90 C 385 90, 395 75, 425 75"
+    fill="none"
+    stroke="#f5f0e8"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <!-- Gold keystone dot -->
+  <circle cx="290" cy="55" r="14" fill="#c69636" />
+  <!-- Wordmark -->
+  <text
+    x="260"
+    y="150"
+    text-anchor="middle"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="68"
+    font-weight="300"
+    letter-spacing="10"
+    fill="#f5f0e8"
+  >ALGOS</text>
+  <!-- Tagline -->
+  <text
+    x="260"
+    y="182"
+    text-anchor="middle"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13"
+    font-weight="500"
+    letter-spacing="4"
+    fill="#f5f0e8"
+    opacity="0.85"
+  >CENTRO DE DOLOR INTERVENCIONISTA</text>
+</svg>

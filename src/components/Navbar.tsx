@@ -85,8 +85,8 @@ export default function Navbar() {
                 className="transition-colors relative pb-1"
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  fontSize: 13,
-                  fontWeight: 500,
+                  fontSize: 14,
+                  fontWeight: 600,
                   color: active ? GOLD : DEEP_TEAL,
                   letterSpacing: "0.02em",
                   background: "none",

@@ -196,7 +196,7 @@ export function HeadlineReveal({
             display: "inline-block",
             fontStyle: c.italic ? "italic" : undefined,
             color: c.color,
-            fontWeight: c.italic ? 400 : undefined,
+            fontWeight: c.italic ? 600 : undefined,
           }}
         >
           {inner}
