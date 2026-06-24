@@ -1,15 +1,71 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { AnimatedHeadline } from "@/lib/animations";
-import heroVideoAsset from "@/assets/video_hero_algos.mp4.asset.json";
+import heroVideoMobile from "@/assets/hero-mobile.mp4.asset.json";
+import heroVideoDesktop from "@/assets/hero-desktop.mp4.asset.json";
+import heroPoster from "@/assets/hero-poster.jpg.asset.json";
+
+// Decide which variant (or none) to load based on viewport + connection.
+function pickVideoSrc(): string | null {
+  if (typeof window === "undefined") return null;
+
+  // Respect reduced-motion: skip video entirely, keep poster.
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    return null;
+  }
+
+  // Skip video on save-data or very slow networks.
+  const conn = (navigator as any).connection;
+  if (conn) {
+    if (conn.saveData) return null;
+    const slow = ["slow-2g", "2g", "3g"];
+    if (typeof conn.effectiveType === "string" && slow.includes(conn.effectiveType)) {
+      return null;
+    }
+  }
+
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  return isMobile ? heroVideoMobile.url : heroVideoDesktop.url;
+}
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Defer the decision to after first paint so the poster shows instantly.
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const load = () => setVideoSrc(pickVideoSrc());
+
+    // Only fetch the video when the hero is actually visible.
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            load();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "200px" }
+      );
+      io.observe(node);
+      return () => io.disconnect();
+    }
+
+    load();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative w-full h-screen min-h-[640px] overflow-hidden bg-cream"
     >
-      {/* Full-bleed video background */}
+      {/* Full-bleed video background — poster shows instantly, source lazy-loads */}
       <video
+        key={videoSrc ?? "poster-only"}
         ref={(el) => {
           if (el) {
             el.muted = true;
@@ -19,7 +75,8 @@ export default function HeroSection() {
           }
         }}
         className="hero-bg-video absolute inset-0 w-full h-full object-cover object-[40%_78%] scale-[1.7] origin-[40%_78%] md:scale-100 md:origin-center md:object-[center_65%]"
-        src={heroVideoAsset.url}
+        src={videoSrc ?? undefined}
+        poster={heroPoster.url}
         autoPlay
         muted
         loop
@@ -28,7 +85,7 @@ export default function HeroSection() {
         webkit-playsinline="true"
         x5-playsinline="true"
         disableRemotePlayback
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       />
 
@@ -42,6 +99,7 @@ export default function HeroSection() {
         aria-hidden="true"
         className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none bg-gradient-to-t from-[#f5f0e8]/40 to-transparent"
       />
+
 
       {/* Content */}
       <div className="relative z-10 h-full mx-auto max-w-7xl px-6 md:px-12 lg:px-16 flex items-center">
