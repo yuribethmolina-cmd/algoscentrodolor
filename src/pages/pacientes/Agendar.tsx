@@ -23,7 +23,7 @@ export default function Agendar() {
           <div className="scroll-reveal mb-8 p-6 rounded-2xl border border-border bg-card">
             <h3 className="text-base font-medium text-foreground mb-2">¿Tienes estudios de imagen recientes?</h3>
             <p className="text-muted-foreground font-light text-sm mb-4 leading-relaxed">
-              Si tienes tomografía, ecografía o Rayos X de los últimos 6 meses, tráelos a la consulta — aceleran el diagnóstico. Si no los tienes, puedes hacerlos en UDUZ Paraíso antes de venir.
+              Si tienes tomografía, ecografía o Rayos X de los últimos 6 meses, tráelos a la consulta — aceleran el diagnóstico. Si no los tienes, puedes hacerlos en <strong className="font-bold text-foreground">UDUZ Paraíso</strong> antes de venir.
             </p>
             <a
               href="https://uduz.vercel.app"
