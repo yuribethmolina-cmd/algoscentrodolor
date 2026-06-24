@@ -64,16 +64,19 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
   const padded = s.pad ? String(value).padStart(s.pad, "0") : String(value);
   const reachedTarget = value >= s.target;
   return (
-    <div className="text-center" style={{ paddingLeft: 12, paddingRight: 12, paddingTop: 32, paddingBottom: 32 }}>
+    <div className="text-center" style={{ paddingLeft: 16, paddingRight: 16, paddingTop: 32, paddingBottom: 32, overflow: "visible" }}>
       <div
         style={{
           fontFamily: "'Sora', serif",
           fontStyle: "italic",
           fontWeight: 400,
-          fontSize: "clamp(96px, 11vw, 156px)",
+          fontSize: "clamp(68px, 14vw, 156px)",
           color: DEEP_TEAL,
-          lineHeight: 1,
+          lineHeight: 1.05,
           letterSpacing: "-0.03em",
+          whiteSpace: "nowrap",
+          paddingTop: 8,
+          paddingBottom: 4,
         }}
       >
         <span style={{ fontVariantNumeric: "tabular-nums" }}>{padded}</span>
@@ -82,7 +85,7 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
             style={{
               color: GOLD,
               fontStyle: "italic",
-              fontSize: "clamp(36px, 4vw, 56px)",
+              fontSize: "clamp(28px, 5vw, 56px)",
               verticalAlign: "top",
               marginLeft: 4,
               display: "inline-block",
