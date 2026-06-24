@@ -73,7 +73,8 @@ export default function HeroSection() {
           >
             Cuatro especialistas — dos en Venezuela, dos en Alemania — que
             ven tu caso como uno solo. Procedimientos sin hospitalización,
-            en el Sector Paraíso, en alianza diagnóstica con UDUZ.
+            en el Sector Paraíso, en alianza diagnóstica con <strong style={{ fontWeight: 700 }}>UDUZ</strong>.
+
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">

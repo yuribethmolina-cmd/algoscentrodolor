@@ -78,6 +78,7 @@ const cards: Card[] = [
     technique:
       "infiltración facetaria guiada por fluoroscopia · ambulatorio · sin anestesia general.",
     uduzRef: "Rayos X lumbar desde $8 · Tomografía desde $25 en UDUZ Paraíso",
+
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 60 18 L 110 18 L 116 32 L 56 32 Z" fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -429,18 +430,24 @@ function TratamientoCard({ card, image }: { card: Card; image?: { src: string; a
           rel="noopener noreferrer"
           style={{
             fontFamily: "Inter, sans-serif",
-            fontSize: 11,
+            fontSize: 12,
+            fontWeight: 700,
             color: GOLD,
-            letterSpacing: "0.04em",
-            paddingTop: 10,
-            borderTop: "1px solid rgba(198, 150, 54, 0.2)",
+            letterSpacing: "0.03em",
+            lineHeight: 1.55,
+            marginTop: 10,
+            padding: "10px 12px",
+            borderLeft: `3px solid ${GOLD}`,
+            backgroundColor: "rgba(198, 150, 54, 0.08)",
             display: "block",
             textDecoration: "none",
+            borderRadius: 4,
           }}
         >
           {card.uduzRef} →
         </a>
       )}
+
     </article>
   );
 }

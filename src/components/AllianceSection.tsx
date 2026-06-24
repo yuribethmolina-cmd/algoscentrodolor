@@ -23,21 +23,43 @@ const uduzServices = [
   { label: "Laboratorio clínico", detail: "pre-procedimiento" },
 ];
 
-const benefits = [
+type BenefitBody = (React.ReactNode)[];
+const benefits: { number: string; title: string; body: BenefitBody; uduzHighlight: React.ReactNode }[] = [
   {
     number: "01",
     title: "DIAGNÓSTICO INTEGRADO",
-    body: "Tomografía de columna ($25 · 24/7), ecografía ($15) y Rayos X ($8) en UDUZ Paraíso — a metros de la consulta. El Dr. Atilio revisa tus imágenes antes de recibirte.",
+    body: [
+      "El Dr. Atilio revisa tus imágenes antes de recibirte — sin pasos intermedios.",
+    ],
+    uduzHighlight: (
+      <>
+        Tomografía <strong>$25 · 24/7</strong> · Ecografía <strong>$15</strong> · Rayos X <strong>$8</strong> en <strong>UDUZ Paraíso</strong> — a metros de la consulta.
+      </>
+    ),
   },
   {
     number: "02",
     title: "UN SOLO EXPEDIENTE",
-    body: "Tu historia clínica viaja entre ALGOS y UDUZ sin que tengas que repetirla. Llegas con los estudios; el equipo ya los conoce.",
+    body: [
+      "Tu historia clínica viaja sin que tengas que repetirla. Llegas con los estudios; el equipo ya los conoce.",
+    ],
+    uduzHighlight: (
+      <>
+        Expediente compartido entre <strong>ALGOS</strong> y <strong>UDUZ</strong>.
+      </>
+    ),
   },
   {
     number: "03",
     title: "SALA DE PROCEDIMIENTOS",
-    body: "Los procedimientos se realizan en instalaciones de UDUZ — con fluoroscopio y sala equipada — mientras el Local 4 termina su adecuación.",
+    body: [
+      "Con fluoroscopio y sala equipada, mientras el Local 4 termina su adecuación.",
+    ],
+    uduzHighlight: (
+      <>
+        Los procedimientos se realizan en instalaciones de <strong>UDUZ</strong>.
+      </>
+    ),
   },
 ];
 
@@ -136,7 +158,7 @@ export default function AllianceSection() {
           </h3>
         </div>
 
-        {/* Right — UDUZ (cream) */}
+        {/* Right — UDUZ (resaltado) */}
         <div
           style={{
             padding: "clamp(56px, 7vw, 96px) clamp(32px, 5vw, 72px)",
@@ -144,14 +166,35 @@ export default function AllianceSection() {
             flexDirection: "column",
             justifyContent: "space-between",
             gap: 48,
-            borderLeft: "1px solid rgba(26, 74, 85, 0.18)",
+            borderLeft: `3px solid ${UDUZ_GREEN}`,
+            backgroundColor: CREAM_STRONG,
+            position: "relative",
           }}
         >
+          {/* Etiqueta "DESTACADO" superior */}
+          <span
+            style={{
+              position: "absolute",
+              top: 18,
+              right: 22,
+              fontFamily: "Inter, sans-serif",
+              fontSize: 10,
+              fontWeight: 800,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: CREAM_STRONG,
+              backgroundColor: UDUZ_GREEN,
+              padding: "5px 10px",
+              borderRadius: 3,
+            }}
+          >
+            Aliado diagnóstico
+          </span>
           <div>
             <img
               src="/logos/uduz-logo.svg"
               alt="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"
-              style={{ height: 44, width: "auto", marginBottom: 28, display: "block" }}
+              style={{ height: 56, width: "auto", marginBottom: 28, display: "block" }}
             />
             <PanelEyebrow color={UDUZ_GREEN}>Unidad de Diagnóstico · Paraíso</PanelEyebrow>
             <ul style={{ listStyle: "none", padding: 0, margin: "24px 0 0" }}>
@@ -164,20 +207,21 @@ export default function AllianceSection() {
                     alignItems: "baseline",
                     gap: 16,
                     fontFamily: "Inter, sans-serif",
-                    fontSize: 16,
-                    fontWeight: 500,
+                    fontSize: 17,
+                    fontWeight: 700,
                     color: DEEP_TEAL,
                     paddingBottom: 14,
                     marginBottom: 14,
-                    borderBottom: "1px solid rgba(26, 74, 85, 0.15)",
+                    borderBottom: `1px solid ${UDUZ_GREEN}33`,
                   }}
                 >
                   <span>{s.label}</span>
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
-                      color: STEEL_TEAL,
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: UDUZ_GREEN,
                       letterSpacing: "0.04em",
                       whiteSpace: "nowrap",
                     }}
@@ -188,6 +232,7 @@ export default function AllianceSection() {
               ))}
             </ul>
           </div>
+
 
           <h3
             style={{
@@ -244,6 +289,22 @@ export default function AllianceSection() {
           </span>
         </div>
 
+        <p
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(16px, 1.2vw, 18px)",
+            fontWeight: 400,
+            color: "rgba(250, 246, 239, 0.92)",
+            lineHeight: 1.7,
+            marginBottom: 32,
+            maxWidth: "58ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>ALGOS</strong> opera en alianza institucional con <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>UDUZ</strong>. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
+        </p>
+
         <h2
           style={{
             fontFamily: "'Sora', serif",
@@ -261,23 +322,8 @@ export default function AllianceSection() {
             Sin traslados.
           </span>
         </h2>
-
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(16px, 1.2vw, 18px)",
-            fontWeight: 400,
-            color: "rgba(250, 246, 239, 0.92)",
-            lineHeight: 1.7,
-            marginTop: 24,
-            maxWidth: "58ch",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          ALGOS opera en alianza institucional con UDUZ. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
-        </p>
       </div>
+
 
       {/* ── BENEFIT BLOCKS ──────────────────────────────────────── */}
       <div
@@ -304,7 +350,17 @@ export default function AllianceSection() {
             }}
           >
             {benefits.map((b) => (
-              <div key={b.number}>
+              <div
+                key={b.number}
+                style={{
+                  backgroundColor: CREAM_STRONG,
+                  border: "1px solid rgba(26, 74, 85, 0.10)",
+                  borderRadius: 8,
+                  padding: "clamp(24px, 2.4vw, 32px)",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <p
                   style={{
                     fontFamily: "'Sora', serif",
@@ -342,8 +398,26 @@ export default function AllianceSection() {
                 >
                   {b.body}
                 </p>
+                {/* UDUZ highlight card — fondo más claro */}
+                <div
+                  style={{
+                    marginTop: 18,
+                    backgroundColor: "#fbfaf5",
+                    border: `1px solid ${UDUZ_GREEN}33`,
+                    borderLeft: `3px solid ${UDUZ_GREEN}`,
+                    borderRadius: 6,
+                    padding: "12px 14px",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 13,
+                    lineHeight: 1.55,
+                    color: DEEP_TEAL,
+                  }}
+                >
+                  {b.uduzHighlight}
+                </div>
               </div>
             ))}
+
           </div>
 
           {/* CTA buttons */}
