@@ -100,23 +100,90 @@
     max-width: 100vw;
   }
 
+  /* ============================================================
+   * Baseline grid — 8px unit, 24px baseline
+   * All vertical rhythm (line-heights, margins, paddings) snaps
+   * to multiples of 8px (0.5rem) for a coherent typographic grid.
+   * ============================================================ */
+  :root {
+    --baseline: 1.5rem;        /* 24px baseline unit */
+    --grid-unit: 0.5rem;       /* 8px sub-unit */
+    --measure: 68ch;           /* optimal reading width for paragraphs */
+  }
+
   body {
     @apply bg-background text-foreground font-ui;
     font-family: 'Manrope', system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 1rem;           /* 16px */
+    line-height: var(--baseline); /* 24px baseline */
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.005em;
   }
 
   @media (min-width: 981px) {
-    body { font-size: 17px; }
+    body {
+      font-size: 1.0625rem;    /* 17px */
+      line-height: 1.6471;     /* keeps ~28px baseline (multiple of 4) */
+    }
   }
 
-  h1, h2, h3, h4 {
+  /* Reset default vertical margins so we can re-impose the grid */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, figure {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Headings: line-heights snap to baseline multiples */
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', system-ui, sans-serif;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 4.2vw, 3.5rem);  /* 36–56px */
+    line-height: 1.1;                            /* tight, snaps near 4px grid */
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem);  /* 28–40px */
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  h3 {
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);  /* 20–24px */
+    line-height: 1.333;                          /* 32px on 24px font */
+  }
+  h4 {
+    font-size: 1.125rem;                         /* 18px */
+    line-height: 1.5556;                         /* 28px */
+  }
+
+  /* Paragraphs lock to baseline and use balanced wrapping */
+  p {
+    line-height: var(--baseline);
+    text-wrap: pretty;
+    max-width: var(--measure);
+  }
+
+  /* Rhythm: stack margins in baseline multiples.
+     Using the lobotomized-owl pattern so consecutive flow elements
+     get exactly one baseline of breathing room. */
+  h1 + *, h2 + *, h3 + *, h4 + * { margin-top: var(--grid-unit); }
+  * + h2 { margin-top: calc(var(--baseline) * 2); }
+  * + h3 { margin-top: var(--baseline); }
+  * + p, * + ul, * + ol, * + blockquote { margin-top: var(--grid-unit); }
+  p + p { margin-top: var(--baseline); }
+
+  /* When paragraphs/headings are centered by a parent, keep the
+     measure constraint but allow the block itself to center. */
+  .text-center > p,
+  .text-center > h1,
+  .text-center > h2,
+  .text-center > h3 {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   html {
