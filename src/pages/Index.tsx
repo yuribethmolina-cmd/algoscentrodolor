@@ -6,6 +6,7 @@ import AudienceRouter from "@/components/AudienceRouter";
 
 import TratamientosSection from "@/components/TratamientosSection";
 import EquipoSection from "@/components/EquipoSection";
+import AllianceSection from "@/components/AllianceSection";
 import StatsStrip from "@/components/StatsStrip";
 import FinalCTA from "@/components/FinalCTA";
 
@@ -18,6 +19,7 @@ export default function Index() {
       <AudienceRouter />
       <TratamientosSection />
       <EquipoSection />
+      <AllianceSection />
       <StatsStrip />
       <FinalCTA />
       <HomeFooter />
