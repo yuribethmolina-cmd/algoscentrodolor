@@ -12,7 +12,7 @@ import { ScanLine, Clock, Users, GraduationCap, type LucideIcon } from "lucide-r
 const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
   { Icon: ScanLine, title: "Guiados por imagen", description: "Ecografía + fluoroscopia para precisión milimétrica" },
   { Icon: Clock, title: "Ambulatorios", description: "Misma tarde a casa en la mayoría de casos" },
-  { Icon: Users, title: "Equipo familiar", description: "Cuatro hermanos · especialidades complementarias · Maracaibo + Alemania" },
+  { Icon: Users, title: "Equipo familiar", description: "Tres hermanos · especialidades complementarias · Maracaibo + Alemania" },
   { Icon: GraduationCap, title: "Formación internacional", description: "Protocolos basados en práctica clínica en Niedersachsen" },
 ];
 
