@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { AnimatedHeadline } from "@/lib/animations";
+import heroVideoAsset from "@/assets/video_hero_algos.mp4.asset.json";
 
 export default function HeroSection() {
   return (
@@ -18,7 +19,7 @@ export default function HeroSection() {
           }
         }}
         className="hero-bg-video absolute inset-0 w-full h-full object-cover object-[40%_78%] scale-[1.7] origin-[40%_78%] md:scale-100 md:origin-center md:object-[center_65%]"
-        src="/videos/hero-home-bg-new.mp4"
+        src={heroVideoAsset.url}
         autoPlay
         muted
         loop
