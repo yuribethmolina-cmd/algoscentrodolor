@@ -342,34 +342,37 @@ export default function AllianceSection() {
           }}
         >
           <div
-            className="grid grid-cols-1 mdx:grid-cols-3 gap-12 mdx:gap-10"
+            className="grid grid-cols-1 mdx:grid-cols-3 gap-5 sm:gap-6 mdx:gap-7"
             style={{
+              alignItems: "stretch",
+              paddingBottom: "clamp(40px, 5vw, 56px)",
+              marginBottom: "clamp(28px, 4vw, 40px)",
               borderBottom: "1px solid rgba(26, 74, 85, 0.15)",
-              paddingBottom: 56,
-              marginBottom: 40,
             }}
           >
             {benefits.map((b) => (
-              <div
+              <article
                 key={b.number}
                 style={{
+                  height: "auto",
                   backgroundColor: CREAM_STRONG,
-                  border: "1px solid rgba(26, 74, 85, 0.10)",
-                  borderRadius: 8,
-                  padding: "clamp(24px, 2.4vw, 32px)",
+                  border: "1px solid rgba(26, 74, 85, 0.12)",
+                  borderRadius: 10,
+                  padding: "clamp(20px, 4vw, 30px)",
                   display: "flex",
                   flexDirection: "column",
+                  gap: "clamp(12px, 1.6vw, 16px)",
                 }}
               >
                 <p
                   style={{
                     fontFamily: "'Sora', serif",
                     fontWeight: 600,
-                    fontSize: 44,
+                    fontSize: "clamp(36px, 5vw, 44px)",
                     color: GOLD_DEEP,
                     letterSpacing: "-0.03em",
                     lineHeight: 1,
-                    marginBottom: 22,
+                    margin: 0,
                   }}
                 >
                   {b.number}
@@ -379,10 +382,10 @@ export default function AllianceSection() {
                     fontFamily: "Inter, sans-serif",
                     fontSize: 12,
                     fontWeight: 700,
-                    letterSpacing: "0.24em",
+                    letterSpacing: "0.22em",
                     textTransform: "uppercase",
                     color: DEEP_TEAL,
-                    marginBottom: 14,
+                    margin: 0,
                   }}
                 >
                   {b.title}
@@ -390,35 +393,52 @@ export default function AllianceSection() {
                 <p
                   style={{
                     fontFamily: "Inter, sans-serif",
-                    fontSize: 16,
+                    fontSize: "clamp(15px, 1.15vw, 16px)",
                     color: BODY,
-                    lineHeight: 1.7,
+                    lineHeight: 1.65,
                     margin: 0,
                   }}
                 >
                   {b.body}
                 </p>
-                {/* UDUZ highlight card — fondo más claro */}
+
+                {/* Spacer empuja el card UDUZ al fondo para alinearlos entre tarjetas */}
+                <div style={{ flex: 1, minHeight: 4 }} />
+
+                {/* UDUZ highlight card — consistente, siempre resaltado */}
                 <div
                   style={{
-                    marginTop: 18,
                     backgroundColor: "#fbfaf5",
-                    border: `1px solid ${UDUZ_GREEN}33`,
-                    borderLeft: `3px solid ${UDUZ_GREEN}`,
+                    border: `1px solid ${UDUZ_GREEN}55`,
+                    borderLeft: `4px solid ${UDUZ_GREEN}`,
                     borderRadius: 6,
-                    padding: "12px 14px",
+                    padding: "clamp(12px, 1.4vw, 14px) clamp(14px, 1.6vw, 16px)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: 13,
+                    fontSize: "clamp(13px, 0.95vw, 13.5px)",
                     lineHeight: 1.55,
                     color: DEEP_TEAL,
+                    boxShadow: `inset 0 0 0 1px ${UDUZ_GREEN}10`,
                   }}
                 >
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 10,
+                      fontWeight: 800,
+                      letterSpacing: "0.26em",
+                      textTransform: "uppercase",
+                      color: UDUZ_GREEN,
+                      margin: "0 0 6px",
+                    }}
+                  >
+                    Vía UDUZ
+                  </p>
                   {b.uduzHighlight}
                 </div>
-              </div>
+              </article>
             ))}
-
           </div>
+
 
           {/* CTA buttons */}
           <div className="flex flex-col mdx:flex-row gap-4 mdx:gap-5">
