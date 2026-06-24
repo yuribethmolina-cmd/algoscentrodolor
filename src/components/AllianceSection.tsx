@@ -64,13 +64,21 @@ export default function AllianceSection() {
   return (
     <section id="alianza" style={{ backgroundColor: CREAM }}>
 
-      {/* ── SPLIT PANEL ─────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 mdx:grid-cols-2" style={{ minHeight: 520 }}>
+      {/* ── SPLIT PANEL (both cream, separated by a hairline) ─── */}
+      <div
+        className="grid grid-cols-1 mdx:grid-cols-2"
+        style={{
+          minHeight: 520,
+          backgroundColor: CREAM,
+          borderTop: "1px solid rgba(26, 74, 85, 0.15)",
+          borderBottom: "1px solid rgba(26, 74, 85, 0.15)",
+        }}
+      >
 
-        {/* Left — ALGOS (deep teal) */}
+        {/* Left — ALGOS (cream) */}
         <div
+          className="alliance-panel-left"
           style={{
-            backgroundColor: DEEP_TEAL,
             padding: "clamp(56px, 7vw, 96px) clamp(32px, 5vw, 72px)",
             display: "flex",
             flexDirection: "column",
@@ -80,16 +88,16 @@ export default function AllianceSection() {
         >
           <div>
             <img
-              src={algosLogoCream}
+              src={algosLogoDark}
               alt="ALGOS — Centro de Dolor Intervencionista"
               style={{
-                height: 96,
+                height: 72,
                 width: "auto",
                 marginBottom: 32,
                 display: "block",
               }}
             />
-            <PanelEyebrow color={GOLD}>Centro de Dolor · Maracaibo</PanelEyebrow>
+            <PanelEyebrow color={GOLD_DEEP}>Centro de Dolor · Maracaibo</PanelEyebrow>
             <ul style={{ listStyle: "none", padding: 0, margin: "24px 0 0" }}>
               {algosServices.map((s) => (
                 <li
@@ -97,12 +105,12 @@ export default function AllianceSection() {
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontSize: 16,
-                    fontWeight: 400,
-                    color: CREAM_STRONG,
+                    fontWeight: 500,
+                    color: DEEP_TEAL,
                     lineHeight: 1.55,
                     paddingBottom: 14,
                     marginBottom: 14,
-                    borderBottom: "1px solid rgba(245, 240, 232, 0.18)",
+                    borderBottom: "1px solid rgba(26, 74, 85, 0.15)",
                   }}
                 >
                   {s}
@@ -116,7 +124,7 @@ export default function AllianceSection() {
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(20px, 1.9vw, 24px)",
-              color: CREAM_STRONG,
+              color: DEEP_TEAL,
               lineHeight: 1.35,
               letterSpacing: "-0.01em",
               margin: 0,
@@ -124,20 +132,19 @@ export default function AllianceSection() {
             }}
           >
             Lo que hacemos —{" "}
-            <span style={{ color: GOLD, fontWeight: 700 }}>cómo lo hacemos.</span>
+            <span style={{ color: GOLD_DEEP, fontWeight: 700 }}>cómo lo hacemos.</span>
           </h3>
         </div>
 
         {/* Right — UDUZ (cream) */}
         <div
           style={{
-            backgroundColor: CREAM,
-            borderLeft: "1px solid rgba(26, 74, 85, 0.12)",
             padding: "clamp(56px, 7vw, 96px) clamp(32px, 5vw, 72px)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
             gap: 48,
+            borderLeft: "1px solid rgba(26, 74, 85, 0.18)",
           }}
         >
           <div>
@@ -199,6 +206,7 @@ export default function AllianceSection() {
           </h3>
         </div>
       </div>
+
 
       {/* ── ALLIANCE BRIDGE ─────────────────────────────────────── */}
       <div
