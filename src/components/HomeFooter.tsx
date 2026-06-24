@@ -1,4 +1,4 @@
-import algosLogo from "@/assets/algos-logo-dark.png";
+import algosLogo from "@/assets/algos-logo-full.png.asset.json";
 
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
@@ -132,9 +132,9 @@ export default function HomeFooter() {
           {/* Brand */}
           <div className="col-span-2 mdx:col-span-1">
             <img
-              src={algosLogo}
+              src={algosLogo.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
-              style={{ height: 36, width: "auto", display: "block", marginBottom: 18 }}
+              style={{ height: 56, width: "auto", display: "block", marginBottom: 18 }}
             />
 
           </div>
