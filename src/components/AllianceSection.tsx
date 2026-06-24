@@ -1,4 +1,4 @@
-import algosLogoDark from "@/assets/algos-logo-dark.png";
+import algosLogoFull from "@/assets/algos-logo-full.png.asset.json";
 
 const CREAM = "#f5f0e8";
 const CREAM_STRONG = "#faf6ef";
@@ -88,7 +88,7 @@ export default function AllianceSection() {
         >
           <div>
             <img
-              src={algosLogoDark}
+              src={algosLogoFull.url}
               alt="ALGOS — Centro de Dolor Intervencionista"
               style={{
                 height: 72,
