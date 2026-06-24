@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
 import AudienceRouter from "@/components/AudienceRouter";
 
 import TratamientosSection from "@/components/TratamientosSection";
@@ -16,6 +17,7 @@ export default function Index() {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
+      <TrustBar />
       <AudienceRouter />
       <TratamientosSection />
       <AllianceSection />
