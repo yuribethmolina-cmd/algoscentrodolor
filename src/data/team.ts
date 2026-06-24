@@ -81,23 +81,6 @@ const TEAM: TeamMember[] = [
       idiomas: 'Español · Deutsch',
     },
   },
-  {
-    type: 'confirmed',
-    slug: 'dra-aliseth',
-    index: '03',
-    givenName: 'Dra. Aliseth',
-    familyName: 'Rodríguez',
-    role: 'Apoyo Internacional',
-    specialty: 'Ortopedia · Práctica clínica en Krefeld, Alemania',
-    city: 'Krefeld',
-    country: 'Alemania',
-    coords: '51°20′N · 6°34′E',
-    group: '02',
-    bio: {
-      experiencia: 'Práctica clínica activa en Krefeld, Alemania.',
-      idiomas: 'Español · Deutsch',
-    },
-  },
 
   // GROUP 03 · SOPORTE CLÍNICO INTEGRAL
   {
