@@ -189,16 +189,14 @@ export function HeadlineReveal({
         </span>
       );
       out.push(
-        <span
-          key={`${ci}-w-${wordIdx++}`}
-          className="hw"
-          style={{
-            display: "inline-block",
-            fontStyle: c.italic ? "italic" : undefined,
-            color: c.color,
-            fontWeight: c.italic ? 600 : undefined,
-          }}
-        >
+      <span
+        key={`${ci}-w-${wordIdx++}`}
+        className="hw"
+        style={{
+          display: "inline-block",
+          color: c.color,
+        }}
+      >
           {inner}
         </span>
       );
