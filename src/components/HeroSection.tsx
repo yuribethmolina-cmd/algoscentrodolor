@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { AnimatedHeadline } from "@/lib/animations";
+import heroVideoAsset from "@/assets/video_hero_algos.mp4.asset.json";
 
 export default function HeroSection() {
   return (
