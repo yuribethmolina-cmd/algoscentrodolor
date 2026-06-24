@@ -158,7 +158,7 @@ export default function AllianceSection() {
           </h3>
         </div>
 
-        {/* Right — UDUZ (cream) */}
+        {/* Right — UDUZ (resaltado) */}
         <div
           style={{
             padding: "clamp(56px, 7vw, 96px) clamp(32px, 5vw, 72px)",
@@ -166,14 +166,35 @@ export default function AllianceSection() {
             flexDirection: "column",
             justifyContent: "space-between",
             gap: 48,
-            borderLeft: "1px solid rgba(26, 74, 85, 0.18)",
+            borderLeft: `3px solid ${UDUZ_GREEN}`,
+            backgroundColor: CREAM_STRONG,
+            position: "relative",
           }}
         >
+          {/* Etiqueta "DESTACADO" superior */}
+          <span
+            style={{
+              position: "absolute",
+              top: 18,
+              right: 22,
+              fontFamily: "Inter, sans-serif",
+              fontSize: 10,
+              fontWeight: 800,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: CREAM_STRONG,
+              backgroundColor: UDUZ_GREEN,
+              padding: "5px 10px",
+              borderRadius: 3,
+            }}
+          >
+            Aliado diagnóstico
+          </span>
           <div>
             <img
               src="/logos/uduz-logo.svg"
               alt="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"
-              style={{ height: 44, width: "auto", marginBottom: 28, display: "block" }}
+              style={{ height: 56, width: "auto", marginBottom: 28, display: "block" }}
             />
             <PanelEyebrow color={UDUZ_GREEN}>Unidad de Diagnóstico · Paraíso</PanelEyebrow>
             <ul style={{ listStyle: "none", padding: 0, margin: "24px 0 0" }}>
@@ -186,20 +207,21 @@ export default function AllianceSection() {
                     alignItems: "baseline",
                     gap: 16,
                     fontFamily: "Inter, sans-serif",
-                    fontSize: 16,
-                    fontWeight: 500,
+                    fontSize: 17,
+                    fontWeight: 700,
                     color: DEEP_TEAL,
                     paddingBottom: 14,
                     marginBottom: 14,
-                    borderBottom: "1px solid rgba(26, 74, 85, 0.15)",
+                    borderBottom: `1px solid ${UDUZ_GREEN}33`,
                   }}
                 >
                   <span>{s.label}</span>
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
-                      color: STEEL_TEAL,
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: UDUZ_GREEN,
                       letterSpacing: "0.04em",
                       whiteSpace: "nowrap",
                     }}
@@ -210,6 +232,7 @@ export default function AllianceSection() {
               ))}
             </ul>
           </div>
+
 
           <h3
             style={{
