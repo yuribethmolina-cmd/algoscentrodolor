@@ -142,7 +142,7 @@ export function useCountUp(target: number, durationMs: number, start: boolean) {
 /** Splits text into <span class="hw"> word spans with staggered delays.
  *  Wraps result in a host span. The PARENT element should toggle `.in-view`
  *  to trigger the animation. Use baseDelay (ms) to offset by chunk position.
- *  italic / color make a single emphasized run with slower stagger (120ms). */
+ *  color makes a single emphasized run with slower stagger (120ms). */
 type Chunk = {
   text: string;
   italic?: boolean;
