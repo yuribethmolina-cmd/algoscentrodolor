@@ -307,7 +307,7 @@ export default function AllianceSection() {
               <div key={b.number}>
                 <p
                   style={{
-                    fontFamily: "'Sora', serif"
+                    fontFamily: "'Sora', serif",
                     fontWeight: 600,
                     fontSize: 44,
                     color: GOLD_DEEP,

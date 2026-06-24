@@ -67,7 +67,7 @@ export default function PlaceholderPage({
             }}
           >
             {headlineBefore}
-            <span style={{ color: GOLD fontWeight: 400 }}>
+            <span style={{ color: GOLD, fontWeight: 400 }}>
               {italicWord}
             </span>
             {headlineAfter}

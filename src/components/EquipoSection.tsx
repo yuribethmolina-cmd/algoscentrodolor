@@ -121,7 +121,7 @@ function Location({ m, align = "right" }: { m: Member; align?: "left" | "right" 
     <div style={{ textAlign: align }}>
       <p
         style={{
-          fontFamily: "'Sora', serif"
+          fontFamily: "'Sora', serif",
           fontWeight: 600,
           fontSize: 18,
           color: DEEP_TEAL,
@@ -206,7 +206,7 @@ function RosterRow({ m }: { m: Member }) {
         ) : (
           <span
             style={{
-              fontFamily: "'Sora', serif"
+              fontFamily: "'Sora', serif",
               fontWeight: 400,
               fontSize: 56,
               color: GOLD,
@@ -260,7 +260,7 @@ function RosterRow({ m }: { m: Member }) {
           ) : (
             <span
               style={{
-                fontFamily: "'Sora', serif"
+                fontFamily: "'Sora', serif",
                 fontWeight: 400,
                 fontSize: 36,
                 color: GOLD,
@@ -381,7 +381,7 @@ export default function EquipoSection() {
           >
             <span
               style={{
-                fontFamily: "'Sora', serif"
+                fontFamily: "'Sora', serif",
                 fontWeight: 600,
                 color: DEEP_TEAL,
               }}

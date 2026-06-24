@@ -67,7 +67,7 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
     <div className="text-center" style={{ paddingLeft: 16, paddingRight: 16, paddingTop: 32, paddingBottom: 32, overflow: "visible" }}>
       <div
         style={{
-          fontFamily: "'Sora', serif"
+          fontFamily: "'Sora', serif",
           fontWeight: 400,
           fontSize: "clamp(68px, 14vw, 156px)",
           color: DEEP_TEAL,
@@ -82,7 +82,7 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
         {s.suffix && (
           <span
             style={{
-              color: GOLD
+              color: GOLD,
               fontSize: "clamp(28px, 5vw, 56px)",
               verticalAlign: "top",
               marginLeft: 4,
