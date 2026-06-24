@@ -219,7 +219,7 @@ export default function TratamientosSection() {
                 lineHeight: 1.6,
               }}
             >
-              Cuatro líneas principales. Todas mínimamente invasivas. Todas guiadas por imagen.
+              Cuatro líneas. Imagen en tiempo real en cada una — fluoroscopia o ultrasonido.
             </p>
           </div>
           <div>

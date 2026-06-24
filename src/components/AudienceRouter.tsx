@@ -29,7 +29,7 @@ const rows: Row[] = [
     headingStart: "Recupera ",
     headingItalic: "lo que el dolor",
     headingEnd: " te ha quitado.",
-    body: "Evaluación clínica, plan personalizado y procedimientos mínimamente invasivos guiados por imagen. Acompañamiento desde el diagnóstico hasta el retorno a tu vida diaria.",
+    body: "El Dr. Atilio evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana — ambulatorio, sin hospitalización.",
     ctaLabel: "Agendar cita",
     ctaHref: "/pacientes/agendar",
   },
@@ -40,7 +40,7 @@ const rows: Row[] = [
     headingStart: "Refiere con ",
     headingItalic: "respaldo clínico",
     headingEnd: " internacional.",
-    body: "Protocolos basados en práctica clínica internacional. Reportes detallados, comunicación directa con el equipo tratante y paciente que regresa a tu consulta con plan completo.",
+    body: "Recibes el reporte clínico en 48 horas. Tu paciente vuelve a tu consulta con protocolo documentado y seguimiento a nombre del equipo ALGOS.",
     ctaLabel: "Referir paciente",
     ctaHref: "/medicos/referir",
   },
@@ -51,7 +51,7 @@ const rows: Row[] = [
     headingStart: "Servicios clínicos para ",
     headingItalic: "tu organización.",
     headingEnd: "",
-    body: "Convenios corporativos, atención mutual, programas para clubes deportivos. Dossier técnico, propuesta económica y cronograma de implementación disponibles bajo solicitud.",
+    body: "Convenios para empresas, mutuales y clubes deportivos. Cuéntanos el volumen y el tipo de cobertura — preparamos una propuesta en menos de una semana.",
     ctaLabel: "Solicitar reunión",
     ctaHref: "/instituciones/reunion",
   },
@@ -113,8 +113,8 @@ export default function AudienceRouter() {
                   maxWidth: "38ch",
                 }}
               >
-                Pacientes, médicos referentes e instituciones entran al mismo
-                sistema clínico, pero cada uno tiene su propia ruta.
+                Tres personas distintas que necesitan al mismo equipo —
+                por razones distintas.
               </p>
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function AudienceRouter() {
                 className="font-ui text-steel-teal"
                 style={{ fontSize: "15px", marginTop: "4px" }}
               >
-                Escríbenos. Te orientamos sin compromiso.
+                Escríbenos. Te orientamos.
               </p>
             </div>
             <FooterLink to="/contacto">Hablar con el equipo</FooterLink>

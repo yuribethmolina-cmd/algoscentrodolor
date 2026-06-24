@@ -70,9 +70,9 @@ export default function HeroSection() {
             className="font-ui text-deep-teal/80 mt-7 max-w-xl"
             style={{ fontSize: "17px", lineHeight: 1.6 }}
           >
-            ALGOS es un centro de dolor intervencionista en Maracaibo. Equipo
-            multidisciplinario con formación clínica internacional y
-            procedimientos mínimamente invasivos guiados por imagen.
+            Cuatro especialistas — dos en Venezuela, dos en Alemania — que
+            ven tu caso como uno solo. Procedimientos sin hospitalización,
+            en consultorios del Sector Paraíso.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">

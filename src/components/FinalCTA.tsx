@@ -120,7 +120,7 @@ export default function FinalCTA() {
             marginBottom: 56,
           }}
         >
-          Una conversación inicial es gratuita y no compromete a nada. Te ayudamos a entender si tu caso es candidato a un procedimiento o si conviene otro camino.
+          Agenda una evaluación inicial con el Dr. Atilio. Si tu caso tiene indicación, te lo decimos en la primera consulta.
         </p>
 
         {/* Primary CTA */}

@@ -10,17 +10,17 @@ const benefits = [
   {
     number: "01",
     title: "DIAGNÓSTICO INTEGRADO",
-    body: "Resonancia, tomografía y ecografía disponibles en la misma red. El Dr. Atilio recibe los resultados antes de tu próxima consulta.",
+    body: "Tomografía y ecografía disponibles en la misma red. El Dr. Atilio recibe los resultados antes de tu próxima consulta.",
   },
   {
     number: "02",
     title: "UN SOLO EXPEDIENTE",
-    body: "Tu historia clínica viaja entre ALGOS y UDUZ sin que tengas que repetirla. Un caso, un equipo, un protocolo.",
+    body: "Tu historia clínica viaja entre ALGOS y UDUZ sin que tengas que repetirla. Llegas con los estudios; el equipo ya los conoce.",
   },
   {
     number: "03",
-    title: "INFRAESTRUCTURA COMPARTIDA",
-    body: "Acceso a fluoroscopio y sala de procedimientos de UDUZ mientras el Local 4 se equipa — sin interrumpir tu tratamiento.",
+    title: "SALA DE PROCEDIMIENTOS",
+    body: "Los procedimientos se realizan en instalaciones de UDUZ — con fluoroscopio y sala equipada — mientras el Local 4 termina su adecuación.",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function AllianceSection() {
                 lineHeight: 1.7,
               }}
             >
-              ALGOS opera en alianza institucional con UDUZ — Unidad de Diagnóstico Universitaria del Zulia. Lo que esto significa para ti: tu evaluación, tu diagnóstico por imagen y tu procedimiento intervencionista ocurren coordinados, en el mismo ecosistema, con el mismo equipo informado de tu caso.
+              ALGOS opera en alianza institucional con UDUZ — Unidad de Diagnóstico Universitaria del Zulia. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
             </p>
           </div>
 

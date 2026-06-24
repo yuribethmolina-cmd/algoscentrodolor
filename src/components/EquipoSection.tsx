@@ -337,7 +337,7 @@ export default function EquipoSection() {
                 lineHeight: 1.6,
               }}
             >
-              Una práctica clínica continua entre Venezuela y Alemania. Cada caso se discute en conjunto.
+              Dos hermanos en Maracaibo, dos en Alemania. Cuatro especialidades distintas que convergen en el mismo expediente clínico.
             </p>
           </div>
           <div>
@@ -390,9 +390,9 @@ export default function EquipoSection() {
                 color: DEEP_TEAL,
               }}
             >
-              Trabajo en red.
+              Cuatro de cuatro.
             </em>{" "}
-            Los casos complejos se revisan en sesiones clínicas conjuntas del equipo. La decisión final siempre corresponde al especialista tratante en Venezuela.
+            Cuando un caso lo requiere, los cuatro especialistas lo revisan. Así funciona cuando el equipo es familia.
           </p>
           <a
             href="/equipo"
