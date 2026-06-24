@@ -108,7 +108,7 @@ export default function HeroSection() {
             className="font-ui font-bold uppercase"
             style={{ color: "#9a7320", fontSize: "13px", letterSpacing: "0.3em" }}
           >
-            MARACAIBO, EDO ZULIA
+            MARACAIBO · SECTOR PARAÍSO
           </p>
 
           <AnimatedHeadline
@@ -121,8 +121,8 @@ export default function HeroSection() {
               maxWidth: "18ch",
             }}
             chunks={[
-              { text: "Tratamiento del dolor basado en evidencia clínica " },
-              { text: "internacional.", italic: true, color: "#9a7320", staggerMs: 120 },
+              { text: "Tratamiento del dolor sin cirugía, sin " },
+              { text: "hospitalización.", italic: true, color: "#9a7320", staggerMs: 120 },
             ]}
           />
 
@@ -130,10 +130,11 @@ export default function HeroSection() {
             className="font-ui mt-8 max-w-xl"
             style={{ fontSize: "19px", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
-            Tres especialistas  dos en Venezuela, uno en Alemania, que
-            ven tu caso como uno solo. Procedimientos sin hospitalización,
-            en el Sector Paraíso, en alianza diagnóstica con <strong style={{ fontWeight: 700 }}>UDUZ</strong>.
-
+            Si tienes dolor crónico de espalda, cuello o articulaciones,
+            en ALGOS te evaluamos y te explicamos qué opciones tienes.
+            Procedimientos ambulatorios en el Sector Paraíso —
+            vas, te atiendes y regresas a casa el mismo día.
+            En alianza con <strong style={{ fontWeight: 700 }}>UDUZ</strong> para tus estudios de imagen.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
@@ -148,11 +149,11 @@ export default function HeroSection() {
               </span>
             </Link>
             <Link
-              to="/pacientes/equipo"
+              to="/tratamientos"
               className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-cream font-ui font-bold uppercase rounded transition-all duration-300 px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
-              <span>Conoce al equipo</span>
+              <span>Ver tratamientos</span>
             </Link>
           </div>
         </div>

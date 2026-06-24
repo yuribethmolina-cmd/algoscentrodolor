@@ -8,7 +8,6 @@ type NavLink = { label: string; href: string; matchPrefix?: boolean };
 const NAV_LINKS: NavLink[] = [
   { label: "Inicio", href: "/" },
   { label: "Tratamientos", href: "/tratamientos", matchPrefix: true },
-  { label: "Equipo", href: "/equipo" },
   { label: "Para pacientes", href: "/pacientes", matchPrefix: true },
   { label: "Para médicos", href: "/medicos", matchPrefix: true },
   { label: "Contacto", href: "/contacto" },

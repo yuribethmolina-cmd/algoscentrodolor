@@ -18,12 +18,12 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    target: 4,
+    target: 6,
     pad: 2,
-    duration: 400,
+    duration: 600,
     delay: 0,
-    label: "ESPECIALISTAS",
-    note: "Equipo clínico entre Venezuela y Alemania.",
+    label: "SEDES CLÍNICAS",
+    note: "Espacios activos en Maracaibo — cerca de donde estás.",
   },
   {
     target: 100,

@@ -23,8 +23,7 @@ const audiencias: Link[] = [
 ];
 
 const algos: Link[] = [
-  { label: "Equipo clínico", href: "#equipo" },
-  
+  { label: "Tratamientos", href: "/tratamientos" },
   { label: "Tecnología", href: "#" },
   { label: "Casos y testimonios", href: "#" },
   { label: "Contacto", href: "#solicitar" },

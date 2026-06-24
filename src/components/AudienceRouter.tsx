@@ -43,7 +43,7 @@ const rows: Row[] = [
     eyebrow: "PARA MÉDICOS REFERENTES",
     headingStart: "Refiere con ",
     headingItalic: "respaldo clínico",
-    headingEnd: " internacional.",
+    headingEnd: " documentado.",
     body: "Recibes el reporte clínico en 48 horas. Tu paciente vuelve a tu consulta con protocolo documentado y seguimiento a nombre del equipo ALGOS.",
     ctaLabel: "Referir paciente",
     ctaHref: "/medicos/referir",
