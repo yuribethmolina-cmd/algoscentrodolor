@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarCheck, MessageCircle, ShieldCheck, Clock, MapPin, Phone } from "lucide-react";
 import { patientLinks } from "@/lib/sectionLinks";
 
-const WHATSAPP_NUMBER = "15550000000";
+const WHATSAPP_NUMBER = "584246467944";
 
 export default function Agendar() {
   return (
@@ -33,7 +33,7 @@ export default function Agendar() {
                     </a>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="w-full rounded-full gap-2">
-                    <a href="tel:+15550000000">
+                    <a href="tel:+584246467944">
                       <Phone size={20} />
                       Llamar al +1 (555) 000-0000
                     </a>

@@ -11,7 +11,7 @@ const GOLD = "#c69636";
 const BRAND_TEAL = "#3d8b96";
 const BRAND_TEAL_HOVER = "#4a9ca8";
 
-const WHATSAPP_HREF = "https://wa.me/15550000000";
+const WHATSAPP_HREF = "https://wa.me/584246467944";
 
 type ContactOption = {
   label: string;

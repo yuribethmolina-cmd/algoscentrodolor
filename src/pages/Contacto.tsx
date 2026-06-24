@@ -5,7 +5,7 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
 
-const WHATSAPP_NUMBER = "15550000000";
+const WHATSAPP_NUMBER = "584246467944";
 
 const AUDIENCE_CARDS = [
   {

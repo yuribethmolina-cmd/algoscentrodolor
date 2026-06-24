@@ -6,7 +6,7 @@ import ProblemSection from "@/components/ProblemSection";
 import AboutSection from "@/components/AboutSection";
 import { patientLinks } from "@/lib/sectionLinks";
 
-const WHATSAPP_NUMBER = "15550000000";
+const WHATSAPP_NUMBER = "584246467944";
 
 export default function PacientesIndex() {
   return (
