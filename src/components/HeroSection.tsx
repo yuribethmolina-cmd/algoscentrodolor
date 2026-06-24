@@ -74,7 +74,7 @@ export default function HeroSection() {
             if (p && typeof p.catch === "function") p.catch(() => {});
           }
         }}
-        className="hero-bg-video absolute inset-0 w-full h-full object-cover object-[40%_78%] scale-[1.7] origin-[40%_78%] md:scale-100 md:origin-center md:object-[center_65%]"
+        className="hero-bg-video absolute inset-0 w-full h-full object-cover object-center scale-110 md:scale-100 md:origin-center md:object-[center_65%]"
         src={videoSrc ?? undefined}
         poster={heroPoster.url}
         autoPlay
