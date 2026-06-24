@@ -22,7 +22,7 @@ type ContactOption = {
 const contactOptions: ContactOption[] = [
   { label: "WHATSAPP DIRECTO", value: "+58 424 646 7944", href: WHATSAPP_HREF },
   { label: "LLAMAR AL CONSULTORIO", value: "+58 424 646 7944", href: "tel:+584246467944" },
-  { label: "ESCRIBIR POR CORREO", value: "consulta@algos.lovable.app", href: "mailto:consulta@algos.lovable.app" },
+  { label: "ESCRIBIR POR CORREO", value: "info@algoscentrodolor.com", href: "mailto:info@algoscentrodolor.com" },
 ];
 
 export default function FinalCTA() {
