@@ -135,6 +135,7 @@ const cards: Card[] = [
       "Para neuralgias periféricas, dolor postquirúrgico persistente y síndromes regionales complejos.",
     technique:
       "bloqueo guiado por ultrasonido · localización precisa · ambulatorio.",
+    uduzRef: "Ecografía diagnóstica para confirmar neuropatía disponible en UDUZ Paraíso desde $15",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 18 32 Q 50 56, 70 70 Q 92 86, 110 84 Q 130 82, 150 92" fill="none" stroke={strokeCream} strokeWidth={1.5} />
