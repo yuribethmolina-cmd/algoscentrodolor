@@ -46,7 +46,8 @@ export default function HeroSection() {
       <div className="relative z-10 h-full mx-auto max-w-7xl px-6 md:px-12 lg:px-16 flex items-center">
         <div className="max-w-2xl pt-24 md:pt-0">
           <p
-            className="font-ui font-medium uppercase text-algos-gold text-sm tracking-widest"
+            className="font-ui font-bold uppercase"
+            style={{ color: "#9a7320", fontSize: "13px", letterSpacing: "0.3em" }}
           >
             MARACAIBO · ALEMANIA
           </p>
@@ -62,13 +63,13 @@ export default function HeroSection() {
             }}
             chunks={[
               { text: "Tratamiento del dolor basado en evidencia clínica " },
-              { text: "internacional.", italic: true, color: "#c69636", staggerMs: 120 },
+              { text: "internacional.", italic: true, color: "#9a7320", staggerMs: 120 },
             ]}
           />
 
           <p
-            className="font-ui text-deep-teal/80 mt-7 max-w-xl"
-            style={{ fontSize: "17px", lineHeight: 1.6 }}
+            className="font-ui mt-8 max-w-xl"
+            style={{ fontSize: "19px", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
             Cuatro especialistas — dos en Venezuela, dos en Alemania — que
             ven tu caso como uno solo. Procedimientos sin hospitalización,
