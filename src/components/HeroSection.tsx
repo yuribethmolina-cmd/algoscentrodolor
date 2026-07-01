@@ -96,7 +96,7 @@ export default function HeroSection() {
       {/* Cream overlay — left to right */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f5f0e8]/92 via-[#f5f0e8]/78 to-[#f5f0e8]/65 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/20"
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f5f0e8]/95 via-[#f5f0e8]/90 to-[#f5f0e8]/82 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/20"
       />
       {/* Bottom fade */}
       <div

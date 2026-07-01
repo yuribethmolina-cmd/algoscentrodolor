@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import algosLogoFull from "@/assets/algos-logo-v2.png";
-import algosSignalIcon from "@/assets/algos-signal-icon.png";
 
 type NavLink = { label: string; href: string; matchPrefix?: boolean };
 
@@ -66,17 +65,10 @@ export default function Navbar() {
           aria-label="ALGOS · Inicio"
           className="flex items-center cursor-pointer transition-opacity duration-200 hover:opacity-80"
         >
-          {/* Mobile: signal icon only */}
-          <img
-            src={algosSignalIcon}
-            alt="ALGOS"
-            className="block mdx:hidden h-10 w-auto object-contain"
-          />
-          {/* Desktop: full logo with wordmark */}
           <img
             src={algosLogoFull}
             alt="ALGOS — Centro de Dolor Intervencionista"
-            className="hidden mdx:block h-[68px] w-auto object-contain"
+            className="h-9 mdx:h-[68px] w-auto object-contain"
           />
         </Link>
 

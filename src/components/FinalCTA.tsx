@@ -1,5 +1,6 @@
 import { useDrawSVG, AnimatedHeadline } from "@/lib/animations";
 import BackdropImage from "@/components/atmosphere/BackdropImage";
+import algosSignalIcon from "@/assets/algos-signal-icon.png";
 
 // Unsplash · "warm window light, calm interior" — atmospheric, no people
 const FINAL_BG =
@@ -43,6 +44,13 @@ export default function FinalCTA() {
         opacity={0.1}
         filter="grayscale(100%) brightness(0.85)"
         blendMode="overlay"
+      />
+      {/* Brand signal mark — centered watermark */}
+      <img
+        src={algosSignalIcon}
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[560px] pointer-events-none select-none"
+        style={{ opacity: 0.07, filter: "grayscale(100%) brightness(10)" }}
       />
       {/* Signal wave background — terminal */}
       <svg
