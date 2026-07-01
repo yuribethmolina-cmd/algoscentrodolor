@@ -143,28 +143,30 @@ export default function Contacto() {
               {INFO_CARDS.map(({ Icon, title, lines, email }) => (
                 <div
                   key={title}
-                  className="bg-cream rounded-2xl p-6 border border-[#1a4a55]/10"
+                  className="bg-cream rounded-2xl p-8 border border-[#1a4a55]/10 flex flex-col items-center text-center hover:border-[#c69636]/40 transition-colors min-h-[220px]"
                 >
-                  <div className="flex items-center gap-2 mb-4">
-                    <Icon className="w-5 h-5 text-[#c69636] shrink-0" strokeWidth={1.75} />
-                    <h3 className="font-display font-semibold text-[#1a4a55] text-base">
-                      {title}
-                    </h3>
+                  <div className="w-12 h-12 rounded-full bg-[#c69636]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#c69636]" strokeWidth={1.75} />
                   </div>
-                  {email ? (
-                    <a
-                      href={`mailto:${email}`}
-                      className="font-sans text-sm text-[#1a4a55]/85 leading-relaxed hover:text-[#c69636] transition-colors break-all"
-                    >
-                      {email}
-                    </a>
-                  ) : (
-                    lines?.map((l) => (
-                      <p key={l} className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
-                        {l}
-                      </p>
-                    ))
-                  )}
+                  <h3 className="font-display font-semibold text-[#1a4a55] text-base mb-3">
+                    {title}
+                  </h3>
+                  <div className="flex flex-col gap-1 flex-1 justify-center">
+                    {email ? (
+                      <a
+                        href={`mailto:${email}`}
+                        className="font-sans text-sm text-[#1a4a55]/85 leading-snug hover:text-[#c69636] transition-colors break-all"
+                      >
+                        {email}
+                      </a>
+                    ) : (
+                      lines?.map((l) => (
+                        <p key={l} className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                          {l}
+                        </p>
+                      ))
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
