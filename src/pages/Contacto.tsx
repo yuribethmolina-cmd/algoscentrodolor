@@ -116,7 +116,7 @@ export default function Contacto() {
                   </p>
                   <Link
                     to={c.to}
-                    className="inline-flex items-center gap-2 hover:gap-3 transition-all rounded-full px-6 py-3 font-semibold text-sm self-start"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
                     style={{ backgroundColor: c.btnBg, color: c.btnText }}
                   >
                     <span>{c.cta}</span>
@@ -183,7 +183,7 @@ export default function Contacto() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:gap-3 transition-all bg-[#1a4a55] text-[#f5f0e8] rounded-full px-7 py-3.5 font-semibold text-sm"
+              className="inline-flex items-center justify-center gap-2 hover:gap-3 transition-all bg-[#1a4a55] text-[#f5f0e8] rounded font-ui font-bold uppercase px-8 py-4 text-xs tracking-[0.2em]"
             >
               <MessageCircle className="w-5 h-5" strokeWidth={1.75} />
               <span>Escríbanos por WhatsApp</span>
