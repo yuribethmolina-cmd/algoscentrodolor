@@ -1,25 +1,34 @@
 import { Globe, Cpu, Shield, Crosshair } from "lucide-react";
 
+const DEEP_TEAL = "#1a4a55";
+const TEAL = "#3d8b96";
+const GOLD = "#c69636";
+const CREAM = "#f5f0e8";
+
 const differentiators = [
   {
     icon: Crosshair,
     title: "Diagnóstico, imagen y tratamiento en una sola ruta",
-    description: "Usted no tiene que coordinar entre diferentes especialistas ni repetir estudios. El recorrido completo ocurre en ALGOS.",
+    description:
+      "Usted no tiene que coordinar entre diferentes especialistas ni repetir estudios. El recorrido completo ocurre en ALGOS.",
   },
   {
     icon: Globe,
     title: "Alianza diagnóstica con UDUZ",
-    description: "Los mismos estudios que identifican el origen del dolor orientan el procedimiento. No hay interpretaciones intermedias que se pierdan.",
+    description:
+      "Los mismos estudios que identifican el origen del dolor orientan el procedimiento. No hay interpretaciones intermedias que se pierdan.",
   },
   {
     icon: Shield,
     title: "Siempre lo menos invasivo primero",
-    description: "Agotamos las opciones intervencionistas antes de considerar la cirugía. Solo se opera cuando los criterios clínicos lo justifican.",
+    description:
+      "Agotamos las opciones intervencionistas antes de considerar la cirugía. Solo se opera cuando los criterios clínicos lo justifican.",
   },
   {
     icon: Cpu,
     title: "Tratamos exactamente lo que hace falta",
-    description: "Sin procedimientos innecesarios. El especialista determina qué tratar, en qué orden y con qué técnica — basado en su caso específico.",
+    description:
+      "Sin procedimientos innecesarios. El especialista determina qué tratar, en qué orden y con qué técnica — basado en su caso específico.",
   },
 ];
 
@@ -32,71 +41,224 @@ const stats = [
 
 export default function WhyDifferentSection() {
   return (
-    <section className="py-16 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#1a4a55" }}>
-      {/* Decorative */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-secondary/[0.06] blur-3xl -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-3xl translate-y-1/2 -translate-x-1/3" />
+    <section
+      style={{
+        backgroundColor: DEEP_TEAL,
+        paddingTop: "clamp(64px, 8vw, 96px)",
+        paddingBottom: "clamp(64px, 8vw, 96px)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Decorative blobs */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          backgroundColor: `rgba(61,139,150,0.07)`,
+          filter: "blur(80px)",
+          transform: "translate(33%, -50%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: 360,
+          height: 360,
+          borderRadius: "50%",
+          backgroundColor: `rgba(198,150,54,0.05)`,
+          filter: "blur(70px)",
+          transform: "translate(-33%, 50%)",
+          pointerEvents: "none",
+        }}
+      />
 
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+      <div
+        className="mx-auto"
+        style={{
+          maxWidth: 1100,
+          paddingLeft: "clamp(24px, 4vw, 48px)",
+          paddingRight: "clamp(24px, 4vw, 48px)",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         {/* Header */}
-        <div className="scroll-reveal text-center mb-16">
-          <p className="text-secondary text-sm tracking-[0.3em] uppercase mb-4 font-medium">
+        <div style={{ textAlign: "center", marginBottom: "clamp(40px, 5vw, 64px)" }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: TEAL,
+              marginBottom: 16,
+            }}
+          >
             Diferencia
           </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-primary-foreground leading-tight mb-6">
+          <h2
+            style={{
+              fontFamily: "'Sora', serif",
+              fontWeight: 300,
+              fontSize: "clamp(28px, 3.5vw, 46px)",
+              lineHeight: 1.2,
+              color: CREAM,
+              marginBottom: 16,
+            }}
+          >
             ¿Por qué{" "}
-            <span className="font-light text-secondary">ALGOS</span>?
+            <span style={{ fontWeight: 400, color: TEAL }}>ALGOS</span>?
           </h2>
-          <p className="text-primary-foreground/60 font-light text-lg max-w-2xl mx-auto">
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.3vw, 18px)",
+              fontWeight: 300,
+              lineHeight: 1.65,
+              color: "rgba(245,240,232,0.60)",
+              maxWidth: "52ch",
+              margin: "0 auto",
+            }}
+          >
             En dolor intervencionista, el proceso y el equipo son el diferencial.
           </p>
         </div>
 
         {/* Stats bar */}
-        <div className="scroll-reveal grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-          {stats.map((stat, idx) => (
+        <div
+          className="grid grid-cols-2 md:grid-cols-4"
+          style={{ gap: 12, marginBottom: "clamp(40px, 5vw, 64px)" }}
+        >
+          {stats.map((stat) => (
             <div
-              key={idx}
-              className={`scroll-reveal scroll-reveal-delay-${idx + 1} text-center p-5 rounded-2xl border transition-all duration-300 ${
-                stat.highlight
-                  ? "bg-accent/10 border-accent/30"
-                  : "bg-primary-foreground/[0.04] border-primary-foreground/10"
-              }`}
+              key={stat.label}
+              style={{
+                textAlign: "center",
+                padding: "clamp(16px, 2vw, 24px) 12px",
+                borderRadius: 16,
+                border: `1px solid ${stat.highlight ? "rgba(198,150,54,0.35)" : "rgba(245,240,232,0.10)"}`,
+                backgroundColor: stat.highlight
+                  ? "rgba(198,150,54,0.10)"
+                  : "rgba(245,240,232,0.04)",
+              }}
             >
-              <span className={`block text-3xl md:text-4xl font-extralight mb-2 ${
-                stat.highlight ? "text-accent" : "text-secondary"
-              }`}>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "'Sora', serif",
+                  fontSize: "clamp(26px, 3vw, 38px)",
+                  fontWeight: 300,
+                  color: stat.highlight ? GOLD : TEAL,
+                  marginBottom: 8,
+                }}
+              >
                 {stat.value}
               </span>
-              <span className="text-xs text-primary-foreground/50 font-light leading-snug block">
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 11,
+                  fontWeight: 400,
+                  lineHeight: 1.5,
+                  color: "rgba(245,240,232,0.50)",
+                }}
+              >
                 {stat.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Differentiator cards — 2 columns */}
-        <div className="grid sm:grid-cols-2 gap-5">
-          {differentiators.map((item, idx) => (
+        {/* Differentiator cards */}
+        <div className="grid sm:grid-cols-2" style={{ gap: 16 }}>
+          {differentiators.map((item) => (
             <div
               key={item.title}
-              className={`scroll-reveal scroll-reveal-delay-${(idx % 2) + 1} group p-6 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] hover:bg-primary-foreground/[0.07] hover:border-secondary/30 transition-all duration-500`}
+              style={{
+                padding: "clamp(20px, 2.5vw, 28px)",
+                borderRadius: 16,
+                border: "1px solid rgba(245,240,232,0.10)",
+                backgroundColor: "rgba(245,240,232,0.03)",
+              }}
             >
-              <div className="w-11 h-11 rounded-xl bg-secondary/15 flex items-center justify-center mb-4 group-hover:bg-secondary/25 group-hover:scale-105 transition-all duration-300">
-                <item.icon className="w-5 h-5 text-secondary" />
+              <div
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 10,
+                  backgroundColor: "rgba(61,139,150,0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: 16,
+                }}
+              >
+                <item.icon style={{ width: 20, height: 20, color: TEAL }} />
               </div>
-              <h3 className="text-base font-medium text-primary-foreground mb-2">{item.title}</h3>
-              <p className="text-primary-foreground/50 font-light text-sm leading-relaxed">
+              <h3
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 15,
+                  fontWeight: 500,
+                  color: CREAM,
+                  marginBottom: 8,
+                  lineHeight: 1.4,
+                }}
+              >
+                {item.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 14,
+                  fontWeight: 300,
+                  lineHeight: 1.7,
+                  color: "rgba(245,240,232,0.55)",
+                  margin: 0,
+                }}
+              >
                 {item.description}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Diferencial propio extra */}
-        <blockquote className="scroll-reveal mt-14 mx-auto max-w-2xl text-center border-t border-primary-foreground/20 pt-12">
-          <p className="text-primary-foreground/75 font-light text-lg leading-relaxed">
-            "En ALGOS el tratamiento no termina cuando termina el procedimiento: seguimos su evolución y le acompañamos en el tiempo, porque el dolor crónico se maneja, no se abandona."
+        {/* Blockquote */}
+        <blockquote
+          style={{
+            marginTop: "clamp(40px, 5vw, 56px)",
+            maxWidth: "64ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+            textAlign: "center",
+            borderTop: "1px solid rgba(245,240,232,0.18)",
+            paddingTop: "clamp(32px, 4vw, 48px)",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.3vw, 17px)",
+              fontWeight: 300,
+              lineHeight: 1.75,
+              color: "rgba(245,240,232,0.72)",
+              fontStyle: "italic",
+              margin: 0,
+            }}
+          >
+            "En ALGOS el tratamiento no termina cuando termina el procedimiento: seguimos su
+            evolución y le acompañamos en el tiempo, porque el dolor crónico se maneja, no se
+            abandona."
           </p>
         </blockquote>
       </div>
