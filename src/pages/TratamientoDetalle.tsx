@@ -55,12 +55,12 @@ export default function TratamientoDetalle() {
               src={heroImg}
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
             />
           )}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-[#f5f0e8]/96 via-[#f5f0e8]/93 to-[#f5f0e8]/88 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/75 md:to-[#f5f0e8]/10"
+            className="absolute inset-0 bg-[#f5f0e8] md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/75 md:to-[#f5f0e8]/10"
           />
           <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12">
             <div className="max-w-2xl">
