@@ -8,25 +8,25 @@ const GOLD = "#c69636";
 type Link = { label: string; href: string };
 
 const tratamientos: Link[] = [
-  { label: "Bloqueo facetario lumbar", href: "#" },
-  { label: "Bloqueo radicular cervical", href: "#" },
-  { label: "Nervio periférico", href: "#" },
-  { label: "Infiltración guiada por eco", href: "#" },
-  { label: "Ver todos →", href: "#" },
+  { label: "Dolor lumbar y ciática", href: "/tratamientos/dolor-lumbar-ciatica" },
+  { label: "Dolor cervical", href: "/tratamientos/dolor-cervical" },
+  { label: "Dolor facetario", href: "/tratamientos/dolor-facetario" },
+  { label: "Neuropatía periférica", href: "/tratamientos/neuropatia" },
+  { label: "Ver todos →", href: "/tratamientos" },
 ];
 
 const audiencias: Link[] = [
   { label: "Para pacientes", href: "/pacientes" },
   { label: "Para médicos", href: "/medicos" },
   { label: "Para instituciones", href: "/instituciones" },
-  { label: "Convenios y mutuales", href: "#" },
+  { label: "Agendar cita", href: "/pacientes/agendar" },
 ];
 
 const algos: Link[] = [
   { label: "Tratamientos", href: "/tratamientos" },
-  { label: "Tecnología", href: "#" },
-  { label: "Casos y testimonios", href: "#" },
-  { label: "Contacto", href: "#solicitar" },
+  { label: "Preguntas frecuentes", href: "/pacientes/preguntas-frecuentes" },
+  { label: "Para médicos", href: "/medicos" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 const legal: Link[] = [

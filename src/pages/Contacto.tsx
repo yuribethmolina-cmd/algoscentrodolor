@@ -10,8 +10,8 @@ const WHATSAPP_NUMBER = "584246467944";
 const AUDIENCE_CARDS = [
   {
     eyebrow: "PACIENTES",
-    title: "¿Necesitas evaluar tu dolor?",
-    description: "Agenda una primera valoración con el equipo clínico.",
+    title: "¿Necesita evaluar su dolor?",
+    description: "Agende una primera valoración con el equipo clínico.",
     cta: "Agendar valoración",
     to: "/pacientes/agendar",
     bg: "#3d8b96",
@@ -20,7 +20,7 @@ const AUDIENCE_CARDS = [
   },
   {
     eyebrow: "MÉDICOS",
-    title: "¿Tienes un paciente para referir?",
+    title: "¿Tiene un paciente para referir?",
     description: "Formulario clínico con seguimiento al referente.",
     cta: "Iniciar referencia",
     to: "/medicos/referir",
@@ -30,7 +30,7 @@ const AUDIENCE_CARDS = [
   },
   {
     eyebrow: "INSTITUCIONES",
-    title: "¿Quieres un convenio clínico?",
+    title: "¿Quiere un convenio clínico?",
     description: "Reuniones con prestadores y aseguradoras.",
     cta: "Solicitar reunión",
     to: "/instituciones/reunion",
@@ -50,7 +50,7 @@ const INFO_CARDS = [
   {
     Icon: Clock,
     title: "Horario",
-    lines: ["Lunes a Viernes · 8:00 AM – 6:00 PM", "Sábados · con cita previa"],
+    lines: ["Lunes a viernes · 8:00 – 18:00", "Sábados · con cita previa"],
   },
   {
     Icon: Phone,
@@ -71,7 +71,7 @@ export default function Contacto() {
     <div className="min-h-screen bg-cream">
       <SEOHead
         title="Contacto | ALGOS · Centro de Dolor Intervencionista"
-        description="Contáctanos en Maracaibo. Pacientes, médicos referentes e instituciones tienen vías directas para conectar con ALGOS."
+        description="Contáctenos en Maracaibo. Pacientes, médicos referentes e instituciones tienen vías directas para conectar con ALGOS."
         canonical="https://algos.lovable.app/contacto"
       />
       <BreadcrumbSchema
@@ -90,10 +90,10 @@ export default function Contacto() {
             </p>
             <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
               ¿En qué podemos{" "}
-              <span className="text-[#c69636] font-bold">ayudarte</span>?
+              <span className="text-[#c69636] font-bold">ayudarle</span>?
             </h1>
             <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              Cada consulta tiene un camino diferente. Elige el que mejor describe tu necesidad y te conectamos con la persona correcta.
+              Cada consulta tiene un camino diferente. Elija el que mejor describe su necesidad y le conectamos con la persona correcta.
             </p>
           </div>
         </section>
@@ -139,7 +139,7 @@ export default function Contacto() {
                 CONTACTO DIRECTO
               </p>
               <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl">
-                Llámanos, escríbenos o visítanos.
+                Llámenos, escríbanos o visítenos.
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -178,7 +178,7 @@ export default function Contacto() {
         <section className="bg-cream py-20 md:py-24">
           <div className="container mx-auto max-w-3xl px-6 md:px-12 text-center">
             <h2 className="font-display font-semibold text-[#1a4a55] text-2xl md:text-3xl mb-6">
-              ¿Prefieres una conversación rápida?
+              ¿Prefiere una conversación rápida?
             </h2>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
@@ -187,7 +187,7 @@ export default function Contacto() {
               className="inline-flex items-center gap-2 hover:gap-3 transition-all bg-[#1a4a55] text-[#f5f0e8] rounded-full px-7 py-3.5 font-semibold text-sm"
             >
               <MessageCircle className="w-5 h-5" strokeWidth={1.75} />
-              <span>Escríbenos por WhatsApp</span>
+              <span>Escríbanos por WhatsApp</span>
             </a>
           </div>
         </section>
