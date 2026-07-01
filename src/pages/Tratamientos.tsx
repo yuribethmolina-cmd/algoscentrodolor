@@ -12,8 +12,8 @@ import { ScanLine, Clock, Users, GraduationCap, type LucideIcon } from "lucide-r
 const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
   { Icon: ScanLine, title: "Guiados por imagen", description: "Ecografía + fluoroscopia para precisión milimétrica" },
   { Icon: Clock, title: "Ambulatorios", description: "Misma tarde a casa en la mayoría de casos" },
-  { Icon: Users, title: "Equipo familiar", description: "Tres hermanos · especialidades complementarias · Maracaibo + Alemania" },
-  { Icon: GraduationCap, title: "Formación internacional", description: "Protocolos basados en práctica clínica en Niedersachsen" },
+  { Icon: Users, title: "Equipo médico", description: "Neurocirujanos especializados en dolor · Dr. Atilio y Dr. Luis Alberto Rodríguez" },
+  { Icon: GraduationCap, title: "Basado en evidencia", description: "Protocolos actualizados de manejo intervencionista del dolor crónico" },
 ];
 
 export default function Tratamientos() {
@@ -23,7 +23,7 @@ export default function Tratamientos() {
     <div className="min-h-screen bg-cream">
       <SEOHead
         title="Tratamientos del dolor crónico en Maracaibo | ALGOS"
-        description="Centro de dolor intervencionista en Maracaibo. Procedimientos mínimamente invasivos guiados por imagen para dolor lumbar, cervical, facetario, articular y deportivo. Equipo con formación clínica internacional."
+        description="Centro de dolor intervencionista en Maracaibo. Procedimientos mínimamente invasivos guiados por imagen para dolor lumbar, cervical, facetario, articular y neuropatía. Neurocirujanos especializados en dolor."
         canonical="https://algos.lovable.app/tratamientos"
       />
       <BreadcrumbSchema
@@ -57,7 +57,7 @@ export default function Tratamientos() {
                 <span className="text-[#c69636] font-bold">crónico</span>
               </h1>
               <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl">
-                Cinco condiciones de dolor que tratamos en ALGOS con procedimientos mínimamente invasivos guiados por imagen, basados en protocolos de formación clínica internacional.
+                Cinco condiciones de dolor que tratamos en ALGOS con procedimientos mínimamente invasivos guiados por imagen, a cargo de neurocirujanos especializados en dolor intervencionista.
               </p>
             </div>
           </div>
