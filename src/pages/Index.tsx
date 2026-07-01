@@ -6,6 +6,7 @@ import TrustBar from "@/components/TrustBar";
 import AudienceRouter from "@/components/AudienceRouter";
 
 import TratamientosSection from "@/components/TratamientosSection";
+import WhyDifferentSection from "@/components/WhyDifferentSection";
 import AllianceSection from "@/components/AllianceSection";
 import StatsStrip from "@/components/StatsStrip";
 import FinalCTA from "@/components/FinalCTA";
@@ -19,6 +20,7 @@ export default function Index() {
       <TrustBar />
       <AudienceRouter />
       <TratamientosSection />
+      <WhyDifferentSection />
       <AllianceSection />
       <StatsStrip />
       <FinalCTA />

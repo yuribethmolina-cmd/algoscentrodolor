@@ -1,189 +1,207 @@
-import { GraduationCap, Award, MapPin, Globe, Stethoscope, Bone, Activity, HeartPulse, Users, User } from "lucide-react";
-import teamAtilio from "@/assets/team-atilio.png";
-import teamLuis from "@/assets/team-luis.png";
-import teamDaniel from "@/assets/team-daniel.png";
+const CREAM = "#f5f0e8";
+const DEEP_TEAL = "#1a4a55";
+const STEEL_TEAL = "#2a6270";
+const GOLD = "#c69636";
 
-const team = [
+const grupos = [
   {
-    name: "Dr. Atilio J. Rodríguez",
-    role: "Director Médico",
-    specialty: "Neurocirujano · Ozonoterapia · Electrodiagnóstico",
-    location: "Maracaibo, Venezuela",
-    credentials: "Jefe de Neurocirugía — Hospital General del Sur",
-    description:
-      "Coordinador del Postgrado de Neurocirugía de LUZ y del Capítulo Zuliano de Columna de la SVNC. Décadas de práctica activa, liderazgo académico y una red de exresidentes y especialistas en todo el Zulia.",
-    certifications: ["Neurocirugía — LUZ", "Ozonoterapia Médica", "EMG · EEG"],
-    socials: ["@neuroatilio", "@electromiografia.zulia", "@ozonoterapia.zulia"],
-    photo: teamAtilio,
+    index: "01",
+    funcion: "Evalúan y diagnostican el origen del dolor",
+    especialidades: ["Neurocirugía", "Traumatología", "Reumatología", "Fisiatría"],
+    nota: null,
   },
   {
-    name: "Dr. Luis Alberto Rodríguez",
-    role: "Consultor Estratégico y Referente Clínico",
-    specialty: "Neurocirujano · Medicina Intervencionista de Columna",
-    location: "Alemania",
-    credentials: "Neurocirujano activo en Alemania",
-    description:
-      "Diseña los protocolos clínicos del centro, adapta estándares europeos al contexto venezolano, revisa casos complejos y trabaja en alianzas institucionales desde Alemania.",
-    certifications: ["Certficado de Columna por La Sociedad de Columna de Alemania DWG · EUROSPINE", "Miembro DWG · DGNC · EANS", "Dr. med. en proceso — Uni Lübeck"],
-    photo: teamLuis,
+    index: "02",
+    funcion: "Ejecutan el tratamiento guiado por imagen",
+    especialidades: ["Algología · Anestesiología del dolor", "Neurocirugía", "Traumatología"],
+    nota: "Tres especialidades sobre el mismo equipo — redundancia de criterio clínico en cada procedimiento.",
   },
   {
-    name: "Lcdo. Daniel Rodríguez",
-    role: "Director de Nutrición",
-    specialty: "Nutrición Clínica · Nutrición Antiinflamatoria",
-    location: "Maracaibo, Venezuela",
-    credentials: "LUZ · Hospital Clínico Maracaibo · 5+ años consulta privada",
-    description:
-      "Integra alimentación terapéutica, suplementación clínica y manejo metabólico del dolor como parte del protocolo asistencial de ALGOS. Único nutricionista en Maracaibo con posicionamiento específico en dolor crónico.",
-    certifications: ["Diplomado en Obesidad", "Personal Trainer Certificado", "Inglés C1 Advanced"],
-    socials: ["@kilocalorias"],
-    photo: teamDaniel,
-  },
-  {
-    name: "Dr. Por Confirmar",
-    role: "Anestesiólogo",
-    specialty: "Anestesiología · Manejo del Dolor Perioperatorio",
-    location: "Maracaibo, Venezuela",
-    credentials: "Especialista en sedación y analgesia para procedimientos",
-    description:
-      "Manejo del dolor perioperatorio, sedación para procedimientos intervencionistas y soporte anestésico integral dentro del protocolo ALGOS.",
-    certifications: ["Anestesiología"],
-    photo: null,
-  },
-  {
-    name: "Dr. Por Confirmar",
-    role: "Traumatólogo",
-    specialty: "Traumatología · Ortopedia · Medicina Musculoesquelética",
-    location: "Maracaibo, Venezuela",
-    credentials: "Especialista en patología articular y traumatología",
-    description:
-      "Evaluación y tratamiento de patologías articulares, fracturas, lesiones musculoesqueléticas y rehabilitación ortopédica como parte del abordaje integral del dolor.",
-    certifications: ["Traumatología y Ortopedia"],
-    photo: null,
-  },
-  {
-    name: "Dr. Por Confirmar",
-    role: "Médico del Deporte",
-    specialty: "Medicina Deportiva · Rehabilitación · Rendimiento Físico",
-    location: "Maracaibo, Venezuela",
-    credentials: "Especialista en lesiones deportivas y rehabilitación",
-    description:
-      "Diagnóstico y tratamiento de lesiones deportivas, programas de rehabilitación funcional y optimización del rendimiento físico integrados al protocolo de dolor.",
-    certifications: ["Medicina del Deporte"],
-    photo: null,
-  },
-  {
-    name: "Dr. Por Confirmar",
-    role: "Especialista en Dolor",
-    specialty: "Medicina Intervencionista del Dolor · Dolor Crónico",
-    location: "Maracaibo, Venezuela",
-    credentials: "Especialista en manejo intervencionista del dolor crónico",
-    description:
-      "Manejo intervencionista del dolor crónico mediante técnicas guiadas por imagen, bloqueos nerviosos y terapias avanzadas dentro del ecosistema ALGOS.",
-    certifications: ["Medicina del Dolor"],
-    photo: null,
+    index: "03",
+    funcion: "Acompañan la recuperación",
+    especialidades: ["Fisiatría", "Nutrición clínica"],
+    nota: null,
   },
 ];
 
 export default function TeamSection() {
   return (
-    <section id="team" className="py-24 md:py-32 bg-card relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="scroll-reveal text-center mb-20">
-          <p className="text-secondary text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-            Equipo médico
+    <section
+      id="equipo"
+      style={{
+        backgroundColor: CREAM,
+        paddingTop: "clamp(80px, 10vw, 128px)",
+        paddingBottom: "clamp(80px, 10vw, 128px)",
+      }}
+    >
+      <div
+        className="mx-auto"
+        style={{
+          maxWidth: 1080,
+          paddingLeft: "clamp(24px, 4vw, 48px)",
+          paddingRight: "clamp(24px, 4vw, 48px)",
+        }}
+      >
+        {/* Header */}
+        <div style={{ marginBottom: "clamp(56px, 7vw, 88px)" }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: GOLD,
+              marginBottom: 20,
+            }}
+          >
+            EQUIPO
           </p>
-          <h2 className="text-3xl md:text-5xl font-extralight text-foreground leading-tight mb-6">
-            Equipo
-            <br />
-            <span className="font-light text-secondary">multidisciplinario</span>
+          <h2
+            style={{
+              fontFamily: "'Sora', serif",
+              fontWeight: 600,
+              fontSize: "clamp(26px, 3vw, 40px)",
+              lineHeight: 1.25,
+              color: DEEP_TEAL,
+              maxWidth: "42ch",
+              marginBottom: 20,
+            }}
+          >
+            En ALGOS la autoridad es el equipo.
           </h2>
-          <p className="text-muted-foreground font-light text-lg max-w-2xl mx-auto">
-            Especialistas en neurocirugía, nutrición, anestesiología, ortopedia
-            y medicina del deporte, bajo un mismo protocolo.
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(16px, 1.4vw, 18px)",
+              lineHeight: 1.7,
+              color: STEEL_TEAL,
+              maxWidth: "58ch",
+            }}
+          >
+            Cada caso recorre una ruta donde distintas especialidades colaboran — para diagnosticar
+            con precisión, intervenir con seguridad y acompañar en el tiempo.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {team.map((member, idx) => (
+        {/* Grupos */}
+        <div
+          className="flex flex-col"
+          style={{ gap: 2 }}
+        >
+          {grupos.map((g) => (
             <div
-              key={`${member.role}-${idx}`}
-              className={`scroll-reveal scroll-reveal-delay-${(idx % 3) + 1} group relative overflow-hidden rounded-2xl border border-border/50 bg-background hover:border-secondary/30 transition-all duration-500`}
+              key={g.index}
+              style={{
+                borderTop: `1px solid rgba(26, 74, 85, 0.14)`,
+                paddingTop: "clamp(28px, 3.5vw, 40px)",
+                paddingBottom: "clamp(28px, 3.5vw, 40px)",
+              }}
             >
-              <div className="relative h-48 bg-gradient-to-br from-primary/90 to-secondary/70 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_hsl(var(--secondary)/0.3),_transparent_60%)]" />
-                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-primary-foreground/20 flex items-center justify-center bg-primary/40">
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  ) : (
-                    <User className="w-12 h-12 text-primary-foreground/50" />
-                  )}
-                </div>
+              <div className="grid md:grid-cols-[80px_1fr_1fr] gap-8 md:gap-10 items-start">
+                {/* Index */}
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 13,
+                    color: "rgba(26, 74, 85, 0.3)",
+                    letterSpacing: "0.06em",
+                    paddingTop: 4,
+                  }}
+                >
+                  {g.index}
+                </span>
 
-                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/60 backdrop-blur-sm border border-primary-foreground/10">
-                  <MapPin className="w-3 h-3 text-primary-foreground/70" />
-                  <span className="text-xs text-primary-foreground/70 font-light">{member.location}</span>
-                </div>
+                {/* Función */}
+                <h3
+                  style={{
+                    fontFamily: "'Sora', serif",
+                    fontWeight: 600,
+                    fontSize: "clamp(18px, 1.8vw, 23px)",
+                    lineHeight: 1.3,
+                    color: DEEP_TEAL,
+                    margin: 0,
+                  }}
+                >
+                  {g.funcion}
+                </h3>
 
-                {member.location.includes("Alemania") && (
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30">
-                    <Globe className="w-3 h-3 text-accent" />
-                    <span className="text-xs text-accent font-medium">Alemania</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-8">
-                <div className="mb-1">
-                  <span className="text-xs tracking-[0.2em] uppercase text-secondary font-medium">{member.role}</span>
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-1">{member.name}</h3>
-                <p className="text-muted-foreground font-light text-sm mb-4">{member.specialty}</p>
-
-                <div className="flex items-start gap-2 mb-4 p-3 rounded-xl bg-accent/5 border border-accent/10">
-                  <GraduationCap className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                  <span className="text-sm text-accent/90 font-medium leading-snug">{member.credentials}</span>
-                </div>
-
-                <p className="text-muted-foreground font-light text-sm leading-relaxed mb-5">
-                  {member.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {member.certifications.map((cert) => (
-                    <div key={cert} className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-secondary/5 border border-secondary/10">
-                      <Award className="w-3 h-3 text-secondary/60" />
-                      <span className="text-xs text-secondary/80 font-light">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {"socials" in member && member.socials && (
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {member.socials.map((handle) => (
-                      <a
-                        key={handle}
-                        href={`https://instagram.com/${handle.replace("@", "")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-accent/70 hover:text-accent font-light transition-colors"
+                {/* Right column: especialidades + placeholder */}
+                <div>
+                  {/* Specialty pills */}
+                  <div className="flex flex-wrap" style={{ gap: 8, marginBottom: 20 }}>
+                    {g.especialidades.map((esp) => (
+                      <span
+                        key={esp}
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: 12,
+                          fontWeight: 500,
+                          color: STEEL_TEAL,
+                          backgroundColor: "rgba(26, 74, 85, 0.07)",
+                          border: "1px solid rgba(26, 74, 85, 0.14)",
+                          borderRadius: 3,
+                          padding: "4px 10px",
+                        }}
                       >
-                        {handle}
-                      </a>
+                        {esp}
+                      </span>
                     ))}
                   </div>
-                )}
+
+                  {/* Nota clínica */}
+                  {g.nota && (
+                    <p
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 13,
+                        lineHeight: 1.6,
+                        color: "rgba(26, 74, 85, 0.55)",
+                        marginBottom: 16,
+                        fontStyle: "italic",
+                      }}
+                    >
+                      {g.nota}
+                    </p>
+                  )}
+
+                  {/* Placeholder nombres */}
+                  <p
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 11,
+                      letterSpacing: "0.06em",
+                      color: "rgba(26, 74, 85, 0.28)",
+                      margin: 0,
+                    }}
+                  >
+                    Nombres y credenciales — próximamente
+                  </p>
+                </div>
               </div>
             </div>
           ))}
+
+          {/* Borde final */}
+          <div style={{ borderTop: "1px solid rgba(26, 74, 85, 0.14)" }} />
         </div>
+
+        {/* Nota al pie */}
+        <p
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 14,
+            lineHeight: 1.65,
+            color: "rgba(26, 74, 85, 0.55)",
+            maxWidth: "60ch",
+            marginTop: "clamp(40px, 5vw, 64px)",
+            paddingLeft: 20,
+            borderLeft: `2px solid rgba(198, 150, 54, 0.4)`,
+          }}
+        >
+          La neurocirugía en ALGOS no es la puerta al quirófano — es el criterio que sabe cuándo
+          la cirugía todavía no hace falta.
+        </p>
       </div>
     </section>
   );
