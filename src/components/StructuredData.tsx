@@ -15,9 +15,14 @@ export function MedicalProcedureSchema({ condition }: { condition: Condition }) 
       url: "https://algos.lovable.app",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "Av. 20 con Calle 65, N° 65-02, CC América, Local 4",
         addressLocality: "Maracaibo",
+        addressRegion: "Zulia",
+        postalCode: "4005",
         addressCountry: "VE",
       },
+      telephone: "+584146807886",
+      email: "info@algoscentrodolor.com",
     },
   };
   return (

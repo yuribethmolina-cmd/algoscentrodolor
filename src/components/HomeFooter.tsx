@@ -148,12 +148,23 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>DIRECCIÓN</p>
               <p style={blockValue}>
-                Sector Paraíso
+                CC América, Local N° 4
                 <br />
-                Maracaibo, Edo. Zulia
+                Av. 20 con Calle 65, N° 65-02
                 <br />
-                Venezuela
+                Sector Paraíso · Maracaibo
+                <br />
+                Estado Zulia, Venezuela
               </p>
+            </div>
+            <div style={{ marginBottom: 16 }}>
+              <p style={blockLabel}>TELÉFONOS</p>
+              <a href="tel:+584146807886" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
+                0414-680 7886
+              </a>
+              <a href="tel:+584120617410" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
+                0412-061 7410
+              </a>
             </div>
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>RED DIAGNÓSTICA</p>

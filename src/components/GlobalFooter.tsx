@@ -44,15 +44,15 @@ export default function GlobalFooter() {
             <div className="space-y-3">
               <a href="#" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <MapPin size={16} />
-                Torre RAB · Sector Paraíso, Maracaibo
+                CC América, Local 4 · Av. 20 con Calle 65 · Paraíso, Maracaibo
               </a>
-              <a href="tel:+584246467944" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
+              <a href="tel:+584146807886" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Phone size={16} />
-                +58 424 646 7944
+                0414-680 7886
               </a>
-              <a href="mailto:info@algos.com" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
+              <a href="mailto:info@algoscentrodolor.com" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Mail size={16} />
-                info@algos.com
+                info@algoscentrodolor.com
               </a>
             </div>
           </div>
