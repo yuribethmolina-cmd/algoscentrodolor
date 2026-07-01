@@ -29,7 +29,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal scroll-reveal-delay-1 p-6 rounded-2xl border border-border bg-card space-y-4">
               <Mail className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Email clínico</h3>
-              <a href="mailto:medicos@algos.com" className="text-secondary font-light hover:underline">medicos@algos.com</a>
+              <a href="mailto:info@algoscentrodolor.com" className="text-secondary font-light hover:underline">info@algoscentrodolor.com</a>
             </div>
             <div className="scroll-reveal scroll-reveal-delay-2 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MessageCircle className="w-8 h-8 text-secondary" />

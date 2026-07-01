@@ -44,8 +44,8 @@ const INFO_CARDS = [
   {
     Icon: MapPin,
     title: "Ubicación",
-    lines: ["Local 4 · Sector Paraíso", "Maracaibo, Venezuela"],
-    note: "[ Dirección exacta pendiente apertura Local 4 ]",
+    lines: ["CC América, Local N° 4", "Av. 20 con Calle 65, N° 65-02", "Sector Paraíso · Maracaibo"],
+    
   },
   {
     Icon: Clock,
@@ -55,14 +55,14 @@ const INFO_CARDS = [
   {
     Icon: Phone,
     title: "Teléfono",
-    lines: ["[ Teléfono real pendiente ]"],
-    note: "Configurar antes del launch público",
+    lines: ["0414-680 7886", "0412-061 7410"],
+    
   },
   {
     Icon: Mail,
     title: "Email",
-    email: "hola@algos.com",
-    note: "[ Email definitivo por confirmar ]",
+    email: "info@algoscentrodolor.com",
+    
   },
 ];
 
