@@ -210,7 +210,7 @@ export default function Tratamientos() {
                 </p>
                 <Link
                   to="/pacientes/agendar"
-                  className="inline-flex items-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded-full px-6 py-3 font-semibold text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
                 >
                   <span>Agendar valoración</span>
                   <span aria-hidden>→</span>
@@ -228,7 +228,7 @@ export default function Tratamientos() {
                 </p>
                 <Link
                   to="/medicos/referir"
-                  className="inline-flex items-center gap-2 bg-[#c69636] text-[#1a4a55] hover:gap-3 transition-all rounded-full px-6 py-3 font-semibold text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c69636] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
                 >
                   <span>Iniciar referencia</span>
                   <span aria-hidden>→</span>
