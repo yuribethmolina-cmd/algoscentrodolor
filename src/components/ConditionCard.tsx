@@ -62,7 +62,7 @@ export default function ConditionCard({ condition, view }: Props) {
 
   return (
     <Link to={`/tratamientos/${condition.slug}`} className="group block">
-      <article className="bg-white rounded-2xl border border-[#1a4a55]/10 p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#3d8b96]/30 h-full">
+      <article className="bg-white rounded-2xl border border-[#1a4a55]/10 p-8 md:p-10 transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full">
         {icon && (
           <div className="w-12 h-12 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-7">
             {icon}

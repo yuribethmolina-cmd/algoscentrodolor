@@ -59,7 +59,7 @@ export default function Navbar() {
         backdropFilter: "blur(8px)",
       }}
     >
-      <div className="container mx-auto flex items-center justify-between px-6" style={{ height: 120 }}>
+      <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-16 mdx:h-24">
         <Link
           to="/"
           aria-label="ALGOS · Inicio"
@@ -68,8 +68,7 @@ export default function Navbar() {
           <img
             src={algosLogo}
             alt="ALGOS — Centro de Dolor Intervencionista"
-            className="w-auto object-fill"
-            style={{ height: 100, display: "block" }}
+            className="h-9 mdx:h-[68px] w-auto object-contain"
           />
         </Link>
 
@@ -106,7 +105,7 @@ export default function Navbar() {
           })}
           <button
             onClick={() => handleNav("#solicitar")}
-            className="transition-all duration-200"
+            className="transition-colors duration-200 active:opacity-80"
             style={{
               backgroundColor: BRAND_TEAL,
               color: CREAM,
@@ -127,34 +126,37 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — 44×44px tap target */}
         <button
-          className="mdx:hidden"
+          className="mdx:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-lg transition-transform duration-150 active:scale-90"
           style={{ color: DEEP_TEAL }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          className="mdx:hidden animate-fade-in"
-          style={{
-            backgroundColor: CREAM,
-            borderTop: "1px solid rgba(26,74,85,0.12)",
-          }}
-        >
-          <div className="container mx-auto px-6 py-6 flex flex-col" style={{ gap: 12 }}>
+      {/* Mobile menu — always in DOM, animated via max-height + opacity */}
+      <div
+        className="mdx:hidden overflow-hidden"
+        style={{
+          backgroundColor: CREAM,
+          maxHeight: menuOpen ? "400px" : "0",
+          opacity: menuOpen ? 1 : 0,
+          pointerEvents: menuOpen ? "auto" : "none",
+          transition: "max-height 280ms cubic-bezier(0.23, 1, 0.32, 1), opacity 200ms ease-out",
+          borderTop: menuOpen ? "1px solid rgba(26,74,85,0.12)" : "1px solid transparent",
+        }}
+      >
+          <div className="container mx-auto px-4 py-5 flex flex-col" style={{ gap: 12 }}>
             {NAV_LINKS.map((link) => {
               const active = isActive(link);
               return (
                 <button
                   key={link.href}
                   onClick={() => handleNav(link.href)}
-                  className="text-left py-2"
+                  className="text-left py-2 transition-opacity duration-150 active:opacity-60"
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontSize: 16,
@@ -173,6 +175,7 @@ export default function Navbar() {
             })}
             <button
               onClick={() => handleNav("#solicitar")}
+              className="transition-colors duration-200 active:opacity-80"
               style={{
                 backgroundColor: BRAND_TEAL,
                 color: CREAM,
@@ -192,7 +195,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      )}
     </nav>
   );
 }
