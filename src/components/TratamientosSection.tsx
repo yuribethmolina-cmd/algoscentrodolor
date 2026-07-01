@@ -94,6 +94,17 @@ const serviciosAdicionales = [
       "Aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Indicado para la ciática por hernia discal lumbar cuando el dolor no ha cedido con otros tratamientos, como opción antes de plantearse la cirugía.",
     image: imgAboutProcedure,
     imageAlt: "Procedimiento de discólisis con ozono guiado por imagen",
+    isComingSoon: false,
+  },
+  {
+    category: "Dolor facetario · Artrosis",
+    title: "Radiofrecuencia",
+    bajada: "Alivio duradero del dolor articular y facetario.",
+    description:
+      "Calor controlado aplicado sobre el nervio que transmite el dolor. Ambulatorio. Indicado para dolor facetario cervical o lumbar confirmado por bloqueo diagnóstico, y para artrosis de rodilla.",
+    image: imgSalaProcedimientos,
+    imageAlt: "Sala de procedimientos — radiofrecuencia",
+    isComingSoon: true,
   },
 ];
 
@@ -322,7 +333,7 @@ export default function TratamientosSection() {
             ESTUDIOS Y OTROS TRATAMIENTOS
           </p>
           <div
-            className="grid grid-cols-1 md:grid-cols-3"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
             style={{
               backgroundColor: "rgba(245, 240, 232, 0.10)",
               border: "1px solid rgba(245, 240, 232, 0.12)",
@@ -335,11 +346,12 @@ export default function TratamientosSection() {
                 style={{
                   position: "relative",
                   overflow: "hidden",
-                  backgroundColor: DEEP_TEAL,
+                  backgroundColor: s.isComingSoon ? "rgba(26,74,85,0.55)" : DEEP_TEAL,
                   padding: "clamp(24px, 2.5vw, 36px)",
+                  opacity: s.isComingSoon ? 0.82 : 1,
                 }}
               >
-                {/* Background image — low opacity for context without losing legibility */}
+                {/* Background image */}
                 <img
                   src={s.image}
                   alt=""
@@ -351,32 +363,51 @@ export default function TratamientosSection() {
                     height: "100%",
                     objectFit: "cover",
                     objectPosition: "center",
-                    opacity: 0.13,
+                    opacity: 0.08,
                     mixBlendMode: "luminosity",
                   }}
                 />
                 {/* Content */}
                 <div style={{ position: "relative", zIndex: 1 }}>
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      color: GOLD,
-                      margin: 0,
-                      marginBottom: 10,
-                    }}
-                  >
-                    {s.category}
-                  </p>
+                  <div className="flex items-center justify-between" style={{ marginBottom: 10 }}>
+                    <p
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: "0.22em",
+                        textTransform: "uppercase",
+                        color: GOLD,
+                        margin: 0,
+                      }}
+                    >
+                      {s.category}
+                    </p>
+                    {s.isComingSoon && (
+                      <span
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: 9,
+                          fontWeight: 700,
+                          letterSpacing: "0.18em",
+                          textTransform: "uppercase",
+                          color: "rgba(245,240,232,0.5)",
+                          border: "1px solid rgba(245,240,232,0.2)",
+                          borderRadius: 2,
+                          padding: "2px 6px",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        PRÓXIMAMENTE
+                      </span>
+                    )}
+                  </div>
                   <h3
                     style={{
                       fontFamily: "'Sora', serif",
                       fontWeight: 600,
                       fontSize: "clamp(17px, 1.5vw, 21px)",
-                      color: CREAM,
+                      color: s.isComingSoon ? "rgba(245,240,232,0.65)" : CREAM,
                       margin: 0,
                       marginBottom: 6,
                       lineHeight: 1.2,
@@ -388,7 +419,7 @@ export default function TratamientosSection() {
                     style={{
                       fontFamily: "Inter, sans-serif",
                       fontSize: 12,
-                      color: "rgba(245, 240, 232, 0.50)",
+                      color: "rgba(245, 240, 232, 0.45)",
                       margin: 0,
                       marginBottom: 12,
                     }}
@@ -399,7 +430,7 @@ export default function TratamientosSection() {
                     style={{
                       fontFamily: "Inter, sans-serif",
                       fontSize: 14,
-                      color: "rgba(245, 240, 232, 0.70)",
+                      color: s.isComingSoon ? "rgba(245,240,232,0.45)" : "rgba(245, 240, 232, 0.70)",
                       lineHeight: 1.6,
                       margin: 0,
                     }}

@@ -319,7 +319,7 @@ export const CONDITIONS: Condition[] = [
         label: 'Infiltración intra-articular',
         technicalName: 'Infiltración intra-articular guiada por ecografía',
         description:
-          'Inyección de medicamento antiinflamatorio dentro de la articulación bajo guía ecográfica en tiempo real. La ecografía garantiza que el medicamento llegue exactamente donde debe, a diferencia de las infiltraciones a ciegas.',
+          'Inyección de medicamento antiinflamatorio dentro de la articulación bajo guía ecográfica en tiempo real. La imagen permite llegar con precisión al sitio exacto de la articulación, a diferencia de las infiltraciones a ciegas.',
       },
       {
         slug: 'viscosuplementacion',
@@ -329,7 +329,7 @@ export const CONDITIONS: Condition[] = [
           'Aplicación de ácido hialurónico dentro de la articulación para restaurar la lubricación perdida por el desgaste del cartílago. Indicada principalmente en artrosis de rodilla y cadera.',
       },
       {
-        slug: 'ozonoterapia-articular',
+        slug: 'ozono-articular',
         label: 'Ozono articular',
         technicalName: 'Infiltración articular de ozono médico guiada por ecografía',
         description:
@@ -460,7 +460,7 @@ export const PROCEDURES: Procedure[] = [
     usedFor: ['dolor-articular'],
   },
   {
-    slug: 'ozonoterapia-articular',
+    slug: 'ozono-articular',
     name: 'Ozono articular',
     technicalName: 'Infiltración articular de ozono médico guiada por ecografía',
     description:

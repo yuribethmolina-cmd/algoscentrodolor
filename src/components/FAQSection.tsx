@@ -47,6 +47,11 @@ const faqs = [
       "No es necesaria. Puede agendar su consulta directamente. Si viene referido por su médico, con gusto le hacemos llegar el informe de evaluación para que conozca la evolución de su paciente.",
   },
   {
+    question: "¿Cuál es el costo?",
+    answer:
+      "Contáctenos directamente para información sobre tarifas — estamos disponibles por WhatsApp o al correo info@algoscentrodolor.com.",
+  },
+  {
     question: "¿Cuánto tiempo tardaré en notar mejoría?",
     answer:
       "Depende del procedimiento: algunos producen alivio en los primeros días y otros, como la radiofrecuencia, alcanzan su efecto máximo en dos a cuatro semanas. En la consulta le explicamos con precisión qué esperar y en qué plazos en su caso específico.",
