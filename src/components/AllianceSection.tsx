@@ -29,7 +29,7 @@ const benefits: { number: string; title: string; body: BenefitBody; uduzHighligh
     number: "01",
     title: "DIAGNÓSTICO INTEGRADO",
     body: [
-      "El Dr. Atilio revisa tus imágenes antes de recibirte — sin pasos intermedios.",
+      "Nuestro equipo revisa tus imágenes antes de recibirte, sin pasos intermedios.",
     ],
     uduzHighlight: (
       <>
