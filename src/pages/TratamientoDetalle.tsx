@@ -10,11 +10,26 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { MedicalProcedureSchema, BreadcrumbSchema } from "@/components/StructuredData";
+import imgLumbar from "@/assets/tx-01-lumbar.jpg";
+import imgCervical from "@/assets/tx-02-cervical.jpg";
+import imgFacetario from "@/assets/about-procedure.jpg";
+import imgNeuropatia from "@/assets/tx-03-perif.jpg";
+import imgArticular from "@/assets/tx-04-eco.jpg";
+
+const HERO_IMAGES: Record<string, string> = {
+  "dolor-lumbar-ciatica": imgLumbar,
+  "dolor-cervical": imgCervical,
+  "dolor-facetario": imgFacetario,
+  "neuropatia": imgNeuropatia,
+  "dolor-articular": imgArticular,
+};
 
 export default function TratamientoDetalle() {
   const { slug } = useParams();
   const condition = CONDITIONS.find((c) => c.slug === slug);
   if (!condition) return <Navigate to="/tratamientos" replace />;
+
+  const heroImg = HERO_IMAGES[condition.slug];
 
   return (
     <div className="min-h-screen bg-cream">
@@ -34,24 +49,38 @@ export default function TratamientoDetalle() {
       <Navbar />
       <main>
         {/* SECCIÓN 1 · HERO */}
-        <section className="bg-cream pt-32 md:pt-40 pb-16 md:pb-20">
-          <div className="container mx-auto max-w-4xl px-6 md:px-12">
-            <Link
-              to="/tratamientos"
-              className="inline-flex items-center gap-2 text-[#1a4a55]/70 hover:text-[#c69636] text-sm font-medium mb-8 transition-colors"
-            >
-              <span aria-hidden>←</span>
-              <span>Todos los tratamientos</span>
-            </Link>
-            <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-6">
-              {condition.clinicalName}
-            </p>
-            <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
-              {condition.name}
-            </h1>
-            <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl">
-              {condition.patientDescription}
-            </p>
+        <section className="relative overflow-hidden min-h-[60vh] md:min-h-[65vh] flex items-center pt-32 md:pt-40 pb-16 md:pb-20">
+          {heroImg && (
+            <img
+              src={heroImg}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          )}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#f5f0e8]/97 via-[#f5f0e8]/85 to-[#f5f0e8]/20 md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/75 md:to-[#f5f0e8]/10"
+          />
+          <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12">
+            <div className="max-w-2xl">
+              <Link
+                to="/tratamientos"
+                className="inline-flex items-center gap-2 text-[#1a4a55]/70 hover:text-[#c69636] text-sm font-medium mb-8 transition-colors"
+              >
+                <span aria-hidden>←</span>
+                <span>Todos los tratamientos</span>
+              </Link>
+              <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-6">
+                {condition.clinicalName}
+              </p>
+              <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
+                {condition.name}
+              </h1>
+              <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed">
+                {condition.patientDescription}
+              </p>
+            </div>
           </div>
         </section>
 
