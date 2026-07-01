@@ -168,11 +168,6 @@ export default function Contacto() {
                       </p>
                     ))
                   )}
-                  {note && (
-                    <p className="text-[#1a4a55]/50 text-xs mt-3">
-                      {note}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>
