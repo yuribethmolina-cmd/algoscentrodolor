@@ -81,7 +81,7 @@ export default function Pacientes() {
         <section className="relative overflow-hidden bg-cream pt-32 pb-16 md:pt-[120px] md:pb-24">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/media/para-pacientes-hero.mp4"
+            src="/videos/pacientes-hero.mp4"
             autoPlay
             loop
             muted

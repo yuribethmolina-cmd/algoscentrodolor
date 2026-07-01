@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedHeadline } from "@/lib/animations";
-import heroVideoMobile from "@/assets/hero-mobile.mp4.asset.json";
-import heroVideoDesktop from "@/assets/hero-desktop.mp4.asset.json";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 
-// Decide which variant (or none) to load based on viewport + connection.
+const HERO_VIDEO_SRC = "/videos/hero-home.mp4";
+
+// Decide whether to load the video based on connection/motion preferences.
 function pickVideoSrc(): string | null {
   if (typeof window === "undefined") return null;
 
-  // Respect reduced-motion: skip video entirely, keep poster.
   if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
     return null;
   }
 
-  // Skip video on save-data or very slow networks.
   const conn = (navigator as any).connection;
   if (conn) {
     if (conn.saveData) return null;
@@ -24,8 +22,7 @@ function pickVideoSrc(): string | null {
     }
   }
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
-  return isMobile ? heroVideoMobile.url : heroVideoDesktop.url;
+  return HERO_VIDEO_SRC;
 }
 
 export default function HeroSection() {

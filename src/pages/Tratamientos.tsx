@@ -37,7 +37,7 @@ export default function Tratamientos() {
         <section className="relative overflow-hidden bg-cream min-h-[60vh] md:min-h-[55vh] flex items-center pt-32 md:pt-40">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/media/tratamientos-hero.mp4"
+            src="/videos/tratamientos-hero.mp4"
             autoPlay
             muted
             loop

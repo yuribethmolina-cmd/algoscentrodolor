@@ -22,7 +22,7 @@ export default function Medicos() {
             }}
             className="hero-bg-video absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}
-            src="/videos/hero-home-bg.mp4"
+            src="/videos/medicos-hero.mp4"
             autoPlay
             muted
             loop
