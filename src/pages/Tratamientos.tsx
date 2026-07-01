@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { CONDITIONS, PROCEDURES } from "@/data/treatments";
+import imgExperienceTech from "@/assets/experience-tech.jpg";
+import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg";
+import imgAboutProcedure from "@/assets/about-procedure.jpg";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import AudienceToggle, { useAudienceView } from "@/components/AudienceToggle";
@@ -137,6 +140,50 @@ export default function Tratamientos() {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* ESTUDIOS Y OTROS TRATAMIENTOS */}
+        <section className="bg-[#1a4a55] py-20 md:py-28">
+          <div className="container mx-auto max-w-7xl px-6 md:px-12">
+            <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-10">
+              ESTUDIOS Y OTROS TRATAMIENTOS
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#f5f0e8]/10">
+              {[
+                {
+                  category: "Electrodiagnóstico",
+                  title: "Electromiografía (EMG)",
+                  bajada: "Estudio de los nervios y los músculos.",
+                  description: "Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Confirma el origen de dolores con hormigueo, adormecimiento o debilidad, y le señala al especialista dónde está el problema para tratarlo con precisión.",
+                  image: imgExperienceTech,
+                },
+                {
+                  category: "Electrodiagnóstico",
+                  title: "Electroencefalograma (EEG)",
+                  bajada: "Estudio de la actividad eléctrica del cerebro.",
+                  description: "Registra la actividad eléctrica de su cerebro con electrodos sobre el cuero cabelludo. Estudio sencillo, no invasivo y sin dolor. Indicado ante convulsiones, episodios de desmayo, sospecha de epilepsia o seguimiento de condiciones neurológicas.",
+                  image: imgSalaProcedimientos,
+                },
+                {
+                  category: "Columna · Hernia discal",
+                  title: "Discólisis con ozono",
+                  bajada: "Tratamiento del dolor de disco sin cirugía.",
+                  description: "Aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Indicado para la ciática por hernia discal lumbar cuando el dolor no ha cedido con otros tratamientos.",
+                  image: imgAboutProcedure,
+                },
+              ].map((s) => (
+                <div key={s.title} className="relative overflow-hidden bg-[#1a4a55] p-8 md:p-10">
+                  <img src={s.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.13] mix-blend-luminosity" />
+                  <div className="relative z-10">
+                    <p className="font-ui font-bold text-[10px] tracking-[0.22em] uppercase text-[#c69636] mb-3">{s.category}</p>
+                    <h3 className="font-display font-semibold text-[#f5f0e8] text-xl mb-2 leading-snug">{s.title}</h3>
+                    <p className="font-sans text-xs text-[#f5f0e8]/50 mb-4">{s.bajada}</p>
+                    <p className="font-sans text-sm text-[#f5f0e8]/70 leading-relaxed">{s.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

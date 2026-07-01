@@ -44,25 +44,22 @@ const INFO_CARDS = [
   {
     Icon: MapPin,
     title: "Ubicación",
-    lines: ["CC América, Local N° 4", "Av. 20 con Calle 65, N° 65-02", "Sector Paraíso · Maracaibo"],
-    
+    lines: ["CC América, Local N° 4", "Av. 20 con Calle 65", "Sector Paraíso · Maracaibo"],
   },
   {
     Icon: Clock,
     title: "Horario",
-    lines: ["Lunes a viernes · 8:00 – 18:00", "Sábados · con cita previa"],
+    lines: ["Lunes a viernes", "8:00 – 18:00", "Sábados · cita previa"],
   },
   {
     Icon: Phone,
     title: "Teléfono",
     lines: ["0414-680 7886", "0412-061 7410"],
-    
   },
   {
     Icon: Mail,
     title: "Email",
     email: "info@algoscentrodolor.com",
-    
   },
 ];
 
@@ -142,28 +139,28 @@ export default function Contacto() {
                 Llámenos, escríbanos o visítenos.
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {INFO_CARDS.map(({ Icon, title, lines, email }) => (
                 <div
                   key={title}
-                  className="bg-cream rounded-2xl p-8 border border-[#1a4a55]/10"
+                  className="bg-cream rounded-2xl p-6 border border-[#1a4a55]/10"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <Icon className="w-6 h-6 text-[#c69636]" strokeWidth={1.75} />
-                    <h3 className="font-display font-semibold text-[#1a4a55] text-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Icon className="w-5 h-5 text-[#c69636] shrink-0" strokeWidth={1.75} />
+                    <h3 className="font-display font-semibold text-[#1a4a55] text-base">
                       {title}
                     </h3>
                   </div>
                   {email ? (
                     <a
                       href={`mailto:${email}`}
-                      className="text-[#1a4a55]/85 leading-relaxed hover:text-[#c69636] transition-colors"
+                      className="font-sans text-sm text-[#1a4a55]/85 leading-relaxed hover:text-[#c69636] transition-colors break-all"
                     >
                       {email}
                     </a>
                   ) : (
                     lines?.map((l) => (
-                      <p key={l} className="text-[#1a4a55]/85 leading-relaxed">
+                      <p key={l} className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
                         {l}
                       </p>
                     ))
