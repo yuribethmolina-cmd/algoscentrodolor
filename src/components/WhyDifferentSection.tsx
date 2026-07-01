@@ -32,7 +32,7 @@ const stats = [
 
 export default function WhyDifferentSection() {
   return (
-    <section className="py-16 md:py-20 bg-primary relative overflow-hidden">
+    <section className="py-16 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#1a4a55" }}>
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-secondary/[0.06] blur-3xl -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-3xl translate-y-1/2 -translate-x-1/3" />
