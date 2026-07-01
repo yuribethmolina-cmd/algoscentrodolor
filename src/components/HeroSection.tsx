@@ -60,7 +60,7 @@ export default function HeroSection() {
       id="hero"
       className="relative w-full h-screen min-h-[640px] overflow-hidden bg-cream"
     >
-      {/* Full-bleed video background — poster shows instantly, source lazy-loads */}
+      {/* Full-bleed video background — poster shows instantly, sources lazy-load */}
       <video
         key={videoSrc ?? "poster-only"}
         ref={(el) => {
@@ -72,7 +72,6 @@ export default function HeroSection() {
           }
         }}
         className="hero-bg-video absolute inset-0 w-full h-full object-cover object-center scale-100 md:origin-center md:object-[center_65%]"
-        src={videoSrc ?? undefined}
         poster={heroPoster.url}
         autoPlay
         muted
@@ -84,7 +83,14 @@ export default function HeroSection() {
         disableRemotePlayback
         preload="metadata"
         aria-hidden="true"
-      />
+      >
+        {videoSrc && (
+          <>
+            <source src={videoSrc.replace(".mp4", ".webm")} type="video/webm" />
+            <source src={videoSrc} type="video/mp4" />
+          </>
+        )}
+      </video>
 
       {/* Cream overlay — left to right */}
       <div

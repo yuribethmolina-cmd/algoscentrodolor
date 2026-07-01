@@ -37,13 +37,15 @@ export default function Tratamientos() {
         <section className="relative overflow-hidden bg-cream min-h-[60vh] md:min-h-[55vh] flex items-center pt-32 md:pt-40">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/videos/tratamientos-hero.mp4"
             autoPlay
             muted
             loop
             playsInline
             aria-hidden="true"
-          />
+          >
+            <source src="/videos/tratamientos-hero.webm" type="video/webm" />
+            <source src="/videos/tratamientos-hero.mp4" type="video/mp4" />
+          </video>
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f5f0e8]/95 via-[#f5f0e8]/80 to-[#f5f0e8]/40 md:from-[#f5f0e8]/90 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/30" />
           <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12 py-12 md:py-16">
             <div className="max-w-3xl">

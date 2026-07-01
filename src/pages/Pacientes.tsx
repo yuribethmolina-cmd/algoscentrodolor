@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 
-const WHATSAPP_PACIENTES = "https://wa.me/584140000000";
+const WHATSAPP_PACIENTES = "https://wa.me/584246467944";
 
 const CARDS = [
   {
@@ -81,14 +81,15 @@ export default function Pacientes() {
         <section className="relative overflow-hidden bg-cream pt-32 pb-16 md:pt-[120px] md:pb-24">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/videos/pacientes-hero.mp4"
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
             aria-hidden="true"
-          />
+          >
+            <source src="/videos/pacientes-hero.webm" type="video/webm" />
+            <source src="/videos/pacientes-hero.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-cream/75 md:bg-cream/70" aria-hidden="true" />
           <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10 md:gap-16 items-center">

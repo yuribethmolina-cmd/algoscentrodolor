@@ -22,7 +22,6 @@ export default function Medicos() {
             }}
             className="hero-bg-video absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}
-            src="/videos/medicos-hero.mp4"
             autoPlay
             muted
             loop
@@ -31,9 +30,11 @@ export default function Medicos() {
             webkit-playsinline="true"
             x5-playsinline="true"
             disableRemotePlayback
-            preload="auto"
             aria-hidden="true"
-          />
+          >
+            <source src="/videos/medicos-hero.webm" type="video/webm" />
+            <source src="/videos/medicos-hero.mp4" type="video/mp4" />
+          </video>
           {/* Cream overlay encima del video */}
           <div
             aria-hidden="true"
