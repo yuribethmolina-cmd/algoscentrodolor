@@ -5,7 +5,7 @@ import tx02Cervical from "@/assets/tx-02-cervical.jpg";
 import tx03Perif from "@/assets/tx-03-perif.jpg";
 import tx04Eco from "@/assets/tx-04-eco.jpg";
 
-const CARD_CONDITION_SLUGS = ["dolor-lumbar", "dolor-cervical", "lesion-deportiva", "dolor-articular"];
+const CARD_CONDITION_SLUGS = ["dolor-lumbar-ciatica", "dolor-cervical", "neuropatia", "dolor-articular"];
 
 const DEEP_TEAL = "#1a4a55";
 const DEEP_TEAL_HOVER = "#18434d";
@@ -90,17 +90,17 @@ const serviciosAdicionales = [
 
 const cards: Card[] = [
   {
-    category: "Columna · Lumbar",
+    category: "Columna · Lumbar y ciática",
     index: "01 / 04",
     headline: (
       <>
-        Bloqueo facetario lumbar <span className="font-normal">L4–L5</span>
+        Bloqueo radicular lumbar <span className="font-normal">y ciática</span>
       </>
     ),
     indication:
-      "Para dolor crónico de origen articular en la columna lumbar baja, con o sin irradiación a la cadera.",
+      "Para dolor lumbar con irradiación a la pierna (ciática) causado por hernia discal o compresión de raíz nerviosa.",
     technique:
-      "infiltración facetaria guiada por fluoroscopia · ambulatorio · sin anestesia general.",
+      "bloqueo radicular guiado por fluoroscopia o tomografía · ambulatorio · anestesia local.",
     uduzRef: "Rayos X lumbar desde $8 · Tomografía desde $25 en UDUZ Paraíso",
 
     svg: (
@@ -148,18 +148,18 @@ const cards: Card[] = [
     ),
   },
   {
-    category: "Sistema nervioso · Periférico",
+    category: "Sistema nervioso · Neuropatía",
     index: "03 / 04",
     headline: (
       <>
-        Bloqueo de nervio <span className="font-normal">periférico</span>
+        Neuropatía <span className="font-normal">diabética y periférica</span>
       </>
     ),
     indication:
-      "Para neuralgias periféricas, dolor postquirúrgico persistente y síndromes regionales complejos.",
+      "Para dolor, hormigueo o adormecimiento en pies y manos causado por daño en nervios periféricos, frecuentemente asociado a diabetes.",
     technique:
-      "bloqueo guiado por ultrasonido · localización precisa · ambulatorio.",
-    uduzRef: "Ecografía diagnóstica para confirmar neuropatía disponible en UDUZ Paraíso desde $15",
+      "EMG diagnóstico · bloqueo de nervio periférico guiado por ecografía · ambulatorio.",
+    uduzRef: "EMG disponible en ALGOS · Ecografía desde $15 en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 18 32 Q 50 56, 70 70 Q 92 86, 110 84 Q 130 82, 150 92" fill="none" stroke={strokeCream} strokeWidth={1.5} />

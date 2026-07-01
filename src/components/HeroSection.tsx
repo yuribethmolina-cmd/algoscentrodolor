@@ -121,8 +121,8 @@ export default function HeroSection() {
               maxWidth: "18ch",
             }}
             chunks={[
-              { text: "Tratamiento del dolor sin cirugía, sin " },
-              { text: "hospitalización.", italic: true, color: "#9a7320", staggerMs: 120 },
+              { text: "El dolor tiene causa. " },
+              { text: "Nosotros la tratamos.", italic: true, color: "#9a7320", staggerMs: 120 },
             ]}
           />
 

@@ -147,7 +147,7 @@ export default function Tratamientos() {
                   PACIENTES
                 </p>
                 <h3 className="font-display font-semibold text-2xl md:text-3xl mb-3">
-                  ¿Listo para evaluar tu caso?
+                  ¿Listo para evaluar su caso?
                 </h3>
                 <p className="text-[#f5f0e8]/90 mb-8 leading-relaxed">
                   Primera valoración con un especialista del equipo. Sin compromiso.
