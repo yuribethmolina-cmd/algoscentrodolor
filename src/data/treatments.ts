@@ -376,6 +376,441 @@ export const CONDITIONS: Condition[] = [
       },
     ],
   },
+  {
+    slug: 'hernia-discal',
+    name: 'Hernia discal',
+    clinicalName: 'HERNIA DE DISCO LUMBAR · PROTRUSIÓN DISCAL',
+    patientDescription:
+      'Cuando el núcleo del disco intervertebral sale de su posición y comprime una raíz nerviosa, generando dolor en la espalda baja con irradiación al glúteo o la pierna.',
+    clinicalDescription:
+      'Hernia discal lumbar con compromiso radicular · protrusión discal · síndrome de compresión radicular L4–S1',
+    procedures: [
+      {
+        slug: 'discolisis-con-ozono',
+        label: 'Discólisis con ozono',
+        technicalName: 'Discólisis con ozono médico guiada por imagen',
+        description:
+          'Aplicación de ozono médico en el disco, guiada por fluoroscopia o tomografía, para reducir el volumen de la hernia y la inflamación que comprime la raíz nerviosa.',
+      },
+      {
+        slug: 'bloqueo-radicular-lumbar',
+        label: 'Bloqueo radicular',
+        technicalName: 'Bloqueo radicular lumbar selectivo guiado por imagen',
+        description:
+          'Inyección de antiinflamatorio alrededor de la raíz nerviosa afectada para reducir la inflamación que genera el dolor irradiado.',
+      },
+      {
+        slug: 'infiltracion-epidural-lumbar',
+        label: 'Infiltración epidural',
+        technicalName: 'Infiltración epidural lumbar guiada por fluoroscopia',
+        description:
+          'Inyección de corticoide en el espacio epidural para reducir la inflamación general que rodea la hernia.',
+      },
+    ],
+    whatIs:
+      'Los discos intervertebrales actúan como amortiguadores entre las vértebras. Cuando el núcleo gelatinoso de un disco se desplaza hacia el canal espinal, puede comprimir las raíces nerviosas que salen de la columna, generando dolor local y dolor irradiado hacia la pierna — lo que se conoce como ciática.\n\nLa hernia discal lumbar es una de las causas más frecuentes de dolor de espalda con irradiación. En la mayoría de los casos no requiere cirugía: los procedimientos mínimamente invasivos guiados por imagen pueden reducir la inflamación que genera el dolor y permitir que el nervio se recupere.',
+    symptoms: [
+      'Dolor en la zona lumbar que se irradia hacia el glúteo, el muslo o la pierna',
+      'Hormigueo, adormecimiento o corrientazos en la pierna o el pie',
+      'Debilidad en la pierna o dificultad para levantar el pie',
+      'Dolor que empeora al sentarse o al toser y mejora al caminar',
+    ],
+    whenToConsider: [
+      'Cuando el dolor irradiado no cede con reposo ni medicamentos orales',
+      'Cuando la imagen (resonancia o tomografía) confirma hernia con compromiso de raíz',
+      'Cuando se quiere explorar opciones antes de plantearse la cirugía',
+    ],
+    whatToExpect: [
+      'Evaluación clínica y revisión de imágenes diagnósticas previas',
+      'Procedimiento ambulatorio guiado por imagen con anestesia local',
+      'Alta el mismo día · indicaciones escritas al salir',
+    ],
+    faq: [
+      {
+        q: '¿La discólisis con ozono cura la hernia?',
+        a: 'El objetivo no es "curar" la hernia en el sentido de hacerla desaparecer, sino reducir la inflamación que genera el dolor y permitir que el nervio funcione mejor. En muchos pacientes se logra mejoría significativa sin necesidad de cirugía.',
+      },
+      {
+        q: '¿Puedo evitar la operación?',
+        a: 'En una proporción importante de casos, sí. Los procedimientos mínimamente invasivos están indicados precisamente para agotar las opciones antes de la cirugía. El especialista evaluará su caso específico.',
+      },
+    ],
+  },
+  {
+    slug: 'cirugia-fallida-espalda',
+    name: 'Cirugía fallida de espalda',
+    clinicalName: 'SÍNDROME DE CIRUGÍA FALLIDA DE COLUMNA · FBSS',
+    patientDescription:
+      'Dolor persistente o recurrente en la columna después de una cirugía de espalda que no produjo el alivio esperado.',
+    clinicalDescription:
+      'Failed back surgery syndrome (FBSS) · dolor postquirúrgico de columna · fibrosis epidural · aracnoiditis postoperatoria',
+    procedures: [
+      {
+        slug: 'bloqueo-radicular-lumbar',
+        label: 'Bloqueo radicular',
+        technicalName: 'Bloqueo radicular lumbar selectivo guiado por imagen',
+        description:
+          'Inyección de antiinflamatorio alrededor de la raíz nerviosa para reducir la inflamación residual posterior a la cirugía.',
+      },
+      {
+        slug: 'infiltracion-epidural-lumbar',
+        label: 'Infiltración epidural',
+        technicalName: 'Infiltración epidural lumbar guiada por fluoroscopia',
+        description:
+          'Inyección en el espacio epidural para tratar la inflamación que persiste tras la intervención quirúrgica.',
+      },
+      {
+        slug: 'emg',
+        label: 'EMG diagnóstico',
+        technicalName: 'Electromiografía diagnóstica',
+        description:
+          'Estudio neurofisiológico para evaluar el estado de los nervios y confirmar si hay compromiso radicular persistente.',
+      },
+    ],
+    whatIs:
+      'El síndrome de cirugía fallida de columna describe la situación en la que una persona continúa con dolor después de una operación de espalda — ya sea porque el dolor no mejoró, porque volvió después de un período de alivio, o porque apareció dolor en una localización diferente.\n\nLas causas son variadas: fibrosis epidural (tejido cicatricial), recidiva de la hernia, inestabilidad segmentaria, o simplemente que el dolor tenía un origen que la cirugía no resolvió. El abordaje intervencionista puede ofrecer alternativas de manejo sin necesidad de nuevas intervenciones quirúrgicas.',
+    symptoms: [
+      'Dolor lumbar persistente igual o similar al previo a la cirugía',
+      'Dolor irradiado a la pierna que reaparece o no desapareció',
+      'Adormecimiento o debilidad que persiste tras la operación',
+      'Dolor que empeora con la actividad y mejora con el reposo',
+    ],
+    whenToConsider: [
+      'Cuando han pasado al menos 3–6 meses desde la cirugía y el dolor persiste',
+      'Cuando se quiere evaluar alternativas antes de una segunda cirugía',
+      'Cuando el dolor postoperatorio afecta la calidad de vida y la funcionalidad',
+    ],
+    whatToExpect: [
+      'Revisión detallada de historial quirúrgico e imágenes previas y actuales',
+      'Evaluación neurofisiológica si está indicada',
+      'Plan individualizado de manejo intervencionista según el origen del dolor',
+    ],
+    faq: [
+      {
+        q: '¿Pueden hacerme algo después de que ya me operaron?',
+        a: 'Sí. El hecho de haber tenido una cirugía no impide los procedimientos intervencionistas. En muchos casos son precisamente los pacientes postquirúrgicos quienes más se benefician de este enfoque.',
+      },
+      {
+        q: '¿Necesito operarme de nuevo?',
+        a: 'No necesariamente. El objetivo de la evaluación es determinar si el origen del dolor puede tratarse con opciones menos invasivas. La indicación de una nueva cirugía se toma con criterio clínico estricto.',
+      },
+    ],
+  },
+  {
+    slug: 'dolor-radicular',
+    name: 'Dolor radicular',
+    clinicalName: 'RADICULOPATÍA · SÍNDROME RADICULAR LUMBAR O CERVICAL',
+    patientDescription:
+      'Dolor que sigue el trayecto de un nervio desde la columna hacia el brazo o la pierna, con frecuencia acompañado de hormigueo o adormecimiento.',
+    clinicalDescription:
+      'Radiculopatía lumbar o cervical por compresión de raíz nerviosa · síndrome radicular agudo o crónico',
+    procedures: [
+      {
+        slug: 'bloqueo-radicular-lumbar',
+        label: 'Bloqueo radicular lumbar',
+        technicalName: 'Bloqueo radicular lumbar selectivo guiado por imagen',
+        description:
+          'Inyección de antiinflamatorio alrededor de la raíz nerviosa lumbar afectada.',
+      },
+      {
+        slug: 'bloqueo-radicular-cervical',
+        label: 'Bloqueo radicular cervical',
+        technicalName: 'Bloqueo radicular cervical selectivo guiado por imagen',
+        description:
+          'Inyección perirradicular en la columna cervical para tratar el dolor que irradia hacia el hombro o el brazo.',
+      },
+    ],
+    whatIs:
+      'El dolor radicular ocurre cuando una raíz nerviosa que sale de la columna vertebral se comprime o irrita — por una hernia discal, artrosis, estenosis u otras causas. El dolor "viaja" por el trayecto del nervio afectado: desde la columna lumbar hacia la pierna (ciática), o desde la columna cervical hacia el hombro y el brazo.\n\nA diferencia del dolor muscular, el dolor radicular tiene un patrón específico que sigue el territorio del nervio comprimido. Puede acompañarse de hormigueo, adormecimiento o pérdida de fuerza en la zona afectada.',
+    symptoms: [
+      'Dolor que irradia desde la columna hacia la pierna (lumbar) o el brazo (cervical)',
+      'Hormigueo o corrientazos en la extremidad afectada',
+      'Adormecimiento en el trayecto del nervio',
+      'Debilidad muscular en casos más severos',
+    ],
+    whenToConsider: [
+      'Cuando el dolor irradiado persiste más de 4–6 semanas con tratamiento conservador',
+      'Cuando la imagen confirma compresión de raíz nerviosa',
+      'Cuando el dolor limita la movilidad o las actividades diarias',
+    ],
+    whatToExpect: [
+      'Evaluación clínica y revisión de imágenes diagnósticas',
+      'Procedimiento ambulatorio guiado por fluoroscopia o tomografía',
+      'Alivio del componente inflamatorio que genera el dolor irradiado',
+    ],
+    faq: [
+      {
+        q: '¿Es lo mismo que la ciática?',
+        a: 'La ciática es un tipo de dolor radicular: la irritación del nervio ciático que genera dolor desde la zona lumbar hacia la pierna. El término radicular es más amplio e incluye también las raíces del cuello que irradian hacia el brazo.',
+      },
+    ],
+  },
+  {
+    slug: 'dolor-sacroiliaco',
+    name: 'Dolor sacroilíaco',
+    clinicalName: 'DISFUNCIÓN DE LA ARTICULACIÓN SACROILÍACA',
+    patientDescription:
+      'Dolor en la parte baja de la espalda o la nalga, a veces irradiado al muslo, originado en la articulación que une la columna con la pelvis.',
+    clinicalDescription:
+      'Síndrome de la articulación sacroilíaca · sacroileítis · disfunción sacroilíaca crónica',
+    procedures: [
+      {
+        slug: 'bloqueo-sacroiliaco',
+        label: 'Bloqueo sacroilíaco',
+        technicalName: 'Infiltración de la articulación sacroilíaca guiada por imagen',
+        description:
+          'Inyección de antiinflamatorio dentro de la articulación sacroilíaca bajo guía de fluoroscopia o ecografía para reducir la inflamación y el dolor.',
+      },
+    ],
+    whatIs:
+      'La articulación sacroilíaca conecta la columna lumbar con la pelvis a través del sacro. Cuando esta articulación se inflama o pierde su movilidad normal, genera dolor en la región lumboglútea que puede confundirse con una hernia discal o ciática.\n\nEl dolor sacroilíaco es frecuente tras embarazos, traumatismos pelvianos, o como consecuencia de patologías inflamatorias. La guía por imagen permite confirmar que el dolor proviene de esta articulación y actuar directamente sobre ella.',
+    symptoms: [
+      'Dolor sordo en la zona lumbar baja o la nalga, generalmente unilateral',
+      'Dolor que empeora al estar de pie prolongado o al subir escaleras',
+      'Molestia al girar en la cama o al cruzar las piernas',
+      'Irradiación ocasional al muslo posterior',
+    ],
+    whenToConsider: [
+      'Cuando el dolor lumboglúteo persiste sin mejora con el tratamiento habitual',
+      'Cuando los estudios de imagen de la columna no explican el dolor',
+      'Cuando hay antecedente de embarazo reciente o traumatismo pelviano',
+    ],
+    whatToExpect: [
+      'Evaluación clínica con pruebas específicas de provocación de la articulación',
+      'Procedimiento ambulatorio guiado por imagen · anestesia local',
+      'Alta el mismo día',
+    ],
+    faq: [
+      {
+        q: '¿Cómo saben que el dolor viene de esa articulación?',
+        a: 'Se realiza una evaluación clínica con maniobras específicas de provocación y, en muchos casos, un bloqueo diagnóstico: si la inyección alivia el dolor de forma significativa, confirma que esa articulación es la fuente.',
+      },
+    ],
+  },
+  {
+    slug: 'estenosis-canal-lumbar',
+    name: 'Estenosis de canal lumbar',
+    clinicalName: 'ESTENOSIS DEL CANAL ESPINAL LUMBAR',
+    patientDescription:
+      'Estrechamiento del canal por donde pasan los nervios de la columna, que genera dolor o cansancio en las piernas al caminar.',
+    clinicalDescription:
+      'Estenosis espinal lumbar degenerativa · claudicación neurógena · síndrome del canal estrecho',
+    procedures: [
+      {
+        slug: 'infiltracion-epidural-lumbar',
+        label: 'Infiltración epidural',
+        technicalName: 'Infiltración epidural lumbar guiada por fluoroscopia',
+        description:
+          'Inyección de antiinflamatorio en el espacio epidural para reducir la inflamación que agrava la compresión nerviosa.',
+      },
+      {
+        slug: 'bloqueo-radicular-lumbar',
+        label: 'Bloqueo radicular',
+        technicalName: 'Bloqueo radicular lumbar selectivo guiado por imagen',
+        description:
+          'Inyección dirigida a la raíz nerviosa más afectada para mejorar la tolerancia al dolor y a la marcha.',
+      },
+    ],
+    whatIs:
+      'La estenosis del canal lumbar es el estrechamiento del espacio por donde pasan los nervios que van hacia las piernas. Con el envejecimiento o el desgaste de la columna, ligamentos, discos y hueso pueden reducir ese espacio, comprimiendo las raíces nerviosas.\n\nEl síntoma característico es la claudicación neurógena: dificultad para caminar distancias largas por cansancio o dolor en las piernas que cede al sentarse o inclinarse hacia adelante. Las opciones intervencionistas pueden mejorar la función sin necesidad de cirugía.',
+    symptoms: [
+      'Dolor o cansancio en las piernas al caminar que obliga a detenerse',
+      'Mejoría al sentarse o inclinarse hacia adelante',
+      'Adormecimiento u hormigueo en los muslos o las piernas',
+      'Dolor lumbar de fondo, variable',
+    ],
+    whenToConsider: [
+      'Cuando la limitación para caminar afecta la calidad de vida',
+      'Cuando la imagen confirma estenosis espinal significativa',
+      'Cuando se quiere una alternativa menos invasiva antes de plantearse la descompresión quirúrgica',
+    ],
+    whatToExpect: [
+      'Revisión de resonancia magnética o tomografía de columna lumbar',
+      'Procedimiento ambulatorio guiado por imagen · anestesia local',
+      'Seguimiento de la respuesta funcional y el plan de manejo',
+    ],
+    faq: [
+      {
+        q: '¿Con estos procedimientos se ensancha el canal?',
+        a: 'No. Los procedimientos no corrigen la estructura del canal, sino que reducen la inflamación que agrava la compresión y mejoran la tolerancia al dolor. En muchos pacientes eso es suficiente para recuperar funcionalidad significativa.',
+      },
+    ],
+  },
+  {
+    slug: 'dolor-miofascial',
+    name: 'Dolor miofascial',
+    clinicalName: 'SÍNDROME DE DOLOR MIOFASCIAL · PUNTOS GATILLO',
+    patientDescription:
+      'Dolor muscular crónico localizado en un músculo o grupo muscular, con puntos muy sensibles al tacto que generan dolor local e irradiado.',
+    clinicalDescription:
+      'Síndrome miofascial · puntos gatillo activos (trigger points) · mialgia regional crónica',
+    procedures: [
+      {
+        slug: 'bloqueo-nervio-periferico',
+        label: 'Infiltración de punto gatillo',
+        technicalName: 'Infiltración de punto gatillo guiada por ecografía',
+        description:
+          'Inyección dirigida en el punto de máxima tensión muscular para desactivar el foco de dolor e inflamación local.',
+      },
+    ],
+    whatIs:
+      'El síndrome miofascial se caracteriza por la presencia de puntos gatillo: zonas de hiperirritabilidad dentro del músculo que, al comprimirse, generan un dolor referido en un patrón reconocible. Son frecuentes en el trapecio, el cuadrado lumbar, el glúteo y los músculos del cuello.\n\nEste tipo de dolor suele interpretarse como tensión muscular simple, pero puede ser persistente y limitante cuando los puntos gatillo están activos. La infiltración guiada por ecografía permite llegar con precisión al punto exacto.',
+    symptoms: [
+      'Dolor muscular sordo y persistente en una región específica',
+      'Presencia de nódulos o bandas tensas palpables en el músculo',
+      'Dolor que se irradia en un patrón reconocible al presionar el punto sensible',
+      'Rigidez y limitación de movimiento en la zona afectada',
+    ],
+    whenToConsider: [
+      'Cuando el dolor muscular persiste a pesar de fisioterapia y medicamentos',
+      'Cuando hay puntos gatillo activos identificables en la exploración clínica',
+      'Cuando el dolor limita el sueño, el trabajo o las actividades habituales',
+    ],
+    whatToExpect: [
+      'Identificación clínica y por imagen de los puntos gatillo activos',
+      'Procedimiento ambulatorio · anestesia local · ecografía en tiempo real',
+      'Alta inmediata con indicaciones de movilización progresiva',
+    ],
+    faq: [
+      {
+        q: '¿Es lo mismo que la fibromialgia?',
+        a: 'No. La fibromialgia es un síndrome de sensibilización central con dolor generalizado. El síndrome miofascial es dolor localizado por puntos gatillo en músculos específicos. Pueden coexistir, pero son condiciones diferentes.',
+      },
+    ],
+  },
+  {
+    slug: 'neuralgia-posherpetica',
+    name: 'Neuralgia postherpética',
+    clinicalName: 'NEURALGIA POSTHERPÉTICA · DOLOR POR HERPES ZÓSTER',
+    patientDescription:
+      'Dolor persistente en la zona donde aparecieron las ampollas del herpes zóster (culebrilla), que continúa semanas o meses después de que las lesiones de la piel cicatrizaron.',
+    clinicalDescription:
+      'Neuralgia postherpética · dolor neuropático por varicella-zoster · alodinia postherpética',
+    procedures: [
+      {
+        slug: 'bloqueo-nervio-periferico',
+        label: 'Bloqueo nervioso',
+        technicalName: 'Bloqueo del nervio afectado guiado por ecografía',
+        description:
+          'Infiltración anestésica y antiinflamatoria alrededor del nervio dañado por el herpes para reducir la señal de dolor.',
+      },
+    ],
+    whatIs:
+      'El herpes zóster (culebrilla) es la reactivación del virus varicela-zóster, que permanece dormido en los ganglios nerviosos tras haber tenido varicela. Cuando se reactiva, produce una erupción con ampollas dolorosas que sigue el trayecto de un nervio.\n\nEn algunas personas, especialmente mayores de 60 años, el dolor persiste después de que las lesiones de la piel han cicatrizado. Ese dolor residual — la neuralgia postherpética — puede ser intenso, continuo o eléctrico, y responde de forma limitada a los analgésicos convencionales. El bloqueo nervioso es una opción para modular ese dolor.',
+    symptoms: [
+      'Dolor urente, punzante o eléctrico en la zona donde estuvo el sarpullido',
+      'Hipersensibilidad al tacto: incluso la ropa puede generar dolor (alodinia)',
+      'Picazón persistente o sensación de corrientazos',
+      'El dolor sigue el trayecto del nervio afectado, habitualmente en un solo lado',
+    ],
+    whenToConsider: [
+      'Cuando el dolor persiste más de 3 meses después de que cicatrizaron las lesiones',
+      'Cuando la medicación oral no controla el dolor de forma adecuada',
+      'Cuando el dolor afecta el sueño o la calidad de vida de forma significativa',
+    ],
+    whatToExpect: [
+      'Evaluación clínica del patrón de dolor y zona afectada',
+      'Procedimiento ambulatorio guiado por ecografía · anestesia local',
+      'Plan de seguimiento para evaluar respuesta y ajustar el manejo',
+    ],
+    faq: [
+      {
+        q: '¿Es tarde si ya pasaron varios meses desde la culebrilla?',
+        a: 'No necesariamente. Aunque los mejores resultados se obtienen en fases tempranas, los bloqueos nerviosos pueden ser útiles incluso en neuralgias de larga evolución. La evaluación clínica determinará qué opciones son apropiadas para su caso.',
+      },
+    ],
+  },
+  {
+    slug: 'tunel-carpiano',
+    name: 'Túnel carpiano',
+    clinicalName: 'SÍNDROME DEL TÚNEL CARPIANO',
+    patientDescription:
+      'Hormigueo, adormecimiento o dolor en la mano y los dedos causado por la compresión del nervio mediano en la muñeca.',
+    clinicalDescription:
+      'Síndrome del túnel carpiano · neuropatía del nervio mediano · compresión del nervio mediano en el ligamento transverso del carpo',
+    procedures: [
+      {
+        slug: 'emg',
+        label: 'EMG diagnóstico',
+        technicalName: 'Electromiografía — estudio de conducción nerviosa',
+        description:
+          'Estudio neurofisiológico que mide la velocidad de conducción del nervio mediano y confirma la gravedad de la compresión.',
+      },
+      {
+        slug: 'bloqueo-nervio-periferico',
+        label: 'Infiltración del túnel carpiano',
+        technicalName: 'Infiltración del túnel carpiano guiada por ecografía',
+        description:
+          'Inyección de antiinflamatorio en el túnel carpiano bajo guía ecográfica en tiempo real para reducir la inflamación que comprime el nervio.',
+      },
+    ],
+    whatIs:
+      'El nervio mediano pasa por el túnel carpiano — un canal estrecho en la muñeca formado por huesos y un ligamento. Cuando ese túnel se estrecha o sus contenidos se inflaman, el nervio se comprime y genera síntomas en la mano: hormigueo, adormecimiento y dolor, especialmente de noche.\n\nEl diagnóstico se confirma con electromiografía (EMG). En casos moderados, la infiltración guiada por ecografía puede reducir la inflamación y aliviar los síntomas sin necesidad de cirugía.',
+    symptoms: [
+      'Hormigueo o adormecimiento en los dedos pulgar, índice, medio y la mitad del anular',
+      'Dolor en la mano o la muñeca que empeora por la noche',
+      'Sensación de que la mano está "dormida" al despertar',
+      'Debilidad para agarrar objetos en casos avanzados',
+    ],
+    whenToConsider: [
+      'Cuando los síntomas persisten y afectan el sueño o el trabajo',
+      'Cuando el EMG confirma compresión del nervio mediano',
+      'Cuando se quiere una opción antes de plantearse la cirugía de descompresión',
+    ],
+    whatToExpect: [
+      'EMG para confirmar diagnóstico y graduar la severidad',
+      'Infiltración ambulatoria guiada por ecografía · anestesia local',
+      'Alta el mismo día · indicaciones de actividad',
+    ],
+    faq: [
+      {
+        q: '¿Tengo que operarme del túnel carpiano?',
+        a: 'No en todos los casos. En formas leves a moderadas, la infiltración puede ofrecer alivio sostenido. En formas severas con daño nervioso establecido, la cirugía es la opción indicada. El EMG y la evaluación clínica orientan esa decisión.',
+      },
+    ],
+  },
+  {
+    slug: 'cefaleas',
+    name: 'Cefaleas',
+    clinicalName: 'CEFALEA CERVICOGÉNICA · NEURALGIA OCCIPITAL',
+    patientDescription:
+      'Dolor de cabeza originado en la columna cervical o en los nervios occipitales, que puede confundirse con migraña pero tiene un origen mecánico tratable.',
+    clinicalDescription:
+      'Cefalea cervicogénica · neuralgia occipital mayor y menor · cefalea por disfunción facetaria cervical',
+    procedures: [
+      {
+        slug: 'bloqueo-radicular-cervical',
+        label: 'Bloqueo occipital / cervical',
+        technicalName: 'Bloqueo del nervio occipital mayor guiado por ecografía',
+        description:
+          'Inyección perineural en los nervios occipitales o en las raíces cervicales altas para reducir la señal de dolor que genera la cefalea.',
+      },
+    ],
+    whatIs:
+      'No todas las cefaleas tienen el mismo origen. La cefalea cervicogénica y la neuralgia occipital son tipos de dolor de cabeza cuyo origen está en la columna cervical o en los nervios que salen del cuello hacia el cráneo.\n\nEste tipo de cefalea se distingue porque el dolor comienza en el cuello o la nuca, se irradia hacia la cabeza, y suele asociarse con posturas mantenidas, contracturas cervicales o patología de las articulaciones facetarias cervicales altas. El bloqueo nervioso guiado por imagen actúa directamente sobre el origen del dolor.',
+    symptoms: [
+      'Dolor de cabeza que comienza en la nuca o el cuello y se extiende hacia la cabeza',
+      'Dolor unilateral que empeora con movimientos del cuello',
+      'Sensibilidad al tacto en la zona occipital o la base del cráneo',
+      'Cefalea que mejora al presionar la zona cervical posterior',
+    ],
+    whenToConsider: [
+      'Cuando las cefaleas se asocian a dolor o rigidez cervical',
+      'Cuando no han respondido adecuadamente al tratamiento farmacológico habitual',
+      'Cuando la evaluación clínica sugiere un origen cervicogénico u occipital',
+    ],
+    whatToExpect: [
+      'Evaluación clínica para diferenciar el tipo de cefalea',
+      'Procedimiento ambulatorio guiado por ecografía · anestesia local',
+      'Seguimiento de la respuesta al tratamiento',
+    ],
+    faq: [
+      {
+        q: '¿Es lo mismo que la migraña?',
+        a: 'No. La migraña es una condición neurológica con mecanismos propios. La cefalea cervicogénica y la neuralgia occipital tienen un origen mecánico o nervioso en el cuello — por eso responden a bloqueos nerviosos que no tienen efecto en la migraña.',
+      },
+    ],
+  },
 ];
 
 export const PROCEDURES: Procedure[] = [
