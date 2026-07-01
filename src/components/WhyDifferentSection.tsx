@@ -1,35 +1,25 @@
-import { Globe, Cpu, Heart, Star, Shield, Crosshair } from "lucide-react";
+import { Globe, Cpu, Shield, Crosshair } from "lucide-react";
 
 const differentiators = [
   {
     icon: Crosshair,
-    title: "Especialización exclusiva",
-    description: "Primer centro en Venezuela dedicado exclusivamente a la medicina intervencionista del dolor.",
-  },
-  {
-    icon: Cpu,
-    title: "100% guiado por imagen",
-    description: "Todos los procedimientos bajo ecógrafo o fluoroscopio C-arm. Cero improvisación, precisión milimétrica.",
+    title: "El arsenal completo en una sola ruta",
+    description: "Del diagnóstico al tratamiento, sin peregrinar.",
   },
   {
     icon: Globe,
-    title: "Estándar clínico europeo",
-    description: "Protocolos diseñados con experiencia activa en un sistema de salud exigente. Rigor clínico transferido a Maracaibo.",
-  },
-  {
-    icon: Heart,
-    title: "Atención integral",
-    description: "Neurocirugía + nutrición + electrodiagnóstico + bienestar en un solo centro.",
+    title: "La integración con UDUZ",
+    description: "La misma imagen que encuentra el problema guía el tratamiento.",
   },
   {
     icon: Shield,
-    title: "Accesibilidad real",
-    description: "Precios diseñados para la clase media venezolana, sin sacrificar estándares europeos.",
+    title: "Mínimamente invasivo antes de operar",
+    description: "Agotamos lo mínimamente invasivo primero. El posicionamiento puente.",
   },
   {
-    icon: Star,
-    title: "Rigor desde el primer día",
-    description: "Cada procedimiento documentado, cada resultado medido. Datos propios desde el primer paciente.",
+    icon: Cpu,
+    title: "El criterio de tratar solo lo que hace falta",
+    description: "El anti-sobrediagnóstico como promesa.",
   },
 ];
 
@@ -58,8 +48,7 @@ export default function WhyDifferentSection() {
             <span className="font-light text-secondary">ALGOS</span>?
           </h2>
           <p className="text-primary-foreground/60 font-light text-lg max-w-2xl mx-auto">
-            No somos una clínica más. Somos el primer centro en Venezuela dedicado exclusivamente
-            a la medicina intervencionista del dolor con estándares europeos.
+            Lo que define cómo trabajamos.
           </p>
         </div>
 
@@ -86,12 +75,12 @@ export default function WhyDifferentSection() {
           ))}
         </div>
 
-        {/* Differentiator cards — 3 columns */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Differentiator cards — 2 columns */}
+        <div className="grid sm:grid-cols-2 gap-5">
           {differentiators.map((item, idx) => (
             <div
               key={item.title}
-              className={`scroll-reveal scroll-reveal-delay-${(idx % 3) + 1} group p-6 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] hover:bg-primary-foreground/[0.07] hover:border-secondary/30 transition-all duration-500`}
+              className={`scroll-reveal scroll-reveal-delay-${(idx % 2) + 1} group p-6 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] hover:bg-primary-foreground/[0.07] hover:border-secondary/30 transition-all duration-500`}
             >
               <div className="w-11 h-11 rounded-xl bg-secondary/15 flex items-center justify-center mb-4 group-hover:bg-secondary/25 group-hover:scale-105 transition-all duration-300">
                 <item.icon className="w-5 h-5 text-secondary" />
@@ -103,6 +92,13 @@ export default function WhyDifferentSection() {
             </div>
           ))}
         </div>
+
+        {/* Diferencial propio extra */}
+        <blockquote className="scroll-reveal mt-14 mx-auto max-w-2xl text-center border-t border-primary-foreground/20 pt-12">
+          <p className="text-primary-foreground/75 font-light text-lg leading-relaxed">
+            "En ALGOS el tratamiento no termina cuando termina el procedimiento: seguimos su evolución y le acompañamos en el tiempo, porque el dolor crónico se maneja, no se abandona."
+          </p>
+        </blockquote>
       </div>
     </section>
   );

@@ -64,6 +64,30 @@ function TargetMark({ cx, cy, r = 9, dotR = 4 }: { cx: number; cy: number; r?: n
   );
 }
 
+const serviciosAdicionales = [
+  {
+    category: "Electrodiagnóstico",
+    title: "Electromiografía (EMG)",
+    bajada: "Estudio de los nervios y los músculos.",
+    description:
+      "Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Confirma el origen de dolores con hormigueo, adormecimiento o debilidad, y le señala al especialista dónde está el problema para tratarlo con precisión.",
+  },
+  {
+    category: "Electrodiagnóstico",
+    title: "Electroencefalograma (EEG)",
+    bajada: "Estudio de la actividad eléctrica del cerebro.",
+    description:
+      "Registra la actividad eléctrica de su cerebro con electrodos sobre el cuero cabelludo. Estudio sencillo, no invasivo y sin dolor. Indicado ante convulsiones, episodios de desmayo, sospecha de epilepsia o seguimiento de condiciones neurológicas.",
+  },
+  {
+    category: "Columna · Hernia discal",
+    title: "Discólisis con ozono",
+    bajada: "Tratamiento del dolor de disco sin cirugía.",
+    description:
+      "Aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Indicado para la ciática por hernia discal lumbar cuando el dolor no ha cedido con otros tratamientos, como opción antes de plantearse la cirugía.",
+  },
+];
+
 const cards: Card[] = [
   {
     category: "Columna · Lumbar",
@@ -225,7 +249,7 @@ export default function TratamientosSection() {
                 lineHeight: 1.6,
               }}
             >
-              Cuatro líneas. Imagen en tiempo real en cada una — fluoroscopia o ultrasonido.
+              Procedimientos guiados por imagen — fluoroscopia, tomografía o ecografía según el caso.
             </p>
           </div>
           <div>
@@ -271,6 +295,91 @@ export default function TratamientosSection() {
               <TratamientoCard card={card} image={CARD_IMAGES[i]} />
             </Link>
           ))}
+        </div>
+
+        {/* SERVICIOS ADICIONALES */}
+        <div style={{ marginTop: "clamp(56px, 7vw, 88px)" }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: GOLD,
+              marginBottom: 28,
+            }}
+          >
+            ESTUDIOS Y OTROS TRATAMIENTOS
+          </p>
+          <div
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{
+              backgroundColor: "rgba(245, 240, 232, 0.10)",
+              border: "1px solid rgba(245, 240, 232, 0.12)",
+              gap: 1,
+            }}
+          >
+            {serviciosAdicionales.map((s, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: DEEP_TEAL,
+                  padding: "clamp(24px, 2.5vw, 36px)",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: GOLD,
+                    margin: 0,
+                    marginBottom: 10,
+                  }}
+                >
+                  {s.category}
+                </p>
+                <h3
+                  style={{
+                    fontFamily: "'Sora', serif",
+                    fontWeight: 600,
+                    fontSize: "clamp(17px, 1.5vw, 21px)",
+                    color: CREAM,
+                    margin: 0,
+                    marginBottom: 6,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 12,
+                    color: "rgba(245, 240, 232, 0.50)",
+                    margin: 0,
+                    marginBottom: 12,
+                  }}
+                >
+                  {s.bajada}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 14,
+                    color: "rgba(245, 240, 232, 0.70)",
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
+                  {s.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* FOOTER */}

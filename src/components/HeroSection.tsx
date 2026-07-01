@@ -130,11 +130,11 @@ export default function HeroSection() {
             className="font-ui mt-8 max-w-xl"
             style={{ fontSize: "19px", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
-            Si tienes dolor crónico de espalda, cuello o articulaciones,
-            en ALGOS te evaluamos y te explicamos qué opciones tienes.
+            En ALGOS identificamos la causa de su dolor y lo tratamos con procedimientos
+            mínimamente invasivos, antes de llegar a una operación.
             Procedimientos ambulatorios en el Sector Paraíso —
-            vas, te atiendes y regresas a casa el mismo día.
-            En alianza con <strong style={{ fontWeight: 700 }}>UDUZ</strong> para tus estudios de imagen.
+            va, se atiende y regresa a casa el mismo día.
+            En alianza con <strong style={{ fontWeight: 700 }}>UDUZ</strong> para sus estudios de imagen.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">

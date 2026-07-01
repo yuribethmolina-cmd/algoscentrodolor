@@ -7,69 +7,39 @@ import {
 
 const faqs = [
   {
-    question: "¿Qué es la medicina intervencionista del dolor?",
+    question: "¿Duele el procedimiento?",
     answer:
-      "Es una subespecialidad que utiliza técnicas mínimamente invasivas guiadas por imagen (ecógrafo, fluoroscopio) para tratar el dolor directamente en su origen anatómico, sin cirugía abierta ni dependencia crónica de medicamentos. Es el estándar de tratamiento en Europa y Estados Unidos.",
+      "La mayoría de los procedimientos se realizan con anestesia local, por lo que se percibe presión o una molestia leve, no dolor intenso. Antes de comenzar le explicamos qué sensación tendrá en cada paso, y durante todo el procedimiento el equipo está atento a su comodidad.",
   },
   {
-    question: "¿Los procedimientos duelen?",
+    question: "¿Es seguro? ¿Tiene efectos secundarios?",
     answer:
-      "Se realizan con anestesia local y, en muchos casos, sedación ligera. La mayoría de los pacientes reportan mínimas molestias. Nuestro objetivo es que el procedimiento sea lo más cómodo posible.",
+      "Son procedimientos mínimamente invasivos y ambulatorios, con un perfil de seguridad favorable cuando se realizan guiados por imagen y a cargo de un equipo con experiencia. La guía por imagen es, precisamente, lo que permite actuar con precisión sobre el punto indicado. Como todo acto médico, puede haber efectos secundarios leves y transitorios; en la consulta se le informan los que corresponden a su caso.",
   },
   {
-    question: "¿Es una cirugía?",
+    question: "¿Cuánto dura el procedimiento y la recuperación? ¿Es ambulatorio?",
     answer:
-      "No. Los procedimientos intervencionistas son mínimamente invasivos. Se realizan con agujas finas guiadas por imagen, sin cortes, sin suturas y sin hospitalización prolongada.",
+      "En su mayoría son ambulatorios: el procedimiento suele durar entre 20 y 45 minutos y el paciente regresa a casa el mismo día. El tiempo de recuperación depende del procedimiento realizado; en muchos casos es posible reincorporarse a la actividad habitual en poco tiempo. Las indicaciones específicas se entregan en la consulta.",
   },
   {
-    question: "¿Cuánto tiempo dura el procedimiento?",
+    question: "¿Necesito referencia médica para ir?",
     answer:
-      "La mayoría dura entre 20 y 45 minutos, incluyendo preparación y observación. Puedes irte a casa el mismo día.",
+      "No es necesaria. Puede agendar su consulta de forma directa. Si acude referido por su médico, con gusto le hacemos llegar el informe de su evaluación.",
   },
   {
-    question: "¿Cuándo veré resultados?",
+    question: "¿Cuál es el costo?",
     answer:
-      "Algunos pacientes sienten alivio inmediato. En otros, el efecto completo se desarrolla en días. Tu médico te explicará qué esperar según tu caso.",
+      "Consulte directamente con nosotros. Le informaremos con transparencia en su primera evaluación.",
   },
   {
-    question: "¿Es seguro?",
+    question: "¿En cuánto tiempo notaré mejoría?",
     answer:
-      "Sí. Todo procedimiento es guiado por imagen en tiempo real para máxima precisión. Nuestros especialistas siguen protocolos europeos y están certificados internacionalmente.",
+      "Depende del procedimiento: algunos ofrecen alivio en pocos días y otros, como la radiofrecuencia, alcanzan su efecto en algunas semanas.",
   },
   {
-    question: "¿Por qué ALGOS y no otra clínica?",
+    question: "¿El efecto es permanente?",
     answer:
-      "ALGOS es el primer centro organizado en Maracaibo dedicado exclusivamente al dolor intervencionista. 100% guiado por imagen, protocolo clínico documentado desde el primer paciente, y modelo integral: neurocirugía + nutrición + electrodiagnóstico.",
-  },
-  {
-    question: "¿Atienden convenios empresariales?",
-    answer:
-      "Sí. Ofrecemos programas de salud ocupacional y convenios para empresas, especialmente en el sector petrolero e industrial donde el 82% de los trabajadores reporta dolor musculoesquelético. Contáctanos para una propuesta personalizada.",
-  },
-  {
-    question: "¿Ofrecen segunda opinión internacional?",
-    answer:
-      "Sí. El Dr. Luis Alberto Rodríguez, neurocirujano activo en Alemania, ofrece evaluaciones remotas para casos complejos o cuando hay indicación quirúrgica dudosa. Es una opinión respaldada por el estándar europeo de referencia.",
-  },
-  {
-    question: "¿ALGOS compite con mi médico?",
-    answer:
-      "No. ALGOS complementa. Cada paciente referido recibe un informe detallado para su médico tratante. Trabajamos en equipo con otros especialistas.",
-  },
-  {
-    question: "¿Qué pasa si no soy candidato a procedimiento?",
-    answer:
-      "Evaluación honesta. Si un procedimiento no está indicado, te lo decimos. Explicamos qué se puede hacer y qué no, sin presiones.",
-  },
-  {
-    question: "¿Cuánto cuesta?",
-    answer:
-      "El costo depende del tipo de procedimiento. En tu primera evaluación recibirás un diagnóstico claro y un presupuesto transparente, sin sorpresas. Nuestros precios están diseñados para la clase media venezolana.",
-  },
-  {
-    question: "¿Necesito referencia de otro médico?",
-    answer:
-      "No es obligatorio. Puedes agendar directamente tu evaluación. Si tienes estudios previos (resonancias, radiografías), tráelos a tu primera consulta.",
+      "Varía según el tratamiento y el caso: algunos brindan alivio duradero y otros pueden repetirse de acuerdo con la evolución. En la consulta se le explica qué esperar en su situación.",
   },
 ];
 
@@ -82,7 +52,7 @@ export default function FAQSection() {
             Preguntas frecuentes
           </p>
           <h2 className="text-3xl md:text-5xl font-extralight text-foreground leading-tight mb-6">
-            Resolvemos tus dudas
+            Preguntas frecuentes
           </h2>
         </div>
 
