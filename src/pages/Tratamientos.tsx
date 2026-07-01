@@ -146,10 +146,15 @@ export default function Tratamientos() {
         {/* ESTUDIOS Y OTROS TRATAMIENTOS */}
         <section className="bg-[#1a4a55] py-20 md:py-28">
           <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-10">
-              ESTUDIOS Y OTROS TRATAMIENTOS
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#f5f0e8]/10">
+            <div className="max-w-3xl mb-12 md:mb-16">
+              <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-4">
+                ESTUDIOS Y OTROS TRATAMIENTOS
+              </p>
+              <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-4xl lg:text-5xl leading-tight">
+                Complementamos con estudios diagnósticos y técnicas adicionales.
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
               {[
                 {
                   category: "Electrodiagnóstico",
@@ -173,13 +178,15 @@ export default function Tratamientos() {
                   image: imgAboutProcedure,
                 },
               ].map((s) => (
-                <div key={s.title} className="relative overflow-hidden bg-[#1a4a55] p-8 md:p-10">
-                  <img src={s.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.13] mix-blend-luminosity" />
+                <div key={s.title} className="group relative overflow-hidden rounded-2xl bg-[#123c46] border border-[#f5f0e8]/10 p-8 md:p-10 transition-colors hover:border-[#c69636]/40">
+                  <img src={s.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.10] mix-blend-luminosity transition-opacity group-hover:opacity-[0.16]" />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent via-[#123c46]/40 to-[#123c46]" />
                   <div className="relative z-10">
                     <p className="font-ui font-bold text-[10px] tracking-[0.22em] uppercase text-[#c69636] mb-3">{s.category}</p>
-                    <h3 className="font-display font-semibold text-[#f5f0e8] text-xl mb-2 leading-snug">{s.title}</h3>
-                    <p className="font-sans text-xs text-[#f5f0e8]/50 mb-4">{s.bajada}</p>
-                    <p className="font-sans text-sm text-[#f5f0e8]/70 leading-relaxed">{s.description}</p>
+                    <h3 className="font-display font-semibold text-[#f5f0e8] text-xl md:text-2xl mb-2 leading-snug">{s.title}</h3>
+                    <p className="font-sans text-sm text-[#f5f0e8]/60 mb-5">{s.bajada}</p>
+                    <div className="h-px w-10 bg-[#c69636]/50 mb-5" />
+                    <p className="font-sans text-[15px] text-[#f5f0e8]/80 leading-relaxed">{s.description}</p>
                   </div>
                 </div>
               ))}
