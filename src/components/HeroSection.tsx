@@ -59,7 +59,7 @@ export default function HeroSection() {
       ref={sectionRef}
       id="hero"
       className="relative w-full overflow-hidden bg-cream"
-      style={{ minHeight: "max(100dvh, 640px)" }}
+      style={{ height: "100dvh", minHeight: "640px" }}
     >
       {/* Full-bleed video background — poster shows instantly, sources lazy-load */}
       <video
