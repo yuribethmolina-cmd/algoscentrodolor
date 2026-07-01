@@ -7,6 +7,7 @@ import AudienceRouter from "@/components/AudienceRouter";
 
 import TratamientosSection from "@/components/TratamientosSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
+import GuiasImagenSection from "@/components/GuiasImagenSection";
 import AllianceSection from "@/components/AllianceSection";
 import StatsStrip from "@/components/StatsStrip";
 import FinalCTA from "@/components/FinalCTA";
@@ -21,6 +22,7 @@ export default function Index() {
       <AudienceRouter />
       <TratamientosSection />
       <WhyDifferentSection />
+      <GuiasImagenSection />
       <AllianceSection />
       <StatsStrip />
       <FinalCTA />
