@@ -100,7 +100,7 @@ export default function TratamientoDetalle() {
       <Navbar />
       <main>
         {/* SECCIÓN 1 · HERO */}
-        <section className="relative overflow-hidden min-h-[60vh] md:min-h-[65vh] flex items-center pt-44 md:pt-56 pb-16 md:pb-20">
+        <section className="relative overflow-hidden min-h-[60vh] md:min-h-[65vh] flex items-center pt-28 md:pt-32 pb-16 md:pb-20">
           {heroImg && (
             <img
               src={heroImg}
@@ -278,7 +278,7 @@ export default function TratamientoDetalle() {
                 </p>
                 <Link
                   to="/pacientes/agendar"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                 >
                   <span>Agendar valoración</span>
                   <span aria-hidden>→</span>
@@ -296,7 +296,7 @@ export default function TratamientoDetalle() {
                 </p>
                 <Link
                   to="/medicos/referir"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c69636] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c69636] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                 >
                   <span>Iniciar referencia</span>
                   <span aria-hidden>→</span>

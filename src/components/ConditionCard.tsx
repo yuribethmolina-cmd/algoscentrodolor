@@ -1,13 +1,55 @@
 import { Link } from "react-router-dom";
-import { Activity, Bone, Layers, CircleDot, Zap, type LucideIcon } from "lucide-react";
 import type { Condition } from "@/data/treatments";
 
-const ICON_MAP: Record<string, LucideIcon> = {
-  "dolor-lumbar": Activity,
-  "dolor-cervical": Bone,
-  "dolor-facetario": Layers,
-  "dolor-articular": CircleDot,
-  "lesion-deportiva": Zap,
+const CONDITION_ICONS: Record<string, React.ReactNode> = {
+  "dolor-lumbar-ciatica": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <rect x="7" y="2" width="10" height="3.5" rx="0.75" />
+      <rect x="6" y="7.5" width="12" height="3.5" rx="0.75" />
+      <rect x="5" y="13" width="14" height="3.5" rx="0.75" />
+      <path d="M19 14.5Q22 17 20 22" strokeWidth="1" />
+      <circle cx="19.5" cy="14" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  "dolor-cervical": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <rect x="8.5" y="3" width="7" height="2.5" rx="0.5" />
+      <rect x="8" y="7" width="8" height="2.5" rx="0.5" />
+      <rect x="7.5" y="11" width="9" height="2.5" rx="0.5" />
+      <rect x="7" y="15" width="10" height="2.5" rx="0.5" />
+      <rect x="6.5" y="19" width="11" height="2" rx="0.5" />
+      <path d="M16.5 12.25Q20 11.5 21.5 15" strokeWidth="1" />
+      <circle cx="17" cy="12.25" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  "dolor-facetario": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <rect x="4" y="4" width="16" height="4" rx="0.75" />
+      <rect x="4" y="16" width="16" height="4" rx="0.75" />
+      <line x1="8" y1="8" x2="8" y2="16" />
+      <line x1="16" y1="8" x2="16" y2="16" />
+      <circle cx="16" cy="12" r="2.5" />
+      <circle cx="16" cy="12" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  "neuropatia": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <line x1="12" y1="2" x2="12" y2="10" />
+      <path d="M12 10L7 16" />
+      <path d="M12 10L17 16" />
+      <path d="M7 16L5 21M7 16L9 21" />
+      <path d="M17 16L15 21M17 16L19 21" />
+      <circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  "dolor-articular": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M7 2h10v6q0 3-5 3t-5-3V2z" />
+      <path d="M7 22h10v-6q0-3-5-3t-5 3v6z" />
+      <circle cx="17" cy="11" r="2.5" strokeWidth="1.25" />
+      <circle cx="17" cy="11" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
 };
 
 type Props = {
@@ -16,14 +58,16 @@ type Props = {
 };
 
 export default function ConditionCard({ condition, view }: Props) {
-  const Icon = ICON_MAP[condition.slug] ?? Activity;
+  const icon = CONDITION_ICONS[condition.slug];
 
   return (
     <Link to={`/tratamientos/${condition.slug}`} className="group block">
       <article className="bg-white rounded-2xl border border-[#1a4a55]/10 p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#3d8b96]/30 h-full">
-        <div className="w-8 h-8 mb-6 text-[#3d8b96]">
-          <Icon className="w-8 h-8" strokeWidth={1.75} />
-        </div>
+        {icon && (
+          <div className="w-12 h-12 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-7">
+            {icon}
+          </div>
+        )}
         <h3 className="font-display font-semibold text-[#1a4a55] text-2xl md:text-3xl mb-3">
           {condition.name}
         </h3>

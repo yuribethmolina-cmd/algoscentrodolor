@@ -80,7 +80,7 @@ export default function Contacto() {
       <Navbar />
       <main>
         {/* HERO */}
-        <section className="bg-cream pt-32 md:pt-40 pb-12 md:pb-16">
+        <section className="bg-cream pt-28 md:pt-32 pb-12 md:pb-16">
           <div className="container mx-auto max-w-4xl px-6 md:px-12 text-center">
             <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-6">
               HABLEMOS
@@ -116,7 +116,7 @@ export default function Contacto() {
                   </p>
                   <Link
                     to={c.to}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-xs tracking-[0.2em]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                     style={{ backgroundColor: c.btnBg, color: c.btnText }}
                   >
                     <span>{c.cta}</span>
@@ -183,7 +183,7 @@ export default function Contacto() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 hover:gap-3 transition-all bg-[#1a4a55] text-[#f5f0e8] rounded font-ui font-bold uppercase px-8 py-4 text-xs tracking-[0.2em]"
+              className="inline-flex items-center justify-center gap-2 hover:gap-3 transition-all bg-[#1a4a55] text-[#f5f0e8] rounded font-ui font-bold uppercase px-8 py-4 text-sm tracking-[0.18em]"
             >
               <MessageCircle className="w-5 h-5" strokeWidth={1.75} />
               <span>Escríbanos por WhatsApp</span>
