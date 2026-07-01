@@ -4,6 +4,9 @@ import tx01Lumbar from "@/assets/tx-01-lumbar.jpg";
 import tx02Cervical from "@/assets/tx-02-cervical.jpg";
 import tx03Perif from "@/assets/tx-03-perif.jpg";
 import tx04Eco from "@/assets/tx-04-eco.jpg";
+import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg";
+import imgAboutProcedure from "@/assets/about-procedure.jpg";
+import imgExperienceTech from "@/assets/experience-tech.jpg";
 
 const CARD_CONDITION_SLUGS = ["dolor-lumbar-ciatica", "dolor-cervical", "neuropatia", "dolor-articular"];
 
@@ -71,6 +74,8 @@ const serviciosAdicionales = [
     bajada: "Estudio de los nervios y los músculos.",
     description:
       "Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Confirma el origen de dolores con hormigueo, adormecimiento o debilidad, y le señala al especialista dónde está el problema para tratarlo con precisión.",
+    image: imgExperienceTech,
+    imageAlt: "Equipo de electrodiagnóstico neurofisiológico",
   },
   {
     category: "Electrodiagnóstico",
@@ -78,6 +83,8 @@ const serviciosAdicionales = [
     bajada: "Estudio de la actividad eléctrica del cerebro.",
     description:
       "Registra la actividad eléctrica de su cerebro con electrodos sobre el cuero cabelludo. Estudio sencillo, no invasivo y sin dolor. Indicado ante convulsiones, episodios de desmayo, sospecha de epilepsia o seguimiento de condiciones neurológicas.",
+    image: imgSalaProcedimientos,
+    imageAlt: "Sala de procedimientos clínicos ALGOS",
   },
   {
     category: "Columna · Hernia discal",
@@ -85,6 +92,8 @@ const serviciosAdicionales = [
     bajada: "Tratamiento del dolor de disco sin cirugía.",
     description:
       "Aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Indicado para la ciática por hernia discal lumbar cuando el dolor no ha cedido con otros tratamientos, como opción antes de plantearse la cirugía.",
+    image: imgAboutProcedure,
+    imageAlt: "Procedimiento de discólisis con ozono guiado por imagen",
   },
 ];
 
@@ -324,59 +333,80 @@ export default function TratamientosSection() {
               <div
                 key={i}
                 style={{
+                  position: "relative",
+                  overflow: "hidden",
                   backgroundColor: DEEP_TEAL,
                   padding: "clamp(24px, 2.5vw, 36px)",
                 }}
               >
-                <p
+                {/* Background image — low opacity for context without losing legibility */}
+                <img
+                  src={s.image}
+                  alt=""
+                  aria-hidden="true"
                   style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 11,
-                    fontWeight: 700,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: GOLD,
-                    margin: 0,
-                    marginBottom: 10,
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    opacity: 0.13,
+                    mixBlendMode: "luminosity",
                   }}
-                >
-                  {s.category}
-                </p>
-                <h3
-                  style={{
-                    fontFamily: "'Sora', serif",
-                    fontWeight: 600,
-                    fontSize: "clamp(17px, 1.5vw, 21px)",
-                    color: CREAM,
-                    margin: 0,
-                    marginBottom: 6,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 12,
-                    color: "rgba(245, 240, 232, 0.50)",
-                    margin: 0,
-                    marginBottom: 12,
-                  }}
-                >
-                  {s.bajada}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 14,
-                    color: "rgba(245, 240, 232, 0.70)",
-                    lineHeight: 1.6,
-                    margin: 0,
-                  }}
-                >
-                  {s.description}
-                </p>
+                />
+                {/* Content */}
+                <div style={{ position: "relative", zIndex: 1 }}>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: GOLD,
+                      margin: 0,
+                      marginBottom: 10,
+                    }}
+                  >
+                    {s.category}
+                  </p>
+                  <h3
+                    style={{
+                      fontFamily: "'Sora', serif",
+                      fontWeight: 600,
+                      fontSize: "clamp(17px, 1.5vw, 21px)",
+                      color: CREAM,
+                      margin: 0,
+                      marginBottom: 6,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {s.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 12,
+                      color: "rgba(245, 240, 232, 0.50)",
+                      margin: 0,
+                      marginBottom: 12,
+                    }}
+                  >
+                    {s.bajada}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 14,
+                      color: "rgba(245, 240, 232, 0.70)",
+                      lineHeight: 1.6,
+                      margin: 0,
+                    }}
+                  >
+                    {s.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
