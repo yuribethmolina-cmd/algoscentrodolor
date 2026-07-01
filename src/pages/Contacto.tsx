@@ -143,7 +143,7 @@ export default function Contacto() {
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {INFO_CARDS.map(({ Icon, title, lines, note, email }) => (
+              {INFO_CARDS.map(({ Icon, title, lines, email }) => (
                 <div
                   key={title}
                   className="bg-cream rounded-2xl p-8 border border-[#1a4a55]/10"
