@@ -22,9 +22,9 @@ export default function Index() {
       <TrustBar />
       <AudienceRouter />
       <TratamientosSection />
-      <WhyDifferentSection />
       <TeamSection />
       <GuiasImagenSection />
+      <WhyDifferentSection />
       <AllianceSection />
       <StatsStrip />
       <FinalCTA />

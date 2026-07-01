@@ -3,36 +3,36 @@ import { Globe, Cpu, Shield, Crosshair } from "lucide-react";
 const differentiators = [
   {
     icon: Crosshair,
-    title: "El arsenal completo en una sola ruta",
-    description: "Del diagnóstico al tratamiento, sin peregrinar.",
+    title: "Diagnóstico, imagen y tratamiento en una sola ruta",
+    description: "Usted no tiene que coordinar entre diferentes especialistas ni repetir estudios. El recorrido completo ocurre en ALGOS.",
   },
   {
     icon: Globe,
-    title: "La integración con UDUZ",
-    description: "La misma imagen que encuentra el problema guía el tratamiento.",
+    title: "Alianza diagnóstica con UDUZ",
+    description: "Los mismos estudios que identifican el origen del dolor orientan el procedimiento. No hay interpretaciones intermedias que se pierdan.",
   },
   {
     icon: Shield,
-    title: "Mínimamente invasivo antes de operar",
-    description: "Agotamos lo mínimamente invasivo primero. El posicionamiento puente.",
+    title: "Siempre lo menos invasivo primero",
+    description: "Agotamos las opciones intervencionistas antes de considerar la cirugía. Solo se opera cuando los criterios clínicos lo justifican.",
   },
   {
     icon: Cpu,
-    title: "El criterio de tratar solo lo que hace falta",
-    description: "El anti-sobrediagnóstico como promesa.",
+    title: "Tratamos exactamente lo que hace falta",
+    description: "Sin procedimientos innecesarios. El especialista determina qué tratar, en qué orden y con qué técnica — basado en su caso específico.",
   },
 ];
 
 const stats = [
   { value: "347K+", label: "Personas con dolor lumbar en Maracaibo", highlight: false },
-  { value: "0", label: "Centros de dolor intervencionista en la región", highlight: true },
+  { value: "1er", label: "Centro de dolor intervencionista del Estado Zulia", highlight: true },
   { value: "82%", label: "Trabajadores petroleros con dolor musculoesquelético", highlight: false },
-  { value: "13.9%", label: "Prevalencia de lumbalgia en el Zulia", highlight: false },
+  { value: "13.9%", label: "Prevalencia de lumbalgia crónica en el Zulia", highlight: false },
 ];
 
 export default function WhyDifferentSection() {
   return (
-    <section className="py-24 md:py-32 bg-primary relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-primary relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-secondary/[0.06] blur-3xl -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -48,7 +48,7 @@ export default function WhyDifferentSection() {
             <span className="font-light text-secondary">ALGOS</span>?
           </h2>
           <p className="text-primary-foreground/60 font-light text-lg max-w-2xl mx-auto">
-            Lo que define cómo trabajamos.
+            En dolor intervencionista, el proceso y el equipo son el diferencial.
           </p>
         </div>
 

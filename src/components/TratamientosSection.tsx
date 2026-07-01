@@ -233,7 +233,7 @@ export default function TratamientosSection() {
         backgroundColor: DEEP_TEAL,
         color: CREAM,
         paddingTop: "clamp(88px, 10vw, 140px)",
-        paddingBottom: "clamp(88px, 10vw, 140px)",
+        paddingBottom: "clamp(48px, 5vw, 72px)",
       }}
     >
       <div className="mx-auto" style={{ maxWidth: 1280, paddingLeft: "clamp(24px, 4vw, 48px)", paddingRight: "clamp(24px, 4vw, 48px)" }}>
