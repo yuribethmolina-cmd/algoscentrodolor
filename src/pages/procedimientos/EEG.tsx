@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import imgMain from "@/assets/experience-tech.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";
