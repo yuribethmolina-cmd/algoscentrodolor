@@ -76,6 +76,13 @@ export default function Infiltraciones() {
           ]}
         />
 
+        <ProcedureVideoSection
+          src={infiltracionesVideo.url}
+          eyebrow="Video del procedimiento"
+          title="Así se realiza una infiltración guiada por imagen"
+          description="Vea cómo aplicamos el medicamento con precisión, usando guía por imagen para llegar exactamente donde se necesita."
+        />
+
         <section className="bg-deep-teal py-20 md:py-28">
 
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
