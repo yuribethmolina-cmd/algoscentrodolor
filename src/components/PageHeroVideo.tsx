@@ -96,7 +96,7 @@ export default function PageHeroVideo({ eyebrow, title, subtitle, video = "pacie
           preload="metadata"
           aria-hidden="true"
         >
-          <source src={videoSrc.webm} type="video/webm" />
+          {videoSrc.webm && <source src={videoSrc.webm} type="video/webm" />}
           <source src={videoSrc.mp4} type="video/mp4" />
         </video>
       )}
