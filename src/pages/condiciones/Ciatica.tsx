@@ -30,6 +30,13 @@ export default function Ciatica() {
               La ciática es un dolor que nace en la parte baja de la espalda y baja por la pierna, a veces como un corrientazo, a veces con hormigueo o adormecimiento. Ocurre cuando algo irrita o comprime el nervio ciático — con frecuencia, una hernia de disco. No es "un dolor de espalda más": es un nervio pidiendo atención.
             </p>
 
+            <figure className="mb-12">
+              <img src={ciaticaAnatomia.url} alt="Anatomía del nervio ciático" className="w-full rounded-sm" />
+              <figcaption className="font-sans text-steel-teal text-[13px] leading-[1.5] mt-3 text-center">
+                El nervio ciático recorre desde la zona lumbar hasta la pierna.
+              </figcaption>
+            </figure>
+
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
               Si el dolor lleva semanas y no cede con reposo ni calmantes; si baja de la rodilla; si se acompaña de hormigueo, adormecimiento o pérdida de fuerza en la pierna; o si ya le hablaron de cirugía y quiere saber si existe un paso intermedio — es momento de una evaluación especializada.
