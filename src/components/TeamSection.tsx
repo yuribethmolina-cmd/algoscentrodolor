@@ -180,7 +180,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         {esp.descripcion && (
                           <span
                             style={{
-                              color: "rgba(42, 98, 112, 0.55)",
+                              color: "#2A6270",
                               marginLeft: 5,
                               fontWeight: 400,
                             }}
@@ -199,7 +199,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         fontFamily: "Inter, sans-serif",
                         fontSize: 13,
                         lineHeight: 1.6,
-                        color: "rgba(26, 74, 85, 0.55)",
+                        color: "#2A6270",
                         marginBottom: 16,
                         fontStyle: "italic",
                       }}
@@ -241,7 +241,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                               style={{
                                 fontFamily: "Inter, sans-serif",
                                 fontSize: 12,
-                                color: "rgba(26, 74, 85, 0.55)",
+                                color: "#2A6270",
                                 margin: 0,
                               }}
                             >
@@ -257,7 +257,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: 11,
                         letterSpacing: "0.06em",
-                        color: "rgba(26, 74, 85, 0.28)",
+                        color: "#2A6270",
                         margin: 0,
                       }}
                     >
@@ -278,7 +278,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
             fontFamily: "Inter, sans-serif",
             fontSize: 14,
             lineHeight: 1.65,
-            color: "rgba(26, 74, 85, 0.55)",
+            color: "#2A6270",
             maxWidth: "60ch",
             marginTop: "clamp(40px, 5vw, 64px)",
             paddingLeft: 20,
