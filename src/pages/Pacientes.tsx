@@ -19,9 +19,9 @@ const CARDS = [
   },
   {
     eyebrow: "03 · AMBULATORIO",
-    title: "Vuelves a casa el mismo día.",
+    title: "Vuelve a casa el mismo día.",
     body:
-      "Llegas, te atendemos, regresas a casa. La mayoría de pacientes retoman actividades ligeras en 24-48 horas. Sin internación, sin recuperación prolongada.",
+      "Llega, lo atendemos, regresa a casa. La mayoría de pacientes retoma actividades ligeras en 24-48 horas. Sin internación, sin recuperación prolongada.",
   },
 ];
 
@@ -30,25 +30,25 @@ const STEPS = [
     idx: "01",
     title: "Primera consulta",
     body:
-      "Conversamos sobre tu historia, tus dolores, lo que has probado y lo que esperas. Revisamos tus imágenes si las traes. Sin presión, sin diagnóstico apresurado.",
+      "Conversamos sobre su historia, sus dolores, lo que ha probado y lo que espera. Revisamos sus imágenes si las trae. Sin presión, sin diagnóstico apresurado.",
   },
   {
     idx: "02",
     title: "Plan personalizado",
     body:
-      "Si tu caso es candidato a intervención, te explicamos las opciones, los beneficios esperables y las limitaciones honestamente. Si NO eres candidato, te orientamos hacia el tratamiento más adecuado — aunque no sea con nosotros.",
+      "Si su caso es candidato a intervención, le explicamos las opciones, los beneficios esperables y las limitaciones honestamente. Si no es candidato, le orientamos hacia el tratamiento más adecuado — aunque no sea con nosotros.",
   },
   {
     idx: "03",
     title: "Procedimiento",
     body:
-      "Ambulatorio, guiado por imagen, con anestesia local. Sentirás una pequeña molestia inicial al colocar la anestesia. Después, el procedimiento es casi imperceptible — la mayoría lo describe como menos incómodo que un examen dental.",
+      "Ambulatorio, guiado por imagen, con anestesia local. Sentirá una pequeña molestia inicial al colocar la anestesia. Después, el procedimiento es casi imperceptible — la mayoría lo describe como menos incómodo que un examen dental.",
   },
   {
     idx: "04",
     title: "Seguimiento",
     body:
-      "A las 2 semanas y a las 6 semanas revisamos tu evolución. Si necesitas ajustes, los hacemos. Si el procedimiento no respondió como esperábamos, conversamos las opciones — sin que tengas que empezar de cero.",
+      "A las 2 semanas y a las 6 semanas revisamos su evolución. Si necesita ajustes, los hacemos. Si el procedimiento no respondió como esperábamos, conversamos las opciones — sin que tenga que empezar de cero.",
   },
 ];
 
@@ -59,15 +59,15 @@ const FAQS = [
   },
   {
     q: "¿Cuánto cuesta?",
-    a: "Cada tratamiento se evalúa según tu condición específica y el procedimiento indicado. En la valoración inicial discutimos abiertamente los costos involucrados, opciones de financiamiento y convenios disponibles. La valoración inicial no compromete a nada.",
+    a: "Cada tratamiento se evalúa según su condición específica y el procedimiento indicado. En la valoración inicial discutimos abiertamente los costos involucrados, opciones de financiamiento y convenios disponibles. La valoración inicial no compromete a nada.",
   },
   {
     q: "¿Cuánto dura el alivio?",
-    a: "Depende de tu condición y de tu respuesta individual al tratamiento. Algunos pacientes experimentan alivio prolongado por meses o años; otros requieren tratamientos complementarios o repeticiones. En tu consulta inicial discutimos expectativas realistas para tu caso específico — sin promesas que no podamos cumplir.",
+    a: "Depende de su condición y de su respuesta individual al tratamiento. Algunos pacientes experimentan alivio prolongado por meses o años; otros requieren tratamientos complementarios o repeticiones. En la consulta inicial discutimos expectativas realistas para su caso específico — sin promesas que no podamos cumplir.",
   },
   {
     q: "¿Cuándo puedo volver a mi vida normal?",
-    a: "La mayoría de procedimientos son ambulatorios — vuelves a casa el mismo día y puedes retomar actividades ligeras en 24-48 horas. Tu equipo te dará pautas específicas según el procedimiento que se haya hecho y tu condición particular.",
+    a: "La mayoría de procedimientos son ambulatorios — vuelve a casa el mismo día y puede retomar actividades ligeras en 24-48 horas. El equipo le dará pautas específicas según el procedimiento realizado y su condición particular.",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function Pacientes() {
                 </div>
                 <div className="text-center md:text-left">
                   <p className="font-sans font-bold uppercase text-steel-teal text-[10px] tracking-[0.24em]">
-                    Te atiende
+                    Dirección médica
                   </p>
                   <p className="mt-1 font-display text-[18px] text-deep-teal">
                     Dr. Atilio J. Rodríguez
@@ -130,7 +130,7 @@ export default function Pacientes() {
                   ]}
                 />
                 <p className="mt-8 font-sans text-steel-teal leading-[1.65] text-[16px] md:text-[18px] max-w-[56ch]">
-                  Una valoración inicial sin compromiso para entender tu condición, los tratamientos que podrían ayudarte y los que no. ALGOS no ofrece soluciones mágicas — ofrece evaluación clínica honesta basada en evidencia internacional.
+                  Una valoración inicial sin compromiso para entender su condición, los tratamientos que podrían ayudarle y los que no. ALGOS no ofrece soluciones mágicas — ofrece evaluación clínica honesta basada en evidencia internacional.
                 </p>
 
                 <div className="mt-12 flex flex-wrap items-center gap-8">
@@ -163,7 +163,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[24ch]">
               Procedimientos pensados para{" "}
-              <span className="font-normal text-algos-gold">tu vida diaria.</span>
+              <span className="font-normal text-algos-gold">su vida diaria.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -192,7 +192,7 @@ export default function Pacientes() {
         <section className="bg-deep-teal py-20 md:py-[120px]">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
-              Tu proceso paso a paso
+              Su proceso paso a paso
             </p>
             <h2 className="mt-4 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Cuatro pasos,{" "}
@@ -231,7 +231,7 @@ export default function Pacientes() {
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Lo que{" "}
-              <span className="font-normal text-algos-gold">casi nadie te dice.</span>
+              <span className="font-normal text-algos-gold">casi nadie le dice.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 flex flex-col gap-10">
@@ -258,14 +258,14 @@ export default function Pacientes() {
         <section className="bg-deep-teal py-24 md:py-[140px]">
           <div className="mx-auto max-w-[760px] px-6 md:px-12 text-center">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
-              Tu siguiente paso
+              Su siguiente paso
             </p>
             <h2 className="mt-6 mx-auto font-display font-bold text-cream leading-[0.98] tracking-[-0.028em] text-[44px] md:text-[72px] max-w-[18ch]">
-              Solo necesitas{" "}
+              Solo hace falta{" "}
               <span className="font-normal text-algos-gold">conversar.</span>
             </h2>
             <p className="mt-7 mx-auto font-sans text-cream/80 leading-[1.65] text-[17px] max-w-[56ch]">
-              Una valoración inicial es gratuita y sin compromiso. Nos cuentas qué te pasa, nosotros te decimos honestamente si podemos ayudarte.
+              Una valoración inicial es gratuita y sin compromiso. Nos cuenta qué le pasa, nosotros le decimos honestamente si podemos ayudarle.
             </p>
 
             <div className="mt-12 flex flex-col items-center gap-4">

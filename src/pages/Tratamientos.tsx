@@ -216,13 +216,24 @@ export default function Tratamientos() {
                 <p className="text-[#f5f0e8]/90 mb-8 leading-relaxed">
                   Primera valoración con un especialista del equipo. Sin compromiso.
                 </p>
-                <Link
-                  to="/pacientes/agendar"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
-                >
-                  <span>Agendar valoración</span>
-                  <span aria-hidden>→</span>
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://wa.me/584146807886?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20valoraci%C3%B3n"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1fb859] text-white hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
+                  >
+                    <span>WhatsApp</span>
+                    <span aria-hidden>→</span>
+                  </a>
+                  <Link
+                    to="/pacientes/agendar"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
+                  >
+                    <span>Formulario</span>
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </article>
               <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
                 <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
