@@ -39,7 +39,7 @@ export default function NeuropatiaDiabetica() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma el grado y la distribución del daño nervioso. Con ese mapa, el equipo define el tratamiento: manejo farmacológico del dolor neuropático, apoyo nutricional clínico orientado al control metabólico, y seguimiento conjunto. El objetivo es controlar el dolor y frenar el avance del daño.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

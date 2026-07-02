@@ -39,7 +39,7 @@ export default function DolorTrasCirugia() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta revisa su historia, sus imágenes previas y actuales, y los síntomas. La <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> puede ayudar a identificar si hay compromiso nervioso nuevo o persistente. Según la causa identificada: manejo farmacológico del dolor, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> para desinflamar zonas específicas, o fisiatría para recuperar función. Un médico evalúa su caso y le dice qué opciones existen.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

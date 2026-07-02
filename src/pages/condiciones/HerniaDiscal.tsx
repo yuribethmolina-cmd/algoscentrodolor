@@ -39,7 +39,7 @@ export default function HerniaDiscal() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y la imagen confirman el nivel comprometido y el grado de compromiso nervioso. Según el caso: manejo con medicamentos, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link> para controlar la inflamación y el dolor, o <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> cuando la hernia es la causa confirmada del dolor. La cirugía se considera cuando las opciones intermedias se han agotado — no antes.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">
