@@ -6,7 +6,8 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import { motion } from "framer-motion";
-import imgMain from "@/assets/experience-tech.jpg";
+import imgMainAsset from "@/assets/eeg-procedimiento.jpg.asset.json";
+const imgMain = imgMainAsset.url;
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";
 
