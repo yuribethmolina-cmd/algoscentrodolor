@@ -16,13 +16,12 @@ export default function DolorTrasCirugia() {
       <main>
         <PageHeroVideo eyebrow="Condición" title="Dolor tras cirugía de columna: cuando la operación no fue suficiente" video="pacientes" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Dolor postoperatorio de columna" className="w-full h-full object-cover" loading="eager" />
-            </div>
+        <div className="bg-cream pt-8 md:pt-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <ConditionGallery heroSrc={heroAsset.url} conditionName="Dolor tras cirugía de columna" />
           </div>
         </div>
+
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
