@@ -3,7 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
-import imgMain from "@/assets/tx-radicular.jpg";
+import ConditionGallery from "@/components/ConditionGallery";
+import heroAsset from "@/assets/cond-articular-cadera.jpg.asset.json";
 import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20ci%C3%A1tica.";
