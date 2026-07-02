@@ -20,7 +20,7 @@ export default function AvisoLegalPage() {
               <h2 className="text-lg font-medium text-foreground">Limitación de responsabilidad</h2>
               <p>ALGOS no se hace responsable por el uso que los usuarios hagan de la información publicada en este sitio web.</p>
               <h2 className="text-lg font-medium text-foreground">Contacto</h2>
-              <p>Para consultas legales: <a href="mailto:info@algos.com" className="text-secondary hover:underline">info@algos.com</a></p>
+              <p>Para consultas legales: <a href="mailto:algoscentrodedolor@gmail.com" className="text-secondary hover:underline">algoscentrodedolor@gmail.com</a></p>
             </div>
           </div>
         </div>

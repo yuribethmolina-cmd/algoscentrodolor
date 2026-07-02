@@ -5,7 +5,7 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
 
-const WHATSAPP_NUMBER = "584246467944";
+const WHATSAPP_NUMBER = "584146807886";
 
 const AUDIENCE_CARDS = [
   {
@@ -59,7 +59,7 @@ const INFO_CARDS = [
   {
     Icon: Mail,
     title: "Email",
-    email: "info@algoscentrodolor.com",
+    email: "algoscentrodedolor@gmail.com",
   },
 ];
 

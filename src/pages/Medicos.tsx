@@ -141,7 +141,7 @@ export default function Medicos() {
                     Lista en validación con Dr. Atilio Rodríguez. Disponible bajo solicitud.
                   </p>
                   <a
-                    href="mailto:info@algoscentrodolor.com?subject=Solicitud%20red%20flags"
+                    href="mailto:algoscentrodedolor@gmail.com?subject=Solicitud%20red%20flags"
                     className="inline-block mt-5 font-sans font-bold uppercase text-[12px] tracking-[0.22em] text-algos-gold border-b-[1.5px] border-algos-gold pb-1 hover:opacity-80 transition-opacity"
                   >
                     Solicitar al equipo clínico →
@@ -284,8 +284,8 @@ export default function Medicos() {
 
             <div className="mt-16 pt-9 border-t border-cream/[0.18] flex flex-col md:flex-row md:justify-center items-center gap-5 md:gap-0">
               {[
-                { href: "https://wa.me/584246467944", label: "WhatsApp médico", value: "0424-646 7944" },
-                { href: "mailto:info@algoscentrodolor.com", label: "Correo clínico", value: "info@algoscentrodolor.com" },
+                { href: "https://wa.me/584146807886", label: "WhatsApp médico", value: "0414-680 7886" },
+                { href: "mailto:algoscentrodedolor@gmail.com", label: "Correo clínico", value: "algoscentrodedolor@gmail.com" },
                 { href: "tel:+584146807886", label: "Coordinación", value: "0414-680 7886" },
               ].map((opt, i) => (
                 <a
@@ -339,7 +339,7 @@ export default function Medicos() {
 
               <div className="mt-8 flex justify-center">
                 <a
-                  href="mailto:info@algoscentrodolor.com?subject=Caso%20para%20derivaci%C3%B3n"
+                  href="mailto:algoscentrodedolor@gmail.com?subject=Caso%20para%20derivaci%C3%B3n"
                   className="inline-flex items-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded transition-all duration-300 hover:-translate-y-0.5 px-9 py-[18px]"
                 >
                   Refiere un caso →
@@ -348,14 +348,14 @@ export default function Medicos() {
 
               <div className="mt-8 flex flex-col items-center gap-4">
                 <a
-                  href="mailto:info@algoscentrodolor.com?subject=Reuni%C3%B3n%20informativa"
+                  href="mailto:algoscentrodedolor@gmail.com?subject=Reuni%C3%B3n%20informativa"
                   className="font-sans font-bold uppercase text-[12px] tracking-[0.22em] text-deep-teal hover:text-algos-gold border-b-[1.5px] border-deep-teal hover:border-algos-gold pb-1 transition-colors"
                 >
                   Solicitar reunión informativa →
                 </a>
                 {/* INTERNAL: cuando exista PDF real, cambiar href a "/docs/protocolo-derivacion.pdf" target="_blank" */}
                 <a
-                  href="mailto:info@algoscentrodolor.com?subject=Solicitud%20protocolo%20PDF"
+                  href="mailto:algoscentrodedolor@gmail.com?subject=Solicitud%20protocolo%20PDF"
                   className="font-sans font-bold uppercase text-[12px] tracking-[0.22em] text-deep-teal hover:text-algos-gold border-b-[1.5px] border-deep-teal hover:border-algos-gold pb-1 transition-colors"
                 >
                   Descargar protocolo en PDF →

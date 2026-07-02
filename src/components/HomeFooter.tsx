@@ -193,7 +193,7 @@ export default function HomeFooter() {
             <div>
               <p style={blockLabel}>CITA</p>
               <a
-                href="mailto:info@algoscentrodolor.com"
+                href="mailto:algoscentrodedolor@gmail.com"
                 style={{
                   ...blockValue,
                   borderBottom: "1px solid rgba(26, 74, 85, 0.3)",
@@ -211,7 +211,7 @@ export default function HomeFooter() {
                   e.currentTarget.style.borderColor = "rgba(26, 74, 85, 0.3)";
                 }}
               >
-                info@algoscentrodolor.com
+                algoscentrodedolor@gmail.com
               </a>
             </div>
           </div>

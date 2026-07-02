@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 
-const WHATSAPP_PACIENTES = "https://wa.me/584246467944";
+const WHATSAPP_PACIENTES = "https://wa.me/584146807886";
 
 const CARDS = [
   {

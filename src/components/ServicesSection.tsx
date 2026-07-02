@@ -3,7 +3,7 @@ const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 const STEEL = "#2a6270";
-const WA_URL = "https://wa.me/584246467944";
+const WA_URL = "https://wa.me/584146807886";
 
 type Service = {
   index: string;

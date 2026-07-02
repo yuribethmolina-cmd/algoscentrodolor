@@ -4,7 +4,7 @@ import HomeFooter from "@/components/HomeFooter";
 import { CONDITIONS } from "@/data/treatments";
 import { MessageCircle, Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
 
-const WA_NUMBER = "584246467944";
+const WA_NUMBER = "584146807886";
 
 interface FormData {
   nombre: string;
@@ -270,7 +270,7 @@ export default function Agendar() {
                   className="flex items-center gap-3 text-[#1a4a55] hover:text-[#3d8b96] transition-colors"
                 >
                   <MessageCircle size={18} className="text-[#3d8b96] shrink-0" />
-                  <span className="font-ui font-semibold text-sm">0424-646 7944</span>
+                  <span className="font-ui font-semibold text-sm">0414-680 7886</span>
                 </a>
                 <a
                   href="tel:+584146807886"

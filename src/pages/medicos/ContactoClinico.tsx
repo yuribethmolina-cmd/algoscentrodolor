@@ -3,7 +3,7 @@ import { doctorLinks } from "@/lib/sectionLinks";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_NUMBER = "584246467944";
+const WHATSAPP_NUMBER = "584146807886";
 
 export default function ContactoClinico() {
   return (
@@ -24,12 +24,12 @@ export default function ContactoClinico() {
             <div className="scroll-reveal p-6 rounded-2xl border border-border bg-card space-y-4">
               <Phone className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Teléfono</h3>
-              <a href="tel:+584246467944" className="text-secondary font-light hover:underline">+58 424 646 7944</a>
+              <a href="tel:+584146807886" className="text-secondary font-light hover:underline">0414-680 7886</a>
             </div>
             <div className="scroll-reveal scroll-reveal-delay-1 p-6 rounded-2xl border border-border bg-card space-y-4">
               <Mail className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Email clínico</h3>
-              <a href="mailto:info@algoscentrodolor.com" className="text-secondary font-light hover:underline">info@algoscentrodolor.com</a>
+              <a href="mailto:algoscentrodedolor@gmail.com" className="text-secondary font-light hover:underline">algoscentrodedolor@gmail.com</a>
             </div>
             <div className="scroll-reveal scroll-reveal-delay-2 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MessageCircle className="w-8 h-8 text-secondary" />
@@ -43,7 +43,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal scroll-reveal-delay-3 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MapPin className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Ubicación</h3>
-              <p className="text-muted-foreground font-light text-sm">Torre RAB · Sector Paraíso, Maracaibo</p>
+              <p className="text-muted-foreground font-light text-sm">CC América, Local N° 4 · Sector Paraíso, Maracaibo</p>
             </div>
           </div>
         </div>

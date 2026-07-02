@@ -20,7 +20,7 @@ export default function PrivacidadPage() {
               <h2 className="text-lg font-medium text-foreground">Protección de datos</h2>
               <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado.</p>
               <h2 className="text-lg font-medium text-foreground">Contacto</h2>
-              <p>Para consultas sobre privacidad: <a href="mailto:info@algos.com" className="text-secondary hover:underline">info@algos.com</a></p>
+              <p>Para consultas sobre privacidad: <a href="mailto:algoscentrodedolor@gmail.com" className="text-secondary hover:underline">algoscentrodedolor@gmail.com</a></p>
             </div>
           </div>
         </div>

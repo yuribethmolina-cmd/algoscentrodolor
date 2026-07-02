@@ -22,7 +22,7 @@ export function MedicalProcedureSchema({ condition }: { condition: Condition }) 
         addressCountry: "VE",
       },
       telephone: "+584146807886",
-      email: "info@algoscentrodolor.com",
+      email: "algoscentrodedolor@gmail.com",
     },
   };
   return (

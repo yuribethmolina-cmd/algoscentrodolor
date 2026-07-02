@@ -12,7 +12,7 @@ const GOLD = "#c69636";
 const BRAND_TEAL = "#3d8b96";
 const BRAND_TEAL_HOVER = "#4a9ca8";
 
-const WHATSAPP_HREF = "https://wa.me/584246467944";
+const WHATSAPP_HREF = "https://wa.me/584146807886";
 
 type ContactOption = {
   label: string;
@@ -21,9 +21,10 @@ type ContactOption = {
 };
 
 const contactOptions: ContactOption[] = [
-  { label: "WHATSAPP DIRECTO", value: "+58 424 646 7944", href: WHATSAPP_HREF },
-  { label: "LLAMAR AL CONSULTORIO", value: "+58 424 646 7944", href: "tel:+584246467944" },
-  { label: "ESCRIBIR POR CORREO", value: "info@algoscentrodolor.com", href: "mailto:info@algoscentrodolor.com" },
+  { label: "WHATSAPP DIRECTO", value: "0414-680 7886", href: WHATSAPP_HREF },
+  { label: "TELÉFONO 1", value: "0414-680 7886", href: "tel:+584146807886" },
+  { label: "TELÉFONO 2", value: "0412-061 7410", href: "tel:+584120617410" },
+  { label: "CORREO ELECTRÓNICO", value: "algoscentrodedolor@gmail.com", href: "mailto:algoscentrodedolor@gmail.com" },
 ];
 
 export default function FinalCTA() {

@@ -3,7 +3,7 @@ import { institutionLinks } from "@/lib/sectionLinks";
 import { Handshake, MessageCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_NUMBER = "584246467944";
+const WHATSAPP_NUMBER = "584146807886";
 
 export default function Reunion() {
   return (
@@ -47,9 +47,9 @@ export default function Reunion() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full rounded-full gap-2">
-                <a href="tel:+584246467944">
+                <a href="tel:+584146807886">
                   <Phone size={20} />
-                  +58 424 646 7944
+                  0414-680 7886
                 </a>
               </Button>
             </div>

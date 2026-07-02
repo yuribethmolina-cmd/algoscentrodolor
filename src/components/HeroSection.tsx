@@ -140,7 +140,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
             <a
-              href="https://wa.me/584246467944"
+              href="https://wa.me/584146807886"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
