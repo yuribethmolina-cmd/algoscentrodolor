@@ -31,7 +31,7 @@ const rows: Row[] = [
     headingStart: "Recupera ",
     headingItalic: "lo que el dolor",
     headingEnd: " te ha quitado.",
-    body: "El Dr. Atilio evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana — ambulatorio, sin hospitalización.",
+    body: "Nuestro equipo evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana,\u00a0 todo es ambulatorio, sin hospitalización.",
     ctaLabel: "Agendar cita",
     ctaHref: "/pacientes/agendar",
     uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso — a metros de aquí — las tiene desde $25, disponible 24/7.",
@@ -44,7 +44,7 @@ const rows: Row[] = [
     headingStart: "Refiere con ",
     headingItalic: "respaldo clínico",
     headingEnd: " documentado.",
-    body: "Recibes el reporte clínico en 48 horas. Tu paciente vuelve a tu consulta con protocolo documentado y seguimiento a nombre del equipo ALGOS.",
+    body: "Recibe el reporte clínico en 48 horas. Su paciente vuelve a su consulta con protocolo documentado y seguimiento a nombre del equipo ALGOS.",
     ctaLabel: "Referir paciente",
     ctaHref: "/medicos/referir",
   },
@@ -117,7 +117,7 @@ export default function AudienceRouter() {
                   maxWidth: "38ch",
                 }}
               >
-                Tres personas distintas que necesitan al mismo equipo —
+                Tres audiencias distintas que necesitan al mismo equipo,\u00a0
                 por razones distintas.
               </p>
             </div>
