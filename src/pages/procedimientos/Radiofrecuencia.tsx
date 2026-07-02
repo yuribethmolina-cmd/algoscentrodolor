@@ -45,7 +45,7 @@ export default function Radiofrecuencia() {
         <section className="bg-cream pb-16">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="bg-algos-gold/10 border border-algos-gold/20 p-8">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-4">Disponibilidad</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-4">Disponibilidad</p>
               <p className="font-sans text-deep-teal text-[16px] leading-[1.65]">
                 Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones disponibles hoy.
               </p>
