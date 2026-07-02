@@ -142,7 +142,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden mdx:flex items-center" style={{ gap: 20 }}>
+        <div className="hidden mdx:flex items-center" style={{ gap: 32 }}>
           <Link
             to="/"
             style={linkCss(location.pathname === "/")}
