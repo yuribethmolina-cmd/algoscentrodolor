@@ -130,7 +130,7 @@ export default function Pacientes() {
                   ]}
                 />
                 <p className="mt-8 font-sans text-steel-teal leading-[1.65] text-[16px] md:text-[18px] max-w-[56ch]">
-                  Una valoración inicial sin compromiso para entender su condición, los tratamientos que podrían ayudarle y los que no. ALGOS no ofrece soluciones mágicas — ofrece evaluación clínica honesta basada en evidencia internacional.
+                  Una valoración inicial para entender su condición y los tratamientos que pueden ayudarle. Sin presión, sin diagnóstico apresurado.
                 </p>
 
                 <div className="mt-12 flex flex-wrap items-center gap-8">
