@@ -6,6 +6,8 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import imgSala from "@/assets/sala-procedimientos.jpg";
+import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
+import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
