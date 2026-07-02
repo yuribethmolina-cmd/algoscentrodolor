@@ -6,9 +6,12 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import imgMainAsset from "@/assets/emg-procedimiento.webp.asset.json";
-const imgMain = imgMainAsset.url;
-import imgConsult from "@/assets/experience-consult.jpg";
+import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
+import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
+import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
+const imgHero = imgHeroAsset.url;
+const imgPierna = imgPiernaAsset.url;
+const imgBrazo = imgBrazoAsset.url;
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20la%20Electromiografía%20(EMG).";
 
