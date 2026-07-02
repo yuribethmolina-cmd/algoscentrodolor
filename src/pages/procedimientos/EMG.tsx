@@ -5,6 +5,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
