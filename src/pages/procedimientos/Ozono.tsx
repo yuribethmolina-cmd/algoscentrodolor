@@ -4,6 +4,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
+import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
@@ -17,40 +20,41 @@ export default function Ozono() {
       <main>
         <PageHeroVideo eyebrow="Procedimiento" title="Ozono para hernia discal" subtitle="Tratamiento del dolor de disco sin cirugía." video="tratamientos" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Procedimiento de ozono intradiscal" className="w-full h-full object-cover" loading="eager" />
-            </div>
-          </div>
-        </div>
+        <ProcedureHeroImage
+          src={imgMain}
+          alt="Procedimiento de ozono intradiscal"
+          caption="Ozono intradiscal, guiado por imagen."
+        />
 
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7] mb-10">
-              Una aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Es ambulatorio y se hace con anestesia local.
-            </p>
+        <ProcedureIntro eyebrow="Qué es">
+          Una aplicación de ozono médico en el disco de la columna, guiada por imagen, que ayuda a reducir el volumen de la hernia y la inflamación que irrita el nervio. Es ambulatorio y se hace con anestesia local.
+        </ProcedureIntro>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgSala} alt="Sala de procedimientos ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Para qué sirve</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
-                  Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía. No es un tratamiento para cualquier dolor: se usa solo cuando la imagen confirma que la hernia es la causa.
-                </p>
-              </div>
-            </div>
+        <ProcedureSplitBlock
+          image={imgSala}
+          imageAlt="Sala de procedimientos ALGOS"
+          eyebrow="Para qué sirve"
+          imageCaption="Sala de procedimientos ALGOS"
+        >
+          <p>
+            Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía.
+          </p>
+          <p>
+            No es un tratamiento para cualquier dolor: se usa solo cuando la imagen confirma que la hernia es la causa.
+          </p>
+        </ProcedureSplitBlock>
 
-            <div className="pt-10 border-t border-deep-teal/10">
-              <p className="font-sans text-steel-teal text-[15px] leading-[1.7] italic">
+        <section className="bg-cream pb-8">
+          <div className="mx-auto max-w-[860px] px-6 md:px-12">
+            <div className="pt-2 border-t border-deep-teal/10 pt-10">
+              <p className="font-sans text-steel-teal text-[15px] leading-[1.75] italic">
                 Este procedimiento se aplica exclusivamente para hernia discal. No se realiza como tratamiento sistémico ni para otras indicaciones.
               </p>
             </div>
           </div>
         </section>
+
+
 
         <ProcedureDetails
           facts={[
