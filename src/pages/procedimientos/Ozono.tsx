@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
