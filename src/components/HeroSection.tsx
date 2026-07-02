@@ -136,22 +136,21 @@ export default function HeroSection() {
           >
             En ALGOS identificamos la causa de su dolor y lo tratamos con procedimientos
             mínimamente invasivos, antes de llegar a una operación.
-            Procedimientos ambulatorios en el Sector Paraíso —
-            va, se atiende y regresa a casa el mismo día.
-            En alianza con <strong style={{ fontWeight: 700 }}>UDUZ</strong> para sus estudios de imagen.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
-            <Link
-              to="/pacientes/agendar"
+            <a
+              href="https://wa.me/584246467944"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
-              <span>Agendar cita</span>
+              <span>Agende su consulta</span>
               <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
                 <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
               </span>
-            </Link>
+            </a>
             <Link
               to="/tratamientos"
               className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
