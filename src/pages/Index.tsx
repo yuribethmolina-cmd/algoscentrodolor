@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import AudienceRouter from "@/components/AudienceRouter";
 
-import TratamientosSection from "@/components/TratamientosSection";
+import ServicesSection from "@/components/ServicesSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import TeamSection from "@/components/TeamSection";
 import GuiasImagenSection from "@/components/GuiasImagenSection";
@@ -21,7 +21,7 @@ export default function Index() {
       <HeroSection />
       <TrustBar />
       <AudienceRouter />
-      <TratamientosSection />
+      <ServicesSection />
       <TeamSection />
       <GuiasImagenSection />
       <WhyDifferentSection />
