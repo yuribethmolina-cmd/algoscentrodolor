@@ -151,7 +151,7 @@ export default function GuiasImagenSection() {
             <h2 style={{ fontFamily: "'Sora', serif", fontWeight: 600, fontSize: "clamp(24px, 2.8vw, 36px)", lineHeight: 1.3, color: CREAM, maxWidth: "48ch", marginBottom: 16 }}>
               El procedimiento guiado por imagen no es una opción — es el estándar.
             </h2>
-            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: "rgba(245,240,232,0.65)", maxWidth: "58ch" }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: "rgba(245,240,232,0.88)", maxWidth: "58ch" }}>
               En ALGOS ningún procedimiento intervencionista se realiza a ciegas. Cada intervención
               utiliza la tecnología de imagen más adecuada para llegar con precisión al origen del dolor.
             </p>
