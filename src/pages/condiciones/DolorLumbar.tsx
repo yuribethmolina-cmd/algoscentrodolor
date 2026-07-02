@@ -16,13 +16,12 @@ export default function DolorLumbar() {
       <main>
         <PageHeroVideo eyebrow="Condición" title="Dolor lumbar: el dolor de cintura que no cede" video="pacientes" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Zona lumbar" className="w-full h-full object-cover" loading="eager" />
-            </div>
+        <div className="bg-cream pt-8 md:pt-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <ConditionGallery heroSrc={heroAsset.url} conditionName="Dolor lumbar" />
           </div>
         </div>
+
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
