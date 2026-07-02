@@ -3,6 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
+import infiltracionesVideo from "@/assets/infiltraciones-procedimiento.mp4.asset.json";
 import imgMain from "@/assets/about-procedure.jpg";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 
