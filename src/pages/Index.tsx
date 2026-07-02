@@ -4,6 +4,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import ConditionsSection from "@/components/ConditionsSection";
+import ServicesSection from "@/components/ServicesSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import TeamSection from "@/components/TeamSection";
 import GuiasImagenSection from "@/components/GuiasImagenSection";
@@ -19,6 +20,7 @@ export default function Index() {
       <HeroSection />
       <TrustBar />
       <ConditionsSection />
+      <ServicesSection />
       <WhyDifferentSection />
       <TeamSection />
       <GuiasImagenSection />
