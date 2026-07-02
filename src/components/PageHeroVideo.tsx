@@ -29,21 +29,25 @@ type Props = {
   title: string;
   subtitle?: string;
   video?: keyof typeof VIDEOS;
+  /** Optional single-URL override (e.g. a Lovable asset). Takes precedence over `video`. */
+  customVideoSrc?: string;
 };
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
-export default function PageHeroVideo({ eyebrow, title, subtitle, video = "pacientes" }: Props) {
+export default function PageHeroVideo({ eyebrow, title, subtitle, video = "pacientes", customVideoSrc }: Props) {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [videoSrc, setVideoSrc] = useState<{ mp4: string; webm: string } | null>(null);
+  const [videoSrc, setVideoSrc] = useState<{ mp4: string; webm?: string } | null>(null);
 
   useEffect(() => {
     const node = sectionRef.current;
     if (!node) return;
     const load = () => {
-      if (canPlayVideo()) setVideoSrc(VIDEOS[video]);
+      if (!canPlayVideo()) return;
+      if (customVideoSrc) setVideoSrc({ mp4: customVideoSrc });
+      else setVideoSrc(VIDEOS[video]);
     };
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
@@ -54,7 +58,7 @@ export default function PageHeroVideo({ eyebrow, title, subtitle, video = "pacie
       return () => io.disconnect();
     }
     load();
-  }, [video]);
+  }, [video, customVideoSrc]);
 
   return (
     <section
@@ -96,7 +100,7 @@ export default function PageHeroVideo({ eyebrow, title, subtitle, video = "pacie
           preload="metadata"
           aria-hidden="true"
         >
-          <source src={videoSrc.webm} type="video/webm" />
+          {videoSrc.webm && <source src={videoSrc.webm} type="video/webm" />}
           <source src={videoSrc.mp4} type="video/mp4" />
         </video>
       )}

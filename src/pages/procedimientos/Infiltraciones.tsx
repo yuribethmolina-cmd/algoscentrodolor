@@ -18,7 +18,7 @@ export default function Infiltraciones() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." video="tratamientos" />
+        <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." customVideoSrc={infiltracionesVideo.url} />
 
         <ProcedureHeroImage
           src={imgMain}
