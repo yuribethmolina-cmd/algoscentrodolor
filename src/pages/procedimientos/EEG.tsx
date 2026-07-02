@@ -40,7 +40,7 @@ export default function EEG() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="border-l-2 border-algos-gold/70 pl-6 md:pl-8"
             >
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Para qué sirve</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-5">Para qué sirve</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                 Es el estudio indicado ante convulsiones o crisis, episodios de desmayo o pérdida de consciencia sin explicación, sospecha de epilepsia y el seguimiento de ciertas condiciones neurológicas.
               </p>
@@ -78,7 +78,7 @@ export default function EEG() {
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Si tiene dudas sobre si este estudio corresponde a su situación, escríbanos y le orientamos.
             </p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
               Escríbanos por WhatsApp
             </a>
           </div>

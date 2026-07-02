@@ -45,7 +45,7 @@ export default function Radiofrecuencia() {
         <section className="bg-cream pb-16">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="bg-algos-gold/10 border border-algos-gold/20 p-8">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-4">Disponibilidad</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-4">Disponibilidad</p>
               <p className="font-sans text-deep-teal text-[16px] leading-[1.65]">
                 Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones disponibles hoy.
               </p>
@@ -84,7 +84,7 @@ export default function Radiofrecuencia() {
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones disponibles hoy.
             </p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
               Consultar opciones disponibles
             </a>
           </div>

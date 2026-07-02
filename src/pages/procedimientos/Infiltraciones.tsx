@@ -79,7 +79,7 @@ export default function Infiltraciones() {
                 fontWeight: 700,
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: GOLD,
+                color: CREAM,
                 marginBottom: 20,
               }}
             >
@@ -134,7 +134,7 @@ export default function Infiltraciones() {
         <section className="bg-cream pb-8">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="pt-2 border-t border-deep-teal/10 pt-10">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                 Contamos con las tres formas de guía por imagen — fluoroscopia, tomografía y ecografía — y usamos la que su caso necesita para tratarle mejor y con la mayor seguridad.
               </p>
@@ -171,7 +171,7 @@ export default function Infiltraciones() {
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Cuéntenos cómo es su dolor y un miembro de nuestro equipo le orientará sobre el paso siguiente. Sin compromiso.
             </p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
               Escríbanos por WhatsApp
             </a>
           </div>
