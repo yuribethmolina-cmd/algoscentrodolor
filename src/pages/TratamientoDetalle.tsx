@@ -12,6 +12,7 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { MedicalProcedureSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { getConditionImage } from "@/data/conditionImages";
+import ConditionGallery from "@/components/ConditionGallery";
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
