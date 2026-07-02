@@ -145,7 +145,7 @@ export default function GuiasImagenSection() {
         >
           {/* Header */}
           <div style={{ marginBottom: "clamp(48px, 6vw, 72px)" }}>
-            <p style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: GOLD, marginBottom: 16 }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: CREAM, marginBottom: 16 }}>
               GUÍAS POR IMAGEN
             </p>
             <h2 style={{ fontFamily: "'Sora', serif", fontWeight: 600, fontSize: "clamp(24px, 2.8vw, 36px)", lineHeight: 1.3, color: CREAM, maxWidth: "48ch", marginBottom: 16 }}>
