@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "¿Cuál es el costo?",
     answer:
-      "Contáctenos directamente para información sobre tarifas — estamos disponibles por WhatsApp o al correo info@algoscentrodolor.com.",
+      "Contáctenos directamente para información sobre tarifas — estamos disponibles por WhatsApp o al correo algoscentrodedolor@gmail.com.",
   },
   {
     question: "¿Cuánto tiempo tardaré en notar mejoría?",
