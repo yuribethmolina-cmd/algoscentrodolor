@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-articular-cadera.jpg.asset.json";
+import ciaticaAnatomia from "@/assets/ciatica-anatomia.jpeg.asset.json";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20ci%C3%A1tica.";
 
