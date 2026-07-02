@@ -50,13 +50,16 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
           <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-8">
             Cómo es el día del procedimiento
           </p>
-          <ol className="space-y-8">
+          <ol className="space-y-10 md:pl-6">
             {steps.map((s, i) => (
-              <li key={s.title} className="flex gap-6">
-                <span className="font-sans text-algos-gold text-[13px] tracking-[0.2em] pt-1 shrink-0 w-8">
+              <li key={s.title} className="flex gap-6 md:gap-8 items-start">
+                <span
+                  className="font-sans font-light text-algos-gold text-[34px] md:text-[40px] leading-none tracking-tight shrink-0 w-14 md:w-16 tabular-nums"
+                  aria-hidden="true"
+                >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="border-l border-deep-teal/15 pl-6">
+                <div className="flex-1 border-l border-deep-teal/15 pl-6 md:pl-8 pt-2">
                   <h3 className="font-sans font-semibold text-deep-teal text-[17px] mb-2">
                     {s.title}
                   </h3>
