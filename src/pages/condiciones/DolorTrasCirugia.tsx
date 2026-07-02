@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
 
@@ -13,7 +13,7 @@ export default function DolorTrasCirugia() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Condición" title="Dolor tras cirugía de columna: cuando la operación no fue suficiente" video="pacientes" />
+        <PageHero eyebrow="Condición" title="Dolor tras cirugía de columna: cuando la operación no fue suficiente" />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
