@@ -16,13 +16,12 @@ export default function DolorCervical() {
       <main>
         <PageHeroVideo eyebrow="Condición" title="Dolor cervical: cuando el cuello duele y el dolor sube o baja" video="pacientes" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Zona cervical" className="w-full h-full object-cover" loading="eager" />
-            </div>
+        <div className="bg-cream pt-8 md:pt-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <ConditionGallery heroSrc={heroAsset.url} conditionName="Dolor cervical" />
           </div>
         </div>
+
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
