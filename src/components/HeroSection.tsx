@@ -126,7 +126,7 @@ export default function HeroSection() {
             }}
             chunks={[
               { text: "El dolor tiene causa. " },
-              { text: "Nosotros la tratamos.", italic: true, color: "#9a7320", staggerMs: 120 },
+              { text: "Nosotros la tratamos.", color: "#9a7320", staggerMs: 120 },
             ]}
           />
 

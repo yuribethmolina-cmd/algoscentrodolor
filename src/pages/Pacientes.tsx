@@ -125,7 +125,7 @@ export default function Pacientes() {
                   className="mt-6 font-display font-bold text-deep-teal leading-[1.02] tracking-[-0.028em] text-[44px] md:text-[88px] max-w-[18ch]"
                   chunks={[
                     { text: "El " },
-                    { text: "primer paso", italic: true, color: "#c69636", staggerMs: 120 },
+                    { text: "primer paso", color: "#c69636", staggerMs: 120 },
                     { text: " es conversar." },
                   ]}
                 />

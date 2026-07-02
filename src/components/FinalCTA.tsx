@@ -113,7 +113,7 @@ export default function FinalCTA() {
           }}
           chunks={[
             { text: "Hablemos de " },
-            { text: "tu dolor.", italic: true, color: GOLD, staggerMs: 120 },
+            { text: "tu dolor.", color: GOLD, staggerMs: 120 },
           ]}
         />
 
