@@ -138,6 +138,9 @@ export default function TratamientoDetalle() {
 
         {/* SECCIÓN 2 · ¿Qué es y por qué duele? */}
         <section className="bg-white py-20 md:py-24">
+          <div className="container mx-auto max-w-4xl px-6 md:px-12 mb-14 md:mb-16">
+            <ConditionGallery slug={condition.slug} conditionName={condition.name} />
+          </div>
           <div className="container mx-auto max-w-3xl px-6 md:px-12">
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-8">
               ¿Qué es y por qué duele?
