@@ -3,6 +3,9 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
+import { motion } from "framer-motion";
 import imgMain from "@/assets/experience-tech.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";
@@ -14,27 +17,34 @@ export default function EEG() {
       <main>
         <PageHeroVideo eyebrow="Estudio" title="Electroencefalograma (EEG)" subtitle="Estudio de la actividad eléctrica del cerebro." video="tratamientos" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Electroencefalograma en ALGOS" className="w-full h-full object-cover" loading="eager" />
-            </div>
-          </div>
-        </div>
+        <ProcedureHeroImage
+          src={imgMain}
+          alt="Electroencefalograma en ALGOS"
+          caption="Estudio no invasivo de la actividad cerebral."
+        />
 
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7] mb-10">
-              Registra la actividad eléctrica de su cerebro con unos electrodos que se colocan sobre el cuero cabelludo. Es un estudio sencillo, no invasivo y que no duele.
-            </p>
+        <ProcedureIntro eyebrow="Qué es">
+          Registra la actividad eléctrica de su cerebro con unos electrodos que se colocan sobre el cuero cabelludo. Es un estudio sencillo, no invasivo y que no duele.
+        </ProcedureIntro>
 
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Para qué sirve</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
-              Es el estudio indicado ante convulsiones o crisis, episodios de desmayo o pérdida de consciencia sin explicación, sospecha de epilepsia y el seguimiento de ciertas condiciones neurológicas.
-            </p>
+        <section className="bg-cream pt-8 pb-8">
+          <div className="mx-auto max-w-[860px] px-6 md:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="border-l-2 border-algos-gold/70 pl-6 md:pl-8"
+            >
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Para qué sirve</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+                Es el estudio indicado ante convulsiones o crisis, episodios de desmayo o pérdida de consciencia sin explicación, sospecha de epilepsia y el seguimiento de ciertas condiciones neurológicas.
+              </p>
+            </motion.div>
           </div>
         </section>
+
+
 
         <ProcedureDetails
           facts={[

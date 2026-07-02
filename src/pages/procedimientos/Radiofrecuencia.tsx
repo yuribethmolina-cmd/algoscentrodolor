@@ -3,6 +3,9 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import imgMain from "@/assets/sala-procedimientos.jpg";
 import imgProc from "@/assets/about-procedure.jpg";
 
@@ -15,41 +18,39 @@ export default function Radiofrecuencia() {
       <main>
         <PageHeroVideo eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía — próximamente en ALGOS." video="tratamientos" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Sala de procedimientos ALGOS" className="w-full h-full object-cover" loading="eager" />
-            </div>
-          </div>
-        </div>
+        <ProcedureHeroImage
+          src={imgMain}
+          alt="Sala de procedimientos ALGOS"
+          caption="Sala de procedimientos ALGOS."
+        />
 
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7] mb-10">
-              Guiada por imagen y con anestesia local, aplica calor controlado sobre el nervio que transmite el dolor para reducir esa señal. Es ambulatoria: el mismo día se va a casa.
-            </p>
+        <ProcedureIntro eyebrow="Qué es">
+          Guiada por imagen y con anestesia local, aplica calor controlado sobre el nervio que transmite el dolor para reducir esa señal. Es ambulatoria: el mismo día se va a casa.
+        </ProcedureIntro>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgProc} alt="Procedimiento guiado por imagen" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Para qué sirve</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
-                  Indicada cuando el dolor persiste y otros tratamientos no han bastado. Se usa en el dolor de las articulaciones de la columna (dolor facetario), cervical y lumbar, y en la artrosis de rodilla.
-                </p>
-              </div>
-            </div>
+        <ProcedureSplitBlock
+          image={imgProc}
+          imageAlt="Procedimiento guiado por imagen"
+          eyebrow="Para qué sirve"
+          imageCaption="Guiada por imagen"
+        >
+          <p>
+            Indicada cuando el dolor persiste y otros tratamientos no han bastado. Se usa en el dolor de las articulaciones de la columna (dolor facetario), cervical y lumbar, y en la artrosis de rodilla.
+          </p>
+        </ProcedureSplitBlock>
 
+        <section className="bg-cream pb-16">
+          <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="bg-algos-gold/10 border border-algos-gold/20 p-8">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-4">Disponibilidad</p>
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-4">Disponibilidad</p>
               <p className="font-sans text-deep-teal text-[16px] leading-[1.65]">
                 Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones disponibles hoy.
               </p>
             </div>
           </div>
         </section>
+
+
 
         <ProcedureDetails
           facts={[

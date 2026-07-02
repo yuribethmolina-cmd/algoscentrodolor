@@ -3,6 +3,9 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import imgMain from "@/assets/experience-tech.jpg";
 import imgConsult from "@/assets/experience-consult.jpg";
 
@@ -15,34 +18,31 @@ export default function EMG() {
       <main>
         <PageHeroVideo eyebrow="Estudio" title="Electromiografía (EMG)" subtitle="Estudio de los nervios y los músculos." video="tratamientos" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Electromiografía en ALGOS" className="w-full h-full object-cover" loading="eager" />
-            </div>
-          </div>
-        </div>
+        <ProcedureHeroImage
+          src={imgMain}
+          alt="Electromiografía en ALGOS"
+          caption="Estudio de nervios y músculos."
+        />
 
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7] mb-10">
-              Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Así se ve si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
-            </p>
+        <ProcedureIntro eyebrow="Qué es">
+          Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Así se ve si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
+        </ProcedureIntro>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Para qué sirve</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
-                  Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos. Confirma, por ejemplo, el nervio comprometido de una ciática o el daño de la neuropatía diabética, y le señala al especialista dónde está el problema para tratar eso y no ir a ciegas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProcedureSplitBlock
+          image={imgConsult}
+          imageAlt="Consulta médica en ALGOS"
+          eyebrow="Para qué sirve"
+          imageCaption="Consulta y evaluación"
+        >
+          <p>
+            Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos.
+          </p>
+          <p>
+            Confirma, por ejemplo, el nervio comprometido de una ciática o el daño de la neuropatía diabética, y le señala al especialista dónde está el problema para tratar eso y no ir a ciegas.
+          </p>
+        </ProcedureSplitBlock>
+
+
 
         <ProcedureDetails
           facts={[

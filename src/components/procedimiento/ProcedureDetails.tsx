@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 export type ProcedureFact = { label: string; value: string };
 export type ProcedureStep = { title: string; description: string };
@@ -18,15 +19,21 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
       <section className="bg-cream border-y border-deep-teal/10">
         <div className="mx-auto max-w-[1080px] px-6 md:px-12 py-10 md:py-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
-            {facts.map((f) => (
-              <div key={f.label}>
+            {facts.map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <p className="font-sans font-bold uppercase text-algos-gold text-[10px] tracking-[0.22em] mb-2">
                   {f.label}
                 </p>
                 <p className="font-sans text-deep-teal text-[16px] md:text-[17px] leading-[1.45]">
                   {f.value}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -52,7 +59,14 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
           </p>
           <ol className="space-y-10 md:pl-6">
             {steps.map((s, i) => (
-              <li key={s.title} className="flex gap-6 md:gap-8 items-start">
+              <motion.li
+                key={s.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="flex gap-6 md:gap-8 items-start"
+              >
                 <span
                   className="font-sans font-light text-algos-gold text-[34px] md:text-[40px] leading-none tracking-tight shrink-0 w-14 md:w-16 tabular-nums"
                   aria-hidden="true"
@@ -67,7 +81,7 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
                     {s.description}
                   </p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ol>
         </div>
