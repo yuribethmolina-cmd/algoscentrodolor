@@ -134,7 +134,7 @@ export default function Infiltraciones() {
         <section className="bg-cream pb-8">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="pt-2 border-t border-deep-teal/10 pt-10">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                 Contamos con las tres formas de guía por imagen — fluoroscopia, tomografía y ecografía — y usamos la que su caso necesita para tratarle mejor y con la mayor seguridad.
               </p>
