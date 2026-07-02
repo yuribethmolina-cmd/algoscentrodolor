@@ -76,7 +76,7 @@ function CinematicHero({ hc }: { hc: boolean }) {
           >
             <div className="flex items-center gap-4 mb-6 md:mb-8">
               <span className="h-px w-10 md:w-14 bg-algos-gold" />
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] md:text-[12px] tracking-[0.28em]">
+              <p className="font-sans font-bold uppercase text-cream text-[11px] md:text-[12px] tracking-[0.28em]">
                 Estudio · Neurofisiología
               </p>
             </div>
@@ -239,7 +239,7 @@ function CinematicCTA({ hc }: { hc: boolean }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em] mb-6">
+          <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.28em] mb-6">
             Su próximo paso
           </p>
           <h2
@@ -254,7 +254,7 @@ function CinematicCTA({ hc }: { hc: boolean }) {
             href={WA}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-algos-gold hover:bg-[#d4a648] text-deep-teal font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
+            className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
           >
             Escríbanos por WhatsApp
           </a>
