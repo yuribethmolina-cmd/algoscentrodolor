@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
@@ -72,6 +73,13 @@ export default function Ozono() {
             { question: "¿Sirve para cualquier hernia de disco?", answer: "No. Está indicado para hernias que producen ciática y que están bien caracterizadas por imagen. El médico define si su caso es candidato." },
             { question: "¿Cuándo puedo volver al trabajo?", answer: "Se recomienda reposo relativo los primeros días. Si su trabajo es de escritorio, puede reincorporarse pronto; si implica esfuerzo físico, el especialista indica el tiempo." },
           ]}
+        />
+
+        <ProcedureVideoSection
+          src="/videos/hernia-discal.mp4"
+          eyebrow="Video del procedimiento"
+          title="Así se aplica el ozono en la hernia discal"
+          description="Un vistazo al procedimiento guiado por imagen, tal como se realiza en sala. Con anestesia local y de forma ambulatoria."
         />
 
         <section className="bg-deep-teal py-20 md:py-28">
