@@ -23,9 +23,9 @@ export default function EMG() {
         <PageHero eyebrow="Estudio" title="Electromiografía (EMG)" subtitle="Estudio de los nervios y los músculos." />
 
         <ProcedureHeroImage
-          src={imgMain}
-          alt="Electromiografía en ALGOS"
-          caption="Estudio de nervios y músculos."
+          src={imgHero}
+          alt="Electromiografía con aguja guiada por el especialista"
+          caption="Electromiografía con aguja: registro directo del músculo."
         />
 
         <ProcedureIntro eyebrow="Qué es">
@@ -33,10 +33,10 @@ export default function EMG() {
         </ProcedureIntro>
 
         <ProcedureSplitBlock
-          image={imgConsult}
-          imageAlt="Consulta médica en ALGOS"
+          image={imgBrazo}
+          imageAlt="Estudio de conducción nerviosa en el brazo"
           eyebrow="Para qué sirve"
-          imageCaption="Consulta y evaluación"
+          imageCaption="Conducción nerviosa: estímulos suaves sobre la piel."
         >
           <p>
             Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos.
@@ -45,6 +45,23 @@ export default function EMG() {
             Confirma, por ejemplo, el nervio comprometido de una ciática o el daño de la neuropatía diabética, y le señala al especialista dónde está el problema para tratar eso y no ir a ciegas.
           </p>
         </ProcedureSplitBlock>
+
+        <ProcedureSplitBlock
+          image={imgPierna}
+          imageAlt="Electromiografía en la pierna con registro en pantalla"
+          eyebrow="Cómo se hace"
+          imageCaption="Registro en tiempo real durante el estudio."
+          reverse
+        >
+          <p>
+            El estudio se hace en dos partes: primero la conducción nerviosa, luego el registro con una aguja muy fina en algunos músculos.
+          </p>
+          <p>
+            Todo ocurre en la misma sesión, de forma ambulatoria, y el especialista interpreta los registros en el momento.
+          </p>
+        </ProcedureSplitBlock>
+
+
 
 
 
