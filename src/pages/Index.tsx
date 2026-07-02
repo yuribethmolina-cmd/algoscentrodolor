@@ -6,6 +6,7 @@ import TrustBar from "@/components/TrustBar";
 import AudienceRouter from "@/components/AudienceRouter";
 
 import ServicesSection from "@/components/ServicesSection";
+import ConditionsSection from "@/components/ConditionsSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import TeamSection from "@/components/TeamSection";
 import GuiasImagenSection from "@/components/GuiasImagenSection";
@@ -14,7 +15,6 @@ import StatsStrip from "@/components/StatsStrip";
 import FinalCTA from "@/components/FinalCTA";
 
 export default function Index() {
-
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
@@ -22,9 +22,10 @@ export default function Index() {
       <TrustBar />
       <AudienceRouter />
       <ServicesSection />
+      <ConditionsSection />
+      <WhyDifferentSection />
       <TeamSection />
       <GuiasImagenSection />
-      <WhyDifferentSection />
       <AllianceSection />
       <StatsStrip />
       <FinalCTA />
