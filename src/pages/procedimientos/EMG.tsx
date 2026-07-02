@@ -54,6 +54,7 @@ export default function EMG() {
           eyebrow="Cómo se hace"
           imageCaption="Registro en tiempo real durante el estudio."
           reverse
+          mobileContain
         >
           <p>
             El estudio se hace en dos partes: primero la conducción nerviosa, luego el registro con una aguja muy fina en algunos músculos.
