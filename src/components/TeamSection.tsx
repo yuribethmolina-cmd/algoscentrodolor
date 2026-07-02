@@ -201,7 +201,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         lineHeight: 1.6,
                         color: "#2A6270",
                         marginBottom: 16,
-                        fontStyle: "italic",
+                        
                       }}
                     >
                       {g.nota}

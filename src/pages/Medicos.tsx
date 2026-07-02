@@ -55,7 +55,7 @@ export default function Medicos() {
               className="mt-6 mx-auto font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[40px] md:text-[64px] max-w-[18ch]"
               chunks={[
                 { text: "Su paciente vuelve a usted, " },
-                { text: "con plan completo.", italic: true, color: "#c69636", staggerMs: 120 },
+                { text: "con plan completo.", color: "#c69636", staggerMs: 120 },
               ]}
             />
 
