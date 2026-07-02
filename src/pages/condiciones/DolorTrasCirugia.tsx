@@ -3,7 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
-import imgMain from "@/assets/tx-cirugia-fallida.jpg";
+import ConditionGallery from "@/components/ConditionGallery";
+import heroAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
 import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20dolor%20que%20persiste%20tras%20una%20cirug%C3%ADa%20de%20columna.";
