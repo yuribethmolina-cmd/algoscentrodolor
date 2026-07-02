@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
@@ -18,7 +18,7 @@ export default function Ozono() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Procedimiento" title="Ozono para hernia discal" subtitle="Tratamiento del dolor de disco sin cirugía." video="tratamientos" />
+        <PageHero eyebrow="Procedimiento" title="Ozono para hernia discal" subtitle="Tratamiento del dolor de disco sin cirugía." />
 
         <ProcedureHeroImage
           src={imgMain}

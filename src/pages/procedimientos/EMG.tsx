@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
@@ -17,7 +17,7 @@ export default function EMG() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Estudio" title="Electromiografía (EMG)" subtitle="Estudio de los nervios y los músculos." video="tratamientos" />
+        <PageHero eyebrow="Estudio" title="Electromiografía (EMG)" subtitle="Estudio de los nervios y los músculos." />
 
         <ProcedureHeroImage
           src={imgMain}

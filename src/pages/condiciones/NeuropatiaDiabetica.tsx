@@ -13,7 +13,7 @@ export default function NeuropatiaDiabetica() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" video="pacientes" />
+        <PageHero eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
