@@ -138,7 +138,11 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-16 mdx:h-20">
         <Link to="/" aria-label="ALGOS · Inicio" className="flex items-center transition-opacity hover:opacity-80 shrink-0">
-          <img src={algosLogoFull} alt="ALGOS — Centro de Dolor Intervencionista" className="h-9 mdx:h-12 w-auto object-contain" />
+          <img
+            src={algosLogoFull}
+            alt="ALGOS — Centro de Dolor Intervencionista"
+            className="h-12 mdx:h-12 w-auto object-contain [filter:contrast(1.25)_brightness(0.82)] mdx:[filter:none]"
+          />
         </Link>
 
         {/* Desktop nav */}
