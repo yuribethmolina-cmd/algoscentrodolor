@@ -10,6 +10,7 @@ import ConditionsSection from "@/components/ConditionsSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import TeamSection from "@/components/TeamSection";
 import GuiasImagenSection from "@/components/GuiasImagenSection";
+import HomeFAQSection from "@/components/HomeFAQSection";
 import AllianceSection from "@/components/AllianceSection";
 import StatsStrip from "@/components/StatsStrip";
 import FinalCTA from "@/components/FinalCTA";
@@ -26,6 +27,7 @@ export default function Index() {
       <WhyDifferentSection />
       <TeamSection />
       <GuiasImagenSection />
+      <HomeFAQSection />
       <AllianceSection />
       <StatsStrip />
       <FinalCTA />
