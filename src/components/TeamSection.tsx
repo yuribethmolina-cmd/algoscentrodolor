@@ -180,7 +180,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         {esp.descripcion && (
                           <span
                             style={{
-                              color: "rgba(42, 98, 112, 0.55)",
+                              color: "#2A6270",
                               marginLeft: 5,
                               fontWeight: 400,
                             }}
