@@ -240,8 +240,6 @@ export default function EquipoPage() {
 
             <p className="mt-6 font-mono text-steel-teal text-[11px] tracking-[0.04em]">
               Maracaibo
-              <span className="text-algos-gold mx-1.5">·</span>
-              Alemania
             </p>
           </div>
         </section>

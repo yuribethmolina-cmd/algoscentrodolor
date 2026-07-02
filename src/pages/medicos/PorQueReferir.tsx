@@ -9,7 +9,7 @@ const reasons = [
   "100% de procedimientos guiados por imagen (ecógrafo y fluoroscopio C-arm)",
   "Informes clínicos detallados enviados al médico referente",
   "Seguimiento protocolizado a 2 semanas, 1 mes y 3 meses",
-  "Casos complejos con segunda opinión desde Alemania",
+  "Casos complejos que requieren evaluación multidisciplinaria",
   "Su paciente regresa a usted con un informe completo y un plan claro",
 ];
 

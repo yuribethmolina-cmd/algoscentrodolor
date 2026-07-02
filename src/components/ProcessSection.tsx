@@ -42,7 +42,7 @@ const steps = [
     num: "06",
     title: "Interconsulta",
     description:
-      "Casos complejos: segunda opinión internacional desde Alemania.",
+      "Casos complejos que requieren evaluación multidisciplinaria.",
   },
 ];
 

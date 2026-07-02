@@ -67,7 +67,7 @@ const diagnostics = [
   {
     icon: Stethoscope,
     title: "Segunda Opinión Internacional",
-    description: "Evaluación remota por el Dr. Luis Alberto Rodríguez desde Alemania para casos complejos.",
+    description: "Evaluación especializada para casos que requieren abordaje multidisciplinario.",
     forWhom: "Pacientes con indicación quirúrgica dudosa o patología poco frecuente.",
     result: "Opinión respaldada por el estándar europeo de referencia.",
   },

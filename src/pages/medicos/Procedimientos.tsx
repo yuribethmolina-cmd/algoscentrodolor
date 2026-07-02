@@ -10,7 +10,7 @@ const procedures = [
   { icon: Bone, title: "Infiltraciones Articulares", indications: "Osteoartritis, lesiones deportivas, dolor sacroilíaco", technique: "Infiltración intraarticular ecoguiada", contraindications: "Artritis séptica, prótesis articular infectada" },
   { icon: Activity, title: "Bloqueos de Nervios Periféricos", indications: "Neuralgias, síndromes de atrapamiento", technique: "Bloqueo selectivo ecoguiado", contraindications: "Infección en sitio de punción" },
   { icon: Brain, title: "Electrodiagnóstico (EMG/EEG)", indications: "Radiculopatías, neuropatías, miopatías", technique: "Electromiografía y conducción nerviosa", contraindications: "Anticoagulación severa (relativa)" },
-  { icon: Stethoscope, title: "Segunda Opinión Internacional", indications: "Indicación quirúrgica dudosa, patología compleja", technique: "Evaluación remota por neurocirujano en Alemania", contraindications: "Ninguna" },
+  { icon: Stethoscope, title: "Evaluación Multidisciplinaria", indications: "Indicación quirúrgica dudosa, patología compleja", technique: "Evaluación por equipo especializado", contraindications: "Ninguna" },
 ];
 
 export default function Procedimientos() {
