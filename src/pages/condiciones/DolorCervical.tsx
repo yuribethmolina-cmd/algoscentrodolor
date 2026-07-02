@@ -3,6 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import imgMain from "@/assets/tx-02-cervical.jpg";
+import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20cervical.";
 
@@ -10,39 +12,42 @@ export default function DolorCervical() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
-
       <main>
-        <PageHeroVideo
-          eyebrow="Condición"
-          title="Dolor cervical: cuando el cuello duele y el dolor sube o baja"
-          video="pacientes"
-        />
+        <PageHeroVideo eyebrow="Condición" title="Dolor cervical: cuando el cuello duele y el dolor sube o baja" video="pacientes" />
+
+        <div className="bg-cream">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
+            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
+              <img src={imgMain} alt="Zona cervical" className="w-full h-full object-cover" loading="eager" />
+            </div>
+          </div>
+        </div>
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
-
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">
-              Qué es
-            </p>
+            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
               El dolor cervical es el dolor en la parte alta de la espalda y el cuello. Puede quedarse localizado o extenderse hacia el hombro, el brazo o la mano — señal de que un nervio está comprometido. Sus causas van desde tensión muscular hasta desgaste articular o compresión nerviosa por una hernia cervical.
             </p>
 
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">
-              Cuándo consultar a un especialista
-            </p>
+            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
               Si el dolor lleva semanas y no cede; si se extiende al hombro, el brazo o la mano; si hay hormigueo, adormecimiento o pérdida de fuerza en el brazo; o si el movimiento del cuello es limitado o doloroso — es momento de una evaluación especializada.
             </p>
 
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">
-              Cómo lo abordamos en ALGOS
-            </p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-4">
-              La consulta y la imagen identifican el origen. Si hay compromiso nervioso, la <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma qué nervio está afectado y en qué medida. El tratamiento se define según eso: desde manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> en los niveles cervicales correspondientes.
-            </p>
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
+              <div style={{ overflow: "hidden" }}>
+                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
+              </div>
+              <div>
+                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+                  La consulta y la imagen identifican el origen. Si hay compromiso nervioso, la <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma qué nervio está afectado y en qué medida. El tratamiento se define según eso: desde manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> en los niveles cervicales correspondientes.
+                </p>
+              </div>
+            </div>
 
-            <div className="mt-14 border-t border-deep-teal/10 pt-10">
+            <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">
                 La información de esta página es orientativa y no sustituye la evaluación de un médico. Si presenta un dolor intenso o síntomas de alarma, busque atención médica.
               </p>
@@ -55,18 +60,12 @@ export default function DolorCervical() {
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[46ch] mx-auto">
               Cuéntenos cómo es su dolor y le orientamos sobre el paso siguiente.
             </p>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors"
-            >
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
               Escríbanos por WhatsApp
             </a>
           </div>
         </section>
       </main>
-
       <HomeFooter />
       <WhatsAppButton />
     </div>
