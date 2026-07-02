@@ -34,10 +34,10 @@ export default function ProcedureSplitBlock({
   const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section ref={ref} className="bg-cream py-16 md:py-28">
+    <section ref={ref} className="bg-cream py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <div
-          className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${
+          className={`grid md:grid-cols-12 gap-12 md:gap-16 items-center ${
             reverse ? "md:[&>*:first-child]:order-2" : ""
           }`}
         >
@@ -98,10 +98,10 @@ export default function ProcedureSplitBlock({
             className="md:col-span-5"
           >
             <div className="border-l-2 border-algos-gold/70 pl-6 md:pl-8">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-4 md:mb-5">
                 {eyebrow}
               </p>
-              <div className="font-sans text-deep-teal text-[17px] leading-[1.75] space-y-4">
+              <div className="font-sans text-deep-teal text-[16px] md:text-[17px] leading-[1.7] md:leading-[1.75] space-y-5 md:space-y-4">
                 {children}
               </div>
             </div>

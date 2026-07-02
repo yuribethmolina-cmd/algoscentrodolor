@@ -41,12 +41,12 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
 
       {/* Preparación */}
       {preparation && (
-        <section className="bg-cream pt-16 md:pt-20">
+        <section className="bg-cream pt-20 md:pt-20">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">
               Preparación
             </p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">{preparation}</p>
+            <p className="font-sans text-deep-teal text-[16px] md:text-[17px] leading-[1.75]">{preparation}</p>
           </div>
         </section>
       )}
@@ -57,7 +57,7 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
           <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-8">
             Cómo es el día del procedimiento
           </p>
-          <ol className="space-y-10 md:pl-6">
+          <ol className="space-y-12 md:space-y-10 md:pl-6">
             {steps.map((s, i) => (
               <motion.li
                 key={s.title}
@@ -68,16 +68,16 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
                 className="flex gap-6 md:gap-8 items-start"
               >
                 <span
-                  className="font-sans font-light text-algos-gold text-[34px] md:text-[40px] leading-none tracking-tight shrink-0 w-14 md:w-16 tabular-nums"
+                  className="font-sans font-light text-algos-gold text-[34px] md:text-[40px] leading-none tracking-tight shrinkTo shrink-0 w-14 md:w-16 tabular-nums"
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="flex-1 border-l border-deep-teal/15 pl-6 md:pl-8 pt-2">
-                  <h3 className="font-sans font-semibold text-deep-teal text-[17px] mb-2">
+                <div className="flex-1 border-l border-deep-teal/15 pl-6 md:pl-8 pt-1 md:pt-2">
+                  <h3 className="font-sans font-semibold text-deep-teal text-[16px] md:text-[17px] mb-2">
                     {s.title}
                   </h3>
-                  <p className="font-sans text-deep-teal/85 text-[16px] leading-[1.7]">
+                  <p className="font-sans text-deep-teal/85 text-[16px] leading-[1.75]">
                     {s.description}
                   </p>
                 </div>
@@ -100,10 +100,10 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
                 value={`item-${i}`}
                 className="border-b border-deep-teal/15"
               >
-                <AccordionTrigger className="font-sans text-deep-teal text-[16px] md:text-[17px] text-left py-5 hover:no-underline">
+                <AccordionTrigger className="font-sans text-deep-teal text-[16px] md:text-[17px] text-left py-5 hover:no-underline leading-[1.6] md:leading-[1.5]">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="font-sans text-deep-teal/85 text-[16px] leading-[1.7] pb-5">
+                <AccordionContent className="font-sans text-deep-teal/85 text-[16px] leading-[1.75] pb-6 md:pb-5">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
