@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
 import type { Condition } from "@/data/treatments";
+import imgLumbar from "@/assets/tx-01-lumbar.jpg";
+import imgCervical from "@/assets/tx-02-cervical.jpg";
+import imgFacetario from "@/assets/about-procedure.jpg";
+import imgNeuropatia from "@/assets/tx-03-perif.jpg";
+import imgArticular from "@/assets/tx-04-eco.jpg";
+
+const CONDITION_IMAGES: Record<string, string> = {
+  "dolor-lumbar-ciatica": imgLumbar,
+  "dolor-cervical": imgCervical,
+  "dolor-facetario": imgFacetario,
+  "neuropatia": imgNeuropatia,
+  "dolor-articular": imgArticular,
+};
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
