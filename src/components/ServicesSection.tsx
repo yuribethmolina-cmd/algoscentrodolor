@@ -324,6 +324,8 @@ export default function ServicesSection() {
                   borderTop: "1px solid rgba(26,74,85,0.14)",
                   paddingTop: "clamp(32px, 4vw, 48px)",
                   paddingBottom: "clamp(32px, 4vw, 48px)",
+                  paddingLeft: "clamp(22px, 3vw, 40px)",
+                  paddingRight: "clamp(22px, 3vw, 40px)",
                   opacity: s.activo ? 1 : 0.72,
                   position: "relative",
                   overflow: "hidden",
@@ -374,27 +376,13 @@ export default function ServicesSection() {
                   {ILLUSTRATIONS[s.index]}
                 </div>
 
-                {/* Grid: index | content */}
+                {/* Content */}
                 <div
                   className="grid"
                   style={{
-                    gridTemplateColumns: "clamp(40px,5vw,72px) 1fr",
-                    gap: "clamp(16px, 3vw, 40px)",
+                    gridTemplateColumns: "1fr",
                   }}
                 >
-                  {/* Index */}
-                  <span
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
-                      color: "rgba(26,74,85,0.38)",
-                      letterSpacing: "0.06em",
-                      paddingTop: 6,
-                    }}
-                  >
-                    {s.index}
-                  </span>
-
                   {/* Main content */}
                   <div>
                     {/* Name + bajada + badge */}
@@ -407,19 +395,48 @@ export default function ServicesSection() {
                         marginBottom: "clamp(20px, 2.5vw, 28px)",
                       }}
                     >
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3
-                          style={{
-                            fontFamily: "'Sora', serif",
-                            fontWeight: 600,
-                            fontSize: "clamp(20px, 2.2vw, 27px)",
-                            lineHeight: 1.25,
-                            color: DEEP_TEAL,
-                            marginBottom: 8,
-                          }}
-                        >
-                          {s.nombre}
-                        </h3>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "baseline",
+                              gap: "clamp(14px, 1.8vw, 22px)",
+                              flexWrap: "wrap",
+                              marginBottom: 8,
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: 12,
+                                fontWeight: 700,
+                                color: DEEP_TEAL,
+                                letterSpacing: "0.08em",
+                                minWidth: 42,
+                                height: 30,
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                border: "1px solid rgba(198,150,54,0.42)",
+                                backgroundColor: "rgba(198,150,54,0.10)",
+                                borderRadius: 4,
+                                transform: "translateY(-2px)",
+                              }}
+                            >
+                              {s.index}
+                            </span>
+                            <h3
+                              style={{
+                                fontFamily: "'Sora', serif",
+                                fontWeight: 600,
+                                fontSize: "clamp(20px, 2.2vw, 27px)",
+                                lineHeight: 1.25,
+                                color: DEEP_TEAL,
+                              }}
+                            >
+                              {s.nombre}
+                            </h3>
+                          </div>
                         <p
                           style={{
                             fontFamily: "Inter, sans-serif",
