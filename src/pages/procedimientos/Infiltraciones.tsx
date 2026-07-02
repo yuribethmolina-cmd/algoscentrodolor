@@ -3,12 +3,11 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
-import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
-import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureAmbientVideo from "@/components/procedimiento/ProcedureAmbientVideo";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import infiltracionesVideo from "@/assets/infiltraciones-procedimiento.mp4.asset.json";
-import imgMain from "@/assets/about-procedure.jpg";
+import heroVideo from "@/assets/infiltraciones-hero.mp4.asset.json";
+import ambientVideo from "@/assets/infiltraciones-ambient.mp4.asset.json";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
@@ -18,13 +17,14 @@ export default function Infiltraciones() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." customVideoSrc={infiltracionesVideo.url} />
+        <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." customVideoSrc={heroVideo.url} />
 
-        <ProcedureHeroImage
-          src={imgMain}
-          alt="Procedimiento de infiltración guiado por imagen"
+        <ProcedureAmbientVideo
+          src={ambientVideo.url}
           caption="Guiado por imagen, con precisión milimétrica."
         />
+
+
 
         <ProcedureIntro eyebrow="Qué es">
           Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor — una articulación, un nervio o una raíz —, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio: se va caminando el mismo día.
@@ -78,13 +78,6 @@ export default function Infiltraciones() {
             { question: "¿Debo suspender aspirina o anticoagulantes?", answer: "Nunca por su cuenta. Avise al equipo qué medicamentos toma y le indicamos qué hacer y con cuánta antelación." },
             { question: "¿Cuántas veces se puede repetir?", answer: "Depende de la respuesta y de la zona. El especialista define el intervalo y el número de sesiones según su evolución." },
           ]}
-        />
-
-        <ProcedureVideoSection
-          src={infiltracionesVideo.url}
-          eyebrow="Video del procedimiento"
-          title="Así se realiza una infiltración guiada por imagen"
-          description="Vea cómo aplicamos el medicamento con precisión, usando guía por imagen para llegar exactamente donde se necesita."
         />
 
         <section className="bg-deep-teal py-20 md:py-28">
