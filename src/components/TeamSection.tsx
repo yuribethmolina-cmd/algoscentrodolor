@@ -97,13 +97,12 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
               fontFamily: "'Sora', serif",
               fontWeight: 600,
               fontSize: "clamp(32px, 4.2vw, 56px)",
-              lineHeight: 1.25,
+              lineHeight: 1.15,
               color: DEEP_TEAL,
-              maxWidth: "42ch",
               marginBottom: 20,
             }}
           >
-            En ALGOS la autoridad es el equipo.
+            Nuestro equipo
           </h2>
           <p
             style={{
@@ -114,8 +113,9 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
               maxWidth: "58ch",
             }}
           >
-            Cada caso recorre una ruta donde distintas especialidades colaboran — para diagnosticar
-            con precisión, intervenir con seguridad y acompañar en el tiempo.
+            En ALGOS la autoridad es el equipo. Cada caso recorre una ruta donde distintas
+            especialidades colaboran — para diagnosticar con precisión, intervenir con seguridad
+            y acompañar en el tiempo.
           </p>
         </div>
 
