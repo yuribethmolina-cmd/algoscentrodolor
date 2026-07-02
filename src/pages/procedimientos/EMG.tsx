@@ -239,7 +239,7 @@ function CinematicCTA({ hc }: { hc: boolean }) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em] mb-6">
+          <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.28em] mb-6">
             Su próximo paso
           </p>
           <h2
@@ -254,7 +254,7 @@ function CinematicCTA({ hc }: { hc: boolean }) {
             href={WA}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-algos-gold hover:bg-[#d4a648] text-deep-teal font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
+            className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
           >
             Escríbanos por WhatsApp
           </a>
