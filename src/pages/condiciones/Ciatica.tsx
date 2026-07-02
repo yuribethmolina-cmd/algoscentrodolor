@@ -39,7 +39,7 @@ export default function Ciatica() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   Primero, la causa: la consulta y, cuando hacen falta, la imagen y la electromiografía confirman qué está comprimiendo el nervio y dónde. Después, el tratamiento que su caso necesita: puede ir desde el manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link>, y, si la causa es una hernia de disco confirmada, el <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> como opción antes de plantear una cirugía. Solo lo que hace falta, en el orden que hace falta.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

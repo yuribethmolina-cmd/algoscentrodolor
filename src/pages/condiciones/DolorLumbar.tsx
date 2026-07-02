@@ -39,7 +39,7 @@ export default function DolorLumbar() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y, cuando hace falta, la imagen confirman el origen del dolor. Según lo que se encuentre: manejo con medicamentos, fisiatría, o procedimientos guiados por imagen como <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos</Link>. Solo se indica lo que el caso necesita.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

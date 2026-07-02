@@ -39,7 +39,7 @@ export default function DolorCervical() {
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y la imagen identifican el origen. Si hay compromiso nervioso, la <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma qué nervio está afectado y en qué medida. El tratamiento se define según eso: desde manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> en los niveles cervicales correspondientes.
                 </p>
-            </div></div>
+            </div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">
