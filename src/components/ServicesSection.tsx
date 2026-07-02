@@ -1,4 +1,7 @@
 import { useInViewOnce } from "@/lib/animations";
+import imgTech from "@/assets/experience-tech.jpg";
+import imgSala from "@/assets/sala-procedimientos.jpg";
+import imgProc from "@/assets/about-procedure.jpg";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -7,9 +10,20 @@ const CREAM = "#f5f0e8";
 const STEEL = "#2a6270";
 const WA_URL = "https://wa.me/584146807886";
 
+const SVC_PHOTOS: Record<string, string> = {
+  "01": imgTech,
+  "02": imgTech,
+  "03": imgProc,
+  "04": imgSala,
+  "05": imgProc,
+};
+
 const STYLES = `
 .svc-illust { display: none; }
 @media (min-width: 600px) { .svc-illust { display: block; } }
+.svc-photo { display: none; }
+@media (min-width: 600px) { .svc-photo { display: block; } }
+.svc-item:hover .svc-photo img { opacity: 0.14 !important; filter: grayscale(0) !important; }
 
 @keyframes emg-draw {
   from { stroke-dashoffset: 600; }
@@ -305,6 +319,7 @@ export default function ServicesSection() {
           {servicios.map((s, idx) => (
             <FadeIn key={s.index} delay={idx * 55}>
               <div
+                className="svc-item"
                 style={{
                   borderTop: "1px solid rgba(26,74,85,0.14)",
                   paddingTop: "clamp(32px, 4vw, 48px)",
@@ -314,6 +329,35 @@ export default function ServicesSection() {
                   overflow: "hidden",
                 }}
               >
+                {/* Photo background */}
+                {SVC_PHOTOS[s.index] && (
+                  <div
+                    aria-hidden="true"
+                    className="svc-photo"
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      top: 0,
+                      bottom: 0,
+                      width: "42%",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <img
+                      src={SVC_PHOTOS[s.index]}
+                      alt=""
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        opacity: 0.07,
+                        filter: "grayscale(1)",
+                        mixBlendMode: "luminosity",
+                        transition: "opacity 0.5s ease, filter 0.5s ease",
+                      }}
+                    />
+                  </div>
+                )}
                 {/* Decorative illustration */}
                 <div
                   aria-hidden="true"

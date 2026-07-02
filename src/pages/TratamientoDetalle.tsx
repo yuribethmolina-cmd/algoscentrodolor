@@ -11,19 +11,9 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { MedicalProcedureSchema, BreadcrumbSchema } from "@/components/StructuredData";
-import imgLumbar from "@/assets/tx-01-lumbar.jpg";
-import imgCervical from "@/assets/tx-02-cervical.jpg";
-import imgFacetario from "@/assets/about-procedure.jpg";
-import imgNeuropatia from "@/assets/tx-03-perif.jpg";
-import imgArticular from "@/assets/tx-04-eco.jpg";
+import { CONDITION_IMAGES } from "@/data/condition-images";
 
-const HERO_IMAGES: Record<string, string> = {
-  "dolor-lumbar-ciatica": imgLumbar,
-  "dolor-cervical": imgCervical,
-  "dolor-facetario": imgFacetario,
-  "neuropatia": imgNeuropatia,
-  "dolor-articular": imgArticular,
-};
+const HERO_IMAGES = CONDITION_IMAGES;
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
@@ -109,12 +99,14 @@ export default function TratamientoDetalle() {
               src={heroImg}
               alt=""
               aria-hidden="true"
-              className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="eager"
+              decoding="async"
             />
           )}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[#f5f0e8] md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/75 md:to-[#f5f0e8]/10"
+            className="absolute inset-0 bg-gradient-to-b from-[#f5f0e8]/80 via-[#f5f0e8]/92 to-[#f5f0e8] md:bg-none md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/75 md:to-[#f5f0e8]/10"
           />
           <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12">
             <div className="max-w-2xl">
