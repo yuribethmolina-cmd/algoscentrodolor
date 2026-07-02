@@ -26,6 +26,7 @@ export default function EMG() {
           src={imgHero}
           alt="Electromiografía con aguja guiada por el especialista"
           caption="Electromiografía con aguja: registro directo del músculo."
+          mobileContain
         />
 
         <ProcedureIntro eyebrow="Qué es">
