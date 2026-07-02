@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
@@ -37,13 +38,11 @@ export default function Equipo() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <h1 className="mt-2 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[38px] md:text-[64px] max-w-[20ch]">
-              El equipo
-            </h1>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="None"
+          title="El equipo"
+          video="medicos"
+        />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

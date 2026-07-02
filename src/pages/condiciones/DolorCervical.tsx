@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20cervical.";
 
@@ -11,16 +12,11 @@ export default function DolorCervical() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
-              Condición
-            </p>
-            <h1 className="mt-5 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[38px] md:text-[64px] max-w-[22ch]">
-              Dolor cervical: cuando el cuello duele y el dolor sube o baja
-            </h1>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Condición"
+          title="Dolor cervical: cuando el cuello duele y el dolor sube o baja"
+          video="pacientes"
+        />
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">

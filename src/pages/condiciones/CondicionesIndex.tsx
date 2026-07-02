@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
 
@@ -37,19 +38,12 @@ export default function CondicionesIndex() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
-              Condiciones que tratamos
-            </p>
-            <h1 className="mt-5 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[38px] md:text-[64px] max-w-[20ch]">
-              El dolor tiene causa. Nosotros la tratamos.
-            </h1>
-            <p className="mt-5 font-sans text-cream/80 text-[17px] md:text-[19px] leading-[1.6] max-w-[52ch]">
-              Un médico evalúa su caso, identifica el origen del dolor y define el tratamiento que corresponde. Aquí puede ver las condiciones con las que trabajamos.
-            </p>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Condiciones que tratamos"
+          title="El dolor tiene causa. Nosotros la tratamos."
+          subtitle="Un médico evalúa su caso, identifica el origen del dolor y define el tratamiento que corresponde. Aquí puede ver las condiciones con las que trabajamos."
+          video="pacientes"
+        />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

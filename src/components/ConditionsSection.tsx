@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useInViewOnce } from "@/lib/animations";
 
 const DEEP_TEAL = "#1a4a55";
@@ -6,15 +7,15 @@ const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
 const protagonistas = [
-  "Dolor lumbar / dolor de cintura",
-  "Ciática / «se me duerme la pierna»",
-  "Hernia discal",
-  "Neuropatía diabética",
-  "Dolor persistente tras cirugía de espalda",
+  { label: "Ciática / «se me duerme la pierna»", href: "/condiciones/ciatica" },
+  { label: "Hernia discal", href: "/condiciones/hernia-discal" },
+  { label: "Dolor lumbar / dolor de cintura", href: "/condiciones/dolor-lumbar" },
+  { label: "Dolor cervical", href: "/condiciones/dolor-cervical" },
+  { label: "Neuropatía diabética", href: "/condiciones/neuropatia-diabetica" },
+  { label: "Dolor persistente tras cirugía de espalda", href: "/condiciones/dolor-tras-cirugia" },
 ];
 
 const condiciones = [
-  "Dolor cervical",
   "Dolor facetario",
   "Dolor radicular",
   "Dolor sacroilíaco",
@@ -23,12 +24,9 @@ const condiciones = [
   "Neuralgia postherpética (culebrilla)",
   "Túnel carpiano",
   "Dolor articular — rodilla, cadera, hombro",
-  "Cefaleas",
-];
-
-const segundoNivel = [
+  "Cefaleas tensionales y migraña",
   "Neuralgia occipital",
-  "Síndrome piriforme (pseudociática)",
+  "Síndrome piriforme",
   "Coccigodinia / dolor de rabadilla",
   "Síndrome doloroso regional complejo",
   "Dolor oncológico",
@@ -78,11 +76,11 @@ export default function ConditionsSection() {
               color: CREAM,
             }}
           >
-            Condiciones que tratamos
+            ¿Se reconoce en alguno de estos dolores?
           </h2>
         </div>
 
-        {/* Protagonistas */}
+        {/* Protagonistas — with links */}
         <div style={{ marginBottom: "clamp(48px, 6vw, 64px)" }}>
           <p
             style={{
@@ -99,8 +97,9 @@ export default function ConditionsSection() {
           </p>
           <div ref={listRef} className="flex flex-col" style={{ gap: 2 }}>
             {protagonistas.map((c, idx) => (
-              <div
-                key={c}
+              <Link
+                key={c.href}
+                to={c.href}
                 style={{
                   display: "flex",
                   alignItems: "baseline",
@@ -110,7 +109,9 @@ export default function ConditionsSection() {
                   opacity: listIn ? 1 : 0,
                   transform: listIn ? "none" : "translateX(-16px)",
                   transition: `opacity 0.55s ease ${idx * 90}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 90}ms`,
+                  textDecoration: "none",
                 }}
+                className="group"
               >
                 <span
                   style={{
@@ -131,16 +132,31 @@ export default function ConditionsSection() {
                     fontSize: "clamp(18px, 2.2vw, 26px)",
                     lineHeight: 1.25,
                     color: CREAM,
+                    transition: "color 200ms ease",
                   }}
+                  className="group-hover:text-[#c69636]"
                 >
-                  {c}
+                  {c.label}
                 </span>
-              </div>
+                <span
+                  style={{
+                    marginLeft: "auto",
+                    color: TEAL,
+                    fontSize: 18,
+                    opacity: 0,
+                    transition: "opacity 200ms ease",
+                    flexShrink: 0,
+                  }}
+                  className="group-hover:opacity-100"
+                >
+                  →
+                </span>
+              </Link>
             ))}
           </div>
         </div>
 
-        {/* Condiciones estándar */}
+        {/* Condiciones adicionales */}
         <div style={{ marginBottom: "clamp(36px, 4vw, 52px)" }}>
           <p
             style={{
@@ -170,7 +186,6 @@ export default function ConditionsSection() {
                   padding: "clamp(12px, 1.4vw, 16px) clamp(14px, 1.5vw, 18px)",
                   backgroundColor: "rgba(245,240,232,0.04)",
                   border: "1px solid rgba(245,240,232,0.09)",
-                  borderRadius: 4,
                   opacity: condIn ? 1 : 0,
                   transform: condIn ? "none" : "translateY(12px)",
                   transition: `opacity 0.45s ease ${idx * 45}ms, transform 0.45s cubic-bezier(0.23,1,0.32,1) ${idx * 45}ms`,
@@ -200,45 +215,24 @@ export default function ConditionsSection() {
           </div>
         </div>
 
-        {/* Segundo nivel */}
-        <div
-          style={{
-            borderTop: "1px solid rgba(245,240,232,0.10)",
-            paddingTop: "clamp(24px, 3vw, 36px)",
-          }}
-        >
-          <p
+        {/* Link to full list */}
+        <div style={{ borderTop: "1px solid rgba(245,240,232,0.10)", paddingTop: "clamp(24px, 3vw, 36px)" }}>
+          <Link
+            to="/condiciones"
             style={{
               fontFamily: "Inter, sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: GOLD,
-              marginBottom: 16,
+              fontSize: 13,
+              fontWeight: 600,
+              color: TEAL,
+              textDecoration: "none",
+              letterSpacing: "0.04em",
+              transition: "color 200ms",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = TEAL)}
           >
-            Otras condiciones
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {segundoNivel.map((c) => (
-              <span
-                key={c}
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: "rgba(245,240,232,0.92)",
-                  backgroundColor: "rgba(245,240,232,0.10)",
-                  border: "1px solid rgba(245,240,232,0.28)",
-                  borderRadius: 3,
-                  padding: "6px 14px",
-                }}
-              >
-                {c}
-              </span>
-            ))}
-          </div>
+            Ver listado completo de condiciones →
+          </Link>
         </div>
       </div>
     </section>

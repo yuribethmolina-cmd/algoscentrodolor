@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20sus%20procedimientos.";
 
@@ -74,16 +75,12 @@ export default function PreguntasFrecuentes() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <h1 className="mt-2 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[38px] md:text-[64px] max-w-[20ch]">
-              Preguntas frecuentes
-            </h1>
-            <p className="mt-5 font-sans text-cream/80 text-[17px] md:text-[19px] leading-[1.6] max-w-[52ch]">
-              Las dudas más habituales antes de una primera consulta o procedimiento.
-            </p>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Las dudas más habituales antes de una primera consulta o procedimiento."
+          title="Preguntas frecuentes"
+          subtitle="Las dudas más habituales antes de una primera consulta o procedimiento."
+          video="pacientes"
+        />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">

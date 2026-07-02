@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
 
@@ -10,19 +11,12 @@ export default function Ozono() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
-              Procedimiento
-            </p>
-            <h1 className="mt-5 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[40px] md:text-[72px] max-w-[20ch]">
-              Ozono para hernia discal
-            </h1>
-            <p className="mt-5 font-sans text-cream/80 text-[17px] md:text-[19px] leading-[1.6] max-w-[52ch]">
-              Tratamiento del dolor de disco sin cirugía.
-            </p>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Procedimiento"
+          title="Ozono para hernia discal"
+          subtitle="Tratamiento del dolor de disco sin cirugía."
+          video="tratamientos"
+        />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">

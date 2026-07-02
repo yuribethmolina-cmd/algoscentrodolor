@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA_BASE = "https://wa.me/584146807886?text=Hola%2C%20quiero%20agendar%20";
 
@@ -43,19 +44,12 @@ export default function EstudiosLaboratorio() {
       <Navbar />
 
       <main>
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
-              Red UDUZ
-            </p>
-            <h1 className="mt-5 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[38px] md:text-[64px] max-w-[20ch]">
-              Estudios y laboratorio
-            </h1>
-            <p className="mt-5 font-sans text-cream/80 text-[17px] md:text-[19px] leading-[1.6] max-w-[56ch]">
-              Los estudios de diagnóstico y el laboratorio de la red UDUZ están disponibles aquí: puede solicitarlos directamente, con o sin consulta en ALGOS.
-            </p>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Red UDUZ"
+          title="Estudios y laboratorio"
+          subtitle="Los estudios de diagnóstico y el laboratorio de la red UDUZ están disponibles aquí: puede solicitarlos directamente, con o sin consulta en ALGOS."
+          video="pacientes"
+        />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

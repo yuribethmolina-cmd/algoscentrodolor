@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageHeroVideo from "@/components/PageHeroVideo";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
@@ -11,19 +12,12 @@ export default function Infiltraciones() {
 
       <main>
         {/* Header */}
-        <section className="bg-deep-teal pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
-              Procedimiento
-            </p>
-            <h1 className="mt-5 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[40px] md:text-[72px] max-w-[20ch]">
-              Infiltraciones y bloqueos
-            </h1>
-            <p className="mt-5 font-sans text-cream/80 text-[17px] md:text-[19px] leading-[1.6] max-w-[52ch]">
-              Inyecciones dirigidas para el dolor, guiadas por imagen.
-            </p>
-          </div>
-        </section>
+        <PageHeroVideo
+          eyebrow="Procedimiento"
+          title="Infiltraciones y bloqueos"
+          subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen."
+          video="tratamientos"
+        />
 
         {/* Qué es */}
         <section className="bg-cream py-16 md:py-24">
