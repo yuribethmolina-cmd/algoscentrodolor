@@ -378,18 +378,29 @@ export default function ServicesSection() {
                 <div
                   className="grid"
                   style={{
-                    gridTemplateColumns: "clamp(40px,5vw,72px) 1fr",
-                    gap: "clamp(16px, 3vw, 40px)",
+                    gridTemplateColumns: "clamp(72px, 8vw, 88px) 1fr",
+                    gap: "clamp(16px, 2.5vw, 28px)",
                   }}
                 >
                   {/* Index */}
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
-                      color: "rgba(26,74,85,0.38)",
-                      letterSpacing: "0.06em",
-                      paddingTop: 6,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "rgba(26,74,85,0.62)",
+                      letterSpacing: "0.08em",
+                      width: 44,
+                      height: 44,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      justifySelf: "end",
+                      marginRight: "clamp(8px, 1vw, 12px)",
+                      border: "1px solid rgba(26,74,85,0.18)",
+                      borderRadius: 6,
+                      backgroundColor: "rgba(245,240,232,0.58)",
+                      boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.28)",
                     }}
                   >
                     {s.index}
