@@ -201,7 +201,7 @@ export default function GuiasImagenSection() {
 
                     {/* Usada en */}
                     <div>
-                      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.35)", marginBottom: 10 }}>
+                      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.72)", marginBottom: 10 }}>
                         Usada en
                       </p>
                       <div className="flex flex-col" style={{ gap: 6 }}>
