@@ -136,9 +136,13 @@ export default function Navbar() {
         boxShadow: scrolled ? "0 1px 0 rgba(26,74,85,0.08)" : "none",
       }}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-16 mdx:h-20">
+      <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-20 mdx:h-20">
         <Link to="/" aria-label="ALGOS · Inicio" className="flex items-center transition-opacity hover:opacity-80 shrink-0">
-          <img src={algosLogoFull} alt="ALGOS — Centro de Dolor Intervencionista" className="h-9 mdx:h-12 w-auto object-contain" />
+          <img
+            src={algosLogoFull}
+            alt="ALGOS — Centro de Dolor Intervencionista"
+            className="h-14 mdx:h-12 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
+          />
         </Link>
 
         {/* Desktop nav */}
