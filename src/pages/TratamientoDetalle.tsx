@@ -71,7 +71,7 @@ export default function TratamientoDetalle() {
   const { ref: esperarRef, inView: esperarIn } = useInViewOnce<HTMLOListElement>(0.1);
   if (!condition) return <Navigate to="/tratamientos" replace />;
 
-  const heroImg = HERO_IMAGES[condition.slug];
+  const heroImg = getConditionImage(condition.slug);
 
   return (
     <div className="min-h-screen bg-cream">
