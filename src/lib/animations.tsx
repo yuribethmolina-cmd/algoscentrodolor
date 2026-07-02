@@ -145,7 +145,7 @@ export function useCountUp(target: number, durationMs: number, start: boolean) {
  *  color makes a single emphasized run with slower stagger (120ms). */
 type Chunk = {
   text: string;
-  italic?: boolean;
+  
   color?: string;
   staggerMs?: number; // override per-word stagger
 };

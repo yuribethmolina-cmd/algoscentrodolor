@@ -50,7 +50,7 @@ export default function Ozono() {
         <section className="bg-cream pb-8">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
             <div className="pt-2 border-t border-deep-teal/10 pt-10">
-              <p className="font-sans text-steel-teal text-[15px] leading-[1.75] italic">
+              <p className="font-sans text-steel-teal text-[15px] leading-[1.75]">
                 Este procedimiento se aplica exclusivamente para hernia discal. No se realiza como tratamiento sistémico ni para otras indicaciones.
               </p>
             </div>
