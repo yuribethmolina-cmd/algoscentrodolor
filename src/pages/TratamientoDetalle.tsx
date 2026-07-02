@@ -144,7 +144,7 @@ export default function TratamientoDetalle() {
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-8">
               ¿Qué es y por qué duele?
             </h2>
-            <div className="prose prose-lg max-w-none mb-12">
+            <div className="prose prose-lg max-w-none mb-14">
               <p className="font-sans text-[#1a4a55]/80 text-base md:text-lg leading-relaxed whitespace-pre-line">
                 {condition.whatIs}
               </p>
@@ -152,7 +152,7 @@ export default function TratamientoDetalle() {
             <h3 className="font-display font-semibold text-[#1a4a55] text-xl md:text-2xl mb-6">
               Síntomas comunes
             </h3>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
               {condition.symptoms.map((s) => (
                 <li key={s} className="flex items-start gap-3 text-[#1a4a55]/85 text-base leading-relaxed">
                   <span className="text-[#c69636] mt-1.5 text-xs" aria-hidden>●</span>
