@@ -145,13 +145,13 @@ export default function GuiasImagenSection() {
         >
           {/* Header */}
           <div style={{ marginBottom: "clamp(48px, 6vw, 72px)" }}>
-            <p style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: GOLD, marginBottom: 16 }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: CREAM, marginBottom: 16 }}>
               GUÍAS POR IMAGEN
             </p>
             <h2 style={{ fontFamily: "'Sora', serif", fontWeight: 600, fontSize: "clamp(24px, 2.8vw, 36px)", lineHeight: 1.3, color: CREAM, maxWidth: "48ch", marginBottom: 16 }}>
               El procedimiento guiado por imagen no es una opción — es el estándar.
             </h2>
-            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: "rgba(245,240,232,0.65)", maxWidth: "58ch" }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: "rgba(245,240,232,0.88)", maxWidth: "58ch" }}>
               En ALGOS ningún procedimiento intervencionista se realiza a ciegas. Cada intervención
               utiliza la tecnología de imagen más adecuada para llegar con precisión al origen del dolor.
             </p>
@@ -195,18 +195,18 @@ export default function GuiasImagenSection() {
                     </h3>
 
                     {/* Descripción */}
-                    <p style={{ fontFamily: "Inter, sans-serif", fontSize: 14, lineHeight: 1.7, color: "rgba(245,240,232,0.65)", marginBottom: 24 }}>
+                    <p style={{ fontFamily: "Inter, sans-serif", fontSize: 14, lineHeight: 1.7, color: "rgba(245,240,232,0.88)", marginBottom: 24 }}>
                       {g.descripcion}
                     </p>
 
                     {/* Usada en */}
                     <div>
-                      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.35)", marginBottom: 10 }}>
+                      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.72)", marginBottom: 10 }}>
                         Usada en
                       </p>
                       <div className="flex flex-col" style={{ gap: 6 }}>
                         {g.usadaEn.map((uso) => (
-                          <span key={uso} style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "rgba(245,240,232,0.5)", paddingLeft: 12, borderLeft: `1px solid ${TEAL}` }}>
+                          <span key={uso} style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "rgba(245,240,232,0.82)", paddingLeft: 12, borderLeft: `1px solid ${TEAL}` }}>
                             {uso}
                           </span>
                         ))}
