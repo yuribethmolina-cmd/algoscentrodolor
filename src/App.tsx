@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import AnimatedRoutes from "./components/AnimatedRoutes";
+import AmbientSVG from "./components/AmbientSVG";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AmbientSVG />
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
