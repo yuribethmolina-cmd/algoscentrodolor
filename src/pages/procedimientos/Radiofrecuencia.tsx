@@ -51,7 +51,31 @@ export default function Radiofrecuencia() {
           </div>
         </section>
 
+        <ProcedureDetails
+          facts={[
+            { label: "Duración", value: "30 a 60 min" },
+            { label: "Anestesia", value: "Local" },
+            { label: "Modalidad", value: "Ambulatorio" },
+            { label: "Después", value: "Reposo relativo 24 a 72 h" },
+          ]}
+          preparation="Traiga sus estudios de imagen previos. Coma liviano ese día y vaya acompañado. Avise si toma anticoagulantes o aspirina para ajustar la pauta con antelación."
+          steps={[
+            { title: "Bloqueo diagnóstico previo", description: "Antes de la radiofrecuencia se hace un bloqueo de prueba para confirmar que el nervio identificado es realmente el que origina su dolor." },
+            { title: "Ingreso a sala", description: "Se le ubica en la camilla, se prepara la piel y se cubre con campos estériles." },
+            { title: "Colocación del electrodo guiado por imagen", description: "Con guía de fluoroscopia o tomografía se coloca el electrodo junto al nervio. Se aplica anestesia local en el trayecto." },
+            { title: "Aplicación de calor controlado", description: "Se aplica calor durante unos minutos sobre el nervio. Puede sentir presión, pero no dolor intenso." },
+            { title: "Observación y alta", description: "Descansa unos minutos en la sala y se va a casa el mismo día con las indicaciones de reposo y control." },
+          ]}
+          faq={[
+            { question: "¿Duele el procedimiento?", answer: "Se aplica anestesia local en el trayecto. Puede sentir presión y calor leve, pero no dolor intenso." },
+            { question: "¿Cuánto dura el efecto?", answer: "Habitualmente entre 6 y 12 meses, y puede repetirse si el dolor regresa. Cada caso evoluciona a su ritmo." },
+            { question: "¿Es una cirugía?", answer: "No. Es un procedimiento mínimamente invasivo, guiado por imagen, sin incisión y ambulatorio." },
+            { question: "¿Cuándo estará disponible en ALGOS?", answer: "Estamos incorporando el servicio. Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones que ya ofrecemos." },
+          ]}
+        />
+
         <section className="bg-deep-teal py-20 md:py-28">
+
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Mientras tanto, un especialista puede evaluar su caso y orientarle sobre las opciones disponibles hoy.
