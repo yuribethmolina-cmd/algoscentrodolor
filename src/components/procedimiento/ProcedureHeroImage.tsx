@@ -57,24 +57,43 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
             loading="eager"
           />
         </motion.div>
-        {/* vignette */}
+        {/* vignette — softened on mobile-contain to avoid darkening letterbox bars */}
         <div
-          className="pointer-events-none absolute inset-0"
+          className={
+            (mobileContain ? "hidden md:block " : "") +
+            "pointer-events-none absolute inset-0"
+          }
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.35) 100%)",
           }}
         />
-        {/* top fade to blend with hero */}
+        {/* top fade to blend with hero — desktop/cover only */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-24"
+          className={
+            (mobileContain ? "hidden md:block " : "") +
+            "pointer-events-none absolute inset-x-0 top-0 h-24"
+          }
           style={{ background: "linear-gradient(to bottom, rgba(26,74,85,0.55), transparent)" }}
         />
-        {/* bottom fade to cream */}
+        {/* bottom fade to cream — desktop/cover only (avoid washing contained image) */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
+          className={
+            (mobileContain ? "hidden md:block " : "") +
+            "pointer-events-none absolute inset-x-0 bottom-0 h-32"
+          }
           style={{ background: "linear-gradient(to top, rgba(245,240,232,0.9), transparent)" }}
         />
+        {/* Mobile-contain: legibility scrim only behind the caption zone */}
+        {mobileContain && caption && (
+          <div
+            className="md:hidden pointer-events-none absolute inset-x-0 bottom-0 h-32"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(26,74,85,0.72) 0%, rgba(26,74,85,0.35) 55%, rgba(26,74,85,0) 100%)",
+            }}
+          />
+        )}
 
         {caption && (
           <motion.div
@@ -82,10 +101,13 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-6 md:left-12 bottom-8 md:bottom-12 max-w-[420px]"
+            className="absolute left-6 md:left-12 bottom-6 md:bottom-12 max-w-[420px]"
           >
             <div className="h-px w-10 bg-algos-gold mb-3" />
-            <p className="font-sans text-cream text-[13px] md:text-[14px] leading-[1.5] tracking-wide">
+            <p
+              className="font-sans text-cream text-[13px] md:text-[14px] leading-[1.5] tracking-wide"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.45)" }}
+            >
               {caption}
             </p>
           </motion.div>
