@@ -110,7 +110,7 @@ export default function Pacientes() {
                     Dr. Atilio J. Rodríguez
                   </p>
                   <p className="mt-0.5 font-sans text-[13px] text-steel-teal/80">
-                    Director Médico · Neurocirujano
+                    Neurocirujano
                   </p>
                 </div>
               </div>
