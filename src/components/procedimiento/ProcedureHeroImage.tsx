@@ -34,7 +34,22 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
             : "relative w-full h-[52vh] md:h-[72vh] max-h-[720px] min-h-[360px]"
         }
       >
-        <motion.div style={{ y, scale }} className="absolute inset-0 will-change-transform">
+        {mobileContain && (
+          <img
+            src={src}
+            alt={alt}
+            className="block md:hidden w-full h-auto object-contain"
+            loading="eager"
+          />
+        )}
+        <motion.div
+          style={{ y, scale }}
+          className={
+            mobileContain
+              ? "hidden md:block absolute inset-0 will-change-transform"
+              : "absolute inset-0 will-change-transform"
+          }
+        >
           <img
             src={src}
             alt={alt}
