@@ -40,7 +40,7 @@ export default function EEG() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="border-l-2 border-algos-gold/70 pl-6 md:pl-8"
             >
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Para qué sirve</p>
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-5">Para qué sirve</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                 Es el estudio indicado ante convulsiones o crisis, episodios de desmayo o pérdida de consciencia sin explicación, sospecha de epilepsia y el seguimiento de ciertas condiciones neurológicas.
               </p>
