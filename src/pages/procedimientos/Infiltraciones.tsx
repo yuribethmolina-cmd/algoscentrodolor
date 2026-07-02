@@ -1,9 +1,11 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
 
@@ -14,8 +16,9 @@ const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
 export default function Infiltraciones() {
+  const [hc, setHc] = useState(false);
   return (
-    <div className="min-h-screen bg-cream">
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         {/* Hero with video background */}
@@ -176,6 +179,7 @@ export default function Infiltraciones() {
       </main>
       <HomeFooter />
       <WhatsAppButton />
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

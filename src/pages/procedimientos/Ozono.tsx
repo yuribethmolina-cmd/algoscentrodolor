@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -7,6 +8,7 @@ import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSect
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
@@ -14,8 +16,9 @@ import imgSala from "@/assets/sala-procedimientos.jpg";
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
 
 export default function Ozono() {
+  const [hc, setHc] = useState(false);
   return (
-    <div className="min-h-screen bg-cream">
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         <PageHero eyebrow="Procedimiento" title="Ozono para hernia discal" subtitle="Tratamiento del dolor de disco sin cirugía." />
@@ -100,6 +103,7 @@ export default function Ozono() {
       </main>
       <HomeFooter />
       <WhatsAppButton />
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

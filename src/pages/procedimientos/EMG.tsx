@@ -5,6 +5,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
@@ -269,7 +270,7 @@ export default function EMG() {
   const [hc, setHc] = useState(false);
 
   return (
-    <div className={`min-h-screen ${hc ? "emg-hc" : "bg-cream"}`}>
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         <CinematicHero hc={hc} />
@@ -345,18 +346,7 @@ export default function EMG() {
       <WhatsAppButton />
 
       {/* High-contrast toggle */}
-      <button
-        onClick={() => setHc((v) => !v)}
-        aria-pressed={hc}
-        aria-label={hc ? "Desactivar modo de alto contraste" : "Activar modo de alto contraste"}
-        className={`fixed bottom-6 left-6 z-50 font-sans font-bold uppercase text-[11px] tracking-[0.2em] px-5 py-3 border-2 transition-colors min-h-[44px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-          hc
-            ? "bg-black text-white border-white focus-visible:ring-white focus-visible:ring-offset-black"
-            : "bg-deep-teal text-cream border-cream focus-visible:ring-algos-gold focus-visible:ring-offset-cream"
-        }`}
-      >
-        {hc ? "Contraste normal" : "Alto contraste"}
-      </button>
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

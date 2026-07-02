@@ -226,41 +226,45 @@
 }
 
 /* ============================================================
- * EMG High Contrast Mode — AAA accessibility for low vision
- * Surgical overrides: preserve layout, swap colors to pure black/white
+ * Procedure Pages — High Contrast Mode (AAA accessibility)
+ * Surgical overrides: preserve layout, swap colors to black/white
+ * Applied via .procedure-hc on the page root
  * ============================================================ */
-.emg-hc,
-.emg-hc .bg-cream,
-.emg-hc .bg-deep-teal {
+.procedure-hc,
+.procedure-hc .bg-cream,
+.procedure-hc .bg-deep-teal,
+.procedure-hc .bg-algos-gold\/10 {
   background-color: #000000 !important;
 }
 
-.emg-hc .text-deep-teal,
-.emg-hc .text-steel-teal,
-.emg-hc .text-cream,
-.emg-hc .text-cream\/85,
-.emg-hc .text-cream\/70,
-.emg-hc .text-cream\/60,
-.emg-hc .text-deep-teal\/85,
-.emg-hc .text-deep-teal\/60 {
+.procedure-hc .text-deep-teal,
+.procedure-hc .text-steel-teal,
+.procedure-hc .text-cream,
+.procedure-hc .text-cream\/85,
+.procedure-hc .text-cream\/80,
+.procedure-hc .text-cream\/70,
+.procedure-hc .text-cream\/60,
+.procedure-hc .text-deep-teal\/85,
+.procedure-hc .text-deep-teal\/60 {
   color: #ffffff !important;
 }
 
-.emg-hc .text-algos-gold {
+.procedure-hc .text-algos-gold {
   color: #f0c050 !important;
 }
 
-.emg-hc .border-algos-gold\/70,
-.emg-hc .border-deep-teal\/10,
-.emg-hc .border-deep-teal\/15 {
+.procedure-hc .border-algos-gold\/70,
+.procedure-hc .border-algos-gold\/20,
+.procedure-hc .border-deep-teal\/10,
+.procedure-hc .border-deep-teal\/15 {
   border-color: #ffffff !important;
 }
 
-.emg-hc .bg-deep-teal\/5 {
+.procedure-hc .bg-deep-teal\/5 {
   background-color: #000000 !important;
 }
 
-.emg-hc .bg-deep-teal\/15 {
+.procedure-hc .bg-deep-teal\/15 {
   background-color: #ffffff !important;
 }
 
