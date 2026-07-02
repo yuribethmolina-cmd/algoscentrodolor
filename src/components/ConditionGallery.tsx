@@ -17,11 +17,13 @@ type Slide = { src: string; caption: string };
 export default function ConditionGallery({
   slug,
   conditionName,
+  heroSrc,
 }: {
-  slug: string;
+  slug?: string;
   conditionName: string;
+  heroSrc?: string;
 }) {
-  const hero = getConditionImage(slug);
+  const hero = heroSrc ?? (slug ? getConditionImage(slug) : imgConsult);
   const slides: Slide[] = [
     { src: hero, caption: `Referencia visual · ${conditionName.toLowerCase()}` },
     { src: imgConsult, caption: "Consulta y valoración con el especialista" },
