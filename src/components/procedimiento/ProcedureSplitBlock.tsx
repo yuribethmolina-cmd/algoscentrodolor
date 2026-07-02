@@ -11,6 +11,8 @@ interface Props {
   imageCaption?: string;
   /** On mobile, letterbox the full image (no crop) instead of aspect crop. */
   mobileContain?: boolean;
+  /** Accessibility: high-contrast black/white mode */
+  highContrast?: boolean;
 }
 
 /**
@@ -25,6 +27,7 @@ export default function ProcedureSplitBlock({
   reverse = false,
   imageCaption,
   mobileContain = false,
+  highContrast = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -34,7 +37,7 @@ export default function ProcedureSplitBlock({
   const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section ref={ref} className="bg-cream py-20 md:py-28">
+    <section ref={ref} className={`${highContrast ? "bg-black" : "bg-cream"} py-20 md:py-28`}>
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <div
           className={`grid md:grid-cols-12 gap-12 md:gap-16 items-center ${

@@ -225,6 +225,45 @@
   }
 }
 
+/* ============================================================
+ * EMG High Contrast Mode — AAA accessibility for low vision
+ * Surgical overrides: preserve layout, swap colors to pure black/white
+ * ============================================================ */
+.emg-hc,
+.emg-hc .bg-cream,
+.emg-hc .bg-deep-teal {
+  background-color: #000000 !important;
+}
+
+.emg-hc .text-deep-teal,
+.emg-hc .text-steel-teal,
+.emg-hc .text-cream,
+.emg-hc .text-cream\/85,
+.emg-hc .text-cream\/70,
+.emg-hc .text-cream\/60,
+.emg-hc .text-deep-teal\/85,
+.emg-hc .text-deep-teal\/60 {
+  color: #ffffff !important;
+}
+
+.emg-hc .text-algos-gold {
+  color: #f0c050 !important;
+}
+
+.emg-hc .border-algos-gold\/70,
+.emg-hc .border-deep-teal\/10,
+.emg-hc .border-deep-teal\/15 {
+  border-color: #ffffff !important;
+}
+
+.emg-hc .bg-deep-teal\/5 {
+  background-color: #000000 !important;
+}
+
+.emg-hc .bg-deep-teal\/15 {
+  background-color: #ffffff !important;
+}
+
 /* Scroll reveal animation */
 .scroll-reveal {
   opacity: 0;

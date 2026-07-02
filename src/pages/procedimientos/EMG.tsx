@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
@@ -12,10 +12,10 @@ const imgHero = imgHeroAsset.url;
 const imgPierna = imgPiernaAsset.url;
 const imgBrazo = imgBrazoAsset.url;
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20la%20Electromiografía%20(EMG).";
+const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Electromiograf%C3%ADa%20(EMG).";
 
 /* ---------- Cinematic Hero (inline, EMG-only) ---------- */
-function CinematicHero() {
+function CinematicHero({ hc }: { hc: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
@@ -39,22 +39,29 @@ function CinematicHero() {
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(26,74,85,0.30) 0%, rgba(26,74,85,0.12) 35%, rgba(26,74,85,0.55) 65%, rgba(26,74,85,0.88) 82%, rgba(26,74,85,0.96) 100%)",
+          background: hc
+            ? "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.75) 65%, rgba(0,0,0,0.95) 85%, rgba(0,0,0,1) 100%)"
+            : "linear-gradient(180deg, rgba(26,74,85,0.30) 0%, rgba(26,74,85,0.12) 35%, rgba(26,74,85,0.55) 65%, rgba(26,74,85,0.88) 82%, rgba(26,74,85,0.96) 100%)",
         }}
       />
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.42) 100%)" }}
-      />
-      {/* Grain texture via subtle noise gradient stripes */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
         style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
+          background: hc
+            ? "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 20%, rgba(0,0,0,0.65) 100%)"
+            : "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.42) 100%)",
         }}
       />
+      {/* Grain texture via subtle noise gradient stripes */}
+      {!hc && (
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
+          }}
+        />
+      )}
 
       {/* Content */}
       <motion.div
@@ -75,13 +82,19 @@ function CinematicHero() {
             </div>
             <h1
               className="font-sans font-light text-cream leading-[1.05] md:leading-[0.95] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)", textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
+              style={{
+                fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)",
+                textShadow: hc ? "none" : "0 2px 24px rgba(0,0,0,0.35)",
+              }}
             >
               Electromiografía
             </h1>
             <p
               className="font-sans font-light text-cream/85 mt-5 md:mt-6 max-w-[640px] leading-[1.65] md:leading-[1.5]"
-              style={{ fontSize: "clamp(1rem, 1.6vw, 1.375rem)", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+              style={{
+                fontSize: "clamp(1rem, 1.6vw, 1.375rem)",
+                textShadow: hc ? "none" : "0 1px 12px rgba(0,0,0,0.35)",
+              }}
             >
               Escuchamos lo que dicen sus nervios y sus músculos, y traducimos esa señal en un diagnóstico preciso.
             </p>
@@ -156,7 +169,7 @@ function EditorialStatement({ children }: { children: React.ReactNode }) {
 }
 
 /* ---------- Full-bleed pull quote panel (dark) ---------- */
-function ManifestoPanel() {
+function ManifestoPanel({ hc }: { hc: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
@@ -169,8 +182,9 @@ function ManifestoPanel() {
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse at 30% 30%, rgba(198,150,54,0.14) 0%, rgba(26,74,85,0) 55%)",
+            background: hc
+              ? "radial-gradient(ellipse at 30% 30%, rgba(198,150,54,0.30) 0%, rgba(0,0,0,0) 55%)"
+              : "radial-gradient(ellipse at 30% 30%, rgba(198,150,54,0.14) 0%, rgba(26,74,85,0) 55%)",
           }}
         />
       </motion.div>
@@ -199,7 +213,7 @@ function ManifestoPanel() {
 }
 
 /* ---------- Cinematic CTA ---------- */
-function CinematicCTA() {
+function CinematicCTA({ hc }: { hc: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const yGlow = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
@@ -212,8 +226,9 @@ function CinematicCTA() {
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse at 50% 60%, rgba(198,150,54,0.22) 0%, rgba(26,74,85,0) 60%)",
+            background: hc
+              ? "radial-gradient(ellipse at 50% 60%, rgba(198,150,54,0.40) 0%, rgba(0,0,0,0) 60%)"
+              : "radial-gradient(ellipse at 50% 60%, rgba(198,150,54,0.22) 0%, rgba(26,74,85,0) 60%)",
           }}
         />
       </motion.div>
@@ -251,11 +266,13 @@ function CinematicCTA() {
 
 /* ================ Page ================ */
 export default function EMG() {
+  const [hc, setHc] = useState(false);
+
   return (
-    <div className="min-h-screen bg-cream">
+    <div className={`min-h-screen ${hc ? "emg-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
-        <CinematicHero />
+        <CinematicHero hc={hc} />
 
         <Chapter numeral="I" label="Qué es" />
         <EditorialStatement>
@@ -269,6 +286,7 @@ export default function EMG() {
           eyebrow="Indicaciones"
           imageCaption="Conducción nerviosa: estímulos suaves sobre la piel."
           mobileContain
+          highContrast={hc}
         >
           <p>
             Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos.
@@ -278,7 +296,7 @@ export default function EMG() {
           </p>
         </ProcedureSplitBlock>
 
-        <ManifestoPanel />
+        <ManifestoPanel hc={hc} />
 
         <Chapter numeral="III" label="Cómo se hace" />
         <ProcedureSplitBlock
@@ -288,6 +306,7 @@ export default function EMG() {
           imageCaption="Registro en tiempo real durante el estudio."
           reverse
           mobileContain
+          highContrast={hc}
         >
           <p>
             El estudio ocurre en dos actos: primero la conducción nerviosa, luego el registro con una aguja muy fina en algunos músculos.
@@ -320,10 +339,24 @@ export default function EMG() {
           ]}
         />
 
-        <CinematicCTA />
+        <CinematicCTA hc={hc} />
       </main>
       <HomeFooter />
       <WhatsAppButton />
+
+      {/* High-contrast toggle */}
+      <button
+        onClick={() => setHc((v) => !v)}
+        aria-pressed={hc}
+        aria-label={hc ? "Desactivar modo de alto contraste" : "Activar modo de alto contraste"}
+        className={`fixed bottom-6 left-6 z-50 font-sans font-bold uppercase text-[11px] tracking-[0.2em] px-5 py-3 border-2 transition-colors min-h-[44px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+          hc
+            ? "bg-black text-white border-white focus-visible:ring-white focus-visible:ring-offset-black"
+            : "bg-deep-teal text-cream border-cream focus-visible:ring-algos-gold focus-visible:ring-offset-cream"
+        }`}
+      >
+        {hc ? "Contraste normal" : "Alto contraste"}
+      </button>
     </div>
   );
 }
