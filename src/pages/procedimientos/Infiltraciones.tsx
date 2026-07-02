@@ -4,6 +4,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
+import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
+import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
+import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import infiltracionesVideo from "@/assets/infiltraciones-procedimiento.mp4.asset.json";
 import imgMain from "@/assets/about-procedure.jpg";
 import imgSala from "@/assets/sala-procedimientos.jpg";
@@ -17,41 +20,42 @@ export default function Infiltraciones() {
       <main>
         <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." video="tratamientos" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Procedimiento de infiltración guiado por imagen" className="w-full h-full object-cover" loading="eager" />
-            </div>
-          </div>
-        </div>
+        <ProcedureHeroImage
+          src={imgMain}
+          alt="Procedimiento de infiltración guiado por imagen"
+          caption="Guiado por imagen, con precisión milimétrica."
+        />
 
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
-            <p className="font-sans text-deep-teal text-[17px] leading-[1.7] mb-10">
-              Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor — una articulación, un nervio o una raíz —, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio: se va caminando el mismo día.
-            </p>
+        <ProcedureIntro eyebrow="Qué es">
+          Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor — una articulación, un nervio o una raíz —, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio: se va caminando el mismo día.
+        </ProcedureIntro>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgSala} alt="Sala de procedimientos ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Para qué sirve</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
-                  Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna. Y para confirmar de dónde viene el dolor: un bloqueo bien dirigido ayuda a identificar el nervio responsable y a orientar el tratamiento siguiente.
-                </p>
-              </div>
-            </div>
+        <ProcedureSplitBlock
+          image={imgSala}
+          imageAlt="Sala de procedimientos ALGOS"
+          eyebrow="Para qué sirve"
+          imageCaption="Sala de procedimientos ALGOS"
+        >
+          <p>
+            Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna.
+          </p>
+          <p>
+            Y para confirmar de dónde viene el dolor: un bloqueo bien dirigido ayuda a identificar el nervio responsable y a orientar el tratamiento siguiente.
+          </p>
+        </ProcedureSplitBlock>
 
-            <div className="pt-10 border-t border-deep-teal/10">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Guía por imagen</p>
-              <p className="font-sans text-deep-teal text-[17px] leading-[1.7]">
+        <section className="bg-cream pb-8">
+          <div className="mx-auto max-w-[860px] px-6 md:px-12">
+            <div className="pt-2 border-t border-deep-teal/10 pt-10">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                 Contamos con las tres formas de guía por imagen — fluoroscopia, tomografía y ecografía — y usamos la que su caso necesita para tratarle mejor y con la mayor seguridad.
               </p>
             </div>
           </div>
         </section>
+
+
 
         <ProcedureDetails
           facts={[
