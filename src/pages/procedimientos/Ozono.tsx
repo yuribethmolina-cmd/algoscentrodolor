@@ -103,6 +103,7 @@ export default function Ozono() {
       </main>
       <HomeFooter />
       <WhatsAppButton />
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }
