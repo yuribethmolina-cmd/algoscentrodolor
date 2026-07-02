@@ -75,6 +75,13 @@ export default function Ozono() {
           ]}
         />
 
+        <ProcedureVideoSection
+          src="/videos/hernia-discal.mp4"
+          eyebrow="Video del procedimiento"
+          title="Así se aplica el ozono en la hernia discal"
+          description="Un vistazo al procedimiento guiado por imagen, tal como se realiza en sala. Con anestesia local y de forma ambulatoria."
+        />
+
         <section className="bg-deep-teal py-20 md:py-28">
 
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
