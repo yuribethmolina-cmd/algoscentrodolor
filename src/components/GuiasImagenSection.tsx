@@ -206,7 +206,7 @@ export default function GuiasImagenSection() {
                       </p>
                       <div className="flex flex-col" style={{ gap: 6 }}>
                         {g.usadaEn.map((uso) => (
-                          <span key={uso} style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "rgba(245,240,232,0.5)", paddingLeft: 12, borderLeft: `1px solid ${TEAL}` }}>
+                          <span key={uso} style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "rgba(245,240,232,0.82)", paddingLeft: 12, borderLeft: `1px solid ${TEAL}` }}>
                             {uso}
                           </span>
                         ))}
