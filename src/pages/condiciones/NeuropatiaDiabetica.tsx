@@ -3,7 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
-import imgMain from "@/assets/tx-03-perif.jpg";
+import ConditionGallery from "@/components/ConditionGallery";
+import heroAsset from "@/assets/cond-neuropatia.jpg.asset.json";
 import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20neuropat%C3%ADa%20diab%C3%A9tica.";
@@ -15,13 +16,12 @@ export default function NeuropatiaDiabetica() {
       <main>
         <PageHeroVideo eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" video="pacientes" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Nervios periféricos" className="w-full h-full object-cover" loading="eager" />
-            </div>
+        <div className="bg-cream pt-8 md:pt-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <ConditionGallery heroSrc={heroAsset.url} conditionName="Neuropatía diabética" />
           </div>
         </div>
+
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">

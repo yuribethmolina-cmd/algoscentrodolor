@@ -3,7 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
-import imgMain from "@/assets/tx-cirugia-fallida.jpg";
+import ConditionGallery from "@/components/ConditionGallery";
+import heroAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
 import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20dolor%20que%20persiste%20tras%20una%20cirug%C3%ADa%20de%20columna.";
@@ -15,13 +16,12 @@ export default function DolorTrasCirugia() {
       <main>
         <PageHeroVideo eyebrow="Condición" title="Dolor tras cirugía de columna: cuando la operación no fue suficiente" video="pacientes" />
 
-        <div className="bg-cream">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-0">
-            <div style={{ overflow: "hidden", aspectRatio: "16/7" }}>
-              <img src={imgMain} alt="Dolor postoperatorio de columna" className="w-full h-full object-cover" loading="eager" />
-            </div>
+        <div className="bg-cream pt-8 md:pt-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <ConditionGallery heroSrc={heroAsset.url} conditionName="Dolor tras cirugía de columna" />
           </div>
         </div>
+
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
