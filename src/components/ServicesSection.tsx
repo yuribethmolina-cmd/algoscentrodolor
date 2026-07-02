@@ -374,38 +374,13 @@ export default function ServicesSection() {
                   {ILLUSTRATIONS[s.index]}
                 </div>
 
-                {/* Grid: index | content */}
+                {/* Content */}
                 <div
                   className="grid"
                   style={{
-                    gridTemplateColumns: "clamp(72px, 8vw, 88px) 1fr",
-                    gap: "clamp(16px, 2.5vw, 28px)",
+                    gridTemplateColumns: "1fr",
                   }}
                 >
-                  {/* Index */}
-                  <span
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: "rgba(26,74,85,0.62)",
-                      letterSpacing: "0.08em",
-                      width: 44,
-                      height: 44,
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      justifySelf: "end",
-                      marginRight: "clamp(8px, 1vw, 12px)",
-                      border: "1px solid rgba(26,74,85,0.18)",
-                      borderRadius: 6,
-                      backgroundColor: "rgba(245,240,232,0.58)",
-                      boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.28)",
-                    }}
-                  >
-                    {s.index}
-                  </span>
-
                   {/* Main content */}
                   <div>
                     {/* Name + bajada + badge */}
@@ -418,19 +393,39 @@ export default function ServicesSection() {
                         marginBottom: "clamp(20px, 2.5vw, 28px)",
                       }}
                     >
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3
-                          style={{
-                            fontFamily: "'Sora', serif",
-                            fontWeight: 600,
-                            fontSize: "clamp(20px, 2.2vw, 27px)",
-                            lineHeight: 1.25,
-                            color: DEEP_TEAL,
-                            marginBottom: 8,
-                          }}
-                        >
-                          {s.nombre}
-                        </h3>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "baseline",
+                              gap: "clamp(14px, 1.8vw, 22px)",
+                              flexWrap: "wrap",
+                              marginBottom: 8,
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: 13,
+                                fontWeight: 700,
+                                color: GOLD,
+                                letterSpacing: "0.08em",
+                              }}
+                            >
+                              {s.index}
+                            </span>
+                            <h3
+                              style={{
+                                fontFamily: "'Sora', serif",
+                                fontWeight: 600,
+                                fontSize: "clamp(20px, 2.2vw, 27px)",
+                                lineHeight: 1.25,
+                                color: DEEP_TEAL,
+                              }}
+                            >
+                              {s.nombre}
+                            </h3>
+                          </div>
                         <p
                           style={{
                             fontFamily: "Inter, sans-serif",
