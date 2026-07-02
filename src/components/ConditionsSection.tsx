@@ -1,8 +1,9 @@
+import { useInViewOnce } from "@/lib/animations";
+
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
-const STEEL = "#2a6270";
 
 const protagonistas = [
   "Dolor lumbar / dolor de cintura",
@@ -34,6 +35,9 @@ const segundoNivel = [
 ];
 
 export default function ConditionsSection() {
+  const { ref: listRef, inView: listIn } = useInViewOnce<HTMLDivElement>(0.08);
+  const { ref: condRef, inView: condIn } = useInViewOnce<HTMLDivElement>(0.08);
+
   return (
     <section
       style={{
@@ -87,13 +91,13 @@ export default function ConditionsSection() {
               fontWeight: 700,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "rgba(245,240,232,0.38)",
+              color: "rgba(245,240,232,0.65)",
               marginBottom: 20,
             }}
           >
             Más frecuentes
           </p>
-          <div className="flex flex-col" style={{ gap: 2 }}>
+          <div ref={listRef} className="flex flex-col" style={{ gap: 2 }}>
             {protagonistas.map((c, idx) => (
               <div
                 key={c}
@@ -103,6 +107,9 @@ export default function ConditionsSection() {
                   gap: "clamp(12px, 2vw, 24px)",
                   borderBottom: "1px solid rgba(245,240,232,0.08)",
                   padding: "clamp(14px, 1.8vw, 20px) 0",
+                  opacity: listIn ? 1 : 0,
+                  transform: listIn ? "none" : "translateX(-16px)",
+                  transition: `opacity 0.55s ease ${idx * 90}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 90}ms`,
                 }}
               >
                 <span
@@ -142,17 +149,18 @@ export default function ConditionsSection() {
               fontWeight: 700,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "rgba(245,240,232,0.38)",
+              color: "rgba(245,240,232,0.65)",
               marginBottom: 20,
             }}
           >
             También tratamos
           </p>
           <div
+            ref={condRef}
             className="grid sm:grid-cols-2"
             style={{ gap: "clamp(8px, 1vw, 12px)" }}
           >
-            {condiciones.map((c) => (
+            {condiciones.map((c, idx) => (
               <div
                 key={c}
                 style={{
@@ -163,6 +171,9 @@ export default function ConditionsSection() {
                   backgroundColor: "rgba(245,240,232,0.04)",
                   border: "1px solid rgba(245,240,232,0.09)",
                   borderRadius: 4,
+                  opacity: condIn ? 1 : 0,
+                  transform: condIn ? "none" : "translateY(12px)",
+                  transition: `opacity 0.45s ease ${idx * 45}ms, transform 0.45s cubic-bezier(0.23,1,0.32,1) ${idx * 45}ms`,
                 }}
               >
                 <span
@@ -178,7 +189,7 @@ export default function ConditionsSection() {
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontSize: "clamp(13px, 1.1vw, 15px)",
-                    color: "rgba(245,240,232,0.78)",
+                    color: "rgba(245,240,232,0.92)",
                     lineHeight: 1.4,
                   }}
                 >
@@ -203,7 +214,7 @@ export default function ConditionsSection() {
               fontWeight: 700,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "rgba(245,240,232,0.28)",
+              color: "rgba(245,240,232,0.60)",
               marginBottom: 16,
             }}
           >
@@ -216,9 +227,9 @@ export default function ConditionsSection() {
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: 12,
-                  color: "rgba(245,240,232,0.45)",
-                  backgroundColor: "rgba(245,240,232,0.03)",
-                  border: "1px solid rgba(245,240,232,0.08)",
+                  color: "rgba(245,240,232,0.82)",
+                  backgroundColor: "rgba(245,240,232,0.04)",
+                  border: "1px solid rgba(245,240,232,0.10)",
                   borderRadius: 3,
                   padding: "5px 12px",
                 }}

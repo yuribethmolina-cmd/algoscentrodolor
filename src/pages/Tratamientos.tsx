@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useInViewOnce } from "@/lib/animations";
 import { CONDITIONS, PROCEDURES } from "@/data/treatments";
 import imgExperienceTech from "@/assets/experience-tech.jpg";
 import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg";
@@ -21,6 +22,7 @@ const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
 
 export default function Tratamientos() {
   const [view] = useAudienceView();
+  const { ref: cardsRef, inView: cardsIn } = useInViewOnce<HTMLDivElement>(0.05);
 
   return (
     <div className="min-h-screen bg-cream">
@@ -70,9 +72,15 @@ export default function Tratamientos() {
 
         <section className="bg-cream py-20 md:py-28">
           <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {CONDITIONS.map((c) => (
-                <ConditionCard key={c.slug} condition={c} view={view} />
+            <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {CONDITIONS.map((c, idx) => (
+                <div key={c.slug} style={{
+                  opacity: cardsIn ? 1 : 0,
+                  transform: cardsIn ? "none" : "translateY(20px)",
+                  transition: `opacity 0.55s ease ${idx * 70}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 70}ms`,
+                }}>
+                  <ConditionCard condition={c} view={view} />
+                </div>
               ))}
             </div>
           </div>
@@ -107,7 +115,7 @@ export default function Tratamientos() {
               <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-4">
                 Procedimientos que realizamos
               </h2>
-              <p className="font-sans text-[#1a4a55]/70 text-lg">
+              <p className="font-sans text-[#1a4a55]/85 text-lg">
                 Ver lista completa de técnicas y para qué condiciones se usan.
               </p>
             </div>
@@ -120,7 +128,7 @@ export default function Tratamientos() {
                   <AccordionContent>
                     <p className="text-[#1a4a55]/80 mb-4 leading-relaxed">{proc.description}</p>
                     <div className="flex flex-wrap gap-2 items-center">
-                      <span className="text-xs uppercase tracking-wider text-[#1a4a55]/60 mr-1">
+                      <span className="text-xs uppercase tracking-wider text-[#1a4a55]/75 mr-1">
                         Se usa para:
                       </span>
                       {proc.usedFor.map((condSlug) => {
@@ -184,7 +192,7 @@ export default function Tratamientos() {
                   <div className="relative z-10">
                     <p className="font-ui font-bold text-[10px] tracking-[0.22em] uppercase text-[#c69636] mb-3">{s.category}</p>
                     <h3 className="font-display font-semibold text-[#f5f0e8] text-xl md:text-2xl mb-2 leading-snug">{s.title}</h3>
-                    <p className="font-sans text-sm text-[#f5f0e8]/60 mb-5">{s.bajada}</p>
+                    <p className="font-sans text-sm text-[#f5f0e8]/82 mb-5">{s.bajada}</p>
                     <div className="h-px w-10 bg-[#c69636]/50 mb-5" />
                     <p className="font-sans text-[15px] text-[#f5f0e8]/80 leading-relaxed">{s.description}</p>
                   </div>
@@ -199,7 +207,7 @@ export default function Tratamientos() {
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
-                <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
+                <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
                   PACIENTES
                 </p>
                 <h3 className="font-display font-semibold text-2xl md:text-3xl mb-3">
@@ -217,7 +225,7 @@ export default function Tratamientos() {
                 </Link>
               </article>
               <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
-                <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
+                <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
                   MÉDICOS
                 </p>
                 <h3 className="font-display font-semibold text-2xl md:text-3xl mb-3">

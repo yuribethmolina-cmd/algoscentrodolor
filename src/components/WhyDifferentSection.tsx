@@ -124,7 +124,7 @@ export default function WhyDifferentSection() {
                   fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(13px, 1.1vw, 15px)",
                   lineHeight: 1.7,
-                  color: "rgba(26,74,85,0.60)",
+                  color: "rgba(26,74,85,0.82)",
                   margin: 0,
                 }}
               >
@@ -140,7 +140,7 @@ export default function WhyDifferentSection() {
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(15px, 1.3vw, 17px)",
             lineHeight: 1.75,
-            color: "rgba(26,74,85,0.60)",
+            color: "rgba(26,74,85,0.82)",
             fontStyle: "italic",
             maxWidth: "64ch",
             marginTop: "clamp(40px, 5vw, 56px)",

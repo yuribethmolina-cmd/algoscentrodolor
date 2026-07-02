@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
+import { useInViewOnce } from "@/lib/animations";
 import { CONDITIONS } from "@/data/treatments";
 import {
   Accordion,
@@ -78,6 +79,8 @@ const CONDITION_ICONS: Record<string, React.ReactNode> = {
 export default function TratamientoDetalle() {
   const { slug } = useParams();
   const condition = CONDITIONS.find((c) => c.slug === slug);
+  const { ref: considRef, inView: considIn } = useInViewOnce<HTMLUListElement>(0.1);
+  const { ref: esperarRef, inView: esperarIn } = useInViewOnce<HTMLOListElement>(0.1);
   if (!condition) return <Navigate to="/tratamientos" replace />;
 
   const heroImg = HERO_IMAGES[condition.slug];
@@ -117,7 +120,7 @@ export default function TratamientoDetalle() {
             <div className="max-w-2xl">
               <Link
                 to="/tratamientos"
-                className="inline-flex items-center gap-2 text-[#1a4a55]/70 hover:text-[#c69636] text-sm font-medium mb-8 transition-colors"
+                className="inline-flex items-center gap-2 text-[#1a4a55]/85 hover:text-[#c69636] text-sm font-medium mb-8 transition-colors"
               >
                 <span aria-hidden>←</span>
                 <span>Todos los tratamientos</span>
@@ -173,9 +176,15 @@ export default function TratamientoDetalle() {
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-10">
               ¿Cuándo considerar tratamiento intervencionista?
             </h2>
-            <ul className="space-y-5">
+            <ul ref={considRef} className="space-y-5">
               {condition.whenToConsider.map((item, i) => (
-                <li key={item} className="flex items-start gap-5">
+                <li key={item} className="flex items-start gap-5"
+                  style={{
+                    opacity: considIn ? 1 : 0,
+                    transform: considIn ? "none" : "translateX(-14px)",
+                    transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s cubic-bezier(0.23,1,0.32,1) ${i * 80}ms`,
+                  }}
+                >
                   <span className="shrink-0 w-9 h-9 rounded-full bg-[#3d8b96] text-[#f5f0e8] flex items-center justify-center font-semibold text-sm">
                     {i + 1}
                   </span>
@@ -194,7 +203,7 @@ export default function TratamientoDetalle() {
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-3">
               Procedimientos para {condition.name.toLowerCase()}
             </h2>
-            <p className="font-sans text-[#1a4a55]/70 text-lg mb-12">
+            <p className="font-sans text-[#1a4a55]/85 text-lg mb-12">
               Técnicas que aplicamos en ALGOS para esta condición.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -224,9 +233,15 @@ export default function TratamientoDetalle() {
             <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-4xl mb-12">
               Qué esperar el día del procedimiento
             </h2>
-            <ol className="space-y-6">
+            <ol ref={esperarRef} className="space-y-6">
               {condition.whatToExpect.map((step, i) => (
-                <li key={step} className="flex items-start gap-5">
+                <li key={step} className="flex items-start gap-5"
+                  style={{
+                    opacity: esperarIn ? 1 : 0,
+                    transform: esperarIn ? "none" : "translateY(18px)",
+                    transition: `opacity 0.55s ease ${i * 90}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${i * 90}ms`,
+                  }}
+                >
                   <span className="font-display font-bold text-[#c69636] text-3xl md:text-4xl leading-none shrink-0 w-14">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -267,7 +282,7 @@ export default function TratamientoDetalle() {
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
-                <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
+                <p className="text-[#f5f0e8] text-xs uppercase tracking-widest font-medium mb-4">
                   PACIENTES
                 </p>
                 <h3 className="font-display font-semibold text-2xl md:text-3xl mb-3">
@@ -285,7 +300,7 @@ export default function TratamientoDetalle() {
                 </Link>
               </article>
               <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
-                <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
+                <p className="text-[#f5f0e8] text-xs uppercase tracking-widest font-medium mb-4">
                   MÉDICOS
                 </p>
                 <h3 className="font-display font-semibold text-2xl md:text-3xl mb-3">
