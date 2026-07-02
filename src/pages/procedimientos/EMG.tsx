@@ -44,6 +44,29 @@ export default function EMG() {
           </div>
         </section>
 
+        <ProcedureDetails
+          facts={[
+            { label: "Duración", value: "30 a 60 min" },
+            { label: "Anestesia", value: "No requiere" },
+            { label: "Modalidad", value: "Ambulatorio" },
+            { label: "Después", value: "Puede irse enseguida" },
+          ]}
+          preparation="Acuda con la piel limpia, sin cremas ni aceites en brazos y piernas. Puede comer normal. Traiga estudios previos e informes si los tiene."
+          steps={[
+            { title: "Entrevista clínica", description: "Le preguntamos por sus síntomas, cuándo empezaron y qué medicamentos toma. Examinamos la zona." },
+            { title: "Estudio de conducción nerviosa", description: "Se aplican estímulos eléctricos suaves sobre la piel para medir cómo viajan las señales por sus nervios. La sensación es como un corrientazo breve." },
+            { title: "Electromiografía con aguja", description: "Se introduce una aguja muy fina en algunos músculos para registrar su actividad. Puede molestar un poco, pero es tolerable y dura pocos minutos por músculo." },
+            { title: "Interpretación", description: "El especialista revisa los registros y le explica el hallazgo. Recibe un informe que orienta al médico tratante." },
+          ]}
+          faq={[
+            { question: "¿Duele el estudio?", answer: "Los estímulos eléctricos son breves e incómodos, pero no dolorosos. La aguja fina puede causar una molestia leve por músculo evaluado. La mayoría lo tolera bien." },
+            { question: "¿Puedo manejar después del estudio?", answer: "Sí. No queda con sedación ni anestesia. Puede retomar sus actividades normales de inmediato." },
+            { question: "¿Necesito ayuno?", answer: "No. Coma normal antes del estudio." },
+            { question: "¿Cuándo tengo el resultado?", answer: "El informe se entrega en pocos días, con la interpretación del especialista." },
+          ]}
+        />
+
+
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
