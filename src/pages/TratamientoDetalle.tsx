@@ -11,9 +11,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { MedicalProcedureSchema, BreadcrumbSchema } from "@/components/StructuredData";
-import { CONDITION_IMAGES } from "@/data/condition-images";
-
-const HERO_IMAGES = CONDITION_IMAGES;
+import { getConditionImage } from "@/data/conditionImages";
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
@@ -73,7 +71,7 @@ export default function TratamientoDetalle() {
   const { ref: esperarRef, inView: esperarIn } = useInViewOnce<HTMLOListElement>(0.1);
   if (!condition) return <Navigate to="/tratamientos" replace />;
 
-  const heroImg = HERO_IMAGES[condition.slug];
+  const heroImg = getConditionImage(condition.slug);
 
   return (
     <div className="min-h-screen bg-cream">
@@ -140,6 +138,16 @@ export default function TratamientoDetalle() {
         {/* SECCIÓN 2 · ¿Qué es y por qué duele? */}
         <section className="bg-white py-20 md:py-28">
           <div className="container mx-auto max-w-3xl px-6 md:px-12">
+            {heroImg && (
+              <div className="group relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-12 bg-[#1a4a55]/5">
+                <img
+                  src={heroImg}
+                  alt={condition.name}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+            )}
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-8">
               ¿Qué es y por qué duele?
             </h2>

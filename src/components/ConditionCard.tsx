@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Condition } from "@/data/treatments";
-import { CONDITION_IMAGES } from "@/data/condition-images";
+import { getConditionImage } from "@/data/conditionImages";
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
@@ -56,34 +56,43 @@ const CONDITION_ICONS: Record<string, React.ReactNode> = {
 type Props = {
   condition: Condition;
   view: "paciente" | "clinica";
+  variant?: "standard" | "feature" | "tall";
 };
 
-export default function ConditionCard({ condition, view }: Props) {
+export default function ConditionCard({ condition, view, variant = "standard" }: Props) {
   const icon = CONDITION_ICONS[condition.slug];
-  const image = CONDITION_IMAGES[condition.slug];
+  const image = getConditionImage(condition.slug);
+  const isFeature = variant === "feature";
+  const isTall = variant === "tall";
+
+  const imageAspect = isFeature
+    ? "aspect-[16/9] md:aspect-[21/9]"
+    : isTall
+    ? "aspect-[4/3] md:aspect-[4/5]"
+    : "aspect-[16/9]";
 
   return (
     <Link to={`/tratamientos/${condition.slug}`} className="group block h-full">
       <article className="bg-white rounded-2xl border border-[#1a4a55]/10 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full flex flex-col">
-        {image && (
-          <div className="h-44 overflow-hidden shrink-0 bg-[#1a4a55]/5">
-            <img
-              src={image}
-              alt={`Zona de tratamiento: ${condition.name}`}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0"
-              style={{ transition: "filter 0.55s ease-out" }}
-            />
-          </div>
-        )}
-        <div className="p-8 md:p-10 flex flex-col flex-1">
+        <div className={`relative w-full ${imageAspect} overflow-hidden bg-[#1a4a55]/5`}>
+          <img
+            src={image}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.04]"
+          />
+          {isFeature && (
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/40 via-transparent to-transparent" />
+          )}
+        </div>
+        <div className={`${isFeature ? "p-8 md:p-12" : "p-7 md:p-9"} flex-1 flex flex-col`}>
           {icon && (
-            <div className="w-12 h-12 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-7">
+            <div className="w-11 h-11 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-6">
               {icon}
             </div>
           )}
-          <h3 className="font-display font-semibold text-[#1a4a55] text-2xl md:text-3xl mb-3">
+          <h3 className={`font-display font-semibold text-[#1a4a55] mb-3 ${isFeature ? "text-3xl md:text-4xl" : "text-2xl md:text-[26px]"}`}>
             {condition.name}
           </h3>
           <p className="font-sans text-[#1a4a55]/80 text-base leading-relaxed mb-6">
