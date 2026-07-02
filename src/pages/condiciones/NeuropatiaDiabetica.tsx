@@ -4,7 +4,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
-import heroAsset from "@/assets/cond-neuropatia.jpg.asset.json";
+import heroAsset from "@/assets/cond-neuropatia-pies-clinica.jpg.asset.json";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20neuropat%C3%ADa%20diab%C3%A9tica.";
 
