@@ -241,7 +241,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                               style={{
                                 fontFamily: "Inter, sans-serif",
                                 fontSize: 12,
-                                color: "rgba(26, 74, 85, 0.55)",
+                                color: "#2A6270",
                                 margin: 0,
                               }}
                             >
