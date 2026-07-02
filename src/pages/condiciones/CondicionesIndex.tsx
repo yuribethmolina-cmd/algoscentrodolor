@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
 
@@ -38,11 +38,10 @@ export default function CondicionesIndex() {
       <Navbar />
 
       <main>
-        <PageHeroVideo
+        <PageHero
           eyebrow="Condiciones que tratamos"
           title="El dolor tiene causa. Nosotros la tratamos."
           subtitle="Un médico evalúa su caso, identifica el origen del dolor y define el tratamiento que corresponde. Aquí puede ver las condiciones con las que trabajamos."
-          video="pacientes"
         />
 
         <section className="bg-cream py-16 md:py-24">

@@ -1,13 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
-import ProcedureAmbientVideo from "@/components/procedimiento/ProcedureAmbientVideo";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import heroVideo from "@/assets/infiltraciones-hero.mp4.asset.json";
-import ambientVideo from "@/assets/infiltraciones-ambient.mp4.asset.json";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
@@ -17,12 +14,7 @@ export default function Infiltraciones() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." customVideoSrc={heroVideo.url} />
-
-        <ProcedureAmbientVideo
-          src={ambientVideo.url}
-          caption="Guiado por imagen, con precisión milimétrica."
-        />
+        <PageHero eyebrow="Procedimiento" title="Infiltraciones y bloqueos" subtitle="Inyecciones dirigidas para el dolor, guiadas por imagen." />
 
 
 

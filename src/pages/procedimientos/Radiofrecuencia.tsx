@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
@@ -16,7 +16,7 @@ export default function Radiofrecuencia() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía — próximamente en ALGOS." video="tratamientos" />
+        <PageHero eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía — próximamente en ALGOS." />
 
         <ProcedureHeroImage
           src={imgMain}

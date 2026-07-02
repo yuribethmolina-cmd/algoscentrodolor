@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/neuropatia-diabetica-pies.jpg.asset.json";
 
@@ -13,7 +13,7 @@ export default function NeuropatiaDiabetica() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" video="pacientes" />
+        <PageHero eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

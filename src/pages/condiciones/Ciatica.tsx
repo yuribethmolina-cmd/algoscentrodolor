@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-articular-cadera.jpg.asset.json";
 import ciaticaAnatomia from "@/assets/ciatica-anatomia.jpeg.asset.json";
@@ -14,7 +14,7 @@ export default function Ciatica() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Condición" title="Ciática: cuando el dolor baja por la pierna" video="pacientes" />
+        <PageHero eyebrow="Condición" title="Ciática: cuando el dolor baja por la pierna" />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

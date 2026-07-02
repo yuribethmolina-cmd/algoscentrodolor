@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
-import PageHeroVideo from "@/components/PageHeroVideo";
+import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-hernia-discal.jpg.asset.json";
 
@@ -13,7 +13,7 @@ export default function HerniaDiscal() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHeroVideo eyebrow="Condición" title="Hernia discal: cuando el disco comprime un nervio" video="pacientes" />
+        <PageHero eyebrow="Condición" title="Hernia discal: cuando el disco comprime un nervio" />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
