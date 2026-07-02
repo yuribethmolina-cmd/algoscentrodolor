@@ -346,18 +346,7 @@ export default function EMG() {
       <WhatsAppButton />
 
       {/* High-contrast toggle */}
-      <button
-        onClick={() => setHc((v) => !v)}
-        aria-pressed={hc}
-        aria-label={hc ? "Desactivar modo de alto contraste" : "Activar modo de alto contraste"}
-        className={`fixed bottom-6 left-6 z-50 font-sans font-bold uppercase text-[11px] tracking-[0.2em] px-5 py-3 border-2 transition-colors min-h-[44px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-          hc
-            ? "bg-black text-white border-white focus-visible:ring-white focus-visible:ring-offset-black"
-            : "bg-deep-teal text-cream border-cream focus-visible:ring-algos-gold focus-visible:ring-offset-cream"
-        }`}
-      >
-        {hc ? "Contraste normal" : "Alto contraste"}
-      </button>
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }
