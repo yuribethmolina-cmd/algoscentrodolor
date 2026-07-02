@@ -9,6 +9,8 @@ interface Props {
   /** flip image to right column */
   reverse?: boolean;
   imageCaption?: string;
+  /** On mobile, letterbox the full image (no crop) instead of aspect crop. */
+  mobileContain?: boolean;
 }
 
 /**
@@ -22,6 +24,7 @@ export default function ProcedureSplitBlock({
   children,
   reverse = false,
   imageCaption,
+  mobileContain = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
