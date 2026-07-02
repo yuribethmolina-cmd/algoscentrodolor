@@ -324,6 +324,8 @@ export default function ServicesSection() {
                   borderTop: "1px solid rgba(26,74,85,0.14)",
                   paddingTop: "clamp(32px, 4vw, 48px)",
                   paddingBottom: "clamp(32px, 4vw, 48px)",
+                  paddingLeft: "clamp(22px, 3vw, 40px)",
+                  paddingRight: "clamp(22px, 3vw, 40px)",
                   opacity: s.activo ? 1 : 0.72,
                   position: "relative",
                   overflow: "hidden",
@@ -406,10 +408,19 @@ export default function ServicesSection() {
                             <span
                               style={{
                                 fontFamily: "'JetBrains Mono', monospace",
-                                fontSize: 13,
+                                fontSize: 12,
                                 fontWeight: 700,
-                                color: GOLD,
+                                color: DEEP_TEAL,
                                 letterSpacing: "0.08em",
+                                minWidth: 42,
+                                height: 30,
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                border: "1px solid rgba(198,150,54,0.42)",
+                                backgroundColor: "rgba(198,150,54,0.10)",
+                                borderRadius: 4,
+                                transform: "translateY(-2px)",
                               }}
                             >
                               {s.index}
