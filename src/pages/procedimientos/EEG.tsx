@@ -86,6 +86,7 @@ export default function EEG() {
       </main>
       <HomeFooter />
       <WhatsAppButton />
+      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }
