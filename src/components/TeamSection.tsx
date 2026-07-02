@@ -96,7 +96,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
             style={{
               fontFamily: "'Sora', serif",
               fontWeight: 600,
-              fontSize: "clamp(26px, 3vw, 40px)",
+              fontSize: "clamp(32px, 4.2vw, 56px)",
               lineHeight: 1.25,
               color: DEEP_TEAL,
               maxWidth: "42ch",
@@ -108,7 +108,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
           <p
             style={{
               fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(16px, 1.4vw, 18px)",
+              fontSize: "clamp(17px, 1.6vw, 20px)",
               lineHeight: 1.7,
               color: STEEL_TEAL,
               maxWidth: "58ch",
@@ -149,7 +149,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                   style={{
                     fontFamily: "'Sora', serif",
                     fontWeight: 600,
-                    fontSize: "clamp(18px, 1.8vw, 23px)",
+                    fontSize: "clamp(21px, 2.4vw, 30px)",
                     lineHeight: 1.3,
                     color: DEEP_TEAL,
                     margin: 0,
