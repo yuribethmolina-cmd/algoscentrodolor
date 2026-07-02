@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-hernia-discal.jpg.asset.json";
-import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20hernia%20discal.";
 
@@ -35,17 +34,12 @@ export default function HerniaDiscal() {
               Si le han dicho que tiene una hernia y el dolor lleva semanas sin mejorar; si el dolor baja por la pierna; si hay hormigueo, adormecimiento o pérdida de fuerza; o si le han hablado de cirugía y quiere explorar opciones intermedias — es momento de una evaluación especializada.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+            <div className="mb-14">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y la imagen confirman el nivel comprometido y el grado de compromiso nervioso. Según el caso: manejo con medicamentos, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link> para controlar la inflamación y el dolor, o <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> cuando la hernia es la causa confirmada del dolor. La cirugía se considera cuando las opciones intermedias se han agotado — no antes.
                 </p>
-              </div>
-            </div>
+            </div></div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

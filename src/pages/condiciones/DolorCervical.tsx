@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-cervical.jpg.asset.json";
-import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20cervical.";
 
@@ -35,17 +34,12 @@ export default function DolorCervical() {
               Si el dolor lleva semanas y no cede; si se extiende al hombro, el brazo o la mano; si hay hormigueo, adormecimiento o pérdida de fuerza en el brazo; o si el movimiento del cuello es limitado o doloroso — es momento de una evaluación especializada.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+            <div className="mb-14">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y la imagen identifican el origen. Si hay compromiso nervioso, la <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma qué nervio está afectado y en qué medida. El tratamiento se define según eso: desde manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> en los niveles cervicales correspondientes.
                 </p>
-              </div>
-            </div>
+            </div></div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

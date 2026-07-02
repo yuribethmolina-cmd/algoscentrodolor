@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-lumbar.jpg.asset.json";
-import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20lumbar.";
 
@@ -35,17 +34,12 @@ export default function DolorLumbar() {
               Si el dolor lleva más de cuatro semanas sin mejorar; si no cede con reposo ni analgésicos; si empeora al estar sentado o de pie por tiempo prolongado; si se acompaña de dolor que baja hacia la pierna; o si interfiere con el trabajo y la vida diaria — es momento de una evaluación especializada.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+            <div className="mb-14">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta y, cuando hace falta, la imagen confirman el origen del dolor. Según lo que se encuentre: manejo con medicamentos, fisiatría, o procedimientos guiados por imagen como <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos</Link>. Solo se indica lo que el caso necesita.
                 </p>
-              </div>
-            </div>
+            </div></div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

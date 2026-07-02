@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-neuropatia.jpg.asset.json";
-import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20neuropat%C3%ADa%20diab%C3%A9tica.";
 
@@ -35,17 +34,12 @@ export default function NeuropatiaDiabetica() {
               Si tiene diabetes y siente ardor, hormigueo o adormecimiento en los pies o las piernas; si el dolor es peor de noche; si siente que los pies "no son suyos"; o si ya le han dicho que tiene neuropatía y los síntomas no están controlados — es momento de una evaluación especializada.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+            <div className="mb-14">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> confirma el grado y la distribución del daño nervioso. Con ese mapa, el equipo define el tratamiento: manejo farmacológico del dolor neuropático, apoyo nutricional clínico orientado al control metabólico, y seguimiento conjunto. El objetivo es controlar el dolor y frenar el avance del daño.
                 </p>
-              </div>
-            </div>
+            </div></div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">

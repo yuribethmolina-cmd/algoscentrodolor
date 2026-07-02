@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
-import imgConsult from "@/assets/experience-consult.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20dolor%20que%20persiste%20tras%20una%20cirug%C3%ADa%20de%20columna.";
 
@@ -35,17 +34,12 @@ export default function DolorTrasCirugia() {
               Si se operó de la columna y el dolor no desapareció; si mejoró y luego volvió; si el dolor es diferente al de antes de la cirugía pero igual de limitante; o si le han dicho que no hay nada más que hacer y usted siente que eso no puede ser cierto — es momento de una segunda evaluación.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-14">
-              <div style={{ overflow: "hidden" }}>
-                <img src={imgConsult} alt="Consulta médica en ALGOS" className="w-full object-cover" style={{ aspectRatio: "4/3" }} loading="lazy" />
-              </div>
-              <div>
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
-                <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
+            <div className="mb-14">
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   La consulta revisa su historia, sus imágenes previas y actuales, y los síntomas. La <Link to="/procedimientos/emg" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">electromiografía</Link> puede ayudar a identificar si hay compromiso nervioso nuevo o persistente. Según la causa identificada: manejo farmacológico del dolor, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">bloqueos guiados por imagen</Link> para desinflamar zonas específicas, o fisiatría para recuperar función. Un médico evalúa su caso y le dice qué opciones existen.
                 </p>
-              </div>
-            </div>
+            </div></div>
 
             <div className="border-t border-deep-teal/10 pt-10">
               <p className="font-sans text-steel-teal text-[13px] leading-[1.65]">
