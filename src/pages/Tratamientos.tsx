@@ -72,16 +72,43 @@ export default function Tratamientos() {
 
         <section className="bg-cream py-20 md:py-28">
           <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {CONDITIONS.map((c, idx) => (
-                <div key={c.slug} style={{
-                  opacity: cardsIn ? 1 : 0,
-                  transform: cardsIn ? "none" : "translateY(20px)",
-                  transition: `opacity 0.55s ease ${idx * 70}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 70}ms`,
-                }}>
-                  <ConditionCard condition={c} view={view} />
-                </div>
-              ))}
+            <div
+              ref={cardsRef}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-flow-dense gap-5 md:gap-6 auto-rows-fr"
+            >
+              {CONDITIONS.map((c, idx) => {
+                // Bento pattern for 14 items on lg (12-col grid).
+                const pattern: { span: string; variant: "standard" | "feature" }[] = [
+                  { span: "lg:col-span-8", variant: "feature" },
+                  { span: "lg:col-span-4", variant: "standard" },
+                  { span: "lg:col-span-4", variant: "standard" },
+                  { span: "lg:col-span-8", variant: "feature" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                  { span: "lg:col-span-8", variant: "feature" },
+                  { span: "lg:col-span-4", variant: "standard" },
+                  { span: "lg:col-span-4", variant: "standard" },
+                  { span: "lg:col-span-8", variant: "feature" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                  { span: "lg:col-span-6", variant: "standard" },
+                ];
+                const cell = pattern[idx % pattern.length];
+                return (
+                  <div
+                    key={c.slug}
+                    className={cell.span}
+                    style={{
+                      opacity: cardsIn ? 1 : 0,
+                      transform: cardsIn ? "none" : "translateY(20px)",
+                      transition: `opacity 0.55s ease ${idx * 60}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 60}ms`,
+                    }}
+                  >
+                    <ConditionCard condition={c} view={view} variant={cell.variant} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

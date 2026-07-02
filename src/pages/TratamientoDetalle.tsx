@@ -11,19 +11,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { MedicalProcedureSchema, BreadcrumbSchema } from "@/components/StructuredData";
-import imgLumbar from "@/assets/tx-01-lumbar.jpg";
-import imgCervical from "@/assets/tx-02-cervical.jpg";
-import imgFacetario from "@/assets/about-procedure.jpg";
-import imgNeuropatia from "@/assets/tx-03-perif.jpg";
-import imgArticular from "@/assets/tx-04-eco.jpg";
-
-const HERO_IMAGES: Record<string, string> = {
-  "dolor-lumbar-ciatica": imgLumbar,
-  "dolor-cervical": imgCervical,
-  "dolor-facetario": imgFacetario,
-  "neuropatia": imgNeuropatia,
-  "dolor-articular": imgArticular,
-};
+import { getConditionImage } from "@/data/conditionImages";
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
@@ -83,7 +71,7 @@ export default function TratamientoDetalle() {
   const { ref: esperarRef, inView: esperarIn } = useInViewOnce<HTMLOListElement>(0.1);
   if (!condition) return <Navigate to="/tratamientos" replace />;
 
-  const heroImg = HERO_IMAGES[condition.slug];
+  const heroImg = getConditionImage(condition.slug);
 
   return (
     <div className="min-h-screen bg-cream">
