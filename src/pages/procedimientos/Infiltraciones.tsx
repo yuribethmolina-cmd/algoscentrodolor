@@ -49,7 +49,12 @@ export default function Infiltraciones() {
           </div>
         </section>
 
-
+        <ProcedureVideoSection
+          src={infiltracionesVideo.url}
+          eyebrow="Procedimiento"
+          title="Así se realiza una infiltración guiada"
+          description="Observa cómo nuestro equipo aplica el medicamento con precisión milimétrica sobre la zona dolorosa."
+        />
 
         <ProcedureDetails
           facts={[
