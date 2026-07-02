@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -6,14 +7,16 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgMain from "@/assets/sala-procedimientos.jpg";
 import imgProc from "@/assets/about-procedure.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20los%20procedimientos%20disponibles.";
 
 export default function Radiofrecuencia() {
+  const [hc, setHc] = useState(false);
   return (
-    <div className="min-h-screen bg-cream">
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         <PageHero eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía — próximamente en ALGOS." />
