@@ -270,7 +270,7 @@ export default function EMG() {
   const [hc, setHc] = useState(false);
 
   return (
-    <div className={`min-h-screen ${hc ? "emg-hc" : "bg-cream"}`}>
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         <CinematicHero hc={hc} />
