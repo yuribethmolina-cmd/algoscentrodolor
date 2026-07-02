@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import imgMain from "@/assets/experience-tech.jpg";
 import imgConsult from "@/assets/experience-consult.jpg";
 
