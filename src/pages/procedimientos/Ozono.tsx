@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
@@ -50,7 +51,31 @@ export default function Ozono() {
           </div>
         </section>
 
+        <ProcedureDetails
+          facts={[
+            { label: "Duración", value: "30 a 45 min" },
+            { label: "Anestesia", value: "Local" },
+            { label: "Modalidad", value: "Ambulatorio" },
+            { label: "Después", value: "Reposo relativo 3 a 5 días" },
+          ]}
+          preparation="Traiga sus estudios de imagen recientes (resonancia o TAC de columna). Coma liviano ese día. Vaya con ropa cómoda y acompañado. Avise si toma anticoagulantes o aspirina."
+          steps={[
+            { title: "Valoración con imágenes previas", description: "Un especialista revisa su resonancia o TAC y confirma que la hernia justifica el procedimiento. Sin ese requisito, no se realiza." },
+            { title: "Ingreso a sala", description: "Le ubicamos boca abajo en la camilla. Se limpia la piel y se prepara el campo estéril." },
+            { title: "Punción guiada por imagen", description: "Con guía de imagen se dirige la aguja al disco. Se aplica anestesia local en la piel y el trayecto." },
+            { title: "Aplicación de ozono", description: "Se administra el ozono en la dosis calculada. Puede sentir presión, pero no dolor intenso." },
+            { title: "Observación y alta", description: "Descansa entre 30 y 60 minutos en la sala. Se va a casa el mismo día con las indicaciones de reposo y control." },
+          ]}
+          faq={[
+            { question: "¿Duele el procedimiento?", answer: "Se aplica anestesia local en el trayecto. Puede sentir presión en el momento de la aplicación, pero no dolor intenso." },
+            { question: "¿Cuándo notaré alivio?", answer: "La mejoría suele aparecer entre las 2 y las 6 semanas, a medida que baja la inflamación y el disco reduce su volumen. Cada caso evoluciona a su ritmo." },
+            { question: "¿Sirve para cualquier hernia de disco?", answer: "No. Está indicado para hernias que producen ciática y que están bien caracterizadas por imagen. El médico define si su caso es candidato." },
+            { question: "¿Cuándo puedo volver al trabajo?", answer: "Se recomienda reposo relativo los primeros días. Si su trabajo es de escritorio, puede reincorporarse pronto; si implica esfuerzo físico, el especialista indica el tiempo." },
+          ]}
+        />
+
         <section className="bg-deep-teal py-20 md:py-28">
+
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Cuéntenos cómo es su dolor y un médico evaluará si su caso es candidato a este procedimiento.
