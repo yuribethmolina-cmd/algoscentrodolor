@@ -26,7 +26,13 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
 
   return (
-    <div ref={ref} className="relative w-full bg-deep-teal overflow-hidden">
+    <div
+      ref={ref}
+      className={
+        "relative w-full overflow-hidden " +
+        (mobileContain ? "bg-cream md:bg-deep-teal" : "bg-deep-teal")
+      }
+    >
       <div
         className={
           mobileContain
