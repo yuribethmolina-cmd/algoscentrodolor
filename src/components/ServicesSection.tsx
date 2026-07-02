@@ -21,8 +21,6 @@ const SVC_PHOTOS: Record<string, string> = {
 const STYLES = `
 .svc-illust { display: none; }
 @media (min-width: 600px) { .svc-illust { display: block; } }
-.svc-photo { display: none; }
-@media (min-width: 600px) { .svc-photo { display: block; } }
 .svc-item:hover .svc-photo img { opacity: 0.14 !important; filter: grayscale(0) !important; }
 
 @keyframes emg-draw {
