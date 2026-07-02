@@ -35,14 +35,17 @@ function CinematicHero() {
         />
       </motion.div>
 
-      {/* Layered atmosphere: teal wash + vertical gradient + vignette */}
+      {/* Layered atmosphere: precise scrim for small-screen legibility */}
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "linear-gradient(180deg, rgba(26,74,85,0.55) 0%, rgba(26,74,85,0.35) 45%, rgba(26,74,85,0.85) 100%)" }}
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(26,74,85,0.30) 0%, rgba(26,74,85,0.12) 35%, rgba(26,74,85,0.55) 65%, rgba(26,74,85,0.88) 82%, rgba(26,74,85,0.96) 100%)",
+        }}
       />
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%)" }}
+        style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.42) 100%)" }}
       />
       {/* Grain texture via subtle noise gradient stripes */}
       <div
