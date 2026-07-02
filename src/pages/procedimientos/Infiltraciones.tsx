@@ -49,13 +49,13 @@ export default function Infiltraciones() {
             <source src={infiltracionesVideo.url} type="video/mp4" />
           </video>
 
-          {/* Dark gradient overlay */}
+          {/* Gradient overlay for text legibility */}
           <div
             aria-hidden
             style={{
               position: "absolute",
               inset: 0,
-              background: `linear-gradient(to bottom, ${DEEP_TEAL}ee 0%, ${DEEP_TEAL}cc 40%, ${DEEP_TEAL}aa 100%)`,
+              background: `linear-gradient(to bottom, ${DEEP_TEAL}99 0%, ${DEEP_TEAL}77 50%, ${DEEP_TEAL}55 100%)`,
               pointerEvents: "none",
             }}
           />
