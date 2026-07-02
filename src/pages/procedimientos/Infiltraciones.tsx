@@ -3,6 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
+import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
+import infiltracionesVideo from "@/assets/infiltraciones-procedimiento.mp4.asset.json";
 import imgMain from "@/assets/about-procedure.jpg";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 
@@ -72,6 +74,13 @@ export default function Infiltraciones() {
             { question: "¿Debo suspender aspirina o anticoagulantes?", answer: "Nunca por su cuenta. Avise al equipo qué medicamentos toma y le indicamos qué hacer y con cuánta antelación." },
             { question: "¿Cuántas veces se puede repetir?", answer: "Depende de la respuesta y de la zona. El especialista define el intervalo y el número de sesiones según su evolución." },
           ]}
+        />
+
+        <ProcedureVideoSection
+          src={infiltracionesVideo.url}
+          eyebrow="Video del procedimiento"
+          title="Así se realiza una infiltración guiada por imagen"
+          description="Vea cómo aplicamos el medicamento con precisión, usando guía por imagen para llegar exactamente donde se necesita."
         />
 
         <section className="bg-deep-teal py-20 md:py-28">
