@@ -195,7 +195,7 @@ export default function GuiasImagenSection() {
                     </h3>
 
                     {/* Descripción */}
-                    <p style={{ fontFamily: "Inter, sans-serif", fontSize: 14, lineHeight: 1.7, color: "rgba(245,240,232,0.88)", marginBottom: 24 }}>
+                    <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: CREAM, marginBottom: 24 }}>
                       {g.descripcion}
                     </p>
 
