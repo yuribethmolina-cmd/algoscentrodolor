@@ -278,7 +278,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
             fontFamily: "Inter, sans-serif",
             fontSize: 14,
             lineHeight: 1.65,
-            color: "rgba(26, 74, 85, 0.55)",
+            color: "#2A6270",
             maxWidth: "60ch",
             marginTop: "clamp(40px, 5vw, 64px)",
             paddingLeft: 20,
