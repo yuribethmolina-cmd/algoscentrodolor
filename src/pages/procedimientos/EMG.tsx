@@ -74,13 +74,13 @@ function CinematicHero() {
               </p>
             </div>
             <h1
-              className="font-sans font-light text-cream leading-[0.95] tracking-[-0.02em]"
+              className="font-sans font-light text-cream leading-[1.05] md:leading-[0.95] tracking-[-0.02em]"
               style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)", textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
             >
               Electromiografía
             </h1>
             <p
-              className="font-sans font-light text-cream/85 mt-4 md:mt-6 max-w-[640px] leading-[1.5]"
+              className="font-sans font-light text-cream/85 mt-5 md:mt-6 max-w-[640px] leading-[1.65] md:leading-[1.5]"
               style={{ fontSize: "clamp(1rem, 1.6vw, 1.375rem)", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
             >
               Escuchamos lo que dicen sus nervios y sus músculos, y traducimos esa señal en un diagnóstico preciso.
@@ -138,14 +138,14 @@ function Chapter({ numeral, label }: { numeral: string; label: string }) {
 /* ---------- Oversized editorial statement ---------- */
 function EditorialStatement({ children }: { children: React.ReactNode }) {
   return (
-    <section className="bg-cream pt-8 md:pt-12 pb-16 md:pb-24">
+    <section className="bg-cream pt-12 md:pt-12 pb-20 md:pb-24">
       <div className="mx-auto max-w-[1080px] px-6 md:px-12">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-sans font-light text-deep-teal leading-[1.25] tracking-[-0.01em]"
+          className="font-sans font-light text-deep-teal leading-[1.4] md:leading-[1.25] tracking-[-0.01em]"
           style={{ fontSize: "clamp(1.5rem, 3.4vw, 2.75rem)" }}
         >
           {children}
@@ -180,7 +180,7 @@ function ManifestoPanel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-sans font-light text-cream leading-[1.1] tracking-[-0.02em]"
+          className="font-sans font-light text-cream leading-[1.2] md:leading-[1.1] tracking-[-0.02em]"
           style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
         >
           No trate <span className="text-algos-gold">a ciegas</span>.
@@ -228,7 +228,7 @@ function CinematicCTA() {
             Su próximo paso
           </p>
           <h2
-            className="font-sans font-light text-cream leading-[1.05] tracking-[-0.02em] mb-8"
+            className="font-sans font-light text-cream leading-[1.15] md:leading-[1.05] tracking-[-0.02em] mb-8"
             style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
           >
             Cuéntenos sus síntomas.
