@@ -520,8 +520,39 @@ export default function ServicesSection() {
               padding: "clamp(28px, 3.5vw, 44px)",
               backgroundColor: DEEP_TEAL,
               borderRadius: 4,
+              position: "relative",
+              overflow: "hidden",
             }}
           >
+            {/* Decorative imaging target */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                right: -24,
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: 220,
+                height: 220,
+                opacity: 0.12,
+                pointerEvents: "none",
+              }}
+            >
+              <svg viewBox="0 0 220 220" fill="none" style={{ width: "100%", height: "100%" }}>
+                <circle cx="110" cy="110" r="90" stroke={CREAM} strokeWidth="0.8"/>
+                <circle cx="110" cy="110" r="65" stroke={CREAM} strokeWidth="1"/>
+                <circle cx="110" cy="110" r="40" stroke={CREAM} strokeWidth="1.2"/>
+                <circle cx="110" cy="110" r="16" stroke={CREAM} strokeWidth="1.4"/>
+                <circle cx="110" cy="110" r="5" fill={GOLD}/>
+                <line x1="110" y1="0" x2="110" y2="220" stroke={CREAM} strokeWidth="0.7"/>
+                <line x1="0" y1="110" x2="220" y2="110" stroke={CREAM} strokeWidth="0.7"/>
+                <line x1="110" y1="18" x2="110" y2="30" stroke={GOLD} strokeWidth="2"/>
+                <line x1="110" y1="190" x2="110" y2="202" stroke={GOLD} strokeWidth="2"/>
+                <line x1="18" y1="110" x2="30" y2="110" stroke={GOLD} strokeWidth="2"/>
+                <line x1="190" y1="110" x2="202" y2="110" stroke={GOLD} strokeWidth="2"/>
+              </svg>
+            </div>
+            <div style={{ position: "relative" }}>
             <h3
               style={{
                 fontFamily: "'Sora', serif",
@@ -568,6 +599,7 @@ export default function ServicesSection() {
                   {g}
                 </span>
               ))}
+            </div>
             </div>
           </div>
         </FadeIn>

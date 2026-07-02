@@ -4,6 +4,7 @@ const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
+const UDUZ_GREEN = "#6ea82e";
 
 const diferenciadores = [
   {
@@ -83,37 +84,68 @@ export default function WhyDifferentSection() {
 
         {/* Cards — 2 columns */}
         <div className="grid sm:grid-cols-2" style={{ gap: "clamp(12px, 2vw, 20px)" }}>
-          {diferenciadores.map((d) => (
+          {diferenciadores.map((d) => {
+            const isUduz = d.titulo.includes("UDUZ");
+            return (
             <div
               key={d.titulo}
               style={{
                 padding: "clamp(24px, 3vw, 36px)",
-                backgroundColor: "#fff",
-                border: "1px solid rgba(26,74,85,0.10)",
+                backgroundColor: isUduz ? "#f4faea" : "#fff",
+                border: isUduz ? `1px solid rgba(110,168,46,0.30)` : "1px solid rgba(26,74,85,0.10)",
+                borderLeft: isUduz ? `4px solid ${UDUZ_GREEN}` : undefined,
                 borderRadius: 4,
+                position: "relative",
               }}
             >
+              {isUduz && (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: 14,
+                    right: 16,
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 9,
+                    fontWeight: 800,
+                    letterSpacing: "0.26em",
+                    textTransform: "uppercase",
+                    color: "#fff",
+                    backgroundColor: UDUZ_GREEN,
+                    padding: "3px 8px",
+                    borderRadius: 3,
+                  }}
+                >
+                  Aliado
+                </span>
+              )}
               <div
                 style={{
                   width: 44,
                   height: 44,
                   borderRadius: 8,
-                  backgroundColor: "rgba(26,74,85,0.06)",
+                  backgroundColor: isUduz ? "rgba(110,168,46,0.10)" : "rgba(26,74,85,0.06)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: 20,
+                  marginBottom: isUduz ? 14 : 20,
                 }}
               >
-                <d.icon style={{ width: 20, height: 20, color: TEAL }} />
+                <d.icon style={{ width: 20, height: 20, color: isUduz ? UDUZ_GREEN : TEAL }} />
               </div>
+              {isUduz && (
+                <img
+                  src="/logos/uduz-logo.svg"
+                  alt="UDUZ"
+                  style={{ height: 28, width: "auto", marginBottom: 12, display: "block" }}
+                />
+              )}
               <h3
                 style={{
                   fontFamily: "'Sora', serif",
                   fontWeight: 600,
                   fontSize: "clamp(16px, 1.5vw, 19px)",
                   lineHeight: 1.3,
-                  color: DEEP_TEAL,
+                  color: isUduz ? UDUZ_GREEN : DEEP_TEAL,
                   marginBottom: 10,
                 }}
               >
@@ -131,7 +163,8 @@ export default function WhyDifferentSection() {
                 {d.descripcion}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Closing paragraph */}

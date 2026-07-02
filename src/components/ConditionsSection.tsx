@@ -214,7 +214,7 @@ export default function ConditionsSection() {
               fontWeight: 700,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "rgba(245,240,232,0.60)",
+              color: GOLD,
               marginBottom: 16,
             }}
           >
@@ -226,12 +226,13 @@ export default function ConditionsSection() {
                 key={c}
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  fontSize: 12,
-                  color: "rgba(245,240,232,0.82)",
-                  backgroundColor: "rgba(245,240,232,0.04)",
-                  border: "1px solid rgba(245,240,232,0.10)",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: "rgba(245,240,232,0.92)",
+                  backgroundColor: "rgba(245,240,232,0.10)",
+                  border: "1px solid rgba(245,240,232,0.28)",
                   borderRadius: 3,
-                  padding: "5px 12px",
+                  padding: "6px 14px",
                 }}
               >
                 {c}
