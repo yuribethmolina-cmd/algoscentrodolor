@@ -9,6 +9,8 @@ interface Props {
   /** flip image to right column */
   reverse?: boolean;
   imageCaption?: string;
+  /** On mobile, letterbox the full image (no crop) instead of aspect crop. */
+  mobileContain?: boolean;
 }
 
 /**
@@ -22,6 +24,7 @@ export default function ProcedureSplitBlock({
   children,
   reverse = false,
   imageCaption,
+  mobileContain = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -46,7 +49,23 @@ export default function ProcedureSplitBlock({
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-7 relative"
           >
-            <div className="relative overflow-hidden bg-deep-teal/5" style={{ aspectRatio: "5/4" }}>
+            {mobileContain && (
+              <div className="md:hidden relative overflow-hidden bg-deep-teal/5">
+                <img
+                  src={image}
+                  alt={imageAlt}
+                  loading="lazy"
+                  className="block w-full h-auto object-contain"
+                />
+              </div>
+            )}
+            <div
+              className={
+                (mobileContain ? "hidden md:block " : "") +
+                "relative overflow-hidden bg-deep-teal/5"
+              }
+              style={{ aspectRatio: "5/4" }}
+            >
               <motion.img
                 src={image}
                 alt={imageAlt}

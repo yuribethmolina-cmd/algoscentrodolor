@@ -5,6 +5,8 @@ interface Props {
   src: string;
   alt: string;
   caption?: string;
+  /** On mobile, letterbox the full image (no crop) instead of cover crop. */
+  mobileContain?: boolean;
 }
 
 /**
@@ -14,7 +16,7 @@ interface Props {
  * - Parallax on scroll
  * - Vignette + top-fade for editorial feel
  */
-export default function ProcedureHeroImage({ src, alt, caption }: Props) {
+export default function ProcedureHeroImage({ src, alt, caption, mobileContain = false }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -25,8 +27,29 @@ export default function ProcedureHeroImage({ src, alt, caption }: Props) {
 
   return (
     <div ref={ref} className="relative w-full bg-deep-teal overflow-hidden">
-      <div className="relative w-full h-[52vh] md:h-[72vh] max-h-[720px] min-h-[360px]">
-        <motion.div style={{ y, scale }} className="absolute inset-0 will-change-transform">
+      <div
+        className={
+          mobileContain
+            ? "relative w-full h-auto md:h-[72vh] md:max-h-[720px] md:min-h-[360px]"
+            : "relative w-full h-[52vh] md:h-[72vh] max-h-[720px] min-h-[360px]"
+        }
+      >
+        {mobileContain && (
+          <img
+            src={src}
+            alt={alt}
+            className="block md:hidden w-full h-auto object-contain"
+            loading="eager"
+          />
+        )}
+        <motion.div
+          style={{ y, scale }}
+          className={
+            mobileContain
+              ? "hidden md:block absolute inset-0 will-change-transform"
+              : "absolute inset-0 will-change-transform"
+          }
+        >
           <img
             src={src}
             alt={alt}
