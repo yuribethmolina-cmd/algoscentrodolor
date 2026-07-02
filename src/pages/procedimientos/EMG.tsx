@@ -76,7 +76,7 @@ function CinematicHero({ hc }: { hc: boolean }) {
           >
             <div className="flex items-center gap-4 mb-6 md:mb-8">
               <span className="h-px w-10 md:w-14 bg-algos-gold" />
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] md:text-[12px] tracking-[0.28em]">
+              <p className="font-sans font-bold uppercase text-cream text-[11px] md:text-[12px] tracking-[0.28em]">
                 Estudio · Neurofisiología
               </p>
             </div>
