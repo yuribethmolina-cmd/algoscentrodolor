@@ -79,7 +79,7 @@ export default function Infiltraciones() {
                 fontWeight: 700,
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: GOLD,
+                color: CREAM,
                 marginBottom: 20,
               }}
             >
