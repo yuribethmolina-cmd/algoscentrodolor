@@ -110,9 +110,10 @@ export default function ConditionCard({ condition, view }: Props) {
             </span>
           ))}
         </div>
-        <div className="flex items-center text-[#c69636] font-semibold text-sm gap-2 group-hover:gap-3 transition-all">
+        <div className="flex items-center text-[#c69636] font-semibold text-sm gap-2 group-hover:gap-3 transition-all mt-auto">
           <span>Saber más</span>
           <span aria-hidden>→</span>
+        </div>
         </div>
       </article>
     </Link>
