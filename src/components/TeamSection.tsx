@@ -257,7 +257,7 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: 11,
                         letterSpacing: "0.06em",
-                        color: "rgba(26, 74, 85, 0.28)",
+                        color: "#2A6270",
                         margin: 0,
                       }}
                     >
