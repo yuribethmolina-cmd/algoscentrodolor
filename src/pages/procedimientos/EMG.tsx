@@ -38,6 +38,7 @@ export default function EMG() {
           imageAlt="Estudio de conducción nerviosa en el brazo"
           eyebrow="Para qué sirve"
           imageCaption="Conducción nerviosa: estímulos suaves sobre la piel."
+          mobileContain
         >
           <p>
             Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos.
