@@ -51,7 +51,31 @@ export default function Infiltraciones() {
           </div>
         </section>
 
+        <ProcedureDetails
+          facts={[
+            { label: "Duración", value: "20 a 40 min" },
+            { label: "Anestesia", value: "Local" },
+            { label: "Modalidad", value: "Ambulatorio" },
+            { label: "Después", value: "Reposo relativo 24 a 48 h" },
+          ]}
+          preparation="Coma liviano ese día. Vaya con ropa cómoda y acompañado. Si toma anticoagulantes o aspirina, avise al equipo con antelación: puede que haya que ajustar la pauta antes del procedimiento."
+          steps={[
+            { title: "Valoración previa", description: "Revisamos su historia, sus estudios de imagen y confirmamos que la infiltración es la opción indicada para su caso." },
+            { title: "Posicionamiento en sala", description: "Le ubicamos en la camilla en la posición adecuada. Se limpia la piel y se prepara el campo estéril." },
+            { title: "Aplicación guiada por imagen", description: "Con fluoroscopia, tomografía o ecografía se dirige la aguja al punto exacto. Se aplica anestesia local y luego el medicamento." },
+            { title: "Observación", description: "Descansa unos 20 a 30 minutos en la sala mientras verificamos que todo esté bien." },
+            { title: "Alta y recomendaciones", description: "Se va a casa el mismo día con indicaciones claras de reposo, medicación y cuándo volver a control." },
+          ]}
+          faq={[
+            { question: "¿Duele la infiltración?", answer: "Se aplica anestesia local antes, por lo que la molestia es mínima. Puede sentir presión mientras se aplica el medicamento." },
+            { question: "¿Cuándo comienza el alivio?", answer: "Depende del tipo de infiltración. Algunas dan alivio a las horas, otras se notan a los días. El médico le explicará qué esperar en su caso." },
+            { question: "¿Debo suspender aspirina o anticoagulantes?", answer: "Nunca por su cuenta. Avise al equipo qué medicamentos toma y le indicamos qué hacer y con cuánta antelación." },
+            { question: "¿Cuántas veces se puede repetir?", answer: "Depende de la respuesta y de la zona. El especialista define el intervalo y el número de sesiones según su evolución." },
+          ]}
+        />
+
         <section className="bg-deep-teal py-20 md:py-28">
+
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
               Cuéntenos cómo es su dolor y un miembro de nuestro equipo le orientará sobre el paso siguiente. Sin compromiso.
