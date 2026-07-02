@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
 import type { Condition } from "@/data/treatments";
+import imgLumbar from "@/assets/tx-01-lumbar.jpg";
+import imgCervical from "@/assets/tx-02-cervical.jpg";
+import imgFacetario from "@/assets/about-procedure.jpg";
+import imgNeuropatia from "@/assets/tx-03-perif.jpg";
+import imgArticular from "@/assets/tx-04-eco.jpg";
+
+const CONDITION_IMAGES: Record<string, string> = {
+  "dolor-lumbar-ciatica": imgLumbar,
+  "dolor-cervical": imgCervical,
+  "dolor-facetario": imgFacetario,
+  "neuropatia": imgNeuropatia,
+  "dolor-articular": imgArticular,
+};
 
 const CONDITION_ICONS: Record<string, React.ReactNode> = {
   "dolor-lumbar-ciatica": (
@@ -59,10 +72,23 @@ type Props = {
 
 export default function ConditionCard({ condition, view }: Props) {
   const icon = CONDITION_ICONS[condition.slug];
+  const image = CONDITION_IMAGES[condition.slug];
 
   return (
     <Link to={`/tratamientos/${condition.slug}`} className="group block">
-      <article className="bg-white rounded-2xl border border-[#1a4a55]/10 p-8 md:p-10 transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full">
+      <article className="bg-white rounded-2xl border border-[#1a4a55]/10 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full flex flex-col">
+        {image && (
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#1a4a55]/5">
+            <img
+              src={image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.03]"
+            />
+          </div>
+        )}
+        <div className="p-8 md:p-10 flex-1 flex flex-col">
         {icon && (
           <div className="w-12 h-12 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-7">
             {icon}
@@ -84,9 +110,10 @@ export default function ConditionCard({ condition, view }: Props) {
             </span>
           ))}
         </div>
-        <div className="flex items-center text-[#c69636] font-semibold text-sm gap-2 group-hover:gap-3 transition-all">
+        <div className="flex items-center text-[#c69636] font-semibold text-sm gap-2 group-hover:gap-3 transition-all mt-auto">
           <span>Saber más</span>
           <span aria-hidden>→</span>
+        </div>
         </div>
       </article>
     </Link>
