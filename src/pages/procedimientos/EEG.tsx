@@ -36,6 +36,29 @@ export default function EEG() {
           </div>
         </section>
 
+        <ProcedureDetails
+          facts={[
+            { label: "Duración", value: "30 a 45 min" },
+            { label: "Anestesia", value: "No requiere" },
+            { label: "Modalidad", value: "Ambulatorio" },
+            { label: "Después", value: "Puede irse enseguida" },
+          ]}
+          preparation="Acuda con el cabello limpio, sin gel, spray ni acondicionador el día del estudio. Puede desayunar normal. Si el especialista le indicó dormir menos horas la noche previa, cúmplalo: ayuda a que el registro sea más completo."
+          steps={[
+            { title: "Recibimiento y entrevista breve", description: "Le preguntamos por sus síntomas, medicamentos y episodios previos. Firma el consentimiento." },
+            { title: "Colocación de electrodos", description: "Se colocan pequeños electrodos sobre el cuero cabelludo con una pasta que se retira después. Toma unos 10 a 15 minutos y no duele." },
+            { title: "Registro de la actividad", description: "Debe estar acostado, tranquilo, con los ojos cerrados o abiertos según le indiquemos. Puede que le pidamos respirar profundo o mirar una luz que parpadea." },
+            { title: "Retiro y entrega", description: "Retiramos los electrodos, puede lavarse el cabello en casa. El informe lo entrega el neurólogo con la interpretación del estudio." },
+          ]}
+          faq={[
+            { question: "¿Duele el estudio?", answer: "No. Los electrodos solo registran señales, no envían corriente. La sensación es únicamente el contacto de la pasta sobre el cuero cabelludo." },
+            { question: "¿Necesito estar en ayunas?", answer: "No. Puede desayunar normal. Solo evite bebidas con cafeína las horas previas si el médico se lo indicó." },
+            { question: "¿Puedo tomar mis medicamentos?", answer: "Sí, salvo indicación distinta del especialista que ordenó el estudio. Nunca suspenda un anticonvulsivante sin consultar." },
+            { question: "¿Cuándo entregan el resultado?", answer: "El informe con la interpretación del neurólogo se entrega en pocos días. Le avisamos apenas esté listo." },
+          ]}
+        />
+
+
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
