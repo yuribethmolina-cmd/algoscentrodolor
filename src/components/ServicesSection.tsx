@@ -336,10 +336,7 @@ export default function ServicesSection() {
                     className="svc-photo"
                     style={{
                       position: "absolute",
-                      right: 0,
-                      top: 0,
-                      bottom: 0,
-                      width: "42%",
+                      inset: 0,
                       pointerEvents: "none",
                     }}
                   >
@@ -350,7 +347,7 @@ export default function ServicesSection() {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
-                        opacity: 0.07,
+                        opacity: 0.055,
                         filter: "grayscale(1)",
                         mixBlendMode: "luminosity",
                         transition: "opacity 0.5s ease, filter 0.5s ease",

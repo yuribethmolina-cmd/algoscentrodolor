@@ -102,7 +102,7 @@ export default function Contacto() {
               {AUDIENCE_CARDS.map((c) => (
                 <article
                   key={c.eyebrow}
-                  className="rounded-2xl p-10 md:p-12 flex flex-col text-[#f5f0e8]"
+                  className="rounded-none p-10 md:p-12 flex flex-col text-[#f5f0e8]"
                   style={{ backgroundColor: c.bg }}
                 >
                   <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
@@ -143,7 +143,7 @@ export default function Contacto() {
               {INFO_CARDS.map(({ Icon, title, lines, email }) => (
                 <div
                   key={title}
-                  className="bg-cream rounded-2xl p-8 border border-[#1a4a55]/10 flex flex-col items-center text-center hover:border-[#c69636]/40 transition-colors min-h-[220px]"
+                  className="bg-cream rounded-none p-8 border border-[#1a4a55]/10 flex flex-col items-center text-center hover:border-[#c69636]/40 transition-colors min-h-[220px]"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#c69636]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#c69636]" strokeWidth={1.75} />

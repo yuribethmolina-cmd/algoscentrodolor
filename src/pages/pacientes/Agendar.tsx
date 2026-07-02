@@ -93,7 +93,7 @@ export default function Agendar() {
 
             {/* Form / Confirmation */}
             {sent ? (
-              <div className="bg-white rounded-2xl p-10 md:p-12 border border-[#3d8b96]/20">
+              <div className="bg-white rounded-none p-10 md:p-12 border border-[#3d8b96]/20">
                 <CheckCircle2 className="w-12 h-12 text-[#3d8b96] mb-6" />
                 <h2 className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl mb-4">
                   Mensaje listo en WhatsApp
@@ -107,14 +107,14 @@ export default function Agendar() {
                     href={`https://wa.me/${WA_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-[#f5f0e8] font-ui font-bold uppercase rounded transition-all px-6 py-4 text-sm tracking-[0.2em]"
+                    className="inline-flex items-center justify-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-[#f5f0e8] font-ui font-bold uppercase rounded-none transition-all px-6 py-4 text-sm tracking-[0.2em]"
                   >
                     <MessageCircle size={18} />
                     Abrir WhatsApp
                   </a>
                   <button
                     onClick={() => { setForm(INITIAL); setSent(false); }}
-                    className="inline-flex items-center justify-center border border-[#1a4a55]/30 text-[#1a4a55] hover:border-[#1a4a55] font-ui font-semibold rounded transition-all px-6 py-4 text-sm"
+                    className="inline-flex items-center justify-center border border-[#1a4a55]/30 text-[#1a4a55] hover:border-[#1a4a55] font-ui font-semibold rounded-none transition-all px-6 py-4 text-sm"
                   >
                     Nueva solicitud
                   </button>
@@ -124,7 +124,7 @@ export default function Agendar() {
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="bg-white rounded-2xl p-8 md:p-10 border border-[#1a4a55]/10"
+                className="bg-white rounded-none p-8 md:p-10 border border-[#1a4a55]/10"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
 
@@ -226,7 +226,7 @@ export default function Agendar() {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-[#f5f0e8] font-ui font-bold uppercase rounded transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.3)] px-8 py-4 text-sm tracking-[0.2em]"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-[#f5f0e8] font-ui font-bold uppercase rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.3)] px-8 py-4 text-sm tracking-[0.2em]"
                 >
                   <MessageCircle size={18} />
                   Enviar por WhatsApp
@@ -239,7 +239,7 @@ export default function Agendar() {
 
             {/* Sidebar */}
             <aside className="space-y-6">
-              <div className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-8">
+              <div className="bg-[#1a4a55] text-[#f5f0e8] rounded-none p-8">
                 <p className="text-[#c69636] font-ui font-bold text-xs tracking-[0.25em] uppercase mb-5">
                   QUÉ INCLUYE LA PRIMERA VISITA
                 </p>
@@ -259,7 +259,7 @@ export default function Agendar() {
                 </ul>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 border border-[#1a4a55]/10 space-y-5">
+              <div className="bg-white rounded-none p-8 border border-[#1a4a55]/10 space-y-5">
                 <p className="text-[#c69636] font-ui font-bold text-xs tracking-[0.25em] uppercase mb-1">
                   CONTACTO DIRECTO
                 </p>
@@ -293,7 +293,7 @@ export default function Agendar() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#c69636]/30 p-6" style={{ background: "rgba(198,150,54,0.06)" }}>
+              <div className="rounded-none border border-[#c69636]/30 p-6" style={{ background: "rgba(198,150,54,0.06)" }}>
                 <p className="font-sans text-sm text-[#1a4a55] leading-relaxed">
                   <strong className="font-bold">Sin estudios de imagen aún,</strong> puede realizarlos antes
                   de su cita en{" "}

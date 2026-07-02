@@ -213,7 +213,7 @@ export default function Tratamientos() {
                   image: imgAboutProcedure,
                 },
               ].map((s) => (
-                <div key={s.title} className="group relative overflow-hidden rounded-2xl bg-[#123c46] border border-[#f5f0e8]/10 p-8 md:p-10 transition-colors hover:border-[#c69636]/40">
+                <div key={s.title} className="group relative overflow-hidden rounded-none bg-[#123c46] border border-[#f5f0e8]/10 p-8 md:p-10 transition-colors hover:border-[#c69636]/40">
                   <img src={s.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.10] mix-blend-luminosity transition-opacity group-hover:opacity-[0.16]" />
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent via-[#123c46]/40 to-[#123c46]" />
                   <div className="relative z-10">
@@ -233,7 +233,7 @@ export default function Tratamientos() {
         <section className="bg-cream pt-20 md:pt-28 pb-20 md:pb-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
+              <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-none p-10 md:p-12">
                 <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
                   PACIENTES
                 </p>
@@ -262,7 +262,7 @@ export default function Tratamientos() {
                   </Link>
                 </div>
               </article>
-              <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
+              <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-none p-10 md:p-12">
                 <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
                   MÉDICOS
                 </p>

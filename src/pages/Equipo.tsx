@@ -312,7 +312,7 @@ export default function EquipoPage() {
             <div className="mt-12 flex flex-col items-center gap-4">
               <a
                 href="/#solicitar"
-                className="group inline-flex items-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[14px] tracking-[0.2em] rounded transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-7 py-[18px] md:px-[42px] md:py-[22px]"
+                className="group inline-flex items-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[14px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-7 py-[18px] md:px-[42px] md:py-[22px]"
               >
                 <span>Solicitar valoración</span>
                 <span

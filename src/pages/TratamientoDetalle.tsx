@@ -139,7 +139,7 @@ export default function TratamientoDetalle() {
         <section className="bg-white py-20 md:py-28">
           <div className="container mx-auto max-w-3xl px-6 md:px-12">
             {heroImg && (
-              <div className="group relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-12 bg-[#1a4a55]/5">
+              <div className="group relative w-full aspect-[16/9] rounded-none overflow-hidden mb-12 bg-[#1a4a55]/5">
                 <img
                   src={heroImg}
                   alt={condition.name}
@@ -210,7 +210,7 @@ export default function TratamientoDetalle() {
               {condition.procedures.map((p) => (
                 <article
                   key={p.slug}
-                  className="bg-cream rounded-2xl border border-[#1a4a55]/10 p-8"
+                  className="bg-cream rounded-none border border-[#1a4a55]/10 p-8"
                 >
                   <span className="inline-block bg-white border border-[#3d8b96]/30 rounded-full px-3 py-1 text-xs font-medium text-[#1a4a55] mb-4">
                     {p.label}
@@ -281,7 +281,7 @@ export default function TratamientoDetalle() {
         <section className="bg-cream pb-20 md:pb-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
+              <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-none p-10 md:p-12">
                 <p className="text-[#f5f0e8] text-xs uppercase tracking-widest font-medium mb-4">
                   PACIENTES
                 </p>
@@ -299,7 +299,7 @@ export default function TratamientoDetalle() {
                   <span aria-hidden>→</span>
                 </Link>
               </article>
-              <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-2xl p-10 md:p-12">
+              <article className="bg-[#1a4a55] text-[#f5f0e8] rounded-none p-10 md:p-12">
                 <p className="text-[#f5f0e8] text-xs uppercase tracking-widest font-medium mb-4">
                   MÉDICOS
                 </p>

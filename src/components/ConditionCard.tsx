@@ -73,7 +73,7 @@ export default function ConditionCard({ condition, view, variant = "standard" }:
 
   return (
     <Link to={`/tratamientos/${condition.slug}`} className="group block h-full">
-      <article className="bg-white rounded-2xl border border-[#1a4a55]/10 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full flex flex-col">
+      <article className="bg-white rounded-none border border-[#1a4a55]/10 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 md:hover:-translate-y-1 md:hover:shadow-lg md:hover:border-[#3d8b96]/30 active:scale-[0.98] h-full flex flex-col">
         <div className={`relative w-full ${imageAspect} overflow-hidden bg-[#1a4a55]/5`}>
           <img
             src={image}

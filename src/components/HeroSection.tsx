@@ -143,7 +143,7 @@ export default function HeroSection() {
               href="https://wa.me/584146807886"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
+              className="group inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
               <span>Agende su consulta</span>
@@ -153,7 +153,7 @@ export default function HeroSection() {
             </a>
             <Link
               to="/tratamientos"
-              className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
+              className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded-none transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
               <span>Ver tratamientos</span>
