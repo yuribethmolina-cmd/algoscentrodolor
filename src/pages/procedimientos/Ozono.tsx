@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
-import imgMain from "@/assets/tx-hernia-discal.jpg";
+import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
+const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
