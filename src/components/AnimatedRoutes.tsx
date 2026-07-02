@@ -1,23 +1,42 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./PageTransition";
 import ScrollToTop from "./ScrollToTop";
 
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
-
-import Pacientes from "@/pages/Pacientes";
-import Tratamientos from "@/pages/Tratamientos";
-import TratamientoDetalle from "@/pages/TratamientoDetalle";
-import { Navigate } from "react-router-dom";
-import Medicos from "@/pages/Medicos";
-import Instituciones from "@/pages/Instituciones";
-
 import EquipoPage from "@/pages/Equipo";
-import BlogPage from "@/pages/Blog";
 import ContactoPage from "@/pages/Contacto";
 import PrivacidadPage from "@/pages/Privacidad";
 import AvisoLegalPage from "@/pages/AvisoLegal";
+
+// New pages per brief v2
+import EstudiosLaboratorio from "@/pages/EstudiosLaboratorio";
+import PreguntasFrecuentes from "@/pages/PreguntasFrecuentes";
+
+// Condition pages
+import CondicionesIndex from "@/pages/condiciones/CondicionesIndex";
+import Ciatica from "@/pages/condiciones/Ciatica";
+import HerniaDiscal from "@/pages/condiciones/HerniaDiscal";
+import DolorLumbar from "@/pages/condiciones/DolorLumbar";
+import DolorCervical from "@/pages/condiciones/DolorCervical";
+import NeuropatiaDiabetica from "@/pages/condiciones/NeuropatiaDiabetica";
+import DolorTrasCirugia from "@/pages/condiciones/DolorTrasCirugia";
+
+// Procedure pages
+import Infiltraciones from "@/pages/procedimientos/Infiltraciones";
+import Ozono from "@/pages/procedimientos/Ozono";
+import EMG from "@/pages/procedimientos/EMG";
+import EEG from "@/pages/procedimientos/EEG";
+import Radiofrecuencia from "@/pages/procedimientos/Radiofrecuencia";
+
+// Legacy pages (kept to avoid 404s on old links)
+import Tratamientos from "@/pages/Tratamientos";
+import TratamientoDetalle from "@/pages/TratamientoDetalle";
+import Pacientes from "@/pages/Pacientes";
+import Medicos from "@/pages/Medicos";
+import Instituciones from "@/pages/Instituciones";
+import BlogPage from "@/pages/Blog";
 
 function wrap(Component: React.ComponentType) {
   return (
@@ -35,30 +54,47 @@ export default function AnimatedRoutes() {
       <ScrollToTop />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-        <Route path="/" element={wrap(Index)} />
+          <Route path="/" element={wrap(Index)} />
 
-        <Route path="/tratamientos" element={wrap(Tratamientos)} />
-        <Route path="/tratamientos/:slug" element={wrap(TratamientoDetalle)} />
+          {/* Conditions */}
+          <Route path="/condiciones" element={wrap(CondicionesIndex)} />
+          <Route path="/condiciones/ciatica" element={wrap(Ciatica)} />
+          <Route path="/condiciones/hernia-discal" element={wrap(HerniaDiscal)} />
+          <Route path="/condiciones/dolor-lumbar" element={wrap(DolorLumbar)} />
+          <Route path="/condiciones/dolor-cervical" element={wrap(DolorCervical)} />
+          <Route path="/condiciones/neuropatia-diabetica" element={wrap(NeuropatiaDiabetica)} />
+          <Route path="/condiciones/dolor-tras-cirugia" element={wrap(DolorTrasCirugia)} />
 
-        <Route path="/pacientes/tratamientos" element={<Navigate to="/tratamientos" replace />} />
-        <Route path="/pacientes" element={wrap(Pacientes)} />
-        <Route path="/pacientes/*" element={wrap(Pacientes)} />
+          {/* Procedures */}
+          <Route path="/procedimientos/infiltraciones-y-bloqueos" element={wrap(Infiltraciones)} />
+          <Route path="/procedimientos/ozono-hernia-discal" element={wrap(Ozono)} />
+          <Route path="/procedimientos/emg" element={wrap(EMG)} />
+          <Route path="/procedimientos/eeg" element={wrap(EEG)} />
+          <Route path="/procedimientos/radiofrecuencia" element={wrap(Radiofrecuencia)} />
+          <Route path="/procedimientos" element={<Navigate to="/procedimientos/infiltraciones-y-bloqueos" replace />} />
 
-        <Route path="/medicos" element={wrap(Medicos)} />
-        <Route path="/medicos/*" element={wrap(Medicos)} />
+          {/* Main pages */}
+          <Route path="/estudios-laboratorio" element={wrap(EstudiosLaboratorio)} />
+          <Route path="/equipo" element={wrap(EquipoPage)} />
+          <Route path="/preguntas-frecuentes" element={wrap(PreguntasFrecuentes)} />
+          <Route path="/contacto" element={wrap(ContactoPage)} />
+          <Route path="/privacidad" element={wrap(PrivacidadPage)} />
+          <Route path="/aviso-legal" element={wrap(AvisoLegalPage)} />
 
-        <Route path="/instituciones" element={wrap(Instituciones)} />
-        <Route path="/instituciones/*" element={wrap(Instituciones)} />
+          {/* Legacy routes kept active */}
+          <Route path="/tratamientos" element={wrap(Tratamientos)} />
+          <Route path="/tratamientos/:slug" element={wrap(TratamientoDetalle)} />
+          <Route path="/pacientes" element={wrap(Pacientes)} />
+          <Route path="/pacientes/*" element={wrap(Pacientes)} />
+          <Route path="/medicos" element={wrap(Medicos)} />
+          <Route path="/medicos/*" element={wrap(Medicos)} />
+          <Route path="/instituciones" element={wrap(Instituciones)} />
+          <Route path="/instituciones/*" element={wrap(Instituciones)} />
+          <Route path="/blog" element={wrap(BlogPage)} />
 
-        <Route path="/equipo" element={wrap(EquipoPage)} />
-        <Route path="/blog" element={wrap(BlogPage)} />
-        <Route path="/contacto" element={wrap(ContactoPage)} />
-        <Route path="/privacidad" element={wrap(PrivacidadPage)} />
-        <Route path="/aviso-legal" element={wrap(AvisoLegalPage)} />
-
-        <Route path="*" element={wrap(NotFound)} />
-      </Routes>
-    </AnimatePresence>
+          <Route path="*" element={wrap(NotFound)} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }

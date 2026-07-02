@@ -7,25 +7,25 @@ const GOLD = "#c69636";
 
 type Link = { label: string; href: string };
 
-const tratamientos: Link[] = [
-  { label: "Dolor lumbar y ciática", href: "/tratamientos/dolor-lumbar-ciatica" },
-  { label: "Dolor cervical", href: "/tratamientos/dolor-cervical" },
-  { label: "Dolor facetario", href: "/tratamientos/dolor-facetario" },
-  { label: "Neuropatía periférica", href: "/tratamientos/neuropatia" },
-  { label: "Ver todos →", href: "/tratamientos" },
+const condiciones: Link[] = [
+  { label: "Ciática", href: "/condiciones/ciatica" },
+  { label: "Hernia discal", href: "/condiciones/hernia-discal" },
+  { label: "Dolor lumbar", href: "/condiciones/dolor-lumbar" },
+  { label: "Dolor cervical", href: "/condiciones/dolor-cervical" },
+  { label: "Ver todas →", href: "/condiciones" },
 ];
 
-const audiencias: Link[] = [
-  { label: "Para pacientes", href: "/pacientes" },
-  { label: "Para médicos", href: "/medicos" },
-  { label: "Para instituciones", href: "/instituciones" },
-  { label: "Agendar cita", href: "/pacientes/agendar" },
+const procedimientos: Link[] = [
+  { label: "Infiltraciones y bloqueos", href: "/procedimientos/infiltraciones-y-bloqueos" },
+  { label: "Ozono para hernia discal", href: "/procedimientos/ozono-hernia-discal" },
+  { label: "EMG", href: "/procedimientos/emg" },
+  { label: "EEG", href: "/procedimientos/eeg" },
 ];
 
 const algos: Link[] = [
-  { label: "Tratamientos", href: "/tratamientos" },
-  { label: "Preguntas frecuentes", href: "/pacientes/preguntas-frecuentes" },
-  { label: "Para médicos", href: "/medicos" },
+  { label: "Estudios y laboratorio", href: "/estudios-laboratorio" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   { label: "Contacto", href: "/contacto" },
 ];
 
@@ -138,8 +138,8 @@ export default function HomeFooter() {
 
           </div>
 
-          <ColumnList title="TRATAMIENTOS" links={tratamientos} />
-          <ColumnList title="AUDIENCIAS" links={audiencias} />
+          <ColumnList title="CONDICIONES" links={condiciones} />
+          <ColumnList title="PROCEDIMIENTOS" links={procedimientos} />
           <ColumnList title="ALGOS" links={algos} />
 
           {/* Consultorio */}
