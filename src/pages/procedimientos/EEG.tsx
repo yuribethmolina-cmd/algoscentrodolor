@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -5,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
+import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import { motion } from "framer-motion";
 import imgMainAsset from "@/assets/eeg-procedimiento.jpg.asset.json";
 const imgMain = imgMainAsset.url;
@@ -12,8 +14,9 @@ const imgMain = imgMainAsset.url;
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";
 
 export default function EEG() {
+  const [hc, setHc] = useState(false);
   return (
-    <div className="min-h-screen bg-cream">
+    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
         <PageHero eyebrow="Estudio" title="Electroencefalograma (EEG)" subtitle="Estudio de la actividad eléctrica del cerebro." />
