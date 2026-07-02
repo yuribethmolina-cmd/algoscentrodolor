@@ -1,11 +1,10 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
-import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
-import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
@@ -15,28 +14,256 @@ const imgBrazo = imgBrazoAsset.url;
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20la%20Electromiografía%20(EMG).";
 
+/* ---------- Cinematic Hero (inline, EMG-only) ---------- */
+function CinematicHero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const scaleBg = useTransform(scrollYProgress, [0, 1], [1.1, 1.22]);
+  const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const opacityTitle = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  return (
+    <section ref={ref} className="relative w-full h-[88vh] md:h-[100vh] min-h-[560px] overflow-hidden bg-deep-teal">
+      {/* Background image with Ken Burns + parallax */}
+      <motion.div style={{ y: yBg, scale: scaleBg }} className="absolute inset-0 will-change-transform">
+        <img
+          src={imgHero}
+          alt="Electromiografía con aguja realizada por el especialista"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+      </motion.div>
+
+      {/* Layered atmosphere: teal wash + vertical gradient + vignette */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "linear-gradient(180deg, rgba(26,74,85,0.55) 0%, rgba(26,74,85,0.35) 45%, rgba(26,74,85,0.85) 100%)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%)" }}
+      />
+      {/* Grain texture via subtle noise gradient stripes */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
+        }}
+      />
+
+      {/* Content */}
+      <motion.div
+        style={{ y: yTitle, opacity: opacityTitle }}
+        className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24"
+      >
+        <div className="mx-auto w-full max-w-[1240px] px-6 md:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <span className="h-px w-10 md:w-14 bg-algos-gold" />
+              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] md:text-[12px] tracking-[0.28em]">
+                Estudio · Neurofisiología
+              </p>
+            </div>
+            <h1
+              className="font-sans font-light text-cream leading-[0.95] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)", textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
+            >
+              Electromiografía
+            </h1>
+            <p
+              className="font-sans font-light text-cream/85 mt-4 md:mt-6 max-w-[640px] leading-[1.5]"
+              style={{ fontSize: "clamp(1rem, 1.6vw, 1.375rem)", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+            >
+              Escuchamos lo que dicen sus nervios y sus músculos, y traducimos esa señal en un diagnóstico preciso.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-3"
+      >
+        <span className="font-sans uppercase text-cream/70 text-[10px] tracking-[0.32em]">Desliza</span>
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          className="block h-8 w-px bg-algos-gold"
+        />
+      </motion.div>
+    </section>
+  );
+}
+
+/* ---------- Chapter marker (I / II / III) ---------- */
+function Chapter({ numeral, label }: { numeral: string; label: string }) {
+  return (
+    <div className="bg-cream">
+      <div className="mx-auto max-w-[1240px] px-6 md:px-12 pt-24 md:pt-32 pb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-baseline gap-6 md:gap-8"
+        >
+          <span
+            className="font-sans font-thin text-algos-gold leading-none tabular-nums"
+            style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}
+          >
+            {numeral}
+          </span>
+          <span className="flex-1 h-px bg-deep-teal/15" />
+          <span className="font-sans font-bold uppercase text-deep-teal/60 text-[11px] tracking-[0.28em]">
+            {label}
+          </span>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Oversized editorial statement ---------- */
+function EditorialStatement({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="bg-cream pt-8 md:pt-12 pb-16 md:pb-24">
+      <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="font-sans font-light text-deep-teal leading-[1.25] tracking-[-0.01em]"
+          style={{ fontSize: "clamp(1.5rem, 3.4vw, 2.75rem)" }}
+        >
+          {children}
+        </motion.p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Full-bleed pull quote panel (dark) ---------- */
+function ManifestoPanel() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  return (
+    <section ref={ref} className="relative bg-deep-teal overflow-hidden py-28 md:py-40">
+      <motion.div
+        style={{ y }}
+        className="pointer-events-none absolute inset-0 will-change-transform"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 30%, rgba(198,150,54,0.14) 0%, rgba(26,74,85,0) 55%)",
+          }}
+        />
+      </motion.div>
+      <div className="relative mx-auto max-w-[1080px] px-6 md:px-12">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="font-sans font-light text-cream leading-[1.1] tracking-[-0.02em]"
+          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+        >
+          No trate <span className="text-algos-gold">a ciegas</span>.
+          <br />
+          Vea el nervio primero.
+        </motion.p>
+        <div className="mt-8 md:mt-10 flex items-center gap-4">
+          <span className="h-px w-10 bg-algos-gold" />
+          <p className="font-sans uppercase text-cream/60 text-[11px] tracking-[0.28em]">
+            Filosofía ALGOS
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Cinematic CTA ---------- */
+function CinematicCTA() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const yGlow = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  return (
+    <section ref={ref} className="relative bg-deep-teal overflow-hidden py-28 md:py-40">
+      <motion.div
+        style={{ y: yGlow }}
+        className="pointer-events-none absolute inset-0 will-change-transform"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 60%, rgba(198,150,54,0.22) 0%, rgba(26,74,85,0) 60%)",
+          }}
+        />
+      </motion.div>
+      <div className="relative mx-auto max-w-[820px] px-6 md:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em] mb-6">
+            Su próximo paso
+          </p>
+          <h2
+            className="font-sans font-light text-cream leading-[1.05] tracking-[-0.02em] mb-8"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
+          >
+            Cuéntenos sus síntomas.
+            <br />
+            Le decimos si este estudio es para usted.
+          </h2>
+          <a
+            href={WA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-algos-gold hover:bg-[#d4a648] text-deep-teal font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
+          >
+            Escríbanos por WhatsApp
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ================ Page ================ */
 export default function EMG() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Estudio" title="Electromiografía (EMG)" subtitle="Estudio de los nervios y los músculos." />
+        <CinematicHero />
 
-        <ProcedureHeroImage
-          src={imgHero}
-          alt="Electromiografía con aguja guiada por el especialista"
-          caption="Electromiografía con aguja: registro directo del músculo."
-          mobileContain
-        />
+        <Chapter numeral="I" label="Qué es" />
+        <EditorialStatement>
+          Un estudio que <span className="text-algos-gold">mide</span> cómo viajan las señales por sus nervios y cómo responden sus músculos — para ver si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
+        </EditorialStatement>
 
-        <ProcedureIntro eyebrow="Qué es">
-          Mide cómo viajan las señales por sus nervios y cómo responden sus músculos. Así se ve si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
-        </ProcedureIntro>
-
+        <Chapter numeral="II" label="Para qué sirve" />
         <ProcedureSplitBlock
           image={imgBrazo}
           imageAlt="Estudio de conducción nerviosa en el brazo"
-          eyebrow="Para qué sirve"
+          eyebrow="Indicaciones"
           imageCaption="Conducción nerviosa: estímulos suaves sobre la piel."
           mobileContain
         >
@@ -44,30 +271,30 @@ export default function EMG() {
             Es el estudio indicado cuando el dolor viene con hormigueo, adormecimiento, debilidad o corrientazos.
           </p>
           <p>
-            Confirma, por ejemplo, el nervio comprometido de una ciática o el daño de la neuropatía diabética, y le señala al especialista dónde está el problema para tratar eso y no ir a ciegas.
+            Confirma, por ejemplo, el nervio comprometido de una ciática o el daño de la neuropatía diabética, y le señala al especialista dónde está el problema.
           </p>
         </ProcedureSplitBlock>
 
+        <ManifestoPanel />
+
+        <Chapter numeral="III" label="Cómo se hace" />
         <ProcedureSplitBlock
           image={imgPierna}
           imageAlt="Electromiografía en la pierna con registro en pantalla"
-          eyebrow="Cómo se hace"
+          eyebrow="Procedimiento"
           imageCaption="Registro en tiempo real durante el estudio."
           reverse
           mobileContain
         >
           <p>
-            El estudio se hace en dos partes: primero la conducción nerviosa, luego el registro con una aguja muy fina en algunos músculos.
+            El estudio ocurre en dos actos: primero la conducción nerviosa, luego el registro con una aguja muy fina en algunos músculos.
           </p>
           <p>
-            Todo ocurre en la misma sesión, de forma ambulatoria, y el especialista interpreta los registros en el momento.
+            Todo en la misma sesión, de forma ambulatoria, y el especialista interpreta los registros en el momento.
           </p>
         </ProcedureSplitBlock>
 
-
-
-
-
+        <Chapter numeral="IV" label="Detalles" />
         <ProcedureDetails
           facts={[
             { label: "Duración", value: "30 a 60 min" },
@@ -90,17 +317,7 @@ export default function EMG() {
           ]}
         />
 
-
-        <section className="bg-deep-teal py-20 md:py-28">
-          <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
-            <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[48ch] mx-auto">
-              Cuéntenos sus síntomas y le orientamos sobre si este estudio aplica a su caso.
-            </p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
-              Escríbanos por WhatsApp
-            </a>
-          </div>
-        </section>
+        <CinematicCTA />
       </main>
       <HomeFooter />
       <WhatsAppButton />
