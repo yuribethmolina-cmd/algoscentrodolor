@@ -1,5 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { PROCEDURES } from "@/data/treatments";
+import { PROCEDURES } from "../../../data/treatments";
 
 export default defineTool({
   name: "list_procedures",

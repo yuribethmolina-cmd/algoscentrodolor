@@ -1,5 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import TEAM from "@/data/team";
+import TEAM from "../../../data/team";
 
 export default defineTool({
   name: "list_team",

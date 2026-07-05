@@ -7,7 +7,802 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.20.0";
 
 // src/lib/mcp/tools/list-conditions.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.0";
-import { CONDITIONS } from "npm:@/data/treatments";
+
+// src/data/treatments.ts
+var CONDITIONS = [
+  {
+    slug: "dolor-lumbar-ciatica",
+    name: "Dolor lumbar y ci\xE1tica",
+    clinicalName: "LUMBALGIA CR\xD3NICA \xB7 RADICULOPAT\xCDA LUMBAR",
+    patientDescription: "Dolor en la zona baja de la espalda, con o sin irradiaci\xF3n hacia la cadera, el gl\xFAteo o la pierna, que no cede con reposo ni medicamentos.",
+    clinicalDescription: "Lumbalgia mec\xE1nica cr\xF3nica \xB7 s\xEDndrome facetario lumbar \xB7 radiculopat\xEDa lumbar \xB7 hernia discal con compresi\xF3n radicular",
+    procedures: [
+      {
+        slug: "bloqueo-radicular-lumbar",
+        label: "Bloqueo radicular",
+        technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+        description: "Inyecci\xF3n de medicamento antiinflamatorio alrededor de la ra\xEDz nerviosa afectada para reducir la inflamaci\xF3n que genera el dolor. Se realiza bajo gu\xEDa de fluoroscopia o tomograf\xEDa y permite llegar con precisi\xF3n al punto exacto de compresi\xF3n."
+      },
+      {
+        slug: "infiltracion-epidural-lumbar",
+        label: "Infiltraci\xF3n epidural",
+        technicalName: "Infiltraci\xF3n epidural lumbar guiada por imagen",
+        description: "Aplicaci\xF3n de antiinflamatorio en el espacio epidural lumbar para reducir la irritaci\xF3n de varias ra\xEDces nerviosas a la vez. Indicada cuando el dolor es difuso o hay m\xE1s de un nivel afectado."
+      },
+      {
+        slug: "discolisis-con-ozono",
+        label: "Disc\xF3lisis con ozono",
+        technicalName: "Disc\xF3lisis intradiscal con ozono m\xE9dico guiada por imagen",
+        description: "Aplicaci\xF3n de ozono m\xE9dico dentro del disco herniado para reducir su volumen y la inflamaci\xF3n que irrita el nervio. Solo se indica cuando la hernia discal est\xE1 confirmada por imagen como causa del dolor y el paciente no ha respondido a tratamiento conservador."
+      },
+      {
+        slug: "bloqueo-facetario-lumbar",
+        label: "Bloqueo facetario",
+        technicalName: "Bloqueo facetario lumbar diagn\xF3stico y terap\xE9utico",
+        description: "Inyecci\xF3n en las articulaciones facetarias lumbares para confirmar si son la fuente del dolor y, al mismo tiempo, reducir la inflamaci\xF3n. Paso previo habitual antes de la radiofrecuencia facetaria."
+      }
+    ],
+    whatIs: "El dolor lumbar cr\xF3nico es aquel que persiste m\xE1s de tres meses en la zona baja de la espalda. Puede tener varias causas: desgaste de las articulaciones peque\xF1as de la columna (s\xEDndrome facetario), protrusi\xF3n o hernia de un disco que comprime una ra\xEDz nerviosa, o contractura muscular sostenida por compensaci\xF3n.\n\nCuando la hernia discal irrita o comprime el nervio ci\xE1tico \u2014 que recorre desde la zona lumbar hasta el pie \u2014 el dolor se irradia hacia abajo por la pierna, a veces acompa\xF1ado de hormigueo o adormecimiento. A esto se le llama ci\xE1tica o radiculopat\xEDa lumbar.\n\nCuando el dolor no cede con reposo, analg\xE9sicos ni fisioterapia, los procedimientos intervencionistas guiados por imagen permiten actuar directamente sobre el punto que genera el problema, con anestesia local y sin hospitalizaci\xF3n.",
+    symptoms: [
+      "Dolor en la zona lumbar que puede irradiarse hacia la cadera, el gl\xFAteo o la pierna",
+      "Hormigueo, adormecimiento o sensaci\xF3n el\xE9ctrica en el trayecto del nervio ci\xE1tico",
+      "Dolor que aumenta al estar sentado por largo tiempo, al toser o al hacer fuerza",
+      "Limitaci\xF3n para inclinarse, cargar objetos o caminar distancias largas"
+    ],
+    whenToConsider: [
+      "Si el dolor lleva m\xE1s de tres meses y no ha respondido a reposo, medicamentos ni fisioterapia",
+      "Si hay irradiaci\xF3n hacia la pierna con hormigueo o adormecimiento",
+      "Si una imagen \u2014 resonancia magn\xE9tica o tomograf\xEDa \u2014 confirma hernia discal o compresi\xF3n radicular",
+      "Si el dolor limita actividades b\xE1sicas como vestirse, trabajar o dormir"
+    ],
+    whatToExpect: [
+      "Llegada y registro \xB7 15 min",
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n de im\xE1genes con el especialista \xB7 20\u201330 min",
+      "Procedimiento guiado por fluoroscopia o tomograf\xEDa \xB7 30\u201345 min",
+      "Observaci\xF3n post-procedimiento \xB7 30 min",
+      "Alta el mismo d\xEDa con indicaciones escritas"
+    ],
+    faq: [
+      {
+        q: "\xBFLa infiltraci\xF3n cura la hernia discal?",
+        a: "No. El objetivo es reducir la inflamaci\xF3n que el disco genera alrededor del nervio, lo que alivia el dolor y permite recuperar la funci\xF3n. La hernia puede reducirse con el tiempo de forma natural; el procedimiento no la extrae quir\xFArgicamente."
+      },
+      {
+        q: "\xBFCu\xE1ntas sesiones necesito?",
+        a: "Depende del caso. Muchos pacientes obtienen alivio significativo con una sola sesi\xF3n. En otros puede ser necesario repetir el procedimiento. El plan se define en consulta seg\xFAn la respuesta de cada paciente."
+      },
+      {
+        q: "\xBFCu\xE1ndo puedo volver a mis actividades normales?",
+        a: "La mayor\xEDa de los pacientes retoman actividades ligeras al d\xEDa siguiente. Las indicaciones espec\xEDficas se entregan en la consulta y var\xEDan seg\xFAn el procedimiento realizado."
+      },
+      {
+        q: "\xBFTengo que operarme si esto no funciona?",
+        a: "No necesariamente. Si el procedimiento no alcanza el resultado esperado, se eval\xFAan otras opciones antes de considerar cirug\xEDa. La decisi\xF3n se toma siempre con informaci\xF3n clara sobre lo que cada alternativa ofrece."
+      }
+    ]
+  },
+  {
+    slug: "dolor-cervical",
+    name: "Dolor cervical",
+    clinicalName: "CERVICALGIA CR\xD3NICA \xB7 RADICULOPAT\xCDA CERVICAL",
+    patientDescription: "Dolor en el cuello, con o sin irradiaci\xF3n al hombro o al brazo, que limita el movimiento y la vida diaria.",
+    clinicalDescription: "Cervicalgia mec\xE1nica \xB7 s\xEDndrome facetario cervical \xB7 radiculopat\xEDa cervical \xB7 hernia discal cervical",
+    procedures: [
+      {
+        slug: "bloqueo-radicular-cervical",
+        label: "Bloqueo radicular cervical",
+        technicalName: "Bloqueo radicular cervical selectivo guiado por imagen",
+        description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa cervical afectada para reducir la irritaci\xF3n que genera el dolor y la irradiaci\xF3n al brazo. Se realiza bajo gu\xEDa de fluoroscopia o tomograf\xEDa."
+      },
+      {
+        slug: "infiltracion-facetaria-cervical",
+        label: "Infiltraci\xF3n facetaria cervical",
+        technicalName: "Infiltraci\xF3n facetaria cervical guiada por fluoroscopia",
+        description: "Inyecci\xF3n en las articulaciones facetarias cervicales para tratar el dolor de origen articular en la columna del cuello. Paso diagn\xF3stico y terap\xE9utico previo a la radiofrecuencia."
+      },
+      {
+        slug: "bloqueo-medial-branch-cervical",
+        label: "Bloqueo medial branch",
+        technicalName: "Bloqueo de rama medial cervical",
+        description: "Bloqueo selectivo del nervio que inerva las articulaciones facetarias cervicales. Confirma el origen facetario del dolor antes de proceder con radiofrecuencia de mayor duraci\xF3n."
+      }
+    ],
+    whatIs: "La cervicalgia cr\xF3nica es el dolor persistente en la regi\xF3n cervical \u2014 la parte de la columna que forma el cuello. Las v\xE9rtebras cervicales son las m\xE1s peque\xF1as y m\xF3viles de toda la columna, lo que las expone al desgaste con el tiempo.\n\nCuando el desgaste (espondilosis) o una hernia discal cervical comprimen una ra\xEDz nerviosa, el dolor se irradia hacia el hombro, el brazo o los dedos \u2014 a esto se le llama radiculopat\xEDa cervical. Si la fuente es la articulaci\xF3n facetaria, el dolor es m\xE1s local y sordo, sin irradiaci\xF3n clara.\n\nLos procedimientos guiados por imagen permiten llegar con precisi\xF3n al punto exacto de la columna cervical que genera el problema, con anestesia local y sin necesidad de cirug\xEDa.",
+    symptoms: [
+      "Dolor en el cuello que se irradia al hombro, el brazo o entre los om\xF3platos",
+      "Rigidez con dificultad para rotar o inclinar la cabeza",
+      "Hormigueo, adormecimiento o debilidad en los dedos de la mano",
+      "Dolor de cabeza que comienza en la nuca"
+    ],
+    whenToConsider: [
+      "Si el dolor cervical persiste m\xE1s de tres meses con poco o ning\xFAn alivio con tratamiento conservador",
+      "Si hay irradiaci\xF3n al brazo con hormigueo o p\xE9rdida de fuerza",
+      "Si una imagen confirma patolog\xEDa radicular o facetaria cervical",
+      "Si el dolor interfiere con el sue\xF1o o actividades b\xE1sicas como conducir o trabajar frente a una pantalla"
+    ],
+    whatToExpect: [
+      "Llegada y registro \xB7 15 min",
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n de im\xE1genes con el especialista \xB7 20\u201330 min",
+      "Procedimiento bajo gu\xEDa de fluoroscopia o tomograf\xEDa \xB7 30\u201345 min",
+      "Observaci\xF3n post-procedimiento \xB7 30 min",
+      "Alta el mismo d\xEDa con indicaciones escritas"
+    ],
+    faq: [
+      {
+        q: "\xBFEs seguro hacer un procedimiento en el cuello?",
+        a: "S\xED, cuando se realiza guiado por imagen. La fluoroscopia o la tomograf\xEDa permiten al especialista visualizar en tiempo real exactamente d\xF3nde coloca la aguja, con precisi\xF3n milim\xE9trica. Ese est\xE1ndar de gu\xEDa por imagen es lo que distingue un procedimiento intervencionista de una infiltraci\xF3n a ciegas."
+      },
+      {
+        q: "\xBFVoy a perder movilidad despu\xE9s?",
+        a: "No. Los procedimientos en columna cervical no implican cortes ni alteran estructuras \xF3seas o musculares. La movilidad se conserva y en muchos casos mejora al reducirse el dolor."
+      },
+      {
+        q: "\xBFCu\xE1ntas sesiones necesito?",
+        a: "Depende del diagn\xF3stico. Un bloqueo diagn\xF3stico puede bastar para confirmar el origen del dolor y definir si corresponde radiofrecuencia o infiltraci\xF3n. El plan completo se establece en consulta seg\xFAn cada caso."
+      },
+      {
+        q: "\xBFFunciona para la hernia cervical?",
+        a: "S\xED, cuando la hernia genera compresi\xF3n radicular confirmada por imagen. El bloqueo radicular cervical selectivo est\xE1 espec\xEDficamente indicado para esos casos y ha demostrado resultados favorables antes de considerar cirug\xEDa."
+      }
+    ]
+  },
+  {
+    slug: "dolor-facetario",
+    name: "Dolor facetario",
+    clinicalName: "S\xCDNDROME FACETARIO",
+    patientDescription: "Dolor profundo en la espalda o el cuello que empeora al estar de pie o caminar y mejora al sentarse o inclinarse hacia adelante.",
+    clinicalDescription: "S\xEDndrome facetario lumbar y cervical \xB7 bloqueo diagn\xF3stico de rama medial \xB7 radiofrecuencia facetaria como tratamiento de elecci\xF3n",
+    procedures: [
+      {
+        slug: "rf-medial-branch",
+        label: "Radiofrecuencia medial branch",
+        technicalName: "Radiofrecuencia de rama medial facetaria",
+        description: "Aplica calor controlado sobre el nervio que transmite el dolor desde la articulaci\xF3n facetaria. Al desensibilizar ese nervio, el dolor se reduce de forma duradera \u2014 entre 12 y 24 meses en la mayor\xEDa de los casos. Se realiza con anestesia local bajo gu\xEDa de fluoroscopia."
+      },
+      {
+        slug: "bloqueo-diagnostico-facetario",
+        label: "Bloqueo diagn\xF3stico",
+        technicalName: "Bloqueo diagn\xF3stico de rama medial facetaria",
+        description: "Inyecci\xF3n de anest\xE9sico local en el nervio que inerva la articulaci\xF3n facetaria. Si el dolor se alivia significativamente, confirma que esa articulaci\xF3n es la fuente y valida la indicaci\xF3n de radiofrecuencia."
+      }
+    ],
+    whatIs: "Las articulaciones facetarias son las peque\xF1as articulaciones que conectan las v\xE9rtebras entre s\xED, tanto en la columna lumbar como en la cervical. Con el envejecimiento o el desgaste, estas articulaciones desarrollan inflamaci\xF3n y generan dolor de forma similar a la artrosis en rodillas o caderas.\n\nEl dolor facetario es sordo y profundo \u2014 no irradia de la misma manera que la ci\xE1tica, sino que se siente en la zona lumbar o cervical posterior, a veces con extensi\xF3n a los gl\xFAteos o las caderas. Un patr\xF3n caracter\xEDstico: empeora al estar parado o caminar y mejora al sentarse o inclinarse hacia adelante.\n\nEl diagn\xF3stico se confirma con un bloqueo diagn\xF3stico \u2014 una inyecci\xF3n de anest\xE9sico que, si alivia el dolor, se\xF1ala que la articulaci\xF3n facetaria es la fuente. Una vez confirmado, la radiofrecuencia ofrece alivio duradero sin necesidad de cirug\xEDa.",
+    symptoms: [
+      "Dolor profundo en columna lumbar o cervical, sin irradiaci\xF3n clara hacia la pierna o el brazo",
+      "El dolor empeora al estar parado mucho tiempo o al caminar y mejora al sentarse",
+      "Rigidez matutina que mejora con el movimiento durante el d\xEDa",
+      "Sensibilidad a la presi\xF3n a los lados de la columna vertebral"
+    ],
+    whenToConsider: [
+      "Si el dolor columnar lleva m\xE1s de tres meses y no responde a tratamiento conservador",
+      "Si el patr\xF3n sugiere origen facetario: dolor que empeora al extender la columna hacia atr\xE1s",
+      "Si un bloqueo diagn\xF3stico previo confirm\xF3 que el dolor proviene de las articulaciones facetarias",
+      "Si busca una alternativa con alivio duradero sin pasar por cirug\xEDa"
+    ],
+    whatToExpect: [
+      "Llegada y registro \xB7 15 min",
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n de im\xE1genes con el especialista \xB7 20 min",
+      "Bloqueo diagn\xF3stico bajo fluoroscopia (si a\xFAn no se realiz\xF3) \xB7 20\u201330 min",
+      "Radiofrecuencia de rama medial (cuando el bloqueo fue positivo) \xB7 30\u201345 min",
+      "Alta el mismo d\xEDa con indicaciones escritas"
+    ],
+    faq: [
+      {
+        q: "\xBFQu\xE9 es la radiofrecuencia facetaria?",
+        a: "Es un procedimiento que aplica calor controlado sobre el nervio que transmite el dolor desde la articulaci\xF3n facetaria. Al desensibilizar ese nervio, el dolor se reduce de forma duradera. Se realiza con anestesia local bajo gu\xEDa de fluoroscopia y es ambulatorio."
+      },
+      {
+        q: "\xBFCu\xE1nto tiempo dura el alivio?",
+        a: "En la mayor\xEDa de los casos, entre 12 y 24 meses. Cuando el nervio se regenera naturalmente, el procedimiento puede repetirse con resultados similares."
+      },
+      {
+        q: "\xBFEs necesario el bloqueo diagn\xF3stico primero?",
+        a: 'S\xED. El bloqueo diagn\xF3stico confirma que el dolor proviene de las facetas antes de proceder con la radiofrecuencia. Es un paso que evita tratar un origen equivocado \u2014 lo que el especialista llama "tratar solo lo que hace falta".'
+      },
+      {
+        q: "\xBFQu\xE9 pasa si no respondo a la radiofrecuencia?",
+        a: "Se eval\xFAa si el bloqueo diagn\xF3stico fue realmente positivo y si hay otras fuentes de dolor que considerar. En consulta se analiza el caso completo y se define el siguiente paso con informaci\xF3n clara."
+      }
+    ]
+  },
+  {
+    slug: "neuropatia",
+    name: "Neuropat\xEDa",
+    clinicalName: "NEUROPAT\xCDA PERIF\xC9RICA \xB7 NEUROPAT\xCDA DIAB\xC9TICA",
+    patientDescription: "Dolor, hormigueo o adormecimiento en manos, pies o piernas causado por da\xF1o en los nervios perif\xE9ricos, frecuentemente asociado a diabetes.",
+    clinicalDescription: "Neuropat\xEDa perif\xE9rica \xB7 neuropat\xEDa diab\xE9tica \xB7 diagn\xF3stico por EMG \xB7 manejo intervencionista con bloqueo de nervio perif\xE9rico",
+    procedures: [
+      {
+        slug: "emg",
+        label: "Electromiograf\xEDa (EMG)",
+        technicalName: "Electromiograf\xEDa y velocidades de conducci\xF3n nerviosa",
+        description: "Mide c\xF3mo viajan las se\xF1ales el\xE9ctricas por los nervios y c\xF3mo responden los m\xFAsculos. Confirma qu\xE9 nervios est\xE1n da\xF1ados, en qu\xE9 grado y en qu\xE9 punto exacto \u2014 informaci\xF3n esencial antes de definir el tratamiento."
+      },
+      {
+        slug: "bloqueo-nervio-periferico",
+        label: "Bloqueo de nervio perif\xE9rico",
+        technicalName: "Bloqueo de nervio perif\xE9rico guiado por ecograf\xEDa",
+        description: "Aplicaci\xF3n de medicamento directamente sobre el nervio afectado bajo gu\xEDa de ecograf\xEDa en tiempo real. Alivia el dolor neurop\xE1tico cuando los medicamentos son insuficientes o generan efectos adversos."
+      }
+    ],
+    whatIs: "La neuropat\xEDa perif\xE9rica es el da\xF1o a los nervios que conectan el cerebro y la m\xE9dula espinal con el resto del cuerpo. Cuando esos nervios est\xE1n da\xF1ados, las se\xF1ales se distorsionan: el paciente siente dolor, quemaz\xF3n o corrientazos donde no deber\xEDa, o deja de sentir en zonas que deber\xEDan tener sensibilidad.\n\nLa causa m\xE1s frecuente en Venezuela es la diabetes mal controlada o de larga evoluci\xF3n. El exceso de glucosa da\xF1a progresivamente los nervios, comenzando por los m\xE1s largos \u2014 los de los pies y las piernas. A esto se le llama neuropat\xEDa diab\xE9tica.\n\nEl primer paso es confirmar el diagn\xF3stico con una electromiograf\xEDa (EMG), que determina qu\xE9 nervios est\xE1n afectados y en qu\xE9 punto. Con ese mapa, el especialista define si hay indicaci\xF3n para un procedimiento intervencionista que complemente el manejo m\xE9dico.",
+    symptoms: [
+      "Hormigueo, corrientazos o quemaz\xF3n en pies, manos o piernas, especialmente en la noche",
+      "Adormecimiento o p\xE9rdida de sensibilidad, sobre todo en la planta del pie",
+      "Dolor que empeora con el contacto de la ropa o las s\xE1banas",
+      "Debilidad muscular o dificultad para sostenerse sobre la punta de los pies"
+    ],
+    whenToConsider: [
+      "Si tiene diabetes y presenta s\xEDntomas persistentes en pies o piernas sin otra explicaci\xF3n",
+      "Si el dolor neurop\xE1tico no responde a medicamentos o estos generan efectos adversos intolerables",
+      "Si un EMG confirm\xF3 da\xF1o en nervios perif\xE9ricos",
+      "Si busca una opci\xF3n intervencionista para complementar el tratamiento m\xE9dico de base"
+    ],
+    whatToExpect: [
+      "Llegada y registro \xB7 15 min",
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n del EMG con el especialista \xB7 20\u201330 min",
+      "Procedimiento seg\xFAn indicaci\xF3n \u2014 bloqueo de nervio perif\xE9rico u otro \xB7 20\u201330 min",
+      "Observaci\xF3n \xB7 15 min",
+      "Alta el mismo d\xEDa con indicaciones y plan de seguimiento"
+    ],
+    faq: [
+      {
+        q: "\xBFNecesito un EMG antes de venir?",
+        a: "Si ya tiene uno, tr\xE1igalo a la consulta. Si no, el especialista evaluar\xE1 si es necesario realizarlo \u2014 contamos con el servicio de electrodiagn\xF3stico para ese fin. El EMG es fundamental para saber exactamente qu\xE9 nervios est\xE1n afectados antes de definir el tratamiento."
+      },
+      {
+        q: "\xBFEl tratamiento cura la neuropat\xEDa diab\xE9tica?",
+        a: "No existe cura para la neuropat\xEDa ya establecida, pero los procedimientos intervencionistas pueden reducir significativamente el dolor y mejorar la calidad de vida. El manejo completo incluye tambi\xE9n el control de la diabetes de base."
+      },
+      {
+        q: "\xBFCu\xE1nto tiempo tarda en notarse la mejor\xEDa?",
+        a: "Var\xEDa seg\xFAn el procedimiento y el grado de da\xF1o nervioso. Algunos pacientes notan mejor\xEDa en d\xEDas; en otros, el efecto se consolida en semanas. El seguimiento es parte del plan desde la primera consulta."
+      },
+      {
+        q: "\xBFDeben estar involucrados mi internista o endocrin\xF3logo?",
+        a: "Es recomendable. Con su autorizaci\xF3n, le hacemos llegar un informe de la evaluaci\xF3n al especialista que maneja su diabetes, para que el tratamiento est\xE9 coordinado."
+      }
+    ]
+  },
+  {
+    slug: "dolor-articular",
+    name: "Dolor articular",
+    clinicalName: "DOLOR ARTICULAR PERIF\xC9RICO \xB7 ARTROSIS",
+    patientDescription: "Dolor en rodilla, cadera u hombro que limita el movimiento y la actividad diaria, generalmente por artrosis o desgaste articular.",
+    clinicalDescription: "Dolor articular perif\xE9rico \xB7 artrosis de rodilla, cadera y hombro \xB7 infiltraci\xF3n guiada por ecograf\xEDa \xB7 viscosuplementaci\xF3n",
+    procedures: [
+      {
+        slug: "infiltracion-intra-articular",
+        label: "Infiltraci\xF3n intra-articular",
+        technicalName: "Infiltraci\xF3n intra-articular guiada por ecograf\xEDa",
+        description: "Inyecci\xF3n de medicamento antiinflamatorio dentro de la articulaci\xF3n bajo gu\xEDa ecogr\xE1fica en tiempo real. La imagen permite llegar con precisi\xF3n al sitio exacto de la articulaci\xF3n, a diferencia de las infiltraciones a ciegas."
+      },
+      {
+        slug: "viscosuplementacion",
+        label: "Viscosuplementaci\xF3n",
+        technicalName: "Viscosuplementaci\xF3n con \xE1cido hialur\xF3nico guiada por ecograf\xEDa",
+        description: "Aplicaci\xF3n de \xE1cido hialur\xF3nico dentro de la articulaci\xF3n para restaurar la lubricaci\xF3n perdida por el desgaste del cart\xEDlago. Indicada principalmente en artrosis de rodilla y cadera."
+      },
+      {
+        slug: "ozono-articular",
+        label: "Ozono articular",
+        technicalName: "Infiltraci\xF3n articular de ozono m\xE9dico guiada por ecograf\xEDa",
+        description: "Aplicaci\xF3n de mezcla de ozono-ox\xEDgeno dentro de la articulaci\xF3n para efecto antiinflamatorio. Se indica en artrosis de rodilla cuando hay inflamaci\xF3n activa y la imagen lo confirma."
+      }
+    ],
+    whatIs: 'La artrosis es el desgaste progresivo del cart\xEDlago que recubre las superficies articulares. Sin ese cart\xEDlago, el hueso roza contra el hueso, generando dolor, inflamaci\xF3n y rigidez que aumentan con el tiempo. Rodilla, cadera y hombro son las articulaciones m\xE1s frecuentemente afectadas.\n\nEl dolor articular cr\xF3nico suele comenzar con molestia al inicio del movimiento \u2014 "el arranque" \u2014 y progresa hasta afectar actividades como caminar, subir escaleras o levantar el brazo. La inflamaci\xF3n recurrente dentro de la articulaci\xF3n acelera el deterioro.\n\nLos procedimientos guiados por ecograf\xEDa permiten actuar directamente dentro de la articulaci\xF3n con precisi\xF3n milim\xE9trica, reducir la inflamaci\xF3n, mejorar la lubricaci\xF3n y retrasar la progresi\xF3n \u2014 sin cirug\xEDa y de forma ambulatoria.',
+    symptoms: [
+      "Dolor en rodilla, cadera u hombro al caminar, subir escaleras o levantar el brazo",
+      "Rigidez matutina o tras estar sentado por tiempo prolongado",
+      "Crujidos o sensaci\xF3n de roce al mover la articulaci\xF3n",
+      "Inflamaci\xF3n visible o sensaci\xF3n de calor en la zona articular"
+    ],
+    whenToConsider: [
+      "Si tiene diagn\xF3stico de artrosis o desgaste articular confirmado por imagen",
+      "Si el dolor limita actividades diarias y no responde suficientemente a analg\xE9sicos ni fisioterapia",
+      "Si quiere retrasar o evitar una cirug\xEDa de reemplazo articular",
+      "Si ha tenido infiltraciones previas a ciegas con resultado parcial y busca mayor precisi\xF3n"
+    ],
+    whatToExpect: [
+      "Llegada y registro \xB7 15 min",
+      "Evaluaci\xF3n cl\xEDnica y ecograf\xEDa dirigida \xB7 20 min",
+      "Infiltraci\xF3n guiada por ecograf\xEDa en tiempo real \xB7 20\u201330 min",
+      "Observaci\xF3n \xB7 15 min",
+      "Alta el mismo d\xEDa con indicaciones escritas"
+    ],
+    faq: [
+      {
+        q: "\xBFCu\xE1ntas infiltraciones necesito?",
+        a: "Depende del tipo de procedimiento y del grado de artrosis. Algunos protocolos incluyen una serie de aplicaciones espaciadas. En consulta se le explica el plan completo y qu\xE9 puede esperar de cada sesi\xF3n."
+      },
+      {
+        q: "\xBFCu\xE1nto tiempo dura el efecto?",
+        a: "Var\xEDa seg\xFAn el procedimiento y el caso: entre 3 y 12 meses en la mayor\xEDa de los pacientes. El objetivo es reducir el dolor y mejorar la funci\xF3n lo suficiente para mantener una vida activa."
+      },
+      {
+        q: "\xBFFunciona para cualquier articulaci\xF3n?",
+        a: "En ALGOS atendemos principalmente rodilla, cadera y hombro. El especialista eval\xFAa si su articulaci\xF3n espec\xEDfica es candidata al procedimiento en la primera consulta."
+      },
+      {
+        q: "\xBFEs una alternativa a la cirug\xEDa?",
+        a: "En muchos casos s\xED, especialmente cuando la artrosis no es severa. El objetivo no es reemplazar una cirug\xEDa verdaderamente necesaria, sino agotar las opciones menos invasivas primero \u2014 y tomar esa decisi\xF3n con informaci\xF3n clara."
+      }
+    ]
+  },
+  {
+    slug: "hernia-discal",
+    name: "Hernia discal",
+    clinicalName: "HERNIA DE DISCO LUMBAR \xB7 PROTRUSI\xD3N DISCAL",
+    patientDescription: "Cuando el n\xFAcleo del disco intervertebral sale de su posici\xF3n y comprime una ra\xEDz nerviosa, generando dolor en la espalda baja con irradiaci\xF3n al gl\xFAteo o la pierna.",
+    clinicalDescription: "Hernia discal lumbar con compromiso radicular \xB7 protrusi\xF3n discal \xB7 s\xEDndrome de compresi\xF3n radicular L4\u2013S1",
+    procedures: [
+      {
+        slug: "discolisis-con-ozono",
+        label: "Disc\xF3lisis con ozono",
+        technicalName: "Disc\xF3lisis con ozono m\xE9dico guiada por imagen",
+        description: "Aplicaci\xF3n de ozono m\xE9dico en el disco, guiada por fluoroscopia o tomograf\xEDa, para reducir el volumen de la hernia y la inflamaci\xF3n que comprime la ra\xEDz nerviosa."
+      },
+      {
+        slug: "bloqueo-radicular-lumbar",
+        label: "Bloqueo radicular",
+        technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+        description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa afectada para reducir la inflamaci\xF3n que genera el dolor irradiado."
+      },
+      {
+        slug: "infiltracion-epidural-lumbar",
+        label: "Infiltraci\xF3n epidural",
+        technicalName: "Infiltraci\xF3n epidural lumbar guiada por fluoroscopia",
+        description: "Inyecci\xF3n de corticoide en el espacio epidural para reducir la inflamaci\xF3n general que rodea la hernia."
+      }
+    ],
+    whatIs: "Los discos intervertebrales act\xFAan como amortiguadores entre las v\xE9rtebras. Cuando el n\xFAcleo gelatinoso de un disco se desplaza hacia el canal espinal, puede comprimir las ra\xEDces nerviosas que salen de la columna, generando dolor local y dolor irradiado hacia la pierna \u2014 lo que se conoce como ci\xE1tica.\n\nLa hernia discal lumbar es una de las causas m\xE1s frecuentes de dolor de espalda con irradiaci\xF3n. En la mayor\xEDa de los casos no requiere cirug\xEDa: los procedimientos m\xEDnimamente invasivos guiados por imagen pueden reducir la inflamaci\xF3n que genera el dolor y permitir que el nervio se recupere.",
+    symptoms: [
+      "Dolor en la zona lumbar que se irradia hacia el gl\xFAteo, el muslo o la pierna",
+      "Hormigueo, adormecimiento o corrientazos en la pierna o el pie",
+      "Debilidad en la pierna o dificultad para levantar el pie",
+      "Dolor que empeora al sentarse o al toser y mejora al caminar"
+    ],
+    whenToConsider: [
+      "Cuando el dolor irradiado no cede con reposo ni medicamentos orales",
+      "Cuando la imagen (resonancia o tomograf\xEDa) confirma hernia con compromiso de ra\xEDz",
+      "Cuando se quiere explorar opciones antes de plantearse la cirug\xEDa"
+    ],
+    whatToExpect: [
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n de im\xE1genes diagn\xF3sticas previas",
+      "Procedimiento ambulatorio guiado por imagen con anestesia local",
+      "Alta el mismo d\xEDa \xB7 indicaciones escritas al salir"
+    ],
+    faq: [
+      {
+        q: "\xBFLa disc\xF3lisis con ozono cura la hernia?",
+        a: 'El objetivo no es "curar" la hernia en el sentido de hacerla desaparecer, sino reducir la inflamaci\xF3n que genera el dolor y permitir que el nervio funcione mejor. En muchos pacientes se logra mejor\xEDa significativa sin necesidad de cirug\xEDa.'
+      },
+      {
+        q: "\xBFPuedo evitar la operaci\xF3n?",
+        a: "En una proporci\xF3n importante de casos, s\xED. Los procedimientos m\xEDnimamente invasivos est\xE1n indicados precisamente para agotar las opciones antes de la cirug\xEDa. El especialista evaluar\xE1 su caso espec\xEDfico."
+      }
+    ]
+  },
+  {
+    slug: "cirugia-fallida-espalda",
+    name: "Cirug\xEDa fallida de espalda",
+    clinicalName: "S\xCDNDROME DE CIRUG\xCDA FALLIDA DE COLUMNA \xB7 FBSS",
+    patientDescription: "Dolor persistente o recurrente en la columna despu\xE9s de una cirug\xEDa de espalda que no produjo el alivio esperado.",
+    clinicalDescription: "Failed back surgery syndrome (FBSS) \xB7 dolor postquir\xFArgico de columna \xB7 fibrosis epidural \xB7 aracnoiditis postoperatoria",
+    procedures: [
+      {
+        slug: "bloqueo-radicular-lumbar",
+        label: "Bloqueo radicular",
+        technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+        description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa para reducir la inflamaci\xF3n residual posterior a la cirug\xEDa."
+      },
+      {
+        slug: "infiltracion-epidural-lumbar",
+        label: "Infiltraci\xF3n epidural",
+        technicalName: "Infiltraci\xF3n epidural lumbar guiada por fluoroscopia",
+        description: "Inyecci\xF3n en el espacio epidural para tratar la inflamaci\xF3n que persiste tras la intervenci\xF3n quir\xFArgica."
+      },
+      {
+        slug: "emg",
+        label: "EMG diagn\xF3stico",
+        technicalName: "Electromiograf\xEDa diagn\xF3stica",
+        description: "Estudio neurofisiol\xF3gico para evaluar el estado de los nervios y confirmar si hay compromiso radicular persistente."
+      }
+    ],
+    whatIs: "El s\xEDndrome de cirug\xEDa fallida de columna describe la situaci\xF3n en la que una persona contin\xFAa con dolor despu\xE9s de una operaci\xF3n de espalda \u2014 ya sea porque el dolor no mejor\xF3, porque volvi\xF3 despu\xE9s de un per\xEDodo de alivio, o porque apareci\xF3 dolor en una localizaci\xF3n diferente.\n\nLas causas son variadas: fibrosis epidural (tejido cicatricial), recidiva de la hernia, inestabilidad segmentaria, o simplemente que el dolor ten\xEDa un origen que la cirug\xEDa no resolvi\xF3. El abordaje intervencionista puede ofrecer alternativas de manejo sin necesidad de nuevas intervenciones quir\xFArgicas.",
+    symptoms: [
+      "Dolor lumbar persistente igual o similar al previo a la cirug\xEDa",
+      "Dolor irradiado a la pierna que reaparece o no desapareci\xF3",
+      "Adormecimiento o debilidad que persiste tras la operaci\xF3n",
+      "Dolor que empeora con la actividad y mejora con el reposo"
+    ],
+    whenToConsider: [
+      "Cuando han pasado al menos 3\u20136 meses desde la cirug\xEDa y el dolor persiste",
+      "Cuando se quiere evaluar alternativas antes de una segunda cirug\xEDa",
+      "Cuando el dolor postoperatorio afecta la calidad de vida y la funcionalidad"
+    ],
+    whatToExpect: [
+      "Revisi\xF3n detallada de historial quir\xFArgico e im\xE1genes previas y actuales",
+      "Evaluaci\xF3n neurofisiol\xF3gica si est\xE1 indicada",
+      "Plan individualizado de manejo intervencionista seg\xFAn el origen del dolor"
+    ],
+    faq: [
+      {
+        q: "\xBFPueden hacerme algo despu\xE9s de que ya me operaron?",
+        a: "S\xED. El hecho de haber tenido una cirug\xEDa no impide los procedimientos intervencionistas. En muchos casos son precisamente los pacientes postquir\xFArgicos quienes m\xE1s se benefician de este enfoque."
+      },
+      {
+        q: "\xBFNecesito operarme de nuevo?",
+        a: "No necesariamente. El objetivo de la evaluaci\xF3n es determinar si el origen del dolor puede tratarse con opciones menos invasivas. La indicaci\xF3n de una nueva cirug\xEDa se toma con criterio cl\xEDnico estricto."
+      }
+    ]
+  },
+  {
+    slug: "dolor-radicular",
+    name: "Dolor radicular",
+    clinicalName: "RADICULOPAT\xCDA \xB7 S\xCDNDROME RADICULAR LUMBAR O CERVICAL",
+    patientDescription: "Dolor que sigue el trayecto de un nervio desde la columna hacia el brazo o la pierna, con frecuencia acompa\xF1ado de hormigueo o adormecimiento.",
+    clinicalDescription: "Radiculopat\xEDa lumbar o cervical por compresi\xF3n de ra\xEDz nerviosa \xB7 s\xEDndrome radicular agudo o cr\xF3nico",
+    procedures: [
+      {
+        slug: "bloqueo-radicular-lumbar",
+        label: "Bloqueo radicular lumbar",
+        technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+        description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa lumbar afectada."
+      },
+      {
+        slug: "bloqueo-radicular-cervical",
+        label: "Bloqueo radicular cervical",
+        technicalName: "Bloqueo radicular cervical selectivo guiado por imagen",
+        description: "Inyecci\xF3n perirradicular en la columna cervical para tratar el dolor que irradia hacia el hombro o el brazo."
+      }
+    ],
+    whatIs: 'El dolor radicular ocurre cuando una ra\xEDz nerviosa que sale de la columna vertebral se comprime o irrita \u2014 por una hernia discal, artrosis, estenosis u otras causas. El dolor "viaja" por el trayecto del nervio afectado: desde la columna lumbar hacia la pierna (ci\xE1tica), o desde la columna cervical hacia el hombro y el brazo.\n\nA diferencia del dolor muscular, el dolor radicular tiene un patr\xF3n espec\xEDfico que sigue el territorio del nervio comprimido. Puede acompa\xF1arse de hormigueo, adormecimiento o p\xE9rdida de fuerza en la zona afectada.',
+    symptoms: [
+      "Dolor que irradia desde la columna hacia la pierna (lumbar) o el brazo (cervical)",
+      "Hormigueo o corrientazos en la extremidad afectada",
+      "Adormecimiento en el trayecto del nervio",
+      "Debilidad muscular en casos m\xE1s severos"
+    ],
+    whenToConsider: [
+      "Cuando el dolor irradiado persiste m\xE1s de 4\u20136 semanas con tratamiento conservador",
+      "Cuando la imagen confirma compresi\xF3n de ra\xEDz nerviosa",
+      "Cuando el dolor limita la movilidad o las actividades diarias"
+    ],
+    whatToExpect: [
+      "Evaluaci\xF3n cl\xEDnica y revisi\xF3n de im\xE1genes diagn\xF3sticas",
+      "Procedimiento ambulatorio guiado por fluoroscopia o tomograf\xEDa",
+      "Alivio del componente inflamatorio que genera el dolor irradiado"
+    ],
+    faq: [
+      {
+        q: "\xBFEs lo mismo que la ci\xE1tica?",
+        a: "La ci\xE1tica es un tipo de dolor radicular: la irritaci\xF3n del nervio ci\xE1tico que genera dolor desde la zona lumbar hacia la pierna. El t\xE9rmino radicular es m\xE1s amplio e incluye tambi\xE9n las ra\xEDces del cuello que irradian hacia el brazo."
+      }
+    ]
+  },
+  {
+    slug: "dolor-sacroiliaco",
+    name: "Dolor sacroil\xEDaco",
+    clinicalName: "DISFUNCI\xD3N DE LA ARTICULACI\xD3N SACROIL\xCDACA",
+    patientDescription: "Dolor en la parte baja de la espalda o la nalga, a veces irradiado al muslo, originado en la articulaci\xF3n que une la columna con la pelvis.",
+    clinicalDescription: "S\xEDndrome de la articulaci\xF3n sacroil\xEDaca \xB7 sacroile\xEDtis \xB7 disfunci\xF3n sacroil\xEDaca cr\xF3nica",
+    procedures: [
+      {
+        slug: "bloqueo-sacroiliaco",
+        label: "Bloqueo sacroil\xEDaco",
+        technicalName: "Infiltraci\xF3n de la articulaci\xF3n sacroil\xEDaca guiada por imagen",
+        description: "Inyecci\xF3n de antiinflamatorio dentro de la articulaci\xF3n sacroil\xEDaca bajo gu\xEDa de fluoroscopia o ecograf\xEDa para reducir la inflamaci\xF3n y el dolor."
+      }
+    ],
+    whatIs: "La articulaci\xF3n sacroil\xEDaca conecta la columna lumbar con la pelvis a trav\xE9s del sacro. Cuando esta articulaci\xF3n se inflama o pierde su movilidad normal, genera dolor en la regi\xF3n lumbogl\xFAtea que puede confundirse con una hernia discal o ci\xE1tica.\n\nEl dolor sacroil\xEDaco es frecuente tras embarazos, traumatismos pelvianos, o como consecuencia de patolog\xEDas inflamatorias. La gu\xEDa por imagen permite confirmar que el dolor proviene de esta articulaci\xF3n y actuar directamente sobre ella.",
+    symptoms: [
+      "Dolor sordo en la zona lumbar baja o la nalga, generalmente unilateral",
+      "Dolor que empeora al estar de pie prolongado o al subir escaleras",
+      "Molestia al girar en la cama o al cruzar las piernas",
+      "Irradiaci\xF3n ocasional al muslo posterior"
+    ],
+    whenToConsider: [
+      "Cuando el dolor lumbogl\xFAteo persiste sin mejora con el tratamiento habitual",
+      "Cuando los estudios de imagen de la columna no explican el dolor",
+      "Cuando hay antecedente de embarazo reciente o traumatismo pelviano"
+    ],
+    whatToExpect: [
+      "Evaluaci\xF3n cl\xEDnica con pruebas espec\xEDficas de provocaci\xF3n de la articulaci\xF3n",
+      "Procedimiento ambulatorio guiado por imagen \xB7 anestesia local",
+      "Alta el mismo d\xEDa"
+    ],
+    faq: [
+      {
+        q: "\xBFC\xF3mo saben que el dolor viene de esa articulaci\xF3n?",
+        a: "Se realiza una evaluaci\xF3n cl\xEDnica con maniobras espec\xEDficas de provocaci\xF3n y, en muchos casos, un bloqueo diagn\xF3stico: si la inyecci\xF3n alivia el dolor de forma significativa, confirma que esa articulaci\xF3n es la fuente."
+      }
+    ]
+  },
+  {
+    slug: "estenosis-canal-lumbar",
+    name: "Estenosis de canal lumbar",
+    clinicalName: "ESTENOSIS DEL CANAL ESPINAL LUMBAR",
+    patientDescription: "Estrechamiento del canal por donde pasan los nervios de la columna, que genera dolor o cansancio en las piernas al caminar.",
+    clinicalDescription: "Estenosis espinal lumbar degenerativa \xB7 claudicaci\xF3n neur\xF3gena \xB7 s\xEDndrome del canal estrecho",
+    procedures: [
+      {
+        slug: "infiltracion-epidural-lumbar",
+        label: "Infiltraci\xF3n epidural",
+        technicalName: "Infiltraci\xF3n epidural lumbar guiada por fluoroscopia",
+        description: "Inyecci\xF3n de antiinflamatorio en el espacio epidural para reducir la inflamaci\xF3n que agrava la compresi\xF3n nerviosa."
+      },
+      {
+        slug: "bloqueo-radicular-lumbar",
+        label: "Bloqueo radicular",
+        technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+        description: "Inyecci\xF3n dirigida a la ra\xEDz nerviosa m\xE1s afectada para mejorar la tolerancia al dolor y a la marcha."
+      }
+    ],
+    whatIs: "La estenosis del canal lumbar es el estrechamiento del espacio por donde pasan los nervios que van hacia las piernas. Con el envejecimiento o el desgaste de la columna, ligamentos, discos y hueso pueden reducir ese espacio, comprimiendo las ra\xEDces nerviosas.\n\nEl s\xEDntoma caracter\xEDstico es la claudicaci\xF3n neur\xF3gena: dificultad para caminar distancias largas por cansancio o dolor en las piernas que cede al sentarse o inclinarse hacia adelante. Las opciones intervencionistas pueden mejorar la funci\xF3n sin necesidad de cirug\xEDa.",
+    symptoms: [
+      "Dolor o cansancio en las piernas al caminar que obliga a detenerse",
+      "Mejor\xEDa al sentarse o inclinarse hacia adelante",
+      "Adormecimiento u hormigueo en los muslos o las piernas",
+      "Dolor lumbar de fondo, variable"
+    ],
+    whenToConsider: [
+      "Cuando la limitaci\xF3n para caminar afecta la calidad de vida",
+      "Cuando la imagen confirma estenosis espinal significativa",
+      "Cuando se quiere una alternativa menos invasiva antes de plantearse la descompresi\xF3n quir\xFArgica"
+    ],
+    whatToExpect: [
+      "Revisi\xF3n de resonancia magn\xE9tica o tomograf\xEDa de columna lumbar",
+      "Procedimiento ambulatorio guiado por imagen \xB7 anestesia local",
+      "Seguimiento de la respuesta funcional y el plan de manejo"
+    ],
+    faq: [
+      {
+        q: "\xBFCon estos procedimientos se ensancha el canal?",
+        a: "No. Los procedimientos no corrigen la estructura del canal, sino que reducen la inflamaci\xF3n que agrava la compresi\xF3n y mejoran la tolerancia al dolor. En muchos pacientes eso es suficiente para recuperar funcionalidad significativa."
+      }
+    ]
+  },
+  {
+    slug: "dolor-miofascial",
+    name: "Dolor miofascial",
+    clinicalName: "S\xCDNDROME DE DOLOR MIOFASCIAL \xB7 PUNTOS GATILLO",
+    patientDescription: "Dolor muscular cr\xF3nico localizado en un m\xFAsculo o grupo muscular, con puntos muy sensibles al tacto que generan dolor local e irradiado.",
+    clinicalDescription: "S\xEDndrome miofascial \xB7 puntos gatillo activos (trigger points) \xB7 mialgia regional cr\xF3nica",
+    procedures: [
+      {
+        slug: "bloqueo-nervio-periferico",
+        label: "Infiltraci\xF3n de punto gatillo",
+        technicalName: "Infiltraci\xF3n de punto gatillo guiada por ecograf\xEDa",
+        description: "Inyecci\xF3n dirigida en el punto de m\xE1xima tensi\xF3n muscular para desactivar el foco de dolor e inflamaci\xF3n local."
+      }
+    ],
+    whatIs: "El s\xEDndrome miofascial se caracteriza por la presencia de puntos gatillo: zonas de hiperirritabilidad dentro del m\xFAsculo que, al comprimirse, generan un dolor referido en un patr\xF3n reconocible. Son frecuentes en el trapecio, el cuadrado lumbar, el gl\xFAteo y los m\xFAsculos del cuello.\n\nEste tipo de dolor suele interpretarse como tensi\xF3n muscular simple, pero puede ser persistente y limitante cuando los puntos gatillo est\xE1n activos. La infiltraci\xF3n guiada por ecograf\xEDa permite llegar con precisi\xF3n al punto exacto.",
+    symptoms: [
+      "Dolor muscular sordo y persistente en una regi\xF3n espec\xEDfica",
+      "Presencia de n\xF3dulos o bandas tensas palpables en el m\xFAsculo",
+      "Dolor que se irradia en un patr\xF3n reconocible al presionar el punto sensible",
+      "Rigidez y limitaci\xF3n de movimiento en la zona afectada"
+    ],
+    whenToConsider: [
+      "Cuando el dolor muscular persiste a pesar de fisioterapia y medicamentos",
+      "Cuando hay puntos gatillo activos identificables en la exploraci\xF3n cl\xEDnica",
+      "Cuando el dolor limita el sue\xF1o, el trabajo o las actividades habituales"
+    ],
+    whatToExpect: [
+      "Identificaci\xF3n cl\xEDnica y por imagen de los puntos gatillo activos",
+      "Procedimiento ambulatorio \xB7 anestesia local \xB7 ecograf\xEDa en tiempo real",
+      "Alta inmediata con indicaciones de movilizaci\xF3n progresiva"
+    ],
+    faq: [
+      {
+        q: "\xBFEs lo mismo que la fibromialgia?",
+        a: "No. La fibromialgia es un s\xEDndrome de sensibilizaci\xF3n central con dolor generalizado. El s\xEDndrome miofascial es dolor localizado por puntos gatillo en m\xFAsculos espec\xEDficos. Pueden coexistir, pero son condiciones diferentes."
+      }
+    ]
+  },
+  {
+    slug: "neuralgia-posherpetica",
+    name: "Neuralgia postherp\xE9tica",
+    clinicalName: "NEURALGIA POSTHERP\xC9TICA \xB7 DOLOR POR HERPES Z\xD3STER",
+    patientDescription: "Dolor persistente en la zona donde aparecieron las ampollas del herpes z\xF3ster (culebrilla), que contin\xFAa semanas o meses despu\xE9s de que las lesiones de la piel cicatrizaron.",
+    clinicalDescription: "Neuralgia postherp\xE9tica \xB7 dolor neurop\xE1tico por varicella-zoster \xB7 alodinia postherp\xE9tica",
+    procedures: [
+      {
+        slug: "bloqueo-nervio-periferico",
+        label: "Bloqueo nervioso",
+        technicalName: "Bloqueo del nervio afectado guiado por ecograf\xEDa",
+        description: "Infiltraci\xF3n anest\xE9sica y antiinflamatoria alrededor del nervio da\xF1ado por el herpes para reducir la se\xF1al de dolor."
+      }
+    ],
+    whatIs: "El herpes z\xF3ster (culebrilla) es la reactivaci\xF3n del virus varicela-z\xF3ster, que permanece dormido en los ganglios nerviosos tras haber tenido varicela. Cuando se reactiva, produce una erupci\xF3n con ampollas dolorosas que sigue el trayecto de un nervio.\n\nEn algunas personas, especialmente mayores de 60 a\xF1os, el dolor persiste despu\xE9s de que las lesiones de la piel han cicatrizado. Ese dolor residual \u2014 la neuralgia postherp\xE9tica \u2014 puede ser intenso, continuo o el\xE9ctrico, y responde de forma limitada a los analg\xE9sicos convencionales. El bloqueo nervioso es una opci\xF3n para modular ese dolor.",
+    symptoms: [
+      "Dolor urente, punzante o el\xE9ctrico en la zona donde estuvo el sarpullido",
+      "Hipersensibilidad al tacto: incluso la ropa puede generar dolor (alodinia)",
+      "Picaz\xF3n persistente o sensaci\xF3n de corrientazos",
+      "El dolor sigue el trayecto del nervio afectado, habitualmente en un solo lado"
+    ],
+    whenToConsider: [
+      "Cuando el dolor persiste m\xE1s de 3 meses despu\xE9s de que cicatrizaron las lesiones",
+      "Cuando la medicaci\xF3n oral no controla el dolor de forma adecuada",
+      "Cuando el dolor afecta el sue\xF1o o la calidad de vida de forma significativa"
+    ],
+    whatToExpect: [
+      "Evaluaci\xF3n cl\xEDnica del patr\xF3n de dolor y zona afectada",
+      "Procedimiento ambulatorio guiado por ecograf\xEDa \xB7 anestesia local",
+      "Plan de seguimiento para evaluar respuesta y ajustar el manejo"
+    ],
+    faq: [
+      {
+        q: "\xBFEs tarde si ya pasaron varios meses desde la culebrilla?",
+        a: "No necesariamente. Aunque los mejores resultados se obtienen en fases tempranas, los bloqueos nerviosos pueden ser \xFAtiles incluso en neuralgias de larga evoluci\xF3n. La evaluaci\xF3n cl\xEDnica determinar\xE1 qu\xE9 opciones son apropiadas para su caso."
+      }
+    ]
+  },
+  {
+    slug: "tunel-carpiano",
+    name: "T\xFAnel carpiano",
+    clinicalName: "S\xCDNDROME DEL T\xDANEL CARPIANO",
+    patientDescription: "Hormigueo, adormecimiento o dolor en la mano y los dedos causado por la compresi\xF3n del nervio mediano en la mu\xF1eca.",
+    clinicalDescription: "S\xEDndrome del t\xFAnel carpiano \xB7 neuropat\xEDa del nervio mediano \xB7 compresi\xF3n del nervio mediano en el ligamento transverso del carpo",
+    procedures: [
+      {
+        slug: "emg",
+        label: "EMG diagn\xF3stico",
+        technicalName: "Electromiograf\xEDa \u2014 estudio de conducci\xF3n nerviosa",
+        description: "Estudio neurofisiol\xF3gico que mide la velocidad de conducci\xF3n del nervio mediano y confirma la gravedad de la compresi\xF3n."
+      },
+      {
+        slug: "bloqueo-nervio-periferico",
+        label: "Infiltraci\xF3n del t\xFAnel carpiano",
+        technicalName: "Infiltraci\xF3n del t\xFAnel carpiano guiada por ecograf\xEDa",
+        description: "Inyecci\xF3n de antiinflamatorio en el t\xFAnel carpiano bajo gu\xEDa ecogr\xE1fica en tiempo real para reducir la inflamaci\xF3n que comprime el nervio."
+      }
+    ],
+    whatIs: "El nervio mediano pasa por el t\xFAnel carpiano \u2014 un canal estrecho en la mu\xF1eca formado por huesos y un ligamento. Cuando ese t\xFAnel se estrecha o sus contenidos se inflaman, el nervio se comprime y genera s\xEDntomas en la mano: hormigueo, adormecimiento y dolor, especialmente de noche.\n\nEl diagn\xF3stico se confirma con electromiograf\xEDa (EMG). En casos moderados, la infiltraci\xF3n guiada por ecograf\xEDa puede reducir la inflamaci\xF3n y aliviar los s\xEDntomas sin necesidad de cirug\xEDa.",
+    symptoms: [
+      "Hormigueo o adormecimiento en los dedos pulgar, \xEDndice, medio y la mitad del anular",
+      "Dolor en la mano o la mu\xF1eca que empeora por la noche",
+      'Sensaci\xF3n de que la mano est\xE1 "dormida" al despertar',
+      "Debilidad para agarrar objetos en casos avanzados"
+    ],
+    whenToConsider: [
+      "Cuando los s\xEDntomas persisten y afectan el sue\xF1o o el trabajo",
+      "Cuando el EMG confirma compresi\xF3n del nervio mediano",
+      "Cuando se quiere una opci\xF3n antes de plantearse la cirug\xEDa de descompresi\xF3n"
+    ],
+    whatToExpect: [
+      "EMG para confirmar diagn\xF3stico y graduar la severidad",
+      "Infiltraci\xF3n ambulatoria guiada por ecograf\xEDa \xB7 anestesia local",
+      "Alta el mismo d\xEDa \xB7 indicaciones de actividad"
+    ],
+    faq: [
+      {
+        q: "\xBFTengo que operarme del t\xFAnel carpiano?",
+        a: "No en todos los casos. En formas leves a moderadas, la infiltraci\xF3n puede ofrecer alivio sostenido. En formas severas con da\xF1o nervioso establecido, la cirug\xEDa es la opci\xF3n indicada. El EMG y la evaluaci\xF3n cl\xEDnica orientan esa decisi\xF3n."
+      }
+    ]
+  },
+  {
+    slug: "cefaleas",
+    name: "Cefaleas",
+    clinicalName: "CEFALEA CERVICOG\xC9NICA \xB7 NEURALGIA OCCIPITAL",
+    patientDescription: "Dolor de cabeza originado en la columna cervical o en los nervios occipitales, que puede confundirse con migra\xF1a pero tiene un origen mec\xE1nico tratable.",
+    clinicalDescription: "Cefalea cervicog\xE9nica \xB7 neuralgia occipital mayor y menor \xB7 cefalea por disfunci\xF3n facetaria cervical",
+    procedures: [
+      {
+        slug: "bloqueo-radicular-cervical",
+        label: "Bloqueo occipital / cervical",
+        technicalName: "Bloqueo del nervio occipital mayor guiado por ecograf\xEDa",
+        description: "Inyecci\xF3n perineural en los nervios occipitales o en las ra\xEDces cervicales altas para reducir la se\xF1al de dolor que genera la cefalea."
+      }
+    ],
+    whatIs: "No todas las cefaleas tienen el mismo origen. La cefalea cervicog\xE9nica y la neuralgia occipital son tipos de dolor de cabeza cuyo origen est\xE1 en la columna cervical o en los nervios que salen del cuello hacia el cr\xE1neo.\n\nEste tipo de cefalea se distingue porque el dolor comienza en el cuello o la nuca, se irradia hacia la cabeza, y suele asociarse con posturas mantenidas, contracturas cervicales o patolog\xEDa de las articulaciones facetarias cervicales altas. El bloqueo nervioso guiado por imagen act\xFAa directamente sobre el origen del dolor.",
+    symptoms: [
+      "Dolor de cabeza que comienza en la nuca o el cuello y se extiende hacia la cabeza",
+      "Dolor unilateral que empeora con movimientos del cuello",
+      "Sensibilidad al tacto en la zona occipital o la base del cr\xE1neo",
+      "Cefalea que mejora al presionar la zona cervical posterior"
+    ],
+    whenToConsider: [
+      "Cuando las cefaleas se asocian a dolor o rigidez cervical",
+      "Cuando no han respondido adecuadamente al tratamiento farmacol\xF3gico habitual",
+      "Cuando la evaluaci\xF3n cl\xEDnica sugiere un origen cervicog\xE9nico u occipital"
+    ],
+    whatToExpect: [
+      "Evaluaci\xF3n cl\xEDnica para diferenciar el tipo de cefalea",
+      "Procedimiento ambulatorio guiado por ecograf\xEDa \xB7 anestesia local",
+      "Seguimiento de la respuesta al tratamiento"
+    ],
+    faq: [
+      {
+        q: "\xBFEs lo mismo que la migra\xF1a?",
+        a: "No. La migra\xF1a es una condici\xF3n neurol\xF3gica con mecanismos propios. La cefalea cervicog\xE9nica y la neuralgia occipital tienen un origen mec\xE1nico o nervioso en el cuello \u2014 por eso responden a bloqueos nerviosos que no tienen efecto en la migra\xF1a."
+      }
+    ]
+  }
+];
+var PROCEDURES = [
+  {
+    slug: "bloqueo-radicular-lumbar",
+    name: "Bloqueo radicular lumbar",
+    technicalName: "Bloqueo radicular lumbar selectivo guiado por imagen",
+    description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa lumbar afectada para reducir la inflamaci\xF3n que genera el dolor ci\xE1tico. Se realiza bajo gu\xEDa de fluoroscopia o tomograf\xEDa.",
+    usedFor: ["dolor-lumbar-ciatica"]
+  },
+  {
+    slug: "infiltracion-epidural",
+    name: "Infiltraci\xF3n epidural",
+    technicalName: "Infiltraci\xF3n epidural guiada por imagen",
+    description: "Aplicaci\xF3n de medicaci\xF3n antiinflamatoria en el espacio epidural para reducir el dolor radicular de origen lumbar o cervical.",
+    usedFor: ["dolor-lumbar-ciatica", "dolor-cervical"]
+  },
+  {
+    slug: "discolisis-con-ozono",
+    name: "Disc\xF3lisis con ozono",
+    technicalName: "Disc\xF3lisis intradiscal con ozono m\xE9dico guiada por imagen",
+    description: "Aplicaci\xF3n de ozono m\xE9dico dentro del disco herniado para reducir su volumen y la inflamaci\xF3n radicular. Indicada solo cuando la hernia discal est\xE1 confirmada por imagen como causa del dolor.",
+    usedFor: ["dolor-lumbar-ciatica"]
+  },
+  {
+    slug: "bloqueo-radicular-cervical",
+    name: "Bloqueo radicular cervical",
+    technicalName: "Bloqueo radicular cervical selectivo guiado por imagen",
+    description: "Inyecci\xF3n de antiinflamatorio alrededor de la ra\xEDz nerviosa cervical afectada para reducir el dolor y la irradiaci\xF3n al brazo.",
+    usedFor: ["dolor-cervical"]
+  },
+  {
+    slug: "rf-facetaria",
+    name: "Radiofrecuencia facetaria",
+    technicalName: "Radiofrecuencia de rama medial facetaria",
+    description: "Aplica calor controlado sobre el nervio que transmite el dolor desde las articulaciones facetarias. Ofrece alivio duradero (12\u201324 meses) en s\xEDndrome facetario confirmado por bloqueo diagn\xF3stico.",
+    usedFor: ["dolor-lumbar-ciatica", "dolor-cervical", "dolor-facetario"]
+  },
+  {
+    slug: "bloqueo-diagnostico-facetario",
+    name: "Bloqueo diagn\xF3stico facetario",
+    technicalName: "Bloqueo diagn\xF3stico de rama medial facetaria",
+    description: "Inyecci\xF3n de anest\xE9sico local para confirmar que la articulaci\xF3n facetaria es la fuente del dolor antes de proceder con radiofrecuencia.",
+    usedFor: ["dolor-lumbar-ciatica", "dolor-cervical", "dolor-facetario"]
+  },
+  {
+    slug: "emg",
+    name: "Electromiograf\xEDa (EMG)",
+    technicalName: "Electromiograf\xEDa y velocidades de conducci\xF3n nerviosa",
+    description: "Mide c\xF3mo viajan las se\xF1ales el\xE9ctricas por los nervios perif\xE9ricos. Confirma qu\xE9 nervios est\xE1n da\xF1ados, en qu\xE9 grado y en qu\xE9 punto exacto. Paso diagn\xF3stico esencial en neuropat\xEDa.",
+    usedFor: ["neuropatia"]
+  },
+  {
+    slug: "bloqueo-nervio-periferico",
+    name: "Bloqueo de nervio perif\xE9rico",
+    technicalName: "Bloqueo de nervio perif\xE9rico guiado por ecograf\xEDa",
+    description: "Aplicaci\xF3n de medicamento directamente sobre el nervio perif\xE9rico afectado bajo gu\xEDa ecogr\xE1fica, para aliviar el dolor neurop\xE1tico.",
+    usedFor: ["neuropatia"]
+  },
+  {
+    slug: "infiltracion-intra-articular",
+    name: "Infiltraci\xF3n intra-articular",
+    technicalName: "Infiltraci\xF3n intra-articular guiada por ecograf\xEDa",
+    description: "Inyecci\xF3n de medicamento dentro de la articulaci\xF3n bajo gu\xEDa ecogr\xE1fica en tiempo real para precisi\xF3n milim\xE9trica.",
+    usedFor: ["dolor-articular"]
+  },
+  {
+    slug: "viscosuplementacion",
+    name: "Viscosuplementaci\xF3n",
+    technicalName: "Viscosuplementaci\xF3n con \xE1cido hialur\xF3nico guiada por ecograf\xEDa",
+    description: "Infiltraci\xF3n de \xE1cido hialur\xF3nico en articulaciones para restaurar la lubricaci\xF3n perdida por el desgaste del cart\xEDlago.",
+    usedFor: ["dolor-articular"]
+  },
+  {
+    slug: "ozono-articular",
+    name: "Ozono articular",
+    technicalName: "Infiltraci\xF3n articular de ozono m\xE9dico guiada por ecograf\xEDa",
+    description: "Aplicaci\xF3n de ozono-ox\xEDgeno dentro de la articulaci\xF3n para efecto antiinflamatorio en artrosis activa.",
+    usedFor: ["dolor-articular"]
+  }
+];
+
+// src/lib/mcp/tools/list-conditions.ts
 var list_conditions_default = defineTool({
   name: "list_conditions",
   title: "Listar condiciones tratadas",
@@ -31,7 +826,6 @@ var list_conditions_default = defineTool({
 // src/lib/mcp/tools/get-condition.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.0";
 import { z } from "npm:zod@^4.4.3";
-import { CONDITIONS as CONDITIONS2 } from "npm:@/data/treatments";
 var get_condition_default = defineTool2({
   name: "get_condition",
   title: "Detalle de una condici\xF3n",
@@ -41,7 +835,7 @@ var get_condition_default = defineTool2({
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ slug }) => {
-    const condition = CONDITIONS2.find((c) => c.slug === slug);
+    const condition = CONDITIONS.find((c) => c.slug === slug);
     if (!condition) {
       return {
         content: [
@@ -62,7 +856,6 @@ var get_condition_default = defineTool2({
 
 // src/lib/mcp/tools/list-procedures.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
-import { PROCEDURES } from "npm:@/data/treatments";
 var list_procedures_default = defineTool3({
   name: "list_procedures",
   title: "Listar procedimientos",
@@ -79,7 +872,95 @@ var list_procedures_default = defineTool3({
 
 // src/lib/mcp/tools/list-team.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.20.0";
-import TEAM from "npm:@/data/team";
+
+// src/data/team.ts
+import photoAtilio from "npm:@/assets/team-atilio.png";
+import photoLuis from "npm:@/assets/team-luis.png";
+import photoDaniel from "npm:@/assets/team-daniel.png";
+var TEAM = [
+  // GROUP 01 · MEDICINA INTERVENCIONISTA DEL DOLOR
+  {
+    type: "confirmed",
+    slug: "dr-atilio",
+    index: "01",
+    givenName: "Dr. Atilio J.",
+    familyName: "Rodr\xEDguez",
+    role: "Director M\xE9dico",
+    specialty: "Neurocirujano \xB7 Especialista en dolor intervencionista",
+    city: "Maracaibo",
+    country: "Venezuela",
+    coords: "10\xB039\u2032N \xB7 71\xB036\u2032W",
+    group: "01",
+    photoUrl: photoAtilio,
+    bio: {
+      idiomas: "Espa\xF1ol"
+    }
+  },
+  {
+    type: "aspirational",
+    slug: "algologo-anestesiologo",
+    roleAsName: "Alg\xF3logo \xB7 Anestesi\xF3logo intervencionista",
+    profileLine: "Especialidad principal en procedimientos intervencionistas guiados por imagen. Subespecialidad en medicina del dolor.",
+    city: "Maracaibo",
+    group: "01"
+  },
+  // GROUP 02 · ASESORÍA MÉDICA INTERNACIONAL
+  {
+    type: "confirmed",
+    slug: "dr-luis-alberto",
+    index: "02",
+    givenName: "Dr. Luis Alberto",
+    familyName: "Rodr\xEDguez",
+    role: "Director \xB7 Estrategia Internacional",
+    specialty: "Neurocirujano",
+    city: "M\xFAnich",
+    country: "Venezuela",
+    coords: "",
+    group: "02",
+    photoUrl: photoLuis,
+    bio: {
+      formacion: "Neurocirujano.",
+      idiomas: "Espa\xF1ol \xB7 Deutsch"
+    }
+  },
+  // GROUP 03 · SOPORTE CLÍNICO INTEGRAL
+  {
+    type: "confirmed",
+    slug: "lcdo-daniel",
+    index: "04",
+    givenName: "Lcdo. Daniel",
+    familyName: "Rodr\xEDguez",
+    role: "Director de Nutrici\xF3n",
+    specialty: "Nutrici\xF3n cl\xEDnica \xB7 Acompa\xF1amiento del paciente intervencionista",
+    city: "Maracaibo",
+    country: "Venezuela",
+    coords: "10\xB039\u2032N \xB7 71\xB036\u2032W",
+    group: "03",
+    photoUrl: photoDaniel,
+    bio: {
+      idiomas: "Espa\xF1ol"
+    }
+  },
+  {
+    type: "aspirational",
+    slug: "psicologo-dolor-cronico",
+    roleAsName: "Psic\xF3logo cl\xEDnico de dolor cr\xF3nico",
+    profileLine: "Terapia cognitivo-conductual para dolor, educaci\xF3n en neurociencia del dolor, manejo de comorbilidades psicol\xF3gicas.",
+    city: "Maracaibo",
+    group: "03"
+  },
+  {
+    type: "aspirational",
+    slug: "fisioterapeuta-dolor",
+    roleAsName: "Fisioterapeuta especializado en dolor",
+    profileLine: "Rehabilitaci\xF3n post-procedimiento, terapia manual, programa de ejercicio terap\xE9utico.",
+    city: "Maracaibo",
+    group: "03"
+  }
+];
+var team_default = TEAM;
+
+// src/lib/mcp/tools/list-team.ts
 var list_team_default = defineTool4({
   name: "list_team",
   title: "Equipo cl\xEDnico",
@@ -88,8 +969,8 @@ var list_team_default = defineTool4({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     return {
-      content: [{ type: "text", text: JSON.stringify(TEAM, null, 2) }],
-      structuredContent: { members: TEAM }
+      content: [{ type: "text", text: JSON.stringify(team_default, null, 2) }],
+      structuredContent: { members: team_default }
     };
   }
 });

@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { CONDITIONS } from "@/data/treatments";
+import { CONDITIONS } from "../../../data/treatments";
 
 export default defineTool({
   name: "get_condition",
