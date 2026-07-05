@@ -125,8 +125,8 @@ export default function HeroSection() {
               maxWidth: "18ch",
             }}
             chunks={[
-              { text: "El dolor tiene causa. " },
-              { text: "Nosotros la tratamos.", color: "#9a7320", staggerMs: 120 },
+              { text: "¿Tiene dolor? " },
+              { text: "Lo evaluamos, diagnosticamos y tratamos.", color: "#9a7320", staggerMs: 120 },
             ]}
           />
 
@@ -134,8 +134,8 @@ export default function HeroSection() {
             className="font-ui mt-8 max-w-xl"
             style={{ fontSize: "clamp(16px, 4.5vw, 19px)", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
-            En ALGOS identificamos la causa de su dolor y lo tratamos con procedimientos
-            mínimamente invasivos, antes de llegar a una operación.
+            Primer centro de dolor intervencionista del Zulia. Especialidades
+            médicas y estudios diagnósticos bajo un mismo techo.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">

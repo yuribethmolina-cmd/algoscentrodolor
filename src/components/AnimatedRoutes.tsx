@@ -13,6 +13,8 @@ import AvisoLegalPage from "@/pages/AvisoLegal";
 // New pages per brief v2
 import EstudiosLaboratorio from "@/pages/EstudiosLaboratorio";
 import PreguntasFrecuentes from "@/pages/PreguntasFrecuentes";
+import Especialidades from "@/pages/Especialidades";
+import EstudiosDiagnosticos from "@/pages/EstudiosDiagnosticos";
 
 // Condition pages
 import CondicionesIndex from "@/pages/condiciones/CondicionesIndex";
@@ -75,6 +77,8 @@ export default function AnimatedRoutes() {
 
           {/* Main pages */}
           <Route path="/estudios-laboratorio" element={wrap(EstudiosLaboratorio)} />
+          <Route path="/estudios-diagnosticos" element={wrap(EstudiosDiagnosticos)} />
+          <Route path="/especialidades" element={wrap(Especialidades)} />
           <Route path="/equipo" element={wrap(EquipoPage)} />
           <Route path="/preguntas-frecuentes" element={wrap(PreguntasFrecuentes)} />
           <Route path="/contacto" element={wrap(ContactoPage)} />

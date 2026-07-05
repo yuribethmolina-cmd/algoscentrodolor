@@ -16,7 +16,7 @@ const faqs = [
       "La mayoría de los procedimientos se realizan con anestesia local, por lo que se percibe presión o una molestia leve, no dolor intenso. Antes de comenzar le explicamos qué sensación tendrá en cada paso, y durante todo el procedimiento el equipo está atento a su comodidad.",
   },
   {
-    pregunta: "¿Es seguro? ¿Tiene efectos secundarios?",
+    pregunta: "¿Es seguro? ¿Qué efectos secundarios puede tener?",
     respuesta:
       "Son procedimientos mínimamente invasivos y ambulatorios, con un perfil de seguridad favorable cuando se realizan guiados por imagen y a cargo de un equipo con experiencia. Como todo acto médico, puede haber efectos secundarios leves y transitorios; en la consulta se le informan los que corresponden a su caso.",
   },
@@ -26,24 +26,29 @@ const faqs = [
       "En su mayoría son ambulatorios: el procedimiento suele durar entre 20 y 45 minutos y el paciente regresa a casa el mismo día. El tiempo de recuperación depende del procedimiento realizado; en muchos casos es posible reincorporarse a la actividad habitual en poco tiempo. Las indicaciones específicas se entregan en la consulta.",
   },
   {
-    pregunta: "¿Necesito referencia médica?",
-    respuesta:
-      "No es necesaria. Puede agendar su consulta de forma directa. Si acude referido por su médico, con gusto le hacemos llegar el informe de su evaluación.",
-  },
-  {
-    pregunta: "¿Cuál es el costo?",
-    respuesta:
-      "Contáctenos para información sobre tarifas y disponibilidad.",
-  },
-  {
     pregunta: "¿En cuánto tiempo notaré mejoría?",
     respuesta:
       "Depende del procedimiento: algunos ofrecen alivio en pocos días y otros, como la radiofrecuencia, alcanzan su efecto en algunas semanas.",
   },
   {
-    pregunta: "¿El efecto es permanente?",
+    pregunta: "¿Los efectos son permanentes?",
     respuesta:
       "Varía según el tratamiento y el caso: algunos brindan alivio duradero y otros pueden repetirse de acuerdo con la evolución. En la consulta se le explica qué esperar en su situación.",
+  },
+  {
+    pregunta: "¿Cuánto cuesta?",
+    respuesta:
+      "El costo se define después de la evaluación clínica, según el procedimiento indicado para su caso. Contáctenos para agendar consulta y recibir la información correspondiente.",
+  },
+  {
+    pregunta: "¿Cómo agendo una cita?",
+    respuesta:
+      "Puede agendar por WhatsApp, teléfono o desde el formulario de contacto. Le confirmamos día y hora según la disponibilidad del especialista que su caso requiere.",
+  },
+  {
+    pregunta: "¿Necesito referencia médica?",
+    respuesta:
+      "No es necesaria. Puede agendar su consulta de forma directa. Si acude referido por su médico, con gusto le hacemos llegar el informe de su evaluación.",
   },
 ];
 

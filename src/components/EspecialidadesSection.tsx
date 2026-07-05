@@ -1,31 +1,16 @@
 import { Link } from "react-router-dom";
+import { SPECIALTIES } from "@/data/specialties";
 
-const SPECIALTIES = [
-  { name: ["Neurocirugía", "Intervencionista"], angle: 0 },
-  { name: ["Traumatología", "y Columna"], angle: 60 },
-  { name: ["Reumatología"], angle: 120 },
-  { name: ["Anestesiología", "del Dolor"], angle: 180 },
-  { name: ["Nutrición", "Antiinflamatoria"], angle: 240 },
-  { name: ["Electrodiagnóstico"], angle: 300 },
-];
-
-const R = 36;    // orbit radius (% of container)
-const SPEC = 17; // specialty circle diameter (%)
-const CTR = 22;  // center circle diameter (%)
-
-function orbitPos(angleDeg: number) {
-  const rad = (angleDeg * Math.PI) / 180;
-  return {
-    x: 50 + R * Math.sin(rad),
-    y: 50 - R * Math.cos(rad),
-  };
-}
+const DEEP_TEAL = "#1a4a55";
+const TEAL = "#3d8b96";
+const GOLD = "#c69636";
+const CREAM = "#f5f0e8";
 
 export default function EspecialidadesSection() {
   return (
     <section
       style={{
-        backgroundColor: "#1a4a55",
+        backgroundColor: DEEP_TEAL,
         paddingTop: "clamp(80px, 10vw, 128px)",
         paddingBottom: "clamp(80px, 10vw, 128px)",
       }}
@@ -33,12 +18,11 @@ export default function EspecialidadesSection() {
       <div
         className="mx-auto"
         style={{
-          maxWidth: 1080,
+          maxWidth: 1100,
           paddingLeft: "clamp(24px, 4vw, 48px)",
           paddingRight: "clamp(24px, 4vw, 48px)",
         }}
       >
-        {/* Eyebrow */}
         <p
           style={{
             fontFamily: "Inter, sans-serif",
@@ -46,191 +30,101 @@ export default function EspecialidadesSection() {
             fontWeight: 700,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "#c69636",
+            color: GOLD,
             marginBottom: 20,
-            textAlign: "center",
           }}
         >
-          ESPECIALIDADES
+          NUESTRAS ESPECIALIDADES
         </p>
 
-        {/* Title — mobile only (desktop lives inside center circle) */}
         <h2
-          className="md:hidden"
           style={{
             fontFamily: "'Sora', sans-serif",
             fontWeight: 600,
-            fontSize: "clamp(32px, 6vw, 44px)",
-            lineHeight: 1.1,
-            color: "#f5f0e8",
-            textAlign: "center",
-            marginBottom: "clamp(32px, 4vw, 48px)",
+            fontSize: "clamp(28px, 3.6vw, 48px)",
+            lineHeight: 1.15,
+            color: CREAM,
+            marginBottom: 16,
+            maxWidth: 720,
           }}
         >
-          Tu dolor.<br />Nuestro equipo.
+          Un equipo multidisciplinario para cada tipo de dolor.
         </h2>
 
-        {/* Mobile: pill grid */}
+        <p
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(15px, 1.3vw, 17px)",
+            lineHeight: 1.7,
+            color: "rgba(245,240,232,0.75)",
+            maxWidth: 640,
+            marginBottom: 48,
+          }}
+        >
+          Cada caso se evalúa por la especialidad correcta, se interviene con
+          seguridad y se acompaña en el tiempo.
+        </p>
+
         <div
-          className="md:hidden"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(10px, 3vw, 14px)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 14,
             marginBottom: 40,
           }}
         >
-          {SPECIALTIES.map((s) => (
+          {SPECIALTIES.map((sp) => (
             <div
-              key={s.angle}
+              key={sp.slug}
               style={{
-                border: "1.5px solid rgba(198,150,54,0.55)",
-                backgroundColor: "#3d8b96",
-                padding: "14px 12px",
-                textAlign: "center",
-                fontFamily: "Manrope, system-ui, sans-serif",
-                fontSize: 13,
-                fontWeight: 600,
-                color: "#f5f0e8",
-                lineHeight: 1.4,
-                borderRadius: 8,
+                backgroundColor: TEAL,
+                border: "1.5px solid rgba(198,150,54,0.4)",
+                padding: "20px 18px",
               }}
             >
-              {s.name.join(" ")}
+              <h3
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: 17,
+                  fontWeight: 600,
+                  color: CREAM,
+                  marginBottom: 6,
+                  lineHeight: 1.25,
+                }}
+              >
+                {sp.name}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 13,
+                  color: "rgba(245,240,232,0.75)",
+                  lineHeight: 1.5,
+                }}
+              >
+                {sp.tagline}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Desktop: hub-and-spoke diagram */}
-        <div
-          className="hidden md:block relative mx-auto"
-          style={{ maxWidth: 520, aspectRatio: "1" }}
-        >
-          {/* Connector lines */}
-          <svg
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-            }}
-            viewBox="0 0 100 100"
-          >
-            {SPECIALTIES.map((s) => {
-              const p = orbitPos(s.angle);
-              return (
-                <line
-                  key={s.angle}
-                  x1="50"
-                  y1="50"
-                  x2={p.x}
-                  y2={p.y}
-                  stroke="rgba(198,150,54,0.3)"
-                  strokeWidth="0.4"
-                />
-              );
-            })}
-          </svg>
-
-          {/* Center gold circle */}
-          <div
-            style={{
-              position: "absolute",
-              width: `${CTR}%`,
-              height: `${CTR}%`,
-              left: `${50 - CTR / 2}%`,
-              top: `${50 - CTR / 2}%`,
-              borderRadius: "50%",
-              backgroundColor: "#c69636",
-              boxShadow: "0 0 0 3px rgba(198,150,54,0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              fontFamily: "'Sora', sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(11px, 1.9vw, 15px)",
-              color: "#f5f0e8",
-              lineHeight: 1.25,
-              padding: "8%",
-            }}
-          >
-            Tu dolor.<br />Nuestro<br />equipo.
-          </div>
-
-          {/* Specialty circles */}
-          {SPECIALTIES.map((s) => {
-            const p = orbitPos(s.angle);
-            return (
-              <div
-                key={s.angle}
-                style={{
-                  position: "absolute",
-                  width: `${SPEC}%`,
-                  height: `${SPEC}%`,
-                  left: `${p.x - SPEC / 2}%`,
-                  top: `${p.y - SPEC / 2}%`,
-                  borderRadius: "50%",
-                  backgroundColor: "#3d8b96",
-                  border: "1.5px solid rgba(198,150,54,0.6)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  fontFamily: "Manrope, system-ui, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(8px, 1.3vw, 11px)",
-                  color: "#f5f0e8",
-                  lineHeight: 1.3,
-                  padding: "8%",
-                }}
-              >
-                <span>
-                  {s.name.map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      {i < s.name.length - 1 && <br />}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Subtitle */}
-        <p
+        <Link
+          to="/especialidades"
           style={{
-            fontFamily: "Manrope, system-ui, sans-serif",
-            fontSize: 14,
-            color: "rgba(245,240,232,0.5)",
-            textAlign: "center",
-            marginTop: 36,
+            display: "inline-block",
+            backgroundColor: GOLD,
+            color: DEEP_TEAL,
+            fontFamily: "Inter, sans-serif",
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            padding: "14px 24px",
           }}
         >
-          Cada paciente recibe el especialista que su condición necesita.
-        </p>
-
-        {/* CTA */}
-        <div style={{ textAlign: "center", marginTop: 28 }}>
-          <Link
-            to="/equipo"
-            style={{
-              fontFamily: "Manrope, system-ui, sans-serif",
-              fontSize: 13,
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#c69636",
-              textDecoration: "none",
-              transition: "opacity 200ms",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-          >
-            Conocer el equipo completo →
-          </Link>
-        </div>
+          Ver todas las especialidades →
+        </Link>
       </div>
     </section>
   );

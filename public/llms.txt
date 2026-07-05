@@ -1,21 +1,29 @@
-# ALGOS · Centro de Dolor Intervencionista
+# ALGOS · Clínica del Dolor
 
-> Centro de dolor intervencionista en Maracaibo, Venezuela. Procedimientos mínimamente invasivos guiados por imagen, con equipo de formación clínica internacional (Maracaibo + Alemania).
+> Primer centro de dolor intervencionista del Zulia (Maracaibo, Venezuela). Especialidades médicas y estudios diagnósticos (imagen, cardiología, neurofisiología, laboratorio) bajo un mismo techo. Servicios a domicilio disponibles.
 
 ## Páginas principales
 
-- /: Home — hub para pacientes, médicos referentes e instituciones
-- /pacientes: Información para pacientes — qué esperar, cómo agendar valoración
-- /medicos: Información para médicos referentes — protocolos y referencias
-- /instituciones: Modelo de alianza con clínicas e instituciones
+- /: Inicio — evaluación, diagnóstico y tratamiento del dolor
+- /especialidades: Especialidades médicas — neurocirugía, traumatología, reumatología, fisiatría, radiología intervencionista, cuidados paliativos, oncología médica, psiquiatría, nutrición
+- /estudios-diagnosticos: Estudios diagnósticos en Maracaibo — tomografía, rayos X, mamografía 3D, ECG, Holter, EEG, EMG, laboratorio
+- /estudios-laboratorio: Estudios y laboratorio disponibles vía alianza institucional
 - /equipo: Equipo médico multidisciplinario
 - /contacto: Formulario y datos de contacto
+- /preguntas-frecuentes: Preguntas frecuentes sobre procedimientos y consulta
 
-## Páginas adicionales
+## Condiciones
 
-- /tratamientos: Hub de tratamientos para dolor crónico — 5 condiciones con procedimientos guiados por imagen
-- /tratamientos/dolor-lumbar: Tratamiento del dolor lumbar crónico (lumbalgia)
-- /tratamientos/dolor-cervical: Tratamiento del dolor cervical crónico (cervicalgia)
-- /tratamientos/dolor-facetario: Tratamiento del síndrome facetario (radiofrecuencia medial branch)
-- /tratamientos/dolor-articular: Tratamiento del dolor articular periférico (rodilla, hombro, cadera)
-- /tratamientos/lesion-deportiva: Tratamiento del dolor postraumático persistente en atletas
+- /condiciones/dolor-lumbar
+- /condiciones/dolor-cervical
+- /condiciones/ciatica
+- /condiciones/hernia-discal
+- /condiciones/neuropatia-diabetica
+- /condiciones/dolor-tras-cirugia
+
+## Procedimientos
+
+- /procedimientos/infiltraciones-y-bloqueos
+- /procedimientos/ozono-hernia-discal
+- /procedimientos/emg
+- /procedimientos/eeg
