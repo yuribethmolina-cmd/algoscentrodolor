@@ -49,7 +49,7 @@ const INFO_CARDS = [
   {
     Icon: Clock,
     title: "Horario",
-    lines: ["Lunes a viernes", "8:00 – 18:00", "Sábados · cita previa"],
+    lines: ["Lunes, martes, jueves y viernes: 8:00 AM – 12:00 PM · 1:00 PM – 5:00 PM", "Miércoles: 8:00 AM – 3:00 PM"],
   },
   {
     Icon: Phone,

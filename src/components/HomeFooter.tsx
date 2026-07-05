@@ -185,9 +185,9 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>HORARIO</p>
               <p style={blockValue}>
-                Lunes a viernes · 8:00 – 18:00
+                Lun, mar, jue y vie: 8:00 AM – 12:00 PM · 1:00 PM – 5:00 PM
                 <br />
-                Sábados · cita previa
+                Miércoles: 8:00 AM – 3:00 PM
               </p>
             </div>
             <div>
