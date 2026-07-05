@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { SPECIALTIES } from "@/data/specialties";
+import especialidadesMural from "@/assets/especialidades-mural.jpg.asset.json";
+
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -64,6 +66,33 @@ export default function EspecialidadesSection() {
           Cada caso se evalúa por la especialidad correcta, se interviene con
           seguridad y se acompaña en el tiempo.
         </p>
+        <figure
+          style={{
+            margin: "0 0 48px",
+            border: `1px solid rgba(198,150,54,0.35)`,
+            backgroundColor: "rgba(0,0,0,0.15)",
+          }}
+        >
+          <img
+            src={especialidadesMural.url}
+            alt="Mural de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico — Tu dolor. Nuestro equipo."
+            loading="lazy"
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
+          <figcaption
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 12,
+              letterSpacing: "0.08em",
+              color: "rgba(245,240,232,0.65)",
+              textAlign: "center",
+              padding: "12px 16px",
+            }}
+          >
+            Cada paciente recibe el especialista que su condición necesita.
+          </figcaption>
+        </figure>
+
 
         <div
           style={{
