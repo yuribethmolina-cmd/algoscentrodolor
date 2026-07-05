@@ -22,6 +22,7 @@ export default function EstudiosDiagnosticos() {
       <SEOHead
         title="Estudios diagnósticos en Maracaibo — Tomografía, EMG, Holter | ALGOS"
         description="Estudios diagnósticos en Maracaibo: tomografía, rayos X, mamografía 3D, electrocardiograma, Holter, electroencefalograma (EEG), electromiografía (EMG) y laboratorio."
+        canonical="https://algoscentrodolor.com/estudios-diagnosticos"
       />
       <Navbar />
 

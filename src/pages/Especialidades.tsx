@@ -15,6 +15,7 @@ export default function Especialidades() {
       <SEOHead
         title="Especialidades médicas | ALGOS · Clínica del Dolor"
         description="Especialidades del centro de dolor ALGOS en Maracaibo: neurocirugía, traumatología, reumatología, fisiatría, radiología intervencionista y más."
+        canonical="https://algoscentrodolor.com/especialidades"
       />
       <Navbar />
 
