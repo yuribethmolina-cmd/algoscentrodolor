@@ -31,9 +31,9 @@ const PROCEDURES: DropItem[] = [
 ];
 
 const SIMPLE = [
-  { label: "Estudios diagnósticos", href: "/estudios-laboratorio", prefix: true },
-  { label: "Especialidades", href: "/equipo" },
-  { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
+  { label: "Especialidades", href: "/especialidades" },
+  { label: "Estudios diagnósticos", href: "/estudios-diagnosticos", prefix: true },
+  { label: "Equipo", href: "/equipo" },
   { label: "Contacto", href: "/contacto" },
 ];
 
