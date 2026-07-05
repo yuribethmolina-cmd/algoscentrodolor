@@ -7,6 +7,7 @@ import ConditionsSection from "@/components/ConditionsSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import TeamSection from "@/components/TeamSection";
+import EspecialidadesSection from "@/components/EspecialidadesSection";
 import GuiasImagenSection from "@/components/GuiasImagenSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
 import AllianceSection from "@/components/AllianceSection";
@@ -23,6 +24,7 @@ export default function Index() {
       <ServicesSection />
       <WhyDifferentSection />
       <TeamSection />
+      <EspecialidadesSection />
       <GuiasImagenSection />
       <HomeFAQSection />
       <AllianceSection />
