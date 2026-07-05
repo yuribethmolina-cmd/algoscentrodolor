@@ -1,40 +1,120 @@
 import { Link } from "react-router-dom";
-import {
-  Activity,
-  Bone,
-  Brain,
-  Leaf,
-  Stethoscope,
-  Zap,
-} from "lucide-react";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
+/** SVG viewBox is 900x620. Center at (450, 310). Orbit radius 250. */
+const CX = 450;
+const CY = 310;
+const R_ORBIT = 250;
+const R_NODE = 82;
+const R_CENTER = 96;
+
 type Node = {
   label: string;
-  Icon: typeof Brain;
   /** Angle in degrees, 0° = top, clockwise */
   angle: number;
+  /** Custom line-art icon, drawn centered at (0,0) inside a 56x56 box */
+  icon: JSX.Element;
 };
 
-const NODES: Node[] = [
-  { label: "Neurocirugía\nIntervencionista", Icon: Brain, angle: 0 },
-  { label: "Traumatología\ny Columna", Icon: Bone, angle: 60 },
-  { label: "Reumatología", Icon: Activity, angle: 120 },
-  { label: "Anestesiología\ndel Dolor", Icon: Stethoscope, angle: 180 },
-  { label: "Nutrición\nAntiinflamatoria", Icon: Leaf, angle: 240 },
-  { label: "Electrodiagnóstico", Icon: Zap, angle: 300 },
-];
+const ICON_STROKE = { stroke: GOLD, strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
-/** SVG viewBox is 800x600. Center at (400, 300). Orbit radius 230. */
-const CX = 400;
-const CY = 300;
-const R_ORBIT = 230;
-const R_NODE = 78;
-const R_CENTER = 92;
+const NODES: Node[] = [
+  // Top center — Neurocirugía (spine)
+  {
+    label: "Neurocirugía\nIntervencionista",
+    angle: 0,
+    icon: (
+      <g {...ICON_STROKE}>
+        {[-18, -8, 2, 12].map((y, i) => (
+          <g key={i}>
+            <path d={`M -10 ${y} Q 0 ${y - 4} 10 ${y}`} />
+            <path d={`M -12 ${y + 2} L -6 ${y + 2}`} />
+            <path d={`M 12 ${y + 2} L 6 ${y + 2}`} />
+          </g>
+        ))}
+      </g>
+    ),
+  },
+  // Upper right — Traumatología (knee joint)
+  {
+    label: "Traumatología\ny Columna",
+    angle: 60,
+    icon: (
+      <g {...ICON_STROKE}>
+        <path d="M -14 -18 L -4 -6 Q 0 -2 4 -6 L 14 -18" />
+        <path d="M -14 18 L -4 6 Q 0 2 4 6 L 14 18" />
+        <path d="M -8 0 L 8 0" />
+        <path d="M -3 -3 L 3 3" stroke="#d97a4a" />
+        <path d="M 3 -3 L -3 3" stroke="#d97a4a" />
+      </g>
+    ),
+  },
+  // Lower right — Reumatología (inflamed joint)
+  {
+    label: "Reumatología",
+    angle: 120,
+    icon: (
+      <g {...ICON_STROKE}>
+        <path d="M -10 -16 L -2 -4 Q 0 0 2 -4 L 10 -16" />
+        <path d="M -10 16 L -2 4 Q 0 0 2 4 L 10 16" />
+        <circle cx="0" cy="0" r="4" />
+        {[0, 60, 120, 180, 240, 300].map((a) => {
+          const rad = (a * Math.PI) / 180;
+          return (
+            <line
+              key={a}
+              x1={Math.cos(rad) * 8}
+              y1={Math.sin(rad) * 8}
+              x2={Math.cos(rad) * 13}
+              y2={Math.sin(rad) * 13}
+              stroke="#d97a4a"
+            />
+          );
+        })}
+      </g>
+    ),
+  },
+  // Bottom center — Anestesiología (two anesthesia bulbs)
+  {
+    label: "Anestesiología\ndel Dolor",
+    angle: 180,
+    icon: (
+      <g {...ICON_STROKE}>
+        <path d="M -8 -16 Q -8 -20 -4 -20 Q 0 -20 0 -16 L 0 -4 Q 0 4 -4 4 Q -8 4 -8 -4 Z" />
+        <path d="M 8 -12 Q 8 -16 4 -16 Q 0 -16 0 -12 L 0 -2 Q 0 6 4 6 Q 8 6 8 -2 Z" />
+        <path d="M -4 4 L -4 18" />
+        <path d="M 4 6 L 4 18" />
+      </g>
+    ),
+  },
+  // Lower left — Nutrición (leaf)
+  {
+    label: "Nutrición\nAntiinflamatoria",
+    angle: 240,
+    icon: (
+      <g {...ICON_STROKE}>
+        <circle cx="0" cy="0" r="20" />
+        <path d="M -10 8 Q -4 -12 12 -8 Q 8 8 -10 8 Z" />
+        <path d="M -8 6 Q 0 -2 10 -6" />
+      </g>
+    ),
+  },
+  // Upper left — Electrodiagnóstico (brain + wave)
+  {
+    label: "Electrodiagnóstico",
+    angle: 300,
+    icon: (
+      <g {...ICON_STROKE}>
+        <path d="M -14 -4 Q -14 -14 -6 -14 Q -2 -18 4 -14 Q 12 -14 12 -4 Q 16 0 12 6 Q 12 14 4 14 Q -2 16 -6 12 Q -14 12 -14 4 Q -18 0 -14 -4 Z" />
+        <path d="M -6 0 L -2 0 L 0 -6 L 4 6 L 6 0 L 10 0" />
+      </g>
+    ),
+  },
+];
 
 function polar(angleDeg: number, radius: number) {
   const rad = ((angleDeg - 90) * Math.PI) / 180;
@@ -100,37 +180,40 @@ export default function EspecialidadesSection() {
           seguridad y se acompaña en el tiempo.
         </p>
 
-        {/* Radial diagram */}
-        <div
-          style={{
-            width: "100%",
-            marginBottom: 40,
-            border: `1px solid rgba(198,150,54,0.35)`,
-            padding: "clamp(16px, 3vw, 32px)",
-            backgroundColor: "rgba(0,0,0,0.12)",
-          }}
-        >
+        {/* Radial mural */}
+        <div style={{ width: "100%", marginBottom: 40 }}>
           <svg
             role="img"
-            aria-label="Diagrama de especialidades ALGOS alrededor del núcleo Tu dolor. Nuestro equipo."
-            viewBox="0 0 800 600"
+            aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
+            viewBox="0 0 900 620"
             style={{ width: "100%", height: "auto", display: "block" }}
           >
-            {/* Horizontal divider through the center, like the mural */}
+            {/* Gold panel frame */}
+            <rect
+              x={6}
+              y={6}
+              width={888}
+              height={608}
+              fill="none"
+              stroke={GOLD}
+              strokeOpacity={0.75}
+              strokeWidth={2}
+            />
+
+            {/* Horizontal divider through the center — mural signature */}
             <line
-              x1={40}
+              x1={20}
               y1={CY}
-              x2={760}
+              x2={880}
               y2={CY}
               stroke={GOLD}
-              strokeOpacity={0.35}
+              strokeOpacity={0.55}
               strokeWidth={1}
             />
 
             {/* Radial connectors */}
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
-              // Trim the line so it terminates at the edge of each circle.
               const dx = p.x - CX;
               const dy = p.y - CY;
               const dist = Math.hypot(dx, dy);
@@ -148,13 +231,13 @@ export default function EspecialidadesSection() {
                   x2={x2}
                   y2={y2}
                   stroke={GOLD}
-                  strokeOpacity={0.55}
+                  strokeOpacity={0.6}
                   strokeWidth={1.25}
                 />
               );
             })}
 
-            {/* Outer circles */}
+            {/* Outer specialty circles */}
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
               const lines = n.label.split("\n");
@@ -166,33 +249,25 @@ export default function EspecialidadesSection() {
                     r={R_NODE}
                     fill={TEAL}
                     stroke={GOLD}
-                    strokeWidth={1.5}
+                    strokeWidth={1.25}
                   />
-                  {/* Icon */}
-                  <g transform={`translate(${p.x - 18}, ${p.y - 34})`}>
-                    <n.Icon
-                      width={36}
-                      height={36}
-                      stroke={GOLD}
-                      strokeWidth={1.4}
-                      fill="none"
-                    />
-                  </g>
-                  {/* Label */}
+                  {/* Icon — drawn at (0,0), translated into the top half */}
+                  <g transform={`translate(${p.x}, ${p.y - 28})`}>{n.icon}</g>
+                  {/* Label — thin white, below the icon */}
                   <text
                     x={p.x}
-                    y={p.y + 16}
+                    y={p.y + 22}
                     textAnchor="middle"
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontSize: 12,
-                      fontWeight: 500,
+                      fontSize: 12.5,
+                      fontWeight: 400,
                       fill: CREAM,
-                      letterSpacing: "0.02em",
+                      letterSpacing: "0.01em",
                     }}
                   >
                     {lines.map((ln, i) => (
-                      <tspan key={i} x={p.x} dy={i === 0 ? 0 : 14}>
+                      <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
                         {ln}
                       </tspan>
                     ))}
@@ -201,35 +276,35 @@ export default function EspecialidadesSection() {
               );
             })}
 
-            {/* Center circle */}
+            {/* Center gold circle — sits on top of the divider */}
             <circle
               cx={CX}
               cy={CY}
               r={R_CENTER}
               fill={GOLD}
               stroke={CREAM}
-              strokeOpacity={0.15}
+              strokeOpacity={0.18}
               strokeWidth={1}
             />
-            {/* Subtle waveform mark above the center label */}
+            {/* Waveform mark above the center label */}
             <path
-              d={`M ${CX - 34} ${CY - 34} L ${CX - 22} ${CY - 34} L ${CX - 14} ${CY - 46} L ${CX - 4} ${CY - 22} L ${CX + 6} ${CY - 46} L ${CX + 14} ${CY - 34} L ${CX + 34} ${CY - 34}`}
+              d={`M ${CX - 34} ${CY - 40} L ${CX - 22} ${CY - 40} L ${CX - 14} ${CY - 52} L ${CX - 4} ${CY - 28} L ${CX + 6} ${CY - 52} L ${CX + 14} ${CY - 40} L ${CX + 34} ${CY - 40}`}
               stroke={CREAM}
               strokeWidth={1.4}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
-              opacity={0.9}
+              opacity={0.95}
             />
             <text
               x={CX}
-              y={CY - 4}
+              y={CY - 6}
               textAnchor="middle"
               style={{
                 fontFamily: "'Sora', sans-serif",
                 fontSize: 18,
-                fontWeight: 600,
-                fill: DEEP_TEAL,
+                fontWeight: 500,
+                fill: CREAM,
                 letterSpacing: "0.01em",
               }}
             >
@@ -237,20 +312,23 @@ export default function EspecialidadesSection() {
               <tspan x={CX} dy={22}>Nuestro</tspan>
               <tspan x={CX} dy={22}>equipo.</tspan>
             </text>
-          </svg>
 
-          <p
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 12,
-              letterSpacing: "0.08em",
-              color: "rgba(245,240,232,0.7)",
-              textAlign: "center",
-              marginTop: 20,
-            }}
-          >
-            Cada paciente recibe el especialista que su condición necesita.
-          </p>
+            {/* Caption inside the frame — gold, thin, centered */}
+            <text
+              x={CX}
+              y={588}
+              textAnchor="middle"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 12,
+                fontWeight: 400,
+                fill: GOLD,
+                letterSpacing: "0.08em",
+              }}
+            >
+              Cada paciente recibe el especialista que su condición necesita.
+            </text>
+          </svg>
         </div>
 
         <Link
