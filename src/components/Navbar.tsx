@@ -19,7 +19,7 @@ const CONDITIONS: DropItem[] = [
   { label: "Dolor cervical", href: "/condiciones/dolor-cervical" },
   { label: "Neuropatía diabética", href: "/condiciones/neuropatia-diabetica" },
   { label: "Dolor tras cirugía", href: "/condiciones/dolor-tras-cirugia" },
-  { label: "Ver todas las condiciones →", href: "/condiciones", isIndex: true },
+  { label: "Ver todas las condiciones que tratamos →", href: "/condiciones", isIndex: true },
 ];
 
 const PROCEDURES: DropItem[] = [
@@ -31,8 +31,8 @@ const PROCEDURES: DropItem[] = [
 ];
 
 const SIMPLE = [
-  { label: "Estudios y laboratorio", href: "/estudios-laboratorio", prefix: true },
-  { label: "Equipo", href: "/equipo" },
+  { label: "Estudios diagnósticos", href: "/estudios-laboratorio", prefix: true },
+  { label: "Especialidades", href: "/equipo" },
   { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -171,7 +171,7 @@ export default function Navbar() {
                 paddingBottom: 2,
               }}
             >
-              Condiciones
+              Qué tratamos
               <ChevronDown size={12} style={{ transition: "transform 200ms", transform: desktopOpen === "conditions" ? "rotate(180deg)" : "none" }} />
             </button>
             {desktopOpen === "conditions" && (
@@ -196,7 +196,7 @@ export default function Navbar() {
                 paddingBottom: 2,
               }}
             >
-              Procedimientos
+              Tratamientos
               <ChevronDown size={12} style={{ transition: "transform 200ms", transform: desktopOpen === "procedures" ? "rotate(180deg)" : "none" }} />
             </button>
             {desktopOpen === "procedures" && (
@@ -279,7 +279,7 @@ export default function Navbar() {
             className="flex items-center justify-between w-full text-left"
             style={{ fontFamily: "Manrope, system-ui, sans-serif", fontSize: 16, fontWeight: 500, color: condActive ? GOLD : DEEP_TEAL, background: "none", border: "none", cursor: "pointer", padding: "8px 0" }}
           >
-            Condiciones que tratamos
+            Qué tratamos
             <ChevronDown size={16} style={{ transition: "transform 200ms", transform: mobileOpen === "conditions" ? "rotate(180deg)" : "none" }} />
           </button>
           {mobileOpen === "conditions" && (
@@ -297,7 +297,7 @@ export default function Navbar() {
             className="flex items-center justify-between w-full text-left"
             style={{ fontFamily: "Manrope, system-ui, sans-serif", fontSize: 16, fontWeight: 500, color: procActive ? GOLD : DEEP_TEAL, background: "none", border: "none", cursor: "pointer", padding: "8px 0" }}
           >
-            Procedimientos
+            Tratamientos
             <ChevronDown size={16} style={{ transition: "transform 200ms", transform: mobileOpen === "procedures" ? "rotate(180deg)" : "none" }} />
           </button>
           {mobileOpen === "procedures" && (
