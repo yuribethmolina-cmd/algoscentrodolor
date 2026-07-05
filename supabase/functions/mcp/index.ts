@@ -872,29 +872,17 @@ var list_procedures_default = defineTool3({
 
 // src/lib/mcp/tools/list-team.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.20.0";
-
-// src/data/team.ts
-import photoAtilio from "npm:@/assets/team-atilio.png";
-import photoLuis from "npm:@/assets/team-luis.png";
-import photoDaniel from "npm:@/assets/team-daniel.png";
 var TEAM = [
-  // GROUP 01 · MEDICINA INTERVENCIONISTA DEL DOLOR
   {
     type: "confirmed",
     slug: "dr-atilio",
-    index: "01",
     givenName: "Dr. Atilio J.",
     familyName: "Rodr\xEDguez",
     role: "Director M\xE9dico",
     specialty: "Neurocirujano \xB7 Especialista en dolor intervencionista",
     city: "Maracaibo",
     country: "Venezuela",
-    coords: "10\xB039\u2032N \xB7 71\xB036\u2032W",
-    group: "01",
-    photoUrl: photoAtilio,
-    bio: {
-      idiomas: "Espa\xF1ol"
-    }
+    group: "01"
   },
   {
     type: "aspirational",
@@ -904,42 +892,28 @@ var TEAM = [
     city: "Maracaibo",
     group: "01"
   },
-  // GROUP 02 · ASESORÍA MÉDICA INTERNACIONAL
   {
     type: "confirmed",
     slug: "dr-luis-alberto",
-    index: "02",
     givenName: "Dr. Luis Alberto",
     familyName: "Rodr\xEDguez",
     role: "Director \xB7 Estrategia Internacional",
     specialty: "Neurocirujano",
     city: "M\xFAnich",
     country: "Venezuela",
-    coords: "",
     group: "02",
-    photoUrl: photoLuis,
-    bio: {
-      formacion: "Neurocirujano.",
-      idiomas: "Espa\xF1ol \xB7 Deutsch"
-    }
+    bio: { formacion: "Neurocirujano.", idiomas: "Espa\xF1ol \xB7 Deutsch" }
   },
-  // GROUP 03 · SOPORTE CLÍNICO INTEGRAL
   {
     type: "confirmed",
     slug: "lcdo-daniel",
-    index: "04",
     givenName: "Lcdo. Daniel",
     familyName: "Rodr\xEDguez",
     role: "Director de Nutrici\xF3n",
     specialty: "Nutrici\xF3n cl\xEDnica \xB7 Acompa\xF1amiento del paciente intervencionista",
     city: "Maracaibo",
     country: "Venezuela",
-    coords: "10\xB039\u2032N \xB7 71\xB036\u2032W",
-    group: "03",
-    photoUrl: photoDaniel,
-    bio: {
-      idiomas: "Espa\xF1ol"
-    }
+    group: "03"
   },
   {
     type: "aspirational",
@@ -958,21 +932,16 @@ var TEAM = [
     group: "03"
   }
 ];
-var team_default = TEAM;
-
-// src/lib/mcp/tools/list-team.ts
 var list_team_default = defineTool4({
   name: "list_team",
   title: "Equipo cl\xEDnico",
   description: "Devuelve el equipo cl\xEDnico de ALGOS: miembros confirmados (nombre, rol, especialidad, ciudad) y perfiles en incorporaci\xF3n.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
-  handler: () => {
-    return {
-      content: [{ type: "text", text: JSON.stringify(team_default, null, 2) }],
-      structuredContent: { members: team_default }
-    };
-  }
+  handler: () => ({
+    content: [{ type: "text", text: JSON.stringify(TEAM, null, 2) }],
+    structuredContent: { members: TEAM }
+  })
 });
 
 // src/lib/mcp/tools/clinic-info.ts
