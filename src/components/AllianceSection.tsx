@@ -18,8 +18,9 @@ const algosServices = [
 
 const uduzServices = [
   { label: "Tomografía", detail: "$25 · disponible 24/7" },
-  { label: "Ecografía", detail: "$15" },
   { label: "Rayos X digital", detail: "$8" },
+  { label: "Mamografía 3D", detail: "disponible" },
+  { label: "Ecografía", detail: "$15" },
   { label: "Laboratorio clínico", detail: "pre-procedimiento" },
 ];
 
@@ -302,7 +303,7 @@ export default function AllianceSection() {
             marginRight: "auto",
           }}
         >
-          <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>ALGOS</strong> opera en alianza institucional con <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>UDUZ</strong>. Tu evaluación, tu imagen diagnóstica y tu procedimiento ocurren en el mismo ecosistema, con el mismo equipo informado de tu caso.
+          <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>ALGOS</strong> opera en alianza institucional con <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>UDUZ</strong>. Tu evaluación, tu diagnóstico y tu tratamiento ocurren en el mismo ecosistema — con el mismo equipo informado de tu caso.
         </p>
 
         <h2
@@ -444,7 +445,7 @@ export default function AllianceSection() {
           {/* CTA buttons */}
           <div className="flex flex-col mdx:flex-row gap-4 mdx:gap-5">
             <a
-              href="https://uduz.vercel.app"
+              href="https://wa.me/584126404124"
               target="_blank"
               rel="noopener noreferrer"
               style={{
