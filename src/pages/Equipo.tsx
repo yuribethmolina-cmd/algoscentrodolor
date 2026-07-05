@@ -40,7 +40,7 @@ export default function Equipo() {
       <main>
         <PageHeroVideo
           eyebrow="None"
-          title="El equipo"
+          title="Especialidades y equipo"
           video="medicos"
         />
 
