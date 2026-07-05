@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "algos-mcp",
+      "version": "0.1.0",
+      "title": "ALGOS · Centro de Dolor Intervencionista"
+    },
+    "tools": [
+      {
+        "name": "list_conditions",
+        "title": "Listar condiciones tratadas",
+        "description": "Devuelve el catálogo de condiciones de dolor que trata ALGOS Centro de Dolor Intervencionista (nombre para paciente, nombre clínico y resumen).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_condition",
+        "title": "Detalle de una condición",
+        "description": "Devuelve el detalle completo de una condición de ALGOS: síntomas, cuándo consultar, qué esperar, procedimientos asociados y FAQ.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Slug de la condición (ej. dolor-lumbar-ciatica)."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_procedures",
+        "title": "Listar procedimientos",
+        "description": "Devuelve el catálogo de procedimientos intervencionistas que realiza ALGOS (nombre, nombre técnico, descripción y condiciones en que se usan).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_team",
+        "title": "Equipo clínico",
+        "description": "Devuelve el equipo clínico de ALGOS: miembros confirmados (nombre, rol, especialidad, ciudad) y perfiles en incorporación.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "clinic_info",
+        "title": "Información de la clínica",
+        "description": "Devuelve datos institucionales de ALGOS: ubicación, contacto oficial, sitio web y alianza estratégica con UDUZ.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
