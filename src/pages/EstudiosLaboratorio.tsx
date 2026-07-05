@@ -3,39 +3,34 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 
-const WA_BASE = "https://wa.me/584146807886?text=Hola%2C%20quiero%20agendar%20";
+const WA = "https://wa.me/584246467944";
 
-const STUDIES = [
+const ALGOS_STUDIES = [
   {
-    name: "Tomografía",
-    desc: "Tomografía computarizada (TAC) para columna, abdomen, tórax y otras estructuras. Necesaria para confirmar hernias discales, evaluar fracturas y planificar procedimientos guiados por imagen.",
-    msg: "una%20TOMOGRAF%C3%8DA",
+    name: "Electromiografía (EMG)",
+    desc: "Evaluación eléctrica del músculo para identificar lesiones nerviosas, miopatías y síndrome del túnel carpiano. Realizada directamente por el equipo clínico de ALGOS.",
   },
   {
-    name: "Ecografía",
-    desc: "Ecografía musculoesquelética, abdominal y de partes blandas. También disponible como guía de imagen para procedimientos.",
-    msg: "una%20ECOGRAF%C3%8DA",
+    name: "Electroencefalograma (EEG)",
+    desc: "Registro de la actividad eléctrica cerebral. Indicado en cefaleas crónicas, episodios convulsivos y evaluación neurológica.",
   },
   {
-    name: "Rayos X",
-    desc: "Radiografía simple de columna, extremidades, tórax y otras estructuras. Punto de partida frecuente para evaluar alineación y cambios degenerativos.",
-    msg: "RAYOS%20X",
+    name: "Estudios de conducción nerviosa",
+    desc: "Mide la velocidad y calidad de la conducción a lo largo de nervios periféricos. Complementario al EMG para diagnóstico de neuropatías.",
   },
-  {
-    name: "Rayos X portátil (a domicilio)",
-    desc: "Radiografía a domicilio para pacientes con movilidad reducida o que no pueden desplazarse al centro.",
-    msg: "RAYOS%20X%20PORT%C3%81TIL%20A%20DOMICILIO",
-  },
-  {
-    name: "Electrocardiograma y Holter",
-    desc: "Electrocardiograma en reposo y monitoreo Holter de 24 horas para evaluación cardiovascular.",
-    msg: "un%20ELECTROCARDIOGRAMA%20%2F%20HOLTER",
-  },
-  {
-    name: "Laboratorio clínico",
-    desc: "Análisis de sangre, orina y otros estudios de laboratorio. Disponibles para seguimiento, diagnóstico y evaluación preoperatoria.",
-    msg: "LABORATORIO%20CL%C3%8DNICO",
-  },
+];
+
+const UDUZ_STUDIES = [
+  "Tomografía computarizada",
+  "Rayos X digital",
+  "Rayos X portátil / a domicilio",
+  "Mamografía 3D",
+  "Ecografía",
+  "Ecocardiograma",
+  "Holter",
+  "Electrocardiograma",
+  "Laboratorio clínico completo",
+  "Laboratorio a domicilio",
 ];
 
 export default function EstudiosLaboratorio() {
@@ -51,34 +46,92 @@ export default function EstudiosLaboratorio() {
           video="pacientes"
         />
 
+        {/* Bloque A — Estudios ALGOS */}
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-deep-teal/10">
-              {STUDIES.map((s) => (
+            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-3">
+              ESTUDIOS PROPIOS DE ALGOS
+            </p>
+            <h2 className="font-display font-bold text-deep-teal text-[28px] md:text-[36px] leading-[1.15] mb-10">
+              Realizados directamente por nuestro equipo clínico
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-deep-teal/10 mb-10">
+              {ALGOS_STUDIES.map((s) => (
                 <div key={s.name} className="bg-cream p-8 md:p-10">
-                  <h2 className="font-display font-bold text-deep-teal text-[22px] md:text-[26px] leading-[1.1] mb-4">
+                  <h3 className="font-display font-bold text-deep-teal text-[20px] leading-[1.2] mb-4">
                     {s.name}
-                  </h2>
-                  <p className="font-sans text-steel-teal text-[15px] leading-[1.65] mb-7">
+                  </h3>
+                  <p className="font-sans text-steel-teal text-[15px] leading-[1.65]">
                     {s.desc}
                   </p>
-                  <a
-                    href={`${WA_BASE}${s.msg}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[11px] tracking-[0.18em] rounded-none px-7 py-3 transition-colors"
-                  >
-                    Solicitar por WhatsApp
-                  </a>
                 </div>
               ))}
             </div>
 
-            <div className="mt-16 pt-10 border-t border-deep-teal/10">
-              <p className="font-sans text-steel-teal text-[14px] leading-[1.65] max-w-[60ch]">
-                Los estudios de la red UDUZ se coordinan con ALGOS Centro de Dolor Intervencionista. Al escribirnos, le indicamos disponibilidad, preparación necesaria y costo antes de su cita.
-              </p>
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[11px] tracking-[0.18em] rounded-none px-7 py-3 transition-colors"
+            >
+              Solicitar estudio por WhatsApp
+            </a>
+          </div>
+        </section>
+
+        {/* Bloque B — Estudios UDUZ */}
+        <section className="bg-cream py-16 md:py-24 border-t border-deep-teal/10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
+            <p className="font-sans font-bold uppercase text-[11px] tracking-[0.22em] mb-3" style={{ color: "#3d8b96" }}>
+              ALIANZA DIAGNÓSTICA
+            </p>
+            <h2 className="font-display font-bold text-deep-teal text-[28px] md:text-[36px] leading-[1.15] mb-3">
+              A través de nuestra alianza con UDUZ — Unidad de Diagnóstico del Zulia
+            </h2>
+            <p className="font-sans text-steel-teal text-[15px] leading-[1.65] max-w-[62ch] mb-10">
+              Los siguientes estudios están disponibles a través de UDUZ, coordinados con el equipo de ALGOS para que su diagnóstico y su tratamiento ocurran en el mismo ecosistema clínico.
+            </p>
+
+            <div
+              className="mb-10"
+              style={{
+                borderLeft: "3px solid #3d8b96",
+                paddingLeft: 24,
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+                gap: "clamp(10px, 1.5vw, 16px)",
+              }}
+            >
+              {UDUZ_STUDIES.map((name) => (
+                <div
+                  key={name}
+                  className="bg-white"
+                  style={{
+                    border: "1px solid rgba(61,139,150,0.15)",
+                    padding: "14px 18px",
+                    fontFamily: "Manrope, system-ui, sans-serif",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "#1a4a55",
+                  }}
+                >
+                  {name}
+                </div>
+              ))}
             </div>
+
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-cream font-sans font-bold uppercase text-[11px] tracking-[0.18em] rounded-none px-7 py-3 transition-colors"
+              style={{ backgroundColor: "#3d8b96" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a9ca8")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#3d8b96")}
+            >
+              Coordinar estudio UDUZ por WhatsApp
+            </a>
           </div>
         </section>
       </main>
