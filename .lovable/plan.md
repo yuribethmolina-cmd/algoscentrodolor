@@ -1,91 +1,197 @@
 
-# Análisis visual y plan de mejoras
+# Plan — Aplicar cambios de la reunión con el Dr. Luis
 
-## 1. Diagnóstico (lo que veo en el preview)
-
-### Hero
-- **Headline ilegible al final.** "evidencia clínica" en Playfair italic dorado se ve casi transparente sobre el cream — la animación staggered de `AnimatedHeadline` deja `clínica` en un estado de opacidad baja y el dorado `#c69636` sobre `#f5f0e8` apenas tiene contraste (~2.1:1, falla WCAG AA).
-- **Body copy chico.** 17px con `text-deep-teal/80` se siente apretado para una landing médica donde el usuario llega con dolor.
-- **Eyebrow "MARACAIBO · ALEMANIA"** queda perdido (14px, gold sobre cream).
-- **Mucho espacio vacío arriba** — el video de fondo casi no se ve por el overlay cream al 95%, así que la mitad superior es un bloque cream sin información.
-
-### Sección Alianza ALGOS ↔ UDUZ
-- **El logo de ALGOS no aparece** en el panel teal oscuro. La causa: el componente toma `logo-transparent.png` (que ya es teal + gold sobre transparente) y le aplica `filter: brightness(0) invert(1)`. Eso convierte TODO en blanco — incluyendo el punto dorado de la marca — y como el PNG original tiene un canal alpha muy suave, el resultado es prácticamente invisible. El logo que subiste (`algos-logo-cream.png`) tampoco sirve directo porque está pensado para fondo blanco, no cream/teal.
-- **Tipografía italic delgada** en frases clave ("Lo que hacemos — cómo lo hacemos", "Un ecosistema clínico completo. Sin traslados.") — Playfair Display italic en peso 400 sobre teal oscuro pierde definición.
-- **Contraste bajo del párrafo** "ALGOS opera en alianza institucional…" — cream al 70% sobre teal da ~4.3:1, justo en el borde de AA pero a 14px se siente lavado.
-- **Bullets de servicios** a 14px con cream al 80% son difíciles de escanear.
-- **Bloques 01/02/03** funcionan bien estructuralmente pero el cuerpo a 14px gris (#4a4a4a) sobre cream pierde jerarquía.
-- **Numerales italic** dorados están bien pero compiten con los italics del hero — demasiado Playfair italic por toda la página.
-
-### Resto de la página
-- **Stats strip muestra `00` y `0`** — los contadores animados no se disparan (probable issue de IntersectionObserver o llegó a viewport sin trigger). Lo dejo anotado pero fuera de scope visual.
+Basado en `Resumen_reunion_con_luis.docx` y el PDF de rediseño. Objetivo: reposicionar ALGOS como "La Clínica del Dolor" con doble pilar Especialidades + Estudios Diagnósticos, funnel 100% ALGOS, lenguaje accesible doble‑capa.
 
 ---
 
-## 2. Soluciones propuestas
+## 1. Home — nueva arquitectura
 
-### A. Sistema tipográfico (global, en `src/index.css` y `tailwind.config.ts`)
-- **Subir tamaños base de cuerpo:**
-  - Body párrafos: 14px → **16px** (mobile) / **17px** (desktop), line-height 1.7.
-  - Hero subcopy: 17px → **19–20px**, line-height 1.65.
-  - Bullets de listas en alianza: 14px → **16px**.
-- **Subir peso del color de cuerpo:** `text-deep-teal/80` → `text-deep-teal/90` o token nuevo `--text-body: #2a4a52` (más oscuro que el teal 80% actual).
-- **Reducir uso de Playfair italic.** Mantenerlo solo en H1/H2 del hero y un acento por sección. Reemplazar los italics intermedios (subtítulos "Lo que hacemos", "Lo que necesitas") por Inter semibold uppercase o un display sans más legible.
-- **Reemplazar dorado puro en texto pequeño** por un dorado más oscuro `#9a7320` cuando vaya sobre cream (cumple AA a 14px+).
+Nuevo orden en `src/pages/Index.tsx`:
 
-### B. Arreglar el headline del hero
-- Quitar el stagger de opacidad o subir el opacity final a 1 con duración corta.
-- Subir el contraste del dorado del segundo chunk: usar `#a87a1f` sobre cream (4.7:1) en lugar de `#c69636` (2.1:1).
-- Subir el font-weight del italic Playfair de 400 a 600 para que no se adelgace tanto en pantalla.
-- Comprimir el padding vertical para que el headline empiece antes (el hero pierde ~400px de cream vacío arriba).
-
-### C. Arreglar la sección Alianza
-1. **Logo ALGOS correcto sobre teal oscuro:**
-   - Crear un asset dedicado `algos-logo-cream-on-dark.svg` (inline SVG) con la onda + punto dorado + wordmark en cream (#f5f0e8). Reemplaza el hack `filter: brightness(0) invert(1)`.
-   - Tamaño 140px de alto, alineación izquierda del panel.
-2. **Reescalar el header de cada panel:**
-   - Reemplazar el subtítulo italic Playfair ("Lo que hacemos — cómo lo hacemos") por un H3 sans-serif (Inter 600, 22px, tracking ajustado) en cream/teal y un acento dorado en la segunda parte.
-3. **Subir contraste del párrafo central del bridge:** cream/70 → cream/95, tamaño 15px → 17px, max-width 60ch.
-4. **Bullets más cómodos:** 16px, separación 14px, color cream/90 sobre teal, divisor inferior cream/15.
-5. **CTAs finales:** convertirlas en botones reales en vez de underlines casi invisibles — un primario teal + un secundario ghost con borde, ambos cumpliendo contraste.
-6. **Numerales 01/02/03:** mantener italic dorado pero a 44px en oscuro `#9a7320` (no en gold puro), para que jerarquicen sin chillar.
-
-### D. Navbar
-- Subir tamaño de links 13px → 14px y peso 500 → 600 para mejor lectura.
-- Eyebrow "MARACAIBO · ALEMANIA" del hero: 14px → 13px pero con color dorado más oscuro y `letter-spacing: 0.3em` para que respire.
-
----
-
-## 3. Archivos que tocaré
-
-- `src/index.css` — tokens nuevos: `--text-body`, `--gold-on-cream` (oscuro), tamaños base.
-- `tailwind.config.ts` — exponer los tokens nuevos.
-- `src/components/HeroSection.tsx` — fix headline (color/opacidad/weight), subir copy a 19px, reducir padding top.
-- `src/lib/animations.tsx` — asegurar opacidad final 1 en `AnimatedHeadline` chunks.
-- `src/components/AllianceSection.tsx` — reemplazo del logo, nuevo H3 sans-serif por panel, contraste de bullets/párrafo, CTAs reales, numerales en dorado oscuro.
-- `src/assets/algos-logo-cream.svg` (nuevo) — logo inline cream-on-dark, basado en el SVG de marca.
-- `src/components/Navbar.tsx` — solo ajuste de tamaño/peso de links.
-
-## 4. Lo que NO tocaré (fuera de scope)
-
-- Stats animados en `00/0` (es bug funcional, lo reportaré aparte).
-- Estructura de rutas, contenido de copy clínico, otras secciones del home.
-- Footer, equipo, tratamientos — solo el hero y alianza en este pase.
-
----
-
-## 5. Detalles técnicos (referencia)
-
-Tokens nuevos en `index.css`:
 ```
---text-body: 200 30% 22%;          /* reemplaza deep-teal/80 en párrafos */
---gold-deep: 38 65% 36%;           /* dorado AA-safe sobre cream */
---cream-strong: 38 47% 96%;        /* cream para texto sobre teal */
+Navbar
+HeroSection              ← headline nuevo (§2)
+TrustBar
+EspecialidadesSection    ← pilar 1 (rediseñada, ya existe archivo)
+EstudiosDiagnosticosSection  ← pilar 2 (NUEVO)
+ServiciosDomicilioSection    ← NUEVO (labs + rayos X)
+SedesSection                 ← NUEVO (Zona Sur + Castillo Plaza)
+ConditionsSection        ← se conserva (dolores frecuentes)
+WhyDifferentSection      ← se conserva
+TeamSection              ← ampliado (§5)
+HomeFAQSection           ← reescrita (§6)
+ProximamenteSection      ← NUEVO (expansión 100 m²)
+AllianceSection          ← se mantiene tal cual (decisión usuario)
+StatsStrip
+FinalCTA
 ```
 
-Cambios típicos de utilidad:
-- `text-[14px]` en bullets → `text-base` (16px)
-- `text-deep-teal/80` en body → `text-[hsl(var(--text-body))]`
-- `text-algos-gold` en hero italic → `text-[hsl(var(--gold-deep))]`
+Se retiran del home: `ServicesSection`, `GuiasImagenSection` (sus contenidos migran a la nueva página de Estudios Diagnósticos).
 
-¿Apruebas el plan o quieres ajustar el alcance (por ej. dejar la navbar fuera, o también arreglar los contadores del stats strip)?
+---
+
+## 2. Hero — nuevo headline
+
+`src/components/HeroSection.tsx` — cambio del `AnimatedHeadline`:
+
+- Antes: "El dolor tiene causa. Nosotros la tratamos."
+- Nuevo: **"¿Tiene dolor? En ALGOS lo evaluamos, diagnosticamos y tratamos."**
+
+Chunks:
+- `"¿Tiene dolor? "` — teal
+- `"Evaluamos, diagnosticamos y tratamos."` — gold `#9a7320` (sin italic, respeta la regla ESLint)
+
+Subcopy: "Primer centro de dolor intervencionista del Zulia. Especialidades médicas y estudios diagnósticos bajo un mismo techo."
+
+CTAs: Reservar cita · WhatsApp (ya existe).
+
+---
+
+## 3. Especialidades — pilar 1
+
+### 3.1 Rediseño de `src/components/EspecialidadesSection.tsx`
+
+Grid de 9 especialidades confirmadas por el Dr., cada una con icono, nombre y 1 línea de descripción accesible. CTA "Ver todas las especialidades" → `/especialidades`.
+
+Especialidades (orden y textos según reunión):
+1. Neurocirugía
+2. Traumatología
+3. Reumatología
+4. Fisiatría
+5. Radiología intervencionista
+6. Cuidados paliativos
+7. Oncología médica
+8. Psiquiatría
+9. Nutrición
+
+### 3.2 Nueva ruta `/especialidades` — `src/pages/Especialidades.tsx`
+
+Página detalle con estructura "doble capa" por especialidad: qué evalúa/diagnostica, qué trata, quién acompaña la recuperación. Sin nombres de médicos (van en Equipo).
+
+### 3.3 Datos
+
+Nuevo `src/data/specialties.ts` con la lista (id, name, tagline, description, icon).
+
+---
+
+## 4. Estudios Diagnósticos — pilar 2
+
+### 4.1 Nueva sección de home `src/components/EstudiosDiagnosticosSection.tsx`
+
+Tres grupos visuales:
+- **Imagen**: Tomografía · Rayos X (convencional y portátil) · Mamografía 3D
+- **Cardiología**: ECG · Holter
+- **Neurofisiología**: EEG · EMG
+- **Laboratorio**: enlace directo (ya hay `EstudiosLaboratorio.tsx`)
+
+CTAs: "Ver todos los estudios" → `/estudios-diagnosticos`.
+
+### 4.2 Nueva ruta `/estudios-diagnosticos` — `src/pages/EstudiosDiagnosticos.tsx`
+
+Cada estudio en formato doble capa:
+- **Qué es** (frase accesible)
+- **Para qué sirve** (indicaciones frecuentes en lenguaje de paciente — ej. EMG: "cuando el dolor viene con hormigueo o debilidad")
+- **Cómo se hace** (detalle técnico corto)
+- **Disponibilidad**: horario y sede (ej. EMG/EEG solo miércoles PM)
+
+Migrar contenido útil de `GuiasImagenSection.tsx` y `EstudiosLaboratorio.tsx`.
+
+### 4.3 Datos
+
+Nuevo `src/data/diagnostics.ts`.
+
+### 4.4 Ads / SEO
+
+Meta title y H1 orientados a "tomografía Maracaibo", "Holter Maracaibo", "electromiografía Maracaibo". Actualizar `public/sitemap.xml` y `public/llms.txt`.
+
+---
+
+## 5. Servicios a domicilio + Sedes
+
+### 5.1 `src/components/ServiciosDomicilioSection.tsx` (nuevo)
+
+Bloque compacto: "Laboratorio a domicilio" y "Rayos X a domicilio". CTA WhatsApp.
+
+### 5.2 `src/components/SedesSection.tsx` (nuevo)
+
+Dos tarjetas: **Zona Sur** y **Castillo Plaza**, con dirección, servicios disponibles en cada una y botón "Cómo llegar" (Google Maps). Direcciones pendientes de confirmar — se dejan placeholders visibles y comentados hasta que Secretaría las envíe.
+
+---
+
+## 6. Preguntas frecuentes
+
+Reescribir `src/components/HomeFAQSection.tsx` con las 8 preguntas priorizadas en la reunión:
+1. ¿Duele el procedimiento?
+2. ¿Es seguro? ¿Qué efectos secundarios puede tener?
+3. ¿Cuánto dura el procedimiento y la recuperación?
+4. ¿En cuánto tiempo notaré mejoría?
+5. ¿Los efectos son permanentes?
+6. ¿Cuánto cuesta? (respuesta: se cotiza según caso tras evaluación)
+7. ¿Cómo agendo una cita?
+8. ¿Necesito referencia médica?
+
+Todo en registro **usted**.
+
+---
+
+## 7. Equipo — ampliación
+
+`src/data/team.ts` — añadir médicos confirmados en la reunión (con datos mínimos placeholder marcados como "pendiente confirmar por Secretaría"):
+- Dr. Antonino Parra — Traumatólogo (cadera)
+- Dr. Miguel Guevara — [especialidad pendiente]
+- Dra. Carolina — Fisiatría
+- Dra. Doris Meneses — Neurocirugía (columna)
+- Dr. Alirio Ríos — Neurofisiología (EEG/EMG)
+- Dra. Alicia — Cardiología (Holter)
+
+Mantener los cuatro miembros actuales (Dr. Atilio, Dr. Luis, Dra. Aliseth, Lcdo. Daniel).
+
+---
+
+## 8. Sección "Próximamente"
+
+`src/components/ProximamenteSection.tsx` (nuevo). Narrativa institucional del proyecto de expansión de 100 m² (consultorios, integración diagnóstico + tratamiento). Sin fotos aún — usar ilustración o mockup textual con un badge "Próximamente Q1 2027".
+
+---
+
+## 9. Registro `usted` y limpieza de tecnicismos
+
+- Auditar copy de nuevos componentes para asegurar registro usted (sin "tú/tienes/puedes").
+- No usar en portada: "infiltración ecoguiada", "bloqueo facetario", "radiofrecuencia medial branch" — mover a fichas internas.
+- Mantener regla ESLint `no-italic` — todos los headlines nuevos usan Raleway peso variable, no italic.
+
+---
+
+## 10. Rutas nuevas (App.tsx)
+
+Añadir en `src/App.tsx`:
+- `/especialidades` → `Especialidades`
+- `/estudios-diagnosticos` → `EstudiosDiagnosticos`
+
+Actualizar navbar (`Navbar.tsx` y `GlobalNavbar.tsx`) con enlaces a estas dos rutas.
+
+---
+
+## 11. Fuera de alcance (para próxima iteración)
+
+- Contenido definitivo por especialista (esperando entregas de Secretaría).
+- Fichas nuevas de condiciones (túnel carpiano, rodilla) — se dejan listadas pero sin páginas nuevas todavía.
+- Google Business Profile, Ads, plan de reseñas — trabajo operativo, no del código.
+- Radiofrecuencia como servicio propio — sigue "próximamente" según PDF.
+- Precios — bloqueante según reunión.
+
+---
+
+## 12. Orden de implementación
+
+1. Datos nuevos (`specialties.ts`, `diagnostics.ts`, ampliación de `team.ts`).
+2. Componentes nuevos (EstudiosDiagnosticos, ServiciosDomicilio, Sedes, Proximamente).
+3. Rediseño EspecialidadesSection y HomeFAQSection.
+4. Nuevas páginas /especialidades y /estudios-diagnosticos + rutas.
+5. Ajuste del Hero.
+6. Reorden de `Index.tsx`.
+7. Navbar + sitemap + llms.txt.
+8. Commit único.
+
+¿Apruebas para pasar a implementación, o quieres ajustar algún bloque (por ejemplo dejar Sedes/Próximamente para una segunda pasada)?
