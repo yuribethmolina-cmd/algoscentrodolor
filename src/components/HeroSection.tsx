@@ -135,7 +135,7 @@ export default function HeroSection() {
             style={{ fontSize: "clamp(16px, 4.5vw, 19px)", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
             Primer centro de dolor intervencionista del Zulia. Especialidades
-            médicas y estudios diagnósticos bajo un mismo techo.
+            médicas y estudios diagnósticos —en alianza con UDUZ— bajo un mismo techo.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
@@ -152,13 +152,14 @@ export default function HeroSection() {
               </span>
             </a>
             <Link
-              to="/tratamientos"
+              to="/especialidades"
               className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded-none transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
-              <span>Ver tratamientos</span>
+              <span>Especialidades</span>
             </Link>
           </div>
+
         </div>
       </div>
     </section>
