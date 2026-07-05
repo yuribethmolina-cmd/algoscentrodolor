@@ -44,6 +44,112 @@ export default function Equipo() {
           video="medicos"
         />
 
+        <section
+          style={{
+            backgroundColor: "#f5f0e8",
+            paddingTop: "clamp(80px, 10vw, 128px)",
+            paddingBottom: "clamp(80px, 10vw, 128px)",
+          }}
+        >
+          <div
+            className="mx-auto"
+            style={{
+              maxWidth: 1080,
+              paddingLeft: "clamp(24px, 4vw, 48px)",
+              paddingRight: "clamp(24px, 4vw, 48px)",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#c69636",
+                marginBottom: 20,
+              }}
+            >
+              ESPECIALIDADES MÉDICAS
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Sora', serif",
+                fontWeight: 600,
+                fontSize: "clamp(28px, 3.5vw, 48px)",
+                lineHeight: 1.15,
+                color: "#1a4a55",
+                marginBottom: "clamp(16px, 2vw, 24px)",
+              }}
+            >
+              Consultas especializadas disponibles
+            </h2>
+            <p
+              style={{
+                fontFamily: "Manrope, system-ui, sans-serif",
+                fontSize: "clamp(15px, 1.6vw, 17px)",
+                lineHeight: 1.7,
+                color: "rgba(26,74,85,0.75)",
+                maxWidth: 620,
+                marginBottom: "clamp(48px, 6vw, 72px)",
+              }}
+            >
+              ALGOS cuenta con consultorios presenciales en Sector Paraíso, Maracaibo,
+              donde nuestros especialistas evalúan, diagnostican y diseñan el plan de
+              tratamiento de cada paciente.
+            </p>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+                gap: "clamp(12px, 2vw, 20px)",
+              }}
+            >
+              {[
+                "Neurocirugía",
+                "Traumatología",
+                "Reumatología",
+                "Algología · Cuidados Paliativos",
+                "Nutrición Clínica",
+                "Medicina Deportiva",
+                "Oncología Médica",
+                "Radiología Intervencionista",
+                "Psiquiatría",
+                "Fisiatría",
+              ].map((esp) => (
+                <div
+                  key={esp}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    border: "1px solid rgba(26,74,85,0.1)",
+                    padding: "20px 24px",
+                    fontFamily: "Manrope, system-ui, sans-serif",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "#1a4a55",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  {esp}
+                </div>
+              ))}
+            </div>
+
+            <p
+              style={{
+                fontFamily: "Manrope, system-ui, sans-serif",
+                fontSize: 13,
+                color: "rgba(26,74,85,0.55)",
+                marginTop: 32,
+              }}
+            >
+              ¿No encuentra su especialidad? Escríbanos — atendemos o referimos a la
+              red de especialistas de ALGOS.
+            </p>
+          </div>
+        </section>
+
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
             <p className="font-sans text-deep-teal text-[18px] leading-[1.75] max-w-[62ch] mb-16">
