@@ -1,22 +1,48 @@
-import suiteVip from "@/assets/suite-vip.jpg";
-import recepcion from "@/assets/recepcion.jpg";
-import salaProcedimientos from "@/assets/sala-procedimientos.jpg";
-import suitePrep from "@/assets/suite-prep.jpg";
-import consultorio from "@/assets/consultorio.jpg";
-import suiteVipEmpty from "@/assets/suite-vip-empty.jpg";
-import salaEspera from "@/assets/sala-espera.jpg";
-import nutricionBar from "@/assets/nutricion-bar.jpg";
+import Picture from "@/components/Picture";
+import suiteVip from "@/assets/suite-vip.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import recepcion from "@/assets/recepcion.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import salaProcedimientos from "@/assets/sala-procedimientos.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import suitePrep from "@/assets/suite-prep.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import consultorio from "@/assets/consultorio.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import suiteVipEmpty from "@/assets/suite-vip-empty.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import salaEspera from "@/assets/sala-espera.jpg?w=320;480;720&format=avif;webp;jpg&as=picture";
+import nutricionBar from "@/assets/nutricion-bar.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 
 const gallery = [
-  { src: suiteVip, label: "Suite VIP — Terapias Endovenosas" },
-  { src: consultorio, label: "Consultorio — Dr. Atilio Rodríguez" },
-  { src: recepcion, label: "Recepción ALGOS" },
-  { src: salaProcedimientos, label: "Sala de Procedimientos" },
-  { src: suiteVipEmpty, label: "Suite de Recuperación" },
-  { src: salaEspera, label: "Sala de espera" },
-  { src: suitePrep, label: "Preparación de terapias" },
-  { src: nutricionBar, label: "ALGOS Nutrición Clínica" },
+  { pic: suiteVip, label: "Suite VIP — Terapias Endovenosas" },
+  { pic: consultorio, label: "Consultorio — Dr. Atilio Rodríguez" },
+  { pic: recepcion, label: "Recepción ALGOS" },
+  { pic: salaProcedimientos, label: "Sala de Procedimientos" },
+  { pic: suiteVipEmpty, label: "Suite de Recuperación" },
+  { pic: salaEspera, label: "Sala de espera" },
+  { pic: suitePrep, label: "Preparación de terapias" },
+  { pic: nutricionBar, label: "ALGOS Nutrición Clínica" },
 ];
+
+const imgCls =
+  "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105";
+
+function GalleryCell({
+  index,
+  wrapperCls,
+  sizes,
+}: {
+  index: number;
+  wrapperCls: string;
+  sizes: string;
+}) {
+  const { pic, label } = gallery[index];
+  return (
+    <div className={wrapperCls}>
+      <Picture picture={pic} alt={label} sizes={sizes} className={imgCls} fadeIn={false} />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+        <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">
+          {label}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function ExperienceSection() {
   return (
@@ -39,59 +65,47 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        {/* Curated Grid — 4 columns, specific spans */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[140px] md:auto-rows-[180px]">
-          {/* Row 1-2: Large hero + 2 stacked */}
-          <div className="scroll-reveal col-span-1 md:col-span-2 row-span-2 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[0].src} alt={gallery[0].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[0].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal scroll-reveal-delay-1 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[1].src} alt={gallery[1].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[1].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal scroll-reveal-delay-2 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[2].src} alt={gallery[2].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[2].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal scroll-reveal-delay-3 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[3].src} alt={gallery[3].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[3].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal scroll-reveal-delay-4 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[4].src} alt={gallery[4].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[4].label}</span>
-            </div>
-          </div>
-
-          {/* Row 3-4: 2 tall + large hero */}
-          <div className="scroll-reveal scroll-reveal-delay-1 row-span-2 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[5].src} alt={gallery[5].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[5].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal scroll-reveal-delay-2 row-span-2 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[6].src} alt={gallery[6].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[6].label}</span>
-            </div>
-          </div>
-          <div className="scroll-reveal col-span-2 row-span-2 group relative rounded-2xl overflow-hidden">
-            <img src={gallery[7].src} alt={gallery[7].label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-              <span className="text-primary-foreground/80 text-xs font-light tracking-wider uppercase">{gallery[7].label}</span>
-            </div>
-          </div>
+          <GalleryCell
+            index={0}
+            wrapperCls="scroll-reveal col-span-1 md:col-span-2 row-span-2 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 50vw"
+          />
+          <GalleryCell
+            index={1}
+            wrapperCls="scroll-reveal scroll-reveal-delay-1 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={2}
+            wrapperCls="scroll-reveal scroll-reveal-delay-2 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={3}
+            wrapperCls="scroll-reveal scroll-reveal-delay-3 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={4}
+            wrapperCls="scroll-reveal scroll-reveal-delay-4 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={5}
+            wrapperCls="scroll-reveal scroll-reveal-delay-1 row-span-2 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={6}
+            wrapperCls="scroll-reveal scroll-reveal-delay-2 row-span-2 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+          <GalleryCell
+            index={7}
+            wrapperCls="scroll-reveal col-span-2 row-span-2 group relative rounded-2xl overflow-hidden"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
       </div>
     </section>

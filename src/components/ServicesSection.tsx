@@ -1,7 +1,10 @@
 import { useInViewOnce } from "@/lib/animations";
-import imgTech from "@/assets/experience-tech.jpg";
-import imgSala from "@/assets/sala-procedimientos.jpg";
-import imgProc from "@/assets/about-procedure.jpg";
+import imgTechPic from "@/assets/experience-tech.jpg?w=480;800&format=webp;jpg&as=picture";
+import imgSalaPic from "@/assets/sala-procedimientos.jpg?w=480;800&format=webp;jpg&as=picture";
+import imgProcPic from "@/assets/about-procedure.jpg?w=480;800&format=webp;jpg&as=picture";
+const imgTech = imgTechPic.img.src;
+const imgSala = imgSalaPic.img.src;
+const imgProc = imgProcPic.img.src;
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";

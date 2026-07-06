@@ -1,6 +1,9 @@
-import photoAtilio from '@/assets/team-atilio.png';
-import photoLuis from '@/assets/team-luis.png';
-import photoDaniel from '@/assets/team-daniel.png';
+import photoAtilioPic from '@/assets/team-atilio.png?w=320;480;720&format=avif;webp;jpg&as=picture';
+import photoLuisPic from '@/assets/team-luis.png?w=320;480;720&format=avif;webp;jpg&as=picture';
+import photoDanielPic from '@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture';
+const photoAtilio = photoAtilioPic.img.src;
+const photoLuis = photoLuisPic.img.src;
+const photoDaniel = photoDanielPic.img.src;
 
 export type ConfirmedMember = {
   type: 'confirmed';

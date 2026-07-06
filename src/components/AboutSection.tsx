@@ -1,5 +1,6 @@
 import { Crosshair, Scan, Target, Gem, Users, Heart } from "lucide-react";
-import aboutProcedure from "@/assets/about-procedure.jpg";
+import Picture from "@/components/Picture";
+import aboutProcedure from "@/assets/about-procedure.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 
 const features = [
   {
@@ -85,13 +86,12 @@ export default function AboutSection() {
           {/* Right — image with overlay */}
           <div className="scroll-reveal scroll-reveal-delay-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={aboutProcedure}
+              <Picture
+                picture={aboutProcedure}
                 alt="Procedimiento de infiltración guiada por ecógrafo en ALGOS"
-                loading="lazy"
-                width={1024}
-                height={1024}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto object-cover"
+                fadeIn={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
