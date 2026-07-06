@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -10,6 +12,26 @@ const CREAM = "#f5f0e8";
 const TEAL = "#3d8b96";
 
 export default function Especialidades() {
+  const location = useLocation();
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+
+  useEffect(() => {
+    const slug = location.hash.replace(/^#/, "");
+    if (!slug) return;
+    setActiveSlug(slug);
+    // Wait for layout, then scroll
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(slug);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
+    // Fade the highlight after a moment
+    const clear = window.setTimeout(() => setActiveSlug(null), 2400);
+    return () => {
+      window.clearTimeout(t);
+      window.clearTimeout(clear);
+    };
+  }, [location.hash, location.key]);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: CREAM }}>
       <SEOHead
@@ -100,14 +122,24 @@ export default function Especialidades() {
                 gap: 20,
               }}
             >
-              {SPECIALTIES.map((sp) => (
+              {SPECIALTIES.map((sp) => {
+                const isActive = activeSlug === sp.slug;
+                return (
                 <article
                   key={sp.slug}
+                  id={sp.slug}
                   style={{
                     backgroundColor: "#fff",
                     padding: "28px 26px",
-                    border: "1px solid rgba(26,74,85,0.1)",
+                    border: isActive
+                      ? `1px solid ${GOLD}`
+                      : "1px solid rgba(26,74,85,0.1)",
                     borderTop: `3px solid ${GOLD}`,
+                    scrollMarginTop: 120,
+                    boxShadow: isActive
+                      ? `0 0 0 3px rgba(198,150,54,0.25)`
+                      : "none",
+                    transition: "box-shadow 400ms ease, border-color 400ms ease",
                   }}
                 >
                   <h2
@@ -181,7 +213,8 @@ export default function Especialidades() {
                     ))}
                   </dl>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

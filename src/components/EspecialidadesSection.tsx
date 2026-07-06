@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const DEEP_TEAL = "#1a4a55";
@@ -18,6 +18,8 @@ type Node = {
   label: string;
   /** Angle in degrees, 0° = top, clockwise */
   angle: number;
+  /** Slug of a specialty defined in src/data/specialties.ts */
+  slug: string;
   /** Custom line-art icon, drawn centered at (0,0) inside a 56x56 box */
   icon: JSX.Element;
 };
@@ -29,6 +31,7 @@ const NODES: Node[] = [
   {
     label: "Neurocirugía\nIntervencionista",
     angle: 0,
+    slug: "neurocirugia",
     icon: (
       <g {...ICON_STROKE}>
         {[-18, -8, 2, 12].map((y, i) => (
@@ -45,6 +48,7 @@ const NODES: Node[] = [
   {
     label: "Traumatología\ny Columna",
     angle: 60,
+    slug: "traumatologia",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -14 -18 L -4 -6 Q 0 -2 4 -6 L 14 -18" />
@@ -59,6 +63,7 @@ const NODES: Node[] = [
   {
     label: "Reumatología",
     angle: 120,
+    slug: "reumatologia",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -10 -16 L -2 -4 Q 0 0 2 -4 L 10 -16" />
@@ -84,6 +89,7 @@ const NODES: Node[] = [
   {
     label: "Anestesiología\ndel Dolor",
     angle: 180,
+    slug: "radiologia-intervencionista",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -8 -16 Q -8 -20 -4 -20 Q 0 -20 0 -16 L 0 -4 Q 0 4 -4 4 Q -8 4 -8 -4 Z" />
@@ -97,6 +103,7 @@ const NODES: Node[] = [
   {
     label: "Nutrición\nAntiinflamatoria",
     angle: 240,
+    slug: "nutricion",
     icon: (
       <g {...ICON_STROKE}>
         <circle cx="0" cy="0" r="20" />
@@ -109,6 +116,7 @@ const NODES: Node[] = [
   {
     label: "Electrodiagnóstico",
     angle: 300,
+    slug: "fisiatria",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -14 -4 Q -14 -14 -6 -14 Q -2 -18 4 -14 Q 12 -14 12 -4 Q 16 0 12 6 Q 12 14 4 14 Q -2 16 -6 12 Q -14 12 -14 4 Q -18 0 -14 -4 Z" />
@@ -123,17 +131,15 @@ function polar(angleDeg: number, radius: number) {
   return { x: CX + radius * Math.cos(rad), y: CY + radius * Math.sin(rad) };
 }
 
-const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "");
 
 export default function EspecialidadesSection() {
   const [activeAngle, setActiveAngle] = useState<number | null>(null);
   const [hoverAngle, setHoverAngle] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const goToSpecialty = (angle: number, slug: string) => {
+    setActiveAngle(angle);
+    navigate(`/especialidades#${slug}`);
+  };
   return (
     <section
       style={{
@@ -257,18 +263,16 @@ export default function EspecialidadesSection() {
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
               const lines = n.label.split("\n");
-              const slug = slugify(lines.join(" "));
               const isHover = hoverAngle === n.angle;
               const isActive = activeAngle === n.angle;
               const isFocus = isHover || isActive;
-              const ariaLabel = lines.join(" ");
+              const ariaLabel = `Ver ${lines.join(" ")} en especialidades`;
               return (
                 <a
                   key={`node-${n.angle}`}
-                  href={`/especialidades#${slug}`}
+                  href={`/especialidades#${n.slug}`}
                   aria-label={ariaLabel}
-                  aria-pressed={isActive}
-                  role="button"
+                  role="link"
                   tabIndex={0}
                   onMouseEnter={() => setHoverAngle(n.angle)}
                   onMouseLeave={() => setHoverAngle(null)}
@@ -276,12 +280,12 @@ export default function EspecialidadesSection() {
                   onBlur={() => setHoverAngle(null)}
                   onClick={(e) => {
                     e.preventDefault();
-                    setActiveAngle(n.angle);
+                    goToSpecialty(n.angle, n.slug);
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
-                      setActiveAngle(n.angle);
+                      goToSpecialty(n.angle, n.slug);
                     }
                   }}
                   style={{
@@ -486,15 +490,14 @@ export default function EspecialidadesSection() {
           >
             {NODES.map((n) => {
               const isActive = activeAngle === n.angle;
-              const slug = slugify(n.label.replace(/\n/g, " "));
               return (
                 <li key={`m-${n.angle}`} style={{ display: "block" }}>
                   <a
-                    href={`/especialidades#${slug}`}
-                    aria-pressed={isActive}
+                    href={`/especialidades#${n.slug}`}
+                    aria-label={`Ver ${n.label.replace(/\n/g, " ")} en especialidades`}
                     onClick={(e) => {
                       e.preventDefault();
-                      setActiveAngle(n.angle);
+                      goToSpecialty(n.angle, n.slug);
                     }}
                     style={{
                       backgroundColor: isActive ? GOLD : TEAL,
