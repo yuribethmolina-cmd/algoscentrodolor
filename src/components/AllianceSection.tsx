@@ -120,12 +120,51 @@ function ConnectorLineMobile() {
 
 export default function AllianceSection() {
   return (
-    <section id="alianza" style={{ backgroundColor: DEEP_TEAL }}>
+    <section
+      id="alianza"
+      style={{
+        backgroundColor: DEEP_TEAL,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Ambient background glows */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "8%",
+          left: "-8%",
+          width: 520,
+          height: 520,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${UDUZ_GREEN}22 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          right: "-6%",
+          width: 460,
+          height: 460,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${GOLD}20 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+
       <div
         style={{
           padding: "clamp(64px, 8vw, 96px) clamp(24px, 5vw, 72px)",
           maxWidth: 1280,
           margin: "0 auto",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {/* ── Header ───────────────────────────────────────────── */}
