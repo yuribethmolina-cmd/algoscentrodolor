@@ -24,7 +24,7 @@ const DOCTORES: Doctor[] = [
     name: "Dr. Atilio Rodríguez",
     specialty: "Neurocirugía Intervencionista · Director Médico",
     schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
-    photo: drAtilioAsset.url,
+    photo: drAtilio,
     photoPosition: "center top",
     isDirector: true,
   },
