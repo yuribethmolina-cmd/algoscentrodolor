@@ -11,44 +11,29 @@ const CREAM = "#f5f0e8";
 
 const faqs = [
   {
+    pregunta: "¿Cómo sé si ALGOS puede ayudarme?",
+    respuesta:
+      "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele — lo evaluamos y le decimos con honestidad qué opciones existen.",
+  },
+  {
     pregunta: "¿Duele el procedimiento?",
     respuesta:
-      "La mayoría de los procedimientos se realizan con anestesia local, por lo que se percibe presión o una molestia leve, no dolor intenso. Antes de comenzar le explicamos qué sensación tendrá en cada paso, y durante todo el procedimiento el equipo está atento a su comodidad.",
+      "Los procedimientos se realizan con anestesia local. La mayoría de los pacientes describe una molestia leve durante el procedimiento que cede rápidamente. El dolor que usted tiene hoy suele ser mayor que el del procedimiento.",
   },
   {
-    pregunta: "¿Es seguro? ¿Qué efectos secundarios puede tener?",
+    pregunta: "¿Cuánto tiempo dura la recuperación?",
     respuesta:
-      "Son procedimientos mínimamente invasivos y ambulatorios, con un perfil de seguridad favorable cuando se realizan guiados por imagen y a cargo de un equipo con experiencia. Como todo acto médico, puede haber efectos secundarios leves y transitorios; en la consulta se le informan los que corresponden a su caso.",
+      "La mayoría de los pacientes retoma actividades ligeras al día siguiente. No hay hospitalización — el procedimiento es ambulatorio y sale el mismo día con indicaciones escritas.",
   },
   {
-    pregunta: "¿Cuánto dura el procedimiento y la recuperación?",
+    pregunta: "¿Necesito una orden médica para venir?",
     respuesta:
-      "En su mayoría son ambulatorios: el procedimiento suele durar entre 20 y 45 minutos y el paciente regresa a casa el mismo día. El tiempo de recuperación depende del procedimiento realizado; en muchos casos es posible reincorporarse a la actividad habitual en poco tiempo. Las indicaciones específicas se entregan en la consulta.",
+      "No. Puede venir directamente a consulta. Si trae estudios previos — resonancia, tomografía, EMG — tráigalos, pero no son requisito para la primera evaluación.",
   },
   {
-    pregunta: "¿En cuánto tiempo notaré mejoría?",
+    pregunta: "¿Cuánto cuesta la consulta?",
     respuesta:
-      "Depende del procedimiento: algunos ofrecen alivio en pocos días y otros, como la radiofrecuencia, alcanzan su efecto en algunas semanas.",
-  },
-  {
-    pregunta: "¿Los efectos son permanentes?",
-    respuesta:
-      "Varía según el tratamiento y el caso: algunos brindan alivio duradero y otros pueden repetirse de acuerdo con la evolución. En la consulta se le explica qué esperar en su situación.",
-  },
-  {
-    pregunta: "¿Cuánto cuesta?",
-    respuesta:
-      "El costo se define después de la evaluación clínica, según el procedimiento indicado para su caso. Contáctenos para agendar consulta y recibir la información correspondiente.",
-  },
-  {
-    pregunta: "¿Cómo agendo una cita?",
-    respuesta:
-      "Puede agendar por WhatsApp, teléfono o desde el formulario de contacto. Le confirmamos día y hora según la disponibilidad del especialista que su caso requiere.",
-  },
-  {
-    pregunta: "¿Necesito referencia médica?",
-    respuesta:
-      "No es necesaria. Puede agendar su consulta de forma directa. Si acude referido por su médico, con gusto le hacemos llegar el informe de su evaluación.",
+      "Escríbanos por WhatsApp y le informamos los costos actualizados según el tipo de evaluación que necesita.",
   },
 ];
 
@@ -82,7 +67,7 @@ export default function HomeFAQSection() {
               marginBottom: 20,
             }}
           >
-            PREGUNTAS
+            PREGUNTAS FRECUENTES
           </p>
           <h2
             style={{
@@ -93,7 +78,7 @@ export default function HomeFAQSection() {
               color: DEEP_TEAL,
             }}
           >
-            Preguntas frecuentes
+            Lo que los pacientes siempre preguntan
           </h2>
         </div>
 

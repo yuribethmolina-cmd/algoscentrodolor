@@ -264,38 +264,41 @@ export default function AllianceSection() {
           textAlign: "center",
         }}
       >
-        {/* Badge */}
-        <div
+        <p
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 10,
-            border: `1px solid ${GOLD}`,
-            borderRadius: 9999,
-            padding: "8px 20px",
-            marginBottom: 32,
+            fontFamily: "Inter, sans-serif",
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: GOLD,
+            marginBottom: 24,
           }}
         >
-          <span
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              color: GOLD,
-            }}
-          >
-            ALIANZA OFICIAL · MARACAIBO 2026
-          </span>
-        </div>
+          DIAGNÓSTICO INTEGRADO
+        </p>
+
+        <h2
+          style={{
+            fontFamily: "'Sora', serif",
+            fontWeight: 700,
+            fontSize: "clamp(28px, 3.6vw, 44px)",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            color: CREAM_STRONG,
+            margin: "0 auto 24px",
+            maxWidth: "32ch",
+          }}
+        >
+          Tu evaluación, tu imagen y tu tratamiento en el mismo ecosistema.
+        </h2>
 
         <p
           style={{
             fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(16px, 1.2vw, 18px)",
+            fontSize: "clamp(15px, 1.2vw, 17px)",
             fontWeight: 400,
-            color: "rgba(250, 246, 239, 0.92)",
+            color: "rgba(250, 246, 239, 0.85)",
             lineHeight: 1.7,
             marginBottom: 32,
             maxWidth: "58ch",
@@ -303,26 +306,48 @@ export default function AllianceSection() {
             marginRight: "auto",
           }}
         >
-          <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>ALGOS</strong> opera en alianza institucional con <strong style={{ color: CREAM_STRONG, fontWeight: 700 }}>UDUZ</strong>. Tu evaluación, tu diagnóstico y tu tratamiento ocurren en el mismo ecosistema — con el mismo equipo informado de tu caso.
+          A través de nuestra alianza con UDUZ — Unidad de Diagnóstico del
+          Zulia — ofrecemos estudios de imagen y laboratorio dentro del mismo
+          proceso clínico. El médico que te evalúa es el mismo que interpreta
+          tus resultados.
         </p>
 
-        <h2
+        <p
           style={{
-            fontFamily: "'Sora', serif",
-            fontWeight: 700,
-            fontSize: "clamp(36px, 5vw, 60px)",
-            lineHeight: 1.08,
-            letterSpacing: "-0.02em",
-            color: CREAM_STRONG,
-            margin: "0 auto",
-            maxWidth: "22ch",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(13px, 1.1vw, 15px)",
+            fontWeight: 500,
+            color: "rgba(250, 246, 239, 0.7)",
+            letterSpacing: "0.06em",
+            marginBottom: 36,
           }}
         >
-          Un ecosistema clínico completo.{" "}
-          <span style={{ fontWeight: 700, color: GOLD }}>
-            Sin traslados.
-          </span>
-        </h2>
+          Tomografía · Rayos X · Mamografía 3D · Ecografía · Laboratorio
+          clínico · Holter · Electrocardiograma
+        </p>
+
+        <a
+          href="https://wa.me/584126404124"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: DEEP_TEAL,
+            backgroundColor: GOLD,
+            padding: "14px 28px",
+            borderRadius: 4,
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 10,
+          }}
+        >
+          Agendar estudio diagnóstico <span aria-hidden>→</span>
+        </a>
       </div>
 
 
