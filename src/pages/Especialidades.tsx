@@ -240,6 +240,128 @@ export default function Especialidades() {
                       </div>
                     ))}
                   </dl>
+
+                  {/* Especialistas asignados */}
+                  <div
+                    style={{
+                      marginTop: 20,
+                      paddingTop: 18,
+                      borderTop: "1px solid rgba(26,74,85,0.08)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 10,
+                        fontWeight: 700,
+                        letterSpacing: "0.22em",
+                        textTransform: "uppercase",
+                        color: GOLD,
+                        marginBottom: 10,
+                      }}
+                    >
+                      Especialistas
+                    </p>
+                    {(SPECIALTY_TO_DOCTORS[sp.slug] ?? []).length > 0 ? (
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: 0,
+                          margin: 0,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 8,
+                        }}
+                      >
+                        {SPECIALTY_TO_DOCTORS[sp.slug].map((doc) => (
+                          <li key={doc.name}>
+                            <Link
+                              to="/equipo"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 10,
+                                textDecoration: "none",
+                                padding: "6px 8px",
+                                margin: "-6px -8px",
+                                borderRadius: 2,
+                                transition: "background-color 200ms ease",
+                              }}
+                              onMouseEnter={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                  "rgba(61,139,150,0.06)")
+                              }
+                              onMouseLeave={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                  "transparent")
+                              }
+                            >
+                              <span
+                                style={{
+                                  width: 32,
+                                  height: 32,
+                                  borderRadius: "50%",
+                                  overflow: "hidden",
+                                  flexShrink: 0,
+                                  backgroundColor: "rgba(26,74,85,0.06)",
+                                  border: doc.photo
+                                    ? "1px solid rgba(26,74,85,0.1)"
+                                    : "1px dashed rgba(26,74,85,0.25)",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                {doc.photo ? (
+                                  <img
+                                    src={doc.photo}
+                                    alt={doc.name}
+                                    loading="lazy"
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      objectFit: "cover",
+                                      objectPosition:
+                                        doc.photoPosition ?? "center top",
+                                    }}
+                                  />
+                                ) : (
+                                  <UserRound
+                                    size={16}
+                                    strokeWidth={1.5}
+                                    color="rgba(26,74,85,0.5)"
+                                  />
+                                )}
+                              </span>
+                              <span
+                                style={{
+                                  fontFamily: "Inter, sans-serif",
+                                  fontSize: 13.5,
+                                  fontWeight: 500,
+                                  color: DEEP_TEAL,
+                                  lineHeight: 1.3,
+                                }}
+                              >
+                                {doc.name}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: 13,
+                          fontStyle: "italic",
+                          color: "rgba(26,74,85,0.55)",
+                          margin: 0,
+                        }}
+                      >
+                        Especialista próximamente
+                      </p>
+                    )}
+                  </div>
                 </article>
                 );
               })}
