@@ -142,6 +142,11 @@ const slugify = (s: string) =>
 export default function EspecialidadesSection() {
   const [activeAngle, setActiveAngle] = useState<number | null>(null);
   const [hoverAngle, setHoverAngle] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const goToSpecialty = (angle: number, slug: string) => {
+    setActiveAngle(angle);
+    navigate(`/especialidades#${slug}`);
+  };
   return (
     <section
       style={{
