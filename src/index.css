@@ -473,3 +473,65 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-video { display: none !important; }
 }
+
+/* ============================================================
+ * Global image placeholder — subtle shimmer while pixels load,
+ * fades to the actual image once decoded. Applied to any <img>
+ * that has not yet been marked by the imageWatcher.
+ * Opt out per-image with `data-no-placeholder`.
+ * ============================================================ */
+@keyframes lov-img-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+img:not([data-img-loaded="true"]):not([data-no-placeholder]) {
+  background-color: hsl(30 20% 92%);
+  background-image: linear-gradient(
+    110deg,
+    hsl(30 20% 92%) 20%,
+    hsl(30 25% 96%) 45%,
+    hsl(30 20% 92%) 70%
+  );
+  background-size: 200% 100%;
+  animation: lov-img-shimmer 1.4s linear infinite;
+  color: transparent;
+}
+
+/* Dark surfaces: swap shimmer to a cool teal tint so it matches
+   the deep-teal sections without a bright flash. */
+[data-surface="dark"] img:not([data-img-loaded="true"]):not([data-no-placeholder]),
+.bg-primary img:not([data-img-loaded="true"]):not([data-no-placeholder]),
+.bg-deep-teal img:not([data-img-loaded="true"]):not([data-no-placeholder]) {
+  background-color: hsl(190 45% 14%);
+  background-image: linear-gradient(
+    110deg,
+    hsl(190 45% 14%) 20%,
+    hsl(190 40% 20%) 45%,
+    hsl(190 45% 14%) 70%
+  );
+}
+
+img[data-img-loaded="true"] {
+  animation: none;
+  background-image: none;
+  transition: filter 400ms ease, opacity 400ms ease;
+}
+
+/* Optional: images can start slightly blurred and unblur on load
+   by adding the class `img-blur-in`. */
+img.img-blur-in:not([data-img-loaded="true"]) {
+  filter: blur(14px);
+  transform: scale(1.02);
+}
+img.img-blur-in[data-img-loaded="true"] {
+  filter: blur(0);
+  transform: scale(1);
+  transition: filter 500ms ease, transform 500ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img:not([data-img-loaded="true"]):not([data-no-placeholder]) {
+    animation: none;
+  }
+}
