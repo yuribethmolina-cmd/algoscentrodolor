@@ -91,42 +91,94 @@ export default function WhyDifferentSection() {
         {/* Cards — 3 columns on desktop, 1 on mobile */}
         <div
           className="grid grid-cols-1 md:grid-cols-3"
-          style={{ gap: "clamp(12px, 2vw, 20px)" }}
+          style={{ gap: "clamp(14px, 2vw, 22px)" }}
         >
-          {pilares.map((p) => (
+          {pilares.map((p, i) => (
             <div
               key={p.titulo}
+              className="group relative overflow-hidden"
               style={{
-                padding: "clamp(24px, 3vw, 36px)",
-                backgroundColor: "#fff",
-                border: "1px solid rgba(26,74,85,0.10)",
-                borderRadius: 4,
+                padding: "clamp(28px, 3vw, 40px)",
+                background:
+                  "linear-gradient(155deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.55) 100%)",
+                backdropFilter: "blur(14px) saturate(140%)",
+                WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                border: "1px solid rgba(255,255,255,0.6)",
+                borderRadius: 14,
+                boxShadow:
+                  "0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 40px -24px rgba(26,74,85,0.28), 0 2px 6px rgba(26,74,85,0.06)",
+                transition:
+                  "transform 500ms cubic-bezier(0.22,1,0.36,1), box-shadow 500ms ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 60px -28px rgba(26,74,85,0.4), 0 4px 10px rgba(26,74,85,0.08)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 40px -24px rgba(26,74,85,0.28), 0 2px 6px rgba(26,74,85,0.06)";
               }}
             >
+              {/* Ambient corner glow */}
+              <span
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: -60,
+                  right: -60,
+                  width: 180,
+                  height: 180,
+                  borderRadius: "50%",
+                  background: `radial-gradient(circle, ${GOLD}22 0%, transparent 70%)`,
+                  filter: "blur(20px)",
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Numeral */}
+              <p
+                style={{
+                  fontFamily: "'Sora', serif",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: "0.28em",
+                  color: GOLD,
+                  margin: "0 0 18px",
+                  position: "relative",
+                }}
+              >
+                0{i + 1}
+              </p>
               <div
                 style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 8,
-                  backgroundColor: "rgba(26,74,85,0.06)",
+                  width: 48,
+                  height: 48,
+                  borderRadius: 12,
+                  background:
+                    "linear-gradient(135deg, rgba(26,74,85,0.10) 0%, rgba(61,139,150,0.06) 100%)",
+                  border: "1px solid rgba(26,74,85,0.10)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: 20,
+                  marginBottom: 22,
+                  position: "relative",
                 }}
               >
                 <p.icon
-                  style={{ width: 20, height: 20, color: DEEP_TEAL }}
+                  style={{ width: 22, height: 22, color: DEEP_TEAL }}
+                  strokeWidth={1.5}
                 />
               </div>
               <h3
                 style={{
                   fontFamily: "'Sora', serif",
                   fontWeight: 600,
-                  fontSize: "clamp(16px, 1.5vw, 19px)",
+                  fontSize: "clamp(17px, 1.5vw, 20px)",
                   lineHeight: 1.3,
                   color: DEEP_TEAL,
-                  marginBottom: 10,
+                  marginBottom: 12,
+                  position: "relative",
                 }}
               >
                 {p.titulo}
@@ -136,8 +188,9 @@ export default function WhyDifferentSection() {
                   fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(13px, 1.1vw, 15px)",
                   lineHeight: 1.7,
-                  color: "rgba(26,74,85,0.82)",
+                  color: "rgba(26,74,85,0.78)",
                   margin: 0,
+                  position: "relative",
                 }}
               >
                 {p.texto}
@@ -146,6 +199,38 @@ export default function WhyDifferentSection() {
           ))}
         </div>
       </div>
+
+      {/* Ambient background glows */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: "-8%",
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${GOLD}18 0%, transparent 70%)`,
+          filter: "blur(60px)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          right: "-6%",
+          width: 380,
+          height: 380,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(61,139,150,0.15) 0%, transparent 70%)",
+          filter: "blur(60px)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
     </section>
   );
 }
