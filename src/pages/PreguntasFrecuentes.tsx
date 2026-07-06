@@ -9,6 +9,14 @@ const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20
 
 const FAQS = [
   {
+    q: "¿Cómo sé si ALGOS puede ayudarme?",
+    a: "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele — lo evaluamos y le decimos con honestidad qué opciones existen para su caso.",
+  },
+  {
+    q: "¿Necesito una orden médica para venir?",
+    a: "No. Puede venir directamente a consulta. Si trae estudios previos — resonancia, tomografía, EMG — tráigalos, pero no son requisito para la primera evaluación.",
+  },
+  {
     q: "¿Duele el procedimiento?",
     a: "La mayoría de los procedimientos se realizan con anestesia local, por lo que se percibe presión o una molestia leve, no dolor intenso. Antes de comenzar le explicamos qué sensación tendrá en cada paso, y durante todo el procedimiento el equipo está atento a su comodidad.",
   },
