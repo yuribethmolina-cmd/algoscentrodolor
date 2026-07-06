@@ -76,9 +76,9 @@ const INFO_CARDS = [
 ];
 
 const EXAM_TILES = [
-  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "md:col-span-2 md:row-span-2" },
-  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "md:col-span-2" },
-  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "md:col-span-2" },
+  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "col-span-1 md:col-span-2" },
+  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "col-span-1 md:col-span-2" },
 ];
 
 export default function Contacto() {
