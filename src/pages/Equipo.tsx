@@ -74,9 +74,39 @@ const DOCTORES: Doctor[] = [
   },
 ];
 
-function DoctorCard({ d }: { d: Doctor }) {
+function DoctorCard({ d, index }: { d: Doctor; index: number }) {
   return (
-    <article className="group bg-white border border-[#1a4a55]/10 flex flex-col overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_50px_-20px_rgba(26,74,85,0.35)]">
+    <article
+      className="group relative flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-1"
+      style={{
+        background:
+          "linear-gradient(160deg, #ffffff 0%, #fbf8f2 100%)",
+        border: "1px solid rgba(26,74,85,0.10)",
+        boxShadow:
+          "0 1px 0 rgba(255,255,255,0.9) inset, 0 18px 40px -24px rgba(26,74,85,0.22), 0 2px 6px rgba(26,74,85,0.05)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow =
+          "0 1px 0 rgba(255,255,255,0.95) inset, 0 30px 60px -28px rgba(26,74,85,0.4), 0 4px 10px rgba(26,74,85,0.08)";
+        e.currentTarget.style.borderColor = "rgba(61,139,150,0.35)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow =
+          "0 1px 0 rgba(255,255,255,0.9) inset, 0 18px 40px -24px rgba(26,74,85,0.22), 0 2px 6px rgba(26,74,85,0.05)";
+        e.currentTarget.style.borderColor = "rgba(26,74,85,0.10)";
+      }}
+    >
+      {/* Top accent bar */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-[3px] z-10"
+        style={{
+          background: d.isDirector
+            ? "linear-gradient(90deg, #c69636 0%, #e8b95c 100%)"
+            : "linear-gradient(90deg, #3d8b96 0%, #5eb0bd 100%)",
+        }}
+      />
+
       {/* Photo */}
       <div className="relative aspect-[4/5] bg-gradient-to-br from-[#f5f0e8] via-white to-[#e8eef0] overflow-hidden">
         {d.photo ? (
@@ -85,12 +115,12 @@ function DoctorCard({ d }: { d: Doctor }) {
             alt={d.name}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
             style={{ objectPosition: d.photoPosition ?? "center top" }}
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6">
-            <div className="w-20 h-20 rounded-full bg-[#1a4a55]/[0.06] flex items-center justify-center border border-dashed border-[#1a4a55]/20">
+            <div className="w-20 h-20 rounded-full bg-[#1a4a55]/[0.06] flex items-center justify-center border border-dashed border-[#1a4a55]/25">
               <UserRound
                 className="w-9 h-9 text-[#1a4a55]/40"
                 strokeWidth={1.25}
@@ -102,8 +132,16 @@ function DoctorCard({ d }: { d: Doctor }) {
           </div>
         )}
 
+        {/* Index numeral */}
+        <div
+          className="absolute top-4 right-4 font-display font-semibold text-[#f5f0e8] text-[13px] tracking-[0.24em] z-10"
+          style={{ textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </div>
+
         {/* Meta chips */}
-        <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center gap-2">
+        <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2 z-10">
           {d.isDirector && (
             <span className="inline-flex items-center gap-1.5 bg-[#134F5C] text-[#f5f0e8] px-2.5 py-1 text-[10px] font-ui tracking-[0.18em] uppercase">
               <Stethoscope className="w-3 h-3" strokeWidth={2} />
@@ -117,18 +155,18 @@ function DoctorCard({ d }: { d: Doctor }) {
           )}
         </div>
 
-        {/* Bottom soft fade */}
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/60 to-transparent" />
+        {/* Bottom soft fade to card body */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent" />
       </div>
 
       {/* Info */}
-      <div className="p-5 md:p-6 flex flex-col gap-4 flex-1">
+      <div className="p-6 md:p-7 flex flex-col gap-4 flex-1 relative">
         <div className="flex items-start gap-2">
-          <h3 className="font-display font-semibold text-[#1a4a55] text-[17px] leading-tight flex-1">
+          <h3 className="font-display font-semibold text-[#1a4a55] text-[18px] leading-tight flex-1 tracking-[-0.01em]">
             {d.name}
           </h3>
           <BadgeCheck
-            className="w-4 h-4 text-[#3d8b96] mt-1 flex-shrink-0"
+            className="w-[18px] h-[18px] text-[#3d8b96] mt-0.5 flex-shrink-0"
             strokeWidth={2}
             fill="#3d8b96"
             stroke="#f5f0e8"
@@ -139,13 +177,26 @@ function DoctorCard({ d }: { d: Doctor }) {
           {d.specialty}
         </p>
 
-        <div className="flex items-center gap-2 text-[#1a4a55]/60">
-          <Calendar className="w-3.5 h-3.5 flex-shrink-0" strokeWidth={1.75} />
-          <span className="font-sans text-xs leading-tight">{d.schedule}</span>
+        {/* Schedule bar */}
+        <div
+          className="flex items-center gap-2.5 mt-1"
+          style={{
+            padding: "10px 12px",
+            background: "rgba(26,74,85,0.05)",
+            border: "1px solid rgba(26,74,85,0.08)",
+          }}
+        >
+          <Calendar
+            className="w-3.5 h-3.5 flex-shrink-0 text-[#c69636]"
+            strokeWidth={2}
+          />
+          <span className="font-sans text-[12px] leading-tight text-[#1a4a55]/80">
+            {d.schedule}
+          </span>
         </div>
 
         {d.note && (
-          <p className="font-sans text-[11px] text-[#1a4a55]/55 italic leading-snug">
+          <p className="font-sans text-[11px] text-[#1a4a55]/60 italic leading-snug -mt-1">
             {d.note}
           </p>
         )}
@@ -154,10 +205,11 @@ function DoctorCard({ d }: { d: Doctor }) {
           href={WA}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3 px-4 hover:bg-[#134F5C] transition-colors"
+          className="mt-auto inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
         >
           <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
           Agendar consulta
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </article>
