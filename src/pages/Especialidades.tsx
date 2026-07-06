@@ -122,14 +122,24 @@ export default function Especialidades() {
                 gap: 20,
               }}
             >
-              {SPECIALTIES.map((sp) => (
+              {SPECIALTIES.map((sp) => {
+                const isActive = activeSlug === sp.slug;
+                return (
                 <article
                   key={sp.slug}
+                  id={sp.slug}
                   style={{
                     backgroundColor: "#fff",
                     padding: "28px 26px",
-                    border: "1px solid rgba(26,74,85,0.1)",
+                    border: isActive
+                      ? `1px solid ${GOLD}`
+                      : "1px solid rgba(26,74,85,0.1)",
                     borderTop: `3px solid ${GOLD}`,
+                    scrollMarginTop: 120,
+                    boxShadow: isActive
+                      ? `0 0 0 3px rgba(198,150,54,0.25)`
+                      : "none",
+                    transition: "box-shadow 400ms ease, border-color 400ms ease",
                   }}
                 >
                   <h2
