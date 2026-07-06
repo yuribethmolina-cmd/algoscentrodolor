@@ -160,7 +160,7 @@ export default function TeamSection() {
         {/* Grid de doctores */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch"
           style={{ marginBottom: "clamp(56px, 7vw, 88px)", gap: "clamp(14px, 1.5vw, 18px)" }}
         >
           {doctores.map((doc, i) => (
