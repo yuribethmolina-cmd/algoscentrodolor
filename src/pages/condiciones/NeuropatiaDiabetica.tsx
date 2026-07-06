@@ -13,7 +13,12 @@ export default function NeuropatiaDiabetica() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Neuropatía diabética: el daño nervioso por la diabetes" />
+        <PageHero
+          eyebrow="Condición"
+          title="Neuropatía diabética: el daño nervioso por la diabetes"
+          patientTitle="Hormigueo o ardor en los pies"
+          patientSubtitle="Quemazón, corrientazos o pérdida de sensibilidad en pies y piernas — frecuente en personas con diabetes. Tiene nombre y tiene tratamiento."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

@@ -13,7 +13,12 @@ export default function DolorCervical() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Dolor cervical: cuando el cuello duele y el dolor sube o baja" />
+        <PageHero
+          eyebrow="Condición"
+          title="Dolor cervical: cuando el cuello duele y el dolor sube o baja"
+          patientTitle="Dolor de cuello"
+          patientSubtitle="Dolor en el cuello que puede extenderse al hombro, el brazo o provocar dolor de cabeza. Limita girar la cabeza y trabajar frente a una pantalla."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
