@@ -171,7 +171,7 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>RED DIAGNÓSTICA</p>
               <a
-                href="https://uduz.vercel.app"
+                href="https://www.instagram.com/uduz_maracaibo/reels/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ ...blockValue, color: STEEL_TEAL, textDecoration: "none", display: "block" }}

@@ -40,7 +40,7 @@ export default function Referir() {
                   Al referir, puede indicar los estudios de imagen directamente en <strong className="font-bold text-foreground">UDUZ Paraíso</strong> — en la misma zona que <strong className="font-bold text-foreground">ALGOS</strong>. Tomografía desde $25 (24/7), ecografía desde $15. El Dr. Atilio recibe los resultados antes de la valoración.
                 </p>
                 <a
-                  href="https://uduz.vercel.app"
+                  href="https://www.instagram.com/uduz_maracaibo/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium text-secondary border-b border-secondary/30 hover:border-secondary pb-0.5 transition-colors"

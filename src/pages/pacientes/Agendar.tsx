@@ -298,7 +298,7 @@ export default function Agendar() {
                   <strong className="font-bold">Sin estudios de imagen aún,</strong> puede realizarlos antes
                   de su cita en{" "}
                   <a
-                    href="https://uduz.vercel.app"
+                    href="https://www.instagram.com/uduz_maracaibo/reels/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold underline underline-offset-2"

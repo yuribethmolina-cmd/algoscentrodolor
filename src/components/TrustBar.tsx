@@ -46,7 +46,7 @@ export default function TrustBar() {
         >
           {/* UDUZ */}
           <a
-            href="https://uduz.vercel.app"
+            href="https://www.instagram.com/uduz_maracaibo/reels/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"

@@ -35,7 +35,7 @@ const rows: Row[] = [
     ctaLabel: "Agendar cita",
     ctaHref: "/pacientes/agendar",
     uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso — a metros de aquí — las tiene desde $25, disponible 24/7.",
-    uduzHref: "https://uduz.vercel.app",
+    uduzHref: "https://www.instagram.com/uduz_maracaibo/reels/",
   },
   {
     numeral: "02",

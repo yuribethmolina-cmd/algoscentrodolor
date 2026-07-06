@@ -962,7 +962,7 @@ var INFO = {
   website: "https://algoscentrodolor.com",
   alliance: {
     partner: "UDUZ",
-    url: "https://uduz.vercel.app",
+    url: "https://www.instagram.com/uduz_maracaibo/reels/",
     role: "Diagn\xF3stico por imagen y electrodiagn\xF3stico (EEG, EMG). El paciente entra por ALGOS, se diagnostica en UDUZ y el procedimiento se realiza en ALGOS."
   }
 };
