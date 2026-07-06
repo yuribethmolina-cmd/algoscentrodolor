@@ -460,21 +460,22 @@ export default function Contacto() {
                   <p className="font-ui text-[10px] tracking-[0.28em] text-[#134F5C]/70 font-semibold mb-6">
                     UNIDAD DE DIAGNÓSTICO<br />UNIVERSITARIA DEL ZULIA
                   </p>
-                  <div className="flex items-end gap-4">
+                  <div className="flex flex-col gap-5">
                     {/* UDUZ dot mark: 2 verde-amarillo arriba, 2 teal abajo */}
-                    <div className="grid grid-cols-2 gap-[6px] shrink-0" style={{ width: "clamp(48px, 6vw, 72px)" }}>
+                    <div className="grid grid-cols-2 gap-[6px] shrink-0" style={{ width: "clamp(44px, 5vw, 60px)" }}>
                       <span className="aspect-square rounded-full bg-[#8DC63F]" />
                       <span className="aspect-square rounded-full bg-[#8DC63F]" />
                       <span className="aspect-square rounded-full bg-[#1B6B78]" />
                       <span className="aspect-square rounded-full bg-[#1B6B78]" />
                     </div>
                     <h3
-                      className="font-display font-medium text-[#1B6B78] leading-[0.85] tracking-[0.02em]"
-                      style={{ fontSize: "clamp(56px, 8vw, 96px)" }}
+                      className="font-display font-medium text-[#1B6B78] leading-[0.85] tracking-[0.04em]"
+                      style={{ fontSize: "clamp(52px, 7vw, 88px)" }}
                     >
                       UDUZ
                     </h3>
                   </div>
+
                 </div>
                 <div className="mt-6">
                   <div className="flex items-center gap-2 mb-3">
