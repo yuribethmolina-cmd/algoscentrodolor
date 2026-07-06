@@ -2,12 +2,23 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import SmartImage from "@/components/SmartImage";
 import { BadgeCheck, Calendar, Stethoscope, UserRound } from "lucide-react";
-import drAtilio from "@/assets/dr-atilio-full.png";
-import teamDaniel from "@/assets/team-daniel.png";
+import drAtilioPic from "@/assets/dr-atilio-full.png?w=320;480;720&format=avif;webp;jpg&as=picture";
+import teamDanielPic from "@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture";
 
 const WA =
   "https://wa.me/584146807886?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
+
+type Doctor = {
+  name: string;
+  specialty: string;
+  schedule: string;
+  note?: string;
+  photo?: typeof drAtilioPic;
+  photoPosition?: string;
+  isDirector?: boolean;
+};
 
 type Doctor = {
   name: string;
