@@ -133,7 +133,10 @@ export default function FinalCTA() {
         </p>
 
         {/* Primary CTA */}
-        <div style={{ marginTop: 56 }}>
+        <div
+          className="flex flex-col sm:flex-row items-center justify-center"
+          style={{ marginTop: 56, gap: 16 }}
+        >
           <a
             href={WHATSAPP_HREF}
             target="_blank"
