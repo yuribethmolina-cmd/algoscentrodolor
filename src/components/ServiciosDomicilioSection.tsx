@@ -17,7 +17,7 @@ const ITEMS = [
 
 export default function ServiciosDomicilioSection() {
   return (
-    <section
+    <div
       style={{
         backgroundColor: "#f0eadc",
         paddingTop: "clamp(64px, 8vw, 96px)",
@@ -121,6 +121,6 @@ export default function ServiciosDomicilioSection() {
           Solicitar servicio a domicilio por WhatsApp →
         </a>
       </div>
-    </section>
+    </div>
   );
 }
