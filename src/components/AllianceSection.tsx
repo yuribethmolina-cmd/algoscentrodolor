@@ -310,6 +310,58 @@ export default function AllianceSection() {
             Agendar estudio diagnóstico <span aria-hidden="true">→</span>
           </a>
         </div>
+
+        {/* ── UDUZ Contact Block ────────────────────────────────── */}
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: 48,
+          }}
+        >
+          <h3
+            style={{
+              fontFamily: "'Sora', system-ui, sans-serif",
+              fontWeight: 600,
+              fontSize: 18,
+              color: CREAM,
+              margin: "0 0 16px",
+            }}
+          >
+            Unidad de Diagnóstico Universitaria del Zulia
+          </h3>
+          <div
+            style={{
+              fontFamily: "'Manrope', system-ui, sans-serif",
+              fontSize: 13,
+              color: "rgba(245, 240, 232, 0.65)",
+              lineHeight: 1.8,
+            }}
+          >
+            <p style={{ margin: 0 }}>📍 Av. 4001, Maracaibo · Sector Paraíso</p>
+            <p style={{ margin: 0 }}>📞 +58 412-604-4124</p>
+            <p style={{ margin: 0 }}>
+              <a
+                href="https://instagram.com/uduz_maracaibo"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "rgba(245,240,232,0.4)",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "rgba(245,240,232,0.7)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "rgba(245,240,232,0.4)")
+                }
+              >
+                📸 @uduz_maracaibo
+              </a>
+            </p>
+            <p style={{ margin: 0 }}>⭐ 4.8 · 246 reseñas en Google</p>
+            <p style={{ margin: 0 }}>🕐 6:30 AM – 7:00 PM</p>
+          </div>
+        </div>
       </div>
     </section>
   );
