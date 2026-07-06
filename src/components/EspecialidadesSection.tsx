@@ -7,12 +7,12 @@ const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
-/** SVG viewBox is 900x620. Center at (450, 310). Orbit radius 250. */
+/** SVG viewBox is 900x760. Center at (450, 360). Orbit radius 230. */
 const CX = 450;
-const CY = 310;
-const R_ORBIT = 250;
-const R_NODE = 82;
-const R_CENTER = 96;
+const CY = 360;
+const R_ORBIT = 230;
+const R_NODE = 78;
+const R_CENTER = 92;
 
 type Node = {
   label: string;
@@ -203,7 +203,7 @@ export default function EspecialidadesSection() {
           <svg
             role="img"
             aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
-            viewBox="0 0 900 620"
+            viewBox="0 0 900 760"
             preserveAspectRatio="xMidYMid meet"
             shapeRendering="geometricPrecision"
             style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
@@ -213,7 +213,7 @@ export default function EspecialidadesSection() {
               x={6}
               y={6}
               width={888}
-              height={608}
+              height={748}
               fill="none"
               stroke={GOLD}
               strokeOpacity={0.75}
@@ -395,7 +395,7 @@ export default function EspecialidadesSection() {
             {/* Caption inside the frame — gold, thin, centered */}
             <text
               x={CX}
-              y={588}
+              y={728}
               textAnchor="middle"
               style={{
                 fontFamily: "Inter, sans-serif",
