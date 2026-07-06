@@ -1,15 +1,43 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
+import { UserRound } from "lucide-react";
+import drAtilio from "@/assets/dr-atilio-full.png";
+import teamDaniel from "@/assets/team-daniel.png";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 const TEAL = "#3d8b96";
+
+type Specialist = { name: string; photo?: string; photoPosition?: string };
+
+const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
+  "neurocirugia": [
+    { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
+    { name: "Dra. Doris Meneses" },
+  ],
+  "traumatologia": [{ name: "Dr. Antulio Parra" }],
+  "reumatologia": [{ name: "Dra. Gilda Gómez" }],
+  "fisiatria": [
+    { name: "Dra. Leslie Ramírez" },
+    { name: "Dra. Carolina Rodríguez" },
+  ],
+  "radiologia-intervencionista": [
+    { name: "Dr. Miguel Guevara" },
+    { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
+  ],
+  "cuidados-paliativos": [{ name: "Dr. Tomás Iragorry" }],
+  "oncologia-medica": [],
+  "psiquiatria": [],
+  "nutricion": [
+    { name: "Dr. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
+  ],
+};
 
 export default function Especialidades() {
   const location = useLocation();
