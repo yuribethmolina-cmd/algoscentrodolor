@@ -1,5 +1,6 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, Star, ArrowUpRight } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, Star, ArrowUpRight, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
