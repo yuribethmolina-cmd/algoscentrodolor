@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
-import algosLogoFull from "@/assets/algos-logo-v2.png";
+import algosLogoAsset from "@/assets/algos-logo.png.asset.json";
+const algosLogoFull = algosLogoAsset.url;
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
 const CREAM = "#f5f0e8";
