@@ -497,15 +497,14 @@ export default function EspecialidadesSection() {
           >
             {NODES.map((n) => {
               const isActive = activeAngle === n.angle;
-              const slug = slugify(n.label.replace(/\n/g, " "));
               return (
                 <li key={`m-${n.angle}`} style={{ display: "block" }}>
                   <a
-                    href={`/especialidades#${slug}`}
-                    aria-pressed={isActive}
+                    href={`/especialidades#${n.slug}`}
+                    aria-label={`Ver ${n.label.replace(/\n/g, " ")} en especialidades`}
                     onClick={(e) => {
                       e.preventDefault();
-                      setActiveAngle(n.angle);
+                      goToSpecialty(n.angle, n.slug);
                     }}
                     style={{
                       backgroundColor: isActive ? GOLD : TEAL,
