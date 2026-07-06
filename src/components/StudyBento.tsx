@@ -74,7 +74,7 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
         {/* Content */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
           {/* Image / icon panel */}
-          <div className="md:col-span-2 relative overflow-hidden min-h-[240px] md:min-h-[380px] bg-black">
+          <div className="md:col-span-2 relative overflow-hidden min-h-[320px] md:min-h-[380px] bg-black">
             {current.image ? (
               <OptimizedPicture
                 picture={current.image.pic}
@@ -92,23 +92,23 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
                     "radial-gradient(circle at 30% 40%, rgba(141,198,63,0.22) 0%, transparent 55%), linear-gradient(135deg, #0F5964 0%, #0a3d47 100%)",
                 }}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center pb-24 md:pb-28">
                   <Icon
-                    className="w-24 h-24 md:w-32 md:h-32 text-[#8DC63F]/30"
+                    className="w-20 h-20 md:w-32 md:h-32 text-[#8DC63F]/40"
                     strokeWidth={1}
                   />
                 </div>
               </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-r from-[#134F5C]/60 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 md:p-8">
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <div className="flex items-center gap-2 mb-2">
                 <Icon className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.5} />
-                <span className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] uppercase">
+                <span className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] uppercase font-semibold">
                   {current.label}
                 </span>
               </div>
-              <p className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/55 uppercase">
+              <p className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8] uppercase font-medium">
                 {current.duration ? `Duración estimada: ${current.duration}` : current.short}
               </p>
             </div>
@@ -116,26 +116,26 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
 
           {/* Info */}
           <div className="md:col-span-3 p-6 md:p-10 flex flex-col gap-8">
-            <p className="font-sans text-[#f5f0e8]/85 text-[15px] md:text-base leading-relaxed">
+            <p className="font-sans text-[#f5f0e8] text-[15px] md:text-base leading-relaxed font-medium">
               {current.description}
             </p>
 
-            <div className="border-t border-[#E0F4F7]/10 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="border-t border-[#E0F4F7]/20 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {current.details.map((row) => (
                 <div key={row.label}>
-                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] uppercase mb-2">
+                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] uppercase mb-2 font-semibold">
                     {row.label}
                   </p>
-                  <p className="font-sans text-[#f5f0e8]/75 text-sm leading-relaxed">
+                  <p className="font-sans text-[#f5f0e8] text-sm leading-relaxed font-medium">
                     {row.value}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="border-t border-[#E0F4F7]/10 pt-6 flex items-center gap-3">
+            <div className="border-t border-[#E0F4F7]/20 pt-6 flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8DC63F]" />
-              <span className="font-ui text-[11px] tracking-[0.22em] text-[#f5f0e8]/70 uppercase">
+              <span className="font-ui text-[11px] tracking-[0.22em] text-[#f5f0e8] uppercase font-semibold">
                 {current.availability}
               </span>
             </div>
