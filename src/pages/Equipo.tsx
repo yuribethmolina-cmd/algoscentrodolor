@@ -2,33 +2,64 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import { Clock } from "lucide-react";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
-const GROUPS = [
+const DOCTORES = [
   {
-    role: "Evalúan y diagnostican el origen del dolor",
-    specialties: [
-      { name: "Neurocirugía", focus: "Columna y nervios" },
-      { name: "Traumatología", focus: "Musculoesquelético" },
-      { name: "Reumatología", focus: "Articular e inflamatorio" },
-      { name: "Fisiatría", focus: "Funcional" },
-    ],
+    name: "Dr. Antulio Parra",
+    specialty: "Traumatología y Columna",
+    schedule: "Martes y jueves · 8:00 AM – 11:00 AM",
+    note: "",
   },
   {
-    role: "Ejecutan el tratamiento intervencionista guiado por imagen",
-    specialties: [
-      { name: "Algología / Anestesiología del dolor", focus: "" },
-      { name: "Neurocirugía", focus: "" },
-      { name: "Traumatología", focus: "" },
-    ],
+    name: "Dr. Atilio Rodríguez",
+    specialty: "Neurocirugía Intervencionista · Director Médico",
+    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    note: "",
   },
   {
-    role: "Acompañan la recuperación",
-    specialties: [
-      { name: "Fisiatría", focus: "Rehabilitación" },
-      { name: "Nutrición", focus: "Apoyo clínico al dolor crónico, la artrosis y la neuropatía" },
-    ],
+    name: "Dr. Daniel Rodríguez",
+    specialty: "Nutrición Clínica Antiinflamatoria",
+    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    note: "",
+  },
+  {
+    name: "Dr. Miguel Guevara",
+    specialty: "Radiología Intervencionista",
+    schedule: "Lunes · 8:00 AM – 10:00 AM",
+    note: "",
+  },
+  {
+    name: "Dr. Tomás Iragorry",
+    specialty: "Anestesiología del Dolor",
+    schedule: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
+    note: "",
+  },
+  {
+    name: "Dra. Carolina Rodríguez",
+    specialty: "Electrodiagnóstico (EEG · EMG)",
+    schedule: "Miércoles tarde",
+    note: "Los estudios EEG se realizan en UDUZ",
+  },
+  {
+    name: "Dra. Doris Meneses",
+    specialty: "Neurocirugía · Columna vertebral",
+    schedule: "Viernes · 8:00 AM – 12:00 PM",
+    note: "",
+  },
+  {
+    name: "Dra. Gilda Gómez",
+    specialty: "Reumatología",
+    schedule: "Miércoles · 9:00 AM – 12:00 PM",
+    note: "",
+  },
+  {
+    name: "Dra. Leslie Ramírez",
+    specialty: "Fisiatría",
+    schedule: "Jueves · 2:00 PM",
+    note: "",
   },
 ];
 
@@ -61,7 +92,7 @@ export default function Equipo() {
           >
             <p
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "'Sora', serif",
                 fontSize: 11,
                 fontWeight: 700,
                 letterSpacing: "0.28em",
@@ -70,7 +101,7 @@ export default function Equipo() {
                 marginBottom: 20,
               }}
             >
-              ESPECIALIDADES MÉDICAS
+              ESPECIALIDADES
             </p>
             <h2
               style={{
@@ -82,7 +113,7 @@ export default function Equipo() {
                 marginBottom: "clamp(16px, 2vw, 24px)",
               }}
             >
-              Consultas especializadas disponibles
+              Un equipo multidisciplinario para cada tipo de dolor.
             </h2>
             <p
               style={{
@@ -90,105 +121,80 @@ export default function Equipo() {
                 fontSize: "clamp(15px, 1.6vw, 17px)",
                 lineHeight: 1.7,
                 color: "rgba(26,74,85,0.75)",
-                maxWidth: 620,
+                maxWidth: 720,
                 marginBottom: "clamp(48px, 6vw, 72px)",
               }}
             >
-              ALGOS cuenta con consultorios presenciales en Sector Paraíso, Maracaibo,
-              donde nuestros especialistas evalúan, diagnostican y diseñan el plan de
-              tratamiento de cada paciente.
+              Nuestro equipo evalúa el origen de su dolor, ejecuta el tratamiento guiado por imagen y acompaña su recuperación — todo con el mismo criterio clínico informado de su caso.
             </p>
 
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
                 gap: "clamp(12px, 2vw, 20px)",
               }}
             >
-              {[
-                "Neurocirugía",
-                "Traumatología",
-                "Reumatología",
-                "Algología · Cuidados Paliativos",
-                "Nutrición Clínica",
-                "Medicina Deportiva",
-                "Oncología Médica",
-                "Radiología Intervencionista",
-                "Psiquiatría",
-                "Fisiatría",
-              ].map((esp) => (
+              {DOCTORES.map((d) => (
                 <div
-                  key={esp}
+                  key={d.name}
                   style={{
                     backgroundColor: "#ffffff",
                     border: "1px solid rgba(26,74,85,0.1)",
-                    padding: "20px 24px",
-                    fontFamily: "Manrope, system-ui, sans-serif",
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: "#1a4a55",
-                    letterSpacing: "0.01em",
+                    padding: "28px 24px",
                   }}
                 >
-                  {esp}
+                  <p
+                    style={{
+                      fontFamily: "'Sora', serif",
+                      fontSize: 16,
+                      fontWeight: 600,
+                      color: "#1a4a55",
+                      letterSpacing: "0.01em",
+                      marginBottom: 8,
+                    }}
+                  >
+                    {d.name}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "Manrope, system-ui, sans-serif",
+                      fontSize: 13,
+                      fontWeight: 500,
+                      color: "#3d8b96",
+                      marginBottom: 12,
+                    }}
+                  >
+                    {d.specialty}
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                      fontFamily: "Manrope, system-ui, sans-serif",
+                      fontSize: 12,
+                      color: "rgba(26,74,85,0.6)",
+                    }}
+                  >
+                    <Clock size={13} style={{ color: "#3d8b96" }} />
+                    <span>{d.schedule}</span>
+                  </div>
+                  {d.note && (
+                    <p
+                      style={{
+                        fontFamily: "Manrope, system-ui, sans-serif",
+                        fontSize: 12,
+                        color: "rgba(26,74,85,0.55)",
+                        marginTop: 10,
+                        fontStyle: "italic",
+                      }}
+                    >
+                      {d.note}
+                    </p>
+                  )}
                 </div>
               ))}
-            </div>
-
-            <p
-              style={{
-                fontFamily: "Manrope, system-ui, sans-serif",
-                fontSize: 13,
-                color: "rgba(26,74,85,0.55)",
-                marginTop: 32,
-              }}
-            >
-              ¿No encuentra su especialidad? Escríbanos — atendemos o referimos a la
-              red de especialistas de ALGOS.
-            </p>
-          </div>
-        </section>
-
-        <section className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans text-deep-teal text-[18px] leading-[1.75] max-w-[62ch] mb-16">
-              En ALGOS su caso no lo ve un solo médico: lo ve la especialidad que le corresponde. El equipo reúne neurocirugía, traumatología, algología, reumatología, fisiatría y apoyo nutricional, trabajando sobre una misma historia clínica y una misma ruta.
-            </p>
-
-            <div className="flex flex-col gap-12">
-              {GROUPS.map((g, gi) => (
-                <div key={gi} className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 pt-10 border-t border-deep-teal/10">
-                  <div>
-                    <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-3">
-                      {String(gi + 1).padStart(2, "0")}
-                    </p>
-                    <p className="font-sans text-deep-teal text-[17px] leading-[1.5] font-semibold">
-                      {g.role}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    {g.specialties.map((s) => (
-                      <div key={s.name} className="flex items-baseline gap-3">
-                        <span className="font-sans font-semibold text-deep-teal text-[15px]">
-                          {s.name}
-                        </span>
-                        {s.focus && (
-                          <span className="font-sans text-steel-teal text-[13px]">
-                            {s.focus}
-                          </span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 pt-10 border-t border-deep-teal/10">
-              <p className="font-sans text-steel-teal text-[14px] leading-[1.65] max-w-[60ch]">
-                La información de los médicos que conforman el equipo se publicará próximamente. Si tiene preguntas sobre qué especialista corresponde a su caso, escríbanos.
-              </p>
             </div>
           </div>
         </section>
@@ -196,7 +202,7 @@ export default function Equipo() {
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[46ch] mx-auto">
-              Cuéntenos su caso y le indicamos qué especialidad le corresponde y cuál es el siguiente paso.
+              "La neurocirugía en ALGOS no es la puerta al quirófano — es el criterio que sabe cuándo la cirugía todavía no hace falta."
             </p>
             <a
               href={WA}
@@ -204,7 +210,7 @@ export default function Equipo() {
               rel="noopener noreferrer"
               className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors"
             >
-              Escríbanos por WhatsApp
+              Agendar consulta con el especialista →
             </a>
           </div>
         </section>
