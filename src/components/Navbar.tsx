@@ -144,8 +144,7 @@ export default function Navbar() {
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            style={{ height: "28px" }}
-            className="mdx:!h-8 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
+            className="h-7 mdx:h-9 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
           />
         </Link>
 
