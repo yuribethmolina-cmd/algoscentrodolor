@@ -267,23 +267,8 @@ export default function AllianceSection() {
           ))}
         </div>
 
-        {/* ── UDUZ mention ──────────────────────────────────────── */}
-        <p
-          style={{
-            fontFamily: "'Manrope', system-ui, sans-serif",
-            fontSize: 11,
-            fontWeight: 400,
-            color: "rgba(245, 240, 232, 0.4)",
-            textAlign: "center",
-            margin: "0 0 32px",
-            lineHeight: 1.6,
-          }}
-        >
-          Imagen diagnóstica disponible a través de UDUZ — Unidad de Diagnóstico Universitaria del Zulia · ⭐ 4.8 · 246 reseñas en Google
-        </p>
-
         {/* ── CTA ─────────────────────────────────────────────── */}
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", marginBottom: "clamp(56px, 7vw, 80px)" }}>
           <a
             href="https://wa.me/584126404124"
             target="_blank"
@@ -296,71 +281,122 @@ export default function AllianceSection() {
               textTransform: "uppercase",
               color: CREAM,
               backgroundColor: BRAND_TEAL,
-              padding: "15px 28px",
+              padding: "16px 32px",
               borderRadius: 4,
               textDecoration: "none",
               display: "inline-flex",
               alignItems: "center",
-              gap: 10,
-              transition: "background-color 200ms ease",
+              gap: 12,
+              transition: "background-color 200ms ease, transform 200ms ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#357a84")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = BRAND_TEAL)}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#357a84";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = BRAND_TEAL;
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
           >
             Agendar estudio diagnóstico <span aria-hidden="true">→</span>
           </a>
         </div>
 
-        {/* ── UDUZ Contact Block ────────────────────────────────── */}
+        {/* ── UDUZ Contact Card ────────────────────────────────── */}
         <div
           style={{
-            textAlign: "center",
-            marginTop: 48,
+            maxWidth: 560,
+            margin: "0 auto",
+            backgroundColor: "rgba(245, 240, 232, 0.04)",
+            border: "1px solid rgba(245, 240, 232, 0.12)",
+            borderLeft: `3px solid ${GOLD}`,
+            borderRadius: 10,
+            padding: "clamp(28px, 3.5vw, 36px)",
           }}
         >
+          <p
+            style={{
+              fontFamily: "'Manrope', system-ui, sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.26em",
+              textTransform: "uppercase",
+              color: GOLD,
+              margin: "0 0 10px",
+            }}
+          >
+            UDUZ · Unidad de Diagnóstico
+          </p>
           <h3
             style={{
               fontFamily: "'Sora', system-ui, sans-serif",
               fontWeight: 600,
-              fontSize: 18,
+              fontSize: "clamp(18px, 1.6vw, 22px)",
               color: CREAM,
-              margin: "0 0 16px",
+              margin: "0 0 20px",
+              letterSpacing: "-0.01em",
             }}
           >
             Unidad de Diagnóstico Universitaria del Zulia
           </h3>
-          <div
+
+          <dl
             style={{
+              display: "grid",
+              gridTemplateColumns: "auto 1fr",
+              columnGap: 16,
+              rowGap: 10,
               fontFamily: "'Manrope', system-ui, sans-serif",
-              fontSize: 13,
-              color: "rgba(245, 240, 232, 0.65)",
-              lineHeight: 1.8,
+              fontSize: 14,
+              color: "rgba(245, 240, 232, 0.85)",
+              lineHeight: 1.55,
+              margin: 0,
             }}
           >
-            <p style={{ margin: 0 }}>📍 Av. 4001, Maracaibo · Sector Paraíso</p>
-            <p style={{ margin: 0 }}>📞 +58 412-604-4124</p>
-            <p style={{ margin: 0 }}>
+            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Dirección</dt>
+            <dd style={{ margin: 0 }}>Av. 4001, Maracaibo · Sector Paraíso</dd>
+
+            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Teléfono</dt>
+            <dd style={{ margin: 0 }}>
+              <a href="tel:+584126044124" style={{ color: CREAM, textDecoration: "none" }}>
+                +58 412-604-4124
+              </a>
+            </dd>
+
+            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Instagram</dt>
+            <dd style={{ margin: 0 }}>
               <a
                 href="https://instagram.com/uduz_maracaibo"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  color: "rgba(245,240,232,0.4)",
-                  textDecoration: "none",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "rgba(245,240,232,0.7)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "rgba(245,240,232,0.4)")
-                }
+                style={{ color: CREAM, textDecoration: "none", borderBottom: `1px solid ${GOLD}`, paddingBottom: 1 }}
               >
-                📸 @uduz_maracaibo
+                @uduz_maracaibo
               </a>
-            </p>
-            <p style={{ margin: 0 }}>⭐ 4.8 · 246 reseñas en Google</p>
-            <p style={{ margin: 0 }}>🕐 6:30 AM – 7:00 PM</p>
-          </div>
+            </dd>
+
+            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Horario</dt>
+            <dd style={{ margin: 0 }}>Lun–Sáb · 6:30 AM – 7:00 PM</dd>
+
+            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Reseñas</dt>
+            <dd style={{ margin: 0, color: CREAM }}>
+              <span style={{ color: GOLD }}>★</span> 4.8 <span style={{ color: "rgba(245, 240, 232, 0.5)" }}>· 246 en Google</span>
+            </dd>
+          </dl>
+
+          <p
+            style={{
+              fontFamily: "'Manrope', system-ui, sans-serif",
+              fontSize: 12,
+              color: "rgba(245, 240, 232, 0.5)",
+              margin: "24px 0 0",
+              paddingTop: 20,
+              borderTop: "1px solid rgba(245, 240, 232, 0.1)",
+              lineHeight: 1.6,
+            }}
+          >
+            Para Tomografía, Rayos X, Mamografía 3D, Ecografía y Laboratorio.
+          </p>
         </div>
       </div>
     </section>
