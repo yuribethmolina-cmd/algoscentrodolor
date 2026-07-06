@@ -400,7 +400,27 @@ export default function AllianceSection() {
             overflow: "hidden",
           }}
         >
-          {/* UDUZ facade image — right side, fades into card */}
+          {/* UDUZ facade image — top strip on mobile, right column on desktop */}
+          <div
+            aria-hidden="true"
+            className="block md:hidden"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "45%",
+              backgroundImage: `url(${uduzFacade.url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 40%",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
+              opacity: 0.28,
+              pointerEvents: "none",
+            }}
+          />
           <div
             aria-hidden="true"
             className="hidden md:block"
@@ -409,25 +429,24 @@ export default function AllianceSection() {
               top: 0,
               right: 0,
               bottom: 0,
-              width: "42%",
+              width: "38%",
               backgroundImage: `url(${uduzFacade.url})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               WebkitMaskImage:
-                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.85) 100%)",
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
               maskImage:
-                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.85) 100%)",
-              opacity: 0.55,
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
+              opacity: 0.5,
               pointerEvents: "none",
             }}
           />
           <span
             aria-hidden="true"
-            className="hidden md:block"
             style={{
               position: "absolute",
               inset: 0,
-              background: `linear-gradient(90deg, rgba(19,79,92,0.55) 0%, rgba(19,79,92,0.15) 60%, ${UDUZ_TEAL}55 100%)`,
+              background: `linear-gradient(90deg, rgba(19,79,92,0.65) 0%, rgba(19,79,92,0.25) 55%, ${UDUZ_TEAL}66 100%)`,
               pointerEvents: "none",
             }}
           />
