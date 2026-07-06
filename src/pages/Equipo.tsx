@@ -20,22 +20,12 @@ type Doctor = {
   isDirector?: boolean;
 };
 
-type Doctor = {
-  name: string;
-  specialty: string;
-  schedule: string;
-  note?: string;
-  photo?: string;
-  photoPosition?: string;
-  isDirector?: boolean;
-};
-
 const DOCTORES: Doctor[] = [
   {
     name: "Dr. Atilio Rodríguez",
     specialty: "Neurocirugía Intervencionista · Director Médico",
     schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
-    photo: drAtilio,
+    photo: drAtilioPic,
     photoPosition: "center top",
     isDirector: true,
   },
@@ -43,7 +33,7 @@ const DOCTORES: Doctor[] = [
     name: "Dr. Daniel Rodríguez",
     specialty: "Nutrición Clínica Antiinflamatoria",
     schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
-    photo: teamDaniel,
+    photo: teamDanielPic,
     photoPosition: "center 20%",
     isDirector: true,
   },
