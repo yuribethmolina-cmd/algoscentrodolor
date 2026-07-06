@@ -194,11 +194,15 @@ function StudyTabs() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
         {/* Image */}
         <div className="md:col-span-2 relative overflow-hidden min-h-[240px] md:min-h-[380px] bg-black">
-          <img
-            src={current.image}
+          <OptimizedPicture
+            picture={current.image.pic}
+            placeholder={current.image.lqip}
             alt={current.label}
-            className="absolute inset-0 w-full h-full object-cover opacity-75"
+            className="absolute inset-0 w-full h-full"
+            imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
+            sizes="(min-width: 768px) 40vw, 100vw"
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f3138]/60 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 p-6 md:p-8">
             <div className="flex items-center gap-2 mb-2">
