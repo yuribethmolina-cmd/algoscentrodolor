@@ -378,18 +378,24 @@ export default function Contacto() {
 
             {/* Cinematic exam gallery */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
-              {EXAM_TILES.map((tile) => (
-                <div
+              {EXAM_TILES.map((tile, i) => (
+                <button
                   key={tile.title}
-                  className={`relative overflow-hidden bg-black min-h-[220px] ${tile.span}`}
+                  type="button"
+                  onClick={() => open(i)}
+                  aria-label={`Ampliar imagen: ${tile.title}`}
+                  className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c69636] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f3138] cursor-zoom-in ${tile.span}`}
                 >
                   <img
                     src={tile.img}
                     alt={tile.title}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
+                  <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#0f3138]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ZoomIn className="w-4 h-4 text-[#f5f0e8]" strokeWidth={1.75} />
+                  </div>
                   <div className="absolute inset-0 p-6 md:p-7 flex flex-col justify-end">
                     <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-2">
                       ESTUDIO
@@ -399,7 +405,7 @@ export default function Contacto() {
                     </h4>
                     <p className="font-sans text-[#f5f0e8]/70 text-sm mt-1">{tile.subtitle}</p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
