@@ -82,6 +82,45 @@ const EXAM_TILES = [
 ];
 
 export default function Contacto() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [zoomed, setZoomed] = useState(false);
+
+  const open = useCallback((i: number) => {
+    setLightboxIndex(i);
+    setZoomed(false);
+  }, []);
+  const close = useCallback(() => setLightboxIndex(null), []);
+  const next = useCallback(() => {
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % EXAM_TILES.length));
+    setZoomed(false);
+  }, []);
+  const prev = useCallback(() => {
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + EXAM_TILES.length) % EXAM_TILES.length));
+    setZoomed(false);
+  }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === " ") {
+        e.preventDefault();
+        setZoomed((z) => !z);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex, close, next, prev]);
+
+  const active = lightboxIndex !== null ? EXAM_TILES[lightboxIndex] : null;
+
   return (
     <div className="min-h-screen bg-cream">
       <SEOHead
