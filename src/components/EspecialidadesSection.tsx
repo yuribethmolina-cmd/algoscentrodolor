@@ -180,13 +180,15 @@ export default function EspecialidadesSection() {
           seguridad y se acompaña en el tiempo.
         </p>
 
-        {/* Radial mural */}
-        <div style={{ width: "100%", marginBottom: 40 }}>
+        {/* Radial mural — desktop / tablet */}
+        <div className="hidden md:block" style={{ width: "100%", marginBottom: 40 }}>
           <svg
             role="img"
             aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
             viewBox="0 0 900 620"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            preserveAspectRatio="xMidYMid meet"
+            shapeRendering="geometricPrecision"
+            style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
           >
             {/* Gold panel frame */}
             <rect
@@ -330,6 +332,143 @@ export default function EspecialidadesSection() {
             </text>
           </svg>
         </div>
+
+        {/* Mobile — compact mural: center medallion + 2-col grid of specialties */}
+        <div
+          className="md:hidden"
+          style={{
+            width: "100%",
+            marginBottom: 40,
+            border: `1px solid ${GOLD}`,
+            padding: 20,
+          }}
+        >
+          {/* Center medallion */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "8px auto 24px",
+              width: 180,
+              height: 180,
+              borderRadius: "50%",
+              backgroundColor: GOLD,
+              color: CREAM,
+              textAlign: "center",
+              padding: 12,
+            }}
+          >
+            <svg
+              viewBox="0 0 80 20"
+              width={72}
+              height={18}
+              aria-hidden="true"
+              style={{ display: "block", marginBottom: 6 }}
+            >
+              <path
+                d="M2 12 L18 12 L26 4 L38 18 L48 4 L56 12 L78 12"
+                stroke={CREAM}
+                strokeWidth={1.6}
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span
+              style={{
+                fontFamily: "'Sora', sans-serif",
+                fontSize: 15,
+                fontWeight: 500,
+                lineHeight: 1.25,
+              }}
+            >
+              Tu dolor.
+              <br />
+              Nuestro equipo.
+            </span>
+          </div>
+
+          {/* Divider */}
+          <div
+            style={{
+              height: 1,
+              backgroundColor: GOLD,
+              opacity: 0.55,
+              margin: "0 -20px 20px",
+            }}
+          />
+
+          {/* Grid of specialties */}
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 12,
+            }}
+          >
+            {NODES.map((n) => (
+              <li
+                key={`m-${n.angle}`}
+                style={{
+                  backgroundColor: TEAL,
+                  border: `1px solid ${GOLD}`,
+                  padding: "14px 10px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  minHeight: 118,
+                }}
+              >
+                <svg
+                  viewBox="-28 -28 56 56"
+                  width={40}
+                  height={40}
+                  aria-hidden="true"
+                  style={{ display: "block", marginBottom: 8 }}
+                  shapeRendering="geometricPrecision"
+                >
+                  {n.icon}
+                </svg>
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 12,
+                    lineHeight: 1.3,
+                    color: CREAM,
+                  }}
+                >
+                  {n.label.split("\n").map((ln, i) => (
+                    <span key={i} style={{ display: "block" }}>
+                      {ln}
+                    </span>
+                  ))}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11,
+              color: GOLD,
+              letterSpacing: "0.08em",
+              textAlign: "center",
+              marginTop: 20,
+              marginBottom: 0,
+            }}
+          >
+            Cada paciente recibe el especialista que su condición necesita.
+          </p>
+        </div>
+
+
 
         <Link
           to="/especialidades"
