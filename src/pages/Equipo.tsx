@@ -30,7 +30,7 @@ const DOCTORES: Doctor[] = [
     isDirector: true,
   },
   {
-    name: "Dr. Daniel Rodríguez",
+    name: "Lic. Daniel Rodríguez",
     specialty: "Nutrición Clínica Antiinflamatoria",
     schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
     photo: teamDanielPic,
@@ -149,11 +149,7 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
               Dirección
             </span>
           )}
-          {d.note && (
-            <span className="inline-flex items-center bg-[#8DC63F] text-[#134F5C] px-2.5 py-1 text-[10px] font-ui font-semibold tracking-[0.16em] uppercase">
-              UDUZ
-            </span>
-          )}
+
         </div>
 
         {/* Bottom soft fade to card body */}

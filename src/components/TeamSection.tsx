@@ -27,7 +27,7 @@ const doctores: DoctorCard[] = [
     esDireccion: true,
   },
   {
-    nombre: "Dr. Daniel Rodríguez",
+    nombre: "Lic. Daniel Rodríguez",
     especialidad: "Nutrición Clínica Antiinflamatoria",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
     esDireccion: true,
@@ -242,22 +242,7 @@ export default function TeamSection() {
                       Dirección
                     </span>
                   )}
-                  {doc.nota && (
-                    <span
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: 9,
-                        fontWeight: 700,
-                        letterSpacing: "0.18em",
-                        textTransform: "uppercase",
-                        color: DEEP_TEAL,
-                        backgroundColor: "#8DC63F",
-                        padding: "3px 7px",
-                      }}
-                    >
-                      UDUZ
-                    </span>
-                  )}
+
                 </div>
               </div>
 

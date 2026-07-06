@@ -29,7 +29,7 @@ const ICON_STROKE = { stroke: "currentColor", strokeWidth: 1.4, fill: "none" as 
 const NODES: Node[] = [
   // Top center — Neurocirugía (spine)
   {
-    label: "Neurocirugía\nIntervencionista",
+    label: "Neurocirugía",
     angle: 0,
     slug: "neurocirugia",
     icon: (
@@ -46,7 +46,7 @@ const NODES: Node[] = [
   },
   // Upper right — Traumatología (knee joint)
   {
-    label: "Traumatología\ny Columna",
+    label: "Traumatología",
     angle: 60,
     slug: "traumatologia",
     icon: (
@@ -85,9 +85,9 @@ const NODES: Node[] = [
       </g>
     ),
   },
-  // Bottom center — Anestesiología (two anesthesia bulbs)
+  // Bottom center — Algología
   {
-    label: "Anestesiología\ndel Dolor",
+    label: "Algología",
     angle: 180,
     slug: "radiologia-intervencionista",
     icon: (
@@ -202,7 +202,7 @@ export default function EspecialidadesSection() {
         <div className="hidden md:block" style={{ width: "100%", marginBottom: 40 }}>
           <svg
             role="img"
-            aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
+            aria-label="Diagrama de especialidades ALGOS: Neurocirugía, Traumatología, Reumatología, Algología, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
             viewBox="0 0 900 760"
             preserveAspectRatio="xMidYMid meet"
             shapeRendering="geometricPrecision"
