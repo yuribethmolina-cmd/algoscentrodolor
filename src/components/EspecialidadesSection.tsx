@@ -484,46 +484,63 @@ export default function EspecialidadesSection() {
               gap: 12,
             }}
           >
-            {NODES.map((n) => (
-              <li
-                key={`m-${n.angle}`}
-                style={{
-                  backgroundColor: TEAL,
-                  border: `1px solid ${GOLD}`,
-                  padding: "14px 10px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                  minHeight: 118,
-                }}
-              >
-                <svg
-                  viewBox="-28 -28 56 56"
-                  width={40}
-                  height={40}
-                  aria-hidden="true"
-                  style={{ display: "block", marginBottom: 8 }}
-                  shapeRendering="geometricPrecision"
-                >
-                  {n.icon}
-                </svg>
-                <span
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 12,
-                    lineHeight: 1.3,
-                    color: CREAM,
-                  }}
-                >
-                  {n.label.split("\n").map((ln, i) => (
-                    <span key={i} style={{ display: "block" }}>
-                      {ln}
+            {NODES.map((n) => {
+              const isActive = activeAngle === n.angle;
+              const slug = slugify(n.label.replace(/\n/g, " "));
+              return (
+                <li key={`m-${n.angle}`} style={{ display: "block" }}>
+                  <a
+                    href={`/especialidades#${slug}`}
+                    aria-pressed={isActive}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveAngle(n.angle);
+                    }}
+                    style={{
+                      backgroundColor: isActive ? GOLD : TEAL,
+                      border: `1px solid ${GOLD}`,
+                      padding: "14px 10px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      minHeight: 118,
+                      color: isActive ? DEEP_TEAL : GOLD,
+                      textDecoration: "none",
+                      transition:
+                        "background-color 220ms ease, color 220ms ease, transform 180ms ease",
+                      transform: isActive ? "scale(0.98)" : "scale(1)",
+                      WebkitTapHighlightColor: "transparent",
+                    }}
+                  >
+                    <svg
+                      viewBox="-28 -28 56 56"
+                      width={40}
+                      height={40}
+                      aria-hidden="true"
+                      style={{ display: "block", marginBottom: 8 }}
+                      shapeRendering="geometricPrecision"
+                    >
+                      {n.icon}
+                    </svg>
+                    <span
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 12,
+                        lineHeight: 1.3,
+                        color: isActive ? DEEP_TEAL : CREAM,
+                      }}
+                    >
+                      {n.label.split("\n").map((ln, i) => (
+                        <span key={i} style={{ display: "block" }}>
+                          {ln}
+                        </span>
+                      ))}
                     </span>
-                  ))}
-                </span>
-              </li>
-            ))}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <p
