@@ -112,8 +112,7 @@ export default function FinalCTA() {
             margin: 0,
           }}
           chunks={[
-            { text: "Hablemos de " },
-            { text: "tu dolor.", color: GOLD, staggerMs: 120 },
+            { text: "El primer paso es saber qué lo está causando.", color: GOLD, staggerMs: 120 },
           ]}
         />
 
@@ -129,7 +128,8 @@ export default function FinalCTA() {
             marginBottom: 56,
           }}
         >
-          Agenda una evaluación inicial con el Dr. Atilio. Si tu caso tiene indicación, te lo decimos en la primera consulta.
+          Agendamos su consulta, evaluamos su caso y le explicamos exactamente
+          qué tiene y qué opciones existen. Sin rodeos.
         </p>
 
         {/* Primary CTA */}
@@ -163,13 +163,33 @@ export default function FinalCTA() {
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            SOLICITAR VALORACIÓN
-            <span
-              className="transition-transform duration-200 group-hover:translate-x-1"
-              style={{ display: "inline-block", color: CREAM }}
-            >
-              →
-            </span>
+            AGENDAR CONSULTA →
+          </a>
+          <a
+            href="/especialidades"
+            className="group inline-flex items-center gap-3 transition-all duration-200"
+            style={{
+              color: CREAM,
+              padding: "clamp(18px, 1.8vw, 22px) clamp(28px, 3.5vw, 42px)",
+              borderRadius: 4,
+              fontFamily: "Inter, sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              border: `1.5px solid ${CREAM}`,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = CREAM;
+              e.currentTarget.style.color = DEEP_TEAL;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.color = CREAM;
+            }}
+          >
+            Ver qué tratamos
           </a>
         </div>
 
