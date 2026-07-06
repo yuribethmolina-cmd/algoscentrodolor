@@ -88,7 +88,7 @@ export default function ConditionCard({ condition, view, variant = "standard" }:
         </div>
         <div className={`${isFeature ? "p-8 md:p-12" : "p-7 md:p-9"} flex-1 flex flex-col`}>
           {icon && (
-            <div className="w-11 h-11 rounded-2xl bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-6">
+            <div className="w-11 h-11 bg-[#3d8b96]/10 flex items-center justify-center text-[#3d8b96] mb-6">
               {icon}
             </div>
           )}
