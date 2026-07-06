@@ -88,8 +88,8 @@ export default function ConditionsSection() {
               maxWidth: 640,
             }}
           >
-            Cualquier dolor tiene un origen. Díganos dónde le duele y nosotros
-            encontramos la causa.
+            No importa qué tipo de dolor sea ni cuánto tiempo lleve con él.
+            En ALGOS identificamos el origen y diseñamos el tratamiento.
           </p>
         </div>
 
