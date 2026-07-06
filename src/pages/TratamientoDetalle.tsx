@@ -101,6 +101,7 @@ export default function TratamientoDetalle() {
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
           )}
           <div
