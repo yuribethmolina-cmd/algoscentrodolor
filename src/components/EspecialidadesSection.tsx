@@ -103,6 +103,7 @@ const NODES: Node[] = [
   {
     label: "Nutrición\nAntiinflamatoria",
     angle: 240,
+    slug: "nutricion",
     icon: (
       <g {...ICON_STROKE}>
         <circle cx="0" cy="0" r="20" />
