@@ -279,7 +279,7 @@ export default function Contacto() {
             </div>
 
             {/* Bento: 6-col grid */}
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
               {/* UDUZ brand tile */}
               <div className="md:col-span-2 md:row-span-2 bg-[#c69636] p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
                 <div>
