@@ -137,26 +137,10 @@ export default function WhyDifferentSection() {
               >
                 0{i + 1}
               </p>
-              <div
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 0,
-                  background:
-                    "linear-gradient(135deg, rgba(26,74,85,0.10) 0%, rgba(61,139,150,0.06) 100%)",
-                  border: "1px solid rgba(26,74,85,0.10)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: 22,
-                  position: "relative",
-                }}
-              >
-                <p.icon
-                  style={{ width: 22, height: 22, color: DEEP_TEAL }}
-                  strokeWidth={1.5}
-                />
-              </div>
+              <p.icon
+                style={{ width: 36, height: 36, color: GOLD, marginBottom: 22 }}
+                strokeWidth={1.25}
+              />
               <h3
                 style={{
                   fontFamily: "'Sora', serif",

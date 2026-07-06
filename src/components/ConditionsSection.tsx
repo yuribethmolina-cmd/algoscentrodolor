@@ -251,18 +251,6 @@ export default function ConditionsSection() {
                   }}
                 >
                   <span
-                    style={{
-                      fontFamily: "'Sora', sans-serif",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: "0.28em",
-                      color: isOpen ? GOLD : "rgba(198,150,54,0.7)",
-                      transition: "color 200ms ease",
-                    }}
-                  >
-                    0{card.id}
-                  </span>
-                  <span
                     aria-hidden="true"
                     style={{
                       width: 26,
@@ -270,7 +258,7 @@ export default function ConditionsSection() {
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      border: `1px solid ${isOpen ? GOLD : "rgba(245,240,232,0.25)"}`,
+                      border: `1.5px solid ${isOpen ? GOLD : "rgba(245,240,232,0.50)"}`,
                       color: isOpen ? GOLD : "rgba(245,240,232,0.6)",
                       fontSize: 14,
                       fontWeight: 300,

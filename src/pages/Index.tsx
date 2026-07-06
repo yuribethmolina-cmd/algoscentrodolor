@@ -21,9 +21,9 @@ export default function Index() {
       <ConditionsSection />
       <EspecialidadesSection />
       <WhyDifferentSection />
+      <HomeFAQSection />
       <AllianceSection />
       <TeamSection />
-      <HomeFAQSection />
       <AlgosLocationSection />
       <FinalCTA />
       <HomeFooter />

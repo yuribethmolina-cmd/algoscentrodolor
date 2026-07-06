@@ -208,18 +208,6 @@ export default function EspecialidadesSection() {
             shapeRendering="geometricPrecision"
             style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
           >
-            {/* Gold panel frame */}
-            <rect
-              x={6}
-              y={6}
-              width={888}
-              height={748}
-              fill="none"
-              stroke={GOLD}
-              strokeOpacity={0.75}
-              strokeWidth={2}
-            />
-
             {/* Horizontal divider through the center — mural signature */}
             <line
               x1={20}
@@ -416,7 +404,6 @@ export default function EspecialidadesSection() {
           style={{
             width: "100%",
             marginBottom: 40,
-            border: `1px solid ${GOLD}`,
             padding: 20,
           }}
         >

@@ -60,7 +60,7 @@ export default function HeroSection() {
       ref={sectionRef}
       id="hero"
       className="relative w-full overflow-hidden bg-cream"
-      style={{ height: "100dvh", minHeight: "640px" }}
+      style={{ height: "88dvh", minHeight: "580px" }}
     >
       {/* Preload the LCP image (hero video poster) with high priority. */}
       <Helmet>
@@ -164,7 +164,7 @@ export default function HeroSection() {
             </a>
             <Link
               to="/especialidades"
-              className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded-none transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
+              className="inline-flex items-center justify-center gap-2 border border-deep-teal/50 text-deep-teal/75 md:hover:border-deep-teal md:hover:text-deep-teal font-ui font-semibold uppercase rounded-none transition-[border-color,color] duration-300 active:scale-[0.97] px-7 py-[14px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
               <span>ESPECIALIDADES</span>

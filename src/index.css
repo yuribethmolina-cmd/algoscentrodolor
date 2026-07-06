@@ -603,3 +603,21 @@ img {
 img[width][height]:not(.absolute):not([style*="position: absolute"]):not([style*="position:absolute"]) {
   height: auto;
 }
+
+/* ── UX audit fixes ──────────────────────────────────────────
+   Body text measure cap: keeps prose readable at wide viewports.
+   Apply .prose-constrained to paragraph containers.
+   ============================================================ */
+.prose-constrained {
+  max-width: 65ch;
+}
+
+/* Mobile: reduce section vertical padding so the page is less tall.
+   Sections use clamp(80px,...) inline — these only kick in below 480px
+   where the upper clamp value is already close to minimum. */
+@media (max-width: 480px) {
+  [id="hero"] {
+    height: 92svh !important;
+    min-height: 520px !important;
+  }
+}
