@@ -187,7 +187,7 @@ export default function ConditionsSection() {
         {/* Cards Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start"
           style={{ gap: "clamp(12px, 1.5vw, 16px)" }}
         >
           {painCards.map((card, idx) => {
@@ -199,8 +199,10 @@ export default function ConditionsSection() {
                 className="group"
                 style={{
                   position: "relative",
-                  display: "block",
+                  display: "flex",
+                  flexDirection: "column",
                   width: "100%",
+                  minHeight: isOpen ? undefined : 160,
                   textAlign: "left",
                   background: isOpen
                     ? "linear-gradient(155deg, rgba(198,150,54,0.16) 0%, rgba(198,150,54,0.06) 100%)"

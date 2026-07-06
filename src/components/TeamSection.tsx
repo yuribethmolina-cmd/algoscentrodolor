@@ -1,5 +1,5 @@
 import { useInViewOnce } from "@/lib/animations";
-import { Clock } from "lucide-react";
+import { Calendar, Stethoscope } from "lucide-react";
 
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
@@ -11,6 +11,7 @@ interface DoctorCard {
   especialidad: string;
   consulta: string;
   nota?: string;
+  esDireccion?: boolean;
 }
 
 const doctores: DoctorCard[] = [
@@ -23,11 +24,13 @@ const doctores: DoctorCard[] = [
     nombre: "Dr. Atilio Rodríguez",
     especialidad: "Neurocirugía Intervencionista · Director Médico",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    esDireccion: true,
   },
   {
     nombre: "Dr. Daniel Rodríguez",
     especialidad: "Nutrición Clínica Antiinflamatoria",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    esDireccion: true,
   },
   {
     nombre: "Dr. Miguel Guevara",
@@ -157,24 +160,107 @@ export default function TeamSection() {
         {/* Grid de doctores */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-          style={{ marginBottom: "clamp(56px, 7vw, 88px)" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch"
+          style={{ marginBottom: "clamp(56px, 7vw, 88px)", gap: "clamp(14px, 1.5vw, 18px)" }}
         >
           {doctores.map((doc, i) => (
-            <div
+            <article
               key={doc.nombre}
-              className={`scroll-reveal ${gridIn ? "revealed" : ""}`}
+              className={`scroll-reveal group ${gridIn ? "revealed" : ""}`}
               style={{
                 transitionDelay: `${i * 60}ms`,
-                backgroundColor: "#ffffff",
-                border: "1px solid rgba(26, 74, 85, 0.1)",
+                position: "relative",
+                background: "linear-gradient(160deg, #ffffff 0%, #fbf8f2 100%)",
+                border: "1px solid rgba(26,74,85,0.10)",
                 borderRadius: 0,
-                padding: "24px",
+                padding: "26px 22px 22px",
                 display: "flex",
                 flexDirection: "column",
-                gap: 8,
+                gap: 10,
+                boxShadow:
+                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 14px 32px -22px rgba(26,74,85,0.22), 0 2px 4px rgba(26,74,85,0.04)",
+                transition:
+                  "transform 350ms cubic-bezier(0.23,1,0.32,1), box-shadow 300ms ease, border-color 250ms ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.95) inset, 0 24px 46px -24px rgba(26,74,85,0.36), 0 4px 8px rgba(26,74,85,0.06)";
+                e.currentTarget.style.borderColor = "rgba(61,139,150,0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 14px 32px -22px rgba(26,74,85,0.22), 0 2px 4px rgba(26,74,85,0.04)";
+                e.currentTarget.style.borderColor = "rgba(26,74,85,0.10)";
               }}
             >
+              {/* Top accent bar */}
+              <span
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  background: doc.esDireccion
+                    ? "linear-gradient(90deg, #c69636 0%, #e8b95c 100%)"
+                    : "linear-gradient(90deg, #3d8b96 0%, #5eb0bd 100%)",
+                }}
+              />
+
+              {/* Index + meta chips */}
+              <div className="flex items-center justify-between" style={{ marginBottom: 2 }}>
+                <span
+                  style={{
+                    fontFamily: "'Sora', sans-serif",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: "0.28em",
+                    color: GOLD,
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {doc.esDireccion && (
+                    <span
+                      className="inline-flex items-center gap-1"
+                      style={{
+                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: CREAM,
+                        backgroundColor: DEEP_TEAL,
+                        padding: "3px 7px",
+                      }}
+                    >
+                      <Stethoscope size={9} strokeWidth={2.4} />
+                      Dirección
+                    </span>
+                  )}
+                  {doc.nota && (
+                    <span
+                      style={{
+                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: DEEP_TEAL,
+                        backgroundColor: "#8DC63F",
+                        padding: "3px 7px",
+                      }}
+                    >
+                      UDUZ
+                    </span>
+                  )}
+                </div>
+              </div>
+
               <h3
                 style={{
                   fontFamily: "'Sora', sans-serif",
@@ -183,6 +269,7 @@ export default function TeamSection() {
                   color: DEEP_TEAL,
                   lineHeight: 1.3,
                   margin: 0,
+                  letterSpacing: "-0.01em",
                 }}
               >
                 {doc.nombre}
@@ -199,41 +286,53 @@ export default function TeamSection() {
               >
                 {doc.especialidad}
               </p>
-              <div className="flex items-center gap-2" style={{ marginTop: 4 }}>
-                <Clock
-                  size={12}
-                  color={DEEP_TEAL}
-                  style={{ opacity: 0.5, flexShrink: 0 }}
+
+              {/* Schedule bar */}
+              <div
+                className="flex items-center gap-2 mt-auto"
+                style={{
+                  padding: "10px 12px",
+                  background: "rgba(26,74,85,0.05)",
+                  border: "1px solid rgba(26,74,85,0.08)",
+                  marginTop: "auto",
+                }}
+              >
+                <Calendar
+                  size={13}
+                  color={GOLD}
+                  strokeWidth={2}
+                  style={{ flexShrink: 0 }}
                 />
                 <p
                   style={{
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: 12,
                     color: DEEP_TEAL,
-                    opacity: 0.6,
-                    lineHeight: 1.4,
+                    opacity: 0.8,
+                    lineHeight: 1.35,
                     margin: 0,
                   }}
                 >
                   {doc.consulta}
                 </p>
               </div>
+
               {doc.nota && (
                 <p
                   style={{
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: 11,
                     color: DEEP_TEAL,
-                    opacity: 0.5,
+                    opacity: 0.55,
+                    fontStyle: "italic",
                     lineHeight: 1.4,
                     margin: 0,
-                    marginTop: 2,
                   }}
                 >
                   {doc.nota}
                 </p>
               )}
-            </div>
+            </article>
           ))}
         </div>
 
