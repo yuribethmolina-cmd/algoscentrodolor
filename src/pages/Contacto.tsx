@@ -561,12 +561,15 @@ export default function Contacto() {
                   aria-label={`Ampliar imagen: ${tile.title}`}
                   className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c69636] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f3138] cursor-zoom-in ${tile.span}`}
                 >
-                  <img
-                    src={tile.img}
+                  <OptimizedPicture
+                    picture={tile.image.pic}
+                    placeholder={tile.image.lqip}
                     alt={tile.title}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full"
+                    imgClassName="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    sizes="(min-width: 768px) 33vw, 50vw"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
                   <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#0f3138]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     <ZoomIn className="w-4 h-4 text-[#f5f0e8]" strokeWidth={1.75} />
