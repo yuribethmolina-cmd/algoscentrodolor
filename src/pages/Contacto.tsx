@@ -480,15 +480,16 @@ export default function Contacto() {
               </div>
 
               {/* Cinematic scanner image */}
-              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
-                <img
-                  src={uduzScanner}
+              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black group">
+                <OptimizedPicture
+                  picture={uduzScannerPic}
+                  placeholder={uduzScannerLqip}
                   alt="Tomógrafo UDUZ"
-                  loading="lazy"
-                  width={1280}
-                  height={1600}
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out hover:scale-105"
+                  className="absolute inset-0 w-full h-full"
+                  imgClassName="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  sizes="(min-width: 768px) 65vw, 100vw"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#0f3138] via-[#0f3138]/40 to-transparent" />
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                   <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-3">
