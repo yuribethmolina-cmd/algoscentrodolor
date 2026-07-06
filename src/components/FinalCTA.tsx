@@ -146,7 +146,7 @@ export default function FinalCTA() {
               backgroundColor: BRAND_TEAL,
               color: CREAM,
               padding: "clamp(18px, 1.8vw, 22px) clamp(28px, 3.5vw, 42px)",
-              borderRadius: 4,
+              borderRadius: 0,
               boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
               fontFamily: "Inter, sans-serif",
               fontSize: 14,
@@ -174,7 +174,7 @@ export default function FinalCTA() {
             style={{
               color: CREAM,
               padding: "clamp(18px, 1.8vw, 22px) clamp(28px, 3.5vw, 42px)",
-              borderRadius: 4,
+              borderRadius: 0,
               fontFamily: "Inter, sans-serif",
               fontSize: 14,
               fontWeight: 700,

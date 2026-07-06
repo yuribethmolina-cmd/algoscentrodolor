@@ -104,7 +104,7 @@ export default function WhyDifferentSection() {
                 backdropFilter: "blur(14px) saturate(140%)",
                 WebkitBackdropFilter: "blur(14px) saturate(140%)",
                 border: "1px solid rgba(255,255,255,0.6)",
-                borderRadius: 14,
+                borderRadius: 0,
                 boxShadow:
                   "0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 40px -24px rgba(26,74,85,0.28), 0 2px 6px rgba(26,74,85,0.06)",
                 transition:
@@ -154,7 +154,7 @@ export default function WhyDifferentSection() {
                 style={{
                   width: 48,
                   height: 48,
-                  borderRadius: 12,
+                  borderRadius: 0,
                   background:
                     "linear-gradient(135deg, rgba(26,74,85,0.10) 0%, rgba(61,139,150,0.06) 100%)",
                   border: "1px solid rgba(26,74,85,0.10)",
