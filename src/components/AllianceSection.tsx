@@ -1,3 +1,5 @@
+import uduzFacade from "@/assets/uduz-facade.webp.asset.json";
+
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#134F5C";
 const GOLD = "#c69636";
@@ -398,6 +400,37 @@ export default function AllianceSection() {
             overflow: "hidden",
           }}
         >
+          {/* UDUZ facade image — right side, fades into card */}
+          <div
+            aria-hidden="true"
+            className="hidden md:block"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: "42%",
+              backgroundImage: `url(${uduzFacade.url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.85) 100%)",
+              maskImage:
+                "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.85) 100%)",
+              opacity: 0.55,
+              pointerEvents: "none",
+            }}
+          />
+          <span
+            aria-hidden="true"
+            className="hidden md:block"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(90deg, rgba(19,79,92,0.55) 0%, rgba(19,79,92,0.15) 60%, ${UDUZ_TEAL}55 100%)`,
+              pointerEvents: "none",
+            }}
+          />
           {/* UDUZ ambient glow */}
           <span
             aria-hidden="true"
