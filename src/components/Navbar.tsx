@@ -140,13 +140,13 @@ export default function Navbar() {
           <img
             src={algosLogoFull}
             alt="ALGOS — Centro de Dolor Intervencionista"
-            width={220}
-            height={56}
+            width={180}
+            height={44}
             loading="eager"
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            className="h-14 mdx:h-12 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
+            className="h-9 mdx:h-11 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
           />
         </Link>
 
