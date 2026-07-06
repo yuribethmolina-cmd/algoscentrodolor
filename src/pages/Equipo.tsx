@@ -114,7 +114,7 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
           <SmartImage
             picture={d.photo}
             alt={d.name}
-            eager={index < 2}
+            eager={false}
             className="absolute inset-0 w-full h-full transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
             style={{ objectPosition: d.photoPosition ?? "center top" }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 
@@ -61,6 +62,16 @@ export default function HeroSection() {
       className="relative w-full overflow-hidden bg-cream"
       style={{ height: "100dvh", minHeight: "640px" }}
     >
+      {/* Preload the LCP image (hero video poster) with high priority. */}
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          href={heroPoster.url}
+          // @ts-ignore — valid HTML attribute, React types lag
+          fetchpriority="high"
+        />
+      </Helmet>
       {/* Full-bleed video background — poster shows instantly, sources lazy-load */}
       <video
         key={videoSrc ?? "poster-only"}
