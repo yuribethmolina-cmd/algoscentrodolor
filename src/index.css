@@ -119,6 +119,8 @@
     line-height: var(--baseline); /* 24px baseline */
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.005em;
+    font-weight: 500;          /* subir peso base para mejor contraste */
+    color: hsl(var(--text-body));
   }
 
   @media (min-width: 981px) {
@@ -137,10 +139,12 @@
   /* Headings: line-heights snap to baseline multiples */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', system-ui, sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.022em;
     text-wrap: balance;
+    color: hsl(var(--primary));
   }
+
 
   h1 {
     font-size: clamp(2.25rem, 4.2vw, 3.5rem);  /* 36–56px */
