@@ -357,7 +357,7 @@ export default function Contacto() {
               </div>
 
               {/* Instagram */}
-              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-2 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     03 · REDES
