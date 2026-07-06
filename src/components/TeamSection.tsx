@@ -168,7 +168,7 @@ export default function TeamSection() {
                 transitionDelay: `${i * 60}ms`,
                 backgroundColor: "#ffffff",
                 border: "1px solid rgba(26, 74, 85, 0.1)",
-                borderRadius: 4,
+                borderRadius: 0,
                 padding: "24px",
                 display: "flex",
                 flexDirection: "column",

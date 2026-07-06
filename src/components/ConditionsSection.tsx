@@ -172,7 +172,7 @@ export default function ConditionsSection() {
                   border: isOpen
                     ? `1px solid ${GOLD}`
                     : "1px solid rgba(245,240,232,0.12)",
-                  borderRadius: 8,
+                  borderRadius: 0,
                   padding: "clamp(16px, 1.8vw, 20px)",
                   cursor: "pointer",
                   opacity: gridIn ? 1 : 0,
@@ -265,7 +265,7 @@ export default function ConditionsSection() {
                               color: CREAM,
                               backgroundColor: "rgba(61,139,150,0.2)",
                               border: `1px solid ${TEAL}`,
-                              borderRadius: 4,
+                              borderRadius: 0,
                               padding: "4px 10px",
                               lineHeight: 1.4,
                               whiteSpace: "nowrap",
@@ -292,7 +292,7 @@ export default function ConditionsSection() {
                         fontWeight: 600,
                         color: CREAM,
                         backgroundColor: TEAL,
-                        borderRadius: 6,
+                        borderRadius: 0,
                         padding: "10px 18px",
                         textDecoration: "none",
                         transition: "background-color 200ms ease",

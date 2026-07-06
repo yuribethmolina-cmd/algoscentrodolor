@@ -234,7 +234,7 @@ export default function AllianceSection() {
                   backdropFilter: "blur(12px) saturate(140%)",
                   WebkitBackdropFilter: "blur(12px) saturate(140%)",
                   border: "1px solid rgba(245, 240, 232, 0.14)",
-                  borderRadius: 14,
+                  borderRadius: 0,
                   padding: "clamp(24px, 2.8vw, 32px)",
                   display: "flex",
                   flexDirection: "column",
@@ -332,7 +332,7 @@ export default function AllianceSection() {
                 backdropFilter: "blur(8px)",
                 WebkitBackdropFilter: "blur(8px)",
                 border: `1px solid ${UDUZ_GREEN}55`,
-                borderRadius: 100,
+                borderRadius: 0,
                 padding: "7px 16px",
                 whiteSpace: "nowrap",
                 transition: "border-color 200ms ease, transform 200ms ease",
@@ -358,7 +358,7 @@ export default function AllianceSection() {
               color: CREAM,
               backgroundColor: UDUZ_TEAL,
               padding: "16px 32px",
-              borderRadius: 4,
+              borderRadius: 0,
               textDecoration: "none",
               display: "inline-flex",
               alignItems: "center",
@@ -383,16 +383,16 @@ export default function AllianceSection() {
         {/* ── UDUZ Contact Card (UDUZ branding) ─────────────────── */}
         <div
           style={{
-            maxWidth: 600,
-            margin: "0 auto",
+            width: "100%",
+            margin: "0",
             position: "relative",
             background:
               "linear-gradient(155deg, rgba(255,255,255,0.10) 0%, rgba(27,107,120,0.18) 100%)",
             backdropFilter: "blur(18px) saturate(150%)",
             WebkitBackdropFilter: "blur(18px) saturate(150%)",
             border: "1px solid rgba(245,240,232,0.14)",
-            borderRadius: 16,
-            padding: "clamp(28px, 3.5vw, 40px)",
+            borderRadius: 0,
+            padding: "clamp(28px, 5vw, 56px)",
             boxShadow:
               "0 1px 0 rgba(245,240,232,0.10) inset, 0 30px 60px -30px rgba(0,0,0,0.5)",
             overflow: "hidden",
@@ -468,11 +468,9 @@ export default function AllianceSection() {
           </h3>
 
           <dl
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             style={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              columnGap: 16,
-              rowGap: 12,
+              gap: "20px 32px",
               fontFamily: "'Manrope', system-ui, sans-serif",
               fontSize: 14,
               color: "rgba(245, 240, 232, 0.88)",
@@ -481,35 +479,55 @@ export default function AllianceSection() {
               position: "relative",
             }}
           >
-            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Dirección</dt>
-            <dd style={{ margin: 0 }}>Av. 4001, Maracaibo · Sector Paraíso</dd>
-
-            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Teléfono</dt>
-            <dd style={{ margin: 0 }}>
-              <a href="tel:+584126044124" style={{ color: CREAM, textDecoration: "none" }}>
-                +58 412-604-4124
-              </a>
-            </dd>
-
-            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Instagram</dt>
-            <dd style={{ margin: 0 }}>
-              <a
-                href="https://instagram.com/uduz_maracaibo"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: CREAM, textDecoration: "none", borderBottom: `1px solid ${UDUZ_GREEN}`, paddingBottom: 1 }}
-              >
-                @uduz_maracaibo
-              </a>
-            </dd>
-
-            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Horario</dt>
-            <dd style={{ margin: 0 }}>Lun–Sáb · 6:30 AM – 7:00 PM</dd>
-
-            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Reseñas</dt>
-            <dd style={{ margin: 0, color: CREAM }}>
-              <span style={{ color: UDUZ_GREEN }}>★</span> 4.8 <span style={{ color: "rgba(245, 240, 232, 0.5)" }}>· 246 en Google</span>
-            </dd>
+            {[
+              { k: "Dirección", v: "Av. 4001, Maracaibo · Sector Paraíso" },
+              {
+                k: "Teléfono",
+                v: (
+                  <a href="tel:+584126044124" style={{ color: CREAM, textDecoration: "none" }}>
+                    +58 412-604-4124
+                  </a>
+                ),
+              },
+              {
+                k: "Instagram",
+                v: (
+                  <a
+                    href="https://instagram.com/uduz_maracaibo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: CREAM, textDecoration: "none", borderBottom: `1px solid ${UDUZ_GREEN}`, paddingBottom: 1 }}
+                  >
+                    @uduz_maracaibo
+                  </a>
+                ),
+              },
+              { k: "Horario", v: "Lun–Sáb · 6:30 AM – 7:00 PM" },
+              {
+                k: "Reseñas",
+                v: (
+                  <>
+                    <span style={{ color: UDUZ_GREEN }}>★</span> 4.8{" "}
+                    <span style={{ color: "rgba(245, 240, 232, 0.5)" }}>· 246 en Google</span>
+                  </>
+                ),
+              },
+            ].map((row) => (
+              <div key={row.k} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <dt
+                  style={{
+                    color: UDUZ_GREEN,
+                    fontSize: 10,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                  }}
+                >
+                  {row.k}
+                </dt>
+                <dd style={{ margin: 0, color: CREAM }}>{row.v}</dd>
+              </div>
+            ))}
           </dl>
 
           <p
