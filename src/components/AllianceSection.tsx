@@ -355,7 +355,7 @@ export default function AllianceSection() {
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: CREAM,
-              backgroundColor: BRAND_TEAL,
+              backgroundColor: UDUZ_TEAL,
               padding: "16px 32px",
               borderRadius: 4,
               textDecoration: "none",
