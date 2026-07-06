@@ -90,14 +90,48 @@ export default function ConditionsSection() {
         backgroundColor: DEEP_TEAL,
         paddingTop: "clamp(80px, 10vw, 128px)",
         paddingBottom: "clamp(80px, 10vw, 128px)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Ambient glows */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "12%",
+          right: "-10%",
+          width: 480,
+          height: 480,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${GOLD}18 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "6%",
+          left: "-8%",
+          width: 420,
+          height: 420,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${TEAL}30 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+
       <div
         className="mx-auto"
         style={{
           maxWidth: 1080,
           paddingLeft: "clamp(24px, 4vw, 48px)",
           paddingRight: "clamp(24px, 4vw, 48px)",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {/* Header */}
