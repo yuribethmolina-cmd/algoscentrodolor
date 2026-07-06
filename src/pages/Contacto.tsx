@@ -60,7 +60,7 @@ const INFO_CARDS = [
     Icon: MapPin,
     label: "01 · UBICACIÓN",
     title: "Ubicación",
-    lines: ["CC América, Local N° 4", "Av. 20 con Calle 65", "Sector Paraíso · Maracaibo"],
+    lines: ["Av. 20 con Calle 65, N° 65-02", "C.C. América, Local 4 · Sector Paraíso", "Maracaibo 4005"],
   },
   {
     Icon: Clock,
@@ -82,7 +82,7 @@ const INFO_CARDS = [
     Icon: Mail,
     label: "04 · EMAIL",
     title: "Email",
-    email: "algoscentrodedolor@gmail.com",
+    email: "info@algoscentrodolor.com",
   },
 ];
 

@@ -8,7 +8,7 @@ const INFO = {
     city: "Maracaibo",
     state: "Zulia",
     country: "Venezuela",
-    address: "Av. 20 con Calle 65, N° 65-02, CC América, Local 4",
+    address: "Av. 20 con Calle 65, N° 65-02, C.C. América, Local 4, Sector Paraíso, Maracaibo 4005",
   },
   contact: {
     whatsapp: "https://wa.me/584246467944",

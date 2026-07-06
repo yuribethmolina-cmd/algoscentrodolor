@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a href="#" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <MapPin size={16} />
-                CC América, Local N° 4 · Sector Paraíso, Maracaibo
+                Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005
               </a>
               <a href="tel:+584146807886" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Phone size={16} />
@@ -34,9 +34,9 @@ export default function Footer() {
                 <Phone size={16} />
                 0412-061 7410
               </a>
-              <a href="mailto:algoscentrodedolor@gmail.com" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
+              <a href="mailto:info@algoscentrodolor.com" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Mail size={16} />
-                algoscentrodedolor@gmail.com
+                info@algoscentrodolor.com
               </a>
             </div>
           </div>

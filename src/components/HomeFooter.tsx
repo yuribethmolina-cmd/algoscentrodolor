@@ -150,11 +150,11 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>DIRECCIÓN</p>
               <p style={blockValue}>
-                CC América, Local N° 4
-                <br />
                 Av. 20 con Calle 65, N° 65-02
                 <br />
-                Sector Paraíso · Maracaibo
+                C.C. América, Local 4
+                <br />
+                Sector Paraíso · Maracaibo 4005
                 <br />
                 Estado Zulia, Venezuela
               </p>
@@ -195,7 +195,7 @@ export default function HomeFooter() {
             <div>
               <p style={blockLabel}>CITA</p>
               <a
-                href="mailto:algoscentrodedolor@gmail.com"
+                href="mailto:info@algoscentrodolor.com"
                 style={{
                   ...blockValue,
                   borderBottom: "1px solid rgba(26, 74, 85, 0.3)",
@@ -213,7 +213,7 @@ export default function HomeFooter() {
                   e.currentTarget.style.borderColor = "rgba(26, 74, 85, 0.3)";
                 }}
               >
-                algoscentrodedolor@gmail.com
+                info@algoscentrodolor.com
               </a>
             </div>
           </div>

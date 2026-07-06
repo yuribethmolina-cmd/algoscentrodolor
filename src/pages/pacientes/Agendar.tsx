@@ -282,9 +282,9 @@ export default function Agendar() {
                 <div className="flex items-start gap-3 text-[#1a4a55]/70">
                   <MapPin size={18} className="text-[#3d8b96] shrink-0 mt-0.5" />
                   <span className="font-sans text-sm leading-relaxed">
-                    CC América, Local N° 4<br />
-                    Av. 20 con Calle 65<br />
-                    Sector Paraíso · Maracaibo
+                    Av. 20 con Calle 65, N° 65-02<br />
+                    C.C. América, Local 4 · Sector Paraíso<br />
+                    Maracaibo 4005
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-[#1a4a55]/70">

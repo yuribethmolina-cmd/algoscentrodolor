@@ -24,7 +24,7 @@ const contactOptions: ContactOption[] = [
   { label: "WHATSAPP DIRECTO", value: "0414-680 7886", href: WHATSAPP_HREF },
   { label: "TELÉFONO 1", value: "0414-680 7886", href: "tel:+584146807886" },
   { label: "TELÉFONO 2", value: "0412-061 7410", href: "tel:+584120617410" },
-  { label: "CORREO ELECTRÓNICO", value: "algoscentrodedolor@gmail.com", href: "mailto:algoscentrodedolor@gmail.com" },
+  { label: "CORREO ELECTRÓNICO", value: "info@algoscentrodolor.com", href: "mailto:info@algoscentrodolor.com" },
 ];
 
 export default function FinalCTA() {

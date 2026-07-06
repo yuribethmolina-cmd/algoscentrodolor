@@ -29,7 +29,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal scroll-reveal-delay-1 p-6 rounded-2xl border border-border bg-card space-y-4">
               <Mail className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Email clínico</h3>
-              <a href="mailto:algoscentrodedolor@gmail.com" className="text-secondary font-light hover:underline">algoscentrodedolor@gmail.com</a>
+              <a href="mailto:info@algoscentrodolor.com" className="text-secondary font-light hover:underline">info@algoscentrodolor.com</a>
             </div>
             <div className="scroll-reveal scroll-reveal-delay-2 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MessageCircle className="w-8 h-8 text-secondary" />
@@ -43,7 +43,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal scroll-reveal-delay-3 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MapPin className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">Ubicación</h3>
-              <p className="text-muted-foreground font-light text-sm">CC América, Local N° 4 · Sector Paraíso, Maracaibo</p>
+              <p className="text-muted-foreground font-light text-sm">Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005</p>
             </div>
           </div>
         </div>
