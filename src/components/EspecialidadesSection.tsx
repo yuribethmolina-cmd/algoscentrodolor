@@ -116,6 +116,7 @@ const NODES: Node[] = [
   {
     label: "Electrodiagnóstico",
     angle: 300,
+    slug: "fisiatria",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -14 -4 Q -14 -14 -6 -14 Q -2 -18 4 -14 Q 12 -14 12 -4 Q 16 0 12 6 Q 12 14 4 14 Q -2 16 -6 12 Q -14 12 -14 4 Q -18 0 -14 -4 Z" />
