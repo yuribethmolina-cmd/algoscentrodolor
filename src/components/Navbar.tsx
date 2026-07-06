@@ -144,8 +144,7 @@ export default function Navbar() {
             height={56}
             loading="eager"
             decoding="sync"
-            // @ts-ignore
-            fetchpriority="high"
+            fetchPriority="high"
             data-no-placeholder
             className="h-14 mdx:h-12 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
           />
