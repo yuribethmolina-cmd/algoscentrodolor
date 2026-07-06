@@ -135,28 +135,6 @@ export default function Tratamientos() {
           </div>
         </section>
 
-        <section className="bg-[#1a4a55] py-20 md:py-28">
-          <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <div className="text-center mb-12 md:mb-16">
-              <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-4">
-                CÓMO TRABAJAMOS
-              </p>
-              <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-4xl lg:text-5xl">
-                Lo que aplica a <span className="text-[#c69636]">todos</span> nuestros procedimientos
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-              {HOW_ITEMS.map(({ Icon, title, description }) => (
-                <div key={title} className="text-center md:text-left">
-                  <Icon className="w-8 h-8 text-[#c69636] mx-auto md:mx-0 mb-4" />
-                  <h4 className="font-display font-semibold text-[#f5f0e8] text-xl mb-2">{title}</h4>
-                  <p className="font-sans text-[#f5f0e8]/80 text-sm leading-relaxed">{description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* PROCEDURE INDEX */}
         <section className="bg-cream py-20 md:py-28">
           <div className="container mx-auto max-w-3xl px-6 md:px-12">
