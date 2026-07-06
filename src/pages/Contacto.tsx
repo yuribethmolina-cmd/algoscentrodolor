@@ -170,6 +170,17 @@ export default function Contacto() {
                 </div>
               ))}
             </div>
+            <p className="text-center mt-10 font-sans text-[#1a4a55]/75 text-[15px] leading-relaxed">
+              ¿Prefiere que lo llamemos?{" "}
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20que%20me%20llamen%20para%20coordinar`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#3d8b96] hover:text-[#c69636] transition-colors underline underline-offset-2"
+              >
+                Escríbanos por WhatsApp y coordinamos.
+              </a>
+            </p>
           </div>
         </section>
 
