@@ -13,13 +13,12 @@ const TEAL_HOVER = "#4a9ca8";
 type DropItem = { label: string; href: string; soon?: boolean; isIndex?: boolean };
 
 const CONDITIONS: DropItem[] = [
-  { label: "Ciática", href: "/condiciones/ciatica" },
-  { label: "Hernia discal", href: "/condiciones/hernia-discal" },
-  { label: "Dolor lumbar", href: "/condiciones/dolor-lumbar" },
-  { label: "Dolor cervical", href: "/condiciones/dolor-cervical" },
-  { label: "Neuropatía diabética", href: "/condiciones/neuropatia-diabetica" },
-  { label: "Dolor tras cirugía", href: "/condiciones/dolor-tras-cirugia" },
-  { label: "Ver todas las condiciones que tratamos →", href: "/condiciones", isIndex: true },
+  { label: "Dolor de espalda", href: "/condiciones/dolor-lumbar" },
+  { label: "Dolor de cuello", href: "/condiciones/dolor-cervical" },
+  { label: "Hormigueo o adormecimiento", href: "/condiciones/neuropatia-diabetica" },
+  { label: "Dolor de cabeza", href: "/condiciones/dolor-cervical" },
+  { label: "Dolor tras una operación", href: "/condiciones/dolor-tras-cirugia" },
+  { label: "Otro tipo de dolor →", href: "/condiciones", isIndex: true },
 ];
 
 const PROCEDURES: DropItem[] = [
