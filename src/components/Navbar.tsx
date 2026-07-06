@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
-import algosLogoFull from "@/assets/algos-logo-v2.png";
+import algosLogoAsset from "@/assets/algos-logo.png.asset.json";
+const algosLogoFull = algosLogoAsset.url;
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
 const CREAM = "#f5f0e8";
@@ -144,7 +145,7 @@ export default function Navbar() {
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            className="h-7 mdx:h-9 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
+            className="h-14 mdx:h-16 w-auto object-contain"
           />
         </Link>
 
