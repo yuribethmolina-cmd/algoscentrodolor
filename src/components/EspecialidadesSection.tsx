@@ -89,6 +89,7 @@ const NODES: Node[] = [
   {
     label: "Anestesiología\ndel Dolor",
     angle: 180,
+    slug: "radiologia-intervencionista",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -8 -16 Q -8 -20 -4 -20 Q 0 -20 0 -16 L 0 -4 Q 0 4 -4 4 Q -8 4 -8 -4 Z" />
