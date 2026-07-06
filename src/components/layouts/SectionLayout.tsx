@@ -17,7 +17,7 @@ export default function SectionLayout({ children, sectionLinks }: SectionLayoutP
     <div className="min-h-screen">
       <GlobalNavbar />
       <SectionNav links={sectionLinks} />
-      <main className="pt-20">{children}</main>
+      <main className="pt-24">{children}</main>
       <GlobalFooter />
       <WhatsAppButton />
     </div>

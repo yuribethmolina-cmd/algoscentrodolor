@@ -77,7 +77,7 @@ export default function EstudiosDiagnosticos() {
       />
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-24">
         {/* Hero */}
         <section className="bg-[#134F5C] pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
           <div
