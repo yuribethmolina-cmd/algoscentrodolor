@@ -180,13 +180,15 @@ export default function EspecialidadesSection() {
           seguridad y se acompaña en el tiempo.
         </p>
 
-        {/* Radial mural */}
-        <div style={{ width: "100%", marginBottom: 40 }}>
+        {/* Radial mural — desktop / tablet */}
+        <div className="hidden md:block" style={{ width: "100%", marginBottom: 40 }}>
           <svg
             role="img"
             aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
             viewBox="0 0 900 620"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            preserveAspectRatio="xMidYMid meet"
+            shapeRendering="geometricPrecision"
+            style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
           >
             {/* Gold panel frame */}
             <rect
