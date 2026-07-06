@@ -167,7 +167,7 @@ export default function EspecialidadesSection() {
             marginBottom: 20,
           }}
         >
-          NUESTRAS ESPECIALIDADES
+          ESPECIALIDADES
         </p>
 
         <h2
@@ -181,7 +181,7 @@ export default function EspecialidadesSection() {
             maxWidth: 720,
           }}
         >
-          Un equipo multidisciplinario para cada tipo de dolor.
+          Tu dolor. Nuestro equipo.
         </h2>
 
         <p
@@ -194,8 +194,8 @@ export default function EspecialidadesSection() {
             marginBottom: 48,
           }}
         >
-          Cada caso se evalúa por la especialidad correcta, se interviene con
-          seguridad y se acompaña en el tiempo.
+          Cada paciente recibe el especialista que su condición necesita. Un
+          solo lugar, todo el equipo informado de su caso.
         </p>
 
         {/* Radial mural — desktop / tablet */}
@@ -564,7 +564,7 @@ export default function EspecialidadesSection() {
 
 
         <Link
-          to="/especialidades"
+          to="/equipo"
           style={{
             display: "inline-block",
             backgroundColor: GOLD,
@@ -578,7 +578,7 @@ export default function EspecialidadesSection() {
             padding: "14px 24px",
           }}
         >
-          VER TODAS LAS ESPECIALIDADES
+          Conocer el equipo completo →
         </Link>
       </div>
     </section>
