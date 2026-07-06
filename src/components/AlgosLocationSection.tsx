@@ -154,8 +154,7 @@ export default function AlgosLocationSection() {
                   label: "Horario",
                   value: (
                     <>
-                      Lun, mar, jue y vie: 8:00 AM – 12:00 PM · 1:00 PM – 5:00 PM<br />
-                      <span style={{ color: "rgba(245,240,232,0.65)" }}>Miércoles: 8:00 AM – 3:00 PM</span>
+                      Lunes a viernes · 7:00 AM – 4:00 PM
                     </>
                   ),
                 },

@@ -289,7 +289,7 @@ export default function Agendar() {
                 </div>
                 <div className="flex items-center gap-3 text-[#1a4a55]/70">
                   <Clock size={18} className="text-[#3d8b96] shrink-0" />
-                  <span className="font-sans text-sm">Lun–Vie · 8:00 – 18:00</span>
+                  <span className="font-sans text-sm">Lunes a viernes · 7:00 AM – 4:00 PM</span>
                 </div>
               </div>
 

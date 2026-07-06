@@ -66,17 +66,13 @@ const INFO_CARDS = [
     Icon: Clock,
     label: "02 · HORARIO",
     title: "Horario",
-    lines: [
-      "Lun, Mar, Jue, Vie",
-      "8:00 – 12:00 · 13:00 – 17:00",
-      "Miércoles · 8:00 – 15:00",
-    ],
+    lines: ["Lunes a viernes · 7:00 AM – 4:00 PM"],
   },
   {
     Icon: Phone,
     label: "03 · TELÉFONO",
     title: "Teléfono",
-    lines: ["0414-680 7886", "0412-061 7410"],
+    lines: ["0414-680 7886 · WhatsApp y llamadas", "0412-061 7410 · Solo llamadas"],
   },
   {
     Icon: Mail,
