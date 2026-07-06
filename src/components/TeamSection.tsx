@@ -11,6 +11,7 @@ interface DoctorCard {
   especialidad: string;
   consulta: string;
   nota?: string;
+  esDireccion?: boolean;
 }
 
 const doctores: DoctorCard[] = [
