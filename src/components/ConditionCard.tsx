@@ -102,7 +102,7 @@ export default function ConditionCard({ condition, view, variant = "standard" }:
             {condition.procedures.map((p) => (
               <span
                 key={p.slug}
-                className="bg-[#f5f0e8] border border-[#3d8b96]/30 rounded-full px-3 py-1 text-xs font-medium text-[#1a4a55]"
+                className="bg-[#f5f0e8] border border-[#3d8b96]/30 rounded-none px-3 py-1 text-xs font-medium text-[#1a4a55]"
               >
                 {p.label}
               </span>
