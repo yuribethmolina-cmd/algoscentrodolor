@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import algosFacade from "@/assets/algos-facade.png.asset.json";
+import algosFacade from "@/assets/algos-facade.png";
 import { MapPin, Navigation, Clock, Phone } from "lucide-react";
 
 const CREAM = "#f5f0e8";
@@ -94,7 +94,7 @@ export default function AlgosLocationSection() {
           {/* Facade image — shimmer applied automatically by imageWatcher + index.css */}
           <div className="relative min-h-[320px] md:min-h-[420px] lg:min-h-[520px] overflow-hidden">
             <img
-              src={algosFacade.url}
+              src={algosFacade}
               alt="Fachada de ALGOS — Centro de Dolor Intervencionista, Maracaibo"
               className="absolute inset-0 w-full h-full object-cover object-top"
               loading="lazy"
