@@ -237,6 +237,7 @@ export default function EspecialidadesSection() {
               const y1 = CY + uy * R_CENTER;
               const x2 = p.x - ux * R_NODE;
               const y2 = p.y - uy * R_NODE;
+              const isFocus = hoverAngle === n.angle || activeAngle === n.angle;
               return (
                 <line
                   key={`line-${n.angle}`}
@@ -245,8 +246,9 @@ export default function EspecialidadesSection() {
                   x2={x2}
                   y2={y2}
                   stroke={GOLD}
-                  strokeOpacity={0.6}
-                  strokeWidth={1.25}
+                  strokeOpacity={isFocus ? 1 : 0.6}
+                  strokeWidth={isFocus ? 1.75 : 1.25}
+                  style={{ transition: "stroke-opacity 220ms ease, stroke-width 220ms ease" }}
                 />
               );
             })}
