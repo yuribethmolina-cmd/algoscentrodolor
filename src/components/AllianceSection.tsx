@@ -228,13 +228,18 @@ export default function AllianceSection() {
                 style={{
                   flex: "1 1 0",
                   minWidth: 0,
-                  backgroundColor: "rgba(245, 240, 232, 0.06)",
-                  border: "1px solid rgba(245, 240, 232, 0.12)",
-                  borderRadius: 10,
+                  background:
+                    "linear-gradient(155deg, rgba(245,240,232,0.10) 0%, rgba(245,240,232,0.04) 100%)",
+                  backdropFilter: "blur(12px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(12px) saturate(140%)",
+                  border: "1px solid rgba(245, 240, 232, 0.14)",
+                  borderRadius: 14,
                   padding: "clamp(24px, 2.8vw, 32px)",
                   display: "flex",
                   flexDirection: "column",
                   gap: 12,
+                  boxShadow:
+                    "0 1px 0 rgba(245,240,232,0.08) inset, 0 20px 40px -24px rgba(0,0,0,0.4)",
                 }}
               >
                 <p
