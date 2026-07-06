@@ -365,11 +365,13 @@ export default function AllianceSection() {
               transition: "background-color 200ms ease, transform 200ms ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#357a84";
+              e.currentTarget.style.backgroundColor = UDUZ_GREEN;
+              e.currentTarget.style.color = UDUZ_TEAL;
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = BRAND_TEAL;
+              e.currentTarget.style.backgroundColor = UDUZ_TEAL;
+              e.currentTarget.style.color = CREAM;
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
