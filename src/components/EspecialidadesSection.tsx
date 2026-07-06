@@ -203,7 +203,7 @@ export default function EspecialidadesSection() {
           <svg
             role="img"
             aria-label="Diagrama de especialidades ALGOS: Neurocirugía Intervencionista, Traumatología y Columna, Reumatología, Anestesiología del Dolor, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
-            viewBox="0 0 900 620"
+            viewBox="0 0 900 760"
             preserveAspectRatio="xMidYMid meet"
             shapeRendering="geometricPrecision"
             style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
@@ -213,7 +213,7 @@ export default function EspecialidadesSection() {
               x={6}
               y={6}
               width={888}
-              height={608}
+              height={748}
               fill="none"
               stroke={GOLD}
               strokeOpacity={0.75}
