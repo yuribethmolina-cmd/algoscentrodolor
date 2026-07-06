@@ -257,38 +257,97 @@ export default function EspecialidadesSection() {
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
               const lines = n.label.split("\n");
+              const slug = slugify(lines.join(" "));
+              const isHover = hoverAngle === n.angle;
+              const isActive = activeAngle === n.angle;
+              const isFocus = isHover || isActive;
+              const ariaLabel = lines.join(" ");
               return (
-                <g key={`node-${n.angle}`}>
-                  <circle
-                    cx={p.x}
-                    cy={p.y}
-                    r={R_NODE}
-                    fill={TEAL}
-                    stroke={GOLD}
-                    strokeWidth={1.25}
-                  />
-                  {/* Icon — drawn at (0,0), translated into the top half */}
-                  <g transform={`translate(${p.x}, ${p.y - 28})`}>{n.icon}</g>
-                  {/* Label — thin white, below the icon */}
-                  <text
-                    x={p.x}
-                    y={p.y + 22}
-                    textAnchor="middle"
+                <a
+                  key={`node-${n.angle}`}
+                  href={`/especialidades#${slug}`}
+                  aria-label={ariaLabel}
+                  aria-pressed={isActive}
+                  role="button"
+                  tabIndex={0}
+                  onMouseEnter={() => setHoverAngle(n.angle)}
+                  onMouseLeave={() => setHoverAngle(null)}
+                  onFocus={() => setHoverAngle(n.angle)}
+                  onBlur={() => setHoverAngle(null)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveAngle(n.angle);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveAngle(n.angle);
+                    }
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    outline: "none",
+                  }}
+                >
+                  <g
                     style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: 12.5,
-                      fontWeight: 400,
-                      fill: CREAM,
-                      letterSpacing: "0.01em",
+                      transformOrigin: `${p.x}px ${p.y}px`,
+                      transform: isFocus ? "scale(1.06)" : "scale(1)",
+                      transition: "transform 260ms cubic-bezier(0.22, 1, 0.36, 1)",
                     }}
                   >
-                    {lines.map((ln, i) => (
-                      <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
-                        {ln}
-                      </tspan>
-                    ))}
-                  </text>
-                </g>
+                    {/* Focus/active halo */}
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={R_NODE + 8}
+                      fill="none"
+                      stroke={GOLD}
+                      strokeOpacity={isActive ? 0.9 : isHover ? 0.55 : 0}
+                      strokeWidth={isActive ? 1.4 : 1}
+                      strokeDasharray={isActive ? "0" : "3 5"}
+                      style={{ transition: "stroke-opacity 240ms ease" }}
+                    />
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={R_NODE}
+                      fill={isActive ? GOLD : TEAL}
+                      stroke={GOLD}
+                      strokeWidth={isFocus ? 1.75 : 1.25}
+                      style={{ transition: "fill 260ms ease, stroke-width 220ms ease" }}
+                    />
+                    {/* Icon */}
+                    <g
+                      transform={`translate(${p.x}, ${p.y - 28})`}
+                      style={{
+                        color: isActive ? DEEP_TEAL : GOLD,
+                        transition: "color 240ms ease",
+                      }}
+                    >
+                      {n.icon}
+                    </g>
+                    <text
+                      x={p.x}
+                      y={p.y + 22}
+                      textAnchor="middle"
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 12.5,
+                        fontWeight: isFocus ? 500 : 400,
+                        fill: isActive ? DEEP_TEAL : CREAM,
+                        letterSpacing: "0.01em",
+                        transition: "fill 240ms ease",
+                      }}
+                    >
+                      {lines.map((ln, i) => (
+                        <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
+                          {ln}
+                        </tspan>
+                      ))}
+                    </text>
+                  </g>
+                </a>
               );
             })}
 
