@@ -424,7 +424,7 @@ export default function AllianceSection() {
               position: "relative",
             }}
           >
-            <UduzMark size={38} />
+            <UduzMark size={38} onDark />
             <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
               <span
                 style={{
