@@ -400,45 +400,59 @@ export default function AllianceSection() {
             overflow: "hidden",
           }}
         >
-          {/* UDUZ facade image — top strip on mobile, right column on desktop */}
-          <div
+          {/* UDUZ facade image — lazy-loaded, decoded async, low priority.
+              Uses <img> instead of CSS background so the browser can defer
+              the request until the card is close to the viewport. The single
+              WebP (~33KB from CDN) is reused in two positions via srcset
+              sizes; the browser only fetches it once. */}
+          <img
+            src={uduzFacade.url}
+            alt=""
             aria-hidden="true"
-            className="block md:hidden"
+            loading="lazy"
+            decoding="async"
+            // @ts-expect-error — fetchpriority is a valid HTML attribute
+            fetchpriority="low"
+            className="block md:hidden pointer-events-none select-none"
+            sizes="(max-width: 767px) 100vw, 0px"
             style={{
               position: "absolute",
               top: 0,
               left: 0,
-              right: 0,
+              width: "100%",
               height: "45%",
-              backgroundImage: `url(${uduzFacade.url})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center 40%",
+              objectFit: "cover",
+              objectPosition: "center 40%",
               WebkitMaskImage:
                 "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
               maskImage:
                 "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
               opacity: 0.28,
-              pointerEvents: "none",
             }}
           />
-          <div
+          <img
+            src={uduzFacade.url}
+            alt=""
             aria-hidden="true"
-            className="hidden md:block"
+            loading="lazy"
+            decoding="async"
+            // @ts-expect-error — fetchpriority is a valid HTML attribute
+            fetchpriority="low"
+            className="hidden md:block pointer-events-none select-none"
+            sizes="(min-width: 768px) 38vw, 0px"
             style={{
               position: "absolute",
               top: 0,
               right: 0,
-              bottom: 0,
+              height: "100%",
               width: "38%",
-              backgroundImage: `url(${uduzFacade.url})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              objectFit: "cover",
+              objectPosition: "center",
               WebkitMaskImage:
                 "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
               maskImage:
                 "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
               opacity: 0.5,
-              pointerEvents: "none",
             }}
           />
           <span
