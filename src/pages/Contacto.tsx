@@ -170,6 +170,50 @@ export default function Contacto() {
                 </div>
               ))}
             </div>
+
+            {/* UDUZ card */}
+            <div className="mt-8 flex justify-center">
+              <div
+                className="bg-cream rounded-none p-8 border flex flex-col items-center text-center min-h-[220px] max-w-md w-full hover:opacity-95 transition-opacity"
+                style={{ borderColor: "#3d8b96" }}
+              >
+                <div className="w-12 h-12 rounded-full bg-[#3d8b96]/10 flex items-center justify-center mb-4">
+                  <FlaskConical className="w-5 h-5 text-[#3d8b96]" strokeWidth={1.75} />
+                </div>
+                <p className="text-[#3d8b96] text-xs uppercase tracking-widest font-medium mb-2">
+                  UDUZ — UNIDAD DE DIAGNÓSTICO
+                </p>
+                <h3 className="font-display font-semibold text-[#1a4a55] text-lg mb-4">
+                  Imagen y laboratorio
+                </h3>
+                <div className="flex flex-col gap-1 flex-1 justify-center">
+                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                    Av. 4001, Maracaibo · Sector Paraíso
+                  </p>
+                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                    +58 412-604-4124
+                  </p>
+                  <a
+                    href="https://instagram.com/uduz_maracaibo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-[#1a4a55]/85 leading-snug hover:text-[#c69636] transition-colors"
+                  >
+                    @uduz_maracaibo
+                  </a>
+                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                    Lunes a sábado · 6:30 AM – 7:00 PM
+                  </p>
+                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                    ⭐ 4.8 · 246 reseñas en Google
+                  </p>
+                </div>
+                <p className="font-sans text-xs text-[#1a4a55]/60 mt-4 pt-4 border-t border-[#1a4a55]/10 w-full leading-relaxed">
+                  Para tomografía, Rayos X, Mamografía 3D, Ecografía y Laboratorio
+                </p>
+              </div>
+            </div>
+
             <p className="text-center mt-10 font-sans text-[#1a4a55]/75 text-[15px] leading-relaxed">
               ¿Prefiere que lo llamemos?{" "}
               <a
