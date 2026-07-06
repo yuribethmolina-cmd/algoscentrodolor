@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useDrawPathsWithin, useInViewOnce } from "@/lib/animations";
-import tx01Lumbar from "@/assets/tx-01-lumbar.jpg";
-import tx02Cervical from "@/assets/tx-02-cervical.jpg";
-import tx03Perif from "@/assets/tx-03-perif.jpg";
-import tx04Eco from "@/assets/tx-04-eco.jpg";
-import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg";
-import imgAboutProcedure from "@/assets/about-procedure.jpg";
-import imgExperienceTech from "@/assets/experience-tech.jpg";
+import Picture, { type PictureImport } from "@/components/Picture";
+import tx01Lumbar from "@/assets/tx-01-lumbar.jpg?w=400;640;960&format=avif;webp;jpg&as=picture";
+import tx02Cervical from "@/assets/tx-02-cervical.jpg?w=400;640;960&format=avif;webp;jpg&as=picture";
+import tx03Perif from "@/assets/tx-03-perif.jpg?w=400;640;960&format=avif;webp;jpg&as=picture";
+import tx04Eco from "@/assets/tx-04-eco.jpg?w=400;640;960&format=avif;webp;jpg&as=picture";
+import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import imgAboutProcedure from "@/assets/about-procedure.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import imgExperienceTech from "@/assets/experience-tech.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 
 const CARD_CONDITION_SLUGS = ["dolor-lumbar-ciatica", "dolor-cervical", "neuropatia", "dolor-articular"];
 
@@ -16,21 +17,21 @@ const CREAM = "#f5f0e8";
 const GOLD = "#c69636";
 
 // AI-generated clinical procedure photography (no patient faces, cool clinical palette).
-const CARD_IMAGES: { src: string; alt: string }[] = [
+const CARD_IMAGES: { pic: PictureImport; alt: string }[] = [
   {
-    src: tx01Lumbar,
+    pic: tx01Lumbar,
     alt: "Procedimiento de bloqueo facetario lumbar guiado por fluoroscopia",
   },
   {
-    src: tx02Cervical,
+    pic: tx02Cervical,
     alt: "Procedimiento de bloqueo radicular cervical selectivo",
   },
   {
-    src: tx03Perif,
+    pic: tx03Perif,
     alt: "Procedimiento de bloqueo de nervio periférico guiado por ultrasonido",
   },
   {
-    src: tx04Eco,
+    pic: tx04Eco,
     alt: "Procedimiento de infiltración guiada por ecografía",
   },
 ];
