@@ -3,7 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import { BadgeCheck, Calendar, Stethoscope, UserRound } from "lucide-react";
-import drAtilioAsset from "@/assets/dr-atilio-full.png.asset.json";
+import drAtilio from "@/assets/dr-atilio-full.png";
 import teamDaniel from "@/assets/team-daniel.png";
 
 const WA =
