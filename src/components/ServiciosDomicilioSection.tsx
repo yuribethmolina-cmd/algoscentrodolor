@@ -121,6 +121,6 @@ export default function ServiciosDomicilioSection() {
           Solicitar servicio a domicilio por WhatsApp →
         </a>
       </div>
-    </section>
+    </div>
   );
 }
