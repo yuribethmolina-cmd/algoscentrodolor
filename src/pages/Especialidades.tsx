@@ -1,15 +1,43 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
+import { UserRound } from "lucide-react";
+import drAtilio from "@/assets/dr-atilio-full.png";
+import teamDaniel from "@/assets/team-daniel.png";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 const TEAL = "#3d8b96";
+
+type Specialist = { name: string; photo?: string; photoPosition?: string };
+
+const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
+  "neurocirugia": [
+    { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
+    { name: "Dra. Doris Meneses" },
+  ],
+  "traumatologia": [{ name: "Dr. Antulio Parra" }],
+  "reumatologia": [{ name: "Dra. Gilda Gómez" }],
+  "fisiatria": [
+    { name: "Dra. Leslie Ramírez" },
+    { name: "Dra. Carolina Rodríguez" },
+  ],
+  "radiologia-intervencionista": [
+    { name: "Dr. Miguel Guevara" },
+    { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
+  ],
+  "cuidados-paliativos": [{ name: "Dr. Tomás Iragorry" }],
+  "oncologia-medica": [],
+  "psiquiatria": [],
+  "nutricion": [
+    { name: "Dr. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
+  ],
+};
 
 export default function Especialidades() {
   const location = useLocation();
@@ -212,6 +240,128 @@ export default function Especialidades() {
                       </div>
                     ))}
                   </dl>
+
+                  {/* Especialistas asignados */}
+                  <div
+                    style={{
+                      marginTop: 20,
+                      paddingTop: 18,
+                      borderTop: "1px solid rgba(26,74,85,0.08)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 10,
+                        fontWeight: 700,
+                        letterSpacing: "0.22em",
+                        textTransform: "uppercase",
+                        color: GOLD,
+                        marginBottom: 10,
+                      }}
+                    >
+                      Especialistas
+                    </p>
+                    {(SPECIALTY_TO_DOCTORS[sp.slug] ?? []).length > 0 ? (
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: 0,
+                          margin: 0,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 8,
+                        }}
+                      >
+                        {SPECIALTY_TO_DOCTORS[sp.slug].map((doc) => (
+                          <li key={doc.name}>
+                            <Link
+                              to="/equipo"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 10,
+                                textDecoration: "none",
+                                padding: "6px 8px",
+                                margin: "-6px -8px",
+                                borderRadius: 2,
+                                transition: "background-color 200ms ease",
+                              }}
+                              onMouseEnter={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                  "rgba(61,139,150,0.06)")
+                              }
+                              onMouseLeave={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                  "transparent")
+                              }
+                            >
+                              <span
+                                style={{
+                                  width: 32,
+                                  height: 32,
+                                  borderRadius: "50%",
+                                  overflow: "hidden",
+                                  flexShrink: 0,
+                                  backgroundColor: "rgba(26,74,85,0.06)",
+                                  border: doc.photo
+                                    ? "1px solid rgba(26,74,85,0.1)"
+                                    : "1px dashed rgba(26,74,85,0.25)",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                {doc.photo ? (
+                                  <img
+                                    src={doc.photo}
+                                    alt={doc.name}
+                                    loading="lazy"
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      objectFit: "cover",
+                                      objectPosition:
+                                        doc.photoPosition ?? "center top",
+                                    }}
+                                  />
+                                ) : (
+                                  <UserRound
+                                    size={16}
+                                    strokeWidth={1.5}
+                                    color="rgba(26,74,85,0.5)"
+                                  />
+                                )}
+                              </span>
+                              <span
+                                style={{
+                                  fontFamily: "Inter, sans-serif",
+                                  fontSize: 13.5,
+                                  fontWeight: 500,
+                                  color: DEEP_TEAL,
+                                  lineHeight: 1.3,
+                                }}
+                              >
+                                {doc.name}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: 13,
+                          fontStyle: "italic",
+                          color: "rgba(26,74,85,0.55)",
+                          margin: 0,
+                        }}
+                      >
+                        Especialista próximamente
+                      </p>
+                    )}
+                  </div>
                 </article>
                 );
               })}
