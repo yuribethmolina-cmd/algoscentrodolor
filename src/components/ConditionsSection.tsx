@@ -88,8 +88,8 @@ export default function ConditionsSection() {
               maxWidth: 640,
             }}
           >
-            Cualquier dolor tiene un origen. Díganos dónde le duele y nosotros
-            encontramos la causa.
+            No importa qué tipo de dolor sea ni cuánto tiempo lleve con él.
+            En ALGOS identificamos el origen y diseñamos el tratamiento.
           </p>
         </div>
 
@@ -246,6 +246,41 @@ export default function ConditionsSection() {
           >
             Ver listado completo de condiciones →
           </Link>
+        </div>
+
+        {/* CTA: dolor no en lista */}
+        <div style={{ paddingTop: "clamp(32px, 4vw, 48px)" }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.5vw, 18px)",
+              lineHeight: 1.6,
+              color: "rgba(245,240,232,0.75)",
+              maxWidth: 640,
+              marginBottom: 20,
+            }}
+          >
+            ¿No ve su dolor en la lista? Escríbanos — si tiene dolor, podemos
+            ayudarle.
+          </p>
+          <a
+            href="https://wa.me/584146807886"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              color: TEAL,
+              textDecoration: "none",
+              letterSpacing: "0.04em",
+              transition: "color 200ms",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = TEAL)}
+          >
+            Escribir por WhatsApp →
+          </a>
         </div>
       </div>
     </section>
