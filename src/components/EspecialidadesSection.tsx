@@ -22,7 +22,7 @@ type Node = {
   icon: JSX.Element;
 };
 
-const ICON_STROKE = { stroke: GOLD, strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+const ICON_STROKE = { stroke: "currentColor", strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
 const NODES: Node[] = [
   // Top center — Neurocirugía (spine)
