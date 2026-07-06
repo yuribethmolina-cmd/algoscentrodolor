@@ -7,12 +7,12 @@ import PageHero from "@/components/PageHero";
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
 
 const WITH_PAGES = [
-  { label: "Ciática", href: "/condiciones/ciatica", desc: "Dolor que nace en la espalda y baja por la pierna." },
+  { label: "Dolor de espalda", href: "/condiciones/dolor-lumbar", desc: "Dolor de cintura que no cede con reposo ni calmantes." },
+  { label: "Dolor de cuello", href: "/condiciones/dolor-cervical", desc: "Dolor de cuello que puede extenderse al hombro o al brazo." },
+  { label: "Ciática · hormigueo en la pierna", href: "/condiciones/ciatica", desc: "Dolor que nace en la espalda y baja por la pierna." },
   { label: "Hernia discal", href: "/condiciones/hernia-discal", desc: "El disco se desplaza y comprime un nervio." },
-  { label: "Dolor lumbar", href: "/condiciones/dolor-lumbar", desc: "Dolor de cintura que no cede con reposo ni calmantes." },
-  { label: "Dolor cervical", href: "/condiciones/dolor-cervical", desc: "Dolor de cuello que puede extenderse al hombro o al brazo." },
-  { label: "Neuropatía diabética", href: "/condiciones/neuropatia-diabetica", desc: "Ardor, hormigueo o adormecimiento en pies y piernas por diabetes." },
-  { label: "Dolor tras cirugía de columna", href: "/condiciones/dolor-tras-cirugia", desc: "Cuando la operación no fue suficiente y el dolor persiste." },
+  { label: "Neuropatía · hormigueo en pies o manos", href: "/condiciones/neuropatia-diabetica", desc: "Ardor, hormigueo o adormecimiento en pies y piernas por diabetes." },
+  { label: "Dolor tras una operación", href: "/condiciones/dolor-tras-cirugia", desc: "Cuando la operación no fue suficiente y el dolor persiste." },
 ];
 
 const WITHOUT_PAGES = [
@@ -39,9 +39,9 @@ export default function CondicionesIndex() {
 
       <main>
         <PageHero
-          eyebrow="Condiciones que tratamos"
+          eyebrow="¿Dónde le duele?"
           title="El dolor tiene causa. Nosotros la tratamos."
-          subtitle="Un médico evalúa su caso, identifica el origen del dolor y define el tratamiento que corresponde. Aquí puede ver las condiciones con las que trabajamos."
+          subtitle="Seleccione la zona que le molesta. Le explicamos qué puede estar causándolo y qué opciones de tratamiento existen."
         />
 
         <section className="bg-cream py-16 md:py-24">
