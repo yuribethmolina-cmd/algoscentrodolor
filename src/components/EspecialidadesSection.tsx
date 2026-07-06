@@ -48,6 +48,7 @@ const NODES: Node[] = [
   {
     label: "Traumatología\ny Columna",
     angle: 60,
+    slug: "traumatologia",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -14 -18 L -4 -6 Q 0 -2 4 -6 L 14 -18" />
