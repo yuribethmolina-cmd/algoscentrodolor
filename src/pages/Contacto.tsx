@@ -76,9 +76,9 @@ const INFO_CARDS = [
 ];
 
 const EXAM_TILES = [
-  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "md:col-span-2 md:row-span-2" },
-  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "md:col-span-2" },
-  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "md:col-span-2" },
+  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "col-span-1 md:col-span-2" },
+  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "col-span-1 md:col-span-2" },
 ];
 
 export default function Contacto() {
@@ -204,11 +204,11 @@ export default function Contacto() {
             </div>
 
             {/* Bento grid — no rounded corners, hairline dividers */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
               {INFO_CARDS.map(({ Icon, title, lines, email, label }) => (
                 <div
                   key={title}
-                  className="group relative bg-cream p-8 md:p-9 flex flex-col min-h-[240px] transition-colors hover:bg-[#f5f0e8]"
+                  className="group relative bg-cream p-6 md:p-9 flex flex-col min-h-[200px] md:min-h-[240px] transition-colors hover:bg-[#f5f0e8]"
                 >
                   <div className="flex items-start justify-between mb-8">
                     <span className="font-ui text-[10px] tracking-[0.22em] text-[#1a4a55]/45 font-medium">
@@ -279,9 +279,9 @@ export default function Contacto() {
             </div>
 
             {/* Bento: 6-col grid */}
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
               {/* UDUZ brand tile */}
-              <div className="md:col-span-2 md:row-span-2 bg-[#c69636] p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
+              <div className="col-span-2 md:col-span-2 md:row-span-2 bg-[#c69636] p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
                 <div>
                   <p className="font-ui text-[10px] tracking-[0.28em] text-[#1a4a55]/70 font-semibold mb-6">
                     UNIDAD DE DIAGNÓSTICO<br />UNIVERSITARIA DEL ZULIA
@@ -306,7 +306,7 @@ export default function Contacto() {
               </div>
 
               {/* Cinematic scanner image */}
-              <div className="md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
+              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
                 <img
                   src={uduzScanner}
                   alt="Tomógrafo UDUZ"
@@ -327,7 +327,7 @@ export default function Contacto() {
               </div>
 
               {/* Address */}
-              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between border-t md:border-t-0 md:border-l border-[#f5f0e8]/8">
+              <div className="col-span-1 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     01 · DIRECCIÓN
@@ -341,7 +341,7 @@ export default function Contacto() {
               </div>
 
               {/* Phone */}
-              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-1 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     02 · CONTACTO
@@ -357,7 +357,7 @@ export default function Contacto() {
               </div>
 
               {/* Instagram */}
-              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-2 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     03 · REDES
@@ -377,7 +377,7 @@ export default function Contacto() {
             </div>
 
             {/* Cinematic exam gallery */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
               {EXAM_TILES.map((tile, i) => (
                 <button
                   key={tile.title}
