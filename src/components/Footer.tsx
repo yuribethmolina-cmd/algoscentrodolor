@@ -47,9 +47,9 @@ export default function Footer() {
               Síguenos
             </h4>
             <div className="space-y-3">
-              <a href="https://instagram.com/algos.dolor" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
+              <a href="https://instagram.com/algoscentrodolor" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Instagram size={16} />
-                @algos.dolor
+                @algoscentrodolor
               </a>
               <a href="https://instagram.com/neuroatilio" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                 <Instagram size={16} />

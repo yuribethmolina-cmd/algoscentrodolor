@@ -61,7 +61,7 @@ export default function GlobalFooter() {
           <div>
             <h4 className="text-primary-foreground font-medium text-sm tracking-wide mb-4">Síguenos</h4>
             <div className="space-y-3">
-              {["algos.dolor", "neuroatilio", "electromiografia.zulia", "kilocalorias"].map((handle) => (
+              {["algoscentrodolor", "neuroatilio", "electromiografia.zulia", "kilocalorias"].map((handle) => (
                 <a key={handle} href={`https://instagram.com/${handle}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm font-light">
                   <Instagram size={16} />
                   @{handle}
