@@ -306,7 +306,7 @@ export default function Contacto() {
               </div>
 
               {/* Cinematic scanner image */}
-              <div className="md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
+              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
                 <img
                   src={uduzScanner}
                   alt="Tomógrafo UDUZ"
