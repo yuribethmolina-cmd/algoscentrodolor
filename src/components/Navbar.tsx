@@ -145,7 +145,7 @@ export default function Navbar() {
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            className="h-7 mdx:h-9 w-auto object-contain [filter:contrast(1.45)_brightness(0.72)_saturate(1.1)] mdx:[filter:none]"
+            className="h-14 mdx:h-16 w-auto object-contain"
           />
         </Link>
 
