@@ -199,8 +199,10 @@ export default function ConditionsSection() {
                 className="group"
                 style={{
                   position: "relative",
-                  display: "block",
+                  display: "flex",
+                  flexDirection: "column",
                   width: "100%",
+                  minHeight: isOpen ? undefined : 160,
                   textAlign: "left",
                   background: isOpen
                     ? "linear-gradient(155deg, rgba(198,150,54,0.16) 0%, rgba(198,150,54,0.06) 100%)"
