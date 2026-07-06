@@ -270,18 +270,16 @@ export default function EspecialidadesSection() {
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
               const lines = n.label.split("\n");
-              const slug = slugify(lines.join(" "));
               const isHover = hoverAngle === n.angle;
               const isActive = activeAngle === n.angle;
               const isFocus = isHover || isActive;
-              const ariaLabel = lines.join(" ");
+              const ariaLabel = `Ver ${lines.join(" ")} en especialidades`;
               return (
                 <a
                   key={`node-${n.angle}`}
-                  href={`/especialidades#${slug}`}
+                  href={`/especialidades#${n.slug}`}
                   aria-label={ariaLabel}
-                  aria-pressed={isActive}
-                  role="button"
+                  role="link"
                   tabIndex={0}
                   onMouseEnter={() => setHoverAngle(n.angle)}
                   onMouseLeave={() => setHoverAngle(null)}
@@ -289,12 +287,12 @@ export default function EspecialidadesSection() {
                   onBlur={() => setHoverAngle(null)}
                   onClick={(e) => {
                     e.preventDefault();
-                    setActiveAngle(n.angle);
+                    goToSpecialty(n.angle, n.slug);
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
-                      setActiveAngle(n.angle);
+                      goToSpecialty(n.angle, n.slug);
                     }
                   }}
                   style={{
