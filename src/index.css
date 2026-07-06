@@ -206,7 +206,55 @@
     outline: 2px solid #c69636; /* Algos Gold */
     outline-offset: 2px;
     border-radius: 2px;
+}
+
+/* ============================================================
+ * Contraste global — refuerza texto para lectura AAA
+ * Sube opacidades débiles y peso mínimo de párrafos.
+ * ============================================================ */
+@layer utilities {
+  p, li, dd, dt, blockquote, figcaption {
+    font-weight: 500;
   }
+
+  /* Cream (sobre fondos teal oscuro) — subir a mínimo 92% */
+  .text-cream\/55,
+  .text-cream\/60,
+  .text-cream\/70,
+  .text-cream\/80,
+  .text-cream\/85,
+  .text-cream\/90 {
+    color: hsl(var(--cream-strong)) !important;
+    opacity: 1 !important;
+  }
+
+  /* Teal profundo con opacidad reducida — llevar a color pleno */
+  .text-deep-teal\/60,
+  .text-deep-teal\/85 {
+    color: hsl(var(--text-body)) !important;
+    opacity: 1 !important;
+  }
+
+  .text-steel-teal\/60,
+  .text-steel-teal\/80 {
+    color: hsl(var(--text-body)) !important;
+    opacity: 1 !important;
+  }
+
+  /* Foreground / muted-foreground con opacidades reducidas */
+  .text-foreground\/50,
+  .text-foreground\/70,
+  .text-foreground\/80 {
+    color: hsl(var(--foreground)) !important;
+    opacity: 1 !important;
+  }
+
+  .text-muted-foreground\/60 {
+    color: hsl(var(--muted-foreground)) !important;
+    opacity: 1 !important;
+  }
+}
+
 }
 
 @layer utilities {
