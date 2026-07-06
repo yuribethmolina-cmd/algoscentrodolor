@@ -1,7 +1,35 @@
 const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
+const DEEP_TEAL = "#134F5C";
 const GOLD = "#c69636";
 const BRAND_TEAL = "#3d8b96";
+const UDUZ_GREEN = "#8DC63F";
+const UDUZ_TEAL = "#1B6B78";
+
+function UduzMark({ size = 44, onDark = false }: { size?: number; onDark?: boolean }) {
+  const dot = size * 0.26;
+  const gap = size * 0.14;
+  const bottom = onDark ? "#f5f0e8" : UDUZ_TEAL;
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        display: "inline-flex",
+        flexDirection: "column",
+        gap,
+        lineHeight: 0,
+      }}
+    >
+      <div style={{ display: "flex", gap }}>
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_GREEN }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_GREEN }} />
+      </div>
+      <div style={{ display: "flex", gap }}>
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: bottom }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: bottom }} />
+      </div>
+    </div>
+  );
+}
 
 const steps = [
   {
@@ -93,12 +121,51 @@ function ConnectorLineMobile() {
 
 export default function AllianceSection() {
   return (
-    <section id="alianza" style={{ backgroundColor: DEEP_TEAL }}>
+    <section
+      id="alianza"
+      style={{
+        backgroundColor: DEEP_TEAL,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Ambient background glows */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "8%",
+          left: "-8%",
+          width: 520,
+          height: 520,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${UDUZ_GREEN}22 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          right: "-6%",
+          width: 460,
+          height: 460,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${GOLD}20 0%, transparent 70%)`,
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+
       <div
         style={{
           padding: "clamp(64px, 8vw, 96px) clamp(24px, 5vw, 72px)",
           maxWidth: 1280,
           margin: "0 auto",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {/* ── Header ───────────────────────────────────────────── */}
@@ -162,13 +229,18 @@ export default function AllianceSection() {
                 style={{
                   flex: "1 1 0",
                   minWidth: 0,
-                  backgroundColor: "rgba(245, 240, 232, 0.06)",
-                  border: "1px solid rgba(245, 240, 232, 0.12)",
-                  borderRadius: 10,
+                  background:
+                    "linear-gradient(155deg, rgba(245,240,232,0.10) 0%, rgba(245,240,232,0.04) 100%)",
+                  backdropFilter: "blur(12px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(12px) saturate(140%)",
+                  border: "1px solid rgba(245, 240, 232, 0.14)",
+                  borderRadius: 14,
                   padding: "clamp(24px, 2.8vw, 32px)",
                   display: "flex",
                   flexDirection: "column",
                   gap: 12,
+                  boxShadow:
+                    "0 1px 0 rgba(245,240,232,0.08) inset, 0 20px 40px -24px rgba(0,0,0,0.4)",
                 }}
               >
                 <p
@@ -255,11 +327,15 @@ export default function AllianceSection() {
                 fontSize: 12,
                 fontWeight: 500,
                 color: CREAM,
-                backgroundColor: "rgba(245, 240, 232, 0.08)",
-                border: "1px solid rgba(245, 240, 232, 0.2)",
+                background:
+                  "linear-gradient(135deg, rgba(141,198,63,0.14) 0%, rgba(245,240,232,0.06) 100%)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                border: `1px solid ${UDUZ_GREEN}55`,
                 borderRadius: 100,
                 padding: "7px 16px",
                 whiteSpace: "nowrap",
+                transition: "border-color 200ms ease, transform 200ms ease",
               }}
             >
               {chip}
@@ -280,7 +356,7 @@ export default function AllianceSection() {
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: CREAM,
-              backgroundColor: BRAND_TEAL,
+              backgroundColor: UDUZ_TEAL,
               padding: "16px 32px",
               borderRadius: 4,
               textDecoration: "none",
@@ -290,11 +366,13 @@ export default function AllianceSection() {
               transition: "background-color 200ms ease, transform 200ms ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#357a84";
+              e.currentTarget.style.backgroundColor = UDUZ_GREEN;
+              e.currentTarget.style.color = UDUZ_TEAL;
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = BRAND_TEAL;
+              e.currentTarget.style.backgroundColor = UDUZ_TEAL;
+              e.currentTarget.style.color = CREAM;
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
@@ -302,39 +380,88 @@ export default function AllianceSection() {
           </a>
         </div>
 
-        {/* ── UDUZ Contact Card ────────────────────────────────── */}
+        {/* ── UDUZ Contact Card (UDUZ branding) ─────────────────── */}
         <div
           style={{
-            maxWidth: 560,
+            maxWidth: 600,
             margin: "0 auto",
-            backgroundColor: "rgba(245, 240, 232, 0.04)",
-            border: "1px solid rgba(245, 240, 232, 0.12)",
-            borderLeft: `3px solid ${GOLD}`,
-            borderRadius: 10,
-            padding: "clamp(28px, 3.5vw, 36px)",
+            position: "relative",
+            background:
+              "linear-gradient(155deg, rgba(255,255,255,0.10) 0%, rgba(27,107,120,0.18) 100%)",
+            backdropFilter: "blur(18px) saturate(150%)",
+            WebkitBackdropFilter: "blur(18px) saturate(150%)",
+            border: "1px solid rgba(245,240,232,0.14)",
+            borderRadius: 16,
+            padding: "clamp(28px, 3.5vw, 40px)",
+            boxShadow:
+              "0 1px 0 rgba(245,240,232,0.10) inset, 0 30px 60px -30px rgba(0,0,0,0.5)",
+            overflow: "hidden",
           }}
         >
-          <p
+          {/* UDUZ ambient glow */}
+          <span
+            aria-hidden="true"
             style={{
-              fontFamily: "'Manrope', system-ui, sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              letterSpacing: "0.26em",
-              textTransform: "uppercase",
-              color: GOLD,
-              margin: "0 0 10px",
+              position: "absolute",
+              top: -80,
+              right: -80,
+              width: 240,
+              height: 240,
+              borderRadius: "50%",
+              background: `radial-gradient(circle, ${UDUZ_GREEN}30 0%, transparent 70%)`,
+              filter: "blur(30px)",
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* UDUZ brand header */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              marginBottom: 22,
+              position: "relative",
             }}
           >
-            UDUZ · Unidad de Diagnóstico
-          </p>
+            <UduzMark size={38} onDark />
+            <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              <span
+                style={{
+                  fontFamily: "'Sora', system-ui, sans-serif",
+                  fontSize: 22,
+                  fontWeight: 700,
+                  color: CREAM,
+                  letterSpacing: "0.04em",
+                  lineHeight: 1,
+                }}
+              >
+                UDUZ
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Manrope', system-ui, sans-serif",
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: UDUZ_GREEN,
+                }}
+              >
+                Unidad de Diagnóstico
+              </span>
+            </div>
+          </div>
+
           <h3
             style={{
               fontFamily: "'Sora', system-ui, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(18px, 1.6vw, 22px)",
               color: CREAM,
-              margin: "0 0 20px",
+              margin: "0 0 22px",
               letterSpacing: "-0.01em",
+              position: "relative",
             }}
           >
             Unidad de Diagnóstico Universitaria del Zulia
@@ -345,42 +472,43 @@ export default function AllianceSection() {
               display: "grid",
               gridTemplateColumns: "auto 1fr",
               columnGap: 16,
-              rowGap: 10,
+              rowGap: 12,
               fontFamily: "'Manrope', system-ui, sans-serif",
               fontSize: 14,
-              color: "rgba(245, 240, 232, 0.85)",
+              color: "rgba(245, 240, 232, 0.88)",
               lineHeight: 1.55,
               margin: 0,
+              position: "relative",
             }}
           >
-            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Dirección</dt>
+            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Dirección</dt>
             <dd style={{ margin: 0 }}>Av. 4001, Maracaibo · Sector Paraíso</dd>
 
-            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Teléfono</dt>
+            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Teléfono</dt>
             <dd style={{ margin: 0 }}>
               <a href="tel:+584126044124" style={{ color: CREAM, textDecoration: "none" }}>
                 +58 412-604-4124
               </a>
             </dd>
 
-            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Instagram</dt>
+            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Instagram</dt>
             <dd style={{ margin: 0 }}>
               <a
                 href="https://instagram.com/uduz_maracaibo"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: CREAM, textDecoration: "none", borderBottom: `1px solid ${GOLD}`, paddingBottom: 1 }}
+                style={{ color: CREAM, textDecoration: "none", borderBottom: `1px solid ${UDUZ_GREEN}`, paddingBottom: 1 }}
               >
                 @uduz_maracaibo
               </a>
             </dd>
 
-            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Horario</dt>
+            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Horario</dt>
             <dd style={{ margin: 0 }}>Lun–Sáb · 6:30 AM – 7:00 PM</dd>
 
-            <dt style={{ color: "rgba(245, 240, 232, 0.45)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center" }}>Reseñas</dt>
+            <dt style={{ color: UDUZ_GREEN, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", alignSelf: "center", fontWeight: 600 }}>Reseñas</dt>
             <dd style={{ margin: 0, color: CREAM }}>
-              <span style={{ color: GOLD }}>★</span> 4.8 <span style={{ color: "rgba(245, 240, 232, 0.5)" }}>· 246 en Google</span>
+              <span style={{ color: UDUZ_GREEN }}>★</span> 4.8 <span style={{ color: "rgba(245, 240, 232, 0.5)" }}>· 246 en Google</span>
             </dd>
           </dl>
 
@@ -388,11 +516,12 @@ export default function AllianceSection() {
             style={{
               fontFamily: "'Manrope', system-ui, sans-serif",
               fontSize: 12,
-              color: "rgba(245, 240, 232, 0.5)",
-              margin: "24px 0 0",
+              color: "rgba(245, 240, 232, 0.55)",
+              margin: "26px 0 0",
               paddingTop: 20,
-              borderTop: "1px solid rgba(245, 240, 232, 0.1)",
+              borderTop: `1px solid ${UDUZ_GREEN}33`,
               lineHeight: 1.6,
+              position: "relative",
             }}
           >
             Para Tomografía, Rayos X, Mamografía 3D, Ecografía y Laboratorio.
