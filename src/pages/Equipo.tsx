@@ -243,8 +243,8 @@ export default function Equipo() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-              {DOCTORES.map((d) => (
-                <DoctorCard key={d.name} d={d} />
+              {DOCTORES.map((d, i) => (
+                <DoctorCard key={d.name} d={d} index={i} />
               ))}
             </div>
           </div>
