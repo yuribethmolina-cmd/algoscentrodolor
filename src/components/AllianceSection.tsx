@@ -326,11 +326,15 @@ export default function AllianceSection() {
                 fontSize: 12,
                 fontWeight: 500,
                 color: CREAM,
-                backgroundColor: "rgba(245, 240, 232, 0.08)",
-                border: "1px solid rgba(245, 240, 232, 0.2)",
+                background:
+                  "linear-gradient(135deg, rgba(141,198,63,0.14) 0%, rgba(245,240,232,0.06) 100%)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                border: `1px solid ${UDUZ_GREEN}55`,
                 borderRadius: 100,
                 padding: "7px 16px",
                 whiteSpace: "nowrap",
+                transition: "border-color 200ms ease, transform 200ms ease",
               }}
             >
               {chip}
