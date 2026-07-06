@@ -377,7 +377,7 @@ export default function Contacto() {
             </div>
 
             {/* Cinematic exam gallery */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
               {EXAM_TILES.map((tile, i) => (
                 <button
                   key={tile.title}
