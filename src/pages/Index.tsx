@@ -7,6 +7,7 @@ import ConditionsSection from "@/components/ConditionsSection";
 import EspecialidadesSection from "@/components/EspecialidadesSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
 import AllianceSection from "@/components/AllianceSection";
+import AlgosLocationSection from "@/components/AlgosLocationSection";
 import TeamSection from "@/components/TeamSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
 import FinalCTA from "@/components/FinalCTA";
@@ -23,6 +24,7 @@ export default function Index() {
       <AllianceSection />
       <TeamSection />
       <HomeFAQSection />
+      <AlgosLocationSection />
       <FinalCTA />
       <HomeFooter />
       <WhatsAppButton />
