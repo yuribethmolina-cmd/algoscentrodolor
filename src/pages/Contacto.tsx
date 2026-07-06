@@ -689,14 +689,16 @@ export default function Contacto() {
             </button>
 
             <img
-              key={active.img}
-              src={active.img}
+              key={active.image.full}
+              src={active.image.full}
               alt={active.title}
+              decoding="async"
               onClick={(e) => { e.stopPropagation(); setZoomed((z) => !z); }}
               className={`max-h-full max-w-full object-contain shadow-2xl transition-transform duration-500 ease-out animate-scale-in ${
                 zoomed ? "scale-[1.6] cursor-zoom-out" : "scale-100 cursor-zoom-in"
               }`}
             />
+
 
             <button
               type="button"
