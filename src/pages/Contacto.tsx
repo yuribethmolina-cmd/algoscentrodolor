@@ -204,7 +204,7 @@ export default function Contacto() {
             </div>
 
             {/* Bento grid — no rounded corners, hairline dividers */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
               {INFO_CARDS.map(({ Icon, title, lines, email, label }) => (
                 <div
                   key={title}
