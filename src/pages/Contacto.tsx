@@ -81,6 +81,160 @@ const EXAM_TILES = [
   { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "col-span-1 md:col-span-2" },
 ];
 
+const STUDY_TYPES = [
+  {
+    id: "tomografia",
+    label: "Tomografía",
+    icon: Brain,
+    description: "Estudios de Tomografía Computarizada (TC) con tecnología multicorte que genera imágenes detalladas de órganos, tejidos blandos y estructuras óseas en cortes milimétricos.",
+    indications: [
+      "Evaluación de patologías en columna vertebral y médula espinal",
+      "Detección de tumores, fracturas y alteraciones óseas",
+      "Estudio de vasos sanguíneos (AngioTC) sin cateterismo",
+      "Planificación prequirúrgica y seguimiento postoperatorio",
+    ],
+    preparation: "Ayuno de 4 horas si requiere contraste. Informar alergias previas. Retirar objetos metálicos.",
+    duration: "10 – 20 minutos",
+    image: uduzScanner,
+  },
+  {
+    id: "rayos-x",
+    label: "Rayos X",
+    icon: Bone,
+    description: "Radiografía digital de alta resolución con dosis mínima de radiación. Ideal para diagnóstico inicial y seguimiento de condiciones traumatológicas y degenerativas.",
+    indications: [
+      "Fracturas, luxaciones y lesiones traumáticas",
+      "Artrosis y enfermedades degenerativas articulares",
+      "Escoliosis y alteraciones de la curvatura espinal",
+      "Control de consolidación ósea postquirúrgica",
+    ],
+    preparation: "No requiere preparación especial. Retirar joyería y objetos metálicos de la zona a estudiar.",
+    duration: "5 – 10 minutos",
+    image: examsXray,
+  },
+  {
+    id: "ecografia",
+    label: "Ecografía",
+    icon: Activity,
+    description: "Ultrasonido médico en tiempo real con doppler para evaluar fl sanguíneo, tejidos blandos, articulaciones y estructuras superficiales sin radiación ionizante.",
+    indications: [
+      "Ecografía musculoesquelética: tendones, ligamentos, músculos",
+      "Doppler vascular: evaluación de circulación arterial y venosa",
+      "Ecografía obstétrica y ginecológica",
+      "Guía ecográfica para procedimientos intervencionistas",
+    ],
+    preparation: "Según región: ayuno (abdominal) o vejiga llena (ginecológica). Indicaciones específicas al agendar.",
+    duration: "20 – 40 minutos",
+    image: examsUltrasound,
+  },
+  {
+    id: "mamografia",
+    label: "Mamografía 3D",
+    icon: Baby,
+    description: "Tomosíntesis digital que captura múltiples imágenes del tejido mamario en arcos de 15°, reconstruyendo una vista tridimensional para mayor precisión diagnóstica.",
+    indications: [
+      "Detección temprana de cáncer de mama, incluso en tejido denso",
+      "Evaluación de microcalcificaciones y masas sospechosas",
+      "Estudios de tamización en mujeres mayores de 40 años",
+      "Seguimiento de pacientes con antecedentes familiares",
+    ],
+    preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
+    duration: "15 – 20 minutos",
+    image: uduzScanner,
+  },
+];
+
+function StudyTabs() {
+  const [active, setActive] = useState(STUDY_TYPES[0].id);
+  const current = STUDY_TYPES.find((s) => s.id === active)!;
+  const Icon = current.icon;
+
+  return (
+    <div className="border border-[#f5f0e8]/10 bg-[#0f3138]">
+      {/* Tab bar */}
+      <div className="flex overflow-x-auto border-b border-[#f5f0e8]/10 no-scrollbar">
+        {STUDY_TYPES.map((s) => {
+          const TabIcon = s.icon;
+          const isActive = s.id === active;
+          return (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => setActive(s.id)}
+              className={`flex-shrink-0 flex items-center gap-2.5 px-5 md:px-8 py-4 md:py-5 font-ui text-[11px] md:text-xs tracking-[0.18em] uppercase transition-colors border-r border-[#f5f0e8]/10 last:border-r-0 ${
+                isActive
+                  ? "bg-[#f5f0e8]/[0.06] text-[#c69636]"
+                  : "text-[#f5f0e8]/50 hover:text-[#f5f0e8]/80 hover:bg-[#f5f0e8]/[0.03]"
+              }`}
+            >
+              <TabIcon className="w-4 h-4" strokeWidth={1.5} />
+              <span className="hidden sm:inline">{s.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Content */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+        {/* Image */}
+        <div className="md:col-span-2 relative overflow-hidden min-h-[240px] md:min-h-[380px] bg-black">
+          <img
+            src={current.image}
+            alt={current.label}
+            className="absolute inset-0 w-full h-full object-cover opacity-75"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f3138]/60 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 p-6 md:p-8">
+            <div className="flex items-center gap-2 mb-2">
+              <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
+              <span className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] uppercase">
+                {current.label}
+              </span>
+            </div>
+            <p className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/50 uppercase">
+              Duración estimada: {current.duration}
+            </p>
+          </div>
+        </div>
+
+        {/* Info */}
+        <div className="md:col-span-3 p-6 md:p-10 flex flex-col gap-8">
+          <div>
+            <p className="font-sans text-[#f5f0e8]/85 text-[15px] md:text-base leading-relaxed">
+              {current.description}
+            </p>
+          </div>
+
+          <div className="border-t border-[#f5f0e8]/10 pt-8">
+            <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] uppercase mb-5">
+              Indicaciones principales
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {current.indications.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-[#c69636] mt-2 flex-shrink-0" />
+                  <span className="font-sans text-[#f5f0e8]/70 text-sm leading-relaxed">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="border-t border-[#f5f0e8]/10 pt-8">
+            <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] uppercase mb-3">
+              Preparación del paciente
+            </p>
+            <p className="font-sans text-[#f5f0e8]/70 text-sm leading-relaxed">
+              {current.preparation}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Contacto() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(false);
