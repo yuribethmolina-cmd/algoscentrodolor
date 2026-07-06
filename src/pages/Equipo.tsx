@@ -111,13 +111,13 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
       {/* Photo */}
       <div className="relative aspect-[4/5] bg-gradient-to-br from-[#f5f0e8] via-white to-[#e8eef0] overflow-hidden">
         {d.photo ? (
-          <img
-            src={d.photo}
+          <SmartImage
+            picture={d.photo}
             alt={d.name}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
+            eager={index < 2}
+            className="absolute inset-0 w-full h-full transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
             style={{ objectPosition: d.photoPosition ?? "center top" }}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6">
