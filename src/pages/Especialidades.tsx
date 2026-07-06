@@ -6,8 +6,10 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
 import { UserRound } from "lucide-react";
-import drAtilio from "@/assets/dr-atilio-full.png?w=96&format=webp&quality=72";
-import teamDaniel from "@/assets/team-daniel.png?w=96&format=webp&quality=72";
+import drAtilioPic from "@/assets/dr-atilio-full.png?w=64;128&format=avif;webp;jpg&as=picture";
+import teamDanielPic from "@/assets/team-daniel.png?w=64;128&format=avif;webp;jpg&as=picture";
+const drAtilio = drAtilioPic.img.src;
+const teamDaniel = teamDanielPic.img.src;
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
