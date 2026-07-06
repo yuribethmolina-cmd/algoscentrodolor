@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -20,7 +22,7 @@ type Node = {
   icon: JSX.Element;
 };
 
-const ICON_STROKE = { stroke: GOLD, strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+const ICON_STROKE = { stroke: "currentColor", strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
 const NODES: Node[] = [
   // Top center — Neurocirugía (spine)
@@ -121,7 +123,17 @@ function polar(angleDeg: number, radius: number) {
   return { x: CX + radius * Math.cos(rad), y: CY + radius * Math.sin(rad) };
 }
 
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
 export default function EspecialidadesSection() {
+  const [activeAngle, setActiveAngle] = useState<number | null>(null);
+  const [hoverAngle, setHoverAngle] = useState<number | null>(null);
   return (
     <section
       style={{
@@ -225,6 +237,7 @@ export default function EspecialidadesSection() {
               const y1 = CY + uy * R_CENTER;
               const x2 = p.x - ux * R_NODE;
               const y2 = p.y - uy * R_NODE;
+              const isFocus = hoverAngle === n.angle || activeAngle === n.angle;
               return (
                 <line
                   key={`line-${n.angle}`}
@@ -233,8 +246,9 @@ export default function EspecialidadesSection() {
                   x2={x2}
                   y2={y2}
                   stroke={GOLD}
-                  strokeOpacity={0.6}
-                  strokeWidth={1.25}
+                  strokeOpacity={isFocus ? 1 : 0.6}
+                  strokeWidth={isFocus ? 1.75 : 1.25}
+                  style={{ transition: "stroke-opacity 220ms ease, stroke-width 220ms ease" }}
                 />
               );
             })}
@@ -243,38 +257,97 @@ export default function EspecialidadesSection() {
             {NODES.map((n) => {
               const p = polar(n.angle, R_ORBIT);
               const lines = n.label.split("\n");
+              const slug = slugify(lines.join(" "));
+              const isHover = hoverAngle === n.angle;
+              const isActive = activeAngle === n.angle;
+              const isFocus = isHover || isActive;
+              const ariaLabel = lines.join(" ");
               return (
-                <g key={`node-${n.angle}`}>
-                  <circle
-                    cx={p.x}
-                    cy={p.y}
-                    r={R_NODE}
-                    fill={TEAL}
-                    stroke={GOLD}
-                    strokeWidth={1.25}
-                  />
-                  {/* Icon — drawn at (0,0), translated into the top half */}
-                  <g transform={`translate(${p.x}, ${p.y - 28})`}>{n.icon}</g>
-                  {/* Label — thin white, below the icon */}
-                  <text
-                    x={p.x}
-                    y={p.y + 22}
-                    textAnchor="middle"
+                <a
+                  key={`node-${n.angle}`}
+                  href={`/especialidades#${slug}`}
+                  aria-label={ariaLabel}
+                  aria-pressed={isActive}
+                  role="button"
+                  tabIndex={0}
+                  onMouseEnter={() => setHoverAngle(n.angle)}
+                  onMouseLeave={() => setHoverAngle(null)}
+                  onFocus={() => setHoverAngle(n.angle)}
+                  onBlur={() => setHoverAngle(null)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveAngle(n.angle);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveAngle(n.angle);
+                    }
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    outline: "none",
+                  }}
+                >
+                  <g
                     style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: 12.5,
-                      fontWeight: 400,
-                      fill: CREAM,
-                      letterSpacing: "0.01em",
+                      transformOrigin: `${p.x}px ${p.y}px`,
+                      transform: isFocus ? "scale(1.06)" : "scale(1)",
+                      transition: "transform 260ms cubic-bezier(0.22, 1, 0.36, 1)",
                     }}
                   >
-                    {lines.map((ln, i) => (
-                      <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
-                        {ln}
-                      </tspan>
-                    ))}
-                  </text>
-                </g>
+                    {/* Focus/active halo */}
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={R_NODE + 8}
+                      fill="none"
+                      stroke={GOLD}
+                      strokeOpacity={isActive ? 0.9 : isHover ? 0.55 : 0}
+                      strokeWidth={isActive ? 1.4 : 1}
+                      strokeDasharray={isActive ? "0" : "3 5"}
+                      style={{ transition: "stroke-opacity 240ms ease" }}
+                    />
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={R_NODE}
+                      fill={isActive ? GOLD : TEAL}
+                      stroke={GOLD}
+                      strokeWidth={isFocus ? 1.75 : 1.25}
+                      style={{ transition: "fill 260ms ease, stroke-width 220ms ease" }}
+                    />
+                    {/* Icon */}
+                    <g
+                      transform={`translate(${p.x}, ${p.y - 28})`}
+                      style={{
+                        color: isActive ? DEEP_TEAL : GOLD,
+                        transition: "color 240ms ease",
+                      }}
+                    >
+                      {n.icon}
+                    </g>
+                    <text
+                      x={p.x}
+                      y={p.y + 22}
+                      textAnchor="middle"
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 12.5,
+                        fontWeight: isFocus ? 500 : 400,
+                        fill: isActive ? DEEP_TEAL : CREAM,
+                        letterSpacing: "0.01em",
+                        transition: "fill 240ms ease",
+                      }}
+                    >
+                      {lines.map((ln, i) => (
+                        <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
+                          {ln}
+                        </tspan>
+                      ))}
+                    </text>
+                  </g>
+                </a>
               );
             })}
 
@@ -411,46 +484,63 @@ export default function EspecialidadesSection() {
               gap: 12,
             }}
           >
-            {NODES.map((n) => (
-              <li
-                key={`m-${n.angle}`}
-                style={{
-                  backgroundColor: TEAL,
-                  border: `1px solid ${GOLD}`,
-                  padding: "14px 10px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                  minHeight: 118,
-                }}
-              >
-                <svg
-                  viewBox="-28 -28 56 56"
-                  width={40}
-                  height={40}
-                  aria-hidden="true"
-                  style={{ display: "block", marginBottom: 8 }}
-                  shapeRendering="geometricPrecision"
-                >
-                  {n.icon}
-                </svg>
-                <span
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 12,
-                    lineHeight: 1.3,
-                    color: CREAM,
-                  }}
-                >
-                  {n.label.split("\n").map((ln, i) => (
-                    <span key={i} style={{ display: "block" }}>
-                      {ln}
+            {NODES.map((n) => {
+              const isActive = activeAngle === n.angle;
+              const slug = slugify(n.label.replace(/\n/g, " "));
+              return (
+                <li key={`m-${n.angle}`} style={{ display: "block" }}>
+                  <a
+                    href={`/especialidades#${slug}`}
+                    aria-pressed={isActive}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveAngle(n.angle);
+                    }}
+                    style={{
+                      backgroundColor: isActive ? GOLD : TEAL,
+                      border: `1px solid ${GOLD}`,
+                      padding: "14px 10px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      minHeight: 118,
+                      color: isActive ? DEEP_TEAL : GOLD,
+                      textDecoration: "none",
+                      transition:
+                        "background-color 220ms ease, color 220ms ease, transform 180ms ease",
+                      transform: isActive ? "scale(0.98)" : "scale(1)",
+                      WebkitTapHighlightColor: "transparent",
+                    }}
+                  >
+                    <svg
+                      viewBox="-28 -28 56 56"
+                      width={40}
+                      height={40}
+                      aria-hidden="true"
+                      style={{ display: "block", marginBottom: 8 }}
+                      shapeRendering="geometricPrecision"
+                    >
+                      {n.icon}
+                    </svg>
+                    <span
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: 12,
+                        lineHeight: 1.3,
+                        color: isActive ? DEEP_TEAL : CREAM,
+                      }}
+                    >
+                      {n.label.split("\n").map((ln, i) => (
+                        <span key={i} style={{ display: "block" }}>
+                          {ln}
+                        </span>
+                      ))}
                     </span>
-                  ))}
-                </span>
-              </li>
-            ))}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <p
