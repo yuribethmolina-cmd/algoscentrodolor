@@ -14,7 +14,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className="min-h-screen">
       <GlobalNavbar />
-      <main className="pt-20">{children}</main>
+      <main className="pt-24">{children}</main>
       <GlobalFooter />
       <WhatsAppButton />
     </div>

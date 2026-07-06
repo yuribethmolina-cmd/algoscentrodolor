@@ -41,7 +41,7 @@ export default function ProcedureDetails({ facts, steps, faq, preparation }: Pro
 
       {/* Preparación */}
       {preparation && (
-        <section className="bg-cream pt-20 md:pt-20">
+        <section className="bg-cream pt-24 md:pt-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">
               Preparación

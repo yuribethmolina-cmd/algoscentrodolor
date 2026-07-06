@@ -9,7 +9,7 @@ interface Props {
 /** Centered intro paragraph with reveal-on-scroll. */
 export default function ProcedureIntro({ eyebrow, children }: Props) {
   return (
-    <section className="bg-cream pt-20 md:pt-28 pb-4">
+    <section className="bg-cream pt-24 md:pt-28 pb-4">
       <div className="mx-auto max-w-[860px] px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

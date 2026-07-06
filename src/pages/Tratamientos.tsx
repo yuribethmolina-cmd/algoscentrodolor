@@ -230,7 +230,7 @@ export default function Tratamientos() {
         </section>
 
         {/* CTA DUAL */}
-        <section className="bg-cream pt-20 md:pt-28 pb-20 md:pb-28">
+        <section className="bg-cream pt-24 md:pt-28 pb-20 md:pb-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <article className="bg-[#3d8b96] text-[#f5f0e8] rounded-none p-10 md:p-12">
