@@ -405,8 +405,24 @@ export default function Contacto() {
                     </h4>
                     <p className="font-sans text-[#f5f0e8]/70 text-sm mt-1">{tile.subtitle}</p>
                   </div>
-                </button>
-              ))}
+              </button>
+            ))}
+            </div>
+
+            {/* TIPOS DE ESTUDIOS — TABS */}
+            <div className="mt-16">
+              <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                    INFORMACIÓN CLÍNICA
+                  </p>
+                  <h3 className="font-display font-bold text-[#f5f0e8] text-2xl md:text-4xl leading-[1.05] tracking-tight">
+                    Tipos de estudios
+                  </h3>
+                </div>
+              </div>
+
+              <StudyTabs />
             </div>
           </div>
         </section>
