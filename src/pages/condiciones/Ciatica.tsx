@@ -36,7 +36,7 @@ export default function Ciatica() {
             </p>
 
             <figure className="mb-12">
-              <img src={ciaticaAnatomia.url} alt="Anatomía del nervio ciático" className="w-full rounded-sm" />
+              <img src={ciaticaAnatomia.url} alt="Anatomía del nervio ciático" width={1200} height={800} loading="lazy" decoding="async" className="w-full rounded-sm" />
               <figcaption className="font-sans text-steel-teal text-[13px] leading-[1.5] mt-3 text-center">
                 El nervio ciático recorre desde la zona lumbar hasta la pierna.
               </figcaption>

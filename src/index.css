@@ -535,3 +535,18 @@ img.img-blur-in[data-img-loaded="true"] {
     animation: none;
   }
 }
+
+/* ============================================================
+ * CLS prevention: ensure images reserve intrinsic space.
+ * When both width & height attrs are set, browsers derive an
+ * aspect-ratio automatically. We then let height flex so the
+ * image scales down responsively without breaking the ratio.
+ * Absolutely-positioned images (cover/fill patterns) are opted
+ * out via [style*="position:absolute"] and Tailwind's absolute.
+ * ============================================================ */
+img {
+  max-width: 100%;
+}
+img[width][height]:not(.absolute):not([style*="position: absolute"]):not([style*="position:absolute"]) {
+  height: auto;
+}

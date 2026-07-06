@@ -10,7 +10,7 @@ export default function GlobalFooter() {
           {/* Brand */}
           <div>
             <Link to="/">
-              <img src={algosLogo} alt="ALGOS — Centro de Dolor Intervencionista" className="h-12 w-auto" />
+              <img src={algosLogo} alt="ALGOS — Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
             </Link>
             <p className="text-primary-foreground/50 font-light text-sm mt-4 leading-relaxed">
               Centro de Dolor Intervencionista.
