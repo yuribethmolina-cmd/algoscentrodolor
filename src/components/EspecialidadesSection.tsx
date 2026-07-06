@@ -395,7 +395,7 @@ export default function EspecialidadesSection() {
             {/* Caption inside the frame — gold, thin, centered */}
             <text
               x={CX}
-              y={588}
+              y={728}
               textAnchor="middle"
               style={{
                 fontFamily: "Inter, sans-serif",
