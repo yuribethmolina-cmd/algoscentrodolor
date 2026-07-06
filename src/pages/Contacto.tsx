@@ -86,10 +86,14 @@ const INFO_CARDS = [
   },
 ];
 
+const IMG_TOMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
+const IMG_XRAY = { pic: examsXrayPic, lqip: examsXrayLqip, full: examsXrayFull };
+const IMG_ECO  = { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip, full: examsUltrasoundFull };
+
 const EXAM_TILES = [
-  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
-  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "col-span-1 md:col-span-2" },
-  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "col-span-1 md:col-span-2" },
+  { title: "Tomografía", subtitle: "Alta resolución · mismo día", image: IMG_TOMO, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", image: IMG_XRAY, span: "col-span-1 md:col-span-2" },
+  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", image: IMG_ECO, span: "col-span-1 md:col-span-2" },
 ];
 
 const STUDY_TYPES = [
@@ -106,7 +110,7 @@ const STUDY_TYPES = [
     ],
     preparation: "Ayuno de 4 horas si requiere contraste. Informar alergias previas. Retirar objetos metálicos.",
     duration: "10 – 20 minutos",
-    image: uduzScanner,
+    image: IMG_TOMO,
   },
   {
     id: "rayos-x",
@@ -121,7 +125,7 @@ const STUDY_TYPES = [
     ],
     preparation: "No requiere preparación especial. Retirar joyería y objetos metálicos de la zona a estudiar.",
     duration: "5 – 10 minutos",
-    image: examsXray,
+    image: IMG_XRAY,
   },
   {
     id: "ecografia",
@@ -136,7 +140,7 @@ const STUDY_TYPES = [
     ],
     preparation: "Según región: ayuno (abdominal) o vejiga llena (ginecológica). Indicaciones específicas al agendar.",
     duration: "20 – 40 minutos",
-    image: examsUltrasound,
+    image: IMG_ECO,
   },
   {
     id: "mamografia",
@@ -151,9 +155,10 @@ const STUDY_TYPES = [
     ],
     preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
     duration: "15 – 20 minutos",
-    image: uduzScanner,
+    image: IMG_TOMO,
   },
 ];
+
 
 function StudyTabs() {
   const [active, setActive] = useState(STUDY_TYPES[0].id);
