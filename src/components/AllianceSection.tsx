@@ -383,8 +383,8 @@ export default function AllianceSection() {
         {/* ── UDUZ Contact Card (UDUZ branding) ─────────────────── */}
         <div
           style={{
-            maxWidth: 600,
-            margin: "0 auto",
+            width: "100%",
+            margin: "0",
             position: "relative",
             background:
               "linear-gradient(155deg, rgba(255,255,255,0.10) 0%, rgba(27,107,120,0.18) 100%)",
@@ -392,7 +392,7 @@ export default function AllianceSection() {
             WebkitBackdropFilter: "blur(18px) saturate(150%)",
             border: "1px solid rgba(245,240,232,0.14)",
             borderRadius: 0,
-            padding: "clamp(28px, 3.5vw, 40px)",
+            padding: "clamp(28px, 5vw, 56px)",
             boxShadow:
               "0 1px 0 rgba(245,240,232,0.10) inset, 0 30px 60px -30px rgba(0,0,0,0.5)",
             overflow: "hidden",
