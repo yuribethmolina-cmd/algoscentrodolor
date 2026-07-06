@@ -1,7 +1,34 @@
 const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
+const DEEP_TEAL = "#134F5C";
 const GOLD = "#c69636";
 const BRAND_TEAL = "#3d8b96";
+const UDUZ_GREEN = "#8DC63F";
+const UDUZ_TEAL = "#1B6B78";
+
+function UduzMark({ size = 44 }: { size?: number }) {
+  const dot = size * 0.26;
+  const gap = size * 0.14;
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        display: "inline-flex",
+        flexDirection: "column",
+        gap,
+        lineHeight: 0,
+      }}
+    >
+      <div style={{ display: "flex", gap }}>
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_GREEN }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_GREEN }} />
+      </div>
+      <div style={{ display: "flex", gap }}>
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_TEAL }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_TEAL }} />
+      </div>
+    </div>
+  );
+}
 
 const steps = [
   {
