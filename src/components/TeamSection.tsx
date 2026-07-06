@@ -24,11 +24,13 @@ const doctores: DoctorCard[] = [
     nombre: "Dr. Atilio Rodríguez",
     especialidad: "Neurocirugía Intervencionista · Director Médico",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    esDireccion: true,
   },
   {
     nombre: "Dr. Daniel Rodríguez",
     especialidad: "Nutrición Clínica Antiinflamatoria",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    esDireccion: true,
   },
   {
     nombre: "Dr. Miguel Guevara",
