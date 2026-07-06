@@ -1,35 +1,27 @@
-import { Route, Link2, Shield, Target } from "lucide-react";
+import { Search, Target, HeartHandshake } from "lucide-react";
 
 const DEEP_TEAL = "#1a4a55";
-const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
-const UDUZ_GREEN = "#6ea82e";
 
-const diferenciadores = [
+const pilares = [
   {
-    icon: Route,
-    titulo: "El arsenal completo en una sola ruta",
-    descripcion:
-      "Del diagnóstico al tratamiento, sin peregrinar. Usted no tiene que coordinar entre diferentes especialistas ni repetir estudios.",
-  },
-  {
-    icon: Link2,
-    titulo: "La integración con UDUZ",
-    descripcion:
-      "La misma imagen que encuentra el problema guía el tratamiento. No hay interpretaciones intermedias que se pierdan.",
-  },
-  {
-    icon: Shield,
-    titulo: "Mínimamente invasivo antes de operar",
-    descripcion:
-      "Agotamos las opciones intervencionistas antes de considerar la cirugía. Solo se opera cuando los criterios clínicos lo justifican.",
+    icon: Search,
+    titulo: "Buscamos el origen",
+    texto:
+      "No tratamos síntomas. Identificamos exactamente qué estructura genera su dolor antes de intervenir.",
   },
   {
     icon: Target,
-    titulo: "El criterio de tratar solo lo que hace falta",
-    descripcion:
-      "Sin procedimientos innecesarios. El especialista determina qué tratar, en qué orden y con qué técnica, basado en su caso.",
+    titulo: "Intervenimos con precisión",
+    texto:
+      "Procedimientos guiados por imagen, mínimamente invasivos. Actuamos en el punto exacto, sin cirugía abierta.",
+  },
+  {
+    icon: HeartHandshake,
+    titulo: "Lo acompañamos en el tiempo",
+    texto:
+      "El dolor crónico no desaparece en una sesión. Diseñamos un plan y lo seguimos con usted hasta el resultado.",
   },
 ];
 
@@ -67,7 +59,7 @@ export default function WhyDifferentSection() {
               marginBottom: 20,
             }}
           >
-            DIFERENCIADORES
+            POR QUÉ ALGOS
           </p>
           <h2
             style={{
@@ -76,80 +68,68 @@ export default function WhyDifferentSection() {
               fontSize: "clamp(32px, 4.2vw, 56px)",
               lineHeight: 1.15,
               color: DEEP_TEAL,
+              marginBottom: 20,
             }}
           >
-            Por qué ALGOS
+            El dolor crónico se maneja. No se abandona.
           </h2>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.3vw, 17px)",
+              lineHeight: 1.7,
+              color: "rgba(26,74,85,0.82)",
+              maxWidth: "58ch",
+            }}
+          >
+            La mayoría de las clínicas hacen el procedimiento y le dicen
+            adiós. En ALGOS su caso no termina cuando sale por la puerta — lo
+            seguimos hasta que el dolor deje de controlar su vida.
+          </p>
         </div>
 
-        {/* Cards — 2 columns */}
-        <div className="grid sm:grid-cols-2" style={{ gap: "clamp(12px, 2vw, 20px)" }}>
-          {diferenciadores.map((d) => {
-            const isUduz = d.titulo.includes("UDUZ");
-            return (
+        {/* Cards — 3 columns on desktop, 1 on mobile */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-3"
+          style={{ gap: "clamp(12px, 2vw, 20px)" }}
+        >
+          {pilares.map((p) => (
             <div
-              key={d.titulo}
+              key={p.titulo}
               style={{
                 padding: "clamp(24px, 3vw, 36px)",
-                backgroundColor: isUduz ? "#f4faea" : "#fff",
-                border: isUduz ? `1px solid rgba(110,168,46,0.30)` : "1px solid rgba(26,74,85,0.10)",
-                borderLeft: isUduz ? `4px solid ${UDUZ_GREEN}` : undefined,
+                backgroundColor: "#fff",
+                border: "1px solid rgba(26,74,85,0.10)",
                 borderRadius: 4,
-                position: "relative",
               }}
             >
-              {isUduz && (
-                <span
-                  style={{
-                    position: "absolute",
-                    top: 14,
-                    right: 16,
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 9,
-                    fontWeight: 800,
-                    letterSpacing: "0.26em",
-                    textTransform: "uppercase",
-                    color: "#fff",
-                    backgroundColor: UDUZ_GREEN,
-                    padding: "3px 8px",
-                    borderRadius: 3,
-                  }}
-                >
-                  Aliado
-                </span>
-              )}
               <div
                 style={{
                   width: 44,
                   height: 44,
                   borderRadius: 8,
-                  backgroundColor: isUduz ? "rgba(110,168,46,0.10)" : "rgba(26,74,85,0.06)",
+                  backgroundColor: "rgba(26,74,85,0.06)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: isUduz ? 14 : 20,
+                  marginBottom: 20,
                 }}
               >
-                <d.icon style={{ width: 20, height: 20, color: isUduz ? UDUZ_GREEN : TEAL }} />
-              </div>
-              {isUduz && (
-                <img
-                  src="/logos/uduz-logo.svg"
-                  alt="UDUZ"
-                  style={{ height: 28, width: "auto", marginBottom: 12, display: "block" }}
+                <p.icon
+                  style={{ width: 20, height: 20, color: DEEP_TEAL }}
                 />
-              )}
+              </div>
               <h3
                 style={{
                   fontFamily: "'Sora', serif",
                   fontWeight: 600,
                   fontSize: "clamp(16px, 1.5vw, 19px)",
                   lineHeight: 1.3,
-                  color: isUduz ? UDUZ_GREEN : DEEP_TEAL,
+                  color: DEEP_TEAL,
                   marginBottom: 10,
                 }}
               >
-                {d.titulo}
+                {p.titulo}
               </h3>
               <p
                 style={{
@@ -160,31 +140,11 @@ export default function WhyDifferentSection() {
                   margin: 0,
                 }}
               >
-                {d.descripcion}
+                {p.texto}
               </p>
             </div>
-            );
-          })}
+          ))}
         </div>
-
-        {/* Closing paragraph */}
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(15px, 1.3vw, 17px)",
-            lineHeight: 1.75,
-            color: "rgba(26,74,85,0.82)",
-            
-            maxWidth: "64ch",
-            marginTop: "clamp(40px, 5vw, 56px)",
-            paddingLeft: 20,
-            borderLeft: "2px solid rgba(198,150,54,0.45)",
-          }}
-        >
-          En ALGOS el tratamiento no termina cuando termina el procedimiento: seguimos su
-          evolución y le acompañamos en el tiempo, porque el dolor crónico se maneja, no se
-          abandona.
-        </p>
       </div>
     </section>
   );
