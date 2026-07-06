@@ -213,7 +213,8 @@ export default function Especialidades() {
                     ))}
                   </dl>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
