@@ -7,12 +7,12 @@ const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
-/** SVG viewBox is 900x620. Center at (450, 310). Orbit radius 250. */
+/** SVG viewBox is 900x760. Center at (450, 360). Orbit radius 230. */
 const CX = 450;
-const CY = 310;
-const R_ORBIT = 250;
-const R_NODE = 82;
-const R_CENTER = 96;
+const CY = 360;
+const R_ORBIT = 230;
+const R_NODE = 78;
+const R_CENTER = 92;
 
 type Node = {
   label: string;
