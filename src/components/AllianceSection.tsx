@@ -1,4 +1,5 @@
 import algosLogoFull from "@/assets/algos-logo-full.png.asset.json";
+import ServiciosDomicilioSection from "@/components/ServiciosDomicilioSection";
 
 const CREAM = "#f5f0e8";
 const CREAM_STRONG = "#faf6ef";
