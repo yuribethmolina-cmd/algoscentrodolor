@@ -62,6 +62,8 @@ export default function TrustBar() {
             <img
               src="/logos/uduz-logo.svg"
               alt="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"
+              width={180}
+              height={48}
               style={{ height: "clamp(36px, 4.2vw, 48px)", width: "auto", display: "block" }}
             />
           </a>
