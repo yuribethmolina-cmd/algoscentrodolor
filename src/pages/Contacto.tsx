@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, MessageCircle, FlaskConical } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
