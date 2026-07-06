@@ -208,7 +208,7 @@ export default function Contacto() {
               {INFO_CARDS.map(({ Icon, title, lines, email, label }) => (
                 <div
                   key={title}
-                  className="group relative bg-cream p-8 md:p-9 flex flex-col min-h-[240px] transition-colors hover:bg-[#f5f0e8]"
+                  className="group relative bg-cream p-6 md:p-9 flex flex-col min-h-[200px] md:min-h-[240px] transition-colors hover:bg-[#f5f0e8]"
                 >
                   <div className="flex items-start justify-between mb-8">
                     <span className="font-ui text-[10px] tracking-[0.22em] text-[#1a4a55]/45 font-medium">
