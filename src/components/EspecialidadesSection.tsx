@@ -31,6 +31,7 @@ const NODES: Node[] = [
   {
     label: "Neurocirugía\nIntervencionista",
     angle: 0,
+    slug: "neurocirugia",
     icon: (
       <g {...ICON_STROKE}>
         {[-18, -8, 2, 12].map((y, i) => (
