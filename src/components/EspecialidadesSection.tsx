@@ -131,13 +131,6 @@ function polar(angleDeg: number, radius: number) {
   return { x: CX + radius * Math.cos(rad), y: CY + radius * Math.sin(rad) };
 }
 
-const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "");
 
 export default function EspecialidadesSection() {
   const [activeAngle, setActiveAngle] = useState<number | null>(null);
