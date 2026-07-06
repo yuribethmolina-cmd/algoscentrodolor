@@ -602,7 +602,7 @@ function TratamientoCard({ card, image }: { card: Card; image?: { pic: PictureIm
       </p>
       {card.uduzRef && (
         <a
-          href="https://uduz.vercel.app"
+          href="https://www.instagram.com/uduz_maracaibo/reels/"
           target="_blank"
           rel="noopener noreferrer"
           style={{
