@@ -171,7 +171,7 @@ export default function Equipo() {
 
       <main>
         <PageHeroVideo
-          eyebrow="None"
+          eyebrow=""
           title="Especialidades y equipo"
           video="medicos"
         />
