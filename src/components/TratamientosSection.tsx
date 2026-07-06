@@ -354,9 +354,14 @@ export default function TratamientosSection() {
               >
                 {/* Background image */}
                 <img
-                  src={s.image}
+                  src={s.image.img.src}
                   alt=""
                   aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  width={s.image.img.w}
+                  height={s.image.img.h}
+                  data-no-placeholder
                   style={{
                     position: "absolute",
                     inset: 0,
@@ -488,7 +493,7 @@ export default function TratamientosSection() {
   );
 }
 
-function TratamientoCard({ card, image }: { card: Card; image?: { src: string; alt: string } }) {
+function TratamientoCard({ card, image }: { card: Card; image?: { pic: PictureImport; alt: string } }) {
   const drawRef = useDrawPathsWithin<HTMLElement>(1500, 120, 0.3);
   const { ref: viewRef, inView } = useInViewOnce<HTMLElement>(0.3);
   const setRefs = (el: HTMLElement | null) => {
@@ -537,13 +542,13 @@ function TratamientoCard({ card, image }: { card: Card; image?: { src: string; a
 
       {/* PHOTO BANNER — hero visual of the card */}
       {image && (
-        <img
-          src={image.src}
+        <Picture
+          picture={image.pic}
           alt={image.alt}
           aria-label={image.alt}
-          loading="lazy"
-          decoding="async"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           className="tx-photo"
+          fadeIn={false}
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
