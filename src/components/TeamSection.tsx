@@ -1,64 +1,71 @@
+import { useInViewOnce } from "@/lib/animations";
+import { Clock } from "lucide-react";
+
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
-const STEEL_TEAL = "#2a6270";
+const BRAND_TEAL = "#3d8b96";
 const GOLD = "#c69636";
 
-export type TeamMember = {
+interface DoctorCard {
   nombre: string;
-  credenciales: string;
-  foto?: string;
-};
+  especialidad: string;
+  consulta: string;
+  nota?: string;
+}
 
-type Grupo = {
-  index: string;
-  funcion: string;
-  especialidades: { nombre: string; descripcion: string }[];
-  nota: string | null;
-  miembros?: TeamMember[];
-};
-
-const grupos: Grupo[] = [
+const doctores: DoctorCard[] = [
   {
-    index: "01",
-    funcion: "Evalúan y diagnostican el origen del dolor",
-    especialidades: [
-      { nombre: "Neurocirugía", descripcion: "columna y nervios" },
-      { nombre: "Traumatología", descripcion: "musculoesquelético" },
-      { nombre: "Reumatología", descripcion: "articular e inflamatorio" },
-      { nombre: "Fisiatría", descripcion: "funcional" },
-    ],
-    nota: null,
+    nombre: "Dr. Antulio Parra",
+    especialidad: "Traumatología y Columna",
+    consulta: "Martes y jueves · 8:00 AM – 11:00 AM",
   },
   {
-    index: "02",
-    funcion: "Ejecutan el tratamiento guiado por imagen",
-    especialidades: [
-      { nombre: "Algología · Anestesiología del dolor", descripcion: "" },
-      { nombre: "Neurocirugía", descripcion: "" },
-      { nombre: "Traumatología", descripcion: "" },
-    ],
-    nota: "Tres especialidades sobre el mismo equipo — redundancia de criterio clínico en cada procedimiento.",
+    nombre: "Dr. Atilio Rodríguez",
+    especialidad: "Neurocirugía Intervencionista · Director Médico",
+    consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
   },
   {
-    index: "03",
-    funcion: "Acompañan la recuperación",
-    especialidades: [
-      { nombre: "Fisiatría", descripcion: "rehabilitación" },
-      { nombre: "Nutrición clínica", descripcion: "" },
-    ],
-    nota: null,
+    nombre: "Dr. Daniel Rodríguez",
+    especialidad: "Nutrición Clínica Antiinflamatoria",
+    consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+  },
+  {
+    nombre: "Dr. Miguel Guevara",
+    especialidad: "Radiología Intervencionista",
+    consulta: "Lunes · 8:00 AM – 10:00 AM",
+  },
+  {
+    nombre: "Dr. Tomás Iragorry",
+    especialidad: "Anestesiología del Dolor",
+    consulta: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
+  },
+  {
+    nombre: "Dra. Carolina Rodríguez",
+    especialidad: "Electrodiagnóstico (EEG · EMG)",
+    consulta: "Miércoles tarde",
+    nota: "Los estudios EEG se realizan en UDUZ",
+  },
+  {
+    nombre: "Dra. Doris Meneses",
+    especialidad: "Neurocirugía · Columna vertebral",
+    consulta: "Viernes · 8:00 AM – 12:00 PM",
+  },
+  {
+    nombre: "Dra. Gilda Gómez",
+    especialidad: "Reumatología",
+    consulta: "Miércoles · 9:00 AM – 12:00 PM",
+  },
+  {
+    nombre: "Dra. Leslie Ramírez",
+    especialidad: "Fisiatría",
+    consulta: "Jueves · 2:00 PM",
   },
 ];
 
-type Props = {
-  miembrosPorGrupo?: Partial<Record<"01" | "02" | "03", TeamMember[]>>;
-};
-
-export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
-  const gruposConMiembros: Grupo[] = grupos.map((g) => ({
-    ...g,
-    miembros: miembrosPorGrupo?.[g.index as "01" | "02" | "03"],
-  }));
+export default function TeamSection() {
+  const { ref: headerRef, inView: headerIn } = useInViewOnce<HTMLDivElement>(0.12);
+  const { ref: gridRef, inView: gridIn } = useInViewOnce<HTMLDivElement>(0.08);
+  const { ref: quoteRef, inView: quoteIn } = useInViewOnce<HTMLDivElement>(0.15);
 
   return (
     <section
@@ -78,7 +85,11 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
         }}
       >
         {/* Header */}
-        <div style={{ marginBottom: "clamp(56px, 7vw, 88px)" }}>
+        <div
+          ref={headerRef}
+          className={`scroll-reveal ${headerIn ? "revealed" : ""}`}
+          style={{ marginBottom: "clamp(40px, 5vw, 64px)" }}
+        >
           <p
             style={{
               fontFamily: "Inter, sans-serif",
@@ -90,11 +101,11 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
               marginBottom: 20,
             }}
           >
-            EQUIPO
+            ESPECIALIDADES
           </p>
           <h2
             style={{
-              fontFamily: "'Sora', serif",
+              fontFamily: "'Sora', sans-serif",
               fontWeight: 600,
               fontSize: "clamp(32px, 4.2vw, 56px)",
               lineHeight: 1.15,
@@ -102,192 +113,177 @@ export default function TeamSection({ miembrosPorGrupo }: Props = {}) {
               marginBottom: 20,
             }}
           >
-            Nuestro equipo
+            Un equipo multidisciplinario para cada tipo de dolor.
           </h2>
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "'Manrope', sans-serif",
               fontSize: "clamp(17px, 1.6vw, 20px)",
               lineHeight: 1.7,
-              color: STEEL_TEAL,
-              maxWidth: "58ch",
+              color: DEEP_TEAL,
+              opacity: 0.75,
+              maxWidth: "62ch",
             }}
           >
-            En ALGOS la autoridad es el equipo. Cada caso recorre una ruta donde distintas
-            especialidades colaboran — para diagnosticar con precisión, intervenir con seguridad
-            y acompañar en el tiempo.
+            En ALGOS su caso no lo ve un solo médico. Cada paciente recorre una
+            ruta donde distintas especialidades colaboran — el mismo equipo,
+            informado de su caso desde el inicio.
           </p>
         </div>
 
-        {/* Grupos */}
-        <div className="flex flex-col" style={{ gap: 2 }}>
-          {gruposConMiembros.map((g) => (
+        {/* Descripción general del equipo */}
+        <div
+          className={`scroll-reveal scroll-reveal-delay-1 ${headerIn ? "revealed" : ""}`}
+          style={{
+            marginBottom: "clamp(48px, 6vw, 72px)",
+            maxWidth: "72ch",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: "clamp(16px, 1.4vw, 18px)",
+              lineHeight: 1.7,
+              color: DEEP_TEAL,
+              opacity: 0.85,
+            }}
+          >
+            Nuestro equipo evalúa y diagnostica el origen del dolor, ejecuta el
+            tratamiento guiado por imagen y acompaña la recuperación — todo con
+            el mismo criterio clínico informado de su caso.
+          </p>
+        </div>
+
+        {/* Grid de doctores */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+          style={{ marginBottom: "clamp(56px, 7vw, 88px)" }}
+        >
+          {doctores.map((doc, i) => (
             <div
-              key={g.index}
+              key={doc.nombre}
+              className={`scroll-reveal ${gridIn ? "revealed" : ""}`}
               style={{
-                borderTop: "1px solid rgba(26, 74, 85, 0.14)",
-                paddingTop: "clamp(28px, 3.5vw, 40px)",
-                paddingBottom: "clamp(28px, 3.5vw, 40px)",
+                transitionDelay: `${i * 60}ms`,
+                backgroundColor: "#ffffff",
+                border: "1px solid rgba(26, 74, 85, 0.1)",
+                borderRadius: 4,
+                padding: "24px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
               }}
             >
-              <div className="grid md:grid-cols-[80px_1fr_1fr] gap-8 md:gap-10 items-start">
-                {/* Índice */}
-                <span
+              <h3
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: 16,
+                  fontWeight: 600,
+                  color: DEEP_TEAL,
+                  lineHeight: 1.3,
+                  margin: 0,
+                }}
+              >
+                {doc.nombre}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: BRAND_TEAL,
+                  lineHeight: 1.4,
+                  margin: 0,
+                }}
+              >
+                {doc.especialidad}
+              </p>
+              <div className="flex items-center gap-2" style={{ marginTop: 4 }}>
+                <Clock
+                  size={12}
+                  color={DEEP_TEAL}
+                  style={{ opacity: 0.5, flexShrink: 0 }}
+                />
+                <p
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 13,
-                    color: "rgba(26, 74, 85, 0.3)",
-                    letterSpacing: "0.06em",
-                    paddingTop: 4,
-                  }}
-                >
-                  {g.index}
-                </span>
-
-                {/* Función */}
-                <h3
-                  style={{
-                    fontFamily: "'Sora', serif",
-                    fontWeight: 600,
-                    fontSize: "clamp(21px, 2.4vw, 30px)",
-                    lineHeight: 1.3,
+                    fontFamily: "'Manrope', sans-serif",
+                    fontSize: 12,
                     color: DEEP_TEAL,
+                    opacity: 0.6,
+                    lineHeight: 1.4,
                     margin: 0,
                   }}
                 >
-                  {g.funcion}
-                </h3>
-
-                {/* Columna derecha */}
-                <div>
-                  {/* Especialidades */}
-                  <div className="flex flex-wrap" style={{ gap: 8, marginBottom: 20 }}>
-                    {g.especialidades.map((esp) => (
-                      <span
-                        key={esp.nombre}
-                        style={{
-                          fontFamily: "Inter, sans-serif",
-                          fontSize: 12,
-                          fontWeight: 500,
-                          color: STEEL_TEAL,
-                          backgroundColor: "rgba(26, 74, 85, 0.07)",
-                          border: "1px solid rgba(26, 74, 85, 0.14)",
-                          borderRadius: 3,
-                          padding: "4px 10px",
-                        }}
-                      >
-                        {esp.nombre}
-                        {esp.descripcion && (
-                          <span
-                            style={{
-                              color: "#2A6270",
-                              marginLeft: 5,
-                              fontWeight: 400,
-                            }}
-                          >
-                            ({esp.descripcion})
-                          </span>
-                        )}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Nota clínica */}
-                  {g.nota && (
-                    <p
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontSize: 13,
-                        lineHeight: 1.6,
-                        color: "#2A6270",
-                        marginBottom: 16,
-                        
-                      }}
-                    >
-                      {g.nota}
-                    </p>
-                  )}
-
-                  {/* Miembros (cuando estén disponibles) */}
-                  {g.miembros && g.miembros.length > 0 ? (
-                    <div className="flex flex-col" style={{ gap: 10, marginBottom: 12 }}>
-                      {g.miembros.map((m) => (
-                        <div key={m.nombre} className="flex items-center" style={{ gap: 12 }}>
-                          {m.foto && (
-                            <img
-                              src={m.foto}
-                              alt={m.nombre}
-                              style={{
-                                width: 36,
-                                height: 36,
-                                borderRadius: "50%",
-                                objectFit: "cover",
-                              }}
-                            />
-                          )}
-                          <div>
-                            <p
-                              style={{
-                                fontFamily: "Inter, sans-serif",
-                                fontSize: 13,
-                                fontWeight: 600,
-                                color: DEEP_TEAL,
-                                margin: 0,
-                              }}
-                            >
-                              {m.nombre}
-                            </p>
-                            <p
-                              style={{
-                                fontFamily: "Inter, sans-serif",
-                                fontSize: 12,
-                                color: "#2A6270",
-                                margin: 0,
-                              }}
-                            >
-                              {m.credenciales}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p
-                      style={{
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: 11,
-                        letterSpacing: "0.06em",
-                        color: "#2A6270",
-                        margin: 0,
-                      }}
-                    >
-                      Nombres y credenciales del equipo — próximamente
-                    </p>
-                  )}
-                </div>
+                  {doc.consulta}
+                </p>
               </div>
+              {doc.nota && (
+                <p
+                  style={{
+                    fontFamily: "'Manrope', sans-serif",
+                    fontSize: 11,
+                    color: DEEP_TEAL,
+                    opacity: 0.5,
+                    lineHeight: 1.4,
+                    margin: 0,
+                    marginTop: 2,
+                  }}
+                >
+                  {doc.nota}
+                </p>
+              )}
             </div>
           ))}
-
-          <div style={{ borderTop: "1px solid rgba(26, 74, 85, 0.14)" }} />
         </div>
 
-        {/* Nota al pie */}
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: 14,
-            lineHeight: 1.65,
-            color: "#2A6270",
-            maxWidth: "60ch",
-            marginTop: "clamp(40px, 5vw, 64px)",
-            paddingLeft: 20,
-            borderLeft: "2px solid rgba(198, 150, 54, 0.4)",
-          }}
+        {/* Quote + CTA */}
+        <div
+          ref={quoteRef}
+          className={`scroll-reveal ${quoteIn ? "revealed" : ""}`}
         >
-          La neurocirugía en ALGOS no es la puerta al quirófano — es el criterio que sabe cuándo
-          la cirugía todavía no hace falta.
-        </p>
+          <p
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 14,
+              lineHeight: 1.65,
+              color: DEEP_TEAL,
+              opacity: 0.85,
+              maxWidth: "60ch",
+              paddingLeft: 20,
+              borderLeft: "2px solid rgba(198, 150, 54, 0.4)",
+              marginBottom: 28,
+            }}
+          >
+            La neurocirugía en ALGOS no es la puerta al quirófano — es el
+            criterio que sabe cuándo la cirugía todavía no hace falta.
+          </p>
+
+          <a
+            href="https://wa.me/584146807886"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 14,
+              fontWeight: 500,
+              color: BRAND_TEAL,
+              textDecoration: "none",
+              transition: "opacity 200ms ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.opacity = "0.7";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
+            }}
+          >
+            Agendar consulta con el especialista →
+          </a>
+        </div>
       </div>
     </section>
   );
