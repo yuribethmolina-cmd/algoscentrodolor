@@ -75,7 +75,7 @@ export default function AlgosLocationSection() {
             <img
               src={algosFacade.url}
               alt="Fachada de ALGOS — Centro de Dolor Intervencionista, Maracaibo"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-top"
               loading="lazy"
               decoding="async"
             />
@@ -154,8 +154,8 @@ export default function AlgosLocationSection() {
                   label: "Horario",
                   value: (
                     <>
-                      Lun–Vie · 8:00 AM – 5:00 PM<br />
-                      <span style={{ color: "rgba(245,240,232,0.65)" }}>Sáb · Cita previa</span>
+                      Lun, mar, jue y vie: 8:00 AM – 12:00 PM · 1:00 PM – 5:00 PM<br />
+                      <span style={{ color: "rgba(245,240,232,0.65)" }}>Miércoles: 8:00 AM – 3:00 PM</span>
                     </>
                   ),
                 },
