@@ -621,3 +621,13 @@ img[width][height]:not(.absolute):not([style*="position: absolute"]):not([style*
     min-height: 520px !important;
   }
 }
+
+/* ── Section transition depth ────────────────────────────────
+   Dark sections get a subtle inset shadow at top and bottom
+   so the cream↔teal cuts feel intentional rather than abrupt.
+   ============================================================ */
+section[data-surface="dark"] {
+  box-shadow:
+    inset 0  16px 28px -16px rgba(10, 30, 35, 0.35),
+    inset 0 -16px 28px -16px rgba(10, 30, 35, 0.35);
+}

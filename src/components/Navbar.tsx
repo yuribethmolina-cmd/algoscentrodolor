@@ -225,6 +225,8 @@ export default function Navbar() {
             );
           })}
 
+          <span aria-hidden="true" style={{ width: 1, height: 20, background: `${DEEP_TEAL}30`, flexShrink: 0 }} />
+
           <a
             href={WA}
             target="_blank"

@@ -86,6 +86,7 @@ export default function ConditionsSection() {
 
   return (
     <section
+      data-surface="dark"
       style={{
         backgroundColor: DEEP_TEAL,
         paddingTop: "clamp(80px, 10vw, 128px)",
