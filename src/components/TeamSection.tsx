@@ -1,5 +1,5 @@
 import { useInViewOnce } from "@/lib/animations";
-import { Clock } from "lucide-react";
+import { Calendar, Stethoscope } from "lucide-react";
 
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
