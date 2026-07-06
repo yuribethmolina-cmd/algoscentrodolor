@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import algosFacade from "@/assets/algos-facade.png.asset.json";
 import { MapPin, Navigation, Clock, Phone } from "lucide-react";
 
@@ -6,15 +7,35 @@ const DEEP_TEAL = "#134F5C";
 const GOLD = "#c69636";
 const BRAND_TEAL = "#3d8b96";
 
-// Query used for both the embedded map and the "Cómo llegar" link.
 const MAPS_QUERY = "ALGOS Centro de Dolor Intervencionista, CC América, Av. 20 con Calle 65, Sector Paraíso, Maracaibo, Venezuela";
 const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&z=16&output=embed`;
 const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
 
 export default function AlgosLocationSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [mapVisible, setMapVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMapVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="ubicacion"
+      data-surface="dark"
       className="relative w-full"
       style={{ backgroundColor: DEEP_TEAL, color: CREAM }}
     >
@@ -70,7 +91,7 @@ export default function AlgosLocationSection() {
             background: "linear-gradient(155deg, rgba(255,255,255,0.06) 0%, rgba(61,139,150,0.14) 100%)",
           }}
         >
-          {/* Facade image */}
+          {/* Facade image — shimmer applied automatically by imageWatcher + index.css */}
           <div className="relative min-h-[320px] md:min-h-[420px] lg:min-h-[520px] overflow-hidden">
             <img
               src={algosFacade.url}
@@ -118,15 +139,39 @@ export default function AlgosLocationSection() {
           {/* Map + details */}
           <div className="flex flex-col">
             <div className="relative w-full" style={{ aspectRatio: "16 / 11", minHeight: 260 }}>
-              <iframe
-                title="Ubicación de ALGOS en Google Maps"
-                src={MAPS_EMBED}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                style={{ border: 0, filter: "grayscale(0.15) contrast(1.05)" }}
-              />
+              {mapVisible ? (
+                <iframe
+                  title="Ubicación de ALGOS en Google Maps"
+                  src={MAPS_EMBED}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0, filter: "grayscale(0.15) contrast(1.05)" }}
+                />
+              ) : (
+                <div
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 animate-pulse"
+                  style={{ backgroundColor: "#1a4a55" }}
+                >
+                  <MapPin
+                    className="w-7 h-7"
+                    strokeWidth={1.25}
+                    style={{ color: `${GOLD}66` }}
+                  />
+                  <p
+                    style={{
+                      fontFamily: "'Manrope', system-ui, sans-serif",
+                      fontSize: 10,
+                      letterSpacing: "0.28em",
+                      textTransform: "uppercase",
+                      color: "rgba(245,240,232,0.3)",
+                    }}
+                  >
+                    Cargando mapa
+                  </p>
+                </div>
+              )}
             </div>
 
             <div
