@@ -6,8 +6,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
 import { UserRound } from "lucide-react";
-import drAtilio from "@/assets/dr-atilio-full.png";
-import teamDaniel from "@/assets/team-daniel.png";
+import drAtilio from "@/assets/dr-atilio-full.png?w=96&format=webp&quality=72";
+import teamDaniel from "@/assets/team-daniel.png?w=96&format=webp&quality=72";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
