@@ -117,7 +117,7 @@ export default function Pacientes() {
 
               {/* Content */}
               <div className="order-1 md:order-1">
-                <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em]">
+                <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.22em]">
                   Para pacientes
                 </p>
                 <AnimatedHeadline
@@ -125,7 +125,7 @@ export default function Pacientes() {
                   className="mt-6 font-display font-bold text-deep-teal leading-[1.02] tracking-[-0.028em] text-[44px] md:text-[88px] max-w-[18ch]"
                   chunks={[
                     { text: "El " },
-                    { text: "primer paso", color: "#c69636", staggerMs: 120 },
+                    { text: "primer paso", color: "#9a7320", staggerMs: 120 },
                     { text: " es conversar." },
                   ]}
                 />
@@ -158,12 +158,12 @@ export default function Pacientes() {
         {/* QUÉ ES EL DOLOR INTERVENCIONISTA */}
         <section className="bg-cream py-16 md:py-[100px]">
           <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
+            <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em]">
               ¿Qué es el dolor intervencionista?
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[24ch]">
               Procedimientos pensados para{" "}
-              <span className="font-normal text-algos-gold">su vida diaria.</span>
+              <span className="font-normal" style={{ color: "#9a7320" }}>su vida diaria.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -173,7 +173,7 @@ export default function Pacientes() {
                   className="reveal-up p-10 border border-deep-teal/15 rounded-[4px] bg-cream flex flex-col gap-4"
                   style={{ transitionDelay: `${i * 120}ms` }}
                 >
-                  <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
+                  <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em]">
                     {c.eyebrow}
                   </p>
                   <h3 className="mt-2 font-display font-bold text-[26px] text-deep-teal">
@@ -191,7 +191,7 @@ export default function Pacientes() {
         {/* CÓMO ES TU PROCESO */}
         <section className="bg-deep-teal py-20 md:py-[120px]">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
+            <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.24em]">
               Su proceso paso a paso
             </p>
             <h2 className="mt-4 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
@@ -226,12 +226,12 @@ export default function Pacientes() {
         {/* RESPUESTAS HONESTAS */}
         <section className="bg-cream py-16 md:py-[100px]">
           <div className="mx-auto max-w-[880px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
+            <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em]">
               Respuestas honestas
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Lo que{" "}
-              <span className="font-normal text-algos-gold">casi nadie le dice.</span>
+              <span className="font-normal" style={{ color: "#9a7320" }}>casi nadie le dice.</span>
             </h2>
 
             <div className="mt-12 md:mt-16 flex flex-col gap-10">
@@ -242,7 +242,7 @@ export default function Pacientes() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <h3 className="font-display font-bold text-[22px] text-deep-teal">
-                    <span className="text-algos-gold mr-2">·</span>
+                    <span className="text-deep-teal mr-2">·</span>
                     {f.q}
                   </h3>
                   <p className="mt-3 md:ml-4 font-sans text-[16px] leading-[1.65] text-steel-teal max-w-[70ch]">
@@ -257,7 +257,7 @@ export default function Pacientes() {
         {/* CIERRE */}
         <section className="bg-deep-teal py-24 md:py-[140px]">
           <div className="mx-auto max-w-[760px] px-6 md:px-12 text-center">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em]">
+            <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.24em]">
               Su siguiente paso
             </p>
             <h2 className="mt-6 mx-auto font-display font-bold text-cream leading-[0.98] tracking-[-0.028em] text-[44px] md:text-[72px] max-w-[18ch]">

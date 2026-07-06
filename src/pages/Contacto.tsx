@@ -309,12 +309,12 @@ export default function Contacto() {
         {/* HERO */}
         <section className="bg-cream pt-28 md:pt-32 pb-12 md:pb-16">
           <div className="container mx-auto max-w-4xl px-6 md:px-12 text-center">
-            <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-6">
+            <p className="text-[#1a4a55] font-medium text-sm tracking-[0.25em] uppercase mb-6">
               HABLEMOS
             </p>
             <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
               ¿En qué podemos{" "}
-              <span className="text-[#c69636] font-bold">ayudarle</span>?
+              <span className="text-[#9a7320] font-bold">ayudarle</span>?
             </h1>
             <p className="font-sans text-[#1a4a55]/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
               Cada consulta tiene un camino diferente. Elija el que mejor describe su necesidad y le conectamos con la persona correcta.

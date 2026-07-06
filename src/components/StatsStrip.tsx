@@ -82,7 +82,7 @@ function StatBlock({ s, start }: { s: Stat; start: boolean }) {
         {s.suffix && (
           <span
             style={{
-              color: GOLD,
+              color: "#9a7320",
               fontSize: "clamp(28px, 5vw, 56px)",
               verticalAlign: "top",
               marginLeft: 4,
@@ -169,7 +169,7 @@ export default function StatsStrip() {
         <p
           style={{
             fontFamily: "Inter, sans-serif",
-            color: GOLD,
+            color: DEEP_TEAL,
             fontSize: 11,
             fontWeight: 700,
             letterSpacing: "0.28em",

@@ -46,7 +46,7 @@ export default function Medicos() {
             }}
           />
           <div className="relative mx-auto max-w-[760px] px-6 md:px-12 text-center" style={{ zIndex: 1 }}>
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+            <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.28em]">
               Para médicos referentes
             </p>
 
@@ -55,7 +55,7 @@ export default function Medicos() {
               className="mt-6 mx-auto font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[40px] md:text-[64px] max-w-[18ch]"
               chunks={[
                 { text: "Su paciente vuelve a usted, " },
-                { text: "con plan completo.", color: "#c69636", staggerMs: 120 },
+                { text: "con plan completo.", color: "#9a7320", staggerMs: 120 },
               ]}
             />
 
@@ -97,7 +97,7 @@ export default function Medicos() {
         {/* INDICACIONES CLÍNICAS */}
         <section className="bg-deep-teal py-20 md:py-[120px]">
           <div className="mx-auto max-w-[1240px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+            <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.28em]">
               Indicaciones clínicas
             </p>
             <h2 className="mt-4 font-display font-bold text-cream leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[24ch]">
@@ -118,7 +118,7 @@ export default function Medicos() {
                   "Patología musculoesquelética localizada que requiera infiltración guiada por imagen",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="text-algos-gold flex-shrink-0">·</span>
+                    <span className="text-cream flex-shrink-0">·</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -130,12 +130,12 @@ export default function Medicos() {
         {/* CÓMO REFERIR */}
         <section className="bg-cream py-20 md:py-[120px]">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+            <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.28em]">
               Proceso de derivación
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               Cuatro pasos. Sin formularios{" "}
-              <span className="font-normal text-algos-gold">interminables.</span>
+              <span className="font-normal" style={{ color: "#9a7320" }}>interminables.</span>
             </h2>
 
             <div className="mt-10 md:mt-16 flex flex-col gap-10 md:gap-14">
@@ -166,7 +166,7 @@ export default function Medicos() {
                   className="reveal-up grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-6"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="font-display font-normal text-[56px] text-algos-gold leading-none tracking-[-0.03em]">
+                  <div className="font-display font-normal text-[56px] leading-none tracking-[-0.03em]" style={{ color: "#9a7320" }}>
                     {step.idx}
                   </div>
                   <div>
@@ -175,7 +175,7 @@ export default function Medicos() {
                     </h3>
                     {step.placeholder ? (
                       <div className="mt-3 p-8 border border-algos-gold/40 rounded-[4px]">
-                        <p className="font-sans font-bold uppercase text-algos-gold text-[10px] tracking-[0.24em]">
+                        <p className="font-sans font-bold uppercase text-deep-teal text-[10px] tracking-[0.24em]">
                           En validación con dirección médica
                         </p>
                         <p className="mt-4 font-sans text-[14px] leading-[1.55] text-steel-teal">
@@ -197,12 +197,12 @@ export default function Medicos() {
         {/* QUÉ RECIBES */}
         <section className="bg-cream py-16 md:py-[100px]">
           <div className="mx-auto max-w-[1240px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+            <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.28em]">
               Documentación clínica
             </p>
             <h2 className="mt-4 font-display font-bold text-deep-teal leading-[1.05] tracking-[-0.025em] text-[36px] md:text-[56px] max-w-[22ch]">
               El paciente vuelve a usted{" "}
-              <span className="font-normal text-algos-gold">con todo documentado.</span>
+              <span className="font-normal" style={{ color: "#9a7320" }}>con todo documentado.</span>
             </h2>
 
             <InViewToggle className="reveal-up mt-14 max-w-[640px] p-10 border border-deep-teal/15 rounded-[4px] bg-cream">
@@ -218,7 +218,7 @@ export default function Medicos() {
         {/* CONTACTO MÉDICO DIRECTO */}
         <section className="bg-deep-teal py-24 md:py-[140px]">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12 text-center">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+            <p className="font-sans font-bold uppercase text-cream text-[11px] tracking-[0.28em]">
               Contacto médico directo
             </p>
             <h2 className="mt-7 mx-auto font-display font-bold text-cream leading-[0.98] tracking-[-0.028em] text-[44px] md:text-[72px] max-w-[18ch]">
@@ -255,7 +255,7 @@ export default function Medicos() {
         <section id="referir" className="bg-cream py-20 md:py-[120px] scroll-mt-20">
           <div className="mx-auto max-w-[720px] px-6 md:px-12">
             <div className="border border-deep-teal/15 rounded-lg p-10 md:p-16 text-center">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.28em]">
+              <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.28em]">
                 Comenzar
               </p>
               <h3 className="mt-6 font-display font-bold text-deep-teal leading-[1.1] text-[28px] md:text-[36px]">

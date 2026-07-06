@@ -152,7 +152,7 @@ export default function ConditionsSection() {
               fontWeight: 700,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: GOLD,
+              color: CREAM,
               marginBottom: 20,
             }}
           >
@@ -412,7 +412,7 @@ export default function ConditionsSection() {
               fontFamily: "'Manrope', sans-serif",
               fontSize: 13,
               fontWeight: 600,
-              color: GOLD,
+              color: CREAM,
               textDecoration: "none",
               letterSpacing: "0.04em",
               transition: "color 200ms ease",

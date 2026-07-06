@@ -55,7 +55,7 @@ export default function WhyDifferentSection() {
               fontWeight: 700,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: GOLD,
+              color: DEEP_TEAL,
               marginBottom: 20,
             }}
           >
@@ -130,7 +130,7 @@ export default function WhyDifferentSection() {
                   fontSize: 11,
                   fontWeight: 700,
                   letterSpacing: "0.28em",
-                  color: GOLD,
+                  color: DEEP_TEAL,
                   margin: "0 0 18px",
                   position: "relative",
                 }}

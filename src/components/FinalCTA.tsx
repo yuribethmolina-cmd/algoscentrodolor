@@ -87,7 +87,7 @@ export default function FinalCTA() {
         <p
           style={{
             fontFamily: "Inter, sans-serif",
-            color: GOLD,
+            color: CREAM,
             fontSize: 11,
             fontWeight: 700,
             letterSpacing: "0.28em",

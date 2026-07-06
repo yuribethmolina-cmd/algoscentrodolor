@@ -49,7 +49,7 @@ export default function AlgosLocationSection() {
               fontSize: 11,
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: GOLD,
+              color: CREAM,
               fontWeight: 600,
             }}
           >
