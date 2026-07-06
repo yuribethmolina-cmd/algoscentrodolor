@@ -429,18 +429,18 @@ export default function Contacto() {
         </section>
 
         {/* UDUZ — BRANDED BENTO */}
-        <section className="bg-[#0f3138] py-20 md:py-28 relative overflow-hidden">
+        <section className="bg-[#134F5C] py-20 md:py-28 relative overflow-hidden">
           {/* Ambient gold glow */}
           <div
             aria-hidden
             className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full opacity-[0.08] blur-3xl"
-            style={{ background: "radial-gradient(circle, #c69636 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, #8DC63F 0%, transparent 70%)" }}
           />
 
           <div className="container mx-auto max-w-6xl px-6 md:px-12 relative">
             <div className="mb-10 md:mb-14 flex items-end justify-between gap-6">
               <div>
-                <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                <p className="text-[#8DC63F] font-medium text-xs tracking-[0.28em] uppercase mb-4">
                   IMAGEN Y LABORATORIO
                 </p>
                 <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-5xl leading-[1.05] tracking-tight max-w-2xl">
@@ -455,25 +455,34 @@ export default function Contacto() {
             {/* Bento: 6-col grid */}
             <div className="grid grid-cols-2 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
               {/* UDUZ brand tile */}
-              <div className="col-span-2 md:col-span-2 md:row-span-2 bg-[#c69636] p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
+              <div className="col-span-2 md:col-span-2 md:row-span-2 bg-white p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
                 <div>
-                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#1a4a55]/70 font-semibold mb-6">
+                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#134F5C]/70 font-semibold mb-6">
                     UNIDAD DE DIAGNÓSTICO<br />UNIVERSITARIA DEL ZULIA
                   </p>
-                  <h3
-                    className="font-display font-bold text-[#0f3138] leading-[0.85] tracking-[-0.04em]"
-                    style={{ fontSize: "clamp(64px, 9vw, 112px)" }}
-                  >
-                    UDUZ
-                  </h3>
+                  <div className="flex items-end gap-4">
+                    {/* UDUZ dot mark: 2 verde-amarillo arriba, 2 teal abajo */}
+                    <div className="grid grid-cols-2 gap-[6px] shrink-0" style={{ width: "clamp(48px, 6vw, 72px)" }}>
+                      <span className="aspect-square rounded-full bg-[#8DC63F]" />
+                      <span className="aspect-square rounded-full bg-[#8DC63F]" />
+                      <span className="aspect-square rounded-full bg-[#1B6B78]" />
+                      <span className="aspect-square rounded-full bg-[#1B6B78]" />
+                    </div>
+                    <h3
+                      className="font-display font-medium text-[#1B6B78] leading-[0.85] tracking-[0.02em]"
+                      style={{ fontSize: "clamp(56px, 8vw, 96px)" }}
+                    >
+                      UDUZ
+                    </h3>
+                  </div>
                 </div>
                 <div className="mt-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <Star className="w-4 h-4 text-[#0f3138] fill-[#0f3138]" strokeWidth={0} />
-                    <span className="font-sans text-[#0f3138] text-sm font-semibold">4.8</span>
-                    <span className="font-sans text-[#0f3138]/70 text-sm">· 246 reseñas en Google</span>
+                    <Star className="w-4 h-4 text-[#1B6B78] fill-[#1B6B78]" strokeWidth={0} />
+                    <span className="font-sans text-[#1B6B78] text-sm font-semibold">4.8</span>
+                    <span className="font-sans text-[#1B6B78]/70 text-sm">· 246 reseñas en Google</span>
                   </div>
-                  <p className="font-sans text-[#0f3138]/85 text-sm leading-relaxed max-w-[28ch]">
+                  <p className="font-sans text-[#1B6B78]/85 text-sm leading-relaxed max-w-[28ch]">
                     Tomografía · Rayos X · Mamografía 3D · Ecografía · Laboratorio
                   </p>
                 </div>
@@ -490,9 +499,9 @@ export default function Contacto() {
                   sizes="(min-width: 768px) 65vw, 100vw"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#0f3138] via-[#0f3138]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#134F5C] via-[#134F5C]/40 to-transparent" />
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
-                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-3">
+                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] mb-3">
                     TECNOLOGÍA
                   </p>
                   <h4 className="font-display font-semibold text-[#f5f0e8] text-2xl md:text-3xl leading-tight max-w-md">
@@ -502,12 +511,12 @@ export default function Contacto() {
               </div>
 
               {/* Address */}
-              <div className="col-span-1 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-1 md:col-span-2 bg-[#0F5964] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     01 · DIRECCIÓN
                   </span>
-                  <MapPin className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                  <MapPin className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.75} />
                 </div>
                 <p className="font-sans text-[#f5f0e8] text-[15px] leading-snug">
                   Av. 4001, Maracaibo<br />
@@ -516,15 +525,15 @@ export default function Contacto() {
               </div>
 
               {/* Phone */}
-              <div className="col-span-1 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-1 md:col-span-2 bg-[#0F5964] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     02 · CONTACTO
                   </span>
-                  <Phone className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                  <Phone className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#c69636] transition-colors block">
+                  <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors block">
                     +58 412-604-4124
                   </a>
                   <p className="font-sans text-[#f5f0e8]/60 text-xs mt-1 tracking-wide">Lun–Sáb · 6:30 – 19:00</p>
@@ -532,18 +541,18 @@ export default function Contacto() {
               </div>
 
               {/* Instagram */}
-              <div className="col-span-2 md:col-span-2 bg-[#0f3138] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
+              <div className="col-span-2 md:col-span-2 bg-[#0F5964] p-6 md:p-9 min-h-[160px] md:min-h-[180px] flex flex-col justify-between">
                 <div className="flex items-start justify-between mb-4">
                   <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
                     03 · REDES
                   </span>
-                  <Instagram className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                  <Instagram className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.75} />
                 </div>
                 <a
                   href="https://instagram.com/uduz_maracaibo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#c69636] transition-colors"
+                  className="group inline-flex items-center gap-2 font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors"
                 >
                   @uduz_maracaibo
                   <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -559,7 +568,7 @@ export default function Contacto() {
                   type="button"
                   onClick={() => open(i)}
                   aria-label={`Ampliar imagen: ${tile.title}`}
-                  className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c69636] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f3138] cursor-zoom-in ${tile.span}`}
+                  className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8DC63F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134F5C] cursor-zoom-in ${tile.span}`}
                 >
                   <OptimizedPicture
                     picture={tile.image.pic}
@@ -570,12 +579,12 @@ export default function Contacto() {
                     sizes="(min-width: 768px) 33vw, 50vw"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
-                  <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#0f3138]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#134F5C] via-[#134F5C]/30 to-transparent" />
+                  <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#134F5C]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     <ZoomIn className="w-4 h-4 text-[#f5f0e8]" strokeWidth={1.75} />
                   </div>
                   <div className="absolute inset-0 p-6 md:p-7 flex flex-col justify-end">
-                    <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-2">
+                    <p className="font-ui text-[10px] tracking-[0.28em] text-[#8DC63F] mb-2">
                       ESTUDIO
                     </p>
                     <h4 className="font-display font-semibold text-[#f5f0e8] text-xl md:text-2xl leading-tight">
@@ -591,7 +600,7 @@ export default function Contacto() {
             <div className="mt-16">
               <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                 <div>
-                  <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                  <p className="text-[#8DC63F] font-medium text-xs tracking-[0.28em] uppercase mb-4">
                     INFORMACIÓN CLÍNICA
                   </p>
                   <h3 className="font-display font-bold text-[#f5f0e8] text-2xl md:text-4xl leading-[1.05] tracking-tight">
