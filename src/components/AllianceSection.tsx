@@ -5,9 +5,10 @@ const BRAND_TEAL = "#3d8b96";
 const UDUZ_GREEN = "#8DC63F";
 const UDUZ_TEAL = "#1B6B78";
 
-function UduzMark({ size = 44 }: { size?: number }) {
+function UduzMark({ size = 44, onDark = false }: { size?: number; onDark?: boolean }) {
   const dot = size * 0.26;
   const gap = size * 0.14;
+  const bottom = onDark ? "#f5f0e8" : UDUZ_TEAL;
   return (
     <div
       aria-hidden="true"
@@ -23,8 +24,8 @@ function UduzMark({ size = 44 }: { size?: number }) {
         <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_GREEN }} />
       </div>
       <div style={{ display: "flex", gap }}>
-        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_TEAL }} />
-        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: UDUZ_TEAL }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: bottom }} />
+        <span style={{ width: dot, height: dot, borderRadius: "50%", backgroundColor: bottom }} />
       </div>
     </div>
   );
