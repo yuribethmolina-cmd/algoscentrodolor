@@ -1,5 +1,6 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, Star, ArrowUpRight } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, Star, ArrowUpRight, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
@@ -81,6 +82,45 @@ const EXAM_TILES = [
 ];
 
 export default function Contacto() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [zoomed, setZoomed] = useState(false);
+
+  const open = useCallback((i: number) => {
+    setLightboxIndex(i);
+    setZoomed(false);
+  }, []);
+  const close = useCallback(() => setLightboxIndex(null), []);
+  const next = useCallback(() => {
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % EXAM_TILES.length));
+    setZoomed(false);
+  }, []);
+  const prev = useCallback(() => {
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + EXAM_TILES.length) % EXAM_TILES.length));
+    setZoomed(false);
+  }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === " ") {
+        e.preventDefault();
+        setZoomed((z) => !z);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex, close, next, prev]);
+
+  const active = lightboxIndex !== null ? EXAM_TILES[lightboxIndex] : null;
+
   return (
     <div className="min-h-screen bg-cream">
       <SEOHead
@@ -338,18 +378,24 @@ export default function Contacto() {
 
             {/* Cinematic exam gallery */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
-              {EXAM_TILES.map((tile) => (
-                <div
+              {EXAM_TILES.map((tile, i) => (
+                <button
                   key={tile.title}
-                  className={`relative overflow-hidden bg-black min-h-[220px] ${tile.span}`}
+                  type="button"
+                  onClick={() => open(i)}
+                  aria-label={`Ampliar imagen: ${tile.title}`}
+                  className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c69636] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f3138] cursor-zoom-in ${tile.span}`}
                 >
                   <img
                     src={tile.img}
                     alt={tile.title}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
+                  <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#0f3138]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ZoomIn className="w-4 h-4 text-[#f5f0e8]" strokeWidth={1.75} />
+                  </div>
                   <div className="absolute inset-0 p-6 md:p-7 flex flex-col justify-end">
                     <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-2">
                       ESTUDIO
@@ -359,7 +405,7 @@ export default function Contacto() {
                     </h4>
                     <p className="font-sans text-[#f5f0e8]/70 text-sm mt-1">{tile.subtitle}</p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -384,6 +430,102 @@ export default function Contacto() {
         </section>
       </main>
       <HomeFooter />
+
+      {/* LIGHTBOX */}
+      {active && lightboxIndex !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Imagen ampliada: ${active.title}`}
+          className="fixed inset-0 z-[100] bg-[#0a1f24]/95 backdrop-blur-sm animate-fade-in flex flex-col"
+          onClick={close}
+        >
+          {/* Top bar */}
+          <div
+            className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-[#f5f0e8]/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-4">
+              <span className="font-ui text-[10px] tracking-[0.28em] text-[#c69636]">
+                ESTUDIO {String(lightboxIndex + 1).padStart(2, "0")} / {String(EXAM_TILES.length).padStart(2, "0")}
+              </span>
+              <span className="hidden md:block h-px w-12 bg-[#f5f0e8]/20" />
+              <h3 className="font-display font-semibold text-[#f5f0e8] text-lg">{active.title}</h3>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setZoomed((z) => !z)}
+                aria-label={zoomed ? "Alejar" : "Ampliar"}
+                className="w-10 h-10 flex items-center justify-center border border-[#f5f0e8]/15 text-[#f5f0e8] hover:bg-[#f5f0e8]/10 transition-colors"
+              >
+                {zoomed ? <ZoomOut className="w-4 h-4" strokeWidth={1.75} /> : <ZoomIn className="w-4 h-4" strokeWidth={1.75} />}
+              </button>
+              <button
+                type="button"
+                onClick={close}
+                aria-label="Cerrar"
+                className="w-10 h-10 flex items-center justify-center border border-[#f5f0e8]/15 text-[#f5f0e8] hover:bg-[#f5f0e8]/10 transition-colors"
+              >
+                <X className="w-4 h-4" strokeWidth={1.75} />
+              </button>
+            </div>
+          </div>
+
+          {/* Stage */}
+          <div className="relative flex-1 flex items-center justify-center overflow-auto px-4 md:px-16 py-6">
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              aria-label="Imagen anterior"
+              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center border border-[#f5f0e8]/15 bg-[#0f3138]/60 text-[#f5f0e8] hover:bg-[#f5f0e8]/10 transition-colors z-10"
+            >
+              <ChevronLeft className="w-5 h-5" strokeWidth={1.75} />
+            </button>
+
+            <img
+              key={active.img}
+              src={active.img}
+              alt={active.title}
+              onClick={(e) => { e.stopPropagation(); setZoomed((z) => !z); }}
+              className={`max-h-full max-w-full object-contain shadow-2xl transition-transform duration-500 ease-out animate-scale-in ${
+                zoomed ? "scale-[1.6] cursor-zoom-out" : "scale-100 cursor-zoom-in"
+              }`}
+            />
+
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              aria-label="Imagen siguiente"
+              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center border border-[#f5f0e8]/15 bg-[#0f3138]/60 text-[#f5f0e8] hover:bg-[#f5f0e8]/10 transition-colors z-10"
+            >
+              <ChevronRight className="w-5 h-5" strokeWidth={1.75} />
+            </button>
+          </div>
+
+          {/* Bottom bar */}
+          <div
+            className="px-6 md:px-10 py-5 border-t border-[#f5f0e8]/10 flex items-center justify-between gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="font-sans text-[#f5f0e8]/70 text-sm">{active.subtitle}</p>
+            <div className="flex items-center gap-2">
+              {EXAM_TILES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => { setLightboxIndex(i); setZoomed(false); }}
+                  aria-label={`Ir a imagen ${i + 1}`}
+                  className={`h-[2px] transition-all ${i === lightboxIndex ? "w-10 bg-[#c69636]" : "w-6 bg-[#f5f0e8]/25 hover:bg-[#f5f0e8]/50"}`}
+                />
+              ))}
+            </div>
+            <p className="hidden md:block font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/40">
+              ← → NAVEGAR · ESPACIO ZOOM · ESC CERRAR
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
