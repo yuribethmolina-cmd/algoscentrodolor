@@ -14,7 +14,12 @@ export default function Ciatica() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Ciática: cuando el dolor baja por la pierna" />
+        <PageHero
+          eyebrow="Condición"
+          title="Ciática: cuando el dolor baja por la pierna"
+          patientTitle="Se me duerme la pierna"
+          patientSubtitle="Dolor que nace en la espalda baja y baja por el glúteo hacia la pierna — a veces con hormigueo, corrientazo o sensación de adormecimiento."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

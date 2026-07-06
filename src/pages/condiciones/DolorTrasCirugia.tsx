@@ -13,7 +13,12 @@ export default function DolorTrasCirugia() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Dolor tras cirugía de columna: cuando la operación no fue suficiente" />
+        <PageHero
+          eyebrow="Condición"
+          title="Dolor tras cirugía de columna: cuando la operación no fue suficiente"
+          patientTitle="Me operaron y sigo con dolor"
+          patientSubtitle="Cuando la cirugía no fue suficiente y el dolor persiste o volvió. No es normal vivir así — hay opciones antes de una segunda operación."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

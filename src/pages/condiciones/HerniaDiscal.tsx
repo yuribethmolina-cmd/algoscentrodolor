@@ -13,7 +13,12 @@ export default function HerniaDiscal() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Hernia discal: cuando el disco comprime un nervio" />
+        <PageHero
+          eyebrow="Condición"
+          title="Hernia discal: cuando el disco comprime un nervio"
+          patientTitle="Me dijeron que tengo hernia"
+          patientSubtitle="Una hernia discal no siempre requiere cirugía. En la mayoría de los casos hay opciones mínimamente invasivas que alivian el dolor sin pasar por el quirófano."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">

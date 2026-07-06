@@ -13,7 +13,12 @@ export default function DolorLumbar() {
     <div className="min-h-screen bg-cream">
       <Navbar />
       <main>
-        <PageHero eyebrow="Condición" title="Dolor lumbar: el dolor de cintura que no cede" />
+        <PageHero
+          eyebrow="Condición"
+          title="Dolor lumbar: el dolor de cintura que no cede"
+          patientTitle="Dolor de espalda"
+          patientSubtitle="Dolor en la zona baja de la espalda que no cede con reposo ni calmantes — puede bajar hacia la pierna o quedarse localizado."
+        />
 
         <div className="bg-cream pt-8 md:pt-10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
