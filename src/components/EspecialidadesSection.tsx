@@ -578,7 +578,7 @@ export default function EspecialidadesSection() {
             padding: "14px 24px",
           }}
         >
-          Ver todas las especialidades →
+          VER TODAS LAS ESPECIALIDADES
         </Link>
       </div>
     </section>
