@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, MessageCircle, FlaskConical } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, Star, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
+import uduzScanner from "@/assets/uduz-scanner.jpg";
+import examsXray from "@/assets/exams-xray.jpg";
+import examsUltrasound from "@/assets/exams-ultrasound.jpg";
 
 const WHATSAPP_NUMBER = "584146807886";
 
@@ -43,24 +46,38 @@ const AUDIENCE_CARDS = [
 const INFO_CARDS = [
   {
     Icon: MapPin,
+    label: "01 · UBICACIÓN",
     title: "Ubicación",
     lines: ["CC América, Local N° 4", "Av. 20 con Calle 65", "Sector Paraíso · Maracaibo"],
   },
   {
     Icon: Clock,
+    label: "02 · HORARIO",
     title: "Horario",
-    lines: ["Lunes, martes, jueves y viernes: 8:00 AM – 12:00 PM · 1:00 PM – 5:00 PM", "Miércoles: 8:00 AM – 3:00 PM"],
+    lines: [
+      "Lun, Mar, Jue, Vie",
+      "8:00 – 12:00 · 13:00 – 17:00",
+      "Miércoles · 8:00 – 15:00",
+    ],
   },
   {
     Icon: Phone,
+    label: "03 · TELÉFONO",
     title: "Teléfono",
     lines: ["0414-680 7886", "0412-061 7410"],
   },
   {
     Icon: Mail,
+    label: "04 · EMAIL",
     title: "Email",
     email: "algoscentrodedolor@gmail.com",
   },
+];
+
+const EXAM_TILES = [
+  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "md:col-span-2 md:row-span-2" },
+  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "md:col-span-2" },
+  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "md:col-span-2" },
 ];
 
 export default function Contacto() {
@@ -98,7 +115,7 @@ export default function Contacto() {
         {/* AUDIENCE ROUTER */}
         <section className="bg-cream py-16 md:py-20">
           <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-px bg-[#1a4a55]/10">
               {AUDIENCE_CARDS.map((c) => (
                 <article
                   key={c.eyebrow}
@@ -116,7 +133,7 @@ export default function Contacto() {
                   </p>
                   <Link
                     to={c.to}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded-none font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                     style={{ backgroundColor: c.btnBg, color: c.btnText }}
                   >
                     <span>{c.cta}</span>
@@ -128,93 +145,62 @@ export default function Contacto() {
           </div>
         </section>
 
-        {/* CONTACTO DIRECTO */}
+        {/* CONTACTO DIRECTO — BENTO */}
         <section className="bg-white py-20 md:py-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
-            <div className="text-center mb-12 md:mb-16">
-              <p className="text-[#c69636] font-medium text-sm tracking-[0.25em] uppercase mb-4">
-                CONTACTO DIRECTO
+            <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                  CONTACTO DIRECTO
+                </p>
+                <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-5xl leading-[1.05] tracking-tight max-w-2xl">
+                  Llámenos, escríbanos<br className="hidden md:block" /> o visítenos.
+                </h2>
+              </div>
+              <div className="hidden md:block h-px flex-1 bg-[#1a4a55]/15 mx-8" />
+              <p className="font-sans text-[#1a4a55]/70 text-sm max-w-xs">
+                Cuatro vías directas. Sin formularios largos, sin intermediarios.
               </p>
-              <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl">
-                Llámenos, escríbanos o visítenos.
-              </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {INFO_CARDS.map(({ Icon, title, lines, email }) => (
+
+            {/* Bento grid — no rounded corners, hairline dividers */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
+              {INFO_CARDS.map(({ Icon, title, lines, email, label }) => (
                 <div
                   key={title}
-                  className="bg-cream rounded-none p-8 border border-[#1a4a55]/10 flex flex-col items-center text-center hover:border-[#c69636]/40 transition-colors min-h-[220px]"
+                  className="group relative bg-cream p-8 md:p-9 flex flex-col min-h-[240px] transition-colors hover:bg-[#f5f0e8]"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#c69636]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#c69636]" strokeWidth={1.75} />
+                  <div className="flex items-start justify-between mb-8">
+                    <span className="font-ui text-[10px] tracking-[0.22em] text-[#1a4a55]/45 font-medium">
+                      {label}
+                    </span>
+                    <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
                   </div>
-                  <h3 className="font-display font-semibold text-[#1a4a55] text-base mb-3">
+                  <h3 className="font-display font-semibold text-[#1a4a55] text-xl mb-4">
                     {title}
                   </h3>
-                  <div className="flex flex-col gap-1 flex-1 justify-center">
+                  <div className="flex flex-col gap-1 flex-1">
                     {email ? (
                       <a
                         href={`mailto:${email}`}
-                        className="font-sans text-sm text-[#1a4a55]/85 leading-snug hover:text-[#c69636] transition-colors break-all"
+                        className="font-sans text-[15px] text-[#1a4a55]/85 leading-snug hover:text-[#c69636] transition-colors break-all"
                       >
                         {email}
                       </a>
                     ) : (
                       lines?.map((l) => (
-                        <p key={l} className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
+                        <p key={l} className="font-sans text-[15px] text-[#1a4a55]/85 leading-snug">
                           {l}
                         </p>
                       ))
                     )}
                   </div>
+                  <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#c69636] transition-all duration-500 group-hover:w-full" />
                 </div>
               ))}
             </div>
 
-            {/* UDUZ card */}
-            <div className="mt-8 flex justify-center">
-              <div
-                className="bg-cream rounded-none p-8 border flex flex-col items-center text-center min-h-[220px] max-w-md w-full hover:opacity-95 transition-opacity"
-                style={{ borderColor: "#3d8b96" }}
-              >
-                <div className="w-12 h-12 rounded-full bg-[#3d8b96]/10 flex items-center justify-center mb-4">
-                  <FlaskConical className="w-5 h-5 text-[#3d8b96]" strokeWidth={1.75} />
-                </div>
-                <p className="text-[#3d8b96] text-xs uppercase tracking-widest font-medium mb-2">
-                  UDUZ — UNIDAD DE DIAGNÓSTICO
-                </p>
-                <h3 className="font-display font-semibold text-[#1a4a55] text-lg mb-4">
-                  Imagen y laboratorio
-                </h3>
-                <div className="flex flex-col gap-1 flex-1 justify-center">
-                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
-                    Av. 4001, Maracaibo · Sector Paraíso
-                  </p>
-                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
-                    +58 412-604-4124
-                  </p>
-                  <a
-                    href="https://instagram.com/uduz_maracaibo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-[#1a4a55]/85 leading-snug hover:text-[#c69636] transition-colors"
-                  >
-                    @uduz_maracaibo
-                  </a>
-                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
-                    Lunes a sábado · 6:30 AM – 7:00 PM
-                  </p>
-                  <p className="font-sans text-sm text-[#1a4a55]/85 leading-snug">
-                    ⭐ 4.8 · 246 reseñas en Google
-                  </p>
-                </div>
-                <p className="font-sans text-xs text-[#1a4a55]/60 mt-4 pt-4 border-t border-[#1a4a55]/10 w-full leading-relaxed">
-                  Para tomografía, Rayos X, Mamografía 3D, Ecografía y Laboratorio
-                </p>
-              </div>
-            </div>
-
-            <p className="text-center mt-10 font-sans text-[#1a4a55]/75 text-[15px] leading-relaxed">
+            <p className="text-center mt-12 font-sans text-[#1a4a55]/75 text-[15px] leading-relaxed">
               ¿Prefiere que lo llamemos?{" "}
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20que%20me%20llamen%20para%20coordinar`}
@@ -228,6 +214,157 @@ export default function Contacto() {
           </div>
         </section>
 
+        {/* UDUZ — BRANDED BENTO */}
+        <section className="bg-[#0f3138] py-20 md:py-28 relative overflow-hidden">
+          {/* Ambient gold glow */}
+          <div
+            aria-hidden
+            className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full opacity-[0.08] blur-3xl"
+            style={{ background: "radial-gradient(circle, #c69636 0%, transparent 70%)" }}
+          />
+
+          <div className="container mx-auto max-w-6xl px-6 md:px-12 relative">
+            <div className="mb-10 md:mb-14 flex items-end justify-between gap-6">
+              <div>
+                <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                  IMAGEN Y LABORATORIO
+                </p>
+                <h2 className="font-display font-bold text-[#f5f0e8] text-3xl md:text-5xl leading-[1.05] tracking-tight max-w-2xl">
+                  Diagnóstico integrado, en el mismo lugar.
+                </h2>
+              </div>
+              <span className="hidden md:block font-ui text-[10px] tracking-[0.28em] text-[#f5f0e8]/40">
+                ALIANZA ESTRATÉGICA
+              </span>
+            </div>
+
+            {/* Bento: 6-col grid */}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+              {/* UDUZ brand tile */}
+              <div className="md:col-span-2 md:row-span-2 bg-[#c69636] p-9 md:p-10 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
+                <div>
+                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#1a4a55]/70 font-semibold mb-6">
+                    UNIDAD DE DIAGNÓSTICO<br />UNIVERSITARIA DEL ZULIA
+                  </p>
+                  <h3
+                    className="font-display font-bold text-[#0f3138] leading-[0.85] tracking-[-0.04em]"
+                    style={{ fontSize: "clamp(64px, 9vw, 112px)" }}
+                  >
+                    UDUZ
+                  </h3>
+                </div>
+                <div className="mt-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Star className="w-4 h-4 text-[#0f3138] fill-[#0f3138]" strokeWidth={0} />
+                    <span className="font-sans text-[#0f3138] text-sm font-semibold">4.8</span>
+                    <span className="font-sans text-[#0f3138]/70 text-sm">· 246 reseñas en Google</span>
+                  </div>
+                  <p className="font-sans text-[#0f3138]/85 text-sm leading-relaxed max-w-[28ch]">
+                    Tomografía · Rayos X · Mamografía 3D · Ecografía · Laboratorio
+                  </p>
+                </div>
+              </div>
+
+              {/* Cinematic scanner image */}
+              <div className="md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
+                <img
+                  src={uduzScanner}
+                  alt="Tomógrafo UDUZ"
+                  loading="lazy"
+                  width={1280}
+                  height={1600}
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0f3138] via-[#0f3138]/40 to-transparent" />
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                  <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-3">
+                    TECNOLOGÍA
+                  </p>
+                  <h4 className="font-display font-semibold text-[#f5f0e8] text-2xl md:text-3xl leading-tight max-w-md">
+                    Equipos de última generación, resultados el mismo día.
+                  </h4>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between border-t md:border-t-0 md:border-l border-[#f5f0e8]/8">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
+                    01 · DIRECCIÓN
+                  </span>
+                  <MapPin className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                </div>
+                <p className="font-sans text-[#f5f0e8] text-[15px] leading-snug">
+                  Av. 4001, Maracaibo<br />
+                  <span className="text-[#f5f0e8]/70">Sector Paraíso</span>
+                </p>
+              </div>
+
+              {/* Phone */}
+              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
+                    02 · CONTACTO
+                  </span>
+                  <Phone className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#c69636] transition-colors block">
+                    +58 412-604-4124
+                  </a>
+                  <p className="font-sans text-[#f5f0e8]/60 text-xs mt-1 tracking-wide">Lun–Sáb · 6:30 – 19:00</p>
+                </div>
+              </div>
+
+              {/* Instagram */}
+              <div className="md:col-span-2 bg-[#0f3138] p-8 md:p-9 min-h-[180px] flex flex-col justify-between">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-ui text-[10px] tracking-[0.22em] text-[#f5f0e8]/45 font-medium">
+                    03 · REDES
+                  </span>
+                  <Instagram className="w-4 h-4 text-[#c69636]" strokeWidth={1.75} />
+                </div>
+                <a
+                  href="https://instagram.com/uduz_maracaibo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#c69636] transition-colors"
+                >
+                  @uduz_maracaibo
+                  <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                </a>
+              </div>
+            </div>
+
+            {/* Cinematic exam gallery */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-6 gap-px bg-[#f5f0e8]/10 border border-[#f5f0e8]/10">
+              {EXAM_TILES.map((tile) => (
+                <div
+                  key={tile.title}
+                  className={`relative overflow-hidden bg-black min-h-[220px] ${tile.span}`}
+                >
+                  <img
+                    src={tile.img}
+                    alt={tile.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
+                  <div className="absolute inset-0 p-6 md:p-7 flex flex-col justify-end">
+                    <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-2">
+                      ESTUDIO
+                    </p>
+                    <h4 className="font-display font-semibold text-[#f5f0e8] text-xl md:text-2xl leading-tight">
+                      {tile.title}
+                    </h4>
+                    <p className="font-sans text-[#f5f0e8]/70 text-sm mt-1">{tile.subtitle}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* WHATSAPP CTA */}
         <section className="bg-cream py-20 md:py-24">
           <div className="container mx-auto max-w-3xl px-6 md:px-12 text-center">
@@ -238,7 +375,7 @@ export default function Contacto() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all bg-[#25d366] hover:bg-[#1fb859] text-white rounded font-ui font-bold uppercase px-10 py-[18px] text-[13px] tracking-[0.18em] shadow-[0_6px_24px_-4px_rgba(37,211,102,0.45)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.55)] hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all bg-[#25d366] hover:bg-[#1fb859] text-white rounded-none font-ui font-bold uppercase px-10 py-[18px] text-[13px] tracking-[0.18em] shadow-[0_6px_24px_-4px_rgba(37,211,102,0.45)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.55)] hover:-translate-y-0.5"
             >
               <MessageCircle className="w-5 h-5 flex-shrink-0" strokeWidth={1.75} />
               <span>Escríbanos por WhatsApp</span>
