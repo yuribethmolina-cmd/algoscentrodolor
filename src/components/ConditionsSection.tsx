@@ -65,7 +65,7 @@ export default function ConditionsSection() {
               marginBottom: 20,
             }}
           >
-            CONDICIONES
+            LO QUE TRATAMOS
           </p>
           <h2
             style={{
@@ -76,8 +76,21 @@ export default function ConditionsSection() {
               color: CREAM,
             }}
           >
-            ¿Se reconoce en alguno de estos dolores?
+            ¿Dónde le duele?
           </h2>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.5vw, 18px)",
+              lineHeight: 1.6,
+              color: "rgba(245,240,232,0.75)",
+              marginTop: 20,
+              maxWidth: 640,
+            }}
+          >
+            Cualquier dolor tiene un origen. Díganos dónde le duele y nosotros
+            encontramos la causa.
+          </p>
         </div>
 
         {/* Protagonistas — with links */}

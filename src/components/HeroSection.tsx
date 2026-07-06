@@ -125,8 +125,8 @@ export default function HeroSection() {
               maxWidth: "18ch",
             }}
             chunks={[
-              { text: "¿Tiene dolor? " },
-              { text: "Lo evaluamos, diagnosticamos y tratamos.", color: "#9a7320", staggerMs: 120 },
+              { text: "El dolor tiene causa. " },
+              { text: "Nosotros la tratamos.", color: "#9a7320", staggerMs: 120 },
             ]}
           />
 
@@ -134,8 +134,8 @@ export default function HeroSection() {
             className="font-ui mt-8 max-w-xl"
             style={{ fontSize: "clamp(16px, 4.5vw, 19px)", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
           >
-            Primer centro de dolor intervencionista del Zulia. Especialidades
-            médicas y estudios diagnósticos —en alianza con UDUZ— bajo un mismo techo.
+            En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
+            en su recuperación. Sin importar dónde le duele.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
@@ -146,7 +146,7 @@ export default function HeroSection() {
               className="group inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
-              <span>Agende su consulta</span>
+              <span>AGENDE SU CONSULTA</span>
               <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
                 <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
               </span>
@@ -156,7 +156,7 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center gap-2 border-[1.5px] border-deep-teal text-deep-teal md:hover:bg-deep-teal md:hover:text-cream font-ui font-bold uppercase rounded-none transition-[background-color,color] duration-300 active:scale-[0.97] px-8 py-[16px]"
               style={{ fontSize: "13px", letterSpacing: "0.22em" }}
             >
-              <span>Especialidades</span>
+              <span>ESPECIALIDADES</span>
             </Link>
           </div>
 
