@@ -18,6 +18,8 @@ type Node = {
   label: string;
   /** Angle in degrees, 0° = top, clockwise */
   angle: number;
+  /** Slug of a specialty defined in src/data/specialties.ts */
+  slug: string;
   /** Custom line-art icon, drawn centered at (0,0) inside a 56x56 box */
   icon: JSX.Element;
 };
