@@ -13,41 +13,42 @@
 @layer base {
   :root {
     --background: 38 39% 93%;
-    --foreground: 190 53% 22%;
+    --foreground: 195 60% 12%;
 
     --card: 38 39% 96%;
-    --card-foreground: 190 53% 22%;
+    --card-foreground: 195 60% 12%;
 
     --popover: 38 39% 96%;
-    --popover-foreground: 190 53% 22%;
+    --popover-foreground: 195 60% 12%;
 
-    --primary: 190 53% 22%;
-    --primary-foreground: 38 39% 93%;
+    --primary: 190 60% 16%;
+    --primary-foreground: 38 45% 96%;
 
-    --secondary: 188 42% 41%;
-    --secondary-foreground: 38 39% 96%;
+    --secondary: 188 50% 32%;
+    --secondary-foreground: 38 45% 97%;
 
     --muted: 38 25% 88%;
-    --muted-foreground: 193 45% 30%;
+    --muted-foreground: 195 55% 18%;
 
-    --accent: 38 57% 50%;
-    --accent-foreground: 190 53% 22%;
+    --accent: 38 65% 42%;
+    --accent-foreground: 190 60% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 38 25% 82%;
-    --input: 38 25% 82%;
-    --ring: 190 53% 22%;
+    --border: 38 25% 78%;
+    --input: 38 25% 78%;
+    --ring: 190 60% 16%;
 
     --radius: 0.5rem;
 
-    --navbar: 190 53% 22%;
+    --navbar: 190 60% 14%;
 
-    /* Readability tokens */
-    --text-body: 195 35% 20%;       /* deeper than deep-teal/80, AAA on cream */
-    --gold-deep: 36 65% 33%;        /* AA-safe dorado sobre cream (#9a7320) */
-    --cream-strong: 38 47% 96%;     /* cream alto contraste sobre teal */
+    /* Readability tokens — reforzados para contraste AAA */
+    --text-body: 195 60% 12%;       /* casi-negro teal sobre cream */
+    --gold-deep: 36 78% 26%;        /* dorado profundo, AAA sobre cream */
+    --cream-strong: 38 55% 98%;     /* cream alto contraste sobre teal */
+
 
     --sidebar-background: 190 53% 18%;
     --sidebar-foreground: 38 39% 93%;
@@ -118,6 +119,8 @@
     line-height: var(--baseline); /* 24px baseline */
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.005em;
+    font-weight: 500;          /* subir peso base para mejor contraste */
+    color: hsl(var(--text-body));
   }
 
   @media (min-width: 981px) {
@@ -136,10 +139,12 @@
   /* Headings: line-heights snap to baseline multiples */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', system-ui, sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.022em;
     text-wrap: balance;
+    color: hsl(var(--primary));
   }
+
 
   h1 {
     font-size: clamp(2.25rem, 4.2vw, 3.5rem);  /* 36–56px */
@@ -201,7 +206,55 @@
     outline: 2px solid #c69636; /* Algos Gold */
     outline-offset: 2px;
     border-radius: 2px;
+}
+
+/* ============================================================
+ * Contraste global — refuerza texto para lectura AAA
+ * Sube opacidades débiles y peso mínimo de párrafos.
+ * ============================================================ */
+@layer utilities {
+  p, li, dd, dt, blockquote, figcaption {
+    font-weight: 500;
   }
+
+  /* Cream (sobre fondos teal oscuro) — subir a mínimo 92% */
+  .text-cream\/55,
+  .text-cream\/60,
+  .text-cream\/70,
+  .text-cream\/80,
+  .text-cream\/85,
+  .text-cream\/90 {
+    color: hsl(var(--cream-strong)) !important;
+    opacity: 1 !important;
+  }
+
+  /* Teal profundo con opacidad reducida — llevar a color pleno */
+  .text-deep-teal\/60,
+  .text-deep-teal\/85 {
+    color: hsl(var(--text-body)) !important;
+    opacity: 1 !important;
+  }
+
+  .text-steel-teal\/60,
+  .text-steel-teal\/80 {
+    color: hsl(var(--text-body)) !important;
+    opacity: 1 !important;
+  }
+
+  /* Foreground / muted-foreground con opacidades reducidas */
+  .text-foreground\/50,
+  .text-foreground\/70,
+  .text-foreground\/80 {
+    color: hsl(var(--foreground)) !important;
+    opacity: 1 !important;
+  }
+
+  .text-muted-foreground\/60 {
+    color: hsl(var(--muted-foreground)) !important;
+    opacity: 1 !important;
+  }
+}
+
 }
 
 @layer utilities {
