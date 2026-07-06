@@ -63,6 +63,7 @@ const NODES: Node[] = [
   {
     label: "Reumatología",
     angle: 120,
+    slug: "reumatologia",
     icon: (
       <g {...ICON_STROKE}>
         <path d="M -10 -16 L -2 -4 Q 0 0 2 -4 L 10 -16" />
