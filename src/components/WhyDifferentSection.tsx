@@ -73,19 +73,6 @@ export default function WhyDifferentSection() {
           >
             El dolor crónico se maneja. No se abandona.
           </h2>
-          <p
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(15px, 1.3vw, 17px)",
-              lineHeight: 1.7,
-              color: "rgba(26,74,85,0.82)",
-              maxWidth: "58ch",
-            }}
-          >
-            La mayoría de las clínicas hacen el procedimiento y le dicen
-            adiós. En ALGOS su caso no termina cuando sale por la puerta — lo
-            seguimos hasta que el dolor deje de controlar su vida.
-          </p>
         </div>
 
         {/* Cards — 3 columns on desktop, 1 on mobile */}
