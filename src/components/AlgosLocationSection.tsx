@@ -96,7 +96,7 @@ export default function AlgosLocationSection() {
             <img
               src={algosFacade.url}
               alt="Fachada de ALGOS — Centro de Dolor Intervencionista, Maracaibo"
-              className="absolute inset-0 w-full h-full object-cover object-top"
+              className="absolute inset-0 w-full h-full object-cover object-center"
               loading="lazy"
               decoding="async"
             />

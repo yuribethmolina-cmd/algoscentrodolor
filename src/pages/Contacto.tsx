@@ -332,10 +332,10 @@ export default function Contacto() {
                   className="rounded-none p-10 md:p-12 flex flex-col text-[#f5f0e8]"
                   style={{ backgroundColor: c.bg }}
                 >
-                  <p className="text-[#f5f0e8]/70 text-xs uppercase tracking-widest font-medium mb-4">
+                  <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
                     {c.eyebrow}
                   </p>
-                  <h3 className="font-display font-semibold text-2xl md:text-[1.65rem] leading-snug mb-3">
+                  <h3 className="font-display font-semibold text-2xl md:text-[1.65rem] leading-snug mb-3 text-[#f5f0e8]">
                     {c.title}
                   </h3>
                   <p className="text-[#f5f0e8]/90 mb-8 leading-relaxed flex-1">
