@@ -196,65 +196,107 @@ export default function ConditionsSection() {
               <button
                 key={card.id}
                 onClick={() => toggleCard(card.id)}
+                className="group"
                 style={{
+                  position: "relative",
                   display: "block",
                   width: "100%",
                   textAlign: "left",
-                  backgroundColor: isOpen
-                    ? "rgba(198,150,54,0.12)"
-                    : "rgba(255,255,255,0.06)",
+                  background: isOpen
+                    ? "linear-gradient(155deg, rgba(198,150,54,0.16) 0%, rgba(198,150,54,0.06) 100%)"
+                    : "linear-gradient(155deg, rgba(245,240,232,0.10) 0%, rgba(245,240,232,0.03) 100%)",
+                  backdropFilter: "blur(12px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(12px) saturate(140%)",
                   border: isOpen
                     ? `1px solid ${GOLD}`
-                    : "1px solid rgba(245,240,232,0.12)",
+                    : "1px solid rgba(245,240,232,0.14)",
                   borderRadius: 0,
-                  padding: "clamp(16px, 1.8vw, 20px)",
+                  padding: "clamp(20px, 2vw, 24px)",
                   cursor: "pointer",
+                  boxShadow: isOpen
+                    ? `0 1px 0 rgba(245,240,232,0.10) inset, 0 24px 50px -28px rgba(198,150,54,0.6)`
+                    : `0 1px 0 rgba(245,240,232,0.08) inset, 0 18px 34px -24px rgba(0,0,0,0.4)`,
                   opacity: gridIn ? 1 : 0,
                   transform: gridIn ? "translateY(0)" : "translateY(16px)",
                   transition: `
                     opacity 0.5s ease ${idx * 60}ms,
                     transform 0.5s cubic-bezier(0.23,1,0.32,1) ${idx * 60}ms,
-                    background-color 250ms ease,
-                    border-color 250ms ease
+                    background 250ms ease,
+                    border-color 250ms ease,
+                    box-shadow 250ms ease
                   `,
                 }}
+                onMouseEnter={(e) => {
+                  if (!isOpen) {
+                    e.currentTarget.style.borderColor = "rgba(245,240,232,0.28)";
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isOpen) {
+                    e.currentTarget.style.borderColor = "rgba(245,240,232,0.14)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }
+                }}
               >
-                {/* Card Title */}
+                {/* Numbered index */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    gap: 12,
+                    marginBottom: 14,
                   }}
                 >
-                  <h3
-                    style={{
-                      fontFamily: "'Sora', sans-serif",
-                      fontSize: 18,
-                      fontWeight: 600,
-                      lineHeight: 1.3,
-                      color: CREAM,
-                      letterSpacing: "-0.01em",
-                      textWrap: "balance",
-                    }}
-                  >
-                    {card.title}
-                  </h3>
                   <span
                     style={{
-                      color: isOpen ? GOLD : "rgba(245,240,232,0.4)",
-                      fontSize: 20,
+                      fontFamily: "'Sora', sans-serif",
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: "0.28em",
+                      color: isOpen ? GOLD : "rgba(198,150,54,0.7)",
+                      transition: "color 200ms ease",
+                    }}
+                  >
+                    0{card.id}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      width: 26,
+                      height: 26,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: `1px solid ${isOpen ? GOLD : "rgba(245,240,232,0.25)"}`,
+                      color: isOpen ? GOLD : "rgba(245,240,232,0.6)",
+                      fontSize: 14,
                       fontWeight: 300,
-                      flexShrink: 0,
-                      transition: "color 200ms ease, transform 250ms ease",
-                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                       lineHeight: 1,
+                      flexShrink: 0,
+                      transition: "border-color 200ms ease, color 200ms ease, transform 250ms cubic-bezier(0.22,1,0.36,1)",
+                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                     }}
                   >
                     +
                   </span>
                 </div>
+
+                {/* Card Title */}
+                <h3
+                  style={{
+                    fontFamily: "'Sora', sans-serif",
+                    fontSize: "clamp(16px, 1.4vw, 19px)",
+                    fontWeight: 600,
+                    lineHeight: 1.25,
+                    color: CREAM,
+                    letterSpacing: "-0.01em",
+                    textWrap: "balance",
+                    margin: 0,
+                  }}
+                >
+                  {card.title}
+                </h3>
 
                 {/* Expanded Content */}
                 <div
