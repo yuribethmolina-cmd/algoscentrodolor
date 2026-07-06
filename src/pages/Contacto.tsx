@@ -5,9 +5,20 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
-import uduzScanner from "@/assets/uduz-scanner.jpg";
-import examsXray from "@/assets/exams-xray.jpg";
-import examsUltrasound from "@/assets/exams-ultrasound.jpg";
+import OptimizedPicture from "@/components/OptimizedPicture";
+
+// Responsive AVIF/WebP/JPEG srcsets + tiny blurred LQIP + full-res original
+// for the lightbox. Generated at build time by vite-imagetools.
+import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
+import uduzScannerFull from "@/assets/uduz-scanner.jpg?w=1920&format=webp&url";
+import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
+import examsXrayFull from "@/assets/exams-xray.jpg?w=1920&format=webp&url";
+import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
+import examsUltrasoundFull from "@/assets/exams-ultrasound.jpg?w=1920&format=webp&url";
+
 
 const WHATSAPP_NUMBER = "584146807886";
 
@@ -75,10 +86,14 @@ const INFO_CARDS = [
   },
 ];
 
+const IMG_TOMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
+const IMG_XRAY = { pic: examsXrayPic, lqip: examsXrayLqip, full: examsXrayFull };
+const IMG_ECO  = { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip, full: examsUltrasoundFull };
+
 const EXAM_TILES = [
-  { title: "Tomografía", subtitle: "Alta resolución · mismo día", img: uduzScanner, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
-  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", img: examsXray, span: "col-span-1 md:col-span-2" },
-  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", img: examsUltrasound, span: "col-span-1 md:col-span-2" },
+  { title: "Tomografía", subtitle: "Alta resolución · mismo día", image: IMG_TOMO, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", image: IMG_XRAY, span: "col-span-1 md:col-span-2" },
+  { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", image: IMG_ECO, span: "col-span-1 md:col-span-2" },
 ];
 
 const STUDY_TYPES = [
@@ -95,7 +110,7 @@ const STUDY_TYPES = [
     ],
     preparation: "Ayuno de 4 horas si requiere contraste. Informar alergias previas. Retirar objetos metálicos.",
     duration: "10 – 20 minutos",
-    image: uduzScanner,
+    image: IMG_TOMO,
   },
   {
     id: "rayos-x",
@@ -110,7 +125,7 @@ const STUDY_TYPES = [
     ],
     preparation: "No requiere preparación especial. Retirar joyería y objetos metálicos de la zona a estudiar.",
     duration: "5 – 10 minutos",
-    image: examsXray,
+    image: IMG_XRAY,
   },
   {
     id: "ecografia",
@@ -125,7 +140,7 @@ const STUDY_TYPES = [
     ],
     preparation: "Según región: ayuno (abdominal) o vejiga llena (ginecológica). Indicaciones específicas al agendar.",
     duration: "20 – 40 minutos",
-    image: examsUltrasound,
+    image: IMG_ECO,
   },
   {
     id: "mamografia",
@@ -140,9 +155,10 @@ const STUDY_TYPES = [
     ],
     preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
     duration: "15 – 20 minutos",
-    image: uduzScanner,
+    image: IMG_TOMO,
   },
 ];
+
 
 function StudyTabs() {
   const [active, setActive] = useState(STUDY_TYPES[0].id);
@@ -178,11 +194,15 @@ function StudyTabs() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
         {/* Image */}
         <div className="md:col-span-2 relative overflow-hidden min-h-[240px] md:min-h-[380px] bg-black">
-          <img
-            src={current.image}
+          <OptimizedPicture
+            picture={current.image.pic}
+            placeholder={current.image.lqip}
             alt={current.label}
-            className="absolute inset-0 w-full h-full object-cover opacity-75"
+            className="absolute inset-0 w-full h-full"
+            imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
+            sizes="(min-width: 768px) 40vw, 100vw"
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f3138]/60 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 p-6 md:p-8">
             <div className="flex items-center gap-2 mb-2">
@@ -460,15 +480,16 @@ export default function Contacto() {
               </div>
 
               {/* Cinematic scanner image */}
-              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black">
-                <img
-                  src={uduzScanner}
+              <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black group">
+                <OptimizedPicture
+                  picture={uduzScannerPic}
+                  placeholder={uduzScannerLqip}
                   alt="Tomógrafo UDUZ"
-                  loading="lazy"
-                  width={1280}
-                  height={1600}
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out hover:scale-105"
+                  className="absolute inset-0 w-full h-full"
+                  imgClassName="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  sizes="(min-width: 768px) 65vw, 100vw"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#0f3138] via-[#0f3138]/40 to-transparent" />
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                   <p className="font-ui text-[10px] tracking-[0.28em] text-[#c69636] mb-3">
@@ -540,12 +561,15 @@ export default function Contacto() {
                   aria-label={`Ampliar imagen: ${tile.title}`}
                   className={`group relative overflow-hidden bg-black min-h-[220px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c69636] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f3138] cursor-zoom-in ${tile.span}`}
                 >
-                  <img
-                    src={tile.img}
+                  <OptimizedPicture
+                    picture={tile.image.pic}
+                    placeholder={tile.image.lqip}
                     alt={tile.title}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full"
+                    imgClassName="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    sizes="(min-width: 768px) 33vw, 50vw"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3138] via-[#0f3138]/30 to-transparent" />
                   <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-[#0f3138]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     <ZoomIn className="w-4 h-4 text-[#f5f0e8]" strokeWidth={1.75} />
@@ -665,14 +689,16 @@ export default function Contacto() {
             </button>
 
             <img
-              key={active.img}
-              src={active.img}
+              key={active.image.full}
+              src={active.image.full}
               alt={active.title}
+              decoding="async"
               onClick={(e) => { e.stopPropagation(); setZoomed((z) => !z); }}
               className={`max-h-full max-w-full object-contain shadow-2xl transition-transform duration-500 ease-out animate-scale-in ${
                 zoomed ? "scale-[1.6] cursor-zoom-out" : "scale-100 cursor-zoom-in"
               }`}
             />
+
 
             <button
               type="button"
