@@ -133,10 +133,10 @@ export default function Pacientes() {
                   Una valoración inicial para entender su condición y los tratamientos que pueden ayudarle. Sin presión, sin diagnóstico apresurado.
                 </p>
 
-                <div className="mt-12 flex flex-wrap items-center gap-8">
+                <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
                   <a
                     href={WHATSAPP_PACIENTES}
-                    className="group inline-flex items-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-9 py-[18px]"
+                    className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-9 py-[18px]"
                   >
                     <span>Agendar valoración</span>
                     <span aria-hidden className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-6 group-hover:w-10">
@@ -268,20 +268,20 @@ export default function Pacientes() {
               Una valoración inicial es gratuita y sin compromiso. Nos cuenta qué le pasa, nosotros le decimos honestamente si podemos ayudarle.
             </p>
 
-            <div className="mt-12 flex flex-col items-center gap-4">
-              <a
-                href={WHATSAPP_PACIENTES}
-                className="inline-flex items-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[14px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-[42px] py-[22px]"
-              >
-                Agendar valoración →
-              </a>
-              <a
-                href="/"
-                className="mt-2 font-sans uppercase text-[12px] tracking-[0.22em] text-cream/80 hover:text-algos-gold border-b border-cream/30 hover:border-algos-gold pb-1 transition-colors"
-              >
-                ← Volver al inicio
-              </a>
-            </div>
+              <div className="mt-12 flex flex-col items-center gap-4">
+                <a
+                  href={WHATSAPP_PACIENTES}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[14px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-[42px] py-[22px]"
+                >
+                  Agendar valoración →
+                </a>
+                <a
+                  href="/"
+                  className="mt-2 font-sans uppercase text-[12px] tracking-[0.22em] text-cream/80 hover:text-algos-gold border-b border-cream/30 hover:border-algos-gold pb-1 transition-colors"
+                >
+                  ← Volver al inicio
+                </a>
+              </div>
           </div>
         </section>
       </main>

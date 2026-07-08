@@ -268,7 +268,7 @@ export default function Medicos() {
               <div className="mt-8 flex justify-center">
                 <a
                   href="mailto:info@algoscentrodolor.com?subject=Caso%20para%20derivaci%C3%B3n"
-                  className="inline-flex items-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-9 py-[18px]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-9 py-[18px]"
                 >
                   Refiere un caso →
                 </a>
