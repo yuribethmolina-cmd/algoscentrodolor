@@ -220,13 +220,10 @@ export default function ConditionsSection() {
                   display: "flex",
                   flexDirection: "column",
                   width: "100%",
-                  minHeight: isOpen ? undefined : 160,
+                  minHeight: isOpen ? 200 : 180,
                   textAlign: "left",
-                  background: isOpen
-                    ? "linear-gradient(155deg, rgba(198,150,54,0.16) 0%, rgba(198,150,54,0.06) 100%)"
-                    : "linear-gradient(155deg, rgba(245,240,232,0.10) 0%, rgba(245,240,232,0.03) 100%)",
-                  backdropFilter: "blur(12px) saturate(140%)",
-                  WebkitBackdropFilter: "blur(12px) saturate(140%)",
+                  background: DEEP_TEAL,
+                  overflow: "hidden",
                   border: isOpen
                     ? `1px solid ${GOLD}`
                     : "1px solid rgba(245,240,232,0.14)",
@@ -241,7 +238,6 @@ export default function ConditionsSection() {
                   transition: `
                     opacity 0.5s ease ${idx * 60}ms,
                     transform 0.5s cubic-bezier(0.23,1,0.32,1) ${idx * 60}ms,
-                    background 250ms ease,
                     border-color 250ms ease,
                     box-shadow 250ms ease
                   `,
