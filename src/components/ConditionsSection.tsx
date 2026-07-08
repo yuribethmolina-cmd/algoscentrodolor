@@ -403,9 +403,8 @@ export default function ConditionsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
+                      className="w-full inline-flex items-center justify-center"
                       style={{
-                        display: "inline-flex",
-                        alignItems: "center",
                         gap: 6,
                         fontFamily: "'Manrope', sans-serif",
                         fontSize: 13,
