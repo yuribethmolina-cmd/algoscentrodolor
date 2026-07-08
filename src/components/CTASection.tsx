@@ -27,7 +27,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Button
               size="lg"
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base font-medium gap-2 shadow-lg hover:shadow-xl transition-all"
+              className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base font-medium gap-2 shadow-lg hover:shadow-xl transition-all"
             >
               <CalendarCheck size={20} />
               Agendar evaluación
@@ -37,12 +37,13 @@ export default function CTASection() {
               size="lg"
               variant="outline"
               asChild
-              className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/15 hover:border-primary-foreground/50 rounded-full px-8 py-6 text-base font-light gap-2"
+              className="w-full sm:w-auto border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/15 hover:border-primary-foreground/50 rounded-full px-8 py-6 text-base font-light gap-2"
             >
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20agendar%20una%20evaluación`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-flex items-center justify-center"
               >
                 <MessageCircle size={20} />
                 Escribir por WhatsApp
