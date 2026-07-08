@@ -352,6 +352,7 @@ export default function AllianceSection() {
             href="https://wa.me/584126404124"
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full sm:w-auto"
             style={{
               fontFamily: "'Manrope', system-ui, sans-serif",
               fontSize: 13,
@@ -365,6 +366,7 @@ export default function AllianceSection() {
               textDecoration: "none",
               display: "inline-flex",
               alignItems: "center",
+              justifyContent: "center",
               gap: 12,
               transition: "background-color 200ms ease, transform 200ms ease",
             }}

@@ -347,9 +347,8 @@ export default function TeamSection() {
             href="https://wa.me/584146807886"
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
               gap: 8,
               fontFamily: "'Manrope', sans-serif",
               fontSize: 14,
