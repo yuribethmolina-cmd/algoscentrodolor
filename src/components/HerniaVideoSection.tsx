@@ -104,7 +104,7 @@ export default function HerniaVideoSection() {
                 href="https://wa.me/584146807886?text=Hola,%20quiero%20información%20sobre%20tratamiento%20de%20hernia%20discal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-secondary/90 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-secondary/90 transition-colors"
               >
                 Consultar sobre este tratamiento
               </a>

@@ -172,7 +172,7 @@ export function BioModal({ isOpen, onClose, member }: BioModalProps) {
         <div className="mt-8 flex justify-center">
           <a
             href={`/#solicitar?especialista=${member.slug}`}
-            className="inline-flex items-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-9 py-[18px] transition-all duration-200 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-9 py-[18px] transition-all duration-200 hover:-translate-y-0.5"
           >
             Solicitar consulta con {firstName} {member.familyName} →
           </a>

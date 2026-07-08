@@ -202,7 +202,7 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
           href={WA}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
+          className="mt-auto w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
         >
           <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
           Agendar consulta
@@ -257,7 +257,7 @@ export default function Equipo() {
               href={WA}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors"
+              className="w-full sm:w-auto block sm:inline-block text-center bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors"
             >
               Agendar consulta con el especialista →
             </a>
