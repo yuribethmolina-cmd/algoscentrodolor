@@ -28,13 +28,13 @@ export default function PacientesIndex() {
             Procedimientos guiados por imagen, con rigor clínico desde el primer día.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 py-6 text-base font-medium gap-2">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 py-6 text-base font-medium gap-2">
               <Link to="/pacientes/agendar">
                 <CalendarCheck size={20} />
                 Agendar evaluación
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-full px-8 py-6 text-base font-light gap-2">
+            <Button size="lg" variant="outline" asChild className="w-full sm:w-auto border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-full px-8 py-6 text-base font-light gap-2">
               <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20agendar%20una%20evaluación`} target="_blank" rel="noopener noreferrer">
                 <MessageCircle size={20} />
                 Escribir por WhatsApp
@@ -87,7 +87,7 @@ export default function PacientesIndex() {
             Agenda tu evaluación hoy. Sin compromiso, sin listas de espera.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base font-medium gap-2">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base font-medium gap-2">
               <Link to="/pacientes/agendar">
                 <CalendarCheck size={20} />
                 Agendar evaluación

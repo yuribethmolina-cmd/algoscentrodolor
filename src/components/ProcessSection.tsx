@@ -120,7 +120,7 @@ export default function ProcessSection() {
             <p className="text-xl font-light text-primary mb-4">
               ¿Listo para el primer paso?
             </p>
-            <Button size="lg" className="rounded-full px-8 bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+            <Button size="lg" className="w-full sm:w-auto rounded-full px-8 bg-secondary hover:bg-secondary/90 text-secondary-foreground">
               <CalendarCheck className="w-5 h-5 mr-2" />
               Agendar evaluación
             </Button>

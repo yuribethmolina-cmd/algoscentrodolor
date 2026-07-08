@@ -24,7 +24,7 @@ export default function MedicosIndex() {
           <p className="text-primary-foreground/70 font-light text-lg max-w-xl mx-auto mb-10">
             Un canal directo para referir pacientes con indicación de procedimiento intervencionista. Informes detallados, seguimiento compartido.
           </p>
-          <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 py-6 text-base font-medium gap-2">
+          <Button asChild size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 py-6 text-base font-medium gap-2">
             <Link to="/medicos/referir">
               <FileText size={20} />
               Referir un paciente

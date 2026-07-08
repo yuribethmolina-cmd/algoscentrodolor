@@ -66,11 +66,11 @@ export default function Medicos() {
               manteniendo siempre la relación clínica primaria con usted.
             </p>
 
-            <div className="mt-12 flex flex-col items-center gap-4">
+            <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
               {/* Primary CTA */}
               <a
                 href="#referir"
-                className="group inline-flex items-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-9 py-[18px]"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] px-9 py-[18px]"
               >
                 <span>Refiere un caso</span>
                 <span
@@ -268,7 +268,7 @@ export default function Medicos() {
               <div className="mt-8 flex justify-center">
                 <a
                   href="mailto:info@algoscentrodolor.com?subject=Caso%20para%20derivaci%C3%B3n"
-                  className="inline-flex items-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-9 py-[18px]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none transition-all duration-300 hover:-translate-y-0.5 px-9 py-[18px]"
                 >
                   Refiere un caso →
                 </a>

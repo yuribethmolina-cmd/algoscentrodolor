@@ -140,7 +140,7 @@ export default function FinalCTA() {
             href={WHATSAPP_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 transition-all duration-200"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all duration-200"
             style={{
               backgroundColor: BRAND_TEAL,
               color: CREAM,
@@ -169,7 +169,7 @@ export default function FinalCTA() {
           </a>
           <a
             href="/especialidades"
-            className="group inline-flex items-center gap-3 transition-all duration-200"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all duration-200"
             style={{
               color: CREAM,
               padding: "clamp(18px, 1.8vw, 22px) clamp(28px, 3.5vw, 42px)",

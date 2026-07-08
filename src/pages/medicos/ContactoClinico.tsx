@@ -34,7 +34,7 @@ export default function ContactoClinico() {
             <div className="scroll-reveal scroll-reveal-delay-2 p-6 rounded-2xl border border-border bg-card space-y-4">
               <MessageCircle className="w-8 h-8 text-secondary" />
               <h3 className="text-lg font-medium text-foreground">WhatsApp</h3>
-              <Button asChild variant="outline" className="rounded-full">
+              <Button asChild variant="outline" className="w-full sm:w-auto rounded-full">
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20soy%20médico%20y%20quiero%20referir%20un%20paciente`} target="_blank" rel="noopener noreferrer">
                   Escribir por WhatsApp
                 </a>

@@ -553,6 +553,7 @@ export default function EspecialidadesSection() {
 
         <Link
           to="/equipo"
+          className="w-full sm:w-auto block sm:inline-block text-center"
           style={{
             display: "inline-block",
             backgroundColor: GOLD,
