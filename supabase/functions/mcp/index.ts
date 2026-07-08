@@ -953,7 +953,7 @@ var INFO = {
     city: "Maracaibo",
     state: "Zulia",
     country: "Venezuela",
-    address: "Av. 20 con Calle 65, N\xB0 65-02, CC Am\xE9rica, Local 4"
+    address: "Av. 20 con Calle 65, N\xB0 65-02, C.C. Am\xE9rica, Local 4, Sector Para\xEDso, Maracaibo 4005"
   },
   contact: {
     whatsapp: "https://wa.me/584246467944",
