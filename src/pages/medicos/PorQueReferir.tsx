@@ -36,7 +36,7 @@ export default function PorQueReferir() {
             ))}
           </div>
           <div className="text-center">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 gap-2">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 gap-2">
               <Link to="/medicos/referir">Referir un paciente <ArrowRight className="w-4 h-4" /></Link>
             </Button>
           </div>
