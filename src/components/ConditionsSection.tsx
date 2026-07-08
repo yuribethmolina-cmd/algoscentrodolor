@@ -29,6 +29,7 @@ const painCards: PainCard[] = [
     description:
       "Puede venir de los discos, los nervios o las articulaciones de la columna. Es tratable en la mayoría de los casos sin cirugía.",
     tags: ["Hernia discal", "Ciática", "Desgaste de columna", "Dolor muscular"],
+    image: lumbarAsset.url,
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ const painCards: PainCard[] = [
     description:
       "La tensión, el desgaste o una hernia en la columna cervical pueden irradiar dolor hacia el hombro o el brazo.",
     tags: ["Cervicalgia", "Hernia cervical", "Dolor de hombro"],
+    image: cervicalAsset.url,
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ const painCards: PainCard[] = [
     description:
       "El desgaste del cartílago o la inflamación articular generan dolor que limita caminar y subir escaleras.",
     tags: ["Artrosis", "Desgaste articular", "Inflamación"],
+    image: rodillaAsset.url,
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const painCards: PainCard[] = [
     description:
       "Algunos dolores de cabeza vienen del cuello, no del cerebro. Tienen tratamiento específico y efectivo.",
     tags: ["Cefalea cervicogénica", "Neuralgia occipital"],
+    image: cabezaAsset.url,
   },
   {
     id: 5,
@@ -57,6 +61,7 @@ const painCards: PainCard[] = [
     description:
       "Cuando un nervio está comprimido o dañado, manda señales de dolor, quemazón o pérdida de sensibilidad.",
     tags: ["Neuropatía", "Túnel carpiano", "Compresión nerviosa"],
+    image: neuropatiaAsset.url,
   },
   {
     id: 6,
@@ -64,6 +69,7 @@ const painCards: PainCard[] = [
     description:
       "Si operaron y el dolor sigue ahí, hay opciones. No es normal vivir con dolor después de una cirugía.",
     tags: ["Cirugía fallida de columna", "Dolor residual"],
+    image: cirugiaAsset.url,
   },
   {
     id: 7,
@@ -71,6 +77,7 @@ const painCards: PainCard[] = [
     description:
       "La diabetes daña los nervios con el tiempo. Ese dolor tiene nombre y tiene tratamiento.",
     tags: ["Neuropatía diabética", "Dolor en pies", "Hormigueo"],
+    image: diabetesAsset.url,
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ const painCards: PainCard[] = [
     description:
       "Si tiene dolor que no cede y no sabe de dónde viene, eso es exactamente para lo que estamos. Escríbanos.",
     tags: [],
+    image: otroAsset.url,
   },
 ];
 
