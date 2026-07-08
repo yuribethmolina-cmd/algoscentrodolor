@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { useInViewOnce } from "@/lib/animations";
+import lumbarAsset from "@/assets/cond-lumbar.jpg.asset.json";
+import cervicalAsset from "@/assets/cond-cervical.jpg.asset.json";
+import rodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
+import cabezaAsset from "@/assets/cond-cabeza.jpg.asset.json";
+import neuropatiaAsset from "@/assets/cond-neuropatia.jpg.asset.json";
+import cirugiaAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
+import diabetesAsset from "@/assets/neuropatia-diabetica-pies.jpg.asset.json";
+import otroAsset from "@/assets/cond-otro.jpg.asset.json";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -11,6 +19,7 @@ interface PainCard {
   title: string;
   description: string;
   tags: string[];
+  image: string;
 }
 
 const painCards: PainCard[] = [
