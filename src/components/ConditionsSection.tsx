@@ -255,9 +255,44 @@ export default function ConditionsSection() {
                   }
                 }}
               >
+                {/* Background image */}
+                <img
+                  src={card.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    opacity: isOpen ? 0.28 : 0.35,
+                    transition: "opacity 300ms ease, transform 600ms ease",
+                    transform: "scale(1.02)",
+                    pointerEvents: "none",
+                  }}
+                />
+                {/* Legibility overlay */}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: isOpen
+                      ? `linear-gradient(155deg, rgba(26,74,85,0.72) 0%, rgba(26,74,85,0.85) 100%), linear-gradient(180deg, rgba(198,150,54,0.15) 0%, rgba(198,150,54,0.05) 100%)`
+                      : `linear-gradient(180deg, rgba(26,74,85,0.55) 0%, rgba(26,74,85,0.82) 100%)`,
+                    pointerEvents: "none",
+                    transition: "background 250ms ease",
+                  }}
+                />
+
                 {/* Numbered index */}
                 <div
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
