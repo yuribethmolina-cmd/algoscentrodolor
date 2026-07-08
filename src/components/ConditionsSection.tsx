@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { useInViewOnce } from "@/lib/animations";
+import lumbarAsset from "@/assets/cond-lumbar.jpg.asset.json";
+import cervicalAsset from "@/assets/cond-cervical.jpg.asset.json";
+import rodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
+import cabezaAsset from "@/assets/cond-cabeza.jpg.asset.json";
+import neuropatiaAsset from "@/assets/cond-neuropatia.jpg.asset.json";
+import cirugiaAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
+import diabetesAsset from "@/assets/neuropatia-diabetica-pies.jpg.asset.json";
+import otroAsset from "@/assets/cond-otro.jpg.asset.json";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -11,6 +19,7 @@ interface PainCard {
   title: string;
   description: string;
   tags: string[];
+  image: string;
 }
 
 const painCards: PainCard[] = [
@@ -20,6 +29,7 @@ const painCards: PainCard[] = [
     description:
       "Puede venir de los discos, los nervios o las articulaciones de la columna. Es tratable en la mayoría de los casos sin cirugía.",
     tags: ["Hernia discal", "Ciática", "Desgaste de columna", "Dolor muscular"],
+    image: lumbarAsset.url,
   },
   {
     id: 2,
@@ -27,6 +37,7 @@ const painCards: PainCard[] = [
     description:
       "La tensión, el desgaste o una hernia en la columna cervical pueden irradiar dolor hacia el hombro o el brazo.",
     tags: ["Cervicalgia", "Hernia cervical", "Dolor de hombro"],
+    image: cervicalAsset.url,
   },
   {
     id: 3,
@@ -34,6 +45,7 @@ const painCards: PainCard[] = [
     description:
       "El desgaste del cartílago o la inflamación articular generan dolor que limita caminar y subir escaleras.",
     tags: ["Artrosis", "Desgaste articular", "Inflamación"],
+    image: rodillaAsset.url,
   },
   {
     id: 4,
@@ -41,6 +53,7 @@ const painCards: PainCard[] = [
     description:
       "Algunos dolores de cabeza vienen del cuello, no del cerebro. Tienen tratamiento específico y efectivo.",
     tags: ["Cefalea cervicogénica", "Neuralgia occipital"],
+    image: cabezaAsset.url,
   },
   {
     id: 5,
@@ -48,6 +61,7 @@ const painCards: PainCard[] = [
     description:
       "Cuando un nervio está comprimido o dañado, manda señales de dolor, quemazón o pérdida de sensibilidad.",
     tags: ["Neuropatía", "Túnel carpiano", "Compresión nerviosa"],
+    image: neuropatiaAsset.url,
   },
   {
     id: 6,
@@ -55,6 +69,7 @@ const painCards: PainCard[] = [
     description:
       "Si operaron y el dolor sigue ahí, hay opciones. No es normal vivir con dolor después de una cirugía.",
     tags: ["Cirugía fallida de columna", "Dolor residual"],
+    image: cirugiaAsset.url,
   },
   {
     id: 7,
@@ -62,6 +77,7 @@ const painCards: PainCard[] = [
     description:
       "La diabetes daña los nervios con el tiempo. Ese dolor tiene nombre y tiene tratamiento.",
     tags: ["Neuropatía diabética", "Dolor en pies", "Hormigueo"],
+    image: diabetesAsset.url,
   },
   {
     id: 8,
@@ -69,6 +85,7 @@ const painCards: PainCard[] = [
     description:
       "Si tiene dolor que no cede y no sabe de dónde viene, eso es exactamente para lo que estamos. Escríbanos.",
     tags: [],
+    image: otroAsset.url,
   },
 ];
 
@@ -203,13 +220,10 @@ export default function ConditionsSection() {
                   display: "flex",
                   flexDirection: "column",
                   width: "100%",
-                  minHeight: isOpen ? undefined : 160,
+                  minHeight: isOpen ? 200 : 180,
                   textAlign: "left",
-                  background: isOpen
-                    ? "linear-gradient(155deg, rgba(198,150,54,0.16) 0%, rgba(198,150,54,0.06) 100%)"
-                    : "linear-gradient(155deg, rgba(245,240,232,0.10) 0%, rgba(245,240,232,0.03) 100%)",
-                  backdropFilter: "blur(12px) saturate(140%)",
-                  WebkitBackdropFilter: "blur(12px) saturate(140%)",
+                  background: DEEP_TEAL,
+                  overflow: "hidden",
                   border: isOpen
                     ? `1px solid ${GOLD}`
                     : "1px solid rgba(245,240,232,0.14)",
@@ -224,7 +238,6 @@ export default function ConditionsSection() {
                   transition: `
                     opacity 0.5s ease ${idx * 60}ms,
                     transform 0.5s cubic-bezier(0.23,1,0.32,1) ${idx * 60}ms,
-                    background 250ms ease,
                     border-color 250ms ease,
                     box-shadow 250ms ease
                   `,
@@ -242,9 +255,44 @@ export default function ConditionsSection() {
                   }
                 }}
               >
+                {/* Background image */}
+                <img
+                  src={card.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    opacity: isOpen ? 0.28 : 0.35,
+                    transition: "opacity 300ms ease, transform 600ms ease",
+                    transform: "scale(1.02)",
+                    pointerEvents: "none",
+                  }}
+                />
+                {/* Legibility overlay */}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: isOpen
+                      ? `linear-gradient(155deg, rgba(26,74,85,0.72) 0%, rgba(26,74,85,0.85) 100%), linear-gradient(180deg, rgba(198,150,54,0.15) 0%, rgba(198,150,54,0.05) 100%)`
+                      : `linear-gradient(180deg, rgba(26,74,85,0.55) 0%, rgba(26,74,85,0.82) 100%)`,
+                    pointerEvents: "none",
+                    transition: "background 250ms ease",
+                  }}
+                />
+
                 {/* Numbered index */}
                 <div
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -276,6 +324,8 @@ export default function ConditionsSection() {
                 {/* Card Title */}
                 <h3
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     fontFamily: "'Sora', sans-serif",
                     fontSize: "clamp(16px, 1.4vw, 19px)",
                     fontWeight: 600,
@@ -284,6 +334,7 @@ export default function ConditionsSection() {
                     letterSpacing: "-0.01em",
                     textWrap: "balance",
                     margin: 0,
+                    textShadow: "0 1px 12px rgba(0,0,0,0.35)",
                   }}
                 >
                   {card.title}
@@ -292,6 +343,8 @@ export default function ConditionsSection() {
                 {/* Expanded Content */}
                 <div
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     maxHeight: isOpen ? 600 : 0,
                     opacity: isOpen ? 1 : 0,
                     overflow: "hidden",
