@@ -324,6 +324,8 @@ export default function ConditionsSection() {
                 {/* Card Title */}
                 <h3
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     fontFamily: "'Sora', sans-serif",
                     fontSize: "clamp(16px, 1.4vw, 19px)",
                     fontWeight: 600,
@@ -332,6 +334,7 @@ export default function ConditionsSection() {
                     letterSpacing: "-0.01em",
                     textWrap: "balance",
                     margin: 0,
+                    textShadow: "0 1px 12px rgba(0,0,0,0.35)",
                   }}
                 >
                   {card.title}
@@ -340,6 +343,8 @@ export default function ConditionsSection() {
                 {/* Expanded Content */}
                 <div
                   style={{
+                    position: "relative",
+                    zIndex: 1,
                     maxHeight: isOpen ? 600 : 0,
                     opacity: isOpen ? 1 : 0,
                     overflow: "hidden",
