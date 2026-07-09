@@ -151,7 +151,7 @@ export default function Navbar() {
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            className="h-14 mdx:h-16 w-auto object-contain"
+            className="h-20 mdx:h-24 w-auto object-contain"
           />
         </Link>
 
