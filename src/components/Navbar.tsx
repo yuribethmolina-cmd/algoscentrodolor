@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
-import algosLogoAsset from "@/assets/algos-logo.png.asset.json";
-const algosLogoFull = algosLogoAsset.url;
+import algosLogoFull from "@/assets/algos-logo-v2.png";
 
 const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
 const CREAM = "#f5f0e8";
@@ -102,6 +101,13 @@ export default function Navbar() {
     setMenuOpen(false);
     setMobileOpen(null);
   }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   function openDropdown(which: "conditions" | "procedures") {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -257,7 +263,10 @@ export default function Navbar() {
           className="mdx:hidden flex items-center justify-center w-11 h-11 -mr-2"
           style={{ color: DEEP_TEAL }}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menú"
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          type="button"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -265,17 +274,19 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className="mdx:hidden overflow-hidden"
+        id="mobile-navigation"
+        className="mdx:hidden absolute left-0 right-0 top-full overflow-y-auto"
         style={{
           backgroundColor: CREAM,
-          maxHeight: menuOpen ? "680px" : "0",
+          height: menuOpen ? "calc(100svh - 6rem)" : "0",
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? "auto" : "none",
-          transition: "max-height 300ms cubic-bezier(0.23,1,0.32,1), opacity 200ms ease-out",
+          transition: "height 220ms cubic-bezier(0.23,1,0.32,1), opacity 160ms ease-out",
           borderTop: menuOpen ? "1px solid rgba(26,74,85,0.12)" : "1px solid transparent",
+          boxShadow: menuOpen ? "0 28px 60px -32px rgba(26,74,85,0.45)" : "none",
         }}
       >
-        <div className="container mx-auto px-4 py-4 flex flex-col" style={{ gap: 4 }}>
+        <div className="container mx-auto px-4 py-5 flex flex-col" style={{ gap: 6 }}>
           <Link to="/" style={{ fontFamily: "Manrope, system-ui, sans-serif", fontSize: 16, fontWeight: 500, color: location.pathname === "/" ? GOLD : DEEP_TEAL, textDecoration: "none", padding: "8px 0" }}>
             Inicio
           </Link>

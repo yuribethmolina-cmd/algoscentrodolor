@@ -61,7 +61,7 @@ export default function HeroSection() {
       id="hero"
       data-section="hero"
       className="relative w-full overflow-hidden bg-cream"
-      style={{ height: "88dvh", minHeight: "580px" }}
+      style={{ height: "min(88dvh, 820px)", minHeight: "560px" }}
     >
       {/* Preload the LCP image (hero video poster) with high priority. */}
       <Helmet>
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full mx-auto max-w-7xl px-6 md:px-12 lg:px-16 flex items-center">
-        <div className="max-w-2xl pt-24 md:pt-0">
+        <div className="max-w-2xl pt-20 md:pt-0">
           <p
             className="font-ui font-bold uppercase"
             style={{ color: "#9a7320", fontSize: "13px", letterSpacing: "0.3em" }}
@@ -131,7 +131,7 @@ export default function HeroSection() {
             as="h1"
             className="font-display font-bold text-deep-teal mt-6"
             style={{
-              fontSize: "clamp(40px, 5.6vw, 76px)",
+              fontSize: "clamp(38px, 5.4vw, 72px)",
               lineHeight: 1.04,
               letterSpacing: "-0.028em",
               maxWidth: "18ch",
@@ -144,13 +144,13 @@ export default function HeroSection() {
 
           <p
             className="font-ui mt-8 max-w-xl"
-            style={{ fontSize: "clamp(16px, 4.5vw, 19px)", lineHeight: 1.65, color: "hsl(var(--text-body))" }}
+            style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "hsl(var(--text-body))" }}
           >
             En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
             en su recuperación. Sin importar dónde le duele.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-9">
             <a
               href="https://wa.me/584146807886"
               target="_blank"
