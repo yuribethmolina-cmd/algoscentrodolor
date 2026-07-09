@@ -35,6 +35,7 @@ export default function AlgosLocationSection() {
     <section
       ref={sectionRef}
       id="ubicacion"
+      data-section="location"
       data-surface="dark"
       className="relative w-full"
       style={{ backgroundColor: DEEP_TEAL, color: CREAM }}

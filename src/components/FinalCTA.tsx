@@ -31,6 +31,7 @@ export default function FinalCTA() {
   return (
     <section
       id="solicitar"
+      data-section="final-cta"
       className="relative overflow-hidden"
       style={{
         backgroundColor: DEEP_TEAL,

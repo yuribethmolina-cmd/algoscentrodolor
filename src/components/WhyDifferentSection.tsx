@@ -28,6 +28,7 @@ const pilares = [
 export default function WhyDifferentSection() {
   return (
     <section
+      data-section="why-different"
       style={{
         backgroundColor: CREAM,
         paddingTop: "clamp(80px, 10vw, 128px)",

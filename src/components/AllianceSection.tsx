@@ -125,6 +125,7 @@ export default function AllianceSection() {
   return (
     <section
       id="alianza"
+      data-section="alliance"
       data-surface="dark"
       style={{
         backgroundColor: DEEP_TEAL,

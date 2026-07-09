@@ -5,7 +5,7 @@ const WHATSAPP_NUMBER = "584146807886"; // Placeholder
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-gradient-brand relative overflow-hidden">
+    <section id="contact" data-section="cta" className="py-24 md:py-32 bg-gradient-brand relative overflow-hidden">
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-primary-foreground blur-3xl" />

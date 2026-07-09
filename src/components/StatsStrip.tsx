@@ -145,6 +145,7 @@ export default function StatsStrip() {
   return (
     <section
       ref={ref as any}
+      data-section="stats"
       style={{
         backgroundColor: CREAM,
         position: "relative",

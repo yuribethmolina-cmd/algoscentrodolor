@@ -59,6 +59,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
+      data-section="hero"
       className="relative w-full overflow-hidden bg-cream"
       style={{ height: "88dvh", minHeight: "580px" }}
     >

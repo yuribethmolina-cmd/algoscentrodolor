@@ -73,6 +73,7 @@ export default function TeamSection() {
   return (
     <section
       id="equipo"
+      data-section="team"
       style={{
         backgroundColor: CREAM,
         paddingTop: "clamp(80px, 10vw, 128px)",
