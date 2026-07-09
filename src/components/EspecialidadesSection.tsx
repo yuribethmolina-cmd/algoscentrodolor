@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, Stethoscope } from "lucide-react";
-import procedureRoom from "@/assets/sala-procedimientos.jpg";
+import patientPain from "@/assets/tx-miofascial.jpg";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -279,9 +279,9 @@ export default function EspecialidadesSection() {
             style={{
               minHeight: 360,
               padding: "clamp(28px, 4vw, 42px)",
-              backgroundImage: `linear-gradient(145deg, rgba(198,150,54,0.94), rgba(198,150,54,0.76)), url(${procedureRoom})`,
+              backgroundImage: `linear-gradient(145deg, rgba(198,150,54,0.95), rgba(198,150,54,0.74)), url(${patientPain})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center right",
               color: DEEP_TEAL,
               display: "flex",
               flexDirection: "column",
