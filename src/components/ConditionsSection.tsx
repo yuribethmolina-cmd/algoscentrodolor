@@ -108,7 +108,7 @@ export default function ConditionsSection() {
       style={{
         backgroundColor: DEEP_TEAL,
         paddingTop: "clamp(80px, 10vw, 128px)",
-        paddingBottom: "clamp(80px, 10vw, 128px)",
+        paddingBottom: "clamp(56px, 7vw, 88px)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -174,7 +174,7 @@ export default function ConditionsSection() {
               marginBottom: 20,
             }}
           >
-            LO QUE TRATAMOS
+            PASO 01 · SU DOLOR
           </p>
           <h2
             style={{
@@ -199,8 +199,7 @@ export default function ConditionsSection() {
             }}
           >
             Empiece por aquí: elija la molestia que más se parece a lo que
-            siente. En la siguiente sección le mostramos qué equipo suele
-            participar según el origen del dolor.
+            siente. Después traducimos ese síntoma en una ruta de atención.
           </p>
         </div>
 
@@ -480,6 +479,44 @@ export default function ConditionsSection() {
           >
             Escribir por WhatsApp →
           </a>
+
+          <div
+            aria-label="Continuación hacia equipo clínico"
+            style={{
+              marginTop: "clamp(32px, 4vw, 44px)",
+              paddingTop: "clamp(24px, 3vw, 32px)",
+              borderTop: `1px solid ${GOLD}66`,
+              display: "grid",
+              gap: 14,
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: "0.26em",
+                textTransform: "uppercase",
+                color: GOLD,
+                margin: 0,
+              }}
+            >
+              Siguiente paso
+            </p>
+            <p
+              style={{
+                fontFamily: "'Sora', sans-serif",
+                fontSize: "clamp(20px, 2.2vw, 28px)",
+                lineHeight: 1.25,
+                color: CREAM,
+                maxWidth: 760,
+                margin: 0,
+              }}
+            >
+              No tiene que elegir el especialista. Nosotros conectamos su dolor
+              con el equipo correcto.
+            </p>
+          </div>
         </div>
       </div>
     </section>

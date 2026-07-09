@@ -73,8 +73,10 @@ export default function EspecialidadesSection() {
       data-surface="dark"
       style={{
         backgroundColor: DEEP_TEAL,
-        paddingTop: "clamp(80px, 10vw, 128px)",
+        paddingTop: "clamp(52px, 6vw, 76px)",
         paddingBottom: "clamp(80px, 10vw, 128px)",
+        borderTop: `1px solid ${GOLD}44`,
+        boxShadow: "inset 0 42px 80px -70px rgba(198,150,54,0.65)",
       }}
     >
       <div
@@ -98,7 +100,7 @@ export default function EspecialidadesSection() {
                 marginBottom: 20,
               }}
             >
-              ESPECIALIDADES
+              PASO 02 · EQUIPO CLÍNICO
             </p>
 
             <h2
@@ -112,7 +114,7 @@ export default function EspecialidadesSection() {
                 maxWidth: 620,
               }}
             >
-              Del dolor que siente al equipo que puede ayudarle.
+              Qué equipo puede ayudar según lo que siente.
             </h2>
           </div>
 
@@ -126,9 +128,9 @@ export default function EspecialidadesSection() {
               margin: 0,
             }}
           >
-            La sección anterior le ayuda a ubicar dónde le duele. Aquí le
-            mostramos cómo traducimos esa molestia en una ruta de atención:
-            qué área participa y qué aporta a su caso.
+            Esta parte no repite las dolencias: explica quién participa y por
+            qué. Primero entendemos el síntoma; luego definimos el área que
+            puede aportar más a su caso.
           </p>
         </div>
 
