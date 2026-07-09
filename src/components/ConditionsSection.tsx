@@ -198,8 +198,9 @@ export default function ConditionsSection() {
               maxWidth: 640,
             }}
           >
-            No importa qué tipo de dolor sea ni cuánto tiempo lleve con él. Haga
-            clic en la zona que le molesta.
+            Empiece por aquí: elija la molestia que más se parece a lo que
+            siente. En la siguiente sección le mostramos qué equipo suele
+            participar según el origen del dolor.
           </p>
         </div>
 

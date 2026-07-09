@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, Stethoscope } from "lucide-react";
+import procedureRoom from "@/assets/sala-procedimientos.jpg";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
@@ -50,9 +51,9 @@ const CARE_PATHS: CarePath[] = [
   },
   {
     pain: "Dolor persistente",
-    plain: "Cuando el dolor no cede, buscamos opciones intervencionistas para controlarlo con precisión.",
+    plain: "Cuando el dolor no cede con tratamientos habituales, el algólogo evalúa cómo controlarlo con procedimientos seguros, guiados por imagen y sin cirugía mayor.",
     specialty: "Algología",
-    specialtyHint: "manejo del dolor",
+    specialtyHint: "dolor crónico y procedimientos intervencionistas",
     href: "/especialidades#radiologia-intervencionista",
     icon: Stethoscope,
   },
@@ -111,7 +112,7 @@ export default function EspecialidadesSection() {
                 maxWidth: 620,
               }}
             >
-              Usted nos dice qué siente. Nosotros lo conectamos con el equipo.
+              Del dolor que siente al equipo que puede ayudarle.
             </h2>
           </div>
 
@@ -125,9 +126,9 @@ export default function EspecialidadesSection() {
               margin: 0,
             }}
           >
-            No tiene que saber qué especialista necesita. En ALGOS partimos de
-            su dolor, identificamos el posible origen y orientamos su caso al
-            área adecuada.
+            La sección anterior le ayuda a ubicar dónde le duele. Aquí le
+            mostramos cómo traducimos esa molestia en una ruta de atención:
+            qué área participa y qué aporta a su caso.
           </p>
         </div>
 
@@ -218,25 +219,49 @@ export default function EspecialidadesSection() {
                       borderTop: "1px solid rgba(245,240,232,0.14)",
                     }}
                   >
-                    <p
+                    <div
                       style={{
-                        fontFamily: "Manrope, sans-serif",
-                        fontSize: 11,
-                        fontWeight: 800,
-                        letterSpacing: "0.18em",
-                        textTransform: "uppercase",
-                        color: GOLD,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        padding: "8px 10px",
+                        backgroundColor: "rgba(198,150,54,0.16)",
+                        border: `1px solid ${GOLD}88`,
+                        color: CREAM,
                         margin: 0,
                       }}
                     >
-                      Lo revisa {item.specialty}
-                    </p>
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "999px",
+                          backgroundColor: GOLD,
+                          flexShrink: 0,
+                        }}
+                      />
+                      <p
+                        style={{
+                          fontFamily: "Manrope, sans-serif",
+                          fontSize: 12,
+                          fontWeight: 850,
+                          letterSpacing: "0.12em",
+                          textTransform: "uppercase",
+                          color: CREAM,
+                          margin: 0,
+                        }}
+                      >
+                        {item.specialty}
+                      </p>
+                    </div>
                     <p
                       style={{
                         fontFamily: "Manrope, sans-serif",
-                        fontSize: 13,
-                        color: "rgba(245,240,232,0.72)",
-                        marginTop: 6,
+                        fontSize: 14,
+                        lineHeight: 1.45,
+                        color: "rgba(245,240,232,0.82)",
+                        marginTop: 10,
                         marginBottom: 0,
                       }}
                     >
@@ -252,8 +277,9 @@ export default function EspecialidadesSection() {
             style={{
               minHeight: 360,
               padding: "clamp(28px, 4vw, 42px)",
-              background:
-                "linear-gradient(145deg, rgba(198,150,54,0.95), rgba(198,150,54,0.78))",
+              backgroundImage: `linear-gradient(145deg, rgba(198,150,54,0.94), rgba(198,150,54,0.76)), url(${procedureRoom})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               color: DEEP_TEAL,
               display: "flex",
               flexDirection: "column",
@@ -299,8 +325,10 @@ export default function EspecialidadesSection() {
                   marginBottom: 0,
                 }}
               >
-                Así evitamos que el paciente tenga que adivinar. Una primera
-                evaluación ordena el caso y define qué área debe intervenir.
+                Así evitamos que el paciente tenga que adivinar. Primero
+                entendemos el origen probable del dolor; después decidimos si
+                necesita diagnóstico, tratamiento intervencionista, seguimiento
+                o apoyo de otra área.
               </p>
             </div>
 
