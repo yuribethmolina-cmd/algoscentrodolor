@@ -1,145 +1,72 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, Stethoscope } from "lucide-react";
 
 const DEEP_TEAL = "#1a4a55";
 const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
-/** SVG viewBox is 900x760. Center at (450, 360). Orbit radius 230. */
-const CX = 450;
-const CY = 360;
-const R_ORBIT = 230;
-const R_NODE = 78;
-const R_CENTER = 92;
-
-type Node = {
-  label: string;
-  /** Angle in degrees, 0° = top, clockwise */
-  angle: number;
-  /** Slug of a specialty defined in src/data/specialties.ts */
-  slug: string;
-  /** Custom line-art icon, drawn centered at (0,0) inside a 56x56 box */
-  icon: JSX.Element;
+type CarePath = {
+  pain: string;
+  plain: string;
+  specialty: string;
+  specialtyHint: string;
+  href: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
 };
 
-const ICON_STROKE = { stroke: "currentColor", strokeWidth: 1.4, fill: "none" as const, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-
-const NODES: Node[] = [
-  // Top center — Neurocirugía (spine)
+const CARE_PATHS: CarePath[] = [
   {
-    label: "Neurocirugía",
-    angle: 0,
-    slug: "neurocirugia",
-    icon: (
-      <g {...ICON_STROKE}>
-        {[-18, -8, 2, 12].map((y, i) => (
-          <g key={i}>
-            <path d={`M -10 ${y} Q 0 ${y - 4} 10 ${y}`} />
-            <path d={`M -12 ${y + 2} L -6 ${y + 2}`} />
-            <path d={`M 12 ${y + 2} L 6 ${y + 2}`} />
-          </g>
-        ))}
-      </g>
-    ),
+    pain: "Dolor de espalda o cuello",
+    plain: "Cuando el dolor baja al brazo o la pierna, puede venir de la columna o de un nervio.",
+    specialty: "Neurocirugía",
+    specialtyHint: "columna y nervios",
+    href: "/especialidades#neurocirugia",
+    icon: Brain,
   },
-  // Upper right — Traumatología (knee joint)
   {
-    label: "Traumatología",
-    angle: 60,
-    slug: "traumatologia",
-    icon: (
-      <g {...ICON_STROKE}>
-        <path d="M -14 -18 L -4 -6 Q 0 -2 4 -6 L 14 -18" />
-        <path d="M -14 18 L -4 6 Q 0 2 4 6 L 14 18" />
-        <path d="M -8 0 L 8 0" />
-        <path d="M -3 -3 L 3 3" stroke="#d97a4a" />
-        <path d="M 3 -3 L -3 3" stroke="#d97a4a" />
-      </g>
-    ),
+    pain: "Rodilla, hombro o cadera",
+    plain: "Si duele al caminar, subir escaleras o mover una articulación, revisamos el origen mecánico.",
+    specialty: "Traumatología",
+    specialtyHint: "huesos y articulaciones",
+    href: "/especialidades#traumatologia",
+    icon: Bone,
   },
-  // Lower right — Reumatología (inflamed joint)
   {
-    label: "Reumatología",
-    angle: 120,
-    slug: "reumatologia",
-    icon: (
-      <g {...ICON_STROKE}>
-        <path d="M -10 -16 L -2 -4 Q 0 0 2 -4 L 10 -16" />
-        <path d="M -10 16 L -2 4 Q 0 0 2 4 L 10 16" />
-        <circle cx="0" cy="0" r="4" />
-        {[0, 60, 120, 180, 240, 300].map((a) => {
-          const rad = (a * Math.PI) / 180;
-          return (
-            <line
-              key={a}
-              x1={Math.cos(rad) * 8}
-              y1={Math.sin(rad) * 8}
-              x2={Math.cos(rad) * 13}
-              y2={Math.sin(rad) * 13}
-              stroke="#d97a4a"
-            />
-          );
-        })}
-      </g>
-    ),
+    pain: "Hormigueo o adormecimiento",
+    plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, puede hacer falta medir el nervio.",
+    specialty: "Electrodiagnóstico",
+    specialtyHint: "nervios y músculos",
+    href: "/especialidades#fisiatria",
+    icon: Activity,
   },
-  // Bottom center — Algología
   {
-    label: "Algología",
-    angle: 180,
-    slug: "radiologia-intervencionista",
-    icon: (
-      <g {...ICON_STROKE}>
-        <path d="M -8 -16 Q -8 -20 -4 -20 Q 0 -20 0 -16 L 0 -4 Q 0 4 -4 4 Q -8 4 -8 -4 Z" />
-        <path d="M 8 -12 Q 8 -16 4 -16 Q 0 -16 0 -12 L 0 -2 Q 0 6 4 6 Q 8 6 8 -2 Z" />
-        <path d="M -4 4 L -4 18" />
-        <path d="M 4 6 L 4 18" />
-      </g>
-    ),
+    pain: "Dolor con inflamación",
+    plain: "Si hay rigidez, hinchazón o dolor en varias zonas, evaluamos si hay una causa inflamatoria.",
+    specialty: "Reumatología",
+    specialtyHint: "inflamación y articulaciones",
+    href: "/especialidades#reumatologia",
+    icon: HeartPulse,
   },
-  // Lower left — Nutrición (leaf)
   {
-    label: "Nutrición\nAntiinflamatoria",
-    angle: 240,
-    slug: "nutricion",
-    icon: (
-      <g {...ICON_STROKE}>
-        <circle cx="0" cy="0" r="20" />
-        <path d="M -10 8 Q -4 -12 12 -8 Q 8 8 -10 8 Z" />
-        <path d="M -8 6 Q 0 -2 10 -6" />
-      </g>
-    ),
+    pain: "Dolor persistente",
+    plain: "Cuando el dolor no cede, buscamos opciones intervencionistas para controlarlo con precisión.",
+    specialty: "Algología",
+    specialtyHint: "manejo del dolor",
+    href: "/especialidades#radiologia-intervencionista",
+    icon: Stethoscope,
   },
-  // Upper left — Electrodiagnóstico (brain + wave)
   {
-    label: "Electrodiagnóstico",
-    angle: 300,
-    slug: "fisiatria",
-    icon: (
-      <g {...ICON_STROKE}>
-        <path d="M -14 -4 Q -14 -14 -6 -14 Q -2 -18 4 -14 Q 12 -14 12 -4 Q 16 0 12 6 Q 12 14 4 14 Q -2 16 -6 12 Q -14 12 -14 4 Q -18 0 -14 -4 Z" />
-        <path d="M -6 0 L -2 0 L 0 -6 L 4 6 L 6 0 L 10 0" />
-      </g>
-    ),
+    pain: "Recuperación y hábitos",
+    plain: "La alimentación, el peso y la inflamación también pueden influir en cómo evoluciona el dolor.",
+    specialty: "Nutrición antiinflamatoria",
+    specialtyHint: "soporte y recuperación",
+    href: "/especialidades#nutricion",
+    icon: Leaf,
   },
 ];
 
-function polar(angleDeg: number, radius: number) {
-  const rad = ((angleDeg - 90) * Math.PI) / 180;
-  return { x: CX + radius * Math.cos(rad), y: CY + radius * Math.sin(rad) };
-}
-
-
 export default function EspecialidadesSection() {
-  const [activeAngle, setActiveAngle] = useState<number | null>(null);
-  const [hoverAngle, setHoverAngle] = useState<number | null>(null);
-  const navigate = useNavigate();
-  const goToSpecialty = (angle: number, slug: string) => {
-    setActiveAngle(angle);
-    navigate(`/especialidades#${slug}`);
-  };
   return (
     <section
       data-surface="dark"
@@ -152,423 +79,256 @@ export default function EspecialidadesSection() {
       <div
         className="mx-auto"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1120,
           paddingLeft: "clamp(24px, 4vw, 48px)",
           paddingRight: "clamp(24px, 4vw, 48px)",
         }}
       >
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: GOLD,
-            marginBottom: 20,
-          }}
-        >
-          ESPECIALIDADES
-        </p>
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p
+              style={{
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: GOLD,
+                marginBottom: 20,
+              }}
+            >
+              ESPECIALIDADES
+            </p>
 
-        <h2
-          style={{
-            fontFamily: "'Sora', sans-serif",
-            fontWeight: 600,
-            fontSize: "clamp(28px, 3.6vw, 48px)",
-            lineHeight: 1.15,
-            color: CREAM,
-            marginBottom: 16,
-            maxWidth: 720,
-          }}
-        >
-          Tu dolor. Nuestro equipo.
-        </h2>
-
-        <p
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(15px, 1.3vw, 17px)",
-            lineHeight: 1.7,
-            color: "rgba(245,240,232,0.75)",
-            maxWidth: 640,
-            marginBottom: 48,
-          }}
-        >
-          Cada paciente recibe el especialista que su condición necesita. Un
-          solo lugar, todo el equipo informado de su caso.
-        </p>
-
-        {/* Radial mural — desktop / tablet */}
-        <div className="hidden md:block" style={{ width: "100%", marginBottom: 40 }}>
-          <svg
-            role="img"
-            aria-label="Diagrama de especialidades ALGOS: Neurocirugía, Traumatología, Reumatología, Algología, Nutrición Antiinflamatoria y Electrodiagnóstico, alrededor del núcleo Tu dolor. Nuestro equipo."
-            viewBox="0 0 900 760"
-            preserveAspectRatio="xMidYMid meet"
-            shapeRendering="geometricPrecision"
-            style={{ width: "100%", height: "auto", display: "block", maxWidth: "100%" }}
-          >
-            {/* Horizontal divider through the center — mural signature */}
-            <line
-              x1={20}
-              y1={CY}
-              x2={880}
-              y2={CY}
-              stroke={GOLD}
-              strokeOpacity={0.55}
-              strokeWidth={1}
-            />
-
-            {/* Radial connectors */}
-            {NODES.map((n) => {
-              const p = polar(n.angle, R_ORBIT);
-              const dx = p.x - CX;
-              const dy = p.y - CY;
-              const dist = Math.hypot(dx, dy);
-              const ux = dx / dist;
-              const uy = dy / dist;
-              const x1 = CX + ux * R_CENTER;
-              const y1 = CY + uy * R_CENTER;
-              const x2 = p.x - ux * R_NODE;
-              const y2 = p.y - uy * R_NODE;
-              const isFocus = hoverAngle === n.angle || activeAngle === n.angle;
-              return (
-                <line
-                  key={`line-${n.angle}`}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke={GOLD}
-                  strokeOpacity={isFocus ? 1 : 0.6}
-                  strokeWidth={isFocus ? 1.75 : 1.25}
-                  style={{ transition: "stroke-opacity 220ms ease, stroke-width 220ms ease" }}
-                />
-              );
-            })}
-
-            {/* Outer specialty circles */}
-            {NODES.map((n) => {
-              const p = polar(n.angle, R_ORBIT);
-              const lines = n.label.split("\n");
-              const isHover = hoverAngle === n.angle;
-              const isActive = activeAngle === n.angle;
-              const isFocus = isHover || isActive;
-              const ariaLabel = `Ver ${lines.join(" ")} en especialidades`;
-              return (
-                <a
-                  key={`node-${n.angle}`}
-                  href={`/especialidades#${n.slug}`}
-                  aria-label={ariaLabel}
-                  role="link"
-                  tabIndex={0}
-                  onMouseEnter={() => setHoverAngle(n.angle)}
-                  onMouseLeave={() => setHoverAngle(null)}
-                  onFocus={() => setHoverAngle(n.angle)}
-                  onBlur={() => setHoverAngle(null)}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    goToSpecialty(n.angle, n.slug);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      goToSpecialty(n.angle, n.slug);
-                    }
-                  }}
-                  style={{
-                    cursor: "pointer",
-                    outline: "none",
-                  }}
-                >
-                  <g
-                    style={{
-                      transformOrigin: `${p.x}px ${p.y}px`,
-                      transform: isFocus ? "scale(1.06)" : "scale(1)",
-                      transition: "transform 260ms cubic-bezier(0.22, 1, 0.36, 1)",
-                    }}
-                  >
-                    {/* Focus/active halo */}
-                    <circle
-                      cx={p.x}
-                      cy={p.y}
-                      r={R_NODE + 8}
-                      fill="none"
-                      stroke={GOLD}
-                      strokeOpacity={isActive ? 0.9 : isHover ? 0.55 : 0}
-                      strokeWidth={isActive ? 1.4 : 1}
-                      strokeDasharray={isActive ? "0" : "3 5"}
-                      style={{ transition: "stroke-opacity 240ms ease" }}
-                    />
-                    <circle
-                      cx={p.x}
-                      cy={p.y}
-                      r={R_NODE}
-                      fill={isActive ? GOLD : TEAL}
-                      stroke={GOLD}
-                      strokeWidth={isFocus ? 1.75 : 1.25}
-                      style={{ transition: "fill 260ms ease, stroke-width 220ms ease" }}
-                    />
-                    {/* Icon */}
-                    <g
-                      transform={`translate(${p.x}, ${p.y - 28})`}
-                      style={{
-                        color: isActive ? DEEP_TEAL : GOLD,
-                        transition: "color 240ms ease",
-                      }}
-                    >
-                      {n.icon}
-                    </g>
-                    <text
-                      x={p.x}
-                      y={p.y + 22}
-                      textAnchor="middle"
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontSize: 12.5,
-                        fontWeight: isFocus ? 500 : 400,
-                        fill: isActive ? DEEP_TEAL : CREAM,
-                        letterSpacing: "0.01em",
-                        transition: "fill 240ms ease",
-                      }}
-                    >
-                      {lines.map((ln, i) => (
-                        <tspan key={i} x={p.x} dy={i === 0 ? 0 : 15}>
-                          {ln}
-                        </tspan>
-                      ))}
-                    </text>
-                  </g>
-                </a>
-              );
-            })}
-
-            {/* Center gold circle — sits on top of the divider */}
-            <circle
-              cx={CX}
-              cy={CY}
-              r={R_CENTER}
-              fill={GOLD}
-              stroke={CREAM}
-              strokeOpacity={0.18}
-              strokeWidth={1}
-            />
-            {/* Waveform mark above the center label */}
-            <path
-              d={`M ${CX - 34} ${CY - 40} L ${CX - 22} ${CY - 40} L ${CX - 14} ${CY - 52} L ${CX - 4} ${CY - 28} L ${CX + 6} ${CY - 52} L ${CX + 14} ${CY - 40} L ${CX + 34} ${CY - 40}`}
-              stroke={CREAM}
-              strokeWidth={1.4}
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              opacity={0.95}
-            />
-            <text
-              x={CX}
-              y={CY - 6}
-              textAnchor="middle"
+            <h2
               style={{
                 fontFamily: "'Sora', sans-serif",
-                fontSize: 18,
-                fontWeight: 500,
-                fill: CREAM,
-                letterSpacing: "0.01em",
+                fontWeight: 650,
+                fontSize: "clamp(34px, 4.3vw, 58px)",
+                lineHeight: 1.08,
+                color: CREAM,
+                letterSpacing: "-0.035em",
+                maxWidth: 620,
               }}
             >
-              <tspan x={CX} dy={0}>Tu dolor.</tspan>
-              <tspan x={CX} dy={22}>Nuestro</tspan>
-              <tspan x={CX} dy={22}>equipo.</tspan>
-            </text>
-
-            {/* Caption inside the frame — gold, thin, centered */}
-            <text
-              x={CX}
-              y={728}
-              textAnchor="middle"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: 12,
-                fontWeight: 400,
-                fill: GOLD,
-                letterSpacing: "0.08em",
-              }}
-            >
-              Cada paciente recibe el especialista que su condición necesita.
-            </text>
-          </svg>
-        </div>
-
-        {/* Mobile — compact mural: center medallion + 2-col grid of specialties */}
-        <div
-          className="md:hidden"
-          style={{
-            width: "100%",
-            marginBottom: 40,
-            padding: 20,
-          }}
-        >
-          {/* Center medallion */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "8px auto 24px",
-              width: 180,
-              height: 180,
-              borderRadius: "50%",
-              backgroundColor: GOLD,
-              color: CREAM,
-              textAlign: "center",
-              padding: 12,
-            }}
-          >
-            <svg
-              viewBox="0 0 80 20"
-              width={72}
-              height={18}
-              aria-hidden="true"
-              style={{ display: "block", marginBottom: 6 }}
-            >
-              <path
-                d="M2 12 L18 12 L26 4 L38 18 L48 4 L56 12 L78 12"
-                stroke={CREAM}
-                strokeWidth={1.6}
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontSize: 15,
-                fontWeight: 500,
-                lineHeight: 1.25,
-              }}
-            >
-              Tu dolor.
-              <br />
-              Nuestro equipo.
-            </span>
+              Usted nos dice qué siente. Nosotros lo conectamos con el equipo.
+            </h2>
           </div>
-
-          {/* Divider */}
-          <div
-            style={{
-              height: 1,
-              backgroundColor: GOLD,
-              opacity: 0.55,
-              margin: "0 -20px 20px",
-            }}
-          />
-
-          {/* Grid of specialties */}
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 12,
-            }}
-          >
-            {NODES.map((n) => {
-              const isActive = activeAngle === n.angle;
-              return (
-                <li key={`m-${n.angle}`} style={{ display: "block" }}>
-                  <a
-                    href={`/especialidades#${n.slug}`}
-                    aria-label={`Ver ${n.label.replace(/\n/g, " ")} en especialidades`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      goToSpecialty(n.angle, n.slug);
-                    }}
-                    style={{
-                      backgroundColor: isActive ? GOLD : TEAL,
-                      border: `1px solid ${GOLD}`,
-                      padding: "14px 10px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      textAlign: "center",
-                      minHeight: 118,
-                      color: isActive ? DEEP_TEAL : GOLD,
-                      textDecoration: "none",
-                      transition:
-                        "background-color 220ms ease, color 220ms ease, transform 180ms ease",
-                      transform: isActive ? "scale(0.98)" : "scale(1)",
-                      WebkitTapHighlightColor: "transparent",
-                    }}
-                  >
-                    <svg
-                      viewBox="-28 -28 56 56"
-                      width={40}
-                      height={40}
-                      aria-hidden="true"
-                      style={{ display: "block", marginBottom: 8 }}
-                      shapeRendering="geometricPrecision"
-                    >
-                      {n.icon}
-                    </svg>
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontSize: 12,
-                        lineHeight: 1.3,
-                        color: isActive ? DEEP_TEAL : CREAM,
-                      }}
-                    >
-                      {n.label.split("\n").map((ln, i) => (
-                        <span key={i} style={{ display: "block" }}>
-                          {ln}
-                        </span>
-                      ))}
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
 
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 11,
-              color: GOLD,
-              letterSpacing: "0.08em",
-              textAlign: "center",
-              marginTop: 20,
-              marginBottom: 0,
+              fontFamily: "Manrope, sans-serif",
+              fontSize: "clamp(16px, 1.4vw, 18px)",
+              lineHeight: 1.65,
+              color: "rgba(245,240,232,0.78)",
+              maxWidth: 560,
+              margin: 0,
             }}
           >
-            Cada paciente recibe el especialista que su condición necesita.
+            No tiene que saber qué especialista necesita. En ALGOS partimos de
+            su dolor, identificamos el posible origen y orientamos su caso al
+            área adecuada.
           </p>
         </div>
 
-
-
-        <Link
-          to="/equipo"
-          className="w-full sm:w-auto block sm:inline-block text-center"
-          style={{
-            display: "inline-block",
-            backgroundColor: GOLD,
-            color: DEEP_TEAL,
-            fontFamily: "Inter, sans-serif",
-            fontSize: 13,
-            fontWeight: 700,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            padding: "14px 24px",
-          }}
+        <div
+          className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]"
+          style={{ alignItems: "stretch" }}
         >
-          Conocer el equipo completo →
-        </Link>
+          <div
+            className="grid md:grid-cols-2"
+            style={{
+              borderTop: `1px solid ${GOLD}55`,
+              borderLeft: `1px solid ${GOLD}55`,
+            }}
+          >
+            {CARE_PATHS.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.pain}
+                  to={item.href}
+                  className="group"
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: "auto 1fr auto",
+                    gap: 18,
+                    minHeight: 238,
+                    padding: "clamp(22px, 3vw, 30px)",
+                    borderRight: `1px solid ${GOLD}55`,
+                    borderBottom: `1px solid ${GOLD}55`,
+                    backgroundColor: "rgba(61,139,150,0.20)",
+                    color: CREAM,
+                    textDecoration: "none",
+                    transition:
+                      "background-color 220ms ease, transform 180ms cubic-bezier(0.23,1,0.32,1)",
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        width: 42,
+                        height: 42,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: `1px solid ${GOLD}`,
+                        color: GOLD,
+                      }}
+                    >
+                      <Icon size={21} strokeWidth={1.6} />
+                    </span>
+                    <ArrowRight
+                      size={18}
+                      strokeWidth={1.6}
+                      style={{ color: GOLD, transition: "transform 180ms ease" }}
+                      className="group-hover:translate-x-1"
+                    />
+                  </div>
+
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Sora', sans-serif",
+                        fontSize: "clamp(20px, 2vw, 25px)",
+                        lineHeight: 1.18,
+                        color: CREAM,
+                        letterSpacing: "-0.025em",
+                        marginBottom: 12,
+                      }}
+                    >
+                      {item.pain}
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "Manrope, sans-serif",
+                        fontSize: 14,
+                        lineHeight: 1.58,
+                        color: "rgba(245,240,232,0.76)",
+                        margin: 0,
+                      }}
+                    >
+                      {item.plain}
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      paddingTop: 18,
+                      borderTop: "1px solid rgba(245,240,232,0.14)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "Manrope, sans-serif",
+                        fontSize: 11,
+                        fontWeight: 800,
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: GOLD,
+                        margin: 0,
+                      }}
+                    >
+                      Lo revisa {item.specialty}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "Manrope, sans-serif",
+                        fontSize: 13,
+                        color: "rgba(245,240,232,0.72)",
+                        marginTop: 6,
+                        marginBottom: 0,
+                      }}
+                    >
+                      {item.specialtyHint}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <aside
+            style={{
+              minHeight: 360,
+              padding: "clamp(28px, 4vw, 42px)",
+              background:
+                "linear-gradient(145deg, rgba(198,150,54,0.95), rgba(198,150,54,0.78))",
+              color: DEEP_TEAL,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <svg
+                viewBox="0 0 96 28"
+                width={96}
+                height={28}
+                aria-hidden="true"
+                style={{ display: "block", marginBottom: 28 }}
+              >
+                <path
+                  d="M2 16 L22 16 L31 5 L45 25 L58 5 L68 16 L94 16"
+                  stroke={CREAM}
+                  strokeWidth={2}
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <h3
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: "clamp(28px, 3vw, 38px)",
+                  lineHeight: 1.08,
+                  letterSpacing: "-0.035em",
+                  color: DEEP_TEAL,
+                  margin: 0,
+                }}
+              >
+                Su dolor primero. El especialista después.
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Manrope, sans-serif",
+                  fontSize: 16,
+                  lineHeight: 1.65,
+                  color: "rgba(26,74,85,0.88)",
+                  marginTop: 22,
+                  marginBottom: 0,
+                }}
+              >
+                Así evitamos que el paciente tenga que adivinar. Una primera
+                evaluación ordena el caso y define qué área debe intervenir.
+              </p>
+            </div>
+
+            <Link
+              to="/equipo"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                alignSelf: "flex-start",
+                marginTop: 36,
+                backgroundColor: DEEP_TEAL,
+                color: CREAM,
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 12,
+                fontWeight: 800,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                padding: "15px 22px",
+              }}
+            >
+              Conocer el equipo
+              <ArrowRight size={16} />
+            </Link>
+          </aside>
+        </div>
       </div>
     </section>
   );
