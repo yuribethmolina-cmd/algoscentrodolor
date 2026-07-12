@@ -48,6 +48,5 @@ Enlace producción UDUZ: `https://uduz.vercel.app`
 Precios en la sección: $25TC / $15Eco / $8RX (actualizar si cambian).
 
 ## Pendiente antes del merge a main
-- [ ] Foto Dra. Aliseth Rodríguez (cuando Atilio la provea)
 - [ ] Aprobación visual de Atilio + Luis Alberto + esposo
 - [ ] Google Analytics: reemplazar `G-XXXXXXXXXX` en `index.html` con el Measurement ID real
