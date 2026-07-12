@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-hernia-discal.jpg.asset.json";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20hernia%20discal.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20hernia%20discal.";
 
 export default function HerniaDiscal() {
   return (

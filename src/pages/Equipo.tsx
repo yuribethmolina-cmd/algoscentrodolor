@@ -6,9 +6,9 @@ import SmartImage from "@/components/SmartImage";
 import { BadgeCheck, Calendar, Stethoscope, UserRound } from "lucide-react";
 import drAtilioPic from "@/assets/dr-atilio-full.png?w=320;480;720&format=avif;webp;jpg&as=picture";
 import teamDanielPic from "@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture";
+import { ALGOS } from "@/config/algos.config";
 
-const WA =
-  "https://wa.me/584146807886?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
 type Doctor = {
   name: string;

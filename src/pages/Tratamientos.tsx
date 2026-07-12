@@ -12,6 +12,7 @@ import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScanLine, Clock, Users, GraduationCap, type LucideIcon } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
 const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
   { Icon: ScanLine, title: "Guiados por imagen", description: "Ecografía + fluoroscopia para precisión milimétrica" },
@@ -245,7 +246,7 @@ export default function Tratamientos() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="https://wa.me/584146807886?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20valoraci%C3%B3n"
+                    href={ALGOS.contact.whatsappHref + "?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20valoraci%C3%B3n"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1fb859] text-white hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"

@@ -3,8 +3,9 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
 
 const WITH_PAGES = [
   { label: "Dolor de espalda", href: "/condiciones/dolor-lumbar", desc: "Dolor de cintura que no cede con reposo ni calmantes." },

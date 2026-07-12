@@ -3,8 +3,9 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import { CONDITIONS } from "@/data/treatments";
 import { MessageCircle, Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
-const WA_NUMBER = "584146807886";
+const WA_NUMBER = ALGOS.contact.whatsappNumber;
 
 interface FormData {
   nombre: string;

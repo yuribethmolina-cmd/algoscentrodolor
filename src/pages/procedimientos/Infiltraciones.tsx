@@ -8,8 +8,9 @@ import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgSala from "@/assets/sala-procedimientos.jpg";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
+import { ALGOS } from "@/config/algos.config";
 
 export default function Medicos() {
   return (
@@ -231,7 +232,7 @@ export default function Medicos() {
 
             <div className="mt-16 pt-9 border-t border-cream/[0.18] flex flex-col md:flex-row md:justify-center items-center gap-5 md:gap-0">
               {[
-                { href: "https://wa.me/584146807886", label: "WhatsApp médico", value: "0414-680 7886" },
+                { href: ALGOS.contact.whatsappHref, label: "WhatsApp médico", value: ALGOS.contact.whatsappDisplay },
                 { href: "mailto:info@algoscentrodolor.com", label: "Correo clínico", value: "info@algoscentrodolor.com" },
               ].map((opt, i) => (
                 <a

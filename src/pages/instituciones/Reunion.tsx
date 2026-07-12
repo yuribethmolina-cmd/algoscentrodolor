@@ -2,8 +2,9 @@ import SectionLayout from "@/components/layouts/SectionLayout";
 import { institutionLinks } from "@/lib/sectionLinks";
 import { Handshake, MessageCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ALGOS } from "@/config/algos.config";
 
-const WHATSAPP_NUMBER = "584146807886";
+const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
 
 export default function Reunion() {
   return (

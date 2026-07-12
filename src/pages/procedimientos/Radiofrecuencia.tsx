@@ -10,8 +10,9 @@ import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgMain from "@/assets/sala-procedimientos.jpg";
 import imgProc from "@/assets/about-procedure.jpg";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20los%20procedimientos%20disponibles.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20los%20procedimientos%20disponibles.";
 
 export default function Radiofrecuencia() {
   const [hc, setHc] = useState(false);

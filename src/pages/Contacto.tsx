@@ -18,9 +18,10 @@ import examsXrayFull from "@/assets/exams-xray.jpg?w=1920&format=webp&url";
 import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
 import examsUltrasoundFull from "@/assets/exams-ultrasound.jpg?w=1920&format=webp&url";
+import { ALGOS } from "@/config/algos.config";
 
 
-const WHATSAPP_NUMBER = "584146807886";
+const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
 
 const AUDIENCE_CARDS = [
   {

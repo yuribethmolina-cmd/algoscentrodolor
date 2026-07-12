@@ -5,8 +5,9 @@ import { CalendarCheck, MessageCircle, ArrowRight, ShieldCheck } from "lucide-re
 import ProblemSection from "@/components/ProblemSection";
 import AboutSection from "@/components/AboutSection";
 import { patientLinks } from "@/lib/sectionLinks";
+import { ALGOS } from "@/config/algos.config";
 
-const WHATSAPP_NUMBER = "584146807886";
+const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
 
 export default function PacientesIndex() {
   return (

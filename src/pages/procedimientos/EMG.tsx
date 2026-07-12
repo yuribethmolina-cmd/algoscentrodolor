@@ -9,11 +9,12 @@ import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
+import { ALGOS } from "@/config/algos.config";
 const imgHero = imgHeroAsset.url;
 const imgPierna = imgPiernaAsset.url;
 const imgBrazo = imgBrazoAsset.url;
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Electromiograf%C3%ADa%20(EMG).";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Electromiograf%C3%ADa%20(EMG).";
 
 /* ---------- Cinematic Hero (inline, EMG-only) ---------- */
 function CinematicHero({ hc }: { hc: boolean }) {

@@ -12,8 +12,9 @@ import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 const imgMain = ozonoAsset.url;
 import imgSala from "@/assets/sala-procedimientos.jpg";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
 
 export default function Ozono() {
   const [hc, setHc] = useState(false);
