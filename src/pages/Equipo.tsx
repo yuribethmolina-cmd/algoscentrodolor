@@ -3,7 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SmartImage from "@/components/SmartImage";
-import { BadgeCheck, Calendar, Stethoscope, UserRound } from "lucide-react";
+import { BadgeCheck, Calendar, UserRound } from "lucide-react";
 import drAtilioPic from "@/assets/dr-atilio-full.png?w=320;480;720&format=avif;webp;jpg&as=picture";
 import teamDanielPic from "@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture";
 import { ALGOS } from "@/config/algos.config";
@@ -141,16 +141,6 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
           {String(index + 1).padStart(2, "0")}
         </div>
 
-        {/* Meta chips */}
-        <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2 z-10">
-          {d.isDirector && (
-            <span className="inline-flex items-center gap-1.5 bg-[#134F5C] text-[#f5f0e8] px-2.5 py-1 text-[10px] font-ui tracking-[0.18em] uppercase">
-              <Stethoscope className="w-3 h-3" strokeWidth={2} />
-              Dirección
-            </span>
-          )}
-
-        </div>
 
         {/* Bottom soft fade to card body */}
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent" />

@@ -1,5 +1,5 @@
 import { useInViewOnce } from "@/lib/animations";
-import { Calendar, Stethoscope } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 
 const CREAM = ALGOS.palette.cream;
@@ -225,27 +225,6 @@ export default function TeamSection() {
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="flex items-center gap-1.5">
-                  {doc.esDireccion && (
-                    <span
-                      className="inline-flex items-center gap-1"
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: 9,
-                        fontWeight: 700,
-                        letterSpacing: "0.18em",
-                        textTransform: "uppercase",
-                        color: CREAM,
-                        backgroundColor: DEEP_TEAL,
-                        padding: "3px 7px",
-                      }}
-                    >
-                      <Stethoscope size={9} strokeWidth={2.4} />
-                      Dirección
-                    </span>
-                  )}
-
-                </div>
               </div>
 
               <h3
