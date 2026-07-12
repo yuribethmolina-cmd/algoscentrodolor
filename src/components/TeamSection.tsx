@@ -17,52 +17,50 @@ interface DoctorCard {
 
 const doctores: DoctorCard[] = [
   {
+    nombre: "Dr. Atilio Rodríguez",
+    especialidad: "Neurocirugía y cirugía de columna · Director Médico",
+    consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+  },
+  {
     nombre: "Dr. Antulio Parra",
-    especialidad: "Traumatología y Columna",
+    especialidad: "Traumatología y Ortopedia",
     consulta: "Martes y jueves · 8:00 AM – 11:00 AM",
   },
   {
-    nombre: "Dr. Atilio Rodríguez",
-    especialidad: "Neurocirugía Intervencionista · Director Médico",
-    consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
-    esDireccion: true,
+    nombre: "Dr. Tomás Iragorry",
+    especialidad: "Traumatología y Ortopedia",
+    consulta: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
+  },
+  {
+    nombre: "Dr. Miguel Guevara",
+    especialidad: "Traumatología y Ortopedia",
+    consulta: "Lunes · 8:00 AM – 10:00 AM",
+  },
+  {
+    nombre: "Dra. Doris Meneses",
+    especialidad: "Reumatología",
+    consulta: "Viernes · 8:00 AM – 12:00 PM",
+  },
+  {
+    nombre: "Dra. Leslie Ramírez",
+    especialidad: "Fisiatría y rehabilitación",
+    consulta: "Jueves · 2:00 PM",
+  },
+  {
+    nombre: "Dra. Carolina Rodríguez",
+    especialidad: "Fisiatría, rehabilitación y estudios electromiográficos",
+    consulta: "Miércoles tarde",
+    nota: "Los estudios EEG se realizan en UDUZ",
+  },
+  {
+    nombre: "Dra. Gilda Gómez",
+    especialidad: "Algología, anestesiología y cuidados paliativos",
+    consulta: "Miércoles · 9:00 AM – 12:00 PM",
   },
   {
     nombre: "Lic. Daniel Rodríguez",
     especialidad: "Nutrición Clínica Antiinflamatoria",
     consulta: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
-    esDireccion: true,
-  },
-  {
-    nombre: "Dr. Miguel Guevara",
-    especialidad: "Radiología Intervencionista",
-    consulta: "Lunes · 8:00 AM – 10:00 AM",
-  },
-  {
-    nombre: "Dr. Tomás Iragorry",
-    especialidad: "Anestesiología del Dolor",
-    consulta: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
-  },
-  {
-    nombre: "Dra. Carolina Rodríguez",
-    especialidad: "Electrodiagnóstico (EEG · EMG)",
-    consulta: "Miércoles tarde",
-    nota: "Los estudios EEG se realizan en UDUZ",
-  },
-  {
-    nombre: "Dra. Doris Meneses",
-    especialidad: "Neurocirugía · Columna vertebral",
-    consulta: "Viernes · 8:00 AM – 12:00 PM",
-  },
-  {
-    nombre: "Dra. Gilda Gómez",
-    especialidad: "Reumatología",
-    consulta: "Miércoles · 9:00 AM – 12:00 PM",
-  },
-  {
-    nombre: "Dra. Leslie Ramírez",
-    especialidad: "Fisiatría",
-    consulta: "Jueves · 2:00 PM",
   },
 ];
 
