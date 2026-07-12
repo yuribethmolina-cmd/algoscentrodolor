@@ -13,7 +13,7 @@ type CarePath = {
   specialty: string;
   specialtyHint: string;
   href: string;
-  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  icon: LucideIcon;
 };
 
 const CARE_PATHS: CarePath[] = [
