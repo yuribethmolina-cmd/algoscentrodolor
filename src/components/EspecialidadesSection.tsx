@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, Stethoscope } from "lucide-react";
+import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, LucideIcon, Stethoscope } from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
 
 const DEEP_TEAL = "#1a4a55";
@@ -13,7 +13,7 @@ type CarePath = {
   specialty: string;
   specialtyHint: string;
   href: string;
-  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  icon: LucideIcon;
 };
 
 const CARE_PATHS: CarePath[] = [
