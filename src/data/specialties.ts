@@ -11,7 +11,7 @@ export type Specialty = {
 export const SPECIALTIES: Specialty[] = [
   {
     slug: "neurocirugia",
-    name: "Neurocirugía",
+    name: "Neurocirugía y cirugía de columna",
     tagline: "Columna, nervios y sistema nervioso",
     description:
       "Evaluación quirúrgica y manejo intervencionista del dolor de origen espinal y neurológico.",
@@ -21,7 +21,7 @@ export const SPECIALTIES: Specialty[] = [
   },
   {
     slug: "traumatologia",
-    name: "Traumatología",
+    name: "Traumatología y Ortopedia",
     tagline: "Huesos, articulaciones y lesiones",
     description:
       "Diagnóstico y tratamiento de lesiones osteomusculares, con foco en cadera, rodilla y hombro.",
@@ -50,18 +50,8 @@ export const SPECIALTIES: Specialty[] = [
     acompana: "Programa de rehabilitación individualizado y retorno progresivo a la actividad.",
   },
   {
-    slug: "radiologia-intervencionista",
-    name: "Radiología intervencionista",
-    tagline: "Procedimientos guiados por imagen",
-    description:
-      "Todos los procedimientos se realizan bajo guía de imagen para máxima precisión y seguridad.",
-    evalua: "Selección del tipo de guía según la zona a tratar (fluoroscopia, tomografía, ecografía).",
-    trata: "Infiltraciones, bloqueos, radiofrecuencia, discólisis con ozono.",
-    acompana: "Reporte del procedimiento y coordinación con el especialista de referencia.",
-  },
-  {
     slug: "cuidados-paliativos",
-    name: "Cuidados paliativos",
+    name: "Algología, anestesiología y cuidados paliativos",
     tagline: "Manejo integral del dolor complejo",
     description:
       "Acompañamiento clínico del paciente con dolor de difícil control o enfermedad avanzada.",
@@ -70,24 +60,14 @@ export const SPECIALTIES: Specialty[] = [
     acompana: "Atención centrada en el paciente y su familia, con seguimiento continuo.",
   },
   {
-    slug: "oncologia-medica",
-    name: "Oncología médica",
-    tagline: "Dolor oncológico y soporte",
-    description:
-      "Manejo del dolor en pacientes oncológicos, en coordinación con su equipo tratante.",
-    evalua: "Dolor por tumor, dolor postquimioterapia, neuropatías inducidas por tratamiento.",
-    trata: "Procedimientos analgésicos avanzados y terapias de soporte.",
-    acompana: "Coordinación con el oncólogo tratante durante todo el proceso.",
-  },
-  {
-    slug: "psiquiatria",
-    name: "Psiquiatría",
+    slug: "psicologia",
+    name: "Psicología",
     tagline: "Salud mental y dolor crónico",
     description:
-      "El dolor crónico impacta el ánimo y el sueño. La psiquiatría es parte del tratamiento.",
+      "El dolor crónico impacta el ánimo y el sueño. La psicología es parte del tratamiento.",
     evalua: "Depresión y ansiedad asociadas al dolor, insomnio, dolor con componente central.",
-    trata: "Manejo farmacológico y coordinación con psicoterapia.",
-    acompana: "Ajuste periódico según evolución clínica del dolor.",
+    trata: "Terapia cognitivo-conductual y educación en neurociencia del dolor.",
+    acompana: "Acompañamiento continuo durante el proceso de recuperación.",
   },
   {
     slug: "nutricion",
