@@ -124,7 +124,7 @@ export default function HeroSection() {
             className="font-ui font-bold uppercase"
             style={{ color: "#9a7320", fontSize: "13px", letterSpacing: "0.3em" }}
           >
-            MARACAIBO · SECTOR PARAÍSO
+            MARACAIBO · FRENTE A LA FACULTAD DE MEDICINA
           </p>
 
           <AnimatedHeadline
