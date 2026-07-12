@@ -2,16 +2,17 @@ import { useInViewOnce } from "@/lib/animations";
 import imgTechPic from "@/assets/experience-tech.jpg?w=480;800&format=webp;jpg&as=picture";
 import imgSalaPic from "@/assets/sala-procedimientos.jpg?w=480;800&format=webp;jpg&as=picture";
 import imgProcPic from "@/assets/about-procedure.jpg?w=480;800&format=webp;jpg&as=picture";
+import { ALGOS } from "@/config/algos.config";
 const imgTech = imgTechPic.img.src;
 const imgSala = imgSalaPic.img.src;
 const imgProc = imgProcPic.img.src;
 
-const DEEP_TEAL = "#1a4a55";
-const TEAL = "#3d8b96";
-const GOLD = "#c69636";
-const CREAM = "#f5f0e8";
-const STEEL = "#2a6270";
-const WA_URL = "https://wa.me/584146807886";
+const DEEP_TEAL = ALGOS.palette.deepTeal;
+const TEAL = ALGOS.palette.brandTeal;
+const GOLD = ALGOS.palette.gold;
+const CREAM = ALGOS.palette.cream;
+const STEEL = ALGOS.palette.steel;
+const WA_URL = ALGOS.contact.whatsappHref;
 
 const SVC_PHOTOS: Record<string, string> = {
   "01": imgTech,

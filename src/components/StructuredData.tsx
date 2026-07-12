@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import type { Condition } from "@/data/treatments";
+import { ALGOS } from "@/config/algos.config";
 
 export function MedicalProcedureSchema({ condition }: { condition: Condition }) {
   const schema = {
@@ -12,7 +13,7 @@ export function MedicalProcedureSchema({ condition }: { condition: Condition }) 
     provider: {
       "@type": "MedicalClinic",
       name: "ALGOS · Centro de Dolor Intervencionista",
-      url: "https://algos.lovable.app",
+      url: ALGOS.brand.website,
       address: {
         "@type": "PostalAddress",
         streetAddress: "Av. 20 con Calle 65, N° 65-02, C.C. América, Local 4",

@@ -1,8 +1,9 @@
 import { useInViewOnce } from "@/lib/animations";
 import { Calendar, Stethoscope } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
-const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
+const CREAM = ALGOS.palette.cream;
+const DEEP_TEAL = ALGOS.palette.deepTeal;
 const BRAND_TEAL = "#3d8b96";
 const GOLD = "#c69636";
 
@@ -345,7 +346,7 @@ export default function TeamSection() {
           </p>
 
           <a
-            href="https://wa.me/584146807886"
+            href={ALGOS.contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center"

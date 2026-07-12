@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ALGOS } from "@/config/algos.config";
 import { useInViewOnce } from "@/lib/animations";
 import lumbarAsset from "@/assets/cond-lumbar.jpg.asset.json";
 import cervicalAsset from "@/assets/cond-cervical.jpg.asset.json";
@@ -89,7 +90,7 @@ const painCards: PainCard[] = [
   },
 ];
 
-const WHATSAPP_URL = "https://wa.me/584146807886";
+const WHATSAPP_URL = ALGOS.contact.whatsappHref;
 
 export default function ConditionsSection() {
   const [openId, setOpenId] = useState<number | null>(null);

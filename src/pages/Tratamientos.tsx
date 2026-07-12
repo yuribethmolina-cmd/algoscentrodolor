@@ -29,12 +29,12 @@ export default function Tratamientos() {
       <SEOHead
         title="Tratamientos del dolor crónico en Maracaibo | ALGOS"
         description="Centro de dolor intervencionista en Maracaibo. Procedimientos mínimamente invasivos guiados por imagen para dolor lumbar, cervical, facetario, articular y neuropatía. Neurocirujanos especializados en dolor."
-        canonical="https://algos.lovable.app/tratamientos"
+        canonical="https://algoscentrodolor.com/tratamientos"
       />
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://algos.lovable.app" },
-          { name: "Tratamientos", url: "https://algos.lovable.app/tratamientos" },
+          { name: "Inicio", url: "https://algoscentrodolor.com" },
+          { name: "Tratamientos", url: "https://algoscentrodolor.com/tratamientos" },
         ]}
       />
       <Navbar />

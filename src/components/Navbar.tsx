@@ -2,13 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import algosLogoFull from "@/assets/algos-logo-v2.png";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584146807886?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
-const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#1a4a55";
-const GOLD = "#c69636";
-const TEAL = "#3d8b96";
-const TEAL_HOVER = "#4a9ca8";
+const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
+const CREAM = ALGOS.palette.cream;
+const DEEP_TEAL = ALGOS.palette.deepTeal;
+const GOLD = ALGOS.palette.gold;
+const TEAL = ALGOS.palette.brandTeal;
+const TEAL_HOVER = ALGOS.palette.brandTealHover;
 
 type DropItem = { label: string; href: string; soon?: boolean; isIndex?: boolean };
 

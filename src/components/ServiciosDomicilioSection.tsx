@@ -1,8 +1,10 @@
-const DEEP_TEAL = "#1a4a55";
-const GOLD = "#c69636";
-const CREAM = "#f5f0e8";
-const TEAL = "#3d8b96";
-const WA = "https://wa.me/584146807886?text=Hola,%20quisiera%20solicitar%20un%20servicio%20a%20domicilio";
+import { ALGOS } from "@/config/algos.config";
+
+const DEEP_TEAL = ALGOS.palette.deepTeal;
+const GOLD = ALGOS.palette.gold;
+const CREAM = ALGOS.palette.cream;
+const TEAL = ALGOS.palette.brandTeal;
+const WA = ALGOS.contact.whatsappHref + "?text=Hola,%20quisiera%20solicitar%20un%20servicio%20a%20domicilio";
 
 const ITEMS = [
   {

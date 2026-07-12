@@ -1,18 +1,19 @@
 import { useDrawSVG, AnimatedHeadline } from "@/lib/animations";
 import BackdropImage from "@/components/atmosphere/BackdropImage";
 import algosSignalIcon from "@/assets/algos-signal-icon.png";
+import { ALGOS } from "@/config/algos.config";
 
 // Unsplash · "warm window light, calm interior" — atmospheric, no people
 const FINAL_BG =
   "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=2400&q=70";
 
-const DEEP_TEAL = "#1a4a55";
-const CREAM = "#f5f0e8";
-const GOLD = "#c69636";
-const BRAND_TEAL = "#3d8b96";
-const BRAND_TEAL_HOVER = "#4a9ca8";
+const DEEP_TEAL = ALGOS.palette.deepTeal;
+const CREAM = ALGOS.palette.cream;
+const GOLD = ALGOS.palette.gold;
+const BRAND_TEAL = ALGOS.palette.brandTeal;
+const BRAND_TEAL_HOVER = ALGOS.palette.brandTealHover;
 
-const WHATSAPP_HREF = "https://wa.me/584146807886";
+const WHATSAPP_HREF = ALGOS.contact.whatsappHref;
 
 type ContactOption = {
   label: string;
@@ -21,9 +22,9 @@ type ContactOption = {
 };
 
 const contactOptions: ContactOption[] = [
-  { label: "WHATSAPP · LLAMADAS", value: "0414-680 7886", href: WHATSAPP_HREF },
-  { label: "SOLO LLAMADAS", value: "0412-061 7410", href: "tel:+584120617410" },
-  { label: "CORREO ELECTRÓNICO", value: "info@algoscentrodolor.com", href: "mailto:info@algoscentrodolor.com" },
+  { label: "WHATSAPP · LLAMADAS", value: ALGOS.contact.whatsappDisplay, href: ALGOS.contact.whatsappHref },
+  { label: "SOLO LLAMADAS", value: ALGOS.contact.phone2Display, href: ALGOS.contact.phone2Href },
+  { label: "CORREO ELECTRÓNICO", value: ALGOS.contact.email, href: ALGOS.contact.emailHref },
 ];
 
 export default function FinalCTA() {

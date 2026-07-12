@@ -79,14 +79,14 @@ export default function TratamientoDetalle() {
       <SEOHead
         title={`Tratamiento de ${condition.name.toLowerCase()} en Maracaibo | ALGOS`}
         description={`${condition.patientDescription} Procedimientos ALGOS: ${condition.procedures.map((p) => p.label).join(", ")}. Maracaibo, Venezuela.`}
-        canonical={`https://algos.lovable.app/tratamientos/${condition.slug}`}
+        canonical={`https://algoscentrodolor.com/tratamientos/${condition.slug}`}
       />
       <MedicalProcedureSchema condition={condition} />
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://algos.lovable.app" },
-          { name: "Tratamientos", url: "https://algos.lovable.app/tratamientos" },
-          { name: condition.name, url: `https://algos.lovable.app/tratamientos/${condition.slug}` },
+          { name: "Inicio", url: "https://algoscentrodolor.com" },
+          { name: "Tratamientos", url: "https://algoscentrodolor.com/tratamientos" },
+          { name: condition.name, url: `https://algoscentrodolor.com/tratamientos/${condition.slug}` },
         ]}
       />
       <Navbar />

@@ -2,8 +2,9 @@ import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
+import { ALGOS } from "@/config/algos.config";
 
-const WA = "https://wa.me/584246467944";
+const WA = ALGOS.contact.whatsappHref;
 
 const ALGOS_STUDIES = [
   {

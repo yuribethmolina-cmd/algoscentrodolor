@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Play, CheckCircle2 } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
 const benefits = [
   "Sin cirugía abierta ni hospitalización",
@@ -101,7 +102,7 @@ export default function HerniaVideoSection() {
 
             <div className="scroll-reveal scroll-reveal-delay-4">
               <a
-                href="https://wa.me/584146807886?text=Hola,%20quiero%20información%20sobre%20tratamiento%20de%20hernia%20discal"
+                href={ALGOS.contact.whatsappHref + "?text=Hola,%20quiero%20información%20sobre%20tratamiento%20de%20hernia%20discal"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-secondary/90 transition-colors"

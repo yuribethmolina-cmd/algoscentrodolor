@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
-const WHATSAPP_NUMBER = "584146807886"; // Placeholder
+const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
 
 export default function WhatsAppButton() {
   return (

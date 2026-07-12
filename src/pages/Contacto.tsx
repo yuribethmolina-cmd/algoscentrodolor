@@ -296,12 +296,12 @@ export default function Contacto() {
       <SEOHead
         title="Contacto | ALGOS · Centro de Dolor Intervencionista"
         description="Contáctenos en Maracaibo. Pacientes, médicos referentes e instituciones tienen vías directas para conectar con ALGOS."
-        canonical="https://algos.lovable.app/contacto"
+        canonical="https://algoscentrodolor.com/contacto"
       />
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://algos.lovable.app" },
-          { name: "Contacto", url: "https://algos.lovable.app/contacto" },
+          { name: "Inicio", url: "https://algoscentrodolor.com" },
+          { name: "Contacto", url: "https://algoscentrodolor.com/contacto" },
         ]}
       />
       <Navbar />

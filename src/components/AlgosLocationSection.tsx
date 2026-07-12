@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import algosFacade from "@/assets/algos-facade.png";
 import { MapPin, Navigation, Clock, Phone } from "lucide-react";
+import { ALGOS } from "@/config/algos.config";
 
-const CREAM = "#f5f0e8";
-const DEEP_TEAL = "#134F5C";
-const GOLD = "#c69636";
-const BRAND_TEAL = "#3d8b96";
+const CREAM = ALGOS.palette.cream;
+const DEEP_TEAL = ALGOS.palette.deepTeal;
+const GOLD = ALGOS.palette.gold;
+const BRAND_TEAL = ALGOS.palette.brandTeal;
 
-const MAPS_QUERY = "ALGOS Centro de Dolor Intervencionista, CC América, Av. 20 con Calle 65, Sector Paraíso, Maracaibo, Venezuela";
+const MAPS_QUERY = ALGOS.location.mapsQuery;
 const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&z=16&output=embed`;
 const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
 
@@ -208,8 +209,8 @@ export default function AlgosLocationSection() {
                   icon: Phone,
                   label: "Teléfono",
                   value: (
-                    <a href="tel:+584246467944" style={{ color: CREAM, textDecoration: "none" }}>
-                      +58 424-646-7944
+                    <a href={`tel:+${ALGOS.contact.whatsappNumber}`} style={{ color: CREAM, textDecoration: "none" }}>
+                      {ALGOS.contact.whatsappDisplayIntl}
                     </a>
                   ),
                 },

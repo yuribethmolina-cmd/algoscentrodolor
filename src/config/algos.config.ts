@@ -1,0 +1,38 @@
+export const ALGOS = {
+  brand: {
+    name: "ALGOS",
+    fullName: "ALGOS · Centro de Dolor Intervencionista",
+    tagline: "Primer centro especializado en dolor intervencionista del Estado Zulia",
+    website: "https://algoscentrodolor.com",
+  },
+  contact: {
+    whatsappNumber: "584146807886",
+    whatsappHref: "https://wa.me/584146807886",
+    whatsappDisplay: "0414-680 7886",
+    whatsappDisplayIntl: "+58 414-680 7886",
+    phone2Href: "tel:+584120617410",
+    phone2Display: "0412-061 7410",
+    email: "info@algoscentrodolor.com",
+    emailHref: "mailto:info@algoscentrodolor.com",
+  },
+  location: {
+    street: "Av. 20 con Calle 65, N° 65-02",
+    building: "C.C. América, Local 4",
+    sector: "Sector Paraíso",
+    city: "Maracaibo",
+    state: "Zulia",
+    postalCode: "4005",
+    country: "Venezuela",
+    countryCode: "VE",
+    full: "Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005",
+    mapsQuery: "ALGOS Centro de Dolor Intervencionista, CC América, Av. 20 con Calle 65, Sector Paraíso, Maracaibo, Venezuela",
+  },
+  palette: {
+    deepTeal: "#1a4a55",
+    brandTeal: "#3d8b96",
+    brandTealHover: "#4a9ca8",
+    gold: "#c69636",
+    cream: "#f5f0e8",
+    steel: "#2a6270",
+  },
+} as const;

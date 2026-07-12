@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
+import { ALGOS } from "@/config/algos.config";
 
-const WHATSAPP_PACIENTES = "https://wa.me/584146807886";
+const WHATSAPP_PACIENTES = ALGOS.contact.whatsappHref;
 
 const CARDS = [
   {
