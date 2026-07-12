@@ -21,25 +21,24 @@ type Specialist = { name: string; photo?: string; photoPosition?: string };
 const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
   "neurocirugia": [
     { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
-    { name: "Dra. Doris Meneses" },
   ],
-  "traumatologia": [{ name: "Dr. Antulio Parra" }],
-  "reumatologia": [{ name: "Dra. Gilda Gómez" }],
+  "traumatologia": [
+    { name: "Dr. Antulio Parra" },
+    { name: "Dr. Tomás Iragorry" },
+    { name: "Dr. Miguel Guevara" },
+  ],
+  "reumatologia": [{ name: "Dra. Doris Meneses" }],
   "fisiatria": [
     { name: "Dra. Leslie Ramírez" },
     { name: "Dra. Carolina Rodríguez" },
   ],
-  "radiologia-intervencionista": [
-    { name: "Dr. Miguel Guevara" },
-    { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
-  ],
-  "cuidados-paliativos": [{ name: "Dr. Tomás Iragorry" }],
-  "oncologia-medica": [],
-  "psiquiatria": [],
+  "cuidados-paliativos": [{ name: "Dra. Gilda Gómez" }],
+  "psicologia": [],
   "nutricion": [
-    { name: "Dr. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
+    { name: "Lic. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
   ],
 };
+
 
 export default function Especialidades() {
   const location = useLocation();
