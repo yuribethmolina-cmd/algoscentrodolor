@@ -21,4 +21,15 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react/jsx-runtime"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-router": ["react-router-dom", "react-helmet-async"],
+        },
+      },
+    },
+  },
 }));
