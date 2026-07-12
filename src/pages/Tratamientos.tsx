@@ -17,7 +17,7 @@ import { ALGOS } from "@/config/algos.config";
 const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
   { Icon: ScanLine, title: "Guiados por imagen", description: "Ecografía + fluoroscopia para precisión milimétrica" },
   { Icon: Clock, title: "Ambulatorios", description: "Misma tarde a casa en la mayoría de casos" },
-  { Icon: Users, title: "Equipo médico", description: "Neurocirujanos especializados en dolor · Dr. Atilio y Dr. Luis Alberto Rodríguez" },
+  { Icon: Users, title: "Equipo médico", description: "Neurocirujano especializado en dolor intervencionista · Dr. Atilio J. Rodríguez" },
   { Icon: GraduationCap, title: "Basado en evidencia", description: "Protocolos actualizados de manejo intervencionista del dolor crónico" },
 ];
 

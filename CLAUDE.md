@@ -9,7 +9,6 @@ Live: algoscentrodolor.lovable.app · Repo: github.com/yuribethmolina-cmd/algosc
 | Quién | Rol |
 |-------|-----|
 | Dr. Atilio J. Rodríguez | Director Médico · Neurocirujano · Maracaibo |
-| Dr. Luis Alberto Rodríguez | Director Internacional · Múnich |
 | Lcdo. Daniel Rodríguez | Director Nutrición · Maracaibo |
 
 ## Contacto
@@ -33,7 +32,7 @@ Deploy: Lovable (auto-deploy desde branch home-redesign · merge a main cuando e
 - Config central: src/config/algos.config.ts — toda la data de negocio en un archivo
 - 41 archivos conectados al config — cero URLs de WhatsApp hardcodeadas
 - Lighthouse mobile: Performance 79 · Accessibility 91 · Best Practices 100 · SEO 100
-- Pendiente: Google Analytics ID real · aprobación visual (Atilio + Luis Alberto + esposo)
+- Pendiente: Google Analytics ID real · aprobación visual (Atilio + esposo)
 
 ## Preferencias de trabajo
 - Español neutro latinoamericano, tuteo

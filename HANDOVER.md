@@ -2,7 +2,7 @@
 
 ## Repo y deploy
 - **Branch de trabajo:** `home-redesign` → Lovable auto-despliega en cada push
-- **Merge a main:** pendiente (cuando Atilio y Luis Alberto aprueben el diseño)
+- **Merge a main:** pendiente (cuando Atilio apruebe el diseño)
 - **Flujo de push:** siempre `git pull --rebase origin home-redesign` antes de `git push` — Lovable hace commits propios al branch
 
 ## Config central
@@ -48,5 +48,5 @@ Enlace producción UDUZ: `https://uduz.vercel.app`
 Precios en la sección: $25TC / $15Eco / $8RX (actualizar si cambian).
 
 ## Pendiente antes del merge a main
-- [ ] Aprobación visual de Atilio + Luis Alberto + esposo
+- [ ] Aprobación visual de Atilio + esposo
 - [ ] Google Analytics: reemplazar `G-XXXXXXXXXX` en `index.html` con el Measurement ID real

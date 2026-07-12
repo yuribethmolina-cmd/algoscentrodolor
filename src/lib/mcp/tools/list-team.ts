@@ -24,18 +24,6 @@ const TEAM = [
   },
   {
     type: "confirmed",
-    slug: "dr-luis-alberto",
-    givenName: "Dr. Luis Alberto",
-    familyName: "Rodríguez",
-    role: "Director · Estrategia Internacional",
-    specialty: "Neurocirujano",
-    city: "Múnich",
-    country: "Venezuela",
-    group: "02",
-    bio: { formacion: "Neurocirujano.", idiomas: "Español · Deutsch" },
-  },
-  {
-    type: "confirmed",
     slug: "lcdo-daniel",
     givenName: "Lcdo. Daniel",
     familyName: "Rodríguez",

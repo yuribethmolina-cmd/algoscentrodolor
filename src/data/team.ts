@@ -1,8 +1,6 @@
 import photoAtilioPic from '@/assets/team-atilio.png?w=320;480;720&format=avif;webp;jpg&as=picture';
-import photoLuisPic from '@/assets/team-luis.png?w=320;480;720&format=avif;webp;jpg&as=picture';
 import photoDanielPic from '@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture';
 const photoAtilio = photoAtilioPic.img.src;
-const photoLuis = photoLuisPic.img.src;
 const photoDaniel = photoDanielPic.img.src;
 
 export type ConfirmedMember = {
@@ -63,26 +61,6 @@ const TEAM: TeamMember[] = [
     profileLine: 'Especialidad principal en procedimientos intervencionistas guiados por imagen. Subespecialidad en medicina del dolor.',
     city: 'Maracaibo',
     group: '01',
-  },
-
-  // GROUP 02 · ASESORÍA MÉDICA INTERNACIONAL
-  {
-    type: 'confirmed',
-    slug: 'dr-luis-alberto',
-    index: '02',
-    givenName: 'Dr. Luis Alberto',
-    familyName: 'Rodríguez',
-    role: 'Director · Estrategia Internacional',
-    specialty: 'Neurocirujano',
-    city: 'Múnich',
-    country: 'Venezuela',
-    coords: '',
-    group: '02',
-    photoUrl: photoLuis,
-    bio: {
-      formacion: 'Neurocirujano.',
-      idiomas: 'Español · Deutsch',
-    },
   },
 
   // GROUP 03 · SOPORTE CLÍNICO INTEGRAL
