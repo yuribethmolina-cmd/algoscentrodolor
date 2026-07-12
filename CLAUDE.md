@@ -3,7 +3,7 @@
 ## Proyecto
 Sitio web para ALGOS — Centro de Dolor Intervencionista, Maracaibo, Venezuela.
 Primer centro especializado en dolor intervencionista del Estado Zulia.
-Live: algoscentrodolor.lovable.app · Repo: github.com/yuribethmolina-cmd/algoscentrodolor · Branch: main
+Live: algoscentrodolor.lovable.app · Repo: github.com/yuribethmolina-cmd/algoscentrodolor · Branch activa: home-redesign
 
 ## Personas
 | Quién | Rol |
@@ -14,12 +14,12 @@ Live: algoscentrodolor.lovable.app · Repo: github.com/yuribethmolina-cmd/algosc
 | Lcdo. Daniel Rodríguez | Director Nutrición · Maracaibo |
 
 ## Contacto
-WhatsApp: wa.me/584246467944
+WhatsApp: wa.me/584146807886 · Display: 0414-680 7886
 Email: info@algoscentrodolor.com
 
 ## Marca
 Teal Profundo: #1A4A55 · Teal Principal: #3D8B96 · Gold: #C69636 · Cream: #F5F0E8
-Tipografía: Raleway (200/300, wide tracking) · Helvetica Neue
+Tipografía: Inter Display 600 (headings) · Inter Tight 800 (stats) · Inter italic (emphasis)
 
 ## Alianza estratégica
 ALGOS opera en alianza con UDUZ (uduz.vercel.app)
@@ -28,12 +28,13 @@ Flujo: paciente entra por ALGOS → diagnóstico en UDUZ → procedimiento en AL
 
 ## Stack
 React + Vite + TypeScript + Tailwind CSS + shadcn/ui
-Deploy: Vercel (auto-deploy desde GitHub main)
+Deploy: Lovable (auto-deploy desde branch home-redesign · merge a main cuando esté listo)
 
-## Estado actual (junio 2026)
-- Web live con secciones: Hero, Trust Strip, Tres Caminos, Procedimientos, Equipo, Stats, Alianza UDUZ, CTA, Footer
-- Fixes críticos completados: WhatsApp, email, teléfonos reales
-- Pendiente: foto Dra. Aliseth, 2 stats faltantes, humanización del copy
+## Estado actual (julio 2026)
+- Config central: src/config/algos.config.ts — toda la data de negocio en un archivo
+- 41 archivos conectados al config — cero URLs de WhatsApp hardcodeadas
+- Lighthouse mobile: Performance 79 · Accessibility 91 · Best Practices 100 · SEO 100
+- Pendiente: merge home-redesign → main · foto Dra. Aliseth
 
 ## Preferencias de trabajo
 - Español neutro latinoamericano, tuteo
