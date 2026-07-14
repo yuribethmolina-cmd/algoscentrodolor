@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import SEOHead from "@/components/SEOHead";
 import { ALGOS } from "@/config/algos.config";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
@@ -36,20 +37,25 @@ const WITHOUT_PAGES = [
 export default function CondicionesIndex() {
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Condiciones y tratamientos de dolor | ALGOS Maracaibo"
+        description="Dolor lumbar, cervical, ciática, hernia discal, neuropatía y más. Conozca las condiciones que tratamos en ALGOS, centro de dolor intervencionista en Maracaibo."
+        canonical="https://algoscentrodolor.com/condiciones"
+      />
       <Navbar />
 
       <main>
         <PageHero
           eyebrow="¿Dónde le duele?"
-          title="El dolor tiene causa. Nosotros la tratamos."
+          title="Condiciones y tratamientos de dolor"
           subtitle="Seleccione la zona que le molesta. Le explicamos qué puede estar causándolo y qué opciones de tratamiento existen."
         />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-10">
+            <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-10">
               Condiciones con página informativa
-            </p>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-deep-teal/10">
               {WITH_PAGES.map((c) => (
                 <Link
@@ -68,9 +74,9 @@ export default function CondicionesIndex() {
             </div>
 
             <div className="mt-20">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-6">
+              <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-6">
                 También tratamos
-              </p>
+              </h2>
               <p className="font-sans text-steel-teal text-[15px] leading-[1.7] mb-6 max-w-[60ch]">
                 Las siguientes condiciones forman parte de nuestra práctica clínica. Un médico evalúa cada caso y define el abordaje que corresponde.
               </p>

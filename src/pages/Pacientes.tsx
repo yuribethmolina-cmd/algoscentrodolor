@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
+import SEOHead from "@/components/SEOHead";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 import { ALGOS } from "@/config/algos.config";
 
@@ -75,6 +76,11 @@ const FAQS = [
 export default function Pacientes() {
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Para pacientes · ALGOS Centro de Dolor Maracaibo"
+        description="Cómo funciona una consulta en ALGOS: primera evaluación, plan personalizado y procedimientos mínimamente invasivos guiados por imagen en Maracaibo."
+        canonical="https://algoscentrodolor.com/pacientes"
+      />
       <Navbar />
 
       <main>
