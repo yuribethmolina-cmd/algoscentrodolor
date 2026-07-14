@@ -134,7 +134,7 @@ export default function Infiltraciones() {
 
         <ProcedureSplitBlock
           image={imgBloqueoFacetario.url}
-          imageAlt="Bloqueo facetario guiado por ecografía en sala de procedimientos"
+          imageAlt="Bloqueo ecoguiado en columna lumbar en sala de procedimientos"
           eyebrow="Para qué sirve"
           imageCaption="Bloqueo ecoguiado en columna lumbar"
         >
