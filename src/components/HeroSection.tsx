@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
+import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
 
-const HERO_VIDEO_SRC = "/videos/hero-home.mp4";
+const HERO_VIDEO_SRC = heroVideo.url;
 
 // Decide whether to load the video based on connection/motion preferences.
 function pickVideoSrc(): string | null {
