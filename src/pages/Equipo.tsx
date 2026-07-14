@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import SEOHead from "@/components/SEOHead";
+import EquipoSpecialtySections from "@/components/EquipoSpecialtySections";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
@@ -201,6 +203,27 @@ export default function Equipo() {
 
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Equipo médico multidisciplinario | ALGOS Centro de Dolor"
+        description="Conozca al equipo de ALGOS en Maracaibo: neurocirugía y columna, traumatología, fisiatría, reumatología, algología, psicología y nutrición para el manejo del dolor."
+        canonical="https://algoscentrodolor.com/equipo"
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalOrganization",
+            name: "ALGOS Centro de Dolor",
+            url: "https://algoscentrodolor.com/equipo",
+            medicalSpecialty: AVAILABLE_SPECIALTIES.map((s) => s.name),
+            employee: DOCTORES.map((d) => ({
+              "@type": "Physician",
+              name: d.name,
+              medicalSpecialty: d.specialty,
+              url: `https://algoscentrodolor.com/equipo/${d.slug}`,
+            })),
+          })}
+        </script>
+      </SEOHead>
       <Navbar />
 
       <main>
@@ -299,6 +322,9 @@ export default function Equipo() {
             )}
           </div>
         </section>
+
+        <EquipoSpecialtySections />
+
 
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
