@@ -7,7 +7,8 @@ import imgMiofascial from "@/assets/tx-miofascial.jpg";
 import imgPostherpetica from "@/assets/tx-postherpetica.jpg";
 import imgTunel from "@/assets/tx-tunel-carpiano.jpg";
 import cefaleaHeroAsset from "@/assets/cefalea-cerebro.jpg.asset.json";
-export const CEFALEA_CONTENT_IMAGE = "/__l5e/assets-v1/placeholder"; // replaced below
+import cefaleaContentAsset from "@/assets/cefalea-mujer.jpg.asset.json";
+export const CEFALEA_CONTENT_IMAGE = cefaleaContentAsset.url;
 
 import lumbarAsset from "@/assets/cond-lumbar.jpg.asset.json";
 import cervicalAsset from "@/assets/cond-cervical.jpg.asset.json";
