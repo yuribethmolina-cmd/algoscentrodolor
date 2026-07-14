@@ -55,7 +55,7 @@ export default function Ciatica() {
             </p>
 
             <div className="mb-14">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
+              <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</h2>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
                   Primero, la causa: la consulta y, cuando hacen falta, la imagen y la electromiografía confirman qué está comprimiendo el nervio y dónde. Después, el tratamiento que su caso necesita: puede ir desde el manejo con medicamentos hasta <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link>, y, si la causa es una hernia de disco confirmada, el <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> como opción antes de plantear una cirugía. Solo lo que hace falta, en el orden que hace falta.
                 </p>
