@@ -119,6 +119,25 @@ export default function EstudiosDiagnosticos() {
                 />
               );
             })}
+
+            {/* UDUZ WhatsApp CTA */}
+            <div className="text-center pt-4">
+              <p className="text-[#8DC63F] font-medium text-xs tracking-[0.28em] uppercase mb-4">
+                COORDINAR ESTUDIO
+              </p>
+              <h3 className="font-display font-semibold text-[#f5f0e8] text-2xl md:text-3xl leading-tight max-w-xl mx-auto mb-6">
+                Escríbanos a UDUZ referido desde ALGOS.
+              </h3>
+              <a
+                href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-[#1B6B78] hover:bg-[#8DC63F] hover:text-[#1B6B78] text-[#f5f0e8] font-sans font-bold uppercase text-[13px] tracking-[0.18em] px-8 py-4 transition-colors"
+              >
+                <Activity className="w-4 h-4" strokeWidth={2} />
+                Escribir por WhatsApp
+              </a>
+            </div>
           </div>
         </section>
       </main>
