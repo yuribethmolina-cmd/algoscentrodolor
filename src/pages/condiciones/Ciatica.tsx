@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import SEOHead from "@/components/SEOHead";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-articular-cadera.jpg.asset.json";
 import ciaticaAnatomia from "@/assets/ciatica-anatomia.jpeg.asset.json";
@@ -13,6 +14,11 @@ const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3
 export default function Ciatica() {
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Ciática en Maracaibo: causas y tratamiento | ALGOS"
+        description="Diagnóstico y tratamiento de la ciática en Maracaibo: infiltraciones, bloqueos guiados por imagen y ozono intradiscal cuando la causa es una hernia discal."
+        canonical="https://algoscentrodolor.com/condiciones/ciatica"
+      />
       <Navbar />
       <main>
         <PageHero
