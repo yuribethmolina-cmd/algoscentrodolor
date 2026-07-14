@@ -23,6 +23,12 @@ export type Doctor = {
   isDirector?: boolean;
   photo?: PictureImport;
   photoPosition?: string;
+  /** Biografía / presentación breve para el perfil individual. */
+  bio?: string;
+  /** Credenciales, formación, cargos previos. */
+  credentials?: string[];
+  /** Idiomas de atención. */
+  languages?: string[];
 };
 
 /**
@@ -39,6 +45,13 @@ export const DOCTORS: Doctor[] = [
     isDirector: true,
     photo: drAtilioPic,
     photoPosition: "center top",
+    bio: "Neurocirujano fundador y Director Médico de ALGOS. Lidera el enfoque intervencionista del centro: procedimientos guiados por imagen para tratar el dolor de columna y nervios cuando la cirugía todavía no hace falta.",
+    credentials: [
+      "Neurocirujano — Universidad del Zulia",
+      "Especialista en dolor intervencionista y cirugía de columna",
+      "Director Médico · ALGOS Centro de Dolor",
+    ],
+    languages: ["Español"],
   },
   {
     slug: "dr-antulio-parra",
@@ -99,9 +112,20 @@ export const DOCTORS: Doctor[] = [
     isDirector: true,
     photo: teamDanielPic,
     photoPosition: "center 20%",
+    bio: "Licenciado en Nutrición y Dietética. Acompaña al paciente intervencionista con un plan antiinflamatorio individualizado, enfocado en apoyar la recuperación y reducir factores metabólicos que sostienen el dolor.",
+    credentials: [
+      "Licenciado en Nutrición y Dietética",
+      "Especialista en nutrición clínica antiinflamatoria",
+      "Director de Nutrición · ALGOS Centro de Dolor",
+    ],
+    languages: ["Español"],
   },
 ];
 
 export function getDoctorsBySpecialty(slug: Doctor["specialtySlug"]): Doctor[] {
   return DOCTORS.filter((d) => d.specialtySlug === slug);
+}
+
+export function getDoctorBySlug(slug: string): Doctor | undefined {
+  return DOCTORS.find((d) => d.slug === slug);
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -126,16 +127,25 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
           </p>
         )}
 
-        <a
-          href={WA}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-auto w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
-        >
-          <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
-          Agendar consulta
-          <span aria-hidden="true">→</span>
-        </a>
+        <div className="mt-auto flex flex-col gap-2">
+          <Link
+            to={`/equipo/${d.slug}`}
+            className="w-full inline-flex items-center justify-center gap-2 border border-[#1a4a55]/20 text-[#1a4a55] font-ui text-[11px] tracking-[0.2em] uppercase py-3 px-4 hover:bg-[#1a4a55]/5 transition-all"
+          >
+            Ver perfil
+            <span aria-hidden="true">→</span>
+          </Link>
+          <a
+            href={WA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
+          >
+            <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
+            Agendar consulta
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </article>
   );
