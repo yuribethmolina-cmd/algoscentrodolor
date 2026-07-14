@@ -2,3 +2,6 @@ project_id = "jdxzsocqbobguimsbhng"
 
 [functions.track-conversion]
 verify_jwt = false
+
+[functions.get-conversions-summary]
+verify_jwt = false
