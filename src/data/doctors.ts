@@ -113,7 +113,7 @@ export const DOCTORS: Doctor[] = [
     specialtySlug: "nutricion",
     schedule: "Lunes, martes, jueves y viernes · 1:00 PM - 4:00 PM",
     isDirector: true,
-    photo: teamDanielPic,
+    photo: { sources: {}, img: { src: drDanielAsset.url, w: 1024, h: 1024 } },
     photoPosition: "center 20%",
     bio: "Licenciado en Nutrición y Dietética. Acompaña al paciente intervencionista con un plan antiinflamatorio individualizado, enfocado en apoyar la recuperación y reducir factores metabólicos que sostienen el dolor.",
     credentials: [
