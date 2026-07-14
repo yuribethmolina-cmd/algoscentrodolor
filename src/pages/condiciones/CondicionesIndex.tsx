@@ -37,20 +37,25 @@ const WITHOUT_PAGES = [
 export default function CondicionesIndex() {
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Condiciones y tratamientos de dolor | ALGOS Maracaibo"
+        description="Dolor lumbar, cervical, ciática, hernia discal, neuropatía y más. Conozca las condiciones que tratamos en ALGOS, centro de dolor intervencionista en Maracaibo."
+        canonical="https://algoscentrodolor.com/condiciones"
+      />
       <Navbar />
 
       <main>
         <PageHero
           eyebrow="¿Dónde le duele?"
-          title="El dolor tiene causa. Nosotros la tratamos."
+          title="Condiciones y tratamientos de dolor"
           subtitle="Seleccione la zona que le molesta. Le explicamos qué puede estar causándolo y qué opciones de tratamiento existen."
         />
 
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-10">
+            <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-10">
               Condiciones con página informativa
-            </p>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-deep-teal/10">
               {WITH_PAGES.map((c) => (
                 <Link
