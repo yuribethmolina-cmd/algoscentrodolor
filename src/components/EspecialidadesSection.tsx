@@ -168,12 +168,50 @@ export default function EspecialidadesSection() {
           </p>
         </div>
 
+        {/* Specialty filter chips */}
         <div
-          className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]"
+          className="mt-10 flex flex-wrap gap-2"
+          role="group"
+          aria-label="Filtrar por especialidad"
+        >
+          {[{ slug: "all" as const, name: "Todas" }, ...CARE_PATHS.map((p) => ({ slug: p.specialtySlug, name: p.specialty }))].map((chip) => {
+            const active = activeSlug === chip.slug;
+            return (
+              <button
+                key={chip.slug}
+                type="button"
+                aria-pressed={active}
+                onClick={() => setActiveSlug(chip.slug)}
+                style={{
+                  fontFamily: "Manrope, sans-serif",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  padding: "8px 14px",
+                  border: `1px solid ${active ? GOLD : "rgba(245,240,232,0.25)"}`,
+                  backgroundColor: active ? "rgba(198,150,54,0.22)" : "transparent",
+                  color: active ? CREAM : "rgba(245,240,232,0.75)",
+                  cursor: "pointer",
+                  transition: "background-color 180ms ease, border-color 180ms ease, color 180ms ease",
+                }}
+              >
+                {chip.name}
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]"
           style={{ alignItems: "stretch" }}
         >
           <div
             className="grid md:grid-cols-2"
+            style={{
+              borderTop: `1px solid ${GOLD}55`,
+              borderLeft: `1px solid ${GOLD}55`,
+            }}
+          >
             style={{
               borderTop: `1px solid ${GOLD}55`,
               borderLeft: `1px solid ${GOLD}55`,
