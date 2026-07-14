@@ -29,6 +29,7 @@ export default function ProcedureSplitBlock({
   reverse = false,
   imageCaption,
   mobileContain = false,
+  containImage = false,
   highContrast = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
