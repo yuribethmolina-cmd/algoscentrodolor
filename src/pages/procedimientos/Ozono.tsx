@@ -68,6 +68,54 @@ export default function Ozono() {
           </div>
         </section>
 
+        <section className="bg-cream py-20 md:py-28">
+          <div className="mx-auto max-w-[1100px] px-6 md:px-12">
+            <div className="max-w-[640px] mb-14 md:mb-20">
+              <p className="font-sans text-algos-gold uppercase text-[12px] tracking-[0.28em] mb-4">Cómo actúa</p>
+              <h2 className="font-serif text-deep-teal text-[32px] md:text-[42px] leading-[1.1] tracking-[-0.02em]">
+                Cuatro efectos del ozono sobre el disco herniado
+              </h2>
+            </div>
+
+            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-deep-teal/10">
+              {[
+                {
+                  n: "01",
+                  title: "Reduce el volumen",
+                  desc: "El ozono deshidrata el núcleo del disco, disminuyendo la presión de la hernia sobre el nervio.",
+                },
+                {
+                  n: "02",
+                  title: "Baja la inflamación",
+                  desc: "Modula los mediadores inflamatorios que irritan la raíz nerviosa y perpetúan la ciática.",
+                },
+                {
+                  n: "03",
+                  title: "Mejora la oxigenación",
+                  desc: "Aumenta el aporte de oxígeno a los tejidos peridiscales, favoreciendo su recuperación.",
+                },
+                {
+                  n: "04",
+                  title: "Calma el dolor",
+                  desc: "Al descomprimir y desinflamar, la señal dolorosa disminuye de forma progresiva en semanas.",
+                },
+              ].map((s) => (
+                <li key={s.n} className="bg-cream p-8 md:p-10 flex flex-col">
+                  <div className="flex items-baseline gap-4 mb-6">
+                    <span className="font-serif text-algos-gold text-[42px] leading-none tracking-[-0.02em]">{s.n}</span>
+                    <span className="h-px flex-1 bg-deep-teal/15 translate-y-[-6px]" />
+                  </div>
+                  <h3 className="font-serif text-deep-teal text-[20px] leading-[1.2] mb-3 tracking-[-0.01em]">{s.title}</h3>
+                  <p className="font-sans text-steel-teal text-[14px] leading-[1.65]">{s.desc}</p>
+                </li>
+              ))}
+            </ol>
+
+            <p className="mt-10 font-sans text-steel-teal text-[13px] leading-[1.6] italic max-w-[62ch]">
+              El efecto es progresivo: la mayoría de los pacientes nota alivio entre las 2 y 6 semanas posteriores a la aplicación.
+            </p>
+          </div>
+        </section>
 
 
         <ProcedureDetails
