@@ -28,7 +28,9 @@ export default function ConversionesDashboard() {
   async function load() {
     setLoading(true);
     setError(null);
-    const { data: res, error: err } = await supabase.rpc("get_conversion_summary", { days_back: days });
+    const { data: res, error: err } = await supabase.functions.invoke("get-conversions-summary", {
+      body: { days_back: days },
+    });
     if (err) {
       setError(err.message);
       setData(null);
