@@ -112,9 +112,20 @@ export const DOCTORS: Doctor[] = [
     isDirector: true,
     photo: teamDanielPic,
     photoPosition: "center 20%",
+    bio: "Licenciado en Nutrición y Dietética. Acompaña al paciente intervencionista con un plan antiinflamatorio individualizado, enfocado en apoyar la recuperación y reducir factores metabólicos que sostienen el dolor.",
+    credentials: [
+      "Licenciado en Nutrición y Dietética",
+      "Especialista en nutrición clínica antiinflamatoria",
+      "Director de Nutrición · ALGOS Centro de Dolor",
+    ],
+    languages: ["Español"],
   },
 ];
 
 export function getDoctorsBySpecialty(slug: Doctor["specialtySlug"]): Doctor[] {
   return DOCTORS.filter((d) => d.specialtySlug === slug);
+}
+
+export function getDoctorBySlug(slug: string): Doctor | undefined {
+  return DOCTORS.find((d) => d.slug === slug);
 }
