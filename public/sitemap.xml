@@ -165,4 +165,48 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://algoscentrodolor.com/blog</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Procedimientos (index redirect) -->
+  <url>
+    <loc>https://algoscentrodolor.com/procedimientos</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Tratamientos (condiciones) -->
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-lumbar-ciatica</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-cervical</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-facetario</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/neuropatia</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-articular</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/hernia-discal</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/cirugia-fallida-espalda</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-radicular</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-sacroiliaco</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/estenosis-canal-lumbar</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/dolor-miofascial</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/neuralgia-posherpetica</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/tunel-carpiano</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://algoscentrodolor.com/tratamientos/cefaleas</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Equipo médico -->
+  <url><loc>https://algoscentrodolor.com/equipo/dr-atilio-rodriguez</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dr-antulio-parra</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dr-tomas-iragorry</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dr-miguel-guevara</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dra-doris-meneses</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dra-leslie-ramirez</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dra-carolina-rodriguez</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/dra-gilda-gomez</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://algoscentrodolor.com/equipo/lcdo-daniel-rodriguez</loc><lastmod>2026-07-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
 </urlset>
+
