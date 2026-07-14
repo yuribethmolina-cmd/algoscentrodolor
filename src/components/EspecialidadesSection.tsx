@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
-import { Activity, ArrowRight, Bone, Brain, HeartPulse, Leaf, LucideIcon, Stethoscope } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  Bone,
+  Brain,
+  HeartHandshake,
+  HeartPulse,
+  Leaf,
+  LucideIcon,
+  Stethoscope,
+} from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
 
 const DEEP_TEAL = "#1a4a55";
-const TEAL = "#3d8b96";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
@@ -14,32 +23,36 @@ type CarePath = {
   specialtyHint: string;
   href: string;
   icon: LucideIcon;
+  doctors: string[];
 };
 
 const CARE_PATHS: CarePath[] = [
   {
     pain: "Dolor de espalda o cuello",
     plain: "Cuando el dolor baja al brazo o la pierna, puede venir de la columna o de un nervio.",
-    specialty: "Neurocirugía",
+    specialty: "Neurocirugía y cirugía de columna",
     specialtyHint: "columna y nervios",
     href: "/especialidades#neurocirugia",
     icon: Brain,
+    doctors: ["Dr. Atilio Rodríguez"],
   },
   {
     pain: "Rodilla, hombro o cadera",
     plain: "Si duele al caminar, subir escaleras o mover una articulación, revisamos el origen mecánico.",
-    specialty: "Traumatología",
+    specialty: "Traumatología y Ortopedia",
     specialtyHint: "huesos y articulaciones",
     href: "/especialidades#traumatologia",
     icon: Bone,
+    doctors: ["Dr. Antulio Parra", "Dr. Tomás Iragorry", "Dr. Miguel Guevara"],
   },
   {
     pain: "Hormigueo o adormecimiento",
     plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, puede hacer falta medir el nervio.",
-    specialty: "Electrodiagnóstico",
-    specialtyHint: "nervios y músculos",
+    specialty: "Fisiatría y electrodiagnóstico",
+    specialtyHint: "rehabilitación, nervios y músculos",
     href: "/especialidades#fisiatria",
     icon: Activity,
+    doctors: ["Dra. Carolina Rodríguez", "Dra. Leslie Ramírez"],
   },
   {
     pain: "Dolor con inflamación",
@@ -48,14 +61,25 @@ const CARE_PATHS: CarePath[] = [
     specialtyHint: "inflamación y articulaciones",
     href: "/especialidades#reumatologia",
     icon: HeartPulse,
+    doctors: ["Dra. Doris Meneses"],
   },
   {
     pain: "Dolor persistente",
     plain: "Cuando el dolor no cede con tratamientos habituales, el algólogo evalúa cómo controlarlo con procedimientos seguros, guiados por imagen y sin cirugía mayor.",
-    specialty: "Algología",
+    specialty: "Algología, anestesiología y cuidados paliativos",
     specialtyHint: "dolor crónico y procedimientos intervencionistas",
-    href: "/especialidades#radiologia-intervencionista",
+    href: "/especialidades#cuidados-paliativos",
     icon: Stethoscope,
+    doctors: ["Dra. Gilda Gómez"],
+  },
+  {
+    pain: "Impacto emocional del dolor",
+    plain: "El dolor crónico afecta el ánimo, el sueño y la manera en que se enfrenta el día a día.",
+    specialty: "Psicología",
+    specialtyHint: "salud mental y dolor crónico",
+    href: "/especialidades#psicologia",
+    icon: HeartHandshake,
+    doctors: [],
   },
   {
     pain: "Recuperación y hábitos",
@@ -64,8 +88,10 @@ const CARE_PATHS: CarePath[] = [
     specialtyHint: "soporte y recuperación",
     href: "/especialidades#nutricion",
     icon: Leaf,
+    doctors: ["Lic. Daniel Rodríguez"],
   },
 ];
+
 
 export default function EspecialidadesSection() {
   return (
@@ -269,6 +295,47 @@ export default function EspecialidadesSection() {
                     >
                       {item.specialtyHint}
                     </p>
+                    {item.doctors.length > 0 ? (
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: 0,
+                          margin: "12px 0 0",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 4,
+                        }}
+                      >
+                        {item.doctors.map((doc) => (
+                          <li
+                            key={doc}
+                            style={{
+                              fontFamily: "Manrope, sans-serif",
+                              fontSize: 13,
+                              fontWeight: 600,
+                              lineHeight: 1.4,
+                              color: CREAM,
+                            }}
+                          >
+                            {doc}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        style={{
+                          fontFamily: "Manrope, sans-serif",
+                          fontSize: 12,
+                          fontStyle: "italic",
+                          lineHeight: 1.4,
+                          color: "rgba(245,240,232,0.6)",
+                          marginTop: 12,
+                          marginBottom: 0,
+                        }}
+                      >
+                        Especialista en incorporación
+                      </p>
+                    )}
                   </div>
                 </Link>
               );
