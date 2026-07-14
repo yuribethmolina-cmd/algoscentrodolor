@@ -12,6 +12,7 @@ import { ALGOS } from "@/config/algos.config";
 import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
 import { SPECIALTIES } from "@/data/specialties";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
@@ -226,6 +227,11 @@ export default function Equipo() {
         </script>
       </SEOHead>
       <Navbar />
+      <SEOHead
+        title="Equipo médico — Especialistas en dolor | ALGOS Maracaibo"
+        description="Equipo multidisciplinario de especialistas en dolor intervencionista en Maracaibo. Neurocirugía, nutrición clínica antiinflamatoria, electrodiagnóstico (EMG · EEG) y más. Estado Zulia."
+        canonical="https://algoscentrodolor.com/equipo"
+      />
 
       <main>
         <PageHeroVideo

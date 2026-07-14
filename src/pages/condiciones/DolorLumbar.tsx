@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-lumbar.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20lumbar.";
 
@@ -13,6 +14,11 @@ export default function DolorLumbar() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
+      <SEOHead
+        title="Dolor lumbar — Especialista en Maracaibo | ALGOS Centro de Dolor"
+        description="Dolor de cintura que no cede con reposo ni calmantes. Neurocirujano especialista en dolor lumbar en Maracaibo. Diagnóstico y tratamiento sin cirugía en el Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones/dolor-lumbar"
+      />
       <main>
         <PageHero
           eyebrow="Condición"

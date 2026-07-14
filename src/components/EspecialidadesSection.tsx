@@ -54,8 +54,8 @@ const CARE_PATHS: CarePath[] = [
   },
   {
     pain: "Hormigueo o adormecimiento",
-    plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, puede hacer falta medir el nervio.",
-    specialty: "Fisiatría y electrodiagnóstico",
+    plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, el EMG mide exactamente qué nervio está afectado y en qué punto.",
+    specialty: "EMG · EEG · Fisiatría",
     specialtyHint: "rehabilitación, nervios y músculos",
     specialtySlug: "fisiatria",
     icon: Activity,

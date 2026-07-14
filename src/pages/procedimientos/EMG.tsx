@@ -11,6 +11,7 @@ import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 const imgHero = imgHeroAsset.url;
 const imgPierna = imgPiernaAsset.url;
 const imgBrazo = imgBrazoAsset.url;
@@ -305,6 +306,11 @@ export default function EMG() {
         })}</script>
       </SEOHead>
       <Navbar />
+      <SEOHead
+        title="Electromiografía (EMG) en Maracaibo — ALGOS Centro de Dolor"
+        description="Electromiografía (EMG) en Maracaibo, Estado Zulia. Diagnóstico de daño nervioso y muscular: ciática, neuropatía diabética, hormigueo y debilidad. Resultado el mismo día."
+        canonical="https://algoscentrodolor.com/procedimientos/emg"
+      />
       <main>
         <CinematicHero hc={hc} />
 

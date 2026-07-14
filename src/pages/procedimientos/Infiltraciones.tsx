@@ -13,6 +13,7 @@ import imgHombroEco from "@/assets/infiltracion-hombro-eco.webp.asset.json";
 import imgFluoroscopia from "@/assets/infiltracion-fluoroscopia.webp.asset.json";
 import imgLumbar from "@/assets/infiltracion-lumbar.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const imgSala = imgBloqueoFacetario.url;
 
@@ -35,6 +36,11 @@ export default function Infiltraciones() {
   return (
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
+      <SEOHead
+        title="Infiltraciones y bloqueos — Dolor sin cirugía en Maracaibo | ALGOS"
+        description="Infiltraciones y bloqueos nerviosos guiados por imagen en Maracaibo. Alivio del dolor intervencionista sin hospitalización. Neurocirujano especialista en el Estado Zulia."
+        canonical="https://algoscentrodolor.com/procedimientos/infiltraciones-y-bloqueos"
+      />
       <main>
         {/* Hero with video background */}
         <section

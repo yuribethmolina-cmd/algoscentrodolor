@@ -11,6 +11,7 @@ import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgMain from "@/assets/sala-procedimientos.jpg";
 import imgProc from "@/assets/about-procedure.jpg";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20los%20procedimientos%20disponibles.";
 
@@ -19,6 +20,11 @@ export default function Radiofrecuencia() {
   return (
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
+      <SEOHead
+        title="Radiofrecuencia para el dolor — Maracaibo | ALGOS"
+        description="Tratamiento con radiofrecuencia para dolor crónico de columna en Maracaibo. Procedimiento mínimamente invasivo guiado por imagen. Sin cirugía, alta el mismo día. Estado Zulia."
+        canonical="https://algoscentrodolor.com/procedimientos/radiofrecuencia"
+      />
       <main>
         <PageHero eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía, próximamente en ALGOS." />
 

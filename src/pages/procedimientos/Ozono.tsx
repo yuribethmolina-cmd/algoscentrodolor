@@ -15,6 +15,7 @@ const imgMain = ozonoAsset.url;
 const imgSala = ozonoAgujaAsset.url;
 const imgDiagrama = ozonoDiagramaAsset.url;
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
 
@@ -23,6 +24,11 @@ export default function Ozono() {
   return (
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
+      <SEOHead
+        title="Ozono para hernia discal — Tratamiento en Maracaibo | ALGOS"
+        description="Tratamiento de ozono para hernia discal en Maracaibo. Alternativa mínimamente invasiva a la cirugía. Guiado por imagen, sin hospitalización, alta el mismo día. Estado Zulia."
+        canonical="https://algoscentrodolor.com/procedimientos/ozono-hernia-discal"
+      />
       <main>
         <PageHero eyebrow="Procedimiento" title="Ozono para hernia discal" subtitle="Tratamiento del dolor de disco sin cirugía." />
 

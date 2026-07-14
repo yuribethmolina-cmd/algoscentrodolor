@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-cirugia-fallida.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20dolor%20que%20persiste%20tras%20una%20cirug%C3%ADa%20de%20columna.";
 
@@ -13,6 +14,11 @@ export default function DolorTrasCirugia() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
+      <SEOHead
+        title="Dolor tras cirugía de columna — Especialista en Maracaibo | ALGOS"
+        description="Si la cirugía de columna no fue suficiente y el dolor persiste, hay opciones. Tratamiento intervencionista para dolor post-quirúrgico en Maracaibo. Neurocirujano especialista en el Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones/dolor-tras-cirugia"
+      />
       <main>
         <PageHero
           eyebrow="Condición"

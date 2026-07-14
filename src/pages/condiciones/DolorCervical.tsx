@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-cervical.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20el%20dolor%20cervical.";
 
@@ -13,6 +14,11 @@ export default function DolorCervical() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
+      <SEOHead
+        title="Dolor cervical — Neurocirujano en Maracaibo | ALGOS"
+        description="Dolor de cuello que sube o baja al hombro y el brazo. Tratamiento especializado en Maracaibo. Diagnóstico guiado por imagen, procedimientos mínimamente invasivos. Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones/dolor-cervical"
+      />
       <main>
         <PageHero
           eyebrow="Condición"

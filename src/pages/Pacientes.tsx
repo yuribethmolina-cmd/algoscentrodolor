@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WHATSAPP_PACIENTES = ALGOS.contact.whatsappHref;
 
@@ -82,6 +83,11 @@ export default function Pacientes() {
         canonical="https://algoscentrodolor.com/pacientes"
       />
       <Navbar />
+      <SEOHead
+        title="Para pacientes — Cómo agendar | ALGOS Centro de Dolor Maracaibo"
+        description="¿Tienes dolor crónico y no sabes por dónde empezar? En ALGOS te orientamos. Agenda tu consulta con el especialista en dolor intervencionista en Maracaibo, Estado Zulia."
+        canonical="https://algoscentrodolor.com/pacientes"
+      />
 
       <main>
         {/* HERO */}

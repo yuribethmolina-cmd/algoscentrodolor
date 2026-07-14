@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import SEOHead from "@/components/SEOHead";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
 
@@ -43,6 +44,11 @@ export default function CondicionesIndex() {
         canonical="https://algoscentrodolor.com/condiciones"
       />
       <Navbar />
+      <SEOHead
+        title="Condiciones tratadas | ALGOS Centro de Dolor — Maracaibo"
+        description="Hernia discal, ciática, dolor lumbar, dolor cervical, neuropatía diabética. Diagnóstico con EMG y tratamiento intervencionista en Maracaibo sin cirugía. Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones"
+      />
 
       <main>
         <PageHero

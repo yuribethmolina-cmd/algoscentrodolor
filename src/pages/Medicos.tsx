@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 export default function Medicos() {
   return (
@@ -13,6 +14,11 @@ export default function Medicos() {
         canonical="https://algoscentrodolor.com/medicos"
       />
       <Navbar />
+      <SEOHead
+        title="Para médicos — Referidos | ALGOS Centro de Dolor Maracaibo"
+        description="Refiere a tus pacientes a ALGOS en Maracaibo. EMG, EEG, infiltraciones guiadas por imagen, radiofrecuencia y ozono. Centro de dolor intervencionista en el Estado Zulia."
+        canonical="https://algoscentrodolor.com/medicos"
+      />
 
       <main>
 

@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-hernia-discal.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20hernia%20discal.";
 
@@ -13,6 +14,11 @@ export default function HerniaDiscal() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
+      <SEOHead
+        title="Hernia discal sin cirugía — Tratamiento en Maracaibo | ALGOS"
+        description="Tratamiento mínimamente invasivo para hernia discal en Maracaibo. Infiltraciones y ozono guiados por imagen. Sin hospitalización, alta el mismo día. Neurocirujano especialista en el Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones/hernia-discal"
+      />
       <main>
         <PageHero
           eyebrow="Condición"

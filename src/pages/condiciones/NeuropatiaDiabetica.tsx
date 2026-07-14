@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/neuropatia-diabetica-pies.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20neuropat%C3%ADa%20diab%C3%A9tica.";
 
@@ -13,6 +14,11 @@ export default function NeuropatiaDiabetica() {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
+      <SEOHead
+        title="Neuropatía diabética — Tratamiento del dolor en Maracaibo | ALGOS"
+        description="Quemazón, corrientazos o pérdida de sensibilidad en pies por diabetes. Diagnóstico con electromiografía (EMG) y tratamiento intervencionista en Maracaibo, Estado Zulia."
+        canonical="https://algoscentrodolor.com/condiciones/neuropatia-diabetica"
+      />
       <main>
         <PageHero
           eyebrow="Condición"
