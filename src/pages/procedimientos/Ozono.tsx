@@ -8,7 +8,8 @@ import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
-const imgMain = "/placeholder.svg";
+import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
+const imgMain = ozonoAsset.url;
 const imgSala = "/placeholder.svg";
 import { ALGOS } from "@/config/algos.config";
 
