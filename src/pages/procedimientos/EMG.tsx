@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead from "@/components/SEOHead";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
@@ -272,6 +273,37 @@ export default function EMG() {
 
   return (
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+      <SEOHead
+        title="Electromiografía en Maracaibo | EMG y conducción nerviosa | ALGOS"
+        description="Electromiografía (EMG) y estudios de conducción nerviosa en Maracaibo. Diagnóstico de neuropatías, ciática, síndrome del túnel carpiano y compresión de nervios. Interpretación por especialista."
+        canonical="https://algoscentrodolor.com/procedimientos/emg"
+      >
+        <meta name="keywords" content="electromiografía Maracaibo, EMG Maracaibo, estudio de conducción nerviosa Maracaibo, neurofisiología Maracaibo, electromiografia zulia, EMG Zulia" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalTest",
+          "name": "Electromiografía (EMG) y estudio de conducción nerviosa",
+          "alternateName": ["EMG", "Electromiografía", "Estudio de conducción nerviosa"],
+          "description": "Estudio neurofisiológico que evalúa la función de nervios y músculos para diagnosticar neuropatías, radiculopatías, ciática, síndrome del túnel carpiano y compresiones nerviosas.",
+          "usedToDiagnose": [
+            { "@type": "MedicalCondition", "name": "Neuropatía diabética" },
+            { "@type": "MedicalCondition", "name": "Ciática" },
+            { "@type": "MedicalCondition", "name": "Síndrome del túnel carpiano" },
+            { "@type": "MedicalCondition", "name": "Radiculopatía cervical y lumbar" }
+          ],
+          "availableAtOrFrom": {
+            "@type": "MedicalClinic",
+            "name": "ALGOS, Centro de Dolor Intervencionista",
+            "url": "https://algoscentrodolor.com/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Maracaibo",
+              "addressRegion": "Zulia",
+              "addressCountry": "VE"
+            }
+          }
+        })}</script>
+      </SEOHead>
       <Navbar />
       <main>
         <CinematicHero hc={hc} />

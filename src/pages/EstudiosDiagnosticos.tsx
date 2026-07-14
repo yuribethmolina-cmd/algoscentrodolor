@@ -71,10 +71,12 @@ export default function EstudiosDiagnosticos() {
   return (
     <div className="min-h-screen bg-cream">
       <SEOHead
-        title="Estudios diagnósticos en Maracaibo, Tomografía, EMG, Holter | ALGOS"
-        description="Estudios diagnósticos en Maracaibo: tomografía, rayos X, mamografía 3D, electrocardiograma, Holter, electroencefalograma (EEG), electromiografía (EMG) y laboratorio."
+        title="Electromiografía, Electroencefalograma y estudios en Maracaibo | ALGOS"
+        description="Estudios diagnósticos en Maracaibo: electromiografía (EMG), electroencefalograma (EEG), tomografía, rayos X, mamografía 3D, electrocardiograma, Holter y laboratorio. En sede o a domicilio."
         canonical="https://algoscentrodolor.com/estudios-diagnosticos"
-      />
+      >
+        <meta name="keywords" content="electromiografía Maracaibo, EMG Maracaibo, electroencefalograma Maracaibo, EEG Maracaibo, tomografía Maracaibo, mamografía 3D Maracaibo, Holter Maracaibo, electrocardiograma Maracaibo, estudios diagnósticos Zulia, neurofisiología Maracaibo" />
+      </SEOHead>
       <Navbar />
 
       <main className="pt-24">
