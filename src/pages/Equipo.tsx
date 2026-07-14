@@ -20,6 +20,31 @@ const AVAILABLE_SPECIALTIES = SPECIALTIES.filter((s) =>
   DOCTORES.some((d) => d.specialtySlug === s.slug),
 );
 
+function FilterChip({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`font-sans text-[12px] font-medium tracking-wide px-4 py-2 border transition-all ${
+        active
+          ? "bg-[#1a4a55] border-[#1a4a55] text-[#f5f0e8]"
+          : "bg-white border-[#1a4a55]/20 text-[#1a4a55]/80 hover:border-[#3d8b96] hover:text-[#1a4a55]"
+      }`}
+    >
+      {label}
+    </button>
+  );
+}
+
 
 function DoctorCard({ d, index }: { d: Doctor; index: number }) {
   return (
