@@ -11,6 +11,7 @@ import { BadgeCheck, Calendar, Search, UserRound, X } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
 import { SPECIALTIES } from "@/data/specialties";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
