@@ -6,9 +6,10 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
-import imgSala from "@/assets/sala-procedimientos.jpg";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
 import { ALGOS } from "@/config/algos.config";
+
+const imgSala = "/placeholder.svg";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
@@ -120,9 +121,9 @@ export default function Infiltraciones() {
 
         <ProcedureSplitBlock
           image={imgSala}
-          imageAlt="Sala de procedimientos ALGOS"
+          imageAlt="Imagen pendiente"
           eyebrow="Para qué sirve"
-          imageCaption="Sala de procedimientos ALGOS"
+          imageCaption="Imagen pendiente"
         >
           <p>
             Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna.

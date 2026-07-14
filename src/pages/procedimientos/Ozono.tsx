@@ -4,14 +4,12 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
-import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
-import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
-const imgMain = ozonoAsset.url;
-import imgSala from "@/assets/sala-procedimientos.jpg";
+const imgMain = "/placeholder.svg";
+const imgSala = "/placeholder.svg";
 import { ALGOS } from "@/config/algos.config";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
@@ -36,9 +34,9 @@ export default function Ozono() {
 
         <ProcedureSplitBlock
           image={imgSala}
-          imageAlt="Sala de procedimientos ALGOS"
+          imageAlt="Imagen pendiente"
           eyebrow="Para qué sirve"
-          imageCaption="Sala de procedimientos ALGOS"
+          imageCaption="Imagen pendiente"
         >
           <p>
             Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía.
@@ -83,12 +81,7 @@ export default function Ozono() {
           ]}
         />
 
-        <ProcedureVideoSection
-          src="/videos/hernia-discal.mp4"
-          eyebrow="Video del procedimiento"
-          title="Así se aplica el ozono en la hernia discal"
-          description="Un vistazo al procedimiento guiado por imagen, tal como se realiza en sala. Con anestesia local y de forma ambulatoria."
-        />
+{/* Video del procedimiento: pendiente de reemplazo */}
 
         <section className="bg-deep-teal py-20 md:py-28">
 
