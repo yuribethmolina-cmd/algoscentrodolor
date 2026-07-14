@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import algosFacade from "@/assets/algos-facade.png";
+import algosFacade from "@/assets/algos-facade.webp.asset.json";
 import { MapPin, Navigation, Clock, Phone } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 
