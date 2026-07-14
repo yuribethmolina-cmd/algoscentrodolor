@@ -23,55 +23,55 @@ type Doctor = {
 const DOCTORES: Doctor[] = [
   {
     name: "Dr. Atilio Rodríguez",
-    specialty: "Neurocirugía Intervencionista · Director Médico",
-    schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
+    specialty: "Neurocirugía y cirugía de columna · Director Médico",
+    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
     photo: drAtilioPic,
     photoPosition: "center top",
     isDirector: true,
   },
   {
-    name: "Lic. Daniel Rodríguez",
-    specialty: "Nutrición Clínica Antiinflamatoria",
-    schedule: "Lun, Mar, Jue y Vie · 1:00 PM – 4:00 PM",
-    photo: teamDanielPic,
-    photoPosition: "center 20%",
-    isDirector: true,
-  },
-  {
     name: "Dr. Antulio Parra",
-    specialty: "Traumatología y Columna",
+    specialty: "Traumatología y Ortopedia",
     schedule: "Martes y jueves · 8:00 AM – 11:00 AM",
   },
   {
+    name: "Dr. Tomás Iragorry",
+    specialty: "Traumatología y Ortopedia",
+    schedule: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
+  },
+  {
     name: "Dr. Miguel Guevara",
-    specialty: "Radiología Intervencionista",
+    specialty: "Traumatología y Ortopedia",
     schedule: "Lunes · 8:00 AM – 10:00 AM",
   },
   {
-    name: "Dr. Tomás Iragorry",
-    specialty: "Anestesiología del Dolor",
-    schedule: "Lun, Mar y Mié · 8:00 AM – 12:00 PM",
-  },
-  {
-    name: "Dra. Carolina Rodríguez",
-    specialty: "Electrodiagnóstico (EEG · EMG)",
-    schedule: "Miércoles por la tarde",
-    note: "Los estudios EEG se realizan en UDUZ",
-  },
-  {
     name: "Dra. Doris Meneses",
-    specialty: "Neurocirugía · Columna vertebral",
+    specialty: "Reumatología",
     schedule: "Viernes · 8:00 AM – 12:00 PM",
   },
   {
+    name: "Dra. Leslie Ramírez",
+    specialty: "Fisiatría y rehabilitación",
+    schedule: "Jueves · 2:00 PM",
+  },
+  {
+    name: "Dra. Carolina Rodríguez",
+    specialty: "Fisiatría, rehabilitación y estudios electromiográficos",
+    schedule: "Miércoles tarde",
+    note: "Los estudios EEG se realizan en UDUZ",
+  },
+  {
     name: "Dra. Gilda Gómez",
-    specialty: "Reumatología",
+    specialty: "Algología, anestesiología y cuidados paliativos",
     schedule: "Miércoles · 9:00 AM – 12:00 PM",
   },
   {
-    name: "Dra. Leslie Ramírez",
-    specialty: "Fisiatría",
-    schedule: "Jueves · 2:00 PM",
+    name: "Lic. Daniel Rodríguez",
+    specialty: "Nutrición Clínica Antiinflamatoria",
+    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
+    photo: teamDanielPic,
+    photoPosition: "center 20%",
+    isDirector: true,
   },
 ];
 
