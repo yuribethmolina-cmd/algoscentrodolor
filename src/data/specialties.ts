@@ -6,6 +6,8 @@ export type Specialty = {
   evalua: string;
   trata: string;
   acompana: string;
+  /** Especialidad aún sin especialista asignado. La validación no exige médicos. */
+  aspirational?: boolean;
 };
 
 export const SPECIALTIES: Specialty[] = [
