@@ -1,14 +1,21 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
+import SEOHead from "@/components/SEOHead";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 import { ALGOS } from "@/config/algos.config";
 
 export default function Medicos() {
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Para médicos referentes · ALGOS Maracaibo"
+        description="Información para médicos que refieren pacientes con dolor crónico a ALGOS: procedimientos disponibles, criterios de referencia e informes de retorno."
+        canonical="https://algoscentrodolor.com/medicos"
+      />
       <Navbar />
 
       <main>
+
         {/* HERO */}
         <section className="relative overflow-hidden bg-cream pt-32 pb-16 md:pt-40 md:pb-24">
           {/* Atmospheric video background */}
