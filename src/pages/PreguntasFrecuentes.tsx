@@ -80,9 +80,26 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function PreguntasFrecuentes() {
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead
+        title="Preguntas frecuentes · ALGOS Maracaibo"
+        description="Dudas frecuentes sobre consultas y procedimientos de dolor intervencionista en ALGOS Maracaibo: costos, seguridad, recuperación y referencias médicas."
+        canonical="https://algoscentrodolor.com/preguntas-frecuentes"
+      >
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+      </SEOHead>
       <Navbar />
+
 
       <main>
         <PageHeroVideo
