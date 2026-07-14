@@ -53,7 +53,7 @@ export default function CTASection() {
           </div>
 
           {/* Trust reinforcements */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/40">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/70">
             <span className="flex items-center gap-2 text-sm font-light">
               <ShieldCheck size={16} />
               Sin compromiso
