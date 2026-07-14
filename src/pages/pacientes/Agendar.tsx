@@ -60,6 +60,11 @@ export default function Agendar() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
+    trackAppointment({
+      condition: form.condicion || "unspecified",
+      hasStudies: form.tieneEstudios || "unspecified",
+      source: "form_agendar",
+    });
     window.open(`https://wa.me/${WA_NUMBER}?text=${buildWAMessage(form)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
