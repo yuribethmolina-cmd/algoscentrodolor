@@ -4,76 +4,14 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SmartImage from "@/components/SmartImage";
 import { BadgeCheck, Calendar, UserRound } from "lucide-react";
-import drAtilioPic from "@/assets/dr-atilio-full.png?w=320;480;720&format=avif;webp;jpg&as=picture";
-import teamDanielPic from "@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture";
 import { ALGOS } from "@/config/algos.config";
+import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
-type Doctor = {
-  name: string;
-  specialty: string;
-  schedule: string;
-  note?: string;
-  photo?: typeof drAtilioPic;
-  photoPosition?: string;
-  isDirector?: boolean;
-};
+type Doctor = DoctorData;
+const DOCTORES: Doctor[] = DOCTORS;
 
-const DOCTORES: Doctor[] = [
-  {
-    name: "Dr. Atilio Rodríguez",
-    specialty: "Neurocirugía y cirugía de columna · Director Médico",
-    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
-    photo: drAtilioPic,
-    photoPosition: "center top",
-    isDirector: true,
-  },
-  {
-    name: "Dr. Antulio Parra",
-    specialty: "Traumatología y Ortopedia",
-    schedule: "Martes y jueves · 8:00 AM – 11:00 AM",
-  },
-  {
-    name: "Dr. Tomás Iragorry",
-    specialty: "Traumatología y Ortopedia",
-    schedule: "Lunes, martes y miércoles · 8:00 AM – 12:00 PM",
-  },
-  {
-    name: "Dr. Miguel Guevara",
-    specialty: "Traumatología y Ortopedia",
-    schedule: "Lunes · 8:00 AM – 10:00 AM",
-  },
-  {
-    name: "Dra. Doris Meneses",
-    specialty: "Reumatología",
-    schedule: "Viernes · 8:00 AM – 12:00 PM",
-  },
-  {
-    name: "Dra. Leslie Ramírez",
-    specialty: "Fisiatría y rehabilitación",
-    schedule: "Jueves · 2:00 PM",
-  },
-  {
-    name: "Dra. Carolina Rodríguez",
-    specialty: "Fisiatría, rehabilitación y estudios electromiográficos",
-    schedule: "Miércoles tarde",
-    note: "Los estudios EEG se realizan en UDUZ",
-  },
-  {
-    name: "Dra. Gilda Gómez",
-    specialty: "Algología, anestesiología y cuidados paliativos",
-    schedule: "Miércoles · 9:00 AM – 12:00 PM",
-  },
-  {
-    name: "Lic. Daniel Rodríguez",
-    specialty: "Nutrición Clínica Antiinflamatoria",
-    schedule: "Lunes, martes, jueves y viernes · 1:00 PM – 4:00 PM",
-    photo: teamDanielPic,
-    photoPosition: "center 20%",
-    isDirector: true,
-  },
-];
 
 function DoctorCard({ d, index }: { d: Doctor; index: number }) {
   return (
