@@ -74,9 +74,9 @@ export default function CondicionesIndex() {
             </div>
 
             <div className="mt-20">
-              <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-6">
+              <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-6">
                 También tratamos
-              </p>
+              </h2>
               <p className="font-sans text-steel-teal text-[15px] leading-[1.7] mb-6 max-w-[60ch]">
                 Las siguientes condiciones forman parte de nuestra práctica clínica. Un médico evalúa cada caso y define el abordaje que corresponde.
               </p>
