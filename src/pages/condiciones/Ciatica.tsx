@@ -37,7 +37,7 @@ export default function Ciatica() {
 
         <article className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
+            <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</h2>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
               La ciática es un dolor que nace en la parte baja de la espalda y baja por la pierna, a veces como un corrientazo, a veces con hormigueo o adormecimiento. Ocurre cuando algo irrita o comprime el nervio ciático, con frecuencia, una hernia de disco. No es "un dolor de espalda más": es un nervio pidiendo atención.
             </p>
