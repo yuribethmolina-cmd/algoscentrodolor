@@ -44,7 +44,7 @@ export default function ProcedureSplitBlock({
             reverse ? "md:[&>*:first-child]:order-2" : ""
           }`}
         >
-          {/* Image column — 7/12 */}
+          {/* Image column, 7/12 */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function ProcedureSplitBlock({
             )}
           </motion.div>
 
-          {/* Text column — 5/12 */}
+          {/* Text column, 5/12 */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

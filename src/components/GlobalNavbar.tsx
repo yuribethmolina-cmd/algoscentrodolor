@@ -72,7 +72,7 @@ export default function GlobalNavbar() {
     >
       <div className="container mx-auto flex items-center justify-between h-24 px-6">
         <Link to="/" className="flex items-center">
-          <img src="/algos-logo-dark.png" alt="ALGOS — Centro de Dolor Intervencionista" width={160} height={40} loading="eager" decoding="sync" fetchPriority="high" data-no-placeholder className="h-12 w-auto" />
+          <img src="/algos-logo-dark.png" alt="ALGOS, Centro de Dolor Intervencionista" width={160} height={40} loading="eager" decoding="sync" fetchPriority="high" data-no-placeholder className="h-12 w-auto" />
         </Link>
 
         {/* Desktop links */}

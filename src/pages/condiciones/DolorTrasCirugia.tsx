@@ -18,7 +18,7 @@ export default function DolorTrasCirugia() {
           eyebrow="Condición"
           title="Dolor tras cirugía de columna: cuando la operación no fue suficiente"
           patientTitle="Me operaron y sigo con dolor"
-          patientSubtitle="Cuando la cirugía no fue suficiente y el dolor persiste o volvió. No es normal vivir así — hay opciones antes de una segunda operación."
+          patientSubtitle="Cuando la cirugía no fue suficiente y el dolor persiste o volvió. No es normal vivir así, hay opciones antes de una segunda operación."
         />
 
         <div className="bg-cream pt-8 md:pt-10">
@@ -37,7 +37,7 @@ export default function DolorTrasCirugia() {
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si se operó de la columna y el dolor no desapareció; si mejoró y luego volvió; si el dolor es diferente al de antes de la cirugía pero igual de limitante; o si le han dicho que no hay nada más que hacer y usted siente que eso no puede ser cierto — es momento de una segunda evaluación.
+              Si se operó de la columna y el dolor no desapareció; si mejoró y luego volvió; si el dolor es diferente al de antes de la cirugía pero igual de limitante; o si le han dicho que no hay nada más que hacer y usted siente que eso no puede ser cierto, es momento de una segunda evaluación.
             </p>
 
             <div className="mb-14">

@@ -67,7 +67,7 @@ const INFO_CARDS = [
     Icon: Clock,
     label: "02 · HORARIO",
     title: "Horario",
-    lines: ["Lunes a viernes · 7:00 AM – 4:00 PM"],
+    lines: ["Lunes a viernes · 7:00 AM - 4:00 PM"],
   },
   {
     Icon: Phone,
@@ -106,7 +106,7 @@ const STUDY_TYPES = [
       "Planificación prequirúrgica y seguimiento postoperatorio",
     ],
     preparation: "Ayuno de 4 horas si requiere contraste. Informar alergias previas. Retirar objetos metálicos.",
-    duration: "10 – 20 minutos",
+    duration: "10 - 20 minutos",
     image: IMG_TOMO,
   },
   {
@@ -121,7 +121,7 @@ const STUDY_TYPES = [
       "Control de consolidación ósea postquirúrgica",
     ],
     preparation: "No requiere preparación especial. Retirar joyería y objetos metálicos de la zona a estudiar.",
-    duration: "5 – 10 minutos",
+    duration: "5 - 10 minutos",
     image: IMG_XRAY,
   },
   {
@@ -136,7 +136,7 @@ const STUDY_TYPES = [
       "Guía ecográfica para procedimientos intervencionistas",
     ],
     preparation: "Según región: ayuno (abdominal) o vejiga llena (ginecológica). Indicaciones específicas al agendar.",
-    duration: "20 – 40 minutos",
+    duration: "20 - 40 minutos",
     image: IMG_ECO,
   },
   {
@@ -151,7 +151,7 @@ const STUDY_TYPES = [
       "Seguimiento de pacientes con antecedentes familiares",
     ],
     preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
-    duration: "15 – 20 minutos",
+    duration: "15 - 20 minutos",
     image: IMG_TOMO,
   },
 ];
@@ -356,7 +356,7 @@ export default function Contacto() {
           </div>
         </section>
 
-        {/* CONTACTO DIRECTO — BENTO */}
+        {/* CONTACTO DIRECTO, BENTO */}
         <section className="bg-white py-20 md:py-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12">
             <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -374,7 +374,7 @@ export default function Contacto() {
               </p>
             </div>
 
-            {/* Bento grid — no rounded corners, hairline dividers */}
+            {/* Bento grid, no rounded corners, hairline dividers */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#1a4a55]/12 border border-[#1a4a55]/12">
               {INFO_CARDS.map(({ Icon, title, lines, email, label }) => (
                 <div
@@ -425,7 +425,7 @@ export default function Contacto() {
           </div>
         </section>
 
-        {/* UDUZ — BRANDED BENTO */}
+        {/* UDUZ, BRANDED BENTO */}
         <section className="bg-[#134F5C] py-20 md:py-28 relative overflow-hidden">
           {/* Ambient gold glow */}
           <div
@@ -534,7 +534,7 @@ export default function Contacto() {
                   <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors block">
                     +58 412-604-4124
                   </a>
-                  <p className="font-sans text-[#f5f0e8]/60 text-xs mt-1 tracking-wide">Lun–Sáb · 6:30 – 19:00</p>
+                  <p className="font-sans text-[#f5f0e8]/60 text-xs mt-1 tracking-wide">Lun-Sáb · 6:30 - 19:00</p>
                 </div>
               </div>
 
@@ -594,7 +594,7 @@ export default function Contacto() {
             ))}
             </div>
 
-            {/* TIPOS DE ESTUDIOS — TABS */}
+            {/* TIPOS DE ESTUDIOS, TABS */}
             <div className="mt-16">
               <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                 <div>

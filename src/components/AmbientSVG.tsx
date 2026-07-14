@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * AmbientSVG — capa decorativa fija con SVG animados sutiles.
+ * AmbientSVG, capa decorativa fija con SVG animados sutiles.
  * Se renderiza sobre el fondo de cada sección con opacidad muy baja
  * y sin interceptar eventos (pointer-events-none).
  * Respeta prefers-reduced-motion.
@@ -14,7 +14,7 @@ export default function AmbientSVG() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 overflow-hidden z-[5]"
     >
-      {/* Blob teal difuso — respiración lenta arriba-izquierda */}
+      {/* Blob teal difuso, respiración lenta arriba-izquierda */}
       <motion.svg
         className="absolute -top-40 -left-40 w-[560px] h-[560px] opacity-[0.09]"
         viewBox="0 0 200 200"
@@ -35,7 +35,7 @@ export default function AmbientSVG() {
         <circle cx="100" cy="100" r="90" fill="url(#ambient-teal)" />
       </motion.svg>
 
-      {/* Blob gold difuso — deriva lenta abajo-derecha */}
+      {/* Blob gold difuso, deriva lenta abajo-derecha */}
       <motion.svg
         className="absolute -bottom-52 -right-40 w-[620px] h-[620px] opacity-[0.07]"
         viewBox="0 0 200 200"
@@ -52,7 +52,7 @@ export default function AmbientSVG() {
         <circle cx="100" cy="100" r="90" fill="url(#ambient-gold)" />
       </motion.svg>
 
-      {/* Anillo delgado que rota — centro-derecha */}
+      {/* Anillo delgado que rota, centro-derecha */}
       <motion.svg
         className="absolute top-[18%] right-[6%] w-[280px] h-[280px] opacity-[0.10]"
         viewBox="0 0 200 200"
@@ -79,7 +79,7 @@ export default function AmbientSVG() {
         />
       </motion.svg>
 
-      {/* Curva tipo columna vertebral — dibujo lento */}
+      {/* Curva tipo columna vertebral, dibujo lento */}
       <motion.svg
         className="absolute top-[30%] left-[8%] w-[200px] h-[380px] opacity-[0.12]"
         viewBox="0 0 100 200"
@@ -122,7 +122,7 @@ export default function AmbientSVG() {
         ))}
       </motion.svg>
 
-      {/* Grid de puntos flotante — abajo-izquierda */}
+      {/* Grid de puntos flotante, abajo-izquierda */}
       <motion.svg
         className="absolute bottom-[8%] left-[4%] w-[220px] h-[140px] opacity-[0.14]"
         viewBox="0 0 220 140"

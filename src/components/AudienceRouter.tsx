@@ -34,7 +34,7 @@ const rows: Row[] = [
     body: "Nuestro equipo evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana,\u00a0 todo es ambulatorio, sin hospitalización.",
     ctaLabel: "Agendar cita",
     ctaHref: "/pacientes/agendar",
-    uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso — a metros de aquí — las tiene desde $25, disponible 24/7.",
+    uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso, a metros de aquí, las tiene desde $25, disponible 24/7.",
     uduzHref: "https://www.instagram.com/uduz_maracaibo/reels/",
   },
   {
@@ -55,7 +55,7 @@ const rows: Row[] = [
     headingStart: "Servicios clínicos para ",
     headingItalic: "tu organización.",
     headingEnd: "",
-    body: "Convenios para empresas, mutuales y clubes deportivos. Cuéntanos el volumen y el tipo de cobertura — preparamos una propuesta en menos de una semana.",
+    body: "Convenios para empresas, mutuales y clubes deportivos. Cuéntanos el volumen y el tipo de cobertura, preparamos una propuesta en menos de una semana.",
     ctaLabel: "Solicitar reunión",
     ctaHref: "/instituciones/reunion",
   },
@@ -196,7 +196,7 @@ function AudienceRow({ row }: { row: Row }) {
         gridTemplateColumns: "96px 1fr",
       }}
     >
-      {/* Mobile uses 2-col; desktop overrides via inline media-like style not possible — use class */}
+      {/* Mobile uses 2-col; desktop overrides via inline media-like style not possible, use class */}
       <div className="contents mdx:hidden">
         <div
           className="ar-numeral font-display"
@@ -311,7 +311,7 @@ function RowContent({ row, color }: { row: Row; color: string }) {
               lineHeight: 1.6,
             }}
           >
-            ¿Necesitas tomografía o ecografía antes de la consulta? <strong style={{ fontWeight: 700 }}>UDUZ Paraíso</strong> — a metros de aquí — las tiene desde <strong style={{ fontWeight: 700 }}>$25</strong>, disponible <strong style={{ fontWeight: 700 }}>24/7</strong>.{" "}
+            ¿Necesitas tomografía o ecografía antes de la consulta? <strong style={{ fontWeight: 700 }}>UDUZ Paraíso</strong>, a metros de aquí, las tiene desde <strong style={{ fontWeight: 700 }}>$25</strong>, disponible <strong style={{ fontWeight: 700 }}>24/7</strong>.{" "}
             <a
               href={row.uduzHref}
               target="_blank"

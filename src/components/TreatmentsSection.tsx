@@ -167,10 +167,10 @@ export default function TreatmentsSection() {
           ))}
         </div>
 
-        {/* Fase 2 — Próximamente */}
+        {/* Fase 2, Próximamente */}
         <div className="scroll-reveal p-6 rounded-2xl border border-dashed border-secondary/30 bg-secondary/[0.03] text-center">
           <p className="text-xs tracking-[0.2em] uppercase text-secondary/60 mb-2 font-medium">
-            Próximamente — Fase 2
+            Próximamente, Fase 2
           </p>
           <p className="text-muted-foreground font-light text-sm leading-relaxed max-w-xl mx-auto">
             Fluoroscopio · Radiofrecuencia avanzada · Medicina Regenerativa (PRP, Ácido Hialurónico)

@@ -3,7 +3,7 @@ import BackdropImage from "@/components/atmosphere/BackdropImage";
 import algosSignalIcon from "@/assets/algos-signal-icon.png";
 import { ALGOS } from "@/config/algos.config";
 
-// Unsplash · "warm window light, calm interior" — atmospheric, no people
+// Unsplash · "warm window light, calm interior", atmospheric, no people
 const FINAL_BG =
   "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=2400&q=70";
 
@@ -47,14 +47,14 @@ export default function FinalCTA() {
         filter="grayscale(100%) brightness(0.85)"
         blendMode="overlay"
       />
-      {/* Brand signal mark — centered watermark */}
+      {/* Brand signal mark, centered watermark */}
       <img
         src={algosSignalIcon}
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[560px] pointer-events-none select-none"
         style={{ opacity: 0.07, filter: "grayscale(100%) brightness(10)" }}
       />
-      {/* Signal wave background — terminal */}
+      {/* Signal wave background, terminal */}
       <svg
         ref={svgRef}
         aria-hidden="true"

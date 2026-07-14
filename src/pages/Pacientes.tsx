@@ -16,7 +16,7 @@ const CARDS = [
     eyebrow: "02 · GUIADO POR IMAGEN",
     title: "Precisión milimétrica.",
     body:
-      "Cada procedimiento se realiza con fluoroscopia, tomografía o ultrasonido en tiempo real. Sabemos exactamente dónde llega cada aguja — máxima seguridad, mínima invasividad.",
+      "Cada procedimiento se realiza con fluoroscopia, tomografía o ultrasonido en tiempo real. Sabemos exactamente dónde llega cada aguja, máxima seguridad, mínima invasividad.",
   },
   {
     eyebrow: "03 · AMBULATORIO",
@@ -37,19 +37,19 @@ const STEPS = [
     idx: "02",
     title: "Plan personalizado",
     body:
-      "Si su caso es candidato a intervención, le explicamos las opciones, los beneficios esperables y las limitaciones honestamente. Si no es candidato, le orientamos hacia el tratamiento más adecuado — aunque no sea con nosotros.",
+      "Si su caso es candidato a intervención, le explicamos las opciones, los beneficios esperables y las limitaciones honestamente. Si no es candidato, le orientamos hacia el tratamiento más adecuado, aunque no sea con nosotros.",
   },
   {
     idx: "03",
     title: "Procedimiento",
     body:
-      "Ambulatorio, guiado por imagen, con anestesia local. Sentirá una pequeña molestia inicial al colocar la anestesia. Después, el procedimiento es casi imperceptible — la mayoría lo describe como menos incómodo que un examen dental.",
+      "Ambulatorio, guiado por imagen, con anestesia local. Sentirá una pequeña molestia inicial al colocar la anestesia. Después, el procedimiento es casi imperceptible, la mayoría lo describe como menos incómodo que un examen dental.",
   },
   {
     idx: "04",
     title: "Seguimiento",
     body:
-      "A las 2 semanas y a las 6 semanas revisamos su evolución. Si necesita ajustes, los hacemos. Si el procedimiento no respondió como esperábamos, conversamos las opciones — sin que tenga que empezar de cero.",
+      "A las 2 semanas y a las 6 semanas revisamos su evolución. Si necesita ajustes, los hacemos. Si el procedimiento no respondió como esperábamos, conversamos las opciones, sin que tenga que empezar de cero.",
   },
 ];
 
@@ -64,11 +64,11 @@ const FAQS = [
   },
   {
     q: "¿Cuánto dura el alivio?",
-    a: "Depende de su condición y de su respuesta individual al tratamiento. Algunos pacientes experimentan alivio prolongado por meses o años; otros requieren tratamientos complementarios o repeticiones. En la consulta inicial discutimos expectativas realistas para su caso específico — sin promesas que no podamos cumplir.",
+    a: "Depende de su condición y de su respuesta individual al tratamiento. Algunos pacientes experimentan alivio prolongado por meses o años; otros requieren tratamientos complementarios o repeticiones. En la consulta inicial discutimos expectativas realistas para su caso específico, sin promesas que no podamos cumplir.",
   },
   {
     q: "¿Cuándo puedo volver a mi vida normal?",
-    a: "La mayoría de procedimientos son ambulatorios — vuelve a casa el mismo día y puede retomar actividades ligeras en 24-48 horas. El equipo le dará pautas específicas según el procedimiento realizado y su condición particular.",
+    a: "La mayoría de procedimientos son ambulatorios, vuelve a casa el mismo día y puede retomar actividades ligeras en 24-48 horas. El equipo le dará pautas específicas según el procedimiento realizado y su condición particular.",
   },
 ];
 

@@ -40,7 +40,7 @@ function IllustRX() {
       <line x1="75" y1="28" x2="85" y2="20" stroke={CREAM} strokeWidth="1.1" strokeOpacity="0.55" />
       {/* Colimador */}
       <rect x="55" y="36" width="50" height="12" rx="2" stroke={CREAM} strokeWidth="1.4" />
-      {/* Haz divergente — 7 líneas desde punto focal */}
+      {/* Haz divergente, 7 líneas desde punto focal */}
       {([-50, -33, -17, 0, 17, 33, 50] as number[]).map((dx, i) => (
         <line
           key={i}
@@ -66,12 +66,12 @@ function IllustTC() {
       <circle cx="90" cy="90" r="84" stroke={CREAM} strokeWidth="2.2" />
       {/* Anillo medio */}
       <circle cx="90" cy="90" r="63" stroke={CREAM} strokeWidth="1.1" strokeOpacity="0.6" />
-      {/* Apertura interior — línea discontinua */}
+      {/* Apertura interior, línea discontinua */}
       <circle cx="90" cy="90" r="38" stroke={CREAM} strokeWidth="1.2" strokeDasharray="7 4" strokeOpacity="0.75" />
       {/* Mesa del paciente */}
       <line x1="0" y1="90" x2="52" y2="90" stroke={CREAM} strokeWidth="1.8" />
       <line x1="128" y1="90" x2="180" y2="90" stroke={CREAM} strokeWidth="1.8" />
-      {/* Fuente + detector — rotan con animación SVG */}
+      {/* Fuente + detector, rotan con animación SVG */}
       <g style={{ transformBox: "fill-box", transformOrigin: "90px 90px", animation: "tc-rotate 22s linear infinite" }}>
         <circle cx="90" cy="6" r="7" stroke={CREAM} strokeWidth="1.6" />
         <line x1="90" y1="13" x2="90" y2="27" stroke={CREAM} strokeWidth="1" strokeOpacity="0.45" />
@@ -92,7 +92,7 @@ function IllustECO() {
       <line x1="67" y1="37" x2="93" y2="37" stroke={CREAM} strokeWidth="0.9" strokeOpacity="0.4" />
       {/* Cara activa */}
       <rect x="61" y="52" width="38" height="7" rx="3" stroke={CREAM} strokeWidth="1.3" />
-      {/* Arcos de onda — animación escalonada */}
+      {/* Arcos de onda, animación escalonada */}
       <path d="M 46 74 Q 80 58 114 74" stroke={CREAM} strokeWidth="1.4"
         style={{ animation: "eco-wave 3s ease-in-out 0s infinite" }} />
       <path d="M 30 98 Q 80 76 130 98" stroke={CREAM} strokeWidth="1.2"
@@ -149,7 +149,7 @@ export default function GuiasImagenSection() {
               GUÍAS POR IMAGEN
             </p>
             <h2 style={{ fontFamily: "'Sora', serif", fontWeight: 600, fontSize: "clamp(24px, 2.8vw, 36px)", lineHeight: 1.3, color: CREAM, maxWidth: "48ch", marginBottom: 16 }}>
-              El procedimiento guiado por imagen no es una opción — es el estándar.
+              El procedimiento guiado por imagen no es una opción, es el estándar.
             </h2>
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.3vw, 17px)", lineHeight: 1.7, color: CREAM, maxWidth: "58ch" }}>
               En ALGOS ningún procedimiento intervencionista se realiza a ciegas. Cada intervención
@@ -166,7 +166,7 @@ export default function GuiasImagenSection() {
                   key={g.sigla}
                   style={{ backgroundColor: DEEP_TEAL, padding: "clamp(28px, 3.5vw, 40px)", position: "relative", overflow: "hidden", minHeight: 360 }}
                 >
-                  {/* Ilustración decorativa — absolute en esquina inferior derecha */}
+                  {/* Ilustración decorativa, absolute en esquina inferior derecha */}
                   <div
                     style={{
                       position: "absolute",

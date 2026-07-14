@@ -47,7 +47,7 @@ export default function EstudiosLaboratorio() {
           video="pacientes"
         />
 
-        {/* Bloque A — Estudios ALGOS */}
+        {/* Bloque A, Estudios ALGOS */}
         <section className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-3">
@@ -81,14 +81,14 @@ export default function EstudiosLaboratorio() {
           </div>
         </section>
 
-        {/* Bloque B — Estudios UDUZ */}
+        {/* Bloque B, Estudios UDUZ */}
         <section className="bg-cream py-16 md:py-24 border-t border-deep-teal/10">
           <div className="mx-auto max-w-[1080px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-[11px] tracking-[0.22em] mb-3" style={{ color: "#3d8b96" }}>
               ALIANZA DIAGNÓSTICA
             </p>
             <h2 className="font-display font-bold text-deep-teal text-[28px] md:text-[36px] leading-[1.15] mb-3">
-              A través de nuestra alianza con UDUZ — Unidad de Diagnóstico del Zulia
+              A través de nuestra alianza con UDUZ, Unidad de Diagnóstico del Zulia
             </h2>
             <p className="font-sans text-steel-teal text-[15px] leading-[1.65] max-w-[62ch] mb-10">
               Los siguientes estudios están disponibles a través de UDUZ, coordinados con el equipo de ALGOS para que su diagnóstico y su tratamiento ocurran en el mismo ecosistema clínico.

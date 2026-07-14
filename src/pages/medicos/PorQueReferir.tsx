@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const reasons = [
-  "Centro exclusivo de dolor intervencionista — no una clínica generalista",
+  "Centro exclusivo de dolor intervencionista, no una clínica generalista",
   "100% de procedimientos guiados por imagen (ecógrafo y fluoroscopio C-arm)",
   "Informes clínicos detallados enviados al médico referente",
   "Seguimiento protocolizado a 2 semanas, 1 mes y 3 meses",

@@ -63,7 +63,7 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
             loading="eager"
           />
         </motion.div>
-        {/* vignette — softened on mobile-contain to avoid darkening letterbox bars */}
+        {/* vignette, softened on mobile-contain to avoid darkening letterbox bars */}
         <div
           className={
             (mobileContain ? "hidden md:block " : "") +
@@ -74,7 +74,7 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
               "radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.35) 100%)",
           }}
         />
-        {/* top fade to blend with hero — desktop/cover only */}
+        {/* top fade to blend with hero, desktop/cover only */}
         <div
           className={
             (mobileContain ? "hidden md:block " : "") +
@@ -82,7 +82,7 @@ export default function ProcedureHeroImage({ src, alt, caption, mobileContain = 
           }
           style={{ background: "linear-gradient(to bottom, rgba(26,74,85,0.55), transparent)" }}
         />
-        {/* bottom fade to cream — desktop/cover only (avoid washing contained image) */}
+        {/* bottom fade to cream, desktop/cover only (avoid washing contained image) */}
         <div
           className={
             (mobileContain ? "hidden md:block " : "") +

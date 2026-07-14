@@ -84,7 +84,7 @@ export default function HerniaVideoSection() {
               <p className="text-primary-foreground/60 font-light text-lg leading-relaxed mb-8">
                 La hernia discal es una de las causas más frecuentes de dolor lumbar y ciático.
                 Con técnicas intervencionistas guiadas por imagen, tratamos el disco afectado
-                directamente — sin bisturí.
+                directamente, sin bisturí.
               </p>
             </div>
 

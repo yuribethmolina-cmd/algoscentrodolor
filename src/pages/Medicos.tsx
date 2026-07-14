@@ -27,7 +27,7 @@ export default function Medicos() {
             muted
             loop
             playsInline
-            // @ts-ignore — iOS Safari hint
+            // @ts-ignore, iOS Safari hint
             webkit-playsinline="true"
             x5-playsinline="true"
             disableRemotePlayback
@@ -63,7 +63,7 @@ export default function Medicos() {
             <p className="mt-7 mx-auto font-sans text-steel-teal leading-[1.6] text-[16px] md:text-[17px] max-w-[56ch]">
               ALGOS opera como extensión de su consulta. Evaluamos al paciente,
               realizamos los procedimientos intervencionistas indicados y lo
-              devolvemos con reporte detallado y seguimiento coordinado —
+              devolvemos con reporte detallado y seguimiento coordinado 
               manteniendo siempre la relación clínica primaria con usted.
             </p>
 
@@ -144,7 +144,7 @@ export default function Medicos() {
                 {
                   idx: "01",
                   title: "Contacto inicial",
-                  body: "Llama, escribe o envía historia clínica + imagen relevante por WhatsApp o correo. No requerimos formato específico — adaptamos a lo que tengas.",
+                  body: "Llama, escribe o envía historia clínica + imagen relevante por WhatsApp o correo. No requerimos formato específico, adaptamos a lo que tengas.",
                 },
                 {
                   idx: "02",

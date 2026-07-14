@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "¿Me van a sedar? ¿Necesito anestesia general?",
     answer:
-      "No. Nuestros procedimientos se realizan con anestesia local en el sitio exacto de intervención. No requieren sedación general ni hospitalización. Usted permanece consciente y puede comunicarse con el equipo en todo momento — eso es parte de la seguridad del procedimiento.",
+      "No. Nuestros procedimientos se realizan con anestesia local en el sitio exacto de intervención. No requieren sedación general ni hospitalización. Usted permanece consciente y puede comunicarse con el equipo en todo momento, eso es parte de la seguridad del procedimiento.",
   },
   {
     question: "¿Qué pasa si me muevo durante el procedimiento?",
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "¿Cuánto dura el procedimiento y cuándo puedo retomar mis actividades?",
     answer:
-      "La intervención suele durar entre 20 y 45 minutos. La mayoría de pacientes retoman actividades ligeras en 24–48 horas. El tiempo exacto depende del procedimiento y de su evolución individual; las indicaciones post-procedimiento se entregan por escrito el mismo día.",
+      "La intervención suele durar entre 20 y 45 minutos. La mayoría de pacientes retoman actividades ligeras en 24-48 horas. El tiempo exacto depende del procedimiento y de su evolución individual; las indicaciones post-procedimiento se entregan por escrito el mismo día.",
   },
   {
     question: "¿Qué pasa si el procedimiento no funciona?",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "¿Cuál es el costo?",
     answer:
-      "Contáctenos directamente para información sobre tarifas — estamos disponibles por WhatsApp o al correo info@algoscentrodolor.com.",
+      "Contáctenos directamente para información sobre tarifas, estamos disponibles por WhatsApp o al correo info@algoscentrodolor.com.",
   },
   {
     question: "¿Cuánto tiempo tardaré en notar mejoría?",
@@ -59,7 +59,7 @@ const faqs = [
   {
     question: "¿El efecto es permanente?",
     answer:
-      "Varía según el tratamiento y la condición: algunos producen alivio duradero de meses o años, y otros pueden repetirse según la evolución. En la consulta le explicamos las expectativas realistas para su situación — sin promesas exageradas ni minimizar los beneficios reales.",
+      "Varía según el tratamiento y la condición: algunos producen alivio duradero de meses o años, y otros pueden repetirse según la evolución. En la consulta le explicamos las expectativas realistas para su situación, sin promesas exageradas ni minimizar los beneficios reales.",
   },
 ];
 

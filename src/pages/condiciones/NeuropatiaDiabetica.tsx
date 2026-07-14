@@ -18,7 +18,7 @@ export default function NeuropatiaDiabetica() {
           eyebrow="Condición"
           title="Neuropatía diabética: el daño nervioso por la diabetes"
           patientTitle="Hormigueo o ardor en los pies"
-          patientSubtitle="Quemazón, corrientazos o pérdida de sensibilidad en pies y piernas — frecuente en personas con diabetes. Tiene nombre y tiene tratamiento."
+          patientSubtitle="Quemazón, corrientazos o pérdida de sensibilidad en pies y piernas, frecuente en personas con diabetes. Tiene nombre y tiene tratamiento."
         />
 
         <div className="bg-cream pt-8 md:pt-10">
@@ -32,12 +32,12 @@ export default function NeuropatiaDiabetica() {
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Cuando la diabetes no está bien controlada, el azúcar elevado daña los nervios con el tiempo. La neuropatía diabética afecta con más frecuencia los pies y las piernas: se siente como ardor, hormigueo, adormecimiento o corrientazos. En algunos casos también produce pérdida de sensibilidad — lo cual, paradójicamente, puede ser peligroso porque el paciente no siente las heridas.
+              Cuando la diabetes no está bien controlada, el azúcar elevado daña los nervios con el tiempo. La neuropatía diabética afecta con más frecuencia los pies y las piernas: se siente como ardor, hormigueo, adormecimiento o corrientazos. En algunos casos también produce pérdida de sensibilidad, lo cual, paradójicamente, puede ser peligroso porque el paciente no siente las heridas.
             </p>
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si tiene diabetes y siente ardor, hormigueo o adormecimiento en los pies o las piernas; si el dolor es peor de noche; si siente que los pies "no son suyos"; o si ya le han dicho que tiene neuropatía y los síntomas no están controlados — es momento de una evaluación especializada.
+              Si tiene diabetes y siente ardor, hormigueo o adormecimiento en los pies o las piernas; si el dolor es peor de noche; si siente que los pies "no son suyos"; o si ya le han dicho que tiene neuropatía y los síntomas no están controlados, es momento de una evaluación especializada.
             </p>
 
             <div className="mb-14">

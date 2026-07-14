@@ -18,7 +18,7 @@ export default function DolorLumbar() {
           eyebrow="Condición"
           title="Dolor lumbar: el dolor de cintura que no cede"
           patientTitle="Dolor de espalda"
-          patientSubtitle="Dolor en la zona baja de la espalda que no cede con reposo ni calmantes — puede bajar hacia la pierna o quedarse localizado."
+          patientSubtitle="Dolor en la zona baja de la espalda que no cede con reposo ni calmantes, puede bajar hacia la pierna o quedarse localizado."
         />
 
         <div className="bg-cream pt-8 md:pt-10">
@@ -32,12 +32,12 @@ export default function DolorLumbar() {
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              El dolor lumbar es el dolor en la parte baja de la espalda — la zona de la cintura. Sus causas son variadas: puede venir de los discos, de las articulaciones de la columna (facetas), de los músculos, de los ligamentos, o de los nervios. Por eso el tratamiento correcto depende de identificar el origen, no de tratar el síntoma.
+              El dolor lumbar es el dolor en la parte baja de la espalda, la zona de la cintura. Sus causas son variadas: puede venir de los discos, de las articulaciones de la columna (facetas), de los músculos, de los ligamentos, o de los nervios. Por eso el tratamiento correcto depende de identificar el origen, no de tratar el síntoma.
             </p>
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si el dolor lleva más de cuatro semanas sin mejorar; si no cede con reposo ni analgésicos; si empeora al estar sentado o de pie por tiempo prolongado; si se acompaña de dolor que baja hacia la pierna; o si interfiere con el trabajo y la vida diaria — es momento de una evaluación especializada.
+              Si el dolor lleva más de cuatro semanas sin mejorar; si no cede con reposo ni analgésicos; si empeora al estar sentado o de pie por tiempo prolongado; si se acompaña de dolor que baja hacia la pierna; o si interfiere con el trabajo y la vida diaria, es momento de una evaluación especializada.
             </p>
 
             <div className="mb-14">

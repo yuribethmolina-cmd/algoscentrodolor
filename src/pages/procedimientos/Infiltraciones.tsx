@@ -115,7 +115,7 @@ export default function Infiltraciones() {
         </section>
 
         <ProcedureIntro eyebrow="Qué es">
-          Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor — una articulación, un nervio o una raíz —, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio: se va caminando el mismo día.
+          Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor, una articulación, un nervio o una raíz , siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio: se va caminando el mismo día.
         </ProcedureIntro>
 
         <ProcedureSplitBlock
@@ -137,7 +137,7 @@ export default function Infiltraciones() {
             <div className="pt-2 border-t border-deep-teal/10 pt-10">
               <p className="font-sans font-bold uppercase text-deep-teal text-[11px] tracking-[0.24em] mb-5">Guía por imagen</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
-                Contamos con las tres formas de guía por imagen — fluoroscopia, tomografía y ecografía — y usamos la que su caso necesita para tratarle mejor y con la mayor seguridad.
+                Contamos con las tres formas de guía por imagen, fluoroscopia, tomografía y ecografía, y usamos la que su caso necesita para tratarle mejor y con la mayor seguridad.
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { Shield, Globe, Award } from "lucide-react";
 const certs = [
   { icon: Globe, title: "Estándar clínico europeo", description: "Protocolos diseñados con experiencia activa en el sistema de salud alemán." },
   { icon: Shield, title: "Documentación completa", description: "Cada procedimiento documentado desde el primer paciente. Trazabilidad clínica total." },
-  { icon: Award, title: "Certificaciones del equipo", description: "DWG, EUROSPINE, DGNC, EANS — certificaciones internacionales del equipo médico." },
+  { icon: Award, title: "Certificaciones del equipo", description: "DWG, EUROSPINE, DGNC, EANS, certificaciones internacionales del equipo médico." },
 ];
 
 export default function Certificaciones() {

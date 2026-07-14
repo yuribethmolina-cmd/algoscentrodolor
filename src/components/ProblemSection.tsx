@@ -33,7 +33,7 @@ export default function ProblemSection() {
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         {/* Split layout */}
         <div className="grid md:grid-cols-2 gap-16 items-start mb-16">
-          {/* Left — headline + stat */}
+          {/* Left, headline + stat */}
           <div className="scroll-reveal md:sticky md:top-32">
             <p className="text-secondary/80 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
               Te entendemos
@@ -49,7 +49,7 @@ export default function ProblemSection() {
 
           </div>
 
-          {/* Right — numbered cards */}
+          {/* Right, numbered cards */}
           <div className="grid grid-rows-4 gap-4 h-full">
             {painPoints.map((item, idx) => (
               <div
@@ -82,7 +82,7 @@ export default function ProblemSection() {
         <div className="scroll-reveal">
           <div className="w-full py-6 px-8 rounded-2xl bg-primary text-center">
             <p className="text-primary-foreground font-light text-base md:text-lg leading-relaxed">
-              Los pacientes con indicación de procedimiento intervencionista no tienen a dónde ir — o van a Caracas, o esperan, o se operan cuando quizás no lo necesitan.{" "}
+              Los pacientes con indicación de procedimiento intervencionista no tienen a dónde ir, o van a Caracas, o esperan, o se operan cuando quizás no lo necesitan.{" "}
               <span className="font-medium text-secondary">ALGOS cambia eso.</span>
             </p>
           </div>

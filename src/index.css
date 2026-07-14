@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ALGOS Brand Tokens — LOCKED palette
+/* ALGOS Brand Tokens, LOCKED palette
  * Deep Teal   #1a4a55  hsl(190 53% 22%)
  * Brand Teal  #3d8b96  hsl(188 42% 41%)
  * Algos Gold  #c69636  hsl(38 57% 50%)
@@ -44,7 +44,7 @@
 
     --navbar: 190 60% 14%;
 
-    /* Readability tokens — reforzados para contraste AAA */
+    /* Readability tokens, reforzados para contraste AAA */
     --text-body: 195 60% 12%;       /* casi-negro teal sobre cream */
     --gold-deep: 36 78% 26%;        /* dorado profundo, AAA sobre cream */
     --cream-strong: 38 55% 98%;     /* cream alto contraste sobre teal */
@@ -102,7 +102,7 @@
   }
 
   /* ============================================================
-   * Baseline grid — 8px unit, 24px baseline
+   * Baseline grid, 8px unit, 24px baseline
    * All vertical rhythm (line-heights, margins, paddings) snaps
    * to multiples of 8px (0.5rem) for a coherent typographic grid.
    * ============================================================ */
@@ -147,17 +147,17 @@
 
 
   h1 {
-    font-size: clamp(2.25rem, 4.2vw, 3.5rem);  /* 36–56px */
+    font-size: clamp(2.25rem, 4.2vw, 3.5rem);  /* 36-56px */
     line-height: 1.1;                            /* tight, snaps near 4px grid */
     letter-spacing: -0.03em;
   }
   h2 {
-    font-size: clamp(1.75rem, 2.8vw, 2.5rem);  /* 28–40px */
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem);  /* 28-40px */
     line-height: 1.2;
     letter-spacing: -0.025em;
   }
   h3 {
-    font-size: clamp(1.25rem, 1.6vw, 1.5rem);  /* 20–24px */
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);  /* 20-24px */
     line-height: 1.333;                          /* 32px on 24px font */
   }
   h4 {
@@ -209,7 +209,7 @@
 }
 
 /* ============================================================
- * Contraste global — refuerza texto para lectura AAA
+ * Contraste global, refuerza texto para lectura AAA
  * Sube opacidades débiles y peso mínimo de párrafos.
  * ============================================================ */
 @layer utilities {
@@ -217,7 +217,7 @@
     font-weight: 500;
   }
 
-  /* Cream (sobre fondos teal oscuro) — subir a mínimo 92% */
+  /* Cream (sobre fondos teal oscuro), subir a mínimo 92% */
   .text-cream\/55,
   .text-cream\/60,
   .text-cream\/70,
@@ -228,7 +228,7 @@
     opacity: 1 !important;
   }
 
-  /* Teal profundo con opacidad reducida — llevar a color pleno */
+  /* Teal profundo con opacidad reducida, llevar a color pleno */
   .text-deep-teal\/60,
   .text-deep-teal\/85 {
     color: hsl(var(--text-body)) !important;
@@ -279,7 +279,7 @@
 }
 
 /* ============================================================
- * Procedure Pages — High Contrast Mode (AAA accessibility)
+ * Procedure Pages, High Contrast Mode (AAA accessibility)
  * Surgical overrides: preserve layout, swap colors to black/white
  * Applied via .procedure-hc on the page root
  * ============================================================ */
@@ -342,7 +342,7 @@
  * Cinematic animation layer
  * ============================================================ */
 
-/* Headline word stagger — host toggles .in-view */
+/* Headline word stagger, host toggles .in-view */
 .headline-stagger .hw-inner {
   opacity: 0;
   transform: translateY(12px);
@@ -393,7 +393,7 @@
   animation: pulse-keystone 1400ms cubic-bezier(0.4, 0, 0.2, 1) 1;
 }
 
-/* Generic reveal-up — toggle .in-view on host */
+/* Generic reveal-up, toggle .in-view on host */
 .reveal-up {
   opacity: 0;
   transform: translateY(24px);
@@ -528,7 +528,7 @@
 }
 
 /* ============================================================
- * Global image placeholder — subtle shimmer while pixels load,
+ * Global image placeholder, subtle shimmer while pixels load,
  * fades to the actual image once decoded. Applied to any <img>
  * that has not yet been marked by the imageWatcher.
  * Opt out per-image with `data-no-placeholder`.
@@ -613,7 +613,7 @@ img[width][height]:not(.absolute):not([style*="position: absolute"]):not([style*
 }
 
 /* Mobile: reduce section vertical padding so the page is less tall.
-   Sections use clamp(80px,...) inline — these only kick in below 480px
+   Sections use clamp(80px,...) inline, these only kick in below 480px
    where the upper clamp value is already close to minimum. */
 @media (max-width: 480px) {
   [id="hero"] {

@@ -32,18 +32,18 @@ export default function HerniaDiscal() {
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Un disco intervertebral actúa como amortiguador entre las vértebras. Cuando parte de ese disco se desplaza y presiona una raíz nerviosa, produce dolor — en la espalda, en la pierna, o en ambas — según el nivel y el nervio afectado. El diagnóstico se confirma con imagen: no toda hernia duele, y no todo dolor lumbar es una hernia.
+              Un disco intervertebral actúa como amortiguador entre las vértebras. Cuando parte de ese disco se desplaza y presiona una raíz nerviosa, produce dolor, en la espalda, en la pierna, o en ambas, según el nivel y el nervio afectado. El diagnóstico se confirma con imagen: no toda hernia duele, y no todo dolor lumbar es una hernia.
             </p>
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si le han dicho que tiene una hernia y el dolor lleva semanas sin mejorar; si el dolor baja por la pierna; si hay hormigueo, adormecimiento o pérdida de fuerza; o si le han hablado de cirugía y quiere explorar opciones intermedias — es momento de una evaluación especializada.
+              Si le han dicho que tiene una hernia y el dolor lleva semanas sin mejorar; si el dolor baja por la pierna; si hay hormigueo, adormecimiento o pérdida de fuerza; o si le han hablado de cirugía y quiere explorar opciones intermedias, es momento de una evaluación especializada.
             </p>
 
             <div className="mb-14">
               <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cómo lo abordamos en ALGOS</p>
               <p className="font-sans text-deep-teal text-[17px] leading-[1.75]">
-                  La consulta y la imagen confirman el nivel comprometido y el grado de compromiso nervioso. Según el caso: manejo con medicamentos, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link> para controlar la inflamación y el dolor, o <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> cuando la hernia es la causa confirmada del dolor. La cirugía se considera cuando las opciones intermedias se han agotado — no antes.
+                  La consulta y la imagen confirman el nivel comprometido y el grado de compromiso nervioso. Según el caso: manejo con medicamentos, <Link to="/procedimientos/infiltraciones-y-bloqueos" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">infiltraciones y bloqueos guiados por imagen</Link> para controlar la inflamación y el dolor, o <Link to="/procedimientos/ozono-hernia-discal" className="text-brand-teal hover:text-algos-gold underline underline-offset-2 transition-colors">ozono intradiscal</Link> cuando la hernia es la causa confirmada del dolor. La cirugía se considera cuando las opciones intermedias se han agotado, no antes.
                 </p>
             </div>
 

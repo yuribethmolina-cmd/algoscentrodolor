@@ -96,11 +96,11 @@ export default function AlgosLocationSection() {
             background: "linear-gradient(155deg, rgba(255,255,255,0.06) 0%, rgba(61,139,150,0.14) 100%)",
           }}
         >
-          {/* Facade image — shimmer applied automatically by imageWatcher + index.css */}
+          {/* Facade image, shimmer applied automatically by imageWatcher + index.css */}
           <div className="relative min-h-[320px] md:min-h-[420px] lg:min-h-[520px] overflow-hidden">
             <img
               src={algosFacade.url}
-              alt="Fachada de ALGOS — Centro de Dolor Intervencionista, Maracaibo"
+              alt="Fachada de ALGOS, Centro de Dolor Intervencionista, Maracaibo"
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="lazy"
               decoding="async"
@@ -204,7 +204,7 @@ export default function AlgosLocationSection() {
                   label: "Horario",
                   value: (
                     <>
-                      Lunes a viernes · 7:00 AM – 4:00 PM
+                      Lunes a viernes · 7:00 AM - 4:00 PM
                     </>
                   ),
                 },

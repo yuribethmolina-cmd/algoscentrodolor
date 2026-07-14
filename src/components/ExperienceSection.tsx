@@ -9,8 +9,8 @@ import salaEspera from "@/assets/sala-espera.jpg?w=320;480;720&format=avif;webp;
 import nutricionBar from "@/assets/nutricion-bar.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 
 const gallery = [
-  { pic: suiteVip, label: "Suite VIP — Terapias Endovenosas" },
-  { pic: consultorio, label: "Consultorio — Dr. Atilio Rodríguez" },
+  { pic: suiteVip, label: "Suite VIP, Terapias Endovenosas" },
+  { pic: consultorio, label: "Consultorio, Dr. Atilio Rodríguez" },
   { pic: recepcion, label: "Recepción ALGOS" },
   { pic: salaProcedimientos, label: "Sala de Procedimientos" },
   { pic: suiteVipEmpty, label: "Suite de Recuperación" },

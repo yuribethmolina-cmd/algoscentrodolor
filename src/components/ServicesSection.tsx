@@ -84,7 +84,7 @@ const servicios: Service[] = [
     nombre: "Infiltraciones y bloqueos",
     bajada: "Inyecciones dirigidas para el dolor, guiadas por imagen.",
     queEs:
-      "Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor —una articulación, un nervio o una raíz—, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio, se va caminando el mismo día.",
+      "Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor una articulación, un nervio o una raíz, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio, se va caminando el mismo día.",
     paraQueSirve:
       "Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna. Y para confirmar de dónde viene el dolor: un bloqueo bien dirigido ayuda a identificar el nervio responsable y a orientar el tratamiento siguiente.",
     activo: true,
@@ -538,7 +538,7 @@ export default function ServicesSection() {
                       </div>
                     </div>
 
-                    {/* CTA — only for active services */}
+                    {/* CTA, only for active services */}
                     {s.activo && (
                       <a
                         href={WA_URL}
@@ -572,7 +572,7 @@ export default function ServicesSection() {
           <div style={{ borderTop: "1px solid rgba(26,74,85,0.14)" }} />
         </div>
 
-        {/* Closing block — Guías por imagen */}
+        {/* Closing block, Guías por imagen */}
         <FadeIn delay={200}>
           <div
             style={{
@@ -636,8 +636,8 @@ export default function ServicesSection() {
               }}
             >
               Cada procedimiento lo hacemos guiados por imagen, para llegar con precisión al punto
-              exacto de su dolor. Contamos con las tres formas de guía — fluoroscopia, tomografía y
-              ecografía — y usamos la que su caso necesita.
+              exacto de su dolor. Contamos con las tres formas de guía, fluoroscopia, tomografía y
+              ecografía, y usamos la que su caso necesita.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {GUIDES.map((g) => (

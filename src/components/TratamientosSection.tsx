@@ -104,7 +104,7 @@ const serviciosAdicionales = [
     description:
       "Calor controlado aplicado sobre el nervio que transmite el dolor. Ambulatorio. Indicado para dolor facetario cervical o lumbar confirmado por bloqueo diagnóstico, y para artrosis de rodilla.",
     image: imgSalaProcedimientos,
-    imageAlt: "Sala de procedimientos — radiofrecuencia",
+    imageAlt: "Sala de procedimientos, radiofrecuencia",
     isComingSoon: true,
   },
 ];
@@ -134,7 +134,7 @@ const cards: Card[] = [
         <path d="M 85 14 Q 88 60 91 124" fill="none" stroke={strokeFaint} strokeWidth={1} />
         <line x1={160} y1={68} x2={128} y2={92} stroke={strokeDashed} strokeWidth={1} strokeDasharray="3 3" />
         <TargetMark cx={128} cy={92} />
-        <text x={148} y={60} style={labelStyle}>L4–L5</text>
+        <text x={148} y={60} style={labelStyle}>L4-L5</text>
       </svg>
     ),
   },
@@ -270,7 +270,7 @@ export default function TratamientosSection() {
                 lineHeight: 1.6,
               }}
             >
-              Procedimientos guiados por imagen — fluoroscopia, tomografía o ecografía según el caso.
+              Procedimientos guiados por imagen, fluoroscopia, tomografía o ecografía según el caso.
             </p>
           </div>
           <div>
@@ -468,7 +468,7 @@ export default function TratamientosSection() {
               margin: 0,
             }}
           >
-            Cada caso se evalúa de forma individual. La indicación final depende de la historia clínica, los estudios de imagen y la valoración del especialista — no toda condición es candidata a un procedimiento.
+            Cada caso se evalúa de forma individual. La indicación final depende de la historia clínica, los estudios de imagen y la valoración del especialista, no toda condición es candidata a un procedimiento.
           </p>
           <a
             href="/tratamientos"
@@ -513,7 +513,7 @@ function TratamientoCard({ card, image }: { card: Card; image?: { pic: PictureIm
       onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = DEEP_TEAL_HOVER)}
       onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = DEEP_TEAL)}
     >
-      {/* TOP STRIP — eyebrow + index */}
+      {/* TOP STRIP, eyebrow + index */}
       <div className="flex items-baseline justify-between" style={{ gap: 16 }}>
         <span
           style={{
@@ -540,7 +540,7 @@ function TratamientoCard({ card, image }: { card: Card; image?: { pic: PictureIm
         </span>
       </div>
 
-      {/* PHOTO BANNER — hero visual of the card */}
+      {/* PHOTO BANNER, hero visual of the card */}
       {image && (
         <Picture
           picture={image.pic}

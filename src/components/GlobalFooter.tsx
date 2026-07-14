@@ -10,7 +10,7 @@ export default function GlobalFooter() {
           {/* Brand */}
           <div>
             <Link to="/">
-              <img src={algosLogo} alt="ALGOS — Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
+              <img src={algosLogo} alt="ALGOS, Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
             </Link>
             <p className="text-primary-foreground/50 font-light text-sm mt-4 leading-relaxed">
               Centro de Dolor Intervencionista.
@@ -73,7 +73,7 @@ export default function GlobalFooter() {
 
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/30 text-xs font-light">
-            © {new Date().getFullYear()} ALGOS — Centro de Dolor Intervencionista. Todos los derechos reservados.
+            © {new Date().getFullYear()} ALGOS, Centro de Dolor Intervencionista. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
             <Link to="/privacidad" className="text-primary-foreground/30 hover:text-primary-foreground/60 text-xs font-light transition-colors">

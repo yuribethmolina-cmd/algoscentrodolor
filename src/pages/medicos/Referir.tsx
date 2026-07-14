@@ -38,7 +38,7 @@ export default function Referir() {
               <div className="scroll-reveal p-6 rounded-2xl border border-secondary/20 bg-secondary/5">
                 <h3 className="text-base font-medium text-foreground mb-3">Estudios previos al procedimiento</h3>
                 <p className="text-muted-foreground font-light text-sm leading-relaxed mb-3">
-                  Al referir, puede indicar los estudios de imagen directamente en <strong className="font-bold text-foreground">UDUZ Paraíso</strong> — en la misma zona que <strong className="font-bold text-foreground">ALGOS</strong>. Tomografía desde $25 (24/7), ecografía desde $15. El Dr. Atilio recibe los resultados antes de la valoración.
+                  Al referir, puede indicar los estudios de imagen directamente en <strong className="font-bold text-foreground">UDUZ Paraíso</strong>, en la misma zona que <strong className="font-bold text-foreground">ALGOS</strong>. Tomografía desde $25 (24/7), ecografía desde $15. El Dr. Atilio recibe los resultados antes de la valoración.
                 </p>
                 <a
                   href="https://www.instagram.com/uduz_maracaibo/reels/"
