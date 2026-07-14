@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import SEOHead from "@/components/SEOHead";
+import EquipoSpecialtySections from "@/components/EquipoSpecialtySections";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
