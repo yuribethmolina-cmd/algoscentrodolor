@@ -33,6 +33,29 @@ export function trackCTA(section: string, label: string, destination = "") {
   });
 }
 
+interface AppointmentPayload {
+  condition?: string;
+  hasStudies?: string;
+  source?: string;
+}
+
+export function trackAppointment(payload: AppointmentPayload = {}) {
+  if (typeof gtag === "undefined") return;
+  gtag("event", "appointment_submit", {
+    event_category: "conversion",
+    event_label: payload.condition || "unspecified",
+    condition: payload.condition ?? "unspecified",
+    has_studies: payload.hasStudies ?? "unspecified",
+    source: payload.source ?? "form_agendar",
+    device: isMobile() ? "mobile" : "desktop",
+  });
+  // Standard GA4 lead event, useful como conversión predefinida
+  gtag("event", "generate_lead", {
+    method: "whatsapp_form",
+    condition: payload.condition ?? "unspecified",
+  });
+}
+
 export function installWAClickTracker() {
   document.addEventListener("click", (e) => {
     const target = e.target as Element;
