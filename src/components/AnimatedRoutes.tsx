@@ -6,6 +6,7 @@ import ScrollToTop from "./ScrollToTop";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import EquipoPage from "@/pages/Equipo";
+import MedicoPerfil from "@/pages/MedicoPerfil";
 import ContactoPage from "@/pages/Contacto";
 import PrivacidadPage from "@/pages/Privacidad";
 import AvisoLegalPage from "@/pages/AvisoLegal";
