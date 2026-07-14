@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
+import SEOHead from "@/components/SEOHead";
 import { AnimatedHeadline, InViewToggle } from "@/lib/animations";
 import { ALGOS } from "@/config/algos.config";
 
