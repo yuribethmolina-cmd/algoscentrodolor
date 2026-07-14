@@ -91,6 +91,7 @@ export default function AnimatedRoutes() {
 
           {/* Legacy routes kept active */}
           <Route path="/tratamientos" element={wrap(Tratamientos)} />
+          <Route path="/tratamientos/cefaleas" element={<Navigate to="/condiciones/cefaleas" replace />} />
           <Route path="/tratamientos/:slug" element={wrap(TratamientoDetalle)} />
           <Route path="/pacientes" element={wrap(Pacientes)} />
           <Route path="/pacientes/*" element={wrap(Pacientes)} />
