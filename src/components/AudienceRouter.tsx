@@ -32,7 +32,7 @@ const rows: Row[] = [
     headingItalic: "lo que el dolor",
     headingEnd: " te ha quitado.",
     body: "Nuestro equipo evalúa tu caso personalmente. Si eres candidato, el procedimiento se hace en la misma semana,\u00a0 todo es ambulatorio, sin hospitalización.",
-    ctaLabel: "Agendar cita",
+    ctaLabel: "Agendar valoración",
     ctaHref: "/pacientes/agendar",
     uduzNote: "¿Necesitas tomografía o ecografía antes de la consulta? UDUZ Paraíso, a metros de aquí, las tiene desde $25, disponible 24/7.",
     uduzHref: "https://www.instagram.com/uduz_maracaibo/reels/",
@@ -174,10 +174,10 @@ export default function AudienceRouter() {
                 className="font-ui text-steel-teal"
                 style={{ fontSize: "15px", marginTop: "4px" }}
               >
-                Escríbenos. Te orientamos.
+                Conversemos sobre su caso. Le orientamos sin compromiso.
               </p>
             </div>
-            <FooterLink to="/contacto">Hablar con el equipo</FooterLink>
+            <FooterLink to="/contacto">Hablar con nuestro equipo</FooterLink>
           </div>
         </div>
       </div>

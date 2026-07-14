@@ -419,7 +419,7 @@ export default function Contacto() {
                 rel="noopener noreferrer"
                 className="text-[#3d8b96] hover:text-[#c69636] transition-colors underline underline-offset-2"
               >
-                Escríbanos por WhatsApp y coordinamos.
+                Escríbanos por WhatsApp y coordinamos una llamada.
               </a>
             </p>
           </div>
@@ -625,7 +625,7 @@ export default function Contacto() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all bg-[#25d366] hover:bg-[#1fb859] text-white rounded-none font-ui font-bold uppercase px-10 py-[18px] text-[13px] tracking-[0.18em] shadow-[0_6px_24px_-4px_rgba(37,211,102,0.45)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.55)] hover:-translate-y-0.5"
             >
               <MessageCircle className="w-5 h-5 flex-shrink-0" strokeWidth={1.75} />
-              <span>Escríbanos por WhatsApp</span>
+              <span>Escribir por WhatsApp</span>
             </a>
           </div>
       </section>
@@ -637,7 +637,7 @@ export default function Contacto() {
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chatear por WhatsApp"
+        aria-label="Escribir por WhatsApp"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center bg-[#25d366] text-white shadow-[0_6px_24px_-4px_rgba(37,211,102,0.5)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 transition-all duration-300"
       >
         <MessageCircle className="w-6 h-6" strokeWidth={1.75} />

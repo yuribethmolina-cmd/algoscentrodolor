@@ -21,7 +21,7 @@ export default function CTASection() {
             <span className="font-light">es momento de tratarlo bien</span>
           </h2>
           <p className="text-primary-foreground/70 font-light text-lg max-w-xl mx-auto mb-10">
-            Agenda tu evaluación hoy. Sin compromiso, sin listas de espera.
+            Agende su valoración hoy. Sin compromiso, sin listas de espera.
             Evaluación clara desde la primera consulta.
           </p>
 
@@ -31,7 +31,7 @@ export default function CTASection() {
               className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base font-medium gap-2 shadow-lg hover:shadow-xl transition-all"
             >
               <CalendarCheck size={20} />
-              Agendar evaluación
+              Agendar valoración
             </Button>
 
             <Button

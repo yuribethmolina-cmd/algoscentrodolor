@@ -258,7 +258,7 @@ function CinematicCTA({ hc }: { hc: boolean }) {
             rel="noopener noreferrer"
             className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.24em] px-12 py-5 transition-colors"
           >
-            Escríbanos por WhatsApp
+            Escribir por WhatsApp
           </a>
         </motion.div>
       </div>

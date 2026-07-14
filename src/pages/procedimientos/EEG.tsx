@@ -80,7 +80,7 @@ export default function EEG() {
               Si tiene dudas sobre si este estudio corresponde a su situación, escríbanos y le orientamos.
             </p>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-algos-gold hover:bg-[#d4a648] text-[#0A2A32] font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
-              Escríbanos por WhatsApp
+              Escribir por WhatsApp
             </a>
           </div>
         </section>

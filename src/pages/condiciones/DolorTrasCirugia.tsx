@@ -61,7 +61,7 @@ export default function DolorTrasCirugia() {
               Cuéntenos su historia y le orientamos sobre qué opciones existen para su caso.
             </p>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[13px] tracking-[0.2em] rounded-none px-10 py-5 transition-colors">
-              Escríbanos por WhatsApp
+              Escribir por WhatsApp
             </a>
           </div>
         </section>

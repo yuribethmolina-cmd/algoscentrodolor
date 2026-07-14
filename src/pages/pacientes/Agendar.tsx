@@ -230,7 +230,7 @@ export default function Agendar() {
                   className="w-full inline-flex items-center justify-center gap-3 bg-[#3d8b96] hover:bg-[#4a9ca8] text-[#f5f0e8] font-ui font-bold uppercase rounded-none transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.3)] px-8 py-4 text-sm tracking-[0.2em]"
                 >
                   <MessageCircle size={18} />
-                  Enviar por WhatsApp
+                  Escribir por WhatsApp
                 </button>
                 <p className="text-center text-[#1a4a55]/50 text-xs mt-4 font-sans">
                   Al continuar, abrirá WhatsApp con su información. No almacenamos sus datos.

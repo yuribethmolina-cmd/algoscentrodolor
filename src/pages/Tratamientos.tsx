@@ -251,7 +251,7 @@ export default function Tratamientos() {
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1fb859] text-white hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                   >
-                    <span>WhatsApp</span>
+                    <span>Escribir por WhatsApp</span>
                     <span aria-hidden>→</span>
                   </a>
                   <Link
