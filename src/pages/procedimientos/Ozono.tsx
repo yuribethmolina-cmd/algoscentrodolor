@@ -38,9 +38,9 @@ export default function Ozono() {
 
         <ProcedureSplitBlock
           image={imgSala}
-          imageAlt="Imagen pendiente"
+          imageAlt="Aplicación de ozono intradiscal guiada por imagen"
           eyebrow="Para qué sirve"
-          imageCaption="Imagen pendiente"
+          imageCaption="Ozono intradiscal en columna lumbar."
         >
           <p>
             Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía.
@@ -52,7 +52,15 @@ export default function Ozono() {
 
         <section className="bg-cream pb-8">
           <div className="mx-auto max-w-[860px] px-6 md:px-12">
-            <div className="pt-2 border-t border-deep-teal/10 pt-10">
+            <figure className="pt-4">
+              <div className="overflow-hidden rounded-sm bg-white">
+                <img src={imgDiagrama} alt="Diagrama de infiltración de ozono en disco lumbar" className="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption className="mt-3 font-sans text-steel-teal text-[13px] leading-[1.6] italic">
+                Cómo actúa el ozono sobre el disco herniado y el nervio comprometido.
+              </figcaption>
+            </figure>
+            <div className="pt-10 mt-10 border-t border-deep-teal/10">
               <p className="font-sans text-steel-teal text-[15px] leading-[1.75]">
                 Este procedimiento se aplica exclusivamente para hernia discal. No se realiza como tratamiento sistémico ni para otras indicaciones.
               </p>
