@@ -146,9 +146,6 @@ export default function TratamientoDetalle() {
             <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-8">
               ¿Qué es y por qué duele?
             </h2>
-            <h2 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-8">
-              ¿Qué es y por qué duele?
-            </h2>
             <div className="prose prose-lg max-w-none mb-14">
               <p className="font-sans text-[#1a4a55]/80 text-base md:text-lg leading-relaxed whitespace-pre-line">
                 {condition.whatIs}

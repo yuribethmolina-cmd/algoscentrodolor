@@ -687,37 +687,60 @@ var CONDITIONS = [
     slug: "cefaleas",
     name: "Cefaleas",
     clinicalName: "CEFALEA CERVICOG\xC9NICA \xB7 NEURALGIA OCCIPITAL",
-    patientDescription: "Dolor de cabeza originado en la columna cervical o en los nervios occipitales, que puede confundirse con migra\xF1a pero tiene un origen mec\xE1nico tratable.",
-    clinicalDescription: "Cefalea cervicog\xE9nica \xB7 neuralgia occipital mayor y menor \xB7 cefalea por disfunci\xF3n facetaria cervical",
+    patientDescription: "Dolor de cabeza recurrente que no cede con analg\xE9sicos comunes. En ALGOS tratamos las cefaleas con un componente mec\xE1nico o nervioso identificable \u2014cervicog\xE9nica, neuralgia occipital y cefalea facetaria alta\u2014 mediante bloqueos guiados por imagen.",
+    clinicalDescription: "Cefalea cervicog\xE9nica \xB7 neuralgia occipital mayor y menor \xB7 cefalea por disfunci\xF3n facetaria cervical alta (C1-C3)",
     procedures: [
       {
         slug: "bloqueo-radicular-cervical",
-        label: "Bloqueo occipital / cervical",
-        technicalName: "Bloqueo del nervio occipital mayor guiado por ecograf\xEDa",
-        description: "Inyecci\xF3n perineural en los nervios occipitales o en las ra\xEDces cervicales altas para reducir la se\xF1al de dolor que genera la cefalea."
+        label: "Bloqueo del nervio occipital",
+        technicalName: "Bloqueo del nervio occipital mayor y menor guiado por ecograf\xEDa",
+        description: "Inyecci\xF3n perineural de anest\xE9sico y corticoide sobre los nervios occipitales en la base del cr\xE1neo. Interrumpe la se\xF1al de dolor que llega al cuero cabelludo y la regi\xF3n retroauricular. Efecto diagn\xF3stico y terap\xE9utico en la misma sesi\xF3n."
+      },
+      {
+        slug: "bloqueo-facetario-cervical",
+        label: "Bloqueo facetario cervical alto",
+        technicalName: "Bloqueo de la rama medial C2-C3 guiado por fluoroscopia",
+        description: "Infiltraci\xF3n selectiva de las articulaciones facetarias cervicales altas, causa frecuente de cefalea cervicog\xE9nica. Confirma el origen facetario del dolor y puede seguirse de radiofrecuencia si la respuesta es favorable."
       }
     ],
-    whatIs: "No todas las cefaleas tienen el mismo origen. La cefalea cervicog\xE9nica y la neuralgia occipital son tipos de dolor de cabeza cuyo origen est\xE1 en la columna cervical o en los nervios que salen del cuello hacia el cr\xE1neo.\n\nEste tipo de cefalea se distingue porque el dolor comienza en el cuello o la nuca, se irradia hacia la cabeza, y suele asociarse con posturas mantenidas, contracturas cervicales o patolog\xEDa de las articulaciones facetarias cervicales altas. El bloqueo nervioso guiado por imagen act\xFAa directamente sobre el origen del dolor.",
+    whatIs: "Una cefalea no es una sola enfermedad. La migra\xF1a, la cefalea tensional y la cefalea en racimos son cuadros neurol\xF3gicos con mecanismos propios que se manejan farmacol\xF3gicamente. En ALGOS abordamos un grupo distinto: las cefaleas con un origen anat\xF3mico identificable en el cuello o en los nervios craneocervicales, donde un bloqueo dirigido puede aliviar el dolor.\n\nLa cefalea cervicog\xE9nica nace de las articulaciones facetarias cervicales altas (C1-C2-C3) o de los discos cervicales superiores. El dolor se percibe en la cabeza porque estas estructuras comparten inervaci\xF3n con el nervio trig\xE9mino.\n\nLa neuralgia occipital se debe a irritaci\xF3n o atrapamiento de los nervios occipitales mayor y menor a su paso por la musculatura suboccipital. Produce un dolor el\xE9ctrico, punzante, que recorre la nuca y sube hasta el cuero cabelludo.",
     symptoms: [
-      "Dolor de cabeza que comienza en la nuca o el cuello y se extiende hacia la cabeza",
-      "Dolor unilateral que empeora con movimientos del cuello",
-      "Sensibilidad al tacto en la zona occipital o la base del cr\xE1neo",
-      "Cefalea que mejora al presionar la zona cervical posterior"
+      "Dolor que empieza en la nuca o la base del cr\xE1neo y sube hacia la frente, la sien o detr\xE1s del ojo",
+      "Ataques punzantes, el\xE9ctricos, sobre un lado de la cabeza (neuralgia occipital)",
+      "Dolor que empeora al girar, extender o mantener el cuello en una postura",
+      "Sensibilidad del cuero cabelludo al peinarse o apoyar la cabeza en la almohada",
+      "N\xE1usea o intolerancia leve a la luz, sin el aura ni la intensidad t\xEDpica de la migra\xF1a",
+      "Falta de respuesta a analg\xE9sicos comunes y antimigra\xF1osos"
     ],
     whenToConsider: [
-      "Cuando las cefaleas se asocian a dolor o rigidez cervical",
-      "Cuando no han respondido adecuadamente al tratamiento farmacol\xF3gico habitual",
-      "Cuando la evaluaci\xF3n cl\xEDnica sugiere un origen cervicog\xE9nico u occipital"
+      "Cefaleas de m\xE1s de tres meses con componente cervical claro",
+      "Diagn\xF3stico previo de migra\xF1a que no responde al tratamiento neurol\xF3gico habitual",
+      "Neuralgia occipital confirmada cl\xEDnicamente o por bloqueo diagn\xF3stico",
+      "Cefalea postraum\xE1tica tras latigazo cervical (whiplash)",
+      "Necesidad de reducir el uso cr\xF3nico de analg\xE9sicos o triptanes"
     ],
     whatToExpect: [
-      "Evaluaci\xF3n cl\xEDnica para diferenciar el tipo de cefalea",
-      "Procedimiento ambulatorio guiado por ecograf\xEDa \xB7 anestesia local",
-      "Seguimiento de la respuesta al tratamiento"
+      "Evaluaci\xF3n cl\xEDnica dirigida para diferenciar el tipo de cefalea y localizar el generador del dolor",
+      "Bloqueo diagn\xF3stico-terap\xE9utico ambulatorio guiado por ecograf\xEDa o fluoroscopia, con anestesia local",
+      "Alivio evaluable en las primeras 24-48 horas, que orienta el plan de seguimiento",
+      "Radiofrecuencia como paso siguiente cuando el bloqueo confirma el origen facetario u occipital"
     ],
     faq: [
       {
         q: "\xBFEs lo mismo que la migra\xF1a?",
-        a: "No. La migra\xF1a es una condici\xF3n neurol\xF3gica con mecanismos propios. La cefalea cervicog\xE9nica y la neuralgia occipital tienen un origen mec\xE1nico o nervioso en el cuello, por eso responden a bloqueos nerviosos que no tienen efecto en la migra\xF1a."
+        a: "No. La migra\xF1a es una enfermedad neurol\xF3gica con mecanismos vasculares y de sensibilizaci\xF3n central. La cefalea cervicog\xE9nica y la neuralgia occipital tienen un origen mec\xE1nico o nervioso en el cuello y en los nervios craneocervicales, por eso responden a bloqueos guiados por imagen que no tienen efecto sobre la migra\xF1a."
+      },
+      {
+        q: "\xBFC\xF3mo saben si mi dolor de cabeza viene del cuello?",
+        a: "Por la historia cl\xEDnica (d\xF3nde empieza el dolor, qu\xE9 lo desencadena, qu\xE9 medicaci\xF3n prob\xF3) y por la exploraci\xF3n f\xEDsica dirigida. Cuando existe duda, un bloqueo diagn\xF3stico del nervio occipital o de la rama medial cervical alta permite confirmarlo: si el dolor cede tras el bloqueo, el origen est\xE1 en esa estructura."
+      },
+      {
+        q: "\xBFCu\xE1nto dura el alivio de un bloqueo occipital?",
+        a: "Es variable. En muchos pacientes el alivio se prolonga entre semanas y varios meses. Cuando el bloqueo funciona pero el efecto es limitado en el tiempo, se puede indicar radiofrecuencia sobre el mismo nervio o articulaci\xF3n para obtener un alivio m\xE1s prolongado."
+      },
+      {
+        q: "\xBFPuedo seguir con mi neur\xF3logo?",
+        a: "S\xED, y lo recomendamos. El manejo intervencionista de la cefalea complementa el tratamiento neurol\xF3gico, no lo sustituye. Coordinamos con su neur\xF3logo tratante para integrar el bloqueo dentro de su plan global."
       }
     ]
   }
