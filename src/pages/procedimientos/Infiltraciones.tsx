@@ -7,9 +7,22 @@ import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock"
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
+import imgBloqueoFacetario from "@/assets/infiltracion-bloqueo-facetario.png.asset.json";
+import imgRodillaEco from "@/assets/infiltracion-rodilla-eco.webp.asset.json";
+import imgHombroEco from "@/assets/infiltracion-hombro-eco.webp.asset.json";
+import imgFluoroscopia from "@/assets/infiltracion-fluoroscopia.webp.asset.json";
+import imgLumbar from "@/assets/infiltracion-lumbar.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
 
-const imgSala = "/placeholder.svg";
+const imgSala = imgBloqueoFacetario.url;
+
+const galeria = [
+  { src: imgBloqueoFacetario.url, alt: "Bloqueo guiado por ecografía en columna lumbar", caption: "Bloqueo ecoguiado · columna lumbar" },
+  { src: imgFluoroscopia.url, alt: "Infiltración guiada por fluoroscopia con arco en C", caption: "Guía por fluoroscopia" },
+  { src: imgLumbar.url, alt: "Infiltración lumbar en sala de procedimientos", caption: "Infiltración lumbar" },
+  { src: imgRodillaEco.url, alt: "Infiltración de rodilla guiada por ecografía", caption: "Infiltración de rodilla ecoguiada" },
+  { src: imgHombroEco.url, alt: "Infiltración de hombro guiada por ecografía", caption: "Infiltración de hombro ecoguiada" },
+];
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
