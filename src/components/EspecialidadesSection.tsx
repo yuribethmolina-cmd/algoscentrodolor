@@ -298,7 +298,7 @@ export default function EspecialidadesSection() {
                     >
                       {item.specialtyHint}
                     </p>
-                    {item.doctors.length > 0 ? (
+                    {doctors.length > 0 ? (
                       <ul
                         style={{
                           listStyle: "none",
@@ -309,7 +309,7 @@ export default function EspecialidadesSection() {
                           gap: 4,
                         }}
                       >
-                        {item.doctors.map((doc) => (
+                        {doctors.map((doc) => (
                           <li
                             key={doc}
                             style={{
