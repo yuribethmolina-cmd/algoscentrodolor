@@ -12,7 +12,7 @@ export default function GlobalFooter() {
             <Link to="/">
               <img src={algosLogo} alt="ALGOS, Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
             </Link>
-            <p className="text-primary-foreground/50 font-light text-sm mt-4 leading-relaxed">
+            <p className="text-primary-foreground/80 font-light text-sm mt-4 leading-relaxed">
               Centro de Dolor Intervencionista.
               <br />
               Medicina de precisión en Maracaibo.
@@ -72,14 +72,14 @@ export default function GlobalFooter() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-primary-foreground/30 text-xs font-light">
+          <p className="text-primary-foreground/70 text-xs font-light">
             © {new Date().getFullYear()} ALGOS, Centro de Dolor Intervencionista. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
-            <Link to="/privacidad" className="text-primary-foreground/30 hover:text-primary-foreground/60 text-xs font-light transition-colors">
+            <Link to="/privacidad" className="text-primary-foreground/70 hover:text-primary-foreground text-xs font-light transition-colors">
               Privacidad
             </Link>
-            <Link to="/aviso-legal" className="text-primary-foreground/30 hover:text-primary-foreground/60 text-xs font-light transition-colors">
+            <Link to="/aviso-legal" className="text-primary-foreground/70 hover:text-primary-foreground text-xs font-light transition-colors">
               Aviso legal
             </Link>
           </div>

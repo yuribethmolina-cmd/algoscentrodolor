@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img src={algosLogo} alt="ALGOS, Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
-            <p className="text-primary-foreground/50 font-light text-sm mt-4 leading-relaxed">
+            <p className="text-primary-foreground/80 font-light text-sm mt-4 leading-relaxed">
               Centro de Dolor Intervencionista.
               <br />
               Medicina de precisión en Maracaibo.
@@ -68,10 +68,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 space-y-2">
-          <p className="text-primary-foreground/40 text-xs font-light text-center">
+          <p className="text-primary-foreground/70 text-xs font-light text-center">
             Un proyecto venezolano construido para el Zulia
           </p>
-          <p className="text-primary-foreground/30 text-xs font-light text-center">
+          <p className="text-primary-foreground/70 text-xs font-light text-center">
             © {new Date().getFullYear()} ALGOS, Centro de Dolor Intervencionista. Todos los derechos reservados.
           </p>
         </div>

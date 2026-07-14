@@ -17,7 +17,7 @@ export default function InstitucionesIndex() {
       <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero opacity-90" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-          <p className="text-accent/70 text-xs tracking-[0.5em] uppercase mb-6 font-light">Para instituciones</p>
+          <p className="text-cream-strong text-xs tracking-[0.5em] uppercase mb-6 font-light">Para instituciones</p>
           <h1 className="text-4xl md:text-6xl font-extralight text-primary-foreground leading-tight mb-6">
             Alianzas <span className="font-light">estratégicas</span>
           </h1>
