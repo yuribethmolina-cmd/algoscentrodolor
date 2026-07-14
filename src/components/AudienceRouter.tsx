@@ -174,10 +174,10 @@ export default function AudienceRouter() {
                 className="font-ui text-steel-teal"
                 style={{ fontSize: "15px", marginTop: "4px" }}
               >
-                Escríbenos. Te orientamos.
+                Conversemos sobre su caso. Le orientamos sin compromiso.
               </p>
             </div>
-            <FooterLink to="/contacto">Hablar con el equipo</FooterLink>
+            <FooterLink to="/contacto">Hablar con nuestro equipo</FooterLink>
           </div>
         </div>
       </div>
