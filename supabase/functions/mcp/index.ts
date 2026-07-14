@@ -894,18 +894,6 @@ var TEAM = [
   },
   {
     type: "confirmed",
-    slug: "dr-luis-alberto",
-    givenName: "Dr. Luis Alberto",
-    familyName: "Rodr\xEDguez",
-    role: "Director \xB7 Estrategia Internacional",
-    specialty: "Neurocirujano",
-    city: "M\xFAnich",
-    country: "Venezuela",
-    group: "02",
-    bio: { formacion: "Neurocirujano.", idiomas: "Espa\xF1ol \xB7 Deutsch" }
-  },
-  {
-    type: "confirmed",
     slug: "lcdo-daniel",
     givenName: "Lcdo. Daniel",
     familyName: "Rodr\xEDguez",
