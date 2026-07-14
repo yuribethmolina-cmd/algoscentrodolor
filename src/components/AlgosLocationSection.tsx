@@ -282,7 +282,7 @@ export default function AlgosLocationSection() {
                   color: GOLD,
                 }}
               >
-                Agenda por WhatsApp
+                Agende por WhatsApp
               </p>
 
               <div
