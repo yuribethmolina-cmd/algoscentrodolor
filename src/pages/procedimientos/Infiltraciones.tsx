@@ -133,10 +133,10 @@ export default function Infiltraciones() {
         </ProcedureIntro>
 
         <ProcedureSplitBlock
-          image={imgSala}
-          imageAlt="Imagen pendiente"
+          image={imgBloqueoFacetario.url}
+          imageAlt="Bloqueo facetario guiado por ecografía en sala de procedimientos"
           eyebrow="Para qué sirve"
-          imageCaption="Imagen pendiente"
+          imageCaption="Bloqueo ecoguiado en columna lumbar"
         >
           <p>
             Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna.
@@ -156,6 +156,32 @@ export default function Infiltraciones() {
             </div>
           </div>
         </section>
+
+        <section className="bg-cream pt-6 pb-16 md:pb-24">
+          <div className="mx-auto max-w-[1240px] px-6 md:px-10">
+            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-8">
+              Hechas de distintas maneras
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {galeria.map((g) => (
+                <figure key={g.src} className="group">
+                  <div className="relative overflow-hidden bg-deep-teal/5" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={g.src}
+                      alt={g.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="font-sans text-steel-teal text-[12px] tracking-[0.18em] uppercase mt-3">
+                    {g.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         <ProcedureDetails
           facts={[
