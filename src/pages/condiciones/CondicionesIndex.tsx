@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import SEOHead from "@/components/SEOHead";
 import { ALGOS } from "@/config/algos.config";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20mi%20dolor.";
