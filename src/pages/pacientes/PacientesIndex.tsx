@@ -32,7 +32,7 @@ export default function PacientesIndex() {
             <Button asChild size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 py-6 text-base font-medium gap-2">
               <Link to="/pacientes/agendar">
                 <CalendarCheck size={20} />
-                Agendar evaluación
+                Agendar valoración
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="w-full sm:w-auto border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-full px-8 py-6 text-base font-light gap-2">
