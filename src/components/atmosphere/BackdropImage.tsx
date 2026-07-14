@@ -1,13 +1,13 @@
 /**
  * Atmospheric background image. Sits absolutely behind content,
  * heavily desaturated and faded so typography stays the hero.
- * Decorative — always aria-hidden.
+ * Decorative, always aria-hidden.
  *
  * If the URL fails to load, the <img> hides itself so layout never breaks.
  */
 type Props = {
   src: string;
-  /** 0–1 visual opacity. */
+  /** 0-1 visual opacity. */
   opacity: number;
   /** CSS filter. */
   filter: string;

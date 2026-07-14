@@ -15,7 +15,7 @@ export default function BlogPage() {
               <FileText className="w-12 h-12 text-secondary/30 mx-auto mb-4" />
               <p className="text-muted-foreground font-light text-lg mb-2">Próximamente</p>
               <p className="text-muted-foreground/60 font-light text-sm max-w-md mx-auto">
-                Artículos sobre dolor crónico, tratamientos intervencionistas y bienestar — escritos por nuestro equipo médico.
+                Artículos sobre dolor crónico, tratamientos intervencionistas y bienestar, escritos por nuestro equipo médico.
               </p>
             </div>
           </div>

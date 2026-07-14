@@ -49,7 +49,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="py-24 md:py-32 bg-background relative overflow-hidden">
-      {/* Decorative vertical line — desktop */}
+      {/* Decorative vertical line, desktop */}
       <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-border to-transparent" />
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
@@ -105,7 +105,7 @@ export default function ProcessSection() {
                   </div>
                 </div>
 
-                {/* Connector dot — desktop */}
+                {/* Connector dot, desktop */}
                 <div className="hidden md:block absolute left-1/2 -translate-x-1/2" style={{ marginTop: "-0.375rem" }}>
                   <div className="w-3 h-3 rounded-full bg-secondary border-4 border-background" />
                 </div>

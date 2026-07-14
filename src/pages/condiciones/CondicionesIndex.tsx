@@ -77,7 +77,7 @@ export default function CondicionesIndex() {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
                 {WITHOUT_PAGES.map((c) => (
                   <li key={c} className="font-sans text-deep-teal text-[15px] leading-[1.5] flex items-start gap-2">
-                    <span className="text-algos-gold mt-[3px] shrink-0">—</span>
+                    <span className="text-algos-gold mt-[3px] shrink-0"></span>
                     {c}
                   </li>
                 ))}

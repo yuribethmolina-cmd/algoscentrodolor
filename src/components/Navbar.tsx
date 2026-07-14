@@ -147,7 +147,7 @@ export default function Navbar() {
         <Link to="/" aria-label="ALGOS · Inicio" className="flex items-center transition-opacity hover:opacity-80 shrink-0">
           <img
             src={algosLogoFull}
-            alt="ALGOS — Centro de Dolor Intervencionista"
+            alt="ALGOS, Centro de Dolor Intervencionista"
             loading="eager"
             decoding="sync"
             fetchPriority="high"

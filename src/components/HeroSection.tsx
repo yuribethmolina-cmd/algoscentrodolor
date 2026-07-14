@@ -70,11 +70,11 @@ export default function HeroSection() {
           rel="preload"
           as="image"
           href={heroPoster.url}
-          // @ts-ignore — valid HTML attribute, React types lag
+          // @ts-ignore, valid HTML attribute, React types lag
           fetchpriority="high"
         />
       </Helmet>
-      {/* Full-bleed video background — poster shows instantly, sources lazy-load */}
+      {/* Full-bleed video background, poster shows instantly, sources lazy-load */}
       <video
         key={videoSrc ?? "poster-only"}
         ref={(el) => {
@@ -91,7 +91,7 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        // @ts-ignore — iOS Safari hint
+        // @ts-ignore, iOS Safari hint
         webkit-playsinline="true"
         x5-playsinline="true"
         disableRemotePlayback
@@ -106,7 +106,7 @@ export default function HeroSection() {
         )}
       </video>
 
-      {/* Cream overlay — left to right */}
+      {/* Cream overlay, left to right */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f5f0e8]/95 via-[#f5f0e8]/90 to-[#f5f0e8]/82 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/20"

@@ -67,7 +67,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'El dolor lumbar crónico es aquel que persiste más de tres meses en la zona baja de la espalda. Puede tener varias causas: desgaste de las articulaciones pequeñas de la columna (síndrome facetario), protrusión o hernia de un disco que comprime una raíz nerviosa, o contractura muscular sostenida por compensación.\n\nCuando la hernia discal irrita o comprime el nervio ciático — que recorre desde la zona lumbar hasta el pie — el dolor se irradia hacia abajo por la pierna, a veces acompañado de hormigueo o adormecimiento. A esto se le llama ciática o radiculopatía lumbar.\n\nCuando el dolor no cede con reposo, analgésicos ni fisioterapia, los procedimientos intervencionistas guiados por imagen permiten actuar directamente sobre el punto que genera el problema, con anestesia local y sin hospitalización.',
+      'El dolor lumbar crónico es aquel que persiste más de tres meses en la zona baja de la espalda. Puede tener varias causas: desgaste de las articulaciones pequeñas de la columna (síndrome facetario), protrusión o hernia de un disco que comprime una raíz nerviosa, o contractura muscular sostenida por compensación.\n\nCuando la hernia discal irrita o comprime el nervio ciático, que recorre desde la zona lumbar hasta el pie, el dolor se irradia hacia abajo por la pierna, a veces acompañado de hormigueo o adormecimiento. A esto se le llama ciática o radiculopatía lumbar.\n\nCuando el dolor no cede con reposo, analgésicos ni fisioterapia, los procedimientos intervencionistas guiados por imagen permiten actuar directamente sobre el punto que genera el problema, con anestesia local y sin hospitalización.',
     symptoms: [
       'Dolor en la zona lumbar que puede irradiarse hacia la cadera, el glúteo o la pierna',
       'Hormigueo, adormecimiento o sensación eléctrica en el trayecto del nervio ciático',
@@ -77,13 +77,13 @@ export const CONDITIONS: Condition[] = [
     whenToConsider: [
       'Si el dolor lleva más de tres meses y no ha respondido a reposo, medicamentos ni fisioterapia',
       'Si hay irradiación hacia la pierna con hormigueo o adormecimiento',
-      'Si una imagen — resonancia magnética o tomografía — confirma hernia discal o compresión radicular',
+      'Si una imagen, resonancia magnética o tomografía, confirma hernia discal o compresión radicular',
       'Si el dolor limita actividades básicas como vestirse, trabajar o dormir',
     ],
     whatToExpect: [
       'Llegada y registro · 15 min',
-      'Evaluación clínica y revisión de imágenes con el especialista · 20–30 min',
-      'Procedimiento guiado por fluoroscopia o tomografía · 30–45 min',
+      'Evaluación clínica y revisión de imágenes con el especialista · 20-30 min',
+      'Procedimiento guiado por fluoroscopia o tomografía · 30-45 min',
       'Observación post-procedimiento · 30 min',
       'Alta el mismo día con indicaciones escritas',
     ],
@@ -138,7 +138,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'La cervicalgia crónica es el dolor persistente en la región cervical — la parte de la columna que forma el cuello. Las vértebras cervicales son las más pequeñas y móviles de toda la columna, lo que las expone al desgaste con el tiempo.\n\nCuando el desgaste (espondilosis) o una hernia discal cervical comprimen una raíz nerviosa, el dolor se irradia hacia el hombro, el brazo o los dedos — a esto se le llama radiculopatía cervical. Si la fuente es la articulación facetaria, el dolor es más local y sordo, sin irradiación clara.\n\nLos procedimientos guiados por imagen permiten llegar con precisión al punto exacto de la columna cervical que genera el problema, con anestesia local y sin necesidad de cirugía.',
+      'La cervicalgia crónica es el dolor persistente en la región cervical, la parte de la columna que forma el cuello. Las vértebras cervicales son las más pequeñas y móviles de toda la columna, lo que las expone al desgaste con el tiempo.\n\nCuando el desgaste (espondilosis) o una hernia discal cervical comprimen una raíz nerviosa, el dolor se irradia hacia el hombro, el brazo o los dedos, a esto se le llama radiculopatía cervical. Si la fuente es la articulación facetaria, el dolor es más local y sordo, sin irradiación clara.\n\nLos procedimientos guiados por imagen permiten llegar con precisión al punto exacto de la columna cervical que genera el problema, con anestesia local y sin necesidad de cirugía.',
     symptoms: [
       'Dolor en el cuello que se irradia al hombro, el brazo o entre los omóplatos',
       'Rigidez con dificultad para rotar o inclinar la cabeza',
@@ -153,8 +153,8 @@ export const CONDITIONS: Condition[] = [
     ],
     whatToExpect: [
       'Llegada y registro · 15 min',
-      'Evaluación clínica y revisión de imágenes con el especialista · 20–30 min',
-      'Procedimiento bajo guía de fluoroscopia o tomografía · 30–45 min',
+      'Evaluación clínica y revisión de imágenes con el especialista · 20-30 min',
+      'Procedimiento bajo guía de fluoroscopia o tomografía · 30-45 min',
       'Observación post-procedimiento · 30 min',
       'Alta el mismo día con indicaciones escritas',
     ],
@@ -191,7 +191,7 @@ export const CONDITIONS: Condition[] = [
         label: 'Radiofrecuencia medial branch',
         technicalName: 'Radiofrecuencia de rama medial facetaria',
         description:
-          'Aplica calor controlado sobre el nervio que transmite el dolor desde la articulación facetaria. Al desensibilizar ese nervio, el dolor se reduce de forma duradera — entre 12 y 24 meses en la mayoría de los casos. Se realiza con anestesia local bajo guía de fluoroscopia.',
+          'Aplica calor controlado sobre el nervio que transmite el dolor desde la articulación facetaria. Al desensibilizar ese nervio, el dolor se reduce de forma duradera, entre 12 y 24 meses en la mayoría de los casos. Se realiza con anestesia local bajo guía de fluoroscopia.',
       },
       {
         slug: 'bloqueo-diagnostico-facetario',
@@ -202,7 +202,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'Las articulaciones facetarias son las pequeñas articulaciones que conectan las vértebras entre sí, tanto en la columna lumbar como en la cervical. Con el envejecimiento o el desgaste, estas articulaciones desarrollan inflamación y generan dolor de forma similar a la artrosis en rodillas o caderas.\n\nEl dolor facetario es sordo y profundo — no irradia de la misma manera que la ciática, sino que se siente en la zona lumbar o cervical posterior, a veces con extensión a los glúteos o las caderas. Un patrón característico: empeora al estar parado o caminar y mejora al sentarse o inclinarse hacia adelante.\n\nEl diagnóstico se confirma con un bloqueo diagnóstico — una inyección de anestésico que, si alivia el dolor, señala que la articulación facetaria es la fuente. Una vez confirmado, la radiofrecuencia ofrece alivio duradero sin necesidad de cirugía.',
+      'Las articulaciones facetarias son las pequeñas articulaciones que conectan las vértebras entre sí, tanto en la columna lumbar como en la cervical. Con el envejecimiento o el desgaste, estas articulaciones desarrollan inflamación y generan dolor de forma similar a la artrosis en rodillas o caderas.\n\nEl dolor facetario es sordo y profundo, no irradia de la misma manera que la ciática, sino que se siente en la zona lumbar o cervical posterior, a veces con extensión a los glúteos o las caderas. Un patrón característico: empeora al estar parado o caminar y mejora al sentarse o inclinarse hacia adelante.\n\nEl diagnóstico se confirma con un bloqueo diagnóstico, una inyección de anestésico que, si alivia el dolor, señala que la articulación facetaria es la fuente. Una vez confirmado, la radiofrecuencia ofrece alivio duradero sin necesidad de cirugía.',
     symptoms: [
       'Dolor profundo en columna lumbar o cervical, sin irradiación clara hacia la pierna o el brazo',
       'El dolor empeora al estar parado mucho tiempo o al caminar y mejora al sentarse',
@@ -218,8 +218,8 @@ export const CONDITIONS: Condition[] = [
     whatToExpect: [
       'Llegada y registro · 15 min',
       'Evaluación clínica y revisión de imágenes con el especialista · 20 min',
-      'Bloqueo diagnóstico bajo fluoroscopia (si aún no se realizó) · 20–30 min',
-      'Radiofrecuencia de rama medial (cuando el bloqueo fue positivo) · 30–45 min',
+      'Bloqueo diagnóstico bajo fluoroscopia (si aún no se realizó) · 20-30 min',
+      'Radiofrecuencia de rama medial (cuando el bloqueo fue positivo) · 30-45 min',
       'Alta el mismo día con indicaciones escritas',
     ],
     faq: [
@@ -233,7 +233,7 @@ export const CONDITIONS: Condition[] = [
       },
       {
         q: '¿Es necesario el bloqueo diagnóstico primero?',
-        a: 'Sí. El bloqueo diagnóstico confirma que el dolor proviene de las facetas antes de proceder con la radiofrecuencia. Es un paso que evita tratar un origen equivocado — lo que el especialista llama "tratar solo lo que hace falta".',
+        a: 'Sí. El bloqueo diagnóstico confirma que el dolor proviene de las facetas antes de proceder con la radiofrecuencia. Es un paso que evita tratar un origen equivocado, lo que el especialista llama "tratar solo lo que hace falta".',
       },
       {
         q: '¿Qué pasa si no respondo a la radiofrecuencia?',
@@ -255,7 +255,7 @@ export const CONDITIONS: Condition[] = [
         label: 'Electromiografía (EMG)',
         technicalName: 'Electromiografía y velocidades de conducción nerviosa',
         description:
-          'Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos. Confirma qué nervios están dañados, en qué grado y en qué punto exacto — información esencial antes de definir el tratamiento.',
+          'Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos. Confirma qué nervios están dañados, en qué grado y en qué punto exacto, información esencial antes de definir el tratamiento.',
       },
       {
         slug: 'bloqueo-nervio-periferico',
@@ -266,7 +266,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'La neuropatía periférica es el daño a los nervios que conectan el cerebro y la médula espinal con el resto del cuerpo. Cuando esos nervios están dañados, las señales se distorsionan: el paciente siente dolor, quemazón o corrientazos donde no debería, o deja de sentir en zonas que deberían tener sensibilidad.\n\nLa causa más frecuente en Venezuela es la diabetes mal controlada o de larga evolución. El exceso de glucosa daña progresivamente los nervios, comenzando por los más largos — los de los pies y las piernas. A esto se le llama neuropatía diabética.\n\nEl primer paso es confirmar el diagnóstico con una electromiografía (EMG), que determina qué nervios están afectados y en qué punto. Con ese mapa, el especialista define si hay indicación para un procedimiento intervencionista que complemente el manejo médico.',
+      'La neuropatía periférica es el daño a los nervios que conectan el cerebro y la médula espinal con el resto del cuerpo. Cuando esos nervios están dañados, las señales se distorsionan: el paciente siente dolor, quemazón o corrientazos donde no debería, o deja de sentir en zonas que deberían tener sensibilidad.\n\nLa causa más frecuente en Venezuela es la diabetes mal controlada o de larga evolución. El exceso de glucosa daña progresivamente los nervios, comenzando por los más largos, los de los pies y las piernas. A esto se le llama neuropatía diabética.\n\nEl primer paso es confirmar el diagnóstico con una electromiografía (EMG), que determina qué nervios están afectados y en qué punto. Con ese mapa, el especialista define si hay indicación para un procedimiento intervencionista que complemente el manejo médico.',
     symptoms: [
       'Hormigueo, corrientazos o quemazón en pies, manos o piernas, especialmente en la noche',
       'Adormecimiento o pérdida de sensibilidad, sobre todo en la planta del pie',
@@ -281,15 +281,15 @@ export const CONDITIONS: Condition[] = [
     ],
     whatToExpect: [
       'Llegada y registro · 15 min',
-      'Evaluación clínica y revisión del EMG con el especialista · 20–30 min',
-      'Procedimiento según indicación — bloqueo de nervio periférico u otro · 20–30 min',
+      'Evaluación clínica y revisión del EMG con el especialista · 20-30 min',
+      'Procedimiento según indicación, bloqueo de nervio periférico u otro · 20-30 min',
       'Observación · 15 min',
       'Alta el mismo día con indicaciones y plan de seguimiento',
     ],
     faq: [
       {
         q: '¿Necesito un EMG antes de venir?',
-        a: 'Si ya tiene uno, tráigalo a la consulta. Si no, el especialista evaluará si es necesario realizarlo — contamos con el servicio de electrodiagnóstico para ese fin. El EMG es fundamental para saber exactamente qué nervios están afectados antes de definir el tratamiento.',
+        a: 'Si ya tiene uno, tráigalo a la consulta. Si no, el especialista evaluará si es necesario realizarlo, contamos con el servicio de electrodiagnóstico para ese fin. El EMG es fundamental para saber exactamente qué nervios están afectados antes de definir el tratamiento.',
       },
       {
         q: '¿El tratamiento cura la neuropatía diabética?',
@@ -337,7 +337,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'La artrosis es el desgaste progresivo del cartílago que recubre las superficies articulares. Sin ese cartílago, el hueso roza contra el hueso, generando dolor, inflamación y rigidez que aumentan con el tiempo. Rodilla, cadera y hombro son las articulaciones más frecuentemente afectadas.\n\nEl dolor articular crónico suele comenzar con molestia al inicio del movimiento — "el arranque" — y progresa hasta afectar actividades como caminar, subir escaleras o levantar el brazo. La inflamación recurrente dentro de la articulación acelera el deterioro.\n\nLos procedimientos guiados por ecografía permiten actuar directamente dentro de la articulación con precisión milimétrica, reducir la inflamación, mejorar la lubricación y retrasar la progresión — sin cirugía y de forma ambulatoria.',
+      'La artrosis es el desgaste progresivo del cartílago que recubre las superficies articulares. Sin ese cartílago, el hueso roza contra el hueso, generando dolor, inflamación y rigidez que aumentan con el tiempo. Rodilla, cadera y hombro son las articulaciones más frecuentemente afectadas.\n\nEl dolor articular crónico suele comenzar con molestia al inicio del movimiento, "el arranque", y progresa hasta afectar actividades como caminar, subir escaleras o levantar el brazo. La inflamación recurrente dentro de la articulación acelera el deterioro.\n\nLos procedimientos guiados por ecografía permiten actuar directamente dentro de la articulación con precisión milimétrica, reducir la inflamación, mejorar la lubricación y retrasar la progresión, sin cirugía y de forma ambulatoria.',
     symptoms: [
       'Dolor en rodilla, cadera u hombro al caminar, subir escaleras o levantar el brazo',
       'Rigidez matutina o tras estar sentado por tiempo prolongado',
@@ -353,7 +353,7 @@ export const CONDITIONS: Condition[] = [
     whatToExpect: [
       'Llegada y registro · 15 min',
       'Evaluación clínica y ecografía dirigida · 20 min',
-      'Infiltración guiada por ecografía en tiempo real · 20–30 min',
+      'Infiltración guiada por ecografía en tiempo real · 20-30 min',
       'Observación · 15 min',
       'Alta el mismo día con indicaciones escritas',
     ],
@@ -372,7 +372,7 @@ export const CONDITIONS: Condition[] = [
       },
       {
         q: '¿Es una alternativa a la cirugía?',
-        a: 'En muchos casos sí, especialmente cuando la artrosis no es severa. El objetivo no es reemplazar una cirugía verdaderamente necesaria, sino agotar las opciones menos invasivas primero — y tomar esa decisión con información clara.',
+        a: 'En muchos casos sí, especialmente cuando la artrosis no es severa. El objetivo no es reemplazar una cirugía verdaderamente necesaria, sino agotar las opciones menos invasivas primero, y tomar esa decisión con información clara.',
       },
     ],
   },
@@ -383,7 +383,7 @@ export const CONDITIONS: Condition[] = [
     patientDescription:
       'Cuando el núcleo del disco intervertebral sale de su posición y comprime una raíz nerviosa, generando dolor en la espalda baja con irradiación al glúteo o la pierna.',
     clinicalDescription:
-      'Hernia discal lumbar con compromiso radicular · protrusión discal · síndrome de compresión radicular L4–S1',
+      'Hernia discal lumbar con compromiso radicular · protrusión discal · síndrome de compresión radicular L4-S1',
     procedures: [
       {
         slug: 'discolisis-con-ozono',
@@ -408,7 +408,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'Los discos intervertebrales actúan como amortiguadores entre las vértebras. Cuando el núcleo gelatinoso de un disco se desplaza hacia el canal espinal, puede comprimir las raíces nerviosas que salen de la columna, generando dolor local y dolor irradiado hacia la pierna — lo que se conoce como ciática.\n\nLa hernia discal lumbar es una de las causas más frecuentes de dolor de espalda con irradiación. En la mayoría de los casos no requiere cirugía: los procedimientos mínimamente invasivos guiados por imagen pueden reducir la inflamación que genera el dolor y permitir que el nervio se recupere.',
+      'Los discos intervertebrales actúan como amortiguadores entre las vértebras. Cuando el núcleo gelatinoso de un disco se desplaza hacia el canal espinal, puede comprimir las raíces nerviosas que salen de la columna, generando dolor local y dolor irradiado hacia la pierna, lo que se conoce como ciática.\n\nLa hernia discal lumbar es una de las causas más frecuentes de dolor de espalda con irradiación. En la mayoría de los casos no requiere cirugía: los procedimientos mínimamente invasivos guiados por imagen pueden reducir la inflamación que genera el dolor y permitir que el nervio se recupere.',
     symptoms: [
       'Dolor en la zona lumbar que se irradia hacia el glúteo, el muslo o la pierna',
       'Hormigueo, adormecimiento o corrientazos en la pierna o el pie',
@@ -468,7 +468,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'El síndrome de cirugía fallida de columna describe la situación en la que una persona continúa con dolor después de una operación de espalda — ya sea porque el dolor no mejoró, porque volvió después de un período de alivio, o porque apareció dolor en una localización diferente.\n\nLas causas son variadas: fibrosis epidural (tejido cicatricial), recidiva de la hernia, inestabilidad segmentaria, o simplemente que el dolor tenía un origen que la cirugía no resolvió. El abordaje intervencionista puede ofrecer alternativas de manejo sin necesidad de nuevas intervenciones quirúrgicas.',
+      'El síndrome de cirugía fallida de columna describe la situación en la que una persona continúa con dolor después de una operación de espalda, ya sea porque el dolor no mejoró, porque volvió después de un período de alivio, o porque apareció dolor en una localización diferente.\n\nLas causas son variadas: fibrosis epidural (tejido cicatricial), recidiva de la hernia, inestabilidad segmentaria, o simplemente que el dolor tenía un origen que la cirugía no resolvió. El abordaje intervencionista puede ofrecer alternativas de manejo sin necesidad de nuevas intervenciones quirúrgicas.',
     symptoms: [
       'Dolor lumbar persistente igual o similar al previo a la cirugía',
       'Dolor irradiado a la pierna que reaparece o no desapareció',
@@ -476,7 +476,7 @@ export const CONDITIONS: Condition[] = [
       'Dolor que empeora con la actividad y mejora con el reposo',
     ],
     whenToConsider: [
-      'Cuando han pasado al menos 3–6 meses desde la cirugía y el dolor persiste',
+      'Cuando han pasado al menos 3-6 meses desde la cirugía y el dolor persiste',
       'Cuando se quiere evaluar alternativas antes de una segunda cirugía',
       'Cuando el dolor postoperatorio afecta la calidad de vida y la funcionalidad',
     ],
@@ -521,7 +521,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'El dolor radicular ocurre cuando una raíz nerviosa que sale de la columna vertebral se comprime o irrita — por una hernia discal, artrosis, estenosis u otras causas. El dolor "viaja" por el trayecto del nervio afectado: desde la columna lumbar hacia la pierna (ciática), o desde la columna cervical hacia el hombro y el brazo.\n\nA diferencia del dolor muscular, el dolor radicular tiene un patrón específico que sigue el territorio del nervio comprimido. Puede acompañarse de hormigueo, adormecimiento o pérdida de fuerza en la zona afectada.',
+      'El dolor radicular ocurre cuando una raíz nerviosa que sale de la columna vertebral se comprime o irrita, por una hernia discal, artrosis, estenosis u otras causas. El dolor "viaja" por el trayecto del nervio afectado: desde la columna lumbar hacia la pierna (ciática), o desde la columna cervical hacia el hombro y el brazo.\n\nA diferencia del dolor muscular, el dolor radicular tiene un patrón específico que sigue el territorio del nervio comprimido. Puede acompañarse de hormigueo, adormecimiento o pérdida de fuerza en la zona afectada.',
     symptoms: [
       'Dolor que irradia desde la columna hacia la pierna (lumbar) o el brazo (cervical)',
       'Hormigueo o corrientazos en la extremidad afectada',
@@ -529,7 +529,7 @@ export const CONDITIONS: Condition[] = [
       'Debilidad muscular en casos más severos',
     ],
     whenToConsider: [
-      'Cuando el dolor irradiado persiste más de 4–6 semanas con tratamiento conservador',
+      'Cuando el dolor irradiado persiste más de 4-6 semanas con tratamiento conservador',
       'Cuando la imagen confirma compresión de raíz nerviosa',
       'Cuando el dolor limita la movilidad o las actividades diarias',
     ],
@@ -696,7 +696,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'El herpes zóster (culebrilla) es la reactivación del virus varicela-zóster, que permanece dormido en los ganglios nerviosos tras haber tenido varicela. Cuando se reactiva, produce una erupción con ampollas dolorosas que sigue el trayecto de un nervio.\n\nEn algunas personas, especialmente mayores de 60 años, el dolor persiste después de que las lesiones de la piel han cicatrizado. Ese dolor residual — la neuralgia postherpética — puede ser intenso, continuo o eléctrico, y responde de forma limitada a los analgésicos convencionales. El bloqueo nervioso es una opción para modular ese dolor.',
+      'El herpes zóster (culebrilla) es la reactivación del virus varicela-zóster, que permanece dormido en los ganglios nerviosos tras haber tenido varicela. Cuando se reactiva, produce una erupción con ampollas dolorosas que sigue el trayecto de un nervio.\n\nEn algunas personas, especialmente mayores de 60 años, el dolor persiste después de que las lesiones de la piel han cicatrizado. Ese dolor residual, la neuralgia postherpética, puede ser intenso, continuo o eléctrico, y responde de forma limitada a los analgésicos convencionales. El bloqueo nervioso es una opción para modular ese dolor.',
     symptoms: [
       'Dolor urente, punzante o eléctrico en la zona donde estuvo el sarpullido',
       'Hipersensibilidad al tacto: incluso la ropa puede generar dolor (alodinia)',
@@ -732,7 +732,7 @@ export const CONDITIONS: Condition[] = [
       {
         slug: 'emg',
         label: 'EMG diagnóstico',
-        technicalName: 'Electromiografía — estudio de conducción nerviosa',
+        technicalName: 'Electromiografía, estudio de conducción nerviosa',
         description:
           'Estudio neurofisiológico que mide la velocidad de conducción del nervio mediano y confirma la gravedad de la compresión.',
       },
@@ -745,7 +745,7 @@ export const CONDITIONS: Condition[] = [
       },
     ],
     whatIs:
-      'El nervio mediano pasa por el túnel carpiano — un canal estrecho en la muñeca formado por huesos y un ligamento. Cuando ese túnel se estrecha o sus contenidos se inflaman, el nervio se comprime y genera síntomas en la mano: hormigueo, adormecimiento y dolor, especialmente de noche.\n\nEl diagnóstico se confirma con electromiografía (EMG). En casos moderados, la infiltración guiada por ecografía puede reducir la inflamación y aliviar los síntomas sin necesidad de cirugía.',
+      'El nervio mediano pasa por el túnel carpiano, un canal estrecho en la muñeca formado por huesos y un ligamento. Cuando ese túnel se estrecha o sus contenidos se inflaman, el nervio se comprime y genera síntomas en la mano: hormigueo, adormecimiento y dolor, especialmente de noche.\n\nEl diagnóstico se confirma con electromiografía (EMG). En casos moderados, la infiltración guiada por ecografía puede reducir la inflamación y aliviar los síntomas sin necesidad de cirugía.',
     symptoms: [
       'Hormigueo o adormecimiento en los dedos pulgar, índice, medio y la mitad del anular',
       'Dolor en la mano o la muñeca que empeora por la noche',
@@ -807,7 +807,7 @@ export const CONDITIONS: Condition[] = [
     faq: [
       {
         q: '¿Es lo mismo que la migraña?',
-        a: 'No. La migraña es una condición neurológica con mecanismos propios. La cefalea cervicogénica y la neuralgia occipital tienen un origen mecánico o nervioso en el cuello — por eso responden a bloqueos nerviosos que no tienen efecto en la migraña.',
+        a: 'No. La migraña es una condición neurológica con mecanismos propios. La cefalea cervicogénica y la neuralgia occipital tienen un origen mecánico o nervioso en el cuello, por eso responden a bloqueos nerviosos que no tienen efecto en la migraña.',
       },
     ],
   },
@@ -851,7 +851,7 @@ export const PROCEDURES: Procedure[] = [
     name: 'Radiofrecuencia facetaria',
     technicalName: 'Radiofrecuencia de rama medial facetaria',
     description:
-      'Aplica calor controlado sobre el nervio que transmite el dolor desde las articulaciones facetarias. Ofrece alivio duradero (12–24 meses) en síndrome facetario confirmado por bloqueo diagnóstico.',
+      'Aplica calor controlado sobre el nervio que transmite el dolor desde las articulaciones facetarias. Ofrece alivio duradero (12-24 meses) en síndrome facetario confirmado por bloqueo diagnóstico.',
     usedFor: ['dolor-lumbar-ciatica', 'dolor-cervical', 'dolor-facetario'],
   },
   {

@@ -38,13 +38,13 @@ const steps = [
     number: "01",
     eyebrow: "DIAGNÓSTICO INTEGRADO",
     title: "Consulta en ALGOS",
-    text: "El especialista evalúa tu caso y determina qué imagen necesitas — si es que la necesitas.",
+    text: "El especialista evalúa tu caso y determina qué imagen necesitas, si es que la necesitas.",
   },
   {
     number: "02",
     eyebrow: null,
     title: "Imagen el mismo día",
-    text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio — en nuestra unidad de diagnóstico integrada.",
+    text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio, en nuestra unidad de diagnóstico integrada.",
   },
   {
     number: "03",
@@ -404,7 +404,7 @@ export default function AllianceSection() {
             overflow: "hidden",
           }}
         >
-          {/* UDUZ facade image — lazy-loaded, decoded async, low priority.
+          {/* UDUZ facade image, lazy-loaded, decoded async, low priority.
               Uses <img> instead of CSS background so the browser can defer
               the request until the card is close to the viewport. The single
               WebP (~33KB from CDN) is reused in two positions via srcset
@@ -415,7 +415,7 @@ export default function AllianceSection() {
             aria-hidden="true"
             loading="lazy"
             decoding="async"
-            // @ts-expect-error — fetchpriority is a valid HTML attribute
+            // @ts-expect-error, fetchpriority is a valid HTML attribute
             fetchpriority="low"
             className="block md:hidden pointer-events-none select-none"
             sizes="(max-width: 767px) 100vw, 0px"
@@ -440,7 +440,7 @@ export default function AllianceSection() {
             aria-hidden="true"
             loading="lazy"
             decoding="async"
-            // @ts-expect-error — fetchpriority is a valid HTML attribute
+            // @ts-expect-error, fetchpriority is a valid HTML attribute
             fetchpriority="low"
             className="hidden md:block pointer-events-none select-none"
             sizes="(min-width: 768px) 38vw, 0px"
@@ -572,7 +572,7 @@ export default function AllianceSection() {
                   </a>
                 ),
               },
-              { k: "Horario", v: "Lun–Sáb · 6:30 AM – 7:00 PM" },
+              { k: "Horario", v: "Lun-Sáb · 6:30 AM - 7:00 PM" },
               {
                 k: "Reseñas",
                 v: (

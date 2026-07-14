@@ -2,7 +2,7 @@ const CREAM = "#f5f0e8";
 const GOLD_DEEP = "#9a7320";
 
 /**
- * Trust bar — surfaces institutional alliances directly under the hero
+ * Trust bar, surfaces institutional alliances directly under the hero
  * so visitors immediately see the diagnostic partner (UDUZ).
  */
 export default function TrustBar() {
@@ -49,7 +49,7 @@ export default function TrustBar() {
             href="https://www.instagram.com/uduz_maracaibo/reels/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"
+            aria-label="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -61,7 +61,7 @@ export default function TrustBar() {
           >
             <img
               src="/logos/uduz-logo.svg"
-              alt="UDUZ — Unidad de Diagnóstico Universitaria del Zulia"
+              alt="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
               width={180}
               height={48}
               style={{ height: "clamp(36px, 4.2vw, 48px)", width: "auto", display: "block" }}

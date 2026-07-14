@@ -8,7 +8,7 @@ interface Props {
 }
 
 /**
- * Full-bleed ambient video block — plays muted, looped, decorative.
+ * Full-bleed ambient video block, plays muted, looped, decorative.
  * Matches the cinematic language of ProcedureHeroImage.
  */
 export default function ProcedureAmbientVideo({ src, poster, caption }: Props) {

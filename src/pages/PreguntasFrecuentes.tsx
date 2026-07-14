@@ -11,11 +11,11 @@ const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información
 const FAQS = [
   {
     q: "¿Cómo sé si ALGOS puede ayudarme?",
-    a: "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele — lo evaluamos y le decimos con honestidad qué opciones existen para su caso.",
+    a: "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele, lo evaluamos y le decimos con honestidad qué opciones existen para su caso.",
   },
   {
     q: "¿Necesito una orden médica para venir?",
-    a: "No. Puede venir directamente a consulta. Si trae estudios previos — resonancia, tomografía, EMG — tráigalos, pero no son requisito para la primera evaluación.",
+    a: "No. Puede venir directamente a consulta. Si trae estudios previos, resonancia, tomografía, EMG, tráigalos, pero no son requisito para la primera evaluación.",
   },
   {
     q: "¿Duele el procedimiento?",

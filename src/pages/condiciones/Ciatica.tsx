@@ -19,7 +19,7 @@ export default function Ciatica() {
           eyebrow="Condición"
           title="Ciática: cuando el dolor baja por la pierna"
           patientTitle="Se me duerme la pierna"
-          patientSubtitle="Dolor que nace en la espalda baja y baja por el glúteo hacia la pierna — a veces con hormigueo, corrientazo o sensación de adormecimiento."
+          patientSubtitle="Dolor que nace en la espalda baja y baja por el glúteo hacia la pierna, a veces con hormigueo, corrientazo o sensación de adormecimiento."
         />
 
         <div className="bg-cream pt-8 md:pt-10">
@@ -33,7 +33,7 @@ export default function Ciatica() {
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              La ciática es un dolor que nace en la parte baja de la espalda y baja por la pierna, a veces como un corrientazo, a veces con hormigueo o adormecimiento. Ocurre cuando algo irrita o comprime el nervio ciático — con frecuencia, una hernia de disco. No es "un dolor de espalda más": es un nervio pidiendo atención.
+              La ciática es un dolor que nace en la parte baja de la espalda y baja por la pierna, a veces como un corrientazo, a veces con hormigueo o adormecimiento. Ocurre cuando algo irrita o comprime el nervio ciático, con frecuencia, una hernia de disco. No es "un dolor de espalda más": es un nervio pidiendo atención.
             </p>
 
             <figure className="mb-12">
@@ -45,7 +45,7 @@ export default function Ciatica() {
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si el dolor lleva semanas y no cede con reposo ni calmantes; si baja de la rodilla; si se acompaña de hormigueo, adormecimiento o pérdida de fuerza en la pierna; o si ya le hablaron de cirugía y quiere saber si existe un paso intermedio — es momento de una evaluación especializada.
+              Si el dolor lleva semanas y no cede con reposo ni calmantes; si baja de la rodilla; si se acompaña de hormigueo, adormecimiento o pérdida de fuerza en la pierna; o si ya le hablaron de cirugía y quiere saber si existe un paso intermedio, es momento de una evaluación especializada.
             </p>
 
             <div className="mb-14">

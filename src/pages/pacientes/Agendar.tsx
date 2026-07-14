@@ -253,7 +253,7 @@ export default function Agendar() {
                     "Presupuesto transparente, sin sorpresas",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="text-[#c69636] mt-0.5 shrink-0">—</span>
+                      <span className="text-[#c69636] mt-0.5 shrink-0"></span>
                       {item}
                     </li>
                   ))}
@@ -290,7 +290,7 @@ export default function Agendar() {
                 </div>
                 <div className="flex items-center gap-3 text-[#1a4a55]/70">
                   <Clock size={18} className="text-[#3d8b96] shrink-0" />
-                  <span className="font-sans text-sm">Lunes a viernes · 7:00 AM – 4:00 PM</span>
+                  <span className="font-sans text-sm">Lunes a viernes · 7:00 AM - 4:00 PM</span>
                 </div>
               </div>
 
@@ -306,7 +306,7 @@ export default function Agendar() {
                   >
                     UDUZ Paraíso
                   </a>
-                  {" "}— misma zona. Tomografía desde $25 · Ecografía $15.
+                  {" "} misma zona. Tomografía desde $25 · Ecografía $15.
                 </p>
               </div>
             </aside>

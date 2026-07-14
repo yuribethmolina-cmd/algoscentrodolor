@@ -132,7 +132,7 @@ export default function HomeFooter() {
           <div className="col-span-2 mdx:col-span-1">
             <img
               src={algosLogo.url}
-              alt="ALGOS — Centro de Dolor Intervencionista"
+              alt="ALGOS, Centro de Dolor Intervencionista"
               width={220}
               height={112}
               className="h-16 mdx:h-28 w-auto block mb-4"
@@ -187,7 +187,7 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>HORARIO</p>
               <p style={blockValue}>
-                Lunes a viernes · 7:00 AM – 4:00 PM
+                Lunes a viernes · 7:00 AM - 4:00 PM
               </p>
             </div>
             <div>

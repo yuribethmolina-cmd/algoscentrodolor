@@ -76,7 +76,7 @@ export default function WhyDifferentSection() {
           </h2>
         </div>
 
-        {/* Cards — 3 columns on desktop, 1 on mobile */}
+        {/* Cards, 3 columns on desktop, 1 on mobile */}
         <div
           className="grid grid-cols-1 md:grid-cols-3"
           style={{ gap: "clamp(14px, 2vw, 22px)" }}

@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <img src={algosLogo} alt="ALGOS — Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
+            <img src={algosLogo} alt="ALGOS, Centro de Dolor Intervencionista" width={180} height={48} className="h-12 w-auto" />
             <p className="text-primary-foreground/50 font-light text-sm mt-4 leading-relaxed">
               Centro de Dolor Intervencionista.
               <br />
@@ -72,7 +72,7 @@ export default function Footer() {
             Un proyecto venezolano construido para el Zulia
           </p>
           <p className="text-primary-foreground/30 text-xs font-light text-center">
-            © {new Date().getFullYear()} ALGOS — Centro de Dolor Intervencionista. Todos los derechos reservados.
+            © {new Date().getFullYear()} ALGOS, Centro de Dolor Intervencionista. Todos los derechos reservados.
           </p>
         </div>
       </div>

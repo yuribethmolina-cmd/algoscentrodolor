@@ -20,7 +20,7 @@ export default function Radiofrecuencia() {
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
       <Navbar />
       <main>
-        <PageHero eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía — próximamente en ALGOS." />
+        <PageHero eyebrow="Próximamente" title="Radiofrecuencia" subtitle="Tratamiento del dolor sin cirugía, próximamente en ALGOS." />
 
         <ProcedureHeroImage
           src={imgMain}

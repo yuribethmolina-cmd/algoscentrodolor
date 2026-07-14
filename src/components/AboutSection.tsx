@@ -40,7 +40,7 @@ export default function AboutSection() {
     <section id="about" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — text */}
+          {/* Left, text */}
           <div className="scroll-reveal">
             <p className="text-secondary text-sm tracking-[0.3em] uppercase mb-4 font-medium">
               ¿Qué es la medicina intervencionista?
@@ -61,7 +61,7 @@ export default function AboutSection() {
             {/* Etymology block */}
             <div className="p-4 rounded-xl bg-accent/5 border border-accent/15 mb-8">
               <p className="text-sm text-foreground/80 font-light leading-relaxed">
-                <span className="font-medium text-accent">ALGOS</span> — del griego{" "}
+                <span className="font-medium text-accent">ALGOS</span>, del griego{" "}
                 <span className="">ἄλγος</span> (dolor). Raíz de <span>analgesia</span>,{" "}
                 <span>neuralgia</span>, <span>mialgia</span>. No es un nombre de fantasía:{" "}
                 <span className="font-medium text-foreground">es una declaración de especialidad.</span>
@@ -83,7 +83,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right — image with overlay */}
+          {/* Right, image with overlay */}
           <div className="scroll-reveal scroll-reveal-delay-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Picture
@@ -96,7 +96,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-primary-foreground/70 text-xs font-light tracking-wider uppercase">
-                  Infiltración guiada por ecógrafo — precisión en tiempo real
+                  Infiltración guiada por ecógrafo, precisión en tiempo real
                 </p>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function AboutSection() {
               "No es un centro quirúrgico",
               "No es un servicio de urgencias",
               "No es una farmacia de suplementos",
-              "No es competencia de tu médico — es complemento",
+              "No es competencia de tu médico, es complemento",
             ].map((item) => (
               <p key={item} className="text-sm text-muted-foreground font-light flex items-start gap-2">
                 <span className="text-accent font-medium mt-0.5">✕</span>

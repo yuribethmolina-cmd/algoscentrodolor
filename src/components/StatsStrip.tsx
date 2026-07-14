@@ -23,7 +23,7 @@ const stats: Stat[] = [
     duration: 600,
     delay: 0,
     label: "SEDES CLÍNICAS",
-    note: "Espacios activos en Maracaibo — cerca de donde estás.",
+    note: "Espacios activos en Maracaibo, cerca de donde estás.",
   },
   {
     target: 100,
@@ -31,7 +31,7 @@ const stats: Stat[] = [
     delay: 200,
     suffix: "%",
     label: "PROCEDIMIENTOS",
-    note: "Guiados por imagen en tiempo real — fluoroscopia o ultrasonido.",
+    note: "Guiados por imagen en tiempo real, fluoroscopia o ultrasonido.",
   },
 ];
 

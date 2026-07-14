@@ -13,7 +13,7 @@ const faqs = [
   {
     pregunta: "¿Cómo sé si ALGOS puede ayudarme?",
     respuesta:
-      "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele — lo evaluamos y le decimos con honestidad qué opciones existen.",
+      "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele, lo evaluamos y le decimos con honestidad qué opciones existen.",
   },
   {
     pregunta: "¿Duele el procedimiento?",
@@ -23,12 +23,12 @@ const faqs = [
   {
     pregunta: "¿Cuánto tiempo dura la recuperación?",
     respuesta:
-      "La mayoría de los pacientes retoma actividades ligeras al día siguiente. No hay hospitalización — el procedimiento es ambulatorio y sale el mismo día con indicaciones escritas.",
+      "La mayoría de los pacientes retoma actividades ligeras al día siguiente. No hay hospitalización, el procedimiento es ambulatorio y sale el mismo día con indicaciones escritas.",
   },
   {
     pregunta: "¿Necesito una orden médica para venir?",
     respuesta:
-      "No. Puede venir directamente a consulta. Si trae estudios previos — resonancia, tomografía, EMG — tráigalos, pero no son requisito para la primera evaluación.",
+      "No. Puede venir directamente a consulta. Si trae estudios previos, resonancia, tomografía, EMG, tráigalos, pero no son requisito para la primera evaluación.",
   },
   {
     pregunta: "¿Cuánto cuesta la consulta?",

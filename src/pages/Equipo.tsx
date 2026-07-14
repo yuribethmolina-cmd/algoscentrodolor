@@ -244,7 +244,7 @@ export default function Equipo() {
             </h2>
             <p className="font-sans text-[#1a4a55]/75 text-base md:text-[17px] leading-relaxed max-w-2xl mb-10 md:mb-12">
               Nuestro equipo evalúa el origen de su dolor, ejecuta el
-              tratamiento guiado por imagen y acompaña su recuperación — todo
+              tratamiento guiado por imagen y acompaña su recuperación, todo
               con el mismo criterio clínico informado de su caso.
             </p>
 
@@ -330,7 +330,7 @@ export default function Equipo() {
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[46ch] mx-auto">
-              "La neurocirugía en ALGOS no es la puerta al quirófano — es el
+              "La neurocirugía en ALGOS no es la puerta al quirófano, es el
               criterio que sabe cuándo la cirugía todavía no hace falta."
             </p>
             <a

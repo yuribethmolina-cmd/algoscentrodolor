@@ -82,7 +82,7 @@ export default function TeamSection() {
             }}
           >
             En ALGOS su caso no lo ve un solo médico. Cada paciente recorre una
-            ruta donde distintas especialidades colaboran — el mismo equipo,
+            ruta donde distintas especialidades colaboran, el mismo equipo,
             informado de su caso desde el inicio.
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function TeamSection() {
             }}
           >
             Nuestro equipo evalúa y diagnostica el origen del dolor, ejecuta el
-            tratamiento guiado por imagen y acompaña la recuperación — todo con
+            tratamiento guiado por imagen y acompaña la recuperación, todo con
             el mismo criterio clínico informado de su caso.
           </p>
         </div>
@@ -271,7 +271,7 @@ export default function TeamSection() {
               marginBottom: 28,
             }}
           >
-            La neurocirugía en ALGOS no es la puerta al quirófano — es el
+            La neurocirugía en ALGOS no es la puerta al quirófano, es el
             criterio que sabe cuándo la cirugía todavía no hace falta.
           </p>
 

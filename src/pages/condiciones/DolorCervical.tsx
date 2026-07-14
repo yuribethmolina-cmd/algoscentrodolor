@@ -32,12 +32,12 @@ export default function DolorCervical() {
           <div className="mx-auto max-w-[800px] px-6 md:px-12">
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Qué es</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              El dolor cervical es el dolor en la parte alta de la espalda y el cuello. Puede quedarse localizado o extenderse hacia el hombro, el brazo o la mano — señal de que un nervio está comprometido. Sus causas van desde tensión muscular hasta desgaste articular o compresión nerviosa por una hernia cervical.
+              El dolor cervical es el dolor en la parte alta de la espalda y el cuello. Puede quedarse localizado o extenderse hacia el hombro, el brazo o la mano, señal de que un nervio está comprometido. Sus causas van desde tensión muscular hasta desgaste articular o compresión nerviosa por una hernia cervical.
             </p>
 
             <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
-              Si el dolor lleva semanas y no cede; si se extiende al hombro, el brazo o la mano; si hay hormigueo, adormecimiento o pérdida de fuerza en el brazo; o si el movimiento del cuello es limitado o doloroso — es momento de una evaluación especializada.
+              Si el dolor lleva semanas y no cede; si se extiende al hombro, el brazo o la mano; si hay hormigueo, adormecimiento o pérdida de fuerza en el brazo; o si el movimiento del cuello es limitado o doloroso, es momento de una evaluación especializada.
             </p>
 
             <div className="mb-14">

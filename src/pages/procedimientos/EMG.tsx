@@ -278,7 +278,7 @@ export default function EMG() {
 
         <Chapter numeral="I" label="Qué es" />
         <EditorialStatement>
-          Un estudio que <span className="text-algos-gold">mide</span> cómo viajan las señales por sus nervios y cómo responden sus músculos — para ver si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
+          Un estudio que <span className="text-algos-gold">mide</span> cómo viajan las señales por sus nervios y cómo responden sus músculos, para ver si un nervio está comprimido, irritado o dañado, y en qué punto exacto.
         </EditorialStatement>
 
         <Chapter numeral="II" label="Para qué sirve" />

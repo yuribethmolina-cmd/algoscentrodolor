@@ -11,7 +11,7 @@ export default function PrivacidadPage() {
             </h1>
             <div className="prose prose-sm max-w-none text-muted-foreground font-light leading-relaxed space-y-6">
               <p>
-                ALGOS — Centro de Dolor Intervencionista se compromete a proteger la privacidad de sus pacientes y usuarios. Esta política describe cómo recopilamos, utilizamos y protegemos su información personal.
+                ALGOS, Centro de Dolor Intervencionista se compromete a proteger la privacidad de sus pacientes y usuarios. Esta política describe cómo recopilamos, utilizamos y protegemos su información personal.
               </p>
               <h2 className="text-lg font-medium text-foreground">Información que recopilamos</h2>
               <p>Recopilamos información personal cuando usted agenda una cita, nos contacta o utiliza nuestros servicios. Esto puede incluir nombre, teléfono, email y datos clínicos relevantes.</p>

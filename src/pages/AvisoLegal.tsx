@@ -11,7 +11,7 @@ export default function AvisoLegalPage() {
             </h1>
             <div className="prose prose-sm max-w-none text-muted-foreground font-light leading-relaxed space-y-6">
               <p>
-                Este sitio web es propiedad de ALGOS — Centro de Dolor Intervencionista, con sede en Maracaibo, Venezuela.
+                Este sitio web es propiedad de ALGOS, Centro de Dolor Intervencionista, con sede en Maracaibo, Venezuela.
               </p>
               <h2 className="text-lg font-medium text-foreground">Propósito informativo</h2>
               <p>El contenido de este sitio web tiene carácter exclusivamente informativo y no constituye consejo médico. Consulte siempre con un profesional de salud calificado.</p>

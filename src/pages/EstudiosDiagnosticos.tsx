@@ -71,7 +71,7 @@ export default function EstudiosDiagnosticos() {
   return (
     <div className="min-h-screen bg-cream">
       <SEOHead
-        title="Estudios diagnósticos en Maracaibo — Tomografía, EMG, Holter | ALGOS"
+        title="Estudios diagnósticos en Maracaibo, Tomografía, EMG, Holter | ALGOS"
         description="Estudios diagnósticos en Maracaibo: tomografía, rayos X, mamografía 3D, electrocardiograma, Holter, electroencefalograma (EEG), electromiografía (EMG) y laboratorio."
         canonical="https://algoscentrodolor.com/estudios-diagnosticos"
       />
@@ -92,7 +92,7 @@ export default function EstudiosDiagnosticos() {
               ESTUDIOS DIAGNÓSTICOS
             </p>
             <h1 className="font-display font-bold text-[#f5f0e8] text-4xl md:text-6xl leading-[1.05] tracking-tight max-w-3xl mb-6">
-              Tomografía, EMG, Holter y más — en Maracaibo.
+              Tomografía, EMG, Holter y más, en Maracaibo.
             </h1>
             <p className="font-sans text-[#f5f0e8]/80 text-base md:text-lg leading-relaxed max-w-2xl">
               Imagen, cardiología, neurofisiología y laboratorio. En sede o a
@@ -101,7 +101,7 @@ export default function EstudiosDiagnosticos() {
           </div>
         </section>
 
-        {/* Groups — cinematic UDUZ-style bento tabs */}
+        {/* Groups, cinematic UDUZ-style bento tabs */}
         <section className="bg-[#134F5C] pb-20 md:pb-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12 flex flex-col gap-16 md:gap-24">
             {GROUP_ORDER.map((groupKey) => {
