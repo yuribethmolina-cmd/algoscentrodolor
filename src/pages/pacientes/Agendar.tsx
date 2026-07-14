@@ -4,6 +4,7 @@ import HomeFooter from "@/components/HomeFooter";
 import { CONDITIONS } from "@/data/treatments";
 import { MessageCircle, Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { trackAppointment } from "@/lib/analytics";
 
 const WA_NUMBER = ALGOS.contact.whatsappNumber;
 
