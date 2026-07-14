@@ -159,6 +159,21 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
 }
 
 export default function Equipo() {
+  const [specialty, setSpecialty] = useState<string>("all");
+  const [query, setQuery] = useState<string>("");
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return DOCTORES.filter((d) => {
+      const matchesSpecialty = specialty === "all" || d.specialtySlug === specialty;
+      const matchesQuery =
+        q.length === 0 ||
+        d.name.toLowerCase().includes(q) ||
+        d.specialty.toLowerCase().includes(q);
+      return matchesSpecialty && matchesQuery;
+    });
+  }, [specialty, query]);
+
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
@@ -178,17 +193,85 @@ export default function Equipo() {
             <h2 className="font-display font-semibold text-[#1a4a55] text-3xl md:text-5xl leading-[1.15] mb-5 max-w-3xl">
               Un equipo multidisciplinario para cada tipo de dolor.
             </h2>
-            <p className="font-sans text-[#1a4a55]/75 text-base md:text-[17px] leading-relaxed max-w-2xl mb-14 md:mb-20">
+            <p className="font-sans text-[#1a4a55]/75 text-base md:text-[17px] leading-relaxed max-w-2xl mb-10 md:mb-12">
               Nuestro equipo evalúa el origen de su dolor, ejecuta el
               tratamiento guiado por imagen y acompaña su recuperación — todo
               con el mismo criterio clínico informado de su caso.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-              {DOCTORES.map((d, i) => (
-                <DoctorCard key={d.name} d={d} index={i} />
-              ))}
+            {/* Search + specialty filter */}
+            <div className="mb-8 flex flex-col gap-4">
+              <div className="relative w-full md:max-w-md">
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1a4a55]/50"
+                  strokeWidth={2}
+                />
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Buscar por nombre o especialidad…"
+                  aria-label="Buscar especialista"
+                  className="w-full bg-white border border-[#1a4a55]/15 py-3 pl-10 pr-10 font-sans text-[14px] text-[#1a4a55] placeholder:text-[#1a4a55]/50 focus:outline-none focus:border-[#3d8b96] focus:ring-2 focus:ring-[#3d8b96]/20 transition-colors"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    aria-label="Limpiar búsqueda"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center text-[#1a4a55]/60 hover:text-[#1a4a55]"
+                  >
+                    <X className="w-4 h-4" strokeWidth={2} />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por especialidad">
+                <FilterChip
+                  label="Todas"
+                  active={specialty === "all"}
+                  onClick={() => setSpecialty("all")}
+                />
+                {AVAILABLE_SPECIALTIES.map((s) => (
+                  <FilterChip
+                    key={s.slug}
+                    label={s.name}
+                    active={specialty === s.slug}
+                    onClick={() => setSpecialty(s.slug)}
+                  />
+                ))}
+              </div>
+
+              <p className="font-sans text-[13px] text-[#1a4a55]/60">
+                {filtered.length === 0
+                  ? "No hay especialistas que coincidan."
+                  : `${filtered.length} ${filtered.length === 1 ? "especialista" : "especialistas"}`}
+              </p>
             </div>
+
+            {filtered.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                {filtered.map((d, i) => (
+                  <DoctorCard key={d.slug} d={d} index={i} />
+                ))}
+              </div>
+            ) : (
+              <div className="border border-dashed border-[#1a4a55]/20 py-16 text-center">
+                <p className="font-sans text-[#1a4a55]/70 text-[15px] mb-4">
+                  Ningún especialista coincide con su búsqueda.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSpecialty("all");
+                    setQuery("");
+                  }}
+                  className="font-ui text-[11px] tracking-[0.2em] uppercase text-[#3d8b96] hover:text-[#1a4a55] transition-colors"
+                >
+                  Limpiar filtros →
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
