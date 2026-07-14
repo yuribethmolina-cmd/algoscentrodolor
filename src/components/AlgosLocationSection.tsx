@@ -136,7 +136,7 @@ export default function AlgosLocationSection() {
                   margin: 0,
                 }}
               >
-                CC América · Sector Paraíso
+                Maracaibo - frente a la facultad de medicina
               </p>
             </div>
           </div>
