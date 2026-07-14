@@ -109,7 +109,7 @@ export default function PreguntasFrecuentes() {
                 rel="noopener noreferrer"
                 className="inline-block bg-brand-teal hover:bg-[#4a9ca8] text-cream font-sans font-bold uppercase text-[12px] tracking-[0.18em] rounded-none px-8 py-4 transition-colors"
               >
-                Escríbanos por WhatsApp
+                Escribir por WhatsApp
               </a>
             </div>
           </div>

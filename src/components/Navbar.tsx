@@ -360,7 +360,7 @@ export default function Navbar() {
               textAlign: "center",
             }}
           >
-            Escríbanos por WhatsApp
+            Escribir por WhatsApp
           </a>
         </div>
       </div>
