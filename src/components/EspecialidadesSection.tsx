@@ -25,9 +25,15 @@ type CarePath = {
   specialty: string;
   specialtyHint: string;
   specialtySlug: Doctor["specialtySlug"];
-  href: string;
   icon: LucideIcon;
 };
+
+/**
+ * Deriva el enlace desde el slug de especialidad y valida que exista en
+ * SPECIALTIES. Evita que un href se desincronice con la data central.
+ */
+const specialtyHref = (slug: Doctor["specialtySlug"]) =>
+  `/especialidades#${assertSpecialtySlug(slug)}`;
 
 const CARE_PATHS: CarePath[] = [
   {
