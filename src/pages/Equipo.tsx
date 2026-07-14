@@ -170,7 +170,7 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
             <span aria-hidden="true">→</span>
           </Link>
           <a
-            href={WA}
+            href={buildWhatsAppUrl({ doctor: d })}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] text-[#f5f0e8] font-ui text-[11px] tracking-[0.2em] uppercase py-3.5 px-4 hover:bg-[#134F5C] hover:gap-3 transition-all"
