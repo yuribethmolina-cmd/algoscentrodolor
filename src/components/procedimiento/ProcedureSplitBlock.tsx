@@ -11,6 +11,8 @@ interface Props {
   imageCaption?: string;
   /** On mobile, letterbox the full image (no crop) instead of aspect crop. */
   mobileContain?: boolean;
+  /** On all breakpoints, show the full image (no crop, no parallax). */
+  containImage?: boolean;
   /** Accessibility: high-contrast black/white mode */
   highContrast?: boolean;
 }
@@ -27,6 +29,7 @@ export default function ProcedureSplitBlock({
   reverse = false,
   imageCaption,
   mobileContain = false,
+  containImage = false,
   highContrast = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,8 +55,8 @@ export default function ProcedureSplitBlock({
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-7 relative"
           >
-            {mobileContain && (
-              <div className="md:hidden relative overflow-hidden bg-deep-teal/5">
+            {containImage ? (
+              <div className="relative overflow-hidden bg-deep-teal/5">
                 <img
                   src={image}
                   alt={imageAlt}
@@ -61,30 +64,43 @@ export default function ProcedureSplitBlock({
                   className="block w-full h-auto object-contain"
                 />
               </div>
+            ) : (
+              <>
+                {mobileContain && (
+                  <div className="md:hidden relative overflow-hidden bg-deep-teal/5">
+                    <img
+                      src={image}
+                      alt={imageAlt}
+                      loading="lazy"
+                      className="block w-full h-auto object-contain"
+                    />
+                  </div>
+                )}
+                <div
+                  className={
+                    (mobileContain ? "hidden md:block " : "") +
+                    "relative overflow-hidden bg-deep-teal/5"
+                  }
+                  style={{ aspectRatio: "5/4" }}
+                >
+                  <motion.img
+                    src={image}
+                    alt={imageAlt}
+                    loading="lazy"
+                    style={{ y }}
+                    className="absolute inset-0 w-full h-[115%] object-cover will-change-transform"
+                  />
+                  {/* subtle color wash */}
+                  <div
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(26,74,85,0) 60%, rgba(26,74,85,0.25) 100%)",
+                    }}
+                  />
+                </div>
+              </>
             )}
-            <div
-              className={
-                (mobileContain ? "hidden md:block " : "") +
-                "relative overflow-hidden bg-deep-teal/5"
-              }
-              style={{ aspectRatio: "5/4" }}
-            >
-              <motion.img
-                src={image}
-                alt={imageAlt}
-                loading="lazy"
-                style={{ y }}
-                className="absolute inset-0 w-full h-[115%] object-cover will-change-transform"
-              />
-              {/* subtle color wash */}
-              <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(26,74,85,0) 60%, rgba(26,74,85,0.25) 100%)",
-                }}
-              />
-            </div>
             {imageCaption && (
               <p className="font-sans text-steel-teal text-[12px] tracking-[0.18em] uppercase mt-4">
                 {imageCaption}

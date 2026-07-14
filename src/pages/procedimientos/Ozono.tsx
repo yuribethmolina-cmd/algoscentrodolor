@@ -41,6 +41,7 @@ export default function Ozono() {
           imageAlt="Aplicación de ozono intradiscal guiada por imagen"
           eyebrow="Para qué sirve"
           imageCaption="Ozono intradiscal en columna lumbar."
+          containImage
         >
           <p>
             Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía.
