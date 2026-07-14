@@ -81,6 +81,7 @@ export default function AnimatedRoutes() {
           <Route path="/estudios-diagnosticos" element={wrap(EstudiosDiagnosticos)} />
           <Route path="/especialidades" element={wrap(Especialidades)} />
           <Route path="/equipo" element={wrap(EquipoPage)} />
+          <Route path="/equipo/:slug" element={wrap(MedicoPerfil)} />
           <Route path="/preguntas-frecuentes" element={wrap(PreguntasFrecuentes)} />
           <Route path="/contacto" element={wrap(ContactoPage)} />
           <Route path="/privacidad" element={wrap(PrivacidadPage)} />
