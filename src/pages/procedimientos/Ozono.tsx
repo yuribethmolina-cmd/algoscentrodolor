@@ -4,14 +4,12 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
-import ProcedureVideoSection from "@/components/procedimiento/ProcedureVideoSection";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
-import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
-const imgMain = ozonoAsset.url;
-import imgSala from "@/assets/sala-procedimientos.jpg";
+const imgMain = "/placeholder.svg";
+const imgSala = "/placeholder.svg";
 import { ALGOS } from "@/config/algos.config";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
