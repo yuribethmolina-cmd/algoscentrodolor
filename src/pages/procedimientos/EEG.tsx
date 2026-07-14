@@ -19,6 +19,36 @@ export default function EEG() {
   const [hc, setHc] = useState(false);
   return (
     <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+      <SEOHead
+        title="Electroencefalograma en Maracaibo | EEG | ALGOS"
+        description="Electroencefalograma (EEG) en Maracaibo. Estudio no invasivo de la actividad eléctrica del cerebro para evaluación de convulsiones, epilepsia, desmayos y seguimiento neurológico."
+        canonical="https://algoscentrodolor.com/procedimientos/eeg"
+      >
+        <meta name="keywords" content="electroencefalograma Maracaibo, EEG Maracaibo, estudio cerebral Maracaibo, neurofisiología Maracaibo, epilepsia Maracaibo, electroencefalograma Zulia" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalTest",
+          "name": "Electroencefalograma (EEG)",
+          "alternateName": ["EEG", "Electroencefalograma"],
+          "description": "Estudio neurofisiológico no invasivo que registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo. Indicado en convulsiones, epilepsia, síncope y evaluación neurológica.",
+          "usedToDiagnose": [
+            { "@type": "MedicalCondition", "name": "Epilepsia" },
+            { "@type": "MedicalCondition", "name": "Convulsiones" },
+            { "@type": "MedicalCondition", "name": "Pérdida de consciencia" }
+          ],
+          "availableAtOrFrom": {
+            "@type": "MedicalClinic",
+            "name": "ALGOS, Centro de Dolor Intervencionista",
+            "url": "https://algoscentrodolor.com/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Maracaibo",
+              "addressRegion": "Zulia",
+              "addressCountry": "VE"
+            }
+          }
+        })}</script>
+      </SEOHead>
       <Navbar />
       <main>
         <PageHero eyebrow="Estudio" title="Electroencefalograma (EEG)" subtitle="Estudio de la actividad eléctrica del cerebro." />
