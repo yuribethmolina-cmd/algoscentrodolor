@@ -116,7 +116,7 @@ export default function GlobalNavbar() {
           ))}
 
           <Button asChild className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-6 text-sm font-medium">
-            <Link to="/pacientes/agendar">Agendar cita</Link>
+            <Link to="/pacientes/agendar">Agendar valoración</Link>
           </Button>
         </div>
 
