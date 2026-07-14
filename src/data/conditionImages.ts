@@ -31,7 +31,7 @@ export const CONDITION_IMAGES: Record<string, string> = {
   "dolor-miofascial": imgMiofascial,
   "neuralgia-posherpetica": imgPostherpetica,
   "tunel-carpiano": imgTunel,
-  "cefaleas": imgCefaleas,
+  "cefaleas": cefaleaHeroAsset.url,
   // extra alias
   "dolor-cadera": caderaAsset.url,
 };
