@@ -263,6 +263,92 @@ export default function AlgosLocationSection() {
                 </div>
               ))}
             </div>
+
+            {/* WhatsApp CTA */}
+            <div
+              className="p-6 md:p-7"
+              style={{
+                borderTop: "1px solid rgba(245,240,232,0.10)",
+                fontFamily: "'Manrope', system-ui, sans-serif",
+              }}
+            >
+              <p
+                className="mb-4"
+                style={{
+                  fontSize: 10,
+                  letterSpacing: "0.24em",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  color: GOLD,
+                }}
+              >
+                Agenda por WhatsApp
+              </p>
+
+              <div
+                className="inline-flex mb-4"
+                role="group"
+                aria-label="Tipo de consulta"
+                style={{
+                  border: `1px solid rgba(245,240,232,0.2)`,
+                }}
+              >
+                {([
+                  { value: "primera-vez", label: "Primera vez" },
+                  { value: "seguimiento", label: "Seguimiento" },
+                ] as const).map((opt) => {
+                  const active = visitType === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setVisitType(opt.value)}
+                      className="transition-colors"
+                      style={{
+                        fontFamily: "'Manrope', system-ui, sans-serif",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        padding: "10px 14px",
+                        backgroundColor: active ? CREAM : "transparent",
+                        color: active ? DEEP_TEAL : CREAM,
+                        cursor: "pointer",
+                        border: "none",
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+                style={{
+                  backgroundColor: BRAND_TEAL,
+                  color: CREAM,
+                  padding: "16px 22px",
+                  fontSize: 12,
+                  fontWeight: 800,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = ALGOS.palette.brandTealHover)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = BRAND_TEAL)
+                }
+              >
+                <MessageCircle size={16} strokeWidth={2} />
+                Escribir a WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
