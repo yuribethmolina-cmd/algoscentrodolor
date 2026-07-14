@@ -13,8 +13,12 @@ Deno.serve(async (req) => {
 
   try {
     const url = new URL(req.url);
-    const raw = url.searchParams.get("days_back") ?? "7";
-    const parsed = parseInt(raw, 10);
+    let raw: string | number | null = url.searchParams.get("days_back");
+    if (raw == null && (req.method === "POST" || req.method === "PUT")) {
+      const body = await req.json().catch(() => ({}));
+      raw = body?.days_back ?? null;
+    }
+    const parsed = typeof raw === "number" ? raw : parseInt(String(raw ?? "7"), 10);
     const days_back = Number.isFinite(parsed) ? Math.min(365, Math.max(1, parsed)) : 7;
 
     const { data, error } = await supabase.rpc("get_conversion_summary", { days_back });
