@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
 import { getDoctorsBySpecialty, type Doctor } from "@/data/doctors";
+import { assertSpecialtySlug } from "@/data/validate";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
