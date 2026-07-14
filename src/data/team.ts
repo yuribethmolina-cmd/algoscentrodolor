@@ -1,6 +1,6 @@
-import photoAtilioPic from '@/assets/team-atilio.png?w=320;480;720&format=avif;webp;jpg&as=picture';
+import photoAtilioAsset from '@/assets/Atilio_foto_cortada.png.asset.json';
 import photoDanielPic from '@/assets/team-daniel.png?w=320;480;720&format=avif;webp;jpg&as=picture';
-const photoAtilio = photoAtilioPic.img.src;
+const photoAtilio = photoAtilioAsset.url;
 const photoDaniel = photoDanielPic.img.src;
 
 export type ConfirmedMember = {
