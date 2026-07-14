@@ -23,6 +23,12 @@ export type Doctor = {
   isDirector?: boolean;
   photo?: PictureImport;
   photoPosition?: string;
+  /** Biografía / presentación breve para el perfil individual. */
+  bio?: string;
+  /** Credenciales, formación, cargos previos. */
+  credentials?: string[];
+  /** Idiomas de atención. */
+  languages?: string[];
 };
 
 /**
