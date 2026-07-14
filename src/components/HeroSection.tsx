@@ -87,6 +87,8 @@ export default function HeroSection() {
         }}
         className="hero-bg-video absolute inset-0 w-full h-full object-cover object-center scale-100 md:origin-center md:object-[center_65%]"
         poster={heroPoster.url}
+        width={1920}
+        height={1080}
         autoPlay
         muted
         loop
