@@ -7,11 +7,32 @@ const supabase = createClient(
 );
 
 const ALLOWED_TYPES = new Set(["whatsapp_click", "appointment_submit", "cta_click"]);
+const RATE_LIMIT_MAX = 10;   // max events per IP per window
+const RATE_WINDOW_MS = 60_000; // 1-minute windows
 
 function clean(v: unknown, max = 120): string | null {
   if (typeof v !== "string") return null;
   const s = v.trim().slice(0, max);
   return s.length > 0 ? s : null;
+}
+
+async function hashIp(ip: string): Promise<string> {
+  const buf = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(ip + Deno.env.get("SUPABASE_URL")),
+  );
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 32);
+}
+
+function windowKey(): string {
+  // 1-minute window: YYYYMMDDHH24MI
+  return new Date(Math.floor(Date.now() / RATE_WINDOW_MS) * RATE_WINDOW_MS)
+    .toISOString()
+    .replace(/[^0-9]/g, "")
+    .slice(0, 12);
 }
 
 Deno.serve(async (req) => {
@@ -20,6 +41,28 @@ Deno.serve(async (req) => {
   }
 
   try {
+    // ── Rate limiting ─────────────────────────────────────────────────────────
+    const forwarded = req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "unknown";
+    const ip = forwarded.split(",")[0].trim();
+    const [ipHash, wKey] = await Promise.all([hashIp(ip), Promise.resolve(windowKey())]);
+
+    const { data: rl, error: rlErr } = await supabase.rpc("upsert_rate_limit", {
+      p_ip_hash: ipHash,
+      p_window_key: wKey,
+    });
+
+    if (!rlErr && typeof rl === "number" && rl > RATE_LIMIT_MAX) {
+      return new Response(JSON.stringify({ error: "too many requests" }), {
+        status: 429,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+          "Retry-After": "60",
+        },
+      });
+    }
+
+    // ── Validate payload ──────────────────────────────────────────────────────
     const body = await req.json().catch(() => ({}));
     const event_type = clean(body.event_type, 40);
     if (!event_type || !ALLOWED_TYPES.has(event_type)) {

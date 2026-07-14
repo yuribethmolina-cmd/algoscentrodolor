@@ -44,6 +44,8 @@ import BlogPage from "@/pages/Blog";
 
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
+import AdminLogin from "@/pages/admin/Login";
+import AdminRoute from "@/components/AdminRoute";
 
 function wrap(Component: React.ComponentType) {
   return (
@@ -105,7 +107,11 @@ export default function AnimatedRoutes() {
           <Route path="/blog" element={wrap(BlogPage)} />
 
           {/* Internal admin (unlisted) */}
-          <Route path="/admin/conversiones" element={wrap(ConversionesDashboard)} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin/conversiones"
+            element={<AdminRoute>{wrap(ConversionesDashboard)}</AdminRoute>}
+          />
 
           <Route path="*" element={wrap(NotFound)} />
         </Routes>

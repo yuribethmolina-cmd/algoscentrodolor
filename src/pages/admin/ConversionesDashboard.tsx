@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw } from "lucide-react";
+import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut } from "lucide-react";
 
 interface Summary {
   range_days: number;
@@ -12,6 +13,14 @@ interface Summary {
   top_conditions: Array<{ condition: string; count: number }>;
 }
 
+interface AuditEntry {
+  id: string;
+  user_email: string | null;
+  action: string;
+  metadata: Record<string, unknown> | null;
+  created_at: string;
+}
+
 const RANGES = [
   { label: "24h", days: 1 },
   { label: "7 días", days: 7 },
@@ -20,16 +29,23 @@ const RANGES = [
 ];
 
 export default function ConversionesDashboard() {
+  const navigate = useNavigate();
   const [days, setDays] = useState(7);
   const [data, setData] = useState<Summary | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [auditLog, setAuditLog] = useState<AuditEntry[]>([]);
 
   async function load() {
     setLoading(true);
     setError(null);
+
+    const { data: { session } } = await supabase.auth.getSession();
+    const token = session?.access_token;
+
     const { data: res, error: err } = await supabase.functions.invoke("get-conversions-summary", {
       body: { days_back: days },
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
     });
     if (err) {
       setError(err.message);
@@ -38,12 +54,68 @@ export default function ConversionesDashboard() {
       setData(res as unknown as Summary);
     }
     setLoading(false);
+
+    // Load recent audit log (last 20 entries)
+    const { data: log } = await supabase
+      .from("admin_audit_log")
+      .select("id, user_email, action, metadata, created_at")
+      .order("created_at", { ascending: false })
+      .limit(20);
+    if (log) setAuditLog(log as AuditEntry[]);
   }
 
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days]);
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    navigate("/admin/login", { replace: true });
+  }
+
+  function exportCsv() {
+    if (!data) return;
+    const rows: string[] = [];
+
+    rows.push(`ALGOS — Resumen de conversiones · Últimos ${days} día${days === 1 ? "" : "s"}`);
+    rows.push(`Generado: ${new Date().toLocaleString("es-VE")}`);
+    rows.push("");
+
+    rows.push("TOTALES");
+    rows.push("Clics WhatsApp,Envíos de cita");
+    const tot = data.totals ?? {};
+    rows.push(`${tot.whatsapp_click ?? 0},${tot.appointment_submit ?? 0}`);
+    rows.push("");
+
+    rows.push("RESUMEN DIARIO");
+    rows.push("Fecha,WhatsApp,Citas");
+    (data.daily ?? []).forEach((d) => {
+      rows.push(`${d.day},${d.whatsapp_clicks},${d.appointments}`);
+    });
+    rows.push("");
+
+    rows.push("POR SECCIÓN");
+    rows.push("Sección,WhatsApp,Citas,Total");
+    (data.by_section ?? []).forEach((s) => {
+      rows.push(`"${s.section}",${s.whatsapp_clicks},${s.appointments},${s.total}`);
+    });
+    rows.push("");
+
+    rows.push("CONDICIONES MÁS AGENDADAS");
+    rows.push("Condición,Veces");
+    (data.top_conditions ?? []).forEach((c) => {
+      rows.push(`"${c.condition}",${c.count}`);
+    });
+
+    const blob = new Blob([rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `algos-conversiones-${days}d-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   const totals = data?.totals ?? {};
   const waTotal = totals.whatsapp_click ?? 0;
@@ -102,6 +174,23 @@ export default function ConversionesDashboard() {
               aria-label="Refrescar"
             >
               <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+            </button>
+            <button
+              onClick={exportCsv}
+              disabled={!data}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] text-sm font-medium hover:bg-[#1a4a55]/5 disabled:opacity-40"
+              title="Exportar CSV"
+            >
+              <Download size={15} />
+              CSV
+            </button>
+            <button
+              onClick={handleLogout}
+              className="p-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55]/60 hover:bg-red-50 hover:text-red-600 hover:border-red-200"
+              aria-label="Cerrar sesión"
+              title="Cerrar sesión"
+            >
+              <LogOut size={16} />
             </button>
           </div>
         </header>
@@ -221,8 +310,42 @@ export default function ConversionesDashboard() {
           )}
         </Card>
 
+        {/* Audit log */}
+        {auditLog.length > 0 && (
+          <Card title="Registro de accesos" className="mt-6">
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs text-[#1a4a55]">
+                <thead>
+                  <tr className="border-b border-[#1a4a55]/10 text-left">
+                    <th className="pb-2 font-semibold pr-4">Fecha</th>
+                    <th className="pb-2 font-semibold pr-4">Usuario</th>
+                    <th className="pb-2 font-semibold pr-4">Acción</th>
+                    <th className="pb-2 font-semibold">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {auditLog.map((entry) => (
+                    <tr key={entry.id} className="border-b border-[#1a4a55]/5 last:border-0">
+                      <td className="py-2 pr-4 text-[#1a4a55]/60 whitespace-nowrap tabular-nums">
+                        {new Date(entry.created_at).toLocaleString("es-VE")}
+                      </td>
+                      <td className="py-2 pr-4 text-[#1a4a55]/70 truncate max-w-[12rem]">
+                        {entry.user_email ?? "—"}
+                      </td>
+                      <td className="py-2 pr-4">{entry.action}</td>
+                      <td className="py-2 text-[#1a4a55]/50">
+                        {entry.metadata ? JSON.stringify(entry.metadata) : "—"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+        )}
+
         <p className="text-xs text-[#1a4a55]/50 mt-8">
-          Datos en tiempo real desde Lovable Cloud. Rango: últimos {days} día{days === 1 ? "" : "s"}.
+          Datos en tiempo real desde Supabase. Rango: últimos {days} día{days === 1 ? "" : "s"}.
         </p>
       </div>
     </div>
