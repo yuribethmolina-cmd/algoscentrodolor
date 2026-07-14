@@ -637,7 +637,7 @@ export default function Contacto() {
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chatear por WhatsApp"
+        aria-label="Escribir por WhatsApp"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center bg-[#25d366] text-white shadow-[0_6px_24px_-4px_rgba(37,211,102,0.5)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 transition-all duration-300"
       >
         <MessageCircle className="w-6 h-6" strokeWidth={1.75} />
