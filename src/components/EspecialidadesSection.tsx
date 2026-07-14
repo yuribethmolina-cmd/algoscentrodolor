@@ -212,12 +212,7 @@ export default function EspecialidadesSection() {
               borderLeft: `1px solid ${GOLD}55`,
             }}
           >
-            style={{
-              borderTop: `1px solid ${GOLD}55`,
-              borderLeft: `1px solid ${GOLD}55`,
-            }}
-          >
-            {CARE_PATHS.map((item) => {
+            {visible.map((item) => {
               const Icon = item.icon;
               const doctors = getDoctorsBySpecialty(item.specialtySlug).map((d) => d.name);
               return (
