@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import algosFacade from "@/assets/algos-facade.webp.asset.json";
-import { MapPin, Navigation, Clock, Phone } from "lucide-react";
+import { MapPin, Navigation, Clock, Phone, MessageCircle } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { buildWhatsAppUrl, type VisitType } from "@/lib/whatsapp";
 
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
