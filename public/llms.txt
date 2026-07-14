@@ -2,28 +2,28 @@
 
 > Primer centro de dolor intervencionista del Zulia (Maracaibo, Venezuela). Especialidades médicas y estudios diagnósticos (imagen, cardiología, neurofisiología, laboratorio) bajo un mismo techo. Servicios a domicilio disponibles.
 
-## Páginas principales
+## Pages
 
-- /: Inicio — evaluación, diagnóstico y tratamiento del dolor
-- /especialidades: Especialidades médicas — neurocirugía, traumatología, reumatología, fisiatría, radiología intervencionista, cuidados paliativos, oncología médica, psiquiatría, nutrición
-- /estudios-diagnosticos: Estudios diagnósticos en Maracaibo — tomografía, rayos X, mamografía 3D, ECG, Holter, EEG, EMG, laboratorio
-- /estudios-laboratorio: Estudios y laboratorio disponibles vía alianza institucional
-- /equipo: Equipo médico multidisciplinario
-- /contacto: Formulario y datos de contacto
-- /preguntas-frecuentes: Preguntas frecuentes sobre procedimientos y consulta
+- [Inicio](/): evaluación, diagnóstico y tratamiento del dolor en Maracaibo
+- [Especialidades médicas](/especialidades): neurocirugía, traumatología, reumatología, fisiatría, radiología intervencionista, cuidados paliativos, oncología médica, psiquiatría y nutrición
+- [Estudios diagnósticos](/estudios-diagnosticos): tomografía, rayos X, mamografía 3D, ECG, Holter, EEG, EMG y laboratorio en Maracaibo
+- [Estudios de laboratorio](/estudios-laboratorio): estudios de laboratorio disponibles vía alianza institucional
+- [Equipo médico](/equipo): equipo multidisciplinario de la clínica
+- [Contacto](/contacto): formulario y datos de contacto
+- [Preguntas frecuentes](/preguntas-frecuentes): información sobre procedimientos y consulta
 
-## Condiciones
+## Conditions
 
-- /condiciones/dolor-lumbar
-- /condiciones/dolor-cervical
-- /condiciones/ciatica
-- /condiciones/hernia-discal
-- /condiciones/neuropatia-diabetica
-- /condiciones/dolor-tras-cirugia
+- [Dolor lumbar](/condiciones/dolor-lumbar): causas y tratamiento del dolor lumbar en Maracaibo
+- [Dolor cervical](/condiciones/dolor-cervical): causas y tratamiento del dolor cervical
+- [Ciática](/condiciones/ciatica): diagnóstico y manejo de la ciática
+- [Hernia discal](/condiciones/hernia-discal): tratamiento de hernia discal con ozono y bloqueos
+- [Neuropatía diabética](/condiciones/neuropatia-diabetica): evaluación de neuropatía periférica
+- [Dolor tras cirugía](/condiciones/dolor-tras-cirugia): manejo del dolor postquirúrgico crónico
 
-## Procedimientos
+## Procedures
 
-- /procedimientos/infiltraciones-y-bloqueos
-- /procedimientos/ozono-hernia-discal
-- /procedimientos/emg
-- /procedimientos/eeg
+- [Infiltraciones y bloqueos](/procedimientos/infiltraciones-y-bloqueos): bloqueos guiados por imagen para dolor de columna y articulaciones
+- [Ozono para hernia discal](/procedimientos/ozono-hernia-discal): ozono intradiscal y paravertebral en hernia discal
+- [Electromiografía](/procedimientos/emg): EMG en Maracaibo para neuropatías y radiculopatías
+- [Electroencefalograma](/procedimientos/eeg): EEG en Maracaibo para epilepsia y trastornos neurológicos
