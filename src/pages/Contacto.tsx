@@ -534,6 +534,15 @@ export default function Contacto() {
                   <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors block">
                     +58 412-604-4124
                   </a>
+                  <a
+                    href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1.5 font-sans text-[#8DC63F] hover:text-[#f5f0e8] transition-colors text-sm font-medium"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" strokeWidth={2} />
+                    Escribir por WhatsApp
+                  </a>
                   <p className="font-sans text-[#f5f0e8]/60 text-xs mt-1 tracking-wide">Lun-Sáb · 6:30 - 19:00</p>
                 </div>
               </div>
