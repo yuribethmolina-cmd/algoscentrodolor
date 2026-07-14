@@ -42,6 +42,9 @@ import Medicos from "@/pages/Medicos";
 import Instituciones from "@/pages/Instituciones";
 import BlogPage from "@/pages/Blog";
 
+// Internal admin
+import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
+
 function wrap(Component: React.ComponentType) {
   return (
     <PageTransition>
@@ -100,6 +103,9 @@ export default function AnimatedRoutes() {
           <Route path="/instituciones" element={wrap(Instituciones)} />
           <Route path="/instituciones/*" element={wrap(Instituciones)} />
           <Route path="/blog" element={wrap(BlogPage)} />
+
+          {/* Internal admin (unlisted) */}
+          <Route path="/admin/conversiones" element={wrap(ConversionesDashboard)} />
 
           <Route path="*" element={wrap(NotFound)} />
         </Routes>
