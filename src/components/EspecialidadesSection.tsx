@@ -42,7 +42,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Neurocirugía y cirugía de columna",
     specialtyHint: "columna y nervios",
     specialtySlug: "neurocirugia",
-    href: "/especialidades#neurocirugia",
     icon: Brain,
   },
   {
@@ -51,7 +50,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Traumatología y Ortopedia",
     specialtyHint: "huesos y articulaciones",
     specialtySlug: "traumatologia",
-    href: "/especialidades#traumatologia",
     icon: Bone,
   },
   {
@@ -60,7 +58,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Fisiatría y electrodiagnóstico",
     specialtyHint: "rehabilitación, nervios y músculos",
     specialtySlug: "fisiatria",
-    href: "/especialidades#fisiatria",
     icon: Activity,
   },
   {
@@ -69,7 +66,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Reumatología",
     specialtyHint: "inflamación y articulaciones",
     specialtySlug: "reumatologia",
-    href: "/especialidades#reumatologia",
     icon: HeartPulse,
   },
   {
@@ -78,7 +74,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Algología, anestesiología y cuidados paliativos",
     specialtyHint: "dolor crónico y procedimientos intervencionistas",
     specialtySlug: "cuidados-paliativos",
-    href: "/especialidades#cuidados-paliativos",
     icon: Stethoscope,
   },
   {
@@ -87,7 +82,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Psicología",
     specialtyHint: "salud mental y dolor crónico",
     specialtySlug: "psicologia",
-    href: "/especialidades#psicologia",
     icon: HeartHandshake,
   },
   {
@@ -96,7 +90,6 @@ const CARE_PATHS: CarePath[] = [
     specialty: "Nutrición antiinflamatoria",
     specialtyHint: "soporte y recuperación",
     specialtySlug: "nutricion",
-    href: "/especialidades#nutricion",
     icon: Leaf,
   },
 ];
