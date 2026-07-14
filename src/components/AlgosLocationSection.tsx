@@ -346,7 +346,7 @@ export default function AlgosLocationSection() {
                 }
               >
                 <MessageCircle size={16} strokeWidth={2} />
-                Escribir a WhatsApp
+                Escribir por WhatsApp
               </a>
             </div>
           </div>
