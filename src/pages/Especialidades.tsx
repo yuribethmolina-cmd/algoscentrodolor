@@ -7,9 +7,9 @@ import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
 import { UserRound } from "lucide-react";
 import drAtilioAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
-import teamDanielPic from "@/assets/team-daniel.png?w=64;128&format=avif;webp;jpg&as=picture";
+import teamDanielAsset from "@/assets/daniel-rodriguez.png.asset.json";
 const drAtilio = drAtilioAsset.url;
-const teamDaniel = teamDanielPic.img.src;
+const teamDaniel = teamDanielAsset.url;
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
