@@ -175,6 +175,7 @@ export default function EspecialidadesSection() {
           >
             {CARE_PATHS.map((item) => {
               const Icon = item.icon;
+              const doctors = getDoctorsBySpecialty(item.specialtySlug).map((d) => d.name);
               return (
                 <Link
                   key={item.pain}
