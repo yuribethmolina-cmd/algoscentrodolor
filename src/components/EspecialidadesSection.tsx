@@ -218,7 +218,7 @@ export default function EspecialidadesSection() {
               return (
                 <Link
                   key={item.pain}
-                  to={item.href}
+                  to={specialtyHref(item.specialtySlug)}
                   className="group"
                   style={{
                     display: "grid",
