@@ -17,7 +17,7 @@ const CONDITIONS: DropItem[] = [
   { label: "Dolor de espalda", href: "/condiciones/dolor-lumbar" },
   { label: "Dolor de cuello", href: "/condiciones/dolor-cervical" },
   { label: "Hormigueo o adormecimiento", href: "/condiciones/neuropatia-diabetica" },
-  { label: "Dolor de cabeza", href: "/tratamientos/cefaleas" },
+  { label: "Dolor de cabeza", href: "/condiciones/cefaleas" },
   { label: "Dolor tras una operación", href: "/condiciones/dolor-tras-cirugia" },
   { label: "Otro tipo de dolor →", href: "/condiciones", isIndex: true },
 ];
