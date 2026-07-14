@@ -483,7 +483,7 @@ export default function MedicoPerfil() {
                 }
               >
                 <MessageCircle size={16} strokeWidth={2} />
-                Agendar por WhatsApp
+                Agendar consulta
               </a>
 
               <p
@@ -496,7 +496,7 @@ export default function MedicoPerfil() {
                   textAlign: "center",
                 }}
               >
-                Consulta directa con {firstName}.
+                Escríbale directamente a {firstName}. Sin intermediarios.
               </p>
             </aside>
           </div>
