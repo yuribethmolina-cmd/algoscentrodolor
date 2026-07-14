@@ -49,7 +49,7 @@ export default function Ciatica() {
               </figcaption>
             </figure>
 
-            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</p>
+            <h2 className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.22em] mb-5">Cuándo consultar a un especialista</h2>
             <p className="font-sans text-deep-teal text-[17px] leading-[1.75] mb-12">
               Si el dolor lleva semanas y no cede con reposo ni calmantes; si baja de la rodilla; si se acompaña de hormigueo, adormecimiento o pérdida de fuerza en la pierna; o si ya le hablaron de cirugía y quiere saber si existe un paso intermedio, es momento de una evaluación especializada.
             </p>
