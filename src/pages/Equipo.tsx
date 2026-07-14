@@ -1,17 +1,24 @@
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SmartImage from "@/components/SmartImage";
-import { BadgeCheck, Calendar, UserRound } from "lucide-react";
+import { BadgeCheck, Calendar, Search, UserRound, X } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
+import { SPECIALTIES } from "@/data/specialties";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
 type Doctor = DoctorData;
 const DOCTORES: Doctor[] = DOCTORS;
+
+// Solo mostrar chips de especialidades que tengan al menos un especialista.
+const AVAILABLE_SPECIALTIES = SPECIALTIES.filter((s) =>
+  DOCTORES.some((d) => d.specialtySlug === s.slug),
+);
 
 
 function DoctorCard({ d, index }: { d: Doctor; index: number }) {
