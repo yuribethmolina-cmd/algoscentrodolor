@@ -11,6 +11,8 @@ interface Props {
   imageCaption?: string;
   /** On mobile, letterbox the full image (no crop) instead of aspect crop. */
   mobileContain?: boolean;
+  /** On all breakpoints, show the full image (no crop, no parallax). */
+  containImage?: boolean;
   /** Accessibility: high-contrast black/white mode */
   highContrast?: boolean;
 }
