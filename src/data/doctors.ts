@@ -45,6 +45,13 @@ export const DOCTORS: Doctor[] = [
     isDirector: true,
     photo: drAtilioPic,
     photoPosition: "center top",
+    bio: "Neurocirujano fundador y Director Médico de ALGOS. Lidera el enfoque intervencionista del centro: procedimientos guiados por imagen para tratar el dolor de columna y nervios cuando la cirugía todavía no hace falta.",
+    credentials: [
+      "Neurocirujano — Universidad del Zulia",
+      "Especialista en dolor intervencionista y cirugía de columna",
+      "Director Médico · ALGOS Centro de Dolor",
+    ],
+    languages: ["Español"],
   },
   {
     slug: "dr-antulio-parra",
