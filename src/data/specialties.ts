@@ -70,6 +70,7 @@ export const SPECIALTIES: Specialty[] = [
     evalua: "Depresión y ansiedad asociadas al dolor, insomnio, dolor con componente central.",
     trata: "Terapia cognitivo-conductual y educación en neurociencia del dolor.",
     acompana: "Acompañamiento continuo durante el proceso de recuperación.",
+    aspirational: true,
   },
   {
     slug: "nutricion",
