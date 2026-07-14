@@ -11,6 +11,7 @@ const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3
 const WITH_PAGES = [
   { label: "Dolor de espalda", href: "/condiciones/dolor-lumbar", desc: "Dolor de cintura que no cede con reposo ni calmantes." },
   { label: "Dolor de cuello", href: "/condiciones/dolor-cervical", desc: "Dolor de cuello que puede extenderse al hombro o al brazo." },
+  { label: "Dolor de cabeza", href: "/condiciones/cefaleas", desc: "Cefaleas con origen cervical y neuralgia occipital." },
   { label: "Ciática · hormigueo en la pierna", href: "/condiciones/ciatica", desc: "Dolor que nace en la espalda y baja por la pierna." },
   { label: "Hernia discal", href: "/condiciones/hernia-discal", desc: "El disco se desplaza y comprime un nervio." },
   { label: "Neuropatía · hormigueo en pies o manos", href: "/condiciones/neuropatia-diabetica", desc: "Ardor, hormigueo o adormecimiento en pies y piernas por diabetes." },
@@ -26,7 +27,6 @@ const WITHOUT_PAGES = [
   "Neuralgia postherpética (culebrilla)",
   "Síndrome del túnel carpiano",
   "Dolor de rodilla, cadera y hombro",
-  "Cefaleas",
   "Neuralgia occipital",
   "Síndrome piriforme",
   "Coccigodinia",

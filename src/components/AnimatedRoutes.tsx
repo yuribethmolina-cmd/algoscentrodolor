@@ -25,6 +25,7 @@ import DolorLumbar from "@/pages/condiciones/DolorLumbar";
 import DolorCervical from "@/pages/condiciones/DolorCervical";
 import NeuropatiaDiabetica from "@/pages/condiciones/NeuropatiaDiabetica";
 import DolorTrasCirugia from "@/pages/condiciones/DolorTrasCirugia";
+import Cefaleas from "@/pages/condiciones/Cefaleas";
 
 // Procedure pages
 import Infiltraciones from "@/pages/procedimientos/Infiltraciones";
@@ -67,6 +68,7 @@ export default function AnimatedRoutes() {
           <Route path="/condiciones/dolor-cervical" element={wrap(DolorCervical)} />
           <Route path="/condiciones/neuropatia-diabetica" element={wrap(NeuropatiaDiabetica)} />
           <Route path="/condiciones/dolor-tras-cirugia" element={wrap(DolorTrasCirugia)} />
+          <Route path="/condiciones/cefaleas" element={wrap(Cefaleas)} />
 
           {/* Procedures */}
           <Route path="/procedimientos/infiltraciones-y-bloqueos" element={wrap(Infiltraciones)} />
@@ -89,6 +91,7 @@ export default function AnimatedRoutes() {
 
           {/* Legacy routes kept active */}
           <Route path="/tratamientos" element={wrap(Tratamientos)} />
+          <Route path="/tratamientos/cefaleas" element={<Navigate to="/condiciones/cefaleas" replace />} />
           <Route path="/tratamientos/:slug" element={wrap(TratamientoDetalle)} />
           <Route path="/pacientes" element={wrap(Pacientes)} />
           <Route path="/pacientes/*" element={wrap(Pacientes)} />
