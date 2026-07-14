@@ -14,13 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      conversion_events: {
+        Row: {
+          condition: string | null
+          created_at: string
+          device: string | null
+          event_type: string
+          has_studies: string | null
+          id: string
+          label: string | null
+          path: string | null
+          referrer: string | null
+          section: string | null
+          source: string | null
+        }
+        Insert: {
+          condition?: string | null
+          created_at?: string
+          device?: string | null
+          event_type: string
+          has_studies?: string | null
+          id?: string
+          label?: string | null
+          path?: string | null
+          referrer?: string | null
+          section?: string | null
+          source?: string | null
+        }
+        Update: {
+          condition?: string | null
+          created_at?: string
+          device?: string | null
+          event_type?: string
+          has_studies?: string | null
+          id?: string
+          label?: string | null
+          path?: string | null
+          referrer?: string | null
+          section?: string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_conversion_summary: { Args: { days_back?: number }; Returns: Json }
     }
     Enums: {
       [_ in never]: never
