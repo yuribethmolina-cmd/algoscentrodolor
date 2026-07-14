@@ -7,9 +7,22 @@ import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock"
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
+import imgBloqueoFacetario from "@/assets/infiltracion-bloqueo-facetario.png.asset.json";
+import imgRodillaEco from "@/assets/infiltracion-rodilla-eco.webp.asset.json";
+import imgHombroEco from "@/assets/infiltracion-hombro-eco.webp.asset.json";
+import imgFluoroscopia from "@/assets/infiltracion-fluoroscopia.webp.asset.json";
+import imgLumbar from "@/assets/infiltracion-lumbar.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
 
-const imgSala = "/placeholder.svg";
+const imgSala = imgBloqueoFacetario.url;
+
+const galeria = [
+  { src: imgBloqueoFacetario.url, alt: "Bloqueo guiado por ecografía en columna lumbar", caption: "Bloqueo ecoguiado · columna lumbar" },
+  { src: imgFluoroscopia.url, alt: "Infiltración guiada por fluoroscopia con arco en C", caption: "Guía por fluoroscopia" },
+  { src: imgLumbar.url, alt: "Infiltración lumbar en sala de procedimientos", caption: "Infiltración lumbar" },
+  { src: imgRodillaEco.url, alt: "Infiltración de rodilla guiada por ecografía", caption: "Infiltración de rodilla ecoguiada" },
+  { src: imgHombroEco.url, alt: "Infiltración de hombro guiada por ecografía", caption: "Infiltración de hombro ecoguiada" },
+];
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20Infiltraciones%20y%20bloqueos.";
 
@@ -120,10 +133,10 @@ export default function Infiltraciones() {
         </ProcedureIntro>
 
         <ProcedureSplitBlock
-          image={imgSala}
-          imageAlt="Imagen pendiente"
+          image={imgBloqueoFacetario.url}
+          imageAlt="Bloqueo facetario guiado por ecografía en sala de procedimientos"
           eyebrow="Para qué sirve"
-          imageCaption="Imagen pendiente"
+          imageCaption="Bloqueo ecoguiado en columna lumbar"
         >
           <p>
             Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna.
@@ -143,6 +156,32 @@ export default function Infiltraciones() {
             </div>
           </div>
         </section>
+
+        <section className="bg-cream pt-6 pb-16 md:pb-24">
+          <div className="mx-auto max-w-[1240px] px-6 md:px-10">
+            <p className="font-sans font-bold uppercase text-algos-gold text-[11px] tracking-[0.24em] mb-8">
+              Hechas de distintas maneras
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {galeria.map((g) => (
+                <figure key={g.src} className="group">
+                  <div className="relative overflow-hidden bg-deep-teal/5" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={g.src}
+                      alt={g.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="font-sans text-steel-teal text-[12px] tracking-[0.18em] uppercase mt-3">
+                    {g.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         <ProcedureDetails
           facts={[
