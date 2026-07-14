@@ -350,7 +350,7 @@ export default function AllianceSection() {
         {/* ── CTA ─────────────────────────────────────────────── */}
         <div style={{ textAlign: "center", marginBottom: "clamp(56px, 7vw, 80px)" }}>
           <a
-            href="https://wa.me/584126404124"
+            href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto"
