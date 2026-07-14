@@ -129,3 +129,9 @@ export function getDoctorsBySpecialty(slug: Doctor["specialtySlug"]): Doctor[] {
 export function getDoctorBySlug(slug: string): Doctor | undefined {
   return DOCTORS.find((d) => d.slug === slug);
 }
+
+// Validación en tiempo de build: si los datos son inconsistentes,
+// `vite build` y `vite dev` abortan con un error legible.
+// Import diferido para evitar dependencias circulares.
+import { validateTeamData } from "@/data/validate";
+validateTeamData(DOCTORS);

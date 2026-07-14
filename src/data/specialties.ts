@@ -6,6 +6,8 @@ export type Specialty = {
   evalua: string;
   trata: string;
   acompana: string;
+  /** Especialidad aún sin especialista asignado. La validación no exige médicos. */
+  aspirational?: boolean;
 };
 
 export const SPECIALTIES: Specialty[] = [
@@ -68,6 +70,7 @@ export const SPECIALTIES: Specialty[] = [
     evalua: "Depresión y ansiedad asociadas al dolor, insomnio, dolor con componente central.",
     trata: "Terapia cognitivo-conductual y educación en neurociencia del dolor.",
     acompana: "Acompañamiento continuo durante el proceso de recuperación.",
+    aspirational: true,
   },
   {
     slug: "nutricion",
