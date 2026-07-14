@@ -419,7 +419,7 @@ export default function Contacto() {
                 rel="noopener noreferrer"
                 className="text-[#3d8b96] hover:text-[#c69636] transition-colors underline underline-offset-2"
               >
-                Escríbanos por WhatsApp y coordinamos.
+                Escríbanos por WhatsApp y coordinamos una llamada.
               </a>
             </p>
           </div>
