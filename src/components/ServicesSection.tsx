@@ -84,7 +84,7 @@ const servicios: Service[] = [
     nombre: "Infiltraciones y bloqueos",
     bajada: "Inyecciones dirigidas para el dolor, guiadas por imagen.",
     queEs:
-      "Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor una articulación, un nervio o una raíz, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio, se va caminando el mismo día.",
+      "Inyecciones de medicamento aplicadas con precisión sobre el punto que genera el dolor: una articulación, un nervio o una raíz, siempre guiadas por imagen para llegar justo donde hace falta. Con anestesia local, ambulatorio, se va caminando el mismo día.",
     paraQueSirve:
       "Sirven para dos cosas. Para tratar: bajar la inflamación y aliviar dolores como la ciática, la hernia discal o el dolor de las articulaciones de la columna. Y para confirmar de dónde viene el dolor: un bloqueo bien dirigido ayuda a identificar el nervio responsable y a orientar el tratamiento siguiente.",
     activo: true,
