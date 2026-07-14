@@ -46,7 +46,7 @@ export const DOCTORS: Doctor[] = [
     specialtySlug: "neurocirugia",
     schedule: "Lunes, martes, jueves y viernes · 1:00 PM - 4:00 PM",
     isDirector: true,
-    photo: drAtilioPic,
+    photo: { sources: {}, img: { src: drAtilioAsset.url, w: 414, h: 424 } },
     photoPosition: "center top",
     bio: "Neurocirujano fundador y Director Médico de ALGOS. Lidera el enfoque intervencionista del centro: procedimientos guiados por imagen para tratar el dolor de columna y nervios cuando la cirugía todavía no hace falta.",
     credentials: [
