@@ -625,7 +625,7 @@ export default function Contacto() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all bg-[#25d366] hover:bg-[#1fb859] text-white rounded-none font-ui font-bold uppercase px-10 py-[18px] text-[13px] tracking-[0.18em] shadow-[0_6px_24px_-4px_rgba(37,211,102,0.45)] hover:shadow-[0_10px_32px_-4px_rgba(37,211,102,0.55)] hover:-translate-y-0.5"
             >
               <MessageCircle className="w-5 h-5 flex-shrink-0" strokeWidth={1.75} />
-              <span>Escríbanos por WhatsApp</span>
+              <span>Escribir por WhatsApp</span>
             </a>
           </div>
       </section>
