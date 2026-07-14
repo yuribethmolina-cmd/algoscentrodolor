@@ -295,6 +295,47 @@ export default function EspecialidadesSection() {
                     >
                       {item.specialtyHint}
                     </p>
+                    {item.doctors.length > 0 ? (
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: 0,
+                          margin: "12px 0 0",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 4,
+                        }}
+                      >
+                        {item.doctors.map((doc) => (
+                          <li
+                            key={doc}
+                            style={{
+                              fontFamily: "Manrope, sans-serif",
+                              fontSize: 13,
+                              fontWeight: 600,
+                              lineHeight: 1.4,
+                              color: CREAM,
+                            }}
+                          >
+                            {doc}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        style={{
+                          fontFamily: "Manrope, sans-serif",
+                          fontSize: 12,
+                          fontStyle: "italic",
+                          lineHeight: 1.4,
+                          color: "rgba(245,240,232,0.6)",
+                          marginTop: 12,
+                          marginBottom: 0,
+                        }}
+                      >
+                        Especialista en incorporación
+                      </p>
+                    )}
                   </div>
                 </Link>
               );
