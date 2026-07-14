@@ -7,7 +7,7 @@ import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock"
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
 import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
-import imgBloqueoFacetario from "@/assets/infiltracion-bloqueo-facetario.png.asset.json";
+import imgBloqueoFacetario from "@/assets/infiltracion-bloqueo-facetario.webp.asset.json";
 import imgRodillaEco from "@/assets/infiltracion-rodilla-eco.webp.asset.json";
 import imgHombroEco from "@/assets/infiltracion-hombro-eco.webp.asset.json";
 import imgFluoroscopia from "@/assets/infiltracion-fluoroscopia.webp.asset.json";
@@ -134,7 +134,7 @@ export default function Infiltraciones() {
 
         <ProcedureSplitBlock
           image={imgBloqueoFacetario.url}
-          imageAlt="Bloqueo facetario guiado por ecografía en sala de procedimientos"
+          imageAlt="Bloqueo ecoguiado en columna lumbar en sala de procedimientos"
           eyebrow="Para qué sirve"
           imageCaption="Bloqueo ecoguiado en columna lumbar"
         >
