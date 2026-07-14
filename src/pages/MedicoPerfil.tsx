@@ -407,6 +407,57 @@ export default function MedicoPerfil() {
                 </p>
               )}
 
+              {/* Visit type toggle */}
+              <p
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 11,
+                  fontWeight: 800,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: DEEP_TEAL,
+                  opacity: 0.65,
+                  marginBottom: 8,
+                }}
+              >
+                Tipo de consulta
+              </p>
+              <div
+                role="group"
+                aria-label="Tipo de consulta"
+                className="grid grid-cols-2 gap-0 mb-4"
+                style={{ border: "1px solid rgba(26,74,85,0.15)" }}
+              >
+                {([
+                  { value: "primera-vez", label: "Primera vez" },
+                  { value: "seguimiento", label: "Seguimiento" },
+                ] as const).map((opt) => {
+                  const active = visitType === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setVisitType(opt.value)}
+                      style={{
+                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        padding: "10px 12px",
+                        backgroundColor: active ? DEEP_TEAL : "transparent",
+                        color: active ? CREAM : DEEP_TEAL,
+                        cursor: "pointer",
+                        transition: "background-color 180ms ease, color 180ms ease",
+                        border: "none",
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+
               <a
                 href={waHref}
                 target="_blank"
