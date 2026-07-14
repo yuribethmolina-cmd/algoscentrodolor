@@ -323,6 +323,9 @@ export default function Equipo() {
           </div>
         </section>
 
+        <EquipoSpecialtySections />
+
+
         <section className="bg-deep-teal py-20 md:py-28">
           <div className="mx-auto max-w-[720px] px-6 md:px-12 text-center">
             <p className="font-sans text-cream/80 text-[18px] leading-[1.65] mb-10 max-w-[46ch] mx-auto">
