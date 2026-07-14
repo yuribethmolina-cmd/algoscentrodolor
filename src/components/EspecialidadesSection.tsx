@@ -96,6 +96,11 @@ const CARE_PATHS: CarePath[] = [
 
 
 export default function EspecialidadesSection() {
+  const [activeSlug, setActiveSlug] = useState<Doctor["specialtySlug"] | "all">("all");
+  const visible = activeSlug === "all"
+    ? CARE_PATHS
+    : CARE_PATHS.filter((p) => p.specialtySlug === activeSlug);
+
   return (
     <section
       data-surface="dark"
