@@ -34,9 +34,9 @@ export default function Ozono() {
 
         <ProcedureSplitBlock
           image={imgSala}
-          imageAlt="Sala de procedimientos ALGOS"
+          imageAlt="Imagen pendiente"
           eyebrow="Para qué sirve"
-          imageCaption="Sala de procedimientos ALGOS"
+          imageCaption="Imagen pendiente"
         >
           <p>
             Está indicado específicamente para la ciática causada por una hernia de disco lumbar, cuando el dolor lleva tiempo y no ha cedido con medicamentos ni reposo, como una opción antes de plantear la cirugía.
@@ -81,12 +81,7 @@ export default function Ozono() {
           ]}
         />
 
-        <ProcedureVideoSection
-          src="/videos/hernia-discal.mp4"
-          eyebrow="Video del procedimiento"
-          title="Así se aplica el ozono en la hernia discal"
-          description="Un vistazo al procedimiento guiado por imagen, tal como se realiza en sala. Con anestesia local y de forma ambulatoria."
-        />
+{/* Video del procedimiento: pendiente de reemplazo */}
 
         <section className="bg-deep-teal py-20 md:py-28">
 
