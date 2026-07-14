@@ -4,6 +4,7 @@ import HomeFooter from "@/components/HomeFooter";
 import { CONDITIONS } from "@/data/treatments";
 import { MessageCircle, Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { trackAppointment } from "@/lib/analytics";
 
 const WA_NUMBER = ALGOS.contact.whatsappNumber;
 
@@ -59,6 +60,11 @@ export default function Agendar() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
+    trackAppointment({
+      condition: form.condicion || "unspecified",
+      hasStudies: form.tieneEstudios || "unspecified",
+      source: "form_agendar",
+    });
     window.open(`https://wa.me/${WA_NUMBER}?text=${buildWAMessage(form)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
