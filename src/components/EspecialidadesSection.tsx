@@ -11,6 +11,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
+import { getDoctorsBySpecialty, type Doctor } from "@/data/doctors";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
@@ -21,9 +22,9 @@ type CarePath = {
   plain: string;
   specialty: string;
   specialtyHint: string;
+  specialtySlug: Doctor["specialtySlug"];
   href: string;
   icon: LucideIcon;
-  doctors: string[];
 };
 
 const CARE_PATHS: CarePath[] = [
@@ -32,65 +33,66 @@ const CARE_PATHS: CarePath[] = [
     plain: "Cuando el dolor baja al brazo o la pierna, puede venir de la columna o de un nervio.",
     specialty: "Neurocirugía y cirugía de columna",
     specialtyHint: "columna y nervios",
+    specialtySlug: "neurocirugia",
     href: "/especialidades#neurocirugia",
     icon: Brain,
-    doctors: ["Dr. Atilio Rodríguez"],
   },
   {
     pain: "Rodilla, hombro o cadera",
     plain: "Si duele al caminar, subir escaleras o mover una articulación, revisamos el origen mecánico.",
     specialty: "Traumatología y Ortopedia",
     specialtyHint: "huesos y articulaciones",
+    specialtySlug: "traumatologia",
     href: "/especialidades#traumatologia",
     icon: Bone,
-    doctors: ["Dr. Antulio Parra", "Dr. Tomás Iragorry", "Dr. Miguel Guevara"],
   },
   {
     pain: "Hormigueo o adormecimiento",
     plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, puede hacer falta medir el nervio.",
     specialty: "Fisiatría y electrodiagnóstico",
     specialtyHint: "rehabilitación, nervios y músculos",
+    specialtySlug: "fisiatria",
     href: "/especialidades#fisiatria",
     icon: Activity,
-    doctors: ["Dra. Carolina Rodríguez", "Dra. Leslie Ramírez"],
   },
   {
     pain: "Dolor con inflamación",
     plain: "Si hay rigidez, hinchazón o dolor en varias zonas, evaluamos si hay una causa inflamatoria.",
     specialty: "Reumatología",
     specialtyHint: "inflamación y articulaciones",
+    specialtySlug: "reumatologia",
     href: "/especialidades#reumatologia",
     icon: HeartPulse,
-    doctors: ["Dra. Doris Meneses"],
   },
   {
     pain: "Dolor persistente",
     plain: "Cuando el dolor no cede con tratamientos habituales, el algólogo evalúa cómo controlarlo con procedimientos seguros, guiados por imagen y sin cirugía mayor.",
     specialty: "Algología, anestesiología y cuidados paliativos",
     specialtyHint: "dolor crónico y procedimientos intervencionistas",
+    specialtySlug: "cuidados-paliativos",
     href: "/especialidades#cuidados-paliativos",
     icon: Stethoscope,
-    doctors: ["Dra. Gilda Gómez"],
   },
   {
     pain: "Impacto emocional del dolor",
     plain: "El dolor crónico afecta el ánimo, el sueño y la manera en que se enfrenta el día a día.",
     specialty: "Psicología",
     specialtyHint: "salud mental y dolor crónico",
+    specialtySlug: "psicologia",
     href: "/especialidades#psicologia",
     icon: HeartHandshake,
-    doctors: [],
   },
   {
     pain: "Recuperación y hábitos",
     plain: "La alimentación, el peso y la inflamación también pueden influir en cómo evoluciona el dolor.",
     specialty: "Nutrición antiinflamatoria",
     specialtyHint: "soporte y recuperación",
+    specialtySlug: "nutricion",
     href: "/especialidades#nutricion",
     icon: Leaf,
-    doctors: ["Lic. Daniel Rodríguez"],
   },
 ];
+
 
 
 export default function EspecialidadesSection() {
@@ -173,6 +175,7 @@ export default function EspecialidadesSection() {
           >
             {CARE_PATHS.map((item) => {
               const Icon = item.icon;
+              const doctors = getDoctorsBySpecialty(item.specialtySlug).map((d) => d.name);
               return (
                 <Link
                   key={item.pain}
@@ -295,7 +298,7 @@ export default function EspecialidadesSection() {
                     >
                       {item.specialtyHint}
                     </p>
-                    {item.doctors.length > 0 ? (
+                    {doctors.length > 0 ? (
                       <ul
                         style={{
                           listStyle: "none",
@@ -306,7 +309,7 @@ export default function EspecialidadesSection() {
                           gap: 4,
                         }}
                       >
-                        {item.doctors.map((doc) => (
+                        {doctors.map((doc) => (
                           <li
                             key={doc}
                             style={{
