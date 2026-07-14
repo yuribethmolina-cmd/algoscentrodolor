@@ -16,6 +16,8 @@ const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICo
 export default function AlgosLocationSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [mapVisible, setMapVisible] = useState(false);
+  const [visitType, setVisitType] = useState<VisitType>("primera-vez");
+  const waHref = buildWhatsAppUrl({ visitType });
 
   useEffect(() => {
     const el = sectionRef.current;
