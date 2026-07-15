@@ -151,7 +151,7 @@ export default function HeroSection() {
             style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "hsl(var(--text-body))" }}
           >
             En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
-            en su recuperación. Sin importar dónde le duele.
+            hasta que pueda retomar lo que le gusta. Sin importar dónde le duele.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-9">

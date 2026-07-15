@@ -15,7 +15,7 @@ const pilares = [
     icon: Target,
     titulo: "Intervenimos con precisión",
     texto:
-      "Procedimientos guiados por imagen, mínimamente invasivos. Actuamos en el punto exacto, sin cirugía abierta.",
+      "Procedimientos guiados por imagen, mínimamente invasivos. Actuamos en el punto exacto del problema — no a ciegas, sin cirugía abierta.",
   },
   {
     icon: HeartHandshake,
