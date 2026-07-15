@@ -50,11 +50,6 @@ export default function EEG() {
         })}</script>
       </SEOHead>
       <Navbar />
-      <SEOHead
-        title="Electroencefalograma (EEG) en Maracaibo — ALGOS Centro de Dolor"
-        description="Electroencefalograma (EEG) en Maracaibo. Estudio de actividad cerebral para epilepsia, convulsiones y pérdida de consciencia. No invasivo, sin dolor, resultado el mismo día. Estado Zulia."
-        canonical="https://algoscentrodolor.com/procedimientos/eeg"
-      />
       <main>
         <PageHero eyebrow="Estudio" title="Electroencefalograma (EEG)" subtitle="Estudio de la actividad eléctrica del cerebro." />
 

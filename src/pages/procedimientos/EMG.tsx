@@ -305,11 +305,6 @@ export default function EMG() {
         })}</script>
       </SEOHead>
       <Navbar />
-      <SEOHead
-        title="Electromiografía (EMG) en Maracaibo — ALGOS Centro de Dolor"
-        description="Electromiografía (EMG) en Maracaibo, Estado Zulia. Diagnóstico de daño nervioso y muscular: ciática, neuropatía diabética, hormigueo y debilidad. Resultado el mismo día."
-        canonical="https://algoscentrodolor.com/procedimientos/emg"
-      />
       <main>
         <CinematicHero hc={hc} />
 
