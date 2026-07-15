@@ -10,6 +10,7 @@ import {
   Leaf,
   LucideIcon,
   Stethoscope,
+  Zap,
 } from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
 import { getDoctorsBySpecialty, type Doctor } from "@/data/doctors";
@@ -56,11 +57,20 @@ const CARE_PATHS: CarePath[] = [
   {
     pain: "Hormigueo o adormecimiento",
     plain: "Cuando siente corrientazos, ardor o pérdida de fuerza, el EMG mide exactamente qué nervio está afectado y en qué punto.",
-    specialty: "EMG · EEG · Fisiatría",
-    specialtyHint: "rehabilitación, nervios y músculos",
+    specialty: "EMG · Electromiografía",
+    specialtyHint: "nervios y músculos",
     specialtySlug: "fisiatria",
     icon: Activity,
     href: "/procedimientos/emg",
+  },
+  {
+    pain: "Convulsiones o mareos recurrentes",
+    plain: "Cuando hay episodios de pérdida de conciencia, convulsiones o mareos sin causa aparente, el EEG registra la actividad eléctrica del cerebro e identifica su origen.",
+    specialty: "EEG · Electroencefalograma",
+    specialtyHint: "actividad cerebral y neurológica",
+    specialtySlug: "neurocirugia",
+    icon: Zap,
+    href: "/procedimientos/eeg",
   },
   {
     pain: "Dolor con inflamación",
