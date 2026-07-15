@@ -437,7 +437,7 @@ export default function EspecialidadesSection() {
                 }}
               >
                 Cada persona llega con una historia diferente. Antes de
-                cualquier decisión, entendemos el origen de su dolor — y desde
+                cualquier decisión, entendemos el origen de su dolor y desde
                 ahí definimos juntos si necesita un estudio, un procedimiento o
                 el apoyo de otra especialidad.
               </p>
