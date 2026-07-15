@@ -12,7 +12,6 @@ import { ALGOS } from "@/config/algos.config";
 import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
 import { SPECIALTIES } from "@/data/specialties";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 

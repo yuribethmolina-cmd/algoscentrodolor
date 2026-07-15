@@ -8,7 +8,6 @@ import ConditionGallery from "@/components/ConditionGallery";
 import heroAsset from "@/assets/cond-articular-cadera.jpg.asset.json";
 import ciaticaAnatomia from "@/assets/ciatica-anatomia.jpeg.asset.json";
 import { ALGOS } from "@/config/algos.config";
-import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20orientaci%C3%B3n%20sobre%20la%20ci%C3%A1tica.";
 

@@ -6,7 +6,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SEOHead from "@/components/SEOHead";
 import { ALGOS } from "@/config/algos.config";
-import SEOHead from "@/components/SEOHead";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20sus%20procedimientos.";
 
