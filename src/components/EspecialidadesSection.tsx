@@ -424,7 +424,7 @@ export default function EspecialidadesSection() {
                   margin: 0,
                 }}
               >
-                Su dolor primero. El especialista después.
+                Primero lo escuchamos, después lo orientamos.
               </h3>
               <p
                 style={{
@@ -436,10 +436,10 @@ export default function EspecialidadesSection() {
                   marginBottom: 0,
                 }}
               >
-                Así evitamos que el paciente tenga que adivinar. Primero
-                entendemos el origen probable del dolor; después decidimos si
-                necesita diagnóstico, tratamiento intervencionista, seguimiento
-                o apoyo de otra área.
+                Cada persona llega con una historia diferente. Antes de
+                cualquier decisión, entendemos el origen de su dolor — y desde
+                ahí definimos juntos si necesita un estudio, un procedimiento o
+                el apoyo de otra especialidad.
               </p>
             </div>
 
