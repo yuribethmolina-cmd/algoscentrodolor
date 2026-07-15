@@ -26,6 +26,7 @@ type CarePath = {
   specialtyHint: string;
   specialtySlug: Doctor["specialtySlug"];
   icon: LucideIcon;
+  href?: string;
 };
 
 /**
@@ -59,6 +60,7 @@ const CARE_PATHS: CarePath[] = [
     specialtyHint: "rehabilitación, nervios y músculos",
     specialtySlug: "fisiatria",
     icon: Activity,
+    href: "/procedimientos/emg",
   },
   {
     pain: "Dolor con inflamación",
@@ -218,7 +220,7 @@ export default function EspecialidadesSection() {
               return (
                 <Link
                   key={item.pain}
-                  to={specialtyHref(item.specialtySlug)}
+                  to={item.href ?? specialtyHref(item.specialtySlug)}
                   className="group"
                   style={{
                     display: "grid",
