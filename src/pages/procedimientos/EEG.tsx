@@ -11,7 +11,6 @@ import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import { motion } from "framer-motion";
 import imgMainAsset from "@/assets/eeg-procedimiento.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
-import SEOHead from "@/components/SEOHead";
 const imgMain = imgMainAsset.url;
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";

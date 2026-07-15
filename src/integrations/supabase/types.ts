@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_audit_log: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          metadata: Json | null
+          user_email: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       conversion_events: {
         Row: {
           condition: string | null
@@ -56,12 +83,53 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limits: {
+        Row: {
+          count: number
+          ip_hash: string
+          window_key: string
+        }
+        Insert: {
+          count?: number
+          ip_hash: string
+          window_key: string
+        }
+        Update: {
+          count?: number
+          ip_hash?: string
+          window_key?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      cleanup_rate_limits: { Args: never; Returns: undefined }
       get_conversion_summary: { Args: { days_back?: number }; Returns: Json }
+      upsert_rate_limit: {
+        Args: { p_ip_hash: string; p_window_key: string }
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never
