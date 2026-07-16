@@ -42,6 +42,7 @@ import BlogPage from "@/pages/Blog";
 
 // Landing pages (Google Ads — sin nav, sin PageTransition)
 import LpDiagnostico from "@/pages/lp/LpDiagnostico";
+import LpDolor from "@/pages/lp/LpDolor";
 
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
@@ -110,6 +111,7 @@ export default function AnimatedRoutes() {
 
           {/* Landing pages (Google Ads) */}
           <Route path="/lp/diagnostico" element={<LpDiagnostico />} />
+          <Route path="/lp/dolor" element={<LpDolor />} />
 
           {/* Internal admin (unlisted) */}
           <Route path="/admin/login" element={<AdminLogin />} />
