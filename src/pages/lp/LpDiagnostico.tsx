@@ -205,7 +205,7 @@ export default function LpDiagnostico() {
                 placeholder={examsUltrasoundLqip}
                 alt="Estudio de ecografía UDUZ Maracaibo"
                 className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-cover object-[35%_50%]"
+                imgClassName="w-full h-full object-cover object-[15%_50%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/40 via-transparent to-transparent" />
             </div>

@@ -136,11 +136,11 @@ export default function LpDolor() {
 
         {/* Quiénes somos — logo grande + link prominente */}
         <section className="bg-white px-6 py-12 md:py-16 border-b border-[#1a4a55]/8">
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-8">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-8 border-l-[3px] border-[#1a4a55] pl-6 bg-[#1a4a55]/[0.03] py-6 pr-6">
             <img
               src={algosLogoDark}
               alt="ALGOS Centro de Dolor"
-              className="h-12 w-auto object-contain object-left shrink-0"
+              className="h-20 w-auto object-contain object-left shrink-0"
             />
             <div className="flex flex-col gap-4 flex-1">
               <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed max-w-xl">
@@ -150,7 +150,7 @@ export default function LpDolor() {
                 href="https://algoscentrodolor.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-[#1a4a55] text-[#1a4a55] hover:bg-[#1a4a55] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
+                className="inline-flex items-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 Ver sitio web completo
@@ -265,15 +265,15 @@ export default function LpDolor() {
       </main>
 
       {/* Footer mínimo */}
-      <footer className="bg-[#f5f0e8] border-t border-[#1a4a55]/10 px-6 py-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-8 opacity-60" />
-          <p className="font-sans text-[#1a4a55]/45 text-xs text-center">
+      <footer className="bg-[#f5f0e8] border-t-2 border-[#1a4a55]/15 px-6 py-10">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-12 opacity-90" />
+          <p className="font-sans text-[#1a4a55]/65 text-sm text-center">
             ALGOS Centro de Dolor Intervencionista · Maracaibo, Venezuela
           </p>
           <a
             href="https://algoscentrodolor.com"
-            className="font-sans text-[#1a4a55]/45 hover:text-[#1a4a55] text-xs transition-colors"
+            className="font-sans text-[#1a4a55]/60 hover:text-[#1a4a55] text-sm font-medium transition-colors"
           >
             algoscentrodolor.com
           </a>
