@@ -100,12 +100,12 @@ export default function AnimatedRoutes() {
           <Route path="/tratamientos" element={wrap(Tratamientos)} />
           <Route path="/tratamientos/cefaleas" element={<Navigate to="/condiciones/cefaleas" replace />} />
           <Route path="/tratamientos/:slug" element={wrap(TratamientoDetalle)} />
-          <Route path="/pacientes" element={wrap(Pacientes)} />
-          <Route path="/pacientes/*" element={wrap(Pacientes)} />
-          <Route path="/medicos" element={wrap(Medicos)} />
-          <Route path="/medicos/*" element={wrap(Medicos)} />
-          <Route path="/instituciones" element={wrap(Instituciones)} />
-          <Route path="/instituciones/*" element={wrap(Instituciones)} />
+          <Route path="/pacientes" element={<Navigate to="/" replace />} />
+          <Route path="/pacientes/*" element={<Navigate to="/" replace />} />
+          <Route path="/medicos" element={<Navigate to="/" replace />} />
+          <Route path="/medicos/*" element={<Navigate to="/" replace />} />
+          <Route path="/instituciones" element={<Navigate to="/" replace />} />
+          <Route path="/instituciones/*" element={<Navigate to="/" replace />} />
           <Route path="/blog" element={wrap(BlogPage)} />
 
           {/* Landing pages (Google Ads) */}
