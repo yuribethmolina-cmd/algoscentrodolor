@@ -73,11 +73,11 @@ export default function LpDolor() {
                 DOLOR INTERVENCIONISTA · MARACAIBO
               </p>
               <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl leading-[1.08] tracking-tight mb-6">
-                No tiene que aguantarse.<br />
-                <span className="italic">Tampoco operarse.</span>
+                El dolor no tiene que <span className="italic">aguantarse.</span><br />
+                Estamos aquí para ayudarle.
               </h1>
               <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed mb-10 max-w-md">
-                ALGOS es el primer centro de dolor intervencionista del estado Zulia. Tratamos el origen del dolor con procedimientos guiados por imagen — sin cirugía, sin hospitalización.
+                En ALGOS tratamos el origen del dolor con procedimientos guiados por imagen. Sin cirugía, sin hospitalización. Primer centro intervencionista del estado Zulia.
               </p>
               <a
                 href={WA_ALGOS}
