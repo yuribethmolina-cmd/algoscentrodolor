@@ -92,7 +92,9 @@ export default function LpDiagnostico() {
                 alt="Escáner diagnóstico UDUZ Maracaibo"
                 className="absolute inset-0 w-full h-full"
                 imgClassName="w-full h-full object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 eager
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#f5f0e8]/60 via-transparent to-transparent lg:from-transparent" />
             </div>

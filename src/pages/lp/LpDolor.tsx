@@ -10,7 +10,7 @@ import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1
 import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";
-import drAtilioPortrait from "@/assets/dr-atilio-portrait.png";
+import drAtilioPortrait from "@/assets/dr-atilio-portrait.png?w=112&format=webp";
 
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
@@ -97,7 +97,9 @@ export default function LpDolor() {
                 alt="Dolor lumbar crónico — ALGOS Centro de Dolor Maracaibo"
                 className="absolute inset-0 w-full h-full"
                 imgClassName="w-full h-full object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 eager
+                fetchPriority="high"
               />
               {/* Gradiente inferior para que el card destaque */}
               <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#1a4a55]/90 to-transparent" />
