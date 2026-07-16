@@ -1,9 +1,9 @@
 import SEOHead from "@/components/SEOHead";
 import { OptimizedPicture } from "@/components/OptimizedPicture";
+import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
-import algosLogoCream from "@/assets/algos-logo-cream.png";
 import {
-  Brain, Bone, Baby, HeartPulse, Activity, Waves, Zap, TestTube, Phone, ExternalLink, Instagram,
+  Brain, Bone, Baby, HeartPulse, Activity, Waves, Zap, TestTube, ExternalLink, Instagram,
 } from "lucide-react";
 
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
@@ -45,19 +45,9 @@ export default function LpDiagnostico() {
         <meta name="robots" content="noindex, nofollow" />
       </SEOHead>
 
-      {/* Header mínimo */}
-      <header className="bg-[#1a4a55] px-6 py-4 flex items-center justify-between">
-        <img src={algosLogoCream} alt="ALGOS Centro de Dolor" className="h-9" />
-        <a
-          href="tel:+584146807886"
-          className="flex items-center gap-2 text-[#f5f0e8]/70 hover:text-[#f5f0e8] text-sm font-sans transition-colors"
-        >
-          <Phone className="w-4 h-4" />
-          <span className="hidden sm:inline">0414-680 7886</span>
-        </a>
-      </header>
+      <LpHeader waHref={WA_UDUZ} waLabel="Coordinar estudio" />
 
-      <main>
+      <main className="pt-24">
         {/* Hero — split layout */}
         <section className="bg-[#f5f0e8]">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
