@@ -118,7 +118,7 @@ export default function LpDiagnostico() {
                 href="https://algoscentrodolor.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
+                className="mt-auto inline-flex items-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 Ver sitio web completo
@@ -138,7 +138,7 @@ export default function LpDiagnostico() {
                 href="https://www.instagram.com/uduz_maracaibo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-[#3d8b96] text-[#3d8b96] hover:bg-[#3d8b96] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
+                className="mt-auto inline-flex items-center gap-2 border border-[#3d8b96] text-[#3d8b96] hover:bg-[#3d8b96] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
                 <Instagram className="w-3.5 h-3.5" />
                 @uduz_maracaibo en Instagram
