@@ -1,23 +1,21 @@
 import SEOHead from "@/components/SEOHead";
+import { OptimizedPicture } from "@/components/OptimizedPicture";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
 import algosLogoCream from "@/assets/algos-logo-cream.png";
 import {
-  Brain,
-  Bone,
-  Baby,
-  HeartPulse,
-  Activity,
-  Waves,
-  Zap,
-  TestTube,
-  Phone,
-  ExternalLink,
+  Brain, Bone, Baby, HeartPulse, Activity, Waves, Zap, TestTube, Phone, ExternalLink, Instagram,
 } from "lucide-react";
+
+import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
+import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
+import experienceTechPic from "@/assets/experience-tech.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import experienceTechLqip from "@/assets/experience-tech.jpg?w=32&blur=6&format=webp&url";
 
 const WA_UDUZ = `https://wa.me/584126044124?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera coordinar un estudio diagnóstico."
 )}`;
-
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar un electromiograma (EMG) o electrocardiograma (ECG)."
 )}`;
@@ -47,9 +45,9 @@ export default function LpDiagnostico() {
         <meta name="robots" content="noindex, nofollow" />
       </SEOHead>
 
-      {/* Header mínimo — logo + teléfono, sin nav */}
+      {/* Header mínimo */}
       <header className="bg-[#1a4a55] px-6 py-4 flex items-center justify-between">
-        <img src={algosLogoCream} alt="ALGOS Centro de Dolor" className="h-8" />
+        <img src={algosLogoCream} alt="ALGOS Centro de Dolor" className="h-9" />
         <a
           href="tel:+584146807886"
           className="flex items-center gap-2 text-[#f5f0e8]/70 hover:text-[#f5f0e8] text-sm font-sans transition-colors"
@@ -60,85 +58,116 @@ export default function LpDiagnostico() {
       </header>
 
       <main>
-        {/* Hero */}
-        <section className="bg-[#f5f0e8] px-6 py-16 md:py-24">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[#3d8b96] font-medium text-xs tracking-[0.28em] uppercase mb-5">
-              ESTUDIOS DIAGNÓSTICOS · MARACAIBO
-            </p>
-            <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl leading-[1.08] tracking-tight mb-6">
-              Tomografía, EMG, Holter y más —{" "}
-              <span className="italic">en Maracaibo.</span>
-            </h1>
-            <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología,
-              neurofisiología y laboratorio. La mayoría de estudios no requieren
-              consulta previa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={WA_UDUZ}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#3d8b96] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
-              >
-                Coordinar estudio en UDUZ
-              </a>
-              <a
-                href={WA_ALGOS}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
-              >
-                Agendar EMG · ECG en ALGOS
-              </a>
+        {/* Hero — split layout */}
+        <section className="bg-[#f5f0e8]">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
+
+            {/* Text */}
+            <div className="flex flex-col justify-center px-6 md:px-12 py-16 md:py-24">
+              <p className="text-[#3d8b96] font-medium text-xs tracking-[0.28em] uppercase mb-5">
+                ESTUDIOS DIAGNÓSTICOS · MARACAIBO
+              </p>
+              <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl leading-[1.08] tracking-tight mb-6">
+                Tomografía, EMG,<br />Holter y más —{" "}
+                <span className="italic">en Maracaibo.</span>
+              </h1>
+              <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed mb-10 max-w-md">
+                A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología, neurofisiología y laboratorio. La mayoría de estudios no requieren consulta previa.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={WA_UDUZ}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-[#3d8b96] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+                >
+                  Coordinar estudio en UDUZ
+                </a>
+                <a
+                  href={WA_ALGOS}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+                >
+                  Agendar EMG · ECG
+                </a>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="relative min-h-[300px] lg:min-h-0 overflow-hidden">
+              <OptimizedPicture
+                picture={uduzScannerPic}
+                placeholder={uduzScannerLqip}
+                alt="Escáner diagnóstico UDUZ Maracaibo"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-cover"
+                eager
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#f5f0e8]/60 via-transparent to-transparent lg:from-transparent" />
             </div>
           </div>
         </section>
 
-        {/* Contexto — quiénes somos */}
-        <section className="bg-white border-t border-b border-[#1a4a55]/8 px-6 py-10">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Quiénes somos — logos grandes + links prominentes */}
+        <section className="bg-white px-6 py-12 md:py-16 border-b border-[#1a4a55]/8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
 
             {/* ALGOS */}
-            <div className="flex flex-col gap-3">
-              <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-7 w-auto object-contain object-left" />
-              <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+            <div className="flex flex-col gap-5">
+              <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-12 w-auto object-contain object-left" />
+              <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
                 Centro de Dolor Intervencionista. Primer centro especializado en dolor del estado Zulia, con procedimientos guiados por imagen.
               </p>
               <a
                 href="https://algoscentrodolor.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#3d8b96] hover:text-[#1a4a55] text-xs font-sans font-semibold transition-colors"
+                className="inline-flex items-center gap-2 border border-[#1a4a55] text-[#1a4a55] hover:bg-[#1a4a55] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
-                algoscentrodolor.com
+                Ver sitio web completo
               </a>
             </div>
 
             {/* UDUZ */}
-            <div className="flex flex-col gap-3">
-              <img src="/logos/uduz-logo.svg" alt="UDUZ" className="h-7 w-auto object-contain object-left" />
-              <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+            <div className="flex flex-col gap-5">
+              <img src="/logos/uduz-logo.svg" alt="UDUZ" className="h-12 w-auto object-contain object-left" />
+              <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
                 Centro de diagnóstico por imagen en Maracaibo. Aliado estratégico de ALGOS para estudios de imagen, cardiología y laboratorio.
               </p>
               <a
                 href="https://www.instagram.com/uduz_maracaibo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#3d8b96] hover:text-[#1a4a55] text-xs font-sans font-semibold transition-colors"
+                className="inline-flex items-center gap-2 border border-[#3d8b96] text-[#3d8b96] hover:bg-[#3d8b96] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
+                <Instagram className="w-3.5 h-3.5" />
                 @uduz_maracaibo en Instagram
               </a>
             </div>
-
           </div>
         </section>
 
+        {/* Imagen intermedia — equipo técnico */}
+        <div className="relative h-48 md:h-64 overflow-hidden">
+          <OptimizedPicture
+            picture={experienceTechPic}
+            placeholder={experienceTechLqip}
+            alt="Equipos diagnósticos ALGOS"
+            className="absolute inset-0 w-full h-full"
+            imgClassName="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#1a4a55]/55" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <p className="font-display font-bold text-[#f5f0e8] text-2xl md:text-3xl tracking-tight text-center px-6">
+              Diagnóstico de <span className="italic text-[#c69636]">precisión</span> en Maracaibo
+            </p>
+          </div>
+        </div>
+
         {/* Estudios */}
-        <section className="bg-white px-6 py-16 md:py-20">
+        <section className="bg-[#f5f0e8] px-6 py-16 md:py-20">
           <div className="max-w-5xl mx-auto space-y-16">
 
             {/* UDUZ */}
@@ -153,7 +182,7 @@ export default function LpDiagnostico() {
                 {UDUZ_STUDIES.map((s) => {
                   const Icon = s.icon;
                   return (
-                    <div key={s.slug} className="border border-[#1a4a55]/10 bg-[#f5f0e8]/60 p-5">
+                    <div key={s.slug} className="border border-[#1a4a55]/10 bg-white p-5">
                       <Icon className="w-5 h-5 text-[#3d8b96] mb-3" strokeWidth={1.5} />
                       <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">{s.name}</p>
                       <p className="font-sans text-[#1a4a55]/55 text-xs leading-relaxed">{s.short}</p>
@@ -171,6 +200,18 @@ export default function LpDiagnostico() {
               </a>
             </div>
 
+            {/* Imagen ecografía */}
+            <div className="relative h-52 md:h-64 overflow-hidden rounded-none">
+              <OptimizedPicture
+                picture={examsUltrasoundPic}
+                placeholder={examsUltrasoundLqip}
+                alt="Estudio de ecografía UDUZ Maracaibo"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/60 via-transparent to-transparent" />
+            </div>
+
             {/* ALGOS */}
             <div>
               <div className="flex items-center gap-3 mb-8">
@@ -183,7 +224,7 @@ export default function LpDiagnostico() {
                 {ALGOS_STUDIES.map((s) => {
                   const Icon = s.icon;
                   return (
-                    <div key={s.slug} className="border border-[#c69636]/25 bg-[#c69636]/5 p-5">
+                    <div key={s.slug} className="border border-[#c69636]/25 bg-white p-5">
                       <Icon className="w-5 h-5 text-[#c69636] mb-3" strokeWidth={1.5} />
                       <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">{s.name}</p>
                       <p className="font-sans text-[#1a4a55]/55 text-xs leading-relaxed">{s.short}</p>
@@ -225,7 +266,7 @@ export default function LpDiagnostico() {
       {/* Footer mínimo */}
       <footer className="bg-[#f5f0e8] border-t border-[#1a4a55]/10 px-6 py-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-6 opacity-50" />
+          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-8 opacity-60" />
           <p className="font-sans text-[#1a4a55]/45 text-xs text-center">
             ALGOS Centro de Dolor Intervencionista · Maracaibo, Venezuela
           </p>
