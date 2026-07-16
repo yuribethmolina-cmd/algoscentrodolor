@@ -6,7 +6,7 @@ import imgSalaProcedimientos from "@/assets/sala-procedimientos.jpg";
 import imgAboutProcedure from "@/assets/about-procedure.jpg";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import AudienceToggle, { useAudienceView } from "@/components/AudienceToggle";
+
 import ConditionCard from "@/components/ConditionCard";
 import SEOHead from "@/components/SEOHead";
 import { BreadcrumbSchema } from "@/components/StructuredData";
