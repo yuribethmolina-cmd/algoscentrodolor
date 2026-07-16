@@ -68,7 +68,7 @@ export default function Tratamientos() {
           </div>
         </section>
 
-        <AudienceToggle />
+        
 
         <section className="bg-[#1a4a55] py-20 md:py-28">
           <div className="container mx-auto max-w-7xl px-6 md:px-12">
