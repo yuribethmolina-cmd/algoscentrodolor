@@ -127,7 +127,7 @@ export default function Tratamientos() {
                       transition: `opacity 0.55s ease ${idx * 60}ms, transform 0.55s cubic-bezier(0.23,1,0.32,1) ${idx * 60}ms`,
                     }}
                   >
-                    <ConditionCard condition={c} view="patient" variant={cell.variant} />
+                    <ConditionCard condition={c} view="paciente" variant={cell.variant} />
                   </div>
                 );
               })}
