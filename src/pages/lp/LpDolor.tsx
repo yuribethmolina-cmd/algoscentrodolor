@@ -4,8 +4,8 @@ import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
 import { Zap, Radio, Droplets, Activity, ExternalLink } from "lucide-react";
 
-import experienceConsultPic from "@/assets/experience-consult.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import experienceConsultLqip from "@/assets/experience-consult.jpg?w=32&blur=6&format=webp&url";
+import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
 import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
@@ -92,9 +92,9 @@ export default function LpDolor() {
             {/* Dr. Atilio image */}
             <div className="relative min-h-[340px] lg:min-h-0 overflow-hidden order-1 lg:order-2 bg-[#1a4a55]">
               <OptimizedPicture
-                picture={experienceConsultPic}
-                placeholder={experienceConsultLqip}
-                alt="Consulta ALGOS Centro de Dolor Maracaibo"
+                picture={dolorLumbarPic}
+                placeholder={dolorLumbarLqip}
+                alt="Dolor lumbar crónico — ALGOS Centro de Dolor Maracaibo"
                 className="absolute inset-0 w-full h-full"
                 imgClassName="w-full h-full object-cover object-center"
                 eager
@@ -110,7 +110,7 @@ export default function LpDolor() {
                   />
                   <div className="pb-1">
                     <p className="font-sans font-bold text-white text-sm drop-shadow">Dr. Atilio Rodríguez</p>
-                    <p className="font-sans text-white/75 text-xs drop-shadow">Neurocirujano · Director Médico</p>
+                    <p className="font-sans text-white/75 text-xs drop-shadow">Neurocirujano</p>
                   </div>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function LpDolor() {
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
               <p className="font-sans font-bold text-[#f5f0e8] text-sm mb-1">Dr. Atilio Rodríguez</p>
-              <p className="font-sans text-[#f5f0e8]/55 text-xs">Neurocirujano · Director Médico ALGOS · Maracaibo</p>
+              <p className="font-sans text-[#f5f0e8]/55 text-xs">Neurocirujano · Maracaibo</p>
             </div>
             <div>
               <p className="font-sans font-bold text-[#f5f0e8] text-sm mb-1">Guiado por imagen</p>

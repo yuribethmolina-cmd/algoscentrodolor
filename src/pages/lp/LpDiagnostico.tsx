@@ -64,22 +64,22 @@ export default function LpDiagnostico() {
               <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed mb-10 max-w-md">
                 A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología, neurofisiología y laboratorio. La mayoría de estudios no requieren consulta previa.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-wrap gap-3">
                 <a
                   href={WA_UDUZ}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#3d8b96] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+                  className="inline-flex items-center justify-center whitespace-nowrap bg-[#3d8b96] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
                 >
-                  Coordinar estudio en UDUZ
+                  Coordinar en UDUZ
                 </a>
                 <a
                   href={WA_ALGOS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+                  className="inline-flex items-center justify-center whitespace-nowrap bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
                 >
-                  Agendar EMG · ECG
+                  Agendar EMG / ECG
                 </a>
               </div>
             </div>

@@ -26,7 +26,9 @@ export default function LpHeader({ waHref, waLabel = "WhatsApp" }: LpHeaderProps
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         backgroundColor: CREAM,
-        boxShadow: scrolled ? "0 1px 0 rgba(26,74,85,0.08)" : "none",
+        boxShadow: scrolled
+          ? "0 2px 12px -2px rgba(26,74,85,0.14)"
+          : "0 1px 0 rgba(26,74,85,0.15)",
       }}
     >
       <div
