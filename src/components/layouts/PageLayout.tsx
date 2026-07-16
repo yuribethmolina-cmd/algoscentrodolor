@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import GlobalNavbar from "@/components/GlobalNavbar";
-import GlobalFooter from "@/components/GlobalFooter";
+import Navbar from "@/components/Navbar";
+import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface PageLayoutProps {
@@ -13,9 +13,9 @@ export default function PageLayout({ children }: PageLayoutProps) {
 
   return (
     <div className="min-h-screen">
-      <GlobalNavbar />
-      <main className="pt-24">{children}</main>
-      <GlobalFooter />
+      <Navbar />
+      <main>{children}</main>
+      <HomeFooter />
       <WhatsAppButton />
     </div>
   );
