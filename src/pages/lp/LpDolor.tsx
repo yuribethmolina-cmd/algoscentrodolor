@@ -1,7 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
 import algosLogoCream from "@/assets/algos-logo-cream.png";
-import { Phone, Zap, Radio, Droplets, Activity } from "lucide-react";
+import { Phone, Zap, Radio, Droplets, Activity, ExternalLink } from "lucide-react";
 
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
@@ -87,6 +87,27 @@ export default function LpDolor() {
             >
               Agendar consulta por WhatsApp
             </a>
+          </div>
+        </section>
+
+        {/* Contexto — quiénes somos */}
+        <section className="bg-white border-t border-b border-[#1a4a55]/8 px-6 py-10">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-4">
+            <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-7 w-auto object-contain object-left shrink-0" />
+            <div className="flex flex-col gap-2">
+              <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                Primer centro de dolor intervencionista del estado Zulia. Atendido por el Dr. Atilio Rodríguez, neurocirujano especializado en dolor, con sede en Maracaibo.
+              </p>
+              <a
+                href="https://algoscentrodolor.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#3d8b96] hover:text-[#1a4a55] text-xs font-sans font-semibold transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Ver sitio web completo — algoscentrodolor.com
+              </a>
+            </div>
           </div>
         </section>
 

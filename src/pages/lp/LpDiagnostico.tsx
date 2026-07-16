@@ -11,6 +11,7 @@ import {
   Zap,
   TestTube,
   Phone,
+  ExternalLink,
 } from "lucide-react";
 
 const WA_UDUZ = `https://wa.me/584126044124?text=${encodeURIComponent(
@@ -92,6 +93,47 @@ export default function LpDiagnostico() {
                 Agendar EMG · ECG en ALGOS
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* Contexto — quiénes somos */}
+        <section className="bg-white border-t border-b border-[#1a4a55]/8 px-6 py-10">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* ALGOS */}
+            <div className="flex flex-col gap-3">
+              <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-7 w-auto object-contain object-left" />
+              <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                Centro de Dolor Intervencionista. Primer centro especializado en dolor del estado Zulia, con procedimientos guiados por imagen.
+              </p>
+              <a
+                href="https://algoscentrodolor.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#3d8b96] hover:text-[#1a4a55] text-xs font-sans font-semibold transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                algoscentrodolor.com
+              </a>
+            </div>
+
+            {/* UDUZ */}
+            <div className="flex flex-col gap-3">
+              <img src="/logos/uduz-logo.svg" alt="UDUZ" className="h-7 w-auto object-contain object-left" />
+              <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                Centro de diagnóstico por imagen en Maracaibo. Aliado estratégico de ALGOS para estudios de imagen, cardiología y laboratorio.
+              </p>
+              <a
+                href="https://www.instagram.com/uduz_maracaibo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#3d8b96] hover:text-[#1a4a55] text-xs font-sans font-semibold transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                @uduz_maracaibo en Instagram
+              </a>
+            </div>
+
           </div>
         </section>
 
