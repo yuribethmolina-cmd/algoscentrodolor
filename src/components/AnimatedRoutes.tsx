@@ -38,9 +38,6 @@ import Radiofrecuencia from "@/pages/procedimientos/Radiofrecuencia";
 // Legacy pages (kept to avoid 404s on old links)
 import Tratamientos from "@/pages/Tratamientos";
 import TratamientoDetalle from "@/pages/TratamientoDetalle";
-import Pacientes from "@/pages/Pacientes";
-import Medicos from "@/pages/Medicos";
-import Instituciones from "@/pages/Instituciones";
 import BlogPage from "@/pages/Blog";
 
 // Landing pages (Google Ads — sin nav, sin PageTransition)
