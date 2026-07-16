@@ -22,7 +22,6 @@ const HOW_ITEMS: { Icon: LucideIcon; title: string; description: string }[] = [
 ];
 
 export default function Tratamientos() {
-  const [view] = useAudienceView();
   const { ref: cardsRef, inView: cardsIn } = useInViewOnce<HTMLDivElement>(0.05);
 
   return (
