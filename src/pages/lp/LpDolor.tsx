@@ -10,7 +10,7 @@ import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1
 import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";
-import drAtilio from "@/assets/dr-atilio-full.png";
+import drAtilioPortrait from "@/assets/dr-atilio-portrait.png";
 
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
@@ -89,8 +89,8 @@ export default function LpDolor() {
               </a>
             </div>
 
-            {/* Dr. Atilio image */}
-            <div className="relative min-h-[340px] lg:min-h-0 overflow-hidden order-1 lg:order-2 bg-[#1a4a55]">
+            {/* Imagen dolor + card Dr. Atilio */}
+            <div className="relative min-h-[380px] lg:min-h-0 overflow-hidden order-1 lg:order-2 bg-[#1a4a55]">
               <OptimizedPicture
                 picture={dolorLumbarPic}
                 placeholder={dolorLumbarLqip}
@@ -99,18 +99,31 @@ export default function LpDolor() {
                 imgClassName="w-full h-full object-cover object-center"
                 eager
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1a4a55]/20 lg:from-[#f5f0e8]/20 lg:to-transparent" />
-              {/* Dr. Atilio overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-end gap-4">
+              {/* Gradiente inferior para que el card destaque */}
+              <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#1a4a55]/90 to-transparent" />
+
+              {/* Card Dr. Atilio */}
+              <div className="absolute bottom-5 left-5 right-5">
+                <div
+                  className="flex items-center gap-4 px-5 py-4"
+                  style={{ backgroundColor: "#1a4a55", borderLeft: "3px solid #c69636" }}
+                >
                   <img
-                    src={drAtilio}
+                    src={drAtilioPortrait}
                     alt="Dr. Atilio Rodríguez"
-                    className="h-20 w-auto object-contain object-bottom drop-shadow-lg"
+                    className="w-14 h-14 object-cover object-top rounded-full shrink-0"
+                    style={{ border: "2px solid #c69636" }}
                   />
-                  <div className="pb-1">
-                    <p className="font-sans font-bold text-white text-sm drop-shadow">Dr. Atilio Rodríguez</p>
-                    <p className="font-sans text-white/75 text-xs drop-shadow">Neurocirujano</p>
+                  <div>
+                    <p className="font-sans font-bold text-[#f5f0e8] text-sm leading-tight">
+                      Dr. Atilio Rodríguez
+                    </p>
+                    <p className="font-sans text-[#c69636] text-xs tracking-wide mt-0.5">
+                      Neurocirujano
+                    </p>
+                    <p className="font-sans text-[#f5f0e8]/55 text-xs mt-0.5">
+                      Director Médico · ALGOS Centro de Dolor
+                    </p>
                   </div>
                 </div>
               </div>
