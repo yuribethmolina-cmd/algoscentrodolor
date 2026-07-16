@@ -291,38 +291,6 @@ export default function Contacto() {
           </div>
         </section>
 
-        {/* AUDIENCE ROUTER */}
-        <section className="bg-cream py-16 md:py-20">
-          <div className="container mx-auto max-w-7xl px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-px bg-[#1a4a55]/10">
-              {AUDIENCE_CARDS.map((c) => (
-                <article
-                  key={c.eyebrow}
-                  className="rounded-none p-10 md:p-12 flex flex-col text-[#f5f0e8]"
-                  style={{ backgroundColor: c.bg }}
-                >
-                  <p className="text-[#f5f0e8]/90 text-xs uppercase tracking-widest font-medium mb-4">
-                    {c.eyebrow}
-                  </p>
-                  <h3 className="font-display font-semibold text-2xl md:text-[1.65rem] leading-snug mb-3 text-[#f5f0e8]">
-                    {c.title}
-                  </h3>
-                  <p className="text-[#f5f0e8]/90 mb-8 leading-relaxed flex-1">
-                    {c.description}
-                  </p>
-                  <Link
-                    to={c.to}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 hover:gap-3 transition-all rounded-none font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
-                    style={{ backgroundColor: c.btnBg, color: c.btnText }}
-                  >
-                    <span>{c.cta}</span>
-                    <span aria-hidden>→</span>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* CONTACTO DIRECTO, BENTO */}
         <section className="bg-white py-20 md:py-28">
