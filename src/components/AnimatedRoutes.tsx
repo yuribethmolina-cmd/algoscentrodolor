@@ -43,6 +43,9 @@ import Medicos from "@/pages/Medicos";
 import Instituciones from "@/pages/Instituciones";
 import BlogPage from "@/pages/Blog";
 
+// Landing pages (Google Ads — sin nav, sin PageTransition)
+import LpDiagnostico from "@/pages/lp/LpDiagnostico";
+
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
 import AdminLogin from "@/pages/admin/Login";
@@ -107,6 +110,9 @@ export default function AnimatedRoutes() {
           <Route path="/instituciones" element={wrap(Instituciones)} />
           <Route path="/instituciones/*" element={wrap(Instituciones)} />
           <Route path="/blog" element={wrap(BlogPage)} />
+
+          {/* Landing pages (Google Ads) */}
+          <Route path="/lp/diagnostico" element={<LpDiagnostico />} />
 
           {/* Internal admin (unlisted) */}
           <Route path="/admin/login" element={<AdminLogin />} />
