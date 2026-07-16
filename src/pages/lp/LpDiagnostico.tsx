@@ -103,11 +103,14 @@ export default function LpDiagnostico() {
 
         {/* Quiénes somos — logos grandes + links prominentes */}
         <section className="bg-white px-6 py-12 md:py-16 border-b border-[#1a4a55]/8">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            {/* ALGOS */}
-            <div className="flex flex-col gap-5">
-              <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-12 w-auto object-contain object-left" />
+            {/* ALGOS — entidad principal */}
+            <div className="flex flex-col gap-5 border-l-[3px] border-[#1a4a55] pl-6 bg-[#1a4a55]/[0.03] py-5 pr-5">
+              <p className="font-sans text-[#1a4a55] text-[10px] font-bold uppercase tracking-[0.22em]">
+                Centro sede
+              </p>
+              <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-20 w-auto object-contain object-left" />
               <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
                 Centro de Dolor Intervencionista. Primer centro especializado en dolor del estado Zulia, con procedimientos guiados por imagen.
               </p>
@@ -115,15 +118,18 @@ export default function LpDiagnostico() {
                 href="https://algoscentrodolor.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-[#1a4a55] text-[#1a4a55] hover:bg-[#1a4a55] hover:text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
+                className="inline-flex items-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-semibold text-[12px] tracking-[0.12em] uppercase px-5 py-3 transition-colors w-fit"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 Ver sitio web completo
               </a>
             </div>
 
-            {/* UDUZ */}
-            <div className="flex flex-col gap-5">
+            {/* UDUZ — partner diagnóstico */}
+            <div className="flex flex-col gap-5 border-l border-[#3d8b96]/30 pl-6 py-5">
+              <p className="font-sans text-[#3d8b96] text-[10px] font-bold uppercase tracking-[0.22em]">
+                Aliado diagnóstico
+              </p>
               <img src="/logos/uduz-logo.svg" alt="UDUZ" className="h-12 w-auto object-contain object-left" />
               <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
                 Centro de diagnóstico por imagen en Maracaibo. Aliado estratégico de ALGOS para estudios de imagen, cardiología y laboratorio.
@@ -199,9 +205,9 @@ export default function LpDiagnostico() {
                 placeholder={examsUltrasoundLqip}
                 alt="Estudio de ecografía UDUZ Maracaibo"
                 className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-cover"
+                imgClassName="w-full h-full object-cover object-[35%_50%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/40 via-transparent to-transparent" />
             </div>
 
             {/* ALGOS */}
@@ -256,15 +262,15 @@ export default function LpDiagnostico() {
       </main>
 
       {/* Footer mínimo */}
-      <footer className="bg-[#f5f0e8] border-t border-[#1a4a55]/10 px-6 py-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-8 opacity-60" />
-          <p className="font-sans text-[#1a4a55]/45 text-xs text-center">
+      <footer className="bg-[#f5f0e8] border-t-2 border-[#1a4a55]/15 px-6 py-10">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <img src={algosLogoDark} alt="ALGOS Centro de Dolor" className="h-12 opacity-90" />
+          <p className="font-sans text-[#1a4a55]/65 text-sm text-center">
             ALGOS Centro de Dolor Intervencionista · Maracaibo, Venezuela
           </p>
           <a
             href="https://algoscentrodolor.com"
-            className="font-sans text-[#1a4a55]/45 hover:text-[#1a4a55] text-xs transition-colors"
+            className="font-sans text-[#1a4a55]/60 hover:text-[#1a4a55] text-sm font-medium transition-colors"
           >
             algoscentrodolor.com
           </a>
