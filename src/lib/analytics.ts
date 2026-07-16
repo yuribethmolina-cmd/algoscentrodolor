@@ -53,6 +53,11 @@ export function trackWA(section: string, label = "whatsapp") {
       section,
       device: device(),
     });
+    gtag("event", "generate_lead", {
+      method: "whatsapp",
+      event_label: label,
+      section,
+    });
   }
   sendInternal({ event_type: "whatsapp_click", section, label });
 }
