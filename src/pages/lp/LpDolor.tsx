@@ -122,7 +122,7 @@ export default function LpDolor() {
                       Neurocirujano
                     </p>
                     <p className="font-sans text-[#f5f0e8]/55 text-xs mt-0.5">
-                      Director Médico · ALGOS Centro de Dolor
+                      ALGOS Centro de Dolor · Maracaibo
                     </p>
                   </div>
                 </div>
