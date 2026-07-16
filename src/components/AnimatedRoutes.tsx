@@ -10,6 +10,7 @@ import MedicoPerfil from "@/pages/MedicoPerfil";
 import ContactoPage from "@/pages/Contacto";
 import PrivacidadPage from "@/pages/Privacidad";
 import AvisoLegalPage from "@/pages/AvisoLegal";
+import PoliticaCookiesPage from "@/pages/PoliticaCookies";
 
 // New pages per brief v2
 import EstudiosLaboratorio from "@/pages/EstudiosLaboratorio";
@@ -93,6 +94,7 @@ export default function AnimatedRoutes() {
           <Route path="/contacto" element={wrap(ContactoPage)} />
           <Route path="/privacidad" element={wrap(PrivacidadPage)} />
           <Route path="/aviso-legal" element={wrap(AvisoLegalPage)} />
+          <Route path="/politica-cookies" element={wrap(PoliticaCookiesPage)} />
 
           {/* Legacy routes kept active */}
           <Route path="/tratamientos" element={wrap(Tratamientos)} />

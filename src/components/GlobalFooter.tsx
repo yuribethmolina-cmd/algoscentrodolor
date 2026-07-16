@@ -82,6 +82,9 @@ export default function GlobalFooter() {
             <Link to="/aviso-legal" className="text-primary-foreground/70 hover:text-primary-foreground text-xs font-light transition-colors">
               Aviso legal
             </Link>
+            <Link to="/politica-cookies" className="text-primary-foreground/70 hover:text-primary-foreground text-xs font-light transition-colors">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>
