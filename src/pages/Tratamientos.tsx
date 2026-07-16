@@ -254,10 +254,10 @@ export default function Tratamientos() {
                     <span aria-hidden>→</span>
                   </a>
                   <Link
-                    to="/pacientes/agendar"
+                    to="/contacto"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f5f0e8] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                   >
-                    <span>Formulario</span>
+                    <span>Contacto</span>
                     <span aria-hidden>→</span>
                   </Link>
                 </div>
@@ -270,15 +270,17 @@ export default function Tratamientos() {
                   ¿Tiene un paciente para referir?
                 </h3>
                 <p className="text-[#f5f0e8]/90 mb-8 leading-relaxed">
-                  Formulario clínico con reporte de seguimiento al referente.
+                  Escríbanos por WhatsApp para coordinar la referencia clínica.
                 </p>
-                <Link
-                  to="/medicos/referir"
+                <a
+                  href={ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20referir%20a%20un%20paciente."}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c69636] text-[#1a4a55] hover:gap-3 transition-all rounded font-ui font-bold uppercase px-6 py-4 text-sm tracking-[0.18em]"
                 >
-                  <span>Iniciar referencia</span>
+                  <span>Escribir por WhatsApp</span>
                   <span aria-hidden>→</span>
-                </Link>
+                </a>
               </article>
             </div>
           </div>
