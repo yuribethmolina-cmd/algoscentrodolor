@@ -23,38 +23,6 @@ import { ALGOS } from "@/config/algos.config";
 
 const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
 
-const AUDIENCE_CARDS = [
-  {
-    eyebrow: "PACIENTES",
-    title: "¿Necesita evaluar su dolor?",
-    description: "Agende una primera valoración con el equipo clínico.",
-    cta: "Agendar valoración",
-    to: "/pacientes/agendar",
-    bg: "#3d8b96",
-    btnBg: "#f5f0e8",
-    btnText: "#1a4a55",
-  },
-  {
-    eyebrow: "MÉDICOS",
-    title: "¿Tiene un paciente para referir?",
-    description: "Formulario clínico con seguimiento al referente.",
-    cta: "Iniciar referencia",
-    to: "/medicos/referir",
-    bg: "#1a4a55",
-    btnBg: "#c69636",
-    btnText: "#1a4a55",
-  },
-  {
-    eyebrow: "INSTITUCIONES",
-    title: "¿Quiere un convenio clínico?",
-    description: "Reuniones con prestadores y aseguradoras.",
-    cta: "Solicitar reunión",
-    to: "/instituciones/reunion",
-    bg: "#2a6470",
-    btnBg: "#f5f0e8",
-    btnText: "#1a4a55",
-  },
-];
 
 const INFO_CARDS = [
   {
