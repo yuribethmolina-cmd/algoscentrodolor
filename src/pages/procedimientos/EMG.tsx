@@ -353,6 +353,8 @@ export default function EMG() {
         <Chapter numeral="IV" label="Detalles" />
         <ProcedureDetails
           facts={[
+            { label: "Precio", value: "$100 · previa cita" },
+            { label: "Horario", value: "Lun y mié · 1:00 pm" },
             { label: "Duración", value: "30 a 60 min" },
             { label: "Anestesia", value: "No requiere" },
             { label: "Modalidad", value: "Ambulatorio" },
