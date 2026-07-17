@@ -162,7 +162,7 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>TELÉFONOS</p>
               <a href="tel:+584146807886" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
-                0414-680 7886 · WhatsApp y llamadas
+                0414-680 7886 · Solo mensajes
               </a>
               <a href="tel:+584120617410" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
                 0412-061 7410 · Solo llamadas

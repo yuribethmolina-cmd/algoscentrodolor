@@ -13,7 +13,7 @@ import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&forma
 import experienceTechPic from "@/assets/experience-tech.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import experienceTechLqip from "@/assets/experience-tech.jpg?w=32&blur=6&format=webp&url";
 
-const WA_UDUZ = `https://wa.me/584126044124?text=${encodeURIComponent(
+const WA_UDUZ = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera coordinar un estudio diagnóstico."
 )}`;
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(

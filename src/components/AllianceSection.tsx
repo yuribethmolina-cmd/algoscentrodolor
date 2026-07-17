@@ -350,7 +350,7 @@ export default function AllianceSection() {
         {/* ── CTA ─────────────────────────────────────────────── */}
         <div style={{ textAlign: "center", marginBottom: "clamp(56px, 7vw, 80px)" }}>
           <a
-            href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
+            href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto"
@@ -554,8 +554,8 @@ export default function AllianceSection() {
               {
                 k: "Teléfono",
                 v: (
-                  <a href="tel:+584126044124" style={{ color: CREAM, textDecoration: "none" }}>
-                    +58 412-604-4124
+                  <a href="tel:+584120617410" style={{ color: CREAM, textDecoration: "none" }}>
+                    +58 412-061 7410
                   </a>
                 ),
               },

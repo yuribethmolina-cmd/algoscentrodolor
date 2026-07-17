@@ -41,7 +41,7 @@ const INFO_CARDS = [
     Icon: Phone,
     label: "03 · TELÉFONO",
     title: "Teléfono",
-    lines: ["0414-680 7886 · WhatsApp y llamadas", "0412-061 7410 · Solo llamadas"],
+    lines: ["0414-680 7886 · Solo mensajes", "0412-061 7410 · Solo llamadas"],
   },
   {
     Icon: Mail,
@@ -467,11 +467,11 @@ export default function Contacto() {
                   <Phone className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <a href="tel:+584126044124" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors block">
-                    +58 412-604-4124
+                  <a href="tel:+584120617410" className="font-display font-semibold text-[#f5f0e8] text-xl hover:text-[#8DC63F] transition-colors block">
+                    +58 412-061 7410
                   </a>
                   <a
-                    href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
+                    href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1.5 font-sans text-[#8DC63F] hover:text-[#f5f0e8] transition-colors text-sm font-medium"

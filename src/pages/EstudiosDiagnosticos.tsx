@@ -131,7 +131,7 @@ export default function EstudiosDiagnosticos() {
                 Escríbanos a UDUZ referido desde ALGOS.
               </h3>
               <a
-                href={`https://wa.me/584126044124?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
+                href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-[#1B6B78] hover:bg-[#8DC63F] hover:text-[#1B6B78] text-[#f5f0e8] font-sans font-bold uppercase text-[13px] tracking-[0.18em] px-8 py-4 transition-colors"
