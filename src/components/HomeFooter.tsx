@@ -180,7 +180,7 @@ export default function HomeFooter() {
               >
                 <strong style={{ fontWeight: 700 }}>UDUZ Paraíso</strong> · misma zona
                 <br />
-                Tomografía 24/7 · desde $8
+                Tomografía · desde $25
 
               </a>
             </div>
