@@ -10,7 +10,8 @@ import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1
 import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";
-import drAtilioPortrait from "@/assets/dr-atilio-portrait.png?w=112&format=webp";
+import drAtilioPortraitAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
+const drAtilioPortrait = drAtilioPortraitAsset.url;
 
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
