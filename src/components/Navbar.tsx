@@ -143,7 +143,7 @@ export default function Navbar() {
         boxShadow: scrolled ? "0 1px 0 rgba(26,74,85,0.08)" : "none",
       }}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-24">
+      <div className="container mx-auto flex items-center justify-between px-4 mdx:px-6 h-20 mdx:h-24">
         <Link to="/" aria-label="ALGOS · Inicio" className="flex items-center transition-opacity hover:opacity-80 shrink-0">
           <img
             src={algosLogoFull}
@@ -152,7 +152,7 @@ export default function Navbar() {
             decoding="sync"
             fetchPriority="high"
             data-no-placeholder
-            className="h-20 mdx:h-24 w-auto object-contain"
+            className="h-16 mdx:h-20 w-auto object-contain"
           />
         </Link>
 
