@@ -58,11 +58,11 @@ export default function LpDiagnostico() {
                 ESTUDIOS DIAGNÓSTICOS · MARACAIBO
               </p>
               <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl leading-[1.08] tracking-tight mb-6">
-                Tomografía, EMG,<br />Holter y más —{" "}
-                <span className="italic">en Maracaibo.</span>
+                Tomografía, Rayos X 24/7<br />
+                Laboratorio Clinico y más ,&nbsp;en Maracaibo.
               </h1>
               <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed mb-10 max-w-md">
-                A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología, neurofisiología y laboratorio. La mayoría de estudios no requieren consulta previa.
+                A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología y laboratorio. La mayoría de estudios no requieren consulta previa.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
