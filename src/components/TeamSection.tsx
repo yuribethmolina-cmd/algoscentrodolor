@@ -1,26 +1,26 @@
 import { useInViewOnce } from "@/lib/animations";
-import { Calendar, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { DOCTORS } from "@/data/doctors";
 
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
-const BRAND_TEAL = ALGOS.palette.brandTeal;
-const GOLD = ALGOS.palette.gold;
+const BRAND_TEAL = "#3d8b96";
+const GOLD = "#c69636";
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .filter((n) => n.length > 0 && n[0] === n[0].toUpperCase())
-    .map((n) => n[0])
-    .slice(0, 2)
-    .join("");
-}
+const doctores = DOCTORS.map((d) => ({
+  nombre: d.name,
+  especialidad: d.specialty,
+  consulta: d.schedule,
+  nota: d.note,
+  esDireccion: d.isDirector,
+}));
+
 
 export default function TeamSection() {
   const { ref: headerRef, inView: headerIn } = useInViewOnce<HTMLDivElement>(0.12);
   const { ref: gridRef, inView: gridIn } = useInViewOnce<HTMLDivElement>(0.08);
+  const { ref: quoteRef, inView: quoteIn } = useInViewOnce<HTMLDivElement>(0.15);
 
   return (
     <section
@@ -35,7 +35,7 @@ export default function TeamSection() {
       <div
         className="mx-auto"
         style={{
-          maxWidth: 1120,
+          maxWidth: 1080,
           paddingLeft: "clamp(24px, 4vw, 48px)",
           paddingRight: "clamp(24px, 4vw, 48px)",
         }}
@@ -44,20 +44,20 @@ export default function TeamSection() {
         <div
           ref={headerRef}
           className={`scroll-reveal ${headerIn ? "revealed" : ""}`}
-          style={{ marginBottom: "clamp(48px, 6vw, 72px)" }}
+          style={{ marginBottom: "clamp(40px, 5vw, 64px)" }}
         >
           <p
             style={{
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: BRAND_TEAL,
+              color: DEEP_TEAL,
               marginBottom: 20,
             }}
           >
-            NUESTRO EQUIPO
+            ESPECIALIDADES
           </p>
           <h2
             style={{
@@ -69,7 +69,7 @@ export default function TeamSection() {
               marginBottom: 20,
             }}
           >
-            Médicos que lo escuchan y lo tratan.
+            Un equipo multidisciplinario para cada tipo de dolor.
           </h2>
           <p
             style={{
@@ -87,229 +87,216 @@ export default function TeamSection() {
           </p>
         </div>
 
-        {/* Team grid */}
+        {/* Descripción general del equipo */}
         <div
-          ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-          style={{ gap: "clamp(16px, 2vw, 24px)" }}
-        >
-          {DOCTORS.map((doc, i) => {
-            const hasPhoto = doc.photo && doc.photo.img.src;
-            const isDirector = doc.isDirector;
-            return (
-              <article
-                key={doc.slug}
-                className={`scroll-reveal group ${gridIn ? "revealed" : ""}`}
-                style={{
-                  transitionDelay: `${i * 60}ms`,
-                  position: "relative",
-                  background: "#ffffff",
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  boxShadow: "0 4px 24px -8px rgba(26,74,85,0.12)",
-                  transition: "transform 500ms cubic-bezier(0.23,1,0.32,1), box-shadow 300ms ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow = "0 16px 44px -14px rgba(26,74,85,0.22)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 24px -8px rgba(26,74,85,0.12)";
-                }}
-              >
-                {/* Top accent bar */}
-                <span
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 4,
-                    background: isDirector
-                      ? `linear-gradient(90deg, ${GOLD} 0%, #e8b95c 100%)`
-                      : `linear-gradient(90deg, ${BRAND_TEAL} 0%, #5eb0bd 100%)`,
-                    zIndex: 2,
-                  }}
-                />
-
-                {/* Photo area */}
-                <div
-                  style={{
-                    height: 220,
-                    background: hasPhoto
-                      ? "#ffffff"
-                      : isDirector
-                        ? `linear-gradient(135deg, ${DEEP_TEAL} 0%, ${BRAND_TEAL} 100%)`
-                        : `linear-gradient(135deg, ${BRAND_TEAL} 0%, #5eb0bd 100%)`,
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  {hasPhoto ? (
-                    <img
-                      src={doc.photo!.img.src}
-                      alt={`Foto de ${doc.name}`}
-                      width={doc.photo!.img.w}
-                      height={doc.photo!.img.h}
-                      loading={isDirector ? "eager" : "lazy"}
-                      decoding="async"
-                      className="w-full h-full object-cover"
-                      style={{
-                        objectPosition: doc.photoPosition || "center top",
-                        transition: "transform 700ms ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.transform = "scale(1)";
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span
-                        style={{
-                          fontFamily: "'Sora', sans-serif",
-                          fontSize: 48,
-                          fontWeight: 700,
-                          color: CREAM,
-                          opacity: 0.35,
-                        }}
-                      >
-                        {getInitials(doc.name)}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div style={{ padding: "24px 22px 22px" }}>
-                  <div className="flex items-center justify-between" style={{ marginBottom: 14 }}>
-                    {isDirector ? (
-                      <span
-                        style={{
-                          fontFamily: "'Manrope', sans-serif",
-                          fontSize: 10,
-                          fontWeight: 700,
-                          letterSpacing: "0.12em",
-                          textTransform: "uppercase",
-                          color: GOLD,
-                          padding: "4px 10px",
-                          border: `1px solid ${GOLD}`,
-                        }}
-                      >
-                        Director
-                      </span>
-                    ) : (
-                      <span aria-hidden />
-                    )}
-                  </div>
-
-                  <h3
-                    style={{
-                      fontFamily: "'Sora', sans-serif",
-                      fontSize: 17,
-                      fontWeight: 600,
-                      color: DEEP_TEAL,
-                      lineHeight: 1.25,
-                      margin: 0,
-                      marginBottom: 6,
-                    }}
-                  >
-                    {doc.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "'Manrope', sans-serif",
-                      fontSize: 13,
-                      fontWeight: 500,
-                      color: BRAND_TEAL,
-                      lineHeight: 1.4,
-                      margin: 0,
-                      marginBottom: 16,
-                    }}
-                  >
-                    {doc.specialty}
-                  </p>
-
-                  {/* Schedule */}
-                  <div
-                    className="flex items-center gap-2"
-                    style={{
-                      padding: "10px 12px",
-                      background: "rgba(26,74,85,0.05)",
-                      borderRadius: 8,
-                      marginBottom: 16,
-                    }}
-                  >
-                    <Calendar size={13} color={GOLD} strokeWidth={2} style={{ flexShrink: 0 }} />
-                    <p
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: 11,
-                        color: DEEP_TEAL,
-                        opacity: 0.8,
-                        lineHeight: 1.35,
-                        margin: 0,
-                      }}
-                    >
-                      {doc.schedule}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <Link
-                    to={`/equipo/${doc.slug}`}
-                    className="inline-flex items-center gap-2 font-ui font-semibold"
-                    style={{
-                      fontSize: 12,
-                      color: BRAND_TEAL,
-                      textDecoration: "none",
-                      transition: "color 200ms ease, gap 200ms ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = GOLD;
-                      e.currentTarget.style.gap = "10px";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = BRAND_TEAL;
-                      e.currentTarget.style.gap = "8px";
-                    }}
-                  >
-                    <span>Ver perfil</span>
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Bottom CTA */}
-        <div
-          className="scroll-reveal"
+          className={`scroll-reveal scroll-reveal-delay-1 ${headerIn ? "revealed" : ""}`}
           style={{
-            marginTop: "clamp(48px, 6vw, 64px)",
-            textAlign: "center",
+            marginBottom: "clamp(48px, 6vw, 72px)",
+            maxWidth: "72ch",
           }}
         >
+          <p
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: "clamp(16px, 1.4vw, 18px)",
+              lineHeight: 1.7,
+              color: DEEP_TEAL,
+              opacity: 0.85,
+            }}
+          >
+            Nuestro equipo evalúa y diagnostica el origen del dolor, ejecuta el
+            tratamiento guiado por imagen y acompaña la recuperación, todo con
+            el mismo criterio clínico informado de su caso.
+          </p>
+        </div>
+
+        {/* Grid de doctores */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch"
+          style={{ marginBottom: "clamp(56px, 7vw, 88px)", gap: "clamp(14px, 1.5vw, 18px)" }}
+        >
+          {doctores.map((doc, i) => (
+            <article
+              key={doc.nombre}
+              className={`scroll-reveal group ${gridIn ? "revealed" : ""}`}
+              style={{
+                transitionDelay: `${i * 60}ms`,
+                position: "relative",
+                background: "linear-gradient(160deg, #ffffff 0%, #fbf8f2 100%)",
+                border: "1px solid rgba(26,74,85,0.10)",
+                borderRadius: 0,
+                padding: "26px 22px 22px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+                boxShadow:
+                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 14px 32px -22px rgba(26,74,85,0.22), 0 2px 4px rgba(26,74,85,0.04)",
+                transition:
+                  "transform 350ms cubic-bezier(0.23,1,0.32,1), box-shadow 300ms ease, border-color 250ms ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.95) inset, 0 24px 46px -24px rgba(26,74,85,0.36), 0 4px 8px rgba(26,74,85,0.06)";
+                e.currentTarget.style.borderColor = "rgba(61,139,150,0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 14px 32px -22px rgba(26,74,85,0.22), 0 2px 4px rgba(26,74,85,0.04)";
+                e.currentTarget.style.borderColor = "rgba(26,74,85,0.10)";
+              }}
+            >
+              {/* Top accent bar */}
+              <span
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  background: doc.esDireccion
+                    ? "linear-gradient(90deg, #c69636 0%, #e8b95c 100%)"
+                    : "linear-gradient(90deg, #3d8b96 0%, #5eb0bd 100%)",
+                }}
+              />
+
+              {/* Index + meta chips */}
+              <div className="flex items-center justify-between" style={{ marginBottom: 2 }}>
+                <span
+                  style={{
+                    fontFamily: "'Sora', sans-serif",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: "0.28em",
+                    color: GOLD,
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: 16,
+                  fontWeight: 600,
+                  color: DEEP_TEAL,
+                  lineHeight: 1.3,
+                  margin: 0,
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {doc.nombre}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: BRAND_TEAL,
+                  lineHeight: 1.4,
+                  margin: 0,
+                }}
+              >
+                {doc.especialidad}
+              </p>
+
+              {/* Schedule bar */}
+              <div
+                className="flex items-center gap-2 mt-auto"
+                style={{
+                  padding: "10px 12px",
+                  background: "rgba(26,74,85,0.05)",
+                  border: "1px solid rgba(26,74,85,0.08)",
+                  marginTop: "auto",
+                }}
+              >
+                <Calendar
+                  size={13}
+                  color={GOLD}
+                  strokeWidth={2}
+                  style={{ flexShrink: 0 }}
+                />
+                <p
+                  style={{
+                    fontFamily: "'Manrope', sans-serif",
+                    fontSize: 12,
+                    color: DEEP_TEAL,
+                    opacity: 0.8,
+                    lineHeight: 1.35,
+                    margin: 0,
+                  }}
+                >
+                  {doc.consulta}
+                </p>
+              </div>
+
+              {doc.nota && (
+                <p
+                  style={{
+                    fontFamily: "'Manrope', sans-serif",
+                    fontSize: 11,
+                    color: DEEP_TEAL,
+                    opacity: 0.55,
+                    fontStyle: "italic",
+                    lineHeight: 1.4,
+                    margin: 0,
+                  }}
+                >
+                  {doc.nota}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+
+        {/* Quote + CTA */}
+        <div
+          ref={quoteRef}
+          className={`scroll-reveal ${quoteIn ? "revealed" : ""}`}
+        >
+          <p
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 14,
+              lineHeight: 1.65,
+              color: DEEP_TEAL,
+              opacity: 0.85,
+              maxWidth: "60ch",
+              paddingLeft: 20,
+              borderLeft: "2px solid rgba(198, 150, 54, 0.4)",
+              marginBottom: 28,
+            }}
+          >
+            La neurocirugía en ALGOS no es la puerta al quirófano, es el
+            criterio que sabe cuándo la cirugía todavía no hace falta.
+          </p>
+
           <a
             href={ALGOS.contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-ui font-semibold"
+            className="w-full sm:w-auto inline-flex items-center justify-center"
             style={{
-              fontSize: 15,
+              gap: 8,
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 14,
+              fontWeight: 500,
               color: BRAND_TEAL,
               textDecoration: "none",
-              transition: "color 200ms ease",
+              transition: "opacity 200ms ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = BRAND_TEAL)}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.opacity = "0.7";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
+            }}
           >
-            Agendar consulta con un especialista →
+            Agendar consulta con el especialista →
           </a>
         </div>
       </div>

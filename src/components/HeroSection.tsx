@@ -2,23 +2,59 @@ import { Link } from "react-router-dom";
 import { ALGOS } from "@/config/algos.config";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ChevronDown } from "lucide-react";
+import { AnimatedHeadline } from "@/lib/animations";
+import heroPoster from "@/assets/hero-poster.jpg.asset.json";
+import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
 
-import heroImage from "@/assets/hero-dark-v2.jpg.asset.json";
+const HERO_VIDEO_SRC = heroVideo.url;
 
-const DEEP_TEAL = ALGOS.palette.deepTeal;
-const BRAND_TEAL = ALGOS.palette.brandTeal;
-const GOLD = ALGOS.palette.gold;
-const CREAM = ALGOS.palette.cream;
+// Decide whether to load the video based on connection/motion preferences.
+function pickVideoSrc(): string | null {
+  if (typeof window === "undefined") return null;
+
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    return null;
+  }
+
+  const conn = (navigator as any).connection;
+  if (conn) {
+    if (conn.saveData) return null;
+    const slow = ["slow-2g", "2g", "3g"];
+    if (typeof conn.effectiveType === "string" && slow.includes(conn.effectiveType)) {
+      return null;
+    }
+  }
+
+  return HERO_VIDEO_SRC;
+}
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = heroImage.url;
-    img.onload = () => setLoaded(true);
+    // Defer the decision to after first paint so the poster shows instantly.
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const load = () => setVideoSrc(pickVideoSrc());
+
+    // Only fetch the video when the hero is actually visible.
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            load();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "200px" }
+      );
+      io.observe(node);
+      return () => io.disconnect();
+    }
+
+    load();
   }, []);
 
   return (
@@ -26,167 +62,121 @@ export default function HeroSection() {
       ref={sectionRef}
       id="hero"
       data-section="hero"
-      className="relative w-full overflow-hidden"
-      style={{ height: "min(92dvh, 860px)", minHeight: "580px" }}
+      className="relative w-full overflow-hidden bg-cream"
+      style={{ height: "min(88dvh, 820px)", minHeight: "560px" }}
     >
+      {/* Preload the LCP image (hero video poster) with high priority. */}
       <Helmet>
         <link
           rel="preload"
           as="image"
-          href={heroImage.url}
-          // @ts-ignore
+          href={heroPoster.url}
+          // @ts-ignore, valid HTML attribute, React types lag
           fetchpriority="high"
         />
       </Helmet>
-
-      {/* Background image */}
-      <img
-        src={heroImage.url}
-        alt=""
-        aria-hidden="true"
+      {/* Full-bleed video background, poster shows instantly, sources lazy-load */}
+      <video
+        key={videoSrc ?? "poster-only"}
+        ref={(el) => {
+          if (el) {
+            el.muted = true;
+            el.defaultMuted = true;
+            const p = el.play();
+            if (p && typeof p.catch === "function") p.catch(() => {});
+          }
+        }}
+        className="hero-bg-video absolute inset-0 w-full h-full object-cover object-center scale-100 md:origin-center md:object-[center_65%]"
+        poster={heroPoster.url}
         width={1920}
         height={1080}
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{
-          opacity: loaded ? 1 : 0,
-          transition: "opacity 700ms ease",
-          transform: "scale(1.02)",
-        }}
-        fetchPriority="high"
-        decoding="async"
-      />
+        autoPlay
+        muted
+        loop
+        playsInline
+        // @ts-ignore, iOS Safari hint
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        disableRemotePlayback
+        preload="metadata"
+        aria-hidden="true"
+      >
+        {videoSrc && (
+          <>
+            <source src={videoSrc.replace(".mp4", ".webm")} type="video/webm" />
+            <source src={videoSrc} type="video/mp4" />
+          </>
+        )}
+      </video>
 
-      {/* Dark teal overlay */}
+      {/* Cream overlay, left to right */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `linear-gradient(135deg, ${DEEP_TEAL}ee 0%, ${DEEP_TEAL}cc 45%, ${DEEP_TEAL}99 100%)`,
-        }}
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f5f0e8]/95 via-[#f5f0e8]/90 to-[#f5f0e8]/82 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/20"
+      />
+      {/* Bottom fade */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none bg-gradient-to-t from-[#f5f0e8]/40 to-transparent"
       />
 
-      {/* Subtle gold accent glow */}
-      <span
-        aria-hidden="true"
-        className="absolute pointer-events-none"
-        style={{
-          bottom: "-10%",
-          right: "-10%",
-          width: 600,
-          height: 600,
-          borderRadius: "50%",
-          background: `radial-gradient(circle, ${GOLD}22 0%, transparent 70%)`,
-          filter: "blur(100px)",
-        }}
-      />
 
       {/* Content */}
-      <div className="relative z-10 h-full mx-auto max-w-5xl px-6 md:px-12 lg:px-16 flex flex-col items-center justify-center text-center">
-        <p
-          className="font-ui font-bold uppercase tracking-[0.3em]"
-          style={{ fontSize: 12, color: CREAM, opacity: 0.85, marginBottom: 24 }}
-        >
-          MARACAIBO · CENTRO DE DOLOR INTERVENCIONISTA
-        </p>
-
-        <h1
-          className="font-display font-bold"
-          style={{
-            fontSize: "clamp(40px, 6vw, 84px)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.03em",
-            color: CREAM,
-            maxWidth: "14ch",
-          }}
-        >
-          El dolor tiene causa.{" "}
-          <span style={{ color: GOLD }}>Nosotros la tratamos.</span>
-        </h1>
-
-        <p
-          className="font-ui mt-8 max-w-2xl"
-          style={{
-            fontSize: "clamp(17px, 2vw, 21px)",
-            lineHeight: 1.6,
-            color: CREAM,
-            opacity: 0.88,
-          }}
-        >
-          En ALGOS buscamos el origen de su dolor, lo tratamos con procedimientos
-          guiados por imagen y lo acompañamos hasta que pueda retomar su vida.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-10">
-          <a
-            href={ALGOS.contact.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 font-ui font-bold uppercase transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 active:scale-[0.97]"
-            style={{
-              backgroundColor: GOLD,
-              color: DEEP_TEAL,
-              padding: "16px 28px",
-              fontSize: 13,
-              letterSpacing: "0.18em",
-              textDecoration: "none",
-              boxShadow: "0 12px 28px -8px rgba(0,0,0,0.35)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#d4a84a";
-              e.currentTarget.style.boxShadow = "0 18px 36px -10px rgba(0,0,0,0.45)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = GOLD;
-              e.currentTarget.style.boxShadow = "0 12px 28px -8px rgba(0,0,0,0.35)";
-            }}
+      <div className="relative z-10 h-full mx-auto max-w-7xl px-6 md:px-12 lg:px-16 flex items-center">
+        <div className="max-w-2xl pt-20 md:pt-0">
+          <p
+            className="font-ui font-bold uppercase text-steel-teal"
+            style={{ fontSize: "13px", letterSpacing: "0.3em" }}
           >
-            <span>AGENDE SU CONSULTA</span>
-            <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
-              <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
-            </span>
-          </a>
-          <Link
-            to="/especialidades"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-ui font-semibold uppercase transition-[border-color,color,background-color] duration-300 active:scale-[0.97]"
+            MARACAIBO · FRENTE A LA FACULTAD DE MEDICINA
+          </p>
+
+          <AnimatedHeadline
+            as="h1"
+            className="font-display font-bold text-deep-teal mt-6"
             style={{
-              border: `1.5px solid ${CREAM}`,
-              color: CREAM,
-              backgroundColor: "transparent",
-              padding: "14px 26px",
-              fontSize: 13,
-              letterSpacing: "0.18em",
-              textDecoration: "none",
+              fontSize: "clamp(38px, 5.4vw, 72px)",
+              lineHeight: 1.04,
+              letterSpacing: "-0.028em",
+              maxWidth: "18ch",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(245,240,232,0.12)";
-              e.currentTarget.style.borderColor = CREAM;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.borderColor = CREAM;
-            }}
+            chunks={[
+              { text: "El dolor tiene causa. " },
+              { text: "Nosotros la tratamos.", color: "#9a7320", staggerMs: 120 },
+            ]}
+          />
+
+          <p
+            className="font-ui mt-8 max-w-xl"
+            style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "hsl(var(--text-body))" }}
           >
-            <span>ESPECIALIDADES</span>
-          </Link>
+            En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
+            hasta que pueda retomar lo que le gusta. Sin importar dónde le duele.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-9">
+            <a
+              href={ALGOS.contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px]"
+              style={{ fontSize: "13px", letterSpacing: "0.22em" }}
+            >
+              <span>AGENDE SU CONSULTA</span>
+              <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
+                <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
+              </span>
+            </a>
+            <Link
+              to="/especialidades"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-deep-teal/50 text-deep-teal/75 md:hover:border-deep-teal md:hover:text-deep-teal font-ui font-semibold uppercase rounded-none transition-[border-color,color] duration-300 active:scale-[0.97] px-7 py-[14px]"
+              style={{ fontSize: "13px", letterSpacing: "0.22em" }}
+            >
+              <span>ESPECIALIDADES</span>
+            </Link>
+          </div>
+
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        style={{ color: CREAM, opacity: 0.7 }}
-      >
-        <span
-          className="font-ui uppercase tracking-[0.2em]"
-          style={{ fontSize: 10, fontWeight: 600 }}
-        >
-          Desplazar
-        </span>
-        <ChevronDown
-          size={20}
-          className="animate-bounce"
-          style={{ color: GOLD }}
-        />
       </div>
     </section>
   );

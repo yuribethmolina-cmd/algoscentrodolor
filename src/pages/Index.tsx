@@ -3,7 +3,6 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
-import PatientJourneySection from "@/components/PatientJourneySection";
 import ConditionsSection from "@/components/ConditionsSection";
 import EspecialidadesSection from "@/components/EspecialidadesSection";
 import WhyDifferentSection from "@/components/WhyDifferentSection";
@@ -45,7 +44,6 @@ export default function Index() {
       <Navbar />
       <HeroSection />
       <TrustBar />
-      <PatientJourneySection />
       <ConditionsSection />
       <EspecialidadesSection />
       <WhyDifferentSection />
