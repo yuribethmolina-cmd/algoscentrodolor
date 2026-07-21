@@ -3,6 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import { ALGOS } from "@/config/algos.config";
+import labImage from "@/assets/estudio-de-laboratorio.png.asset.json";
 
 const WA = ALGOS.contact.whatsappHref;
 
