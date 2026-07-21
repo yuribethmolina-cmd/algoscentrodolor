@@ -4,7 +4,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import PainTabSection from "@/components/PainTabSection";
-import EspecialidadesSection from "@/components/EspecialidadesSection";
+import PatientJourneySection from "@/components/PatientJourneySection";
 import AllianceSection from "@/components/AllianceSection";
 import AlgosLocationSection from "@/components/AlgosLocationSection";
 import TeamSection from "@/components/TeamSection";
@@ -44,7 +44,7 @@ export default function Index() {
       <HeroSection />
       <TrustBar />
       <PainTabSection />
-      <EspecialidadesSection />
+      <PatientJourneySection />
       <HomeFAQSection />
       <AllianceSection />
       <TeamSection />
