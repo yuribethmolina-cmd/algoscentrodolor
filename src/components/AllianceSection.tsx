@@ -45,7 +45,7 @@ const steps = [
     number: "02",
     eyebrow: null,
     title: "Imagen el mismo día",
-    text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio, en nuestra unidad de diagnóstico integrada.",
+    text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio — directamente en UDUZ, nuestra alianza diagnóstica.",
     benefit: "Resultados en horas, no en días ni semanas.",
   },
   {
