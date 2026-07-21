@@ -22,6 +22,8 @@ import examsXrayPic from "@/assets/rayos-x-real.webp?w=640;1024;1600&format=avif
 import examsXrayLqip from "@/assets/rayos-x-real.webp?w=32&blur=6&format=webp&url";
 import emgPic from "@/assets/electromiografia.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import emgLqip from "@/assets/electromiografia.webp?w=32&blur=6&format=webp&url";
+import holterPic from "@/assets/holter.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import holterLqip from "@/assets/holter.webp?w=32&blur=6&format=webp&url";
 import mamografiaPic from "@/assets/mamografia-3d.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import mamografiaLqip from "@/assets/mamografia-3d.webp?w=32&blur=6&format=webp&url";
 import laboratorioPic from "@/assets/laboratorio-clinico.webp?w=640;1024;1600&format=avif;webp&as=picture";
@@ -60,6 +62,7 @@ const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
   },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
   emg: { pic: emgPic, lqip: emgLqip },
+  holter: { pic: holterPic, lqip: holterLqip },
   "mamografia-3d": { pic: mamografiaPic, lqip: mamografiaLqip },
   laboratorio: { pic: laboratorioPic, lqip: laboratorioLqip },
   electrocardiograma: { pic: electrocardiogramaPic, lqip: electrocardiogramaLqip },
