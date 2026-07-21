@@ -3,7 +3,7 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import { ALGOS } from "@/config/algos.config";
-import labImage from "@/assets/estudio-de-laboratorio.png.asset.json";
+import labImage from "@/assets/laboratorio-clinico.webp";
 
 const WA = ALGOS.contact.whatsappHref;
 
@@ -97,7 +97,7 @@ export default function EstudiosLaboratorio() {
 
             <figure className="mb-10">
               <img
-                src={labImage.url}
+                src={labImage}
                 alt="Toma de muestras para estudio de laboratorio clínico en Maracaibo"
                 loading="lazy"
                 className="w-full h-auto rounded-sm shadow-sm"
