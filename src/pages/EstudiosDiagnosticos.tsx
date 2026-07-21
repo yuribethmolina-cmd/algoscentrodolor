@@ -17,8 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
+import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
 import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
 import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
