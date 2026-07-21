@@ -253,52 +253,6 @@ export default function TeamSection() {
           ))}
         </div>
 
-        {/* Quote + CTA */}
-        <div
-          ref={quoteRef}
-          className={`scroll-reveal ${quoteIn ? "revealed" : ""}`}
-        >
-          <p
-            style={{
-              fontFamily: "'Manrope', sans-serif",
-              fontSize: 14,
-              lineHeight: 1.65,
-              color: DEEP_TEAL,
-              opacity: 0.85,
-              maxWidth: "60ch",
-              paddingLeft: 20,
-              borderLeft: "2px solid rgba(198, 150, 54, 0.4)",
-              marginBottom: 28,
-            }}
-          >
-            La neurocirugía en ALGOS no es la puerta al quirófano, es el
-            criterio que sabe cuándo la cirugía todavía no hace falta.
-          </p>
-
-          <a
-            href={ALGOS.contact.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center"
-            style={{
-              gap: 8,
-              fontFamily: "'Manrope', sans-serif",
-              fontSize: 14,
-              fontWeight: 500,
-              color: BRAND_TEAL,
-              textDecoration: "none",
-              transition: "opacity 200ms ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.opacity = "0.7";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
-            }}
-          >
-            Agendar consulta con el especialista →
-          </a>
-        </div>
       </div>
     </section>
   );
