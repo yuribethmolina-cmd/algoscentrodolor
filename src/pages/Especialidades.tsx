@@ -32,7 +32,7 @@ const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
     { name: "Dra. Leslie Ramírez" },
     { name: "Dra. Carolina Rodríguez" },
   ],
-  "cuidados-paliativos": [{ name: "Dra. Gilda Gómez" }],
+  "cuidados-paliativos": [{ name: "Dra. Gilda Gómez Neipp" }],
   "psicologia": [],
   "nutricion": [
     { name: "Lic. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
