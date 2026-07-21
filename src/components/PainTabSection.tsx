@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
 import dolorEspalda from "@/assets/dolor-espalda-1.png";
 import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
+import condRodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
+import condNeuropatiaAsset from "@/assets/cond-neuropatia.jpg.asset.json";
+import experienceConsult from "@/assets/experience-consult.jpg";
 const aboutProcedure = procedimientoFluoroscopiaAsset.url;
 
 const DEEP_TEAL = "#1a4a55";
@@ -34,74 +37,17 @@ const EXTRA_CONDITIONS = [
   {
     label: "Lesiones deportivas",
     sub: "Tendones, articulaciones y ligamentos",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-        {/* Lightning bolt — energía / impacto deportivo */}
-        <path
-          d="M13 2L5.5 12.5H10.5L9 20L17 9H12L13 2Z"
-          fill="currentColor"
-          opacity="0.18"
-        />
-        <path
-          d="M13 2L5.5 12.5H10.5L9 20L17 9H12L13 2Z"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    photo: condRodillaAsset.url,
   },
   {
     label: "Cuidados paliativos",
     sub: "Dolor por enfermedad avanzada o terminal",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-        {/* Corazón con línea de pulso — cuidado médico */}
-        <path
-          d="M11 19C11 19 3 13.5 3 8.5A4 4 0 0 1 11 7a4 4 0 0 1 8 1.5C19 13.5 11 19 11 19Z"
-          fill="currentColor"
-          opacity="0.15"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {/* EKG pulse */}
-        <path
-          d="M6.5 11.5h2l1.5-2.5 2 5 1.5-2.5H16"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    photo: experienceConsult,
   },
   {
     label: "Neuropatía diabética",
     sub: "Ardor y dolor en pies y extremidades",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-        {/* Pie + señal nerviosa */}
-        <path
-          d="M8 3 Q7 2 8.5 2 Q10 2 10 3.5 L10 12 Q10 15 13 15.5 Q16.5 16 16.5 13.5 Q16.5 11.5 14 11 L10 11"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="currentColor"
-          fillOpacity="0.1"
-        />
-        {/* Nerve zigzag signal below foot */}
-        <path
-          d="M4 18 l2-2.5 l2 3.5 l1.5-2.5 l1.5 2"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    photo: condNeuropatiaAsset.url,
   },
 ];
 
@@ -449,7 +395,7 @@ export default function PainTabSection() {
               gap: 12,
             }}
           >
-            {EXTRA_CONDITIONS.map(({ label, sub, icon }) => (
+            {EXTRA_CONDITIONS.map(({ label, sub, photo }) => (
               <div
                 key={label}
                 style={{
@@ -463,31 +409,34 @@ export default function PainTabSection() {
                   gap: 0,
                 }}
               >
-                {/* Icon in teal circle */}
+                {/* Photo in circle */}
                 <div
                   style={{
-                    width: 52,
-                    height: 52,
+                    width: 72,
+                    height: 72,
                     borderRadius: "50%",
-                    background: `${BRAND_TEAL}18`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    overflow: "hidden",
+                    border: `2px solid ${BRAND_TEAL}35`,
                     marginBottom: 14,
-                    color: BRAND_TEAL,
                     flexShrink: 0,
                   }}
                 >
-                  {/* Scale up icon SVG via wrapper */}
-                  <span style={{ transform: "scale(1.4)", display: "flex" }}>
-                    {icon}
-                  </span>
+                  <img
+                    src={photo}
+                    alt={label}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
                 </div>
                 <p
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 700,
-                    fontSize: "clamp(13px, 1vw, 15px)",
+                    fontSize: "clamp(15px, 1.1vw, 17px)",
                     letterSpacing: "0.01em",
                     color: DEEP_TEAL,
                     margin: "0 0 6px",
@@ -500,8 +449,8 @@ export default function PainTabSection() {
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 400,
-                    fontSize: "clamp(11px, 0.85vw, 13px)",
-                    color: `${DEEP_TEAL}75`,
+                    fontSize: "clamp(13px, 0.95vw, 15px)",
+                    color: `${DEEP_TEAL}cc`,
                     margin: 0,
                     lineHeight: 1.4,
                   }}
