@@ -138,6 +138,28 @@ export default function SedesSection() {
                 </div>
               </div>
 
+              {s.telefonos && (
+                <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 12 }}>
+                  <Phone size={16} color={TEAL} style={{ flexShrink: 0, marginTop: 2 }} />
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    {s.telefonos.map((t) => (
+                      <a
+                        key={t.label}
+                        href={t.href}
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: 13,
+                          color: DEEP_TEAL,
+                          textDecoration: "none",
+                        }}
+                      >
+                        {t.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div style={{ borderTop: "1px solid rgba(26,74,85,0.1)", margin: "18px 0", }} />
 
               <p
