@@ -75,6 +75,15 @@ export default function AdminLogin() {
           >
             {loading ? "Verificando…" : "Entrar"}
           </button>
+
+          <div className="text-center pt-2">
+            <Link
+              to="/admin/forgot-password"
+              className="text-[#f5f0e8]/70 text-xs tracking-wider uppercase hover:text-[#c69636] transition-colors"
+            >
+              ¿Olvidaste tu contraseña?
+            </Link>
+          </div>
         </form>
       </div>
     </div>
