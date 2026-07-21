@@ -3,9 +3,8 @@ import HomeFooter from "@/components/HomeFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
-import ConditionsSection from "@/components/ConditionsSection";
+import PainTabSection from "@/components/PainTabSection";
 import EspecialidadesSection from "@/components/EspecialidadesSection";
-import WhyDifferentSection from "@/components/WhyDifferentSection";
 import AllianceSection from "@/components/AllianceSection";
 import AlgosLocationSection from "@/components/AlgosLocationSection";
 import TeamSection from "@/components/TeamSection";
@@ -44,9 +43,8 @@ export default function Index() {
       <Navbar />
       <HeroSection />
       <TrustBar />
-      <ConditionsSection />
+      <PainTabSection />
       <EspecialidadesSection />
-      <WhyDifferentSection />
       <HomeFAQSection />
       <AllianceSection />
       <TeamSection />
