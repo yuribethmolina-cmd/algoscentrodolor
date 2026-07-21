@@ -48,7 +48,16 @@ export default function AdminResetPassword() {
     const { error: updateError } = await supabase.auth.updateUser({ password });
 
     if (updateError) {
-      setError("No se pudo actualizar la contraseña. El enlace puede haber expirado.");
+      const msg = updateError.message?.toLowerCase() ?? "";
+      if (msg.includes("pwned") || msg.includes("compromised") || msg.includes("weak")) {
+        setError("Esta contraseña aparece en filtraciones públicas conocidas. Usa una combinación única con mayúsculas, minúsculas, números y símbolos.");
+      } else if (msg.includes("should be different") || msg.includes("same_password")) {
+        setError("La nueva contraseña debe ser distinta a la anterior.");
+      } else if (msg.includes("expired") || msg.includes("invalid") || msg.includes("session")) {
+        setError("El enlace de restablecimiento expiró. Solicita uno nuevo.");
+      } else {
+        setError(updateError.message || "No se pudo actualizar la contraseña.");
+      }
       setStatus("idle");
       return;
     }
