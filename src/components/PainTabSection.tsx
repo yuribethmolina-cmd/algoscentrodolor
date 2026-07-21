@@ -29,6 +29,81 @@ const BENEFITS = [
 
 type Annotation = { label: string; top: string; left: string };
 
+const EXTRA_CONDITIONS = [
+  {
+    label: "Lesiones deportivas",
+    sub: "Tendones, articulaciones y ligamentos",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        {/* Lightning bolt — energía / impacto deportivo */}
+        <path
+          d="M13 2L5.5 12.5H10.5L9 20L17 9H12L13 2Z"
+          fill="currentColor"
+          opacity="0.18"
+        />
+        <path
+          d="M13 2L5.5 12.5H10.5L9 20L17 9H12L13 2Z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Cuidados paliativos",
+    sub: "Dolor por enfermedad avanzada o terminal",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        {/* Corazón con línea de pulso — cuidado médico */}
+        <path
+          d="M11 19C11 19 3 13.5 3 8.5A4 4 0 0 1 11 7a4 4 0 0 1 8 1.5C19 13.5 11 19 11 19Z"
+          fill="currentColor"
+          opacity="0.15"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* EKG pulse */}
+        <path
+          d="M6.5 11.5h2l1.5-2.5 2 5 1.5-2.5H16"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Neuropatía diabética",
+    sub: "Ardor y dolor en pies y extremidades",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        {/* Pie + señal nerviosa */}
+        <path
+          d="M8 3 Q7 2 8.5 2 Q10 2 10 3.5 L10 12 Q10 15 13 15.5 Q16.5 16 16.5 13.5 Q16.5 11.5 14 11 L10 11"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="currentColor"
+          fillOpacity="0.1"
+        />
+        {/* Nerve zigzag signal below foot */}
+        <path
+          d="M4 18 l2-2.5 l2 3.5 l1.5-2.5 l1.5 2"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+];
+
 function AnnotatedPanel({
   src,
   alt,
@@ -343,6 +418,86 @@ export default function PainTabSection() {
           )}
         </div>
       </div>
+
+      {/* Extra conditions chip strip — Tab 1 only */}
+      {activeTab === "dolor" && (
+        <div
+          className="mx-auto max-w-7xl w-full"
+          style={{
+            borderTop: `1px solid ${DEEP_TEAL}14`,
+            padding: "28px clamp(24px, 4vw, 56px) 32px",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: `${DEEP_TEAL}50`,
+              marginBottom: 16,
+            }}
+          >
+            TAMBIÉN TRATAMOS
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+            {EXTRA_CONDITIONS.map(({ label, sub, icon }) => (
+              <div
+                key={label}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  padding: "12px 20px",
+                  border: `1px solid ${DEEP_TEAL}18`,
+                  background: "rgba(255,255,255,0.72)",
+                  backdropFilter: "blur(4px)",
+                  WebkitBackdropFilter: "blur(4px)",
+                }}
+              >
+                <span
+                  style={{
+                    color: BRAND_TEAL,
+                    flexShrink: 0,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  {icon}
+                </span>
+                <div>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 700,
+                      fontSize: 12,
+                      letterSpacing: "0.06em",
+                      color: DEEP_TEAL,
+                      margin: 0,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 400,
+                      fontSize: 11,
+                      color: `${DEEP_TEAL}80`,
+                      margin: "3px 0 0",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {sub}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
