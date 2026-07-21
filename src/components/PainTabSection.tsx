@@ -312,7 +312,7 @@ export default function PainTabSection() {
               <p
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  fontSize: "clamp(14px, 1.15vw, 16px)",
+                  fontSize: "clamp(16px, 1.15vw, 18px)",
                   lineHeight: 1.74,
                   color: `${DEEP_TEAL}bb`,
                   marginBottom: 36,
@@ -357,7 +357,7 @@ export default function PainTabSection() {
               <p
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  fontSize: "clamp(14px, 1.15vw, 16px)",
+                  fontSize: "clamp(16px, 1.15vw, 18px)",
                   lineHeight: 1.74,
                   color: `${DEEP_TEAL}bb`,
                   marginBottom: 36,
@@ -486,9 +486,9 @@ export default function PainTabSection() {
                   <p
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontWeight: 500,
-                      fontSize: 11,
-                      color: DEEP_TEAL,
+                      fontWeight: 400,
+                      fontSize: 13,
+                      color: `${DEEP_TEAL}80`,
                       margin: "3px 0 0",
                       lineHeight: 1.3,
                     }}

@@ -182,7 +182,7 @@ export default function PatientJourneySection() {
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 700,
-                    fontSize: 15,
+                    fontSize: "clamp(17px, 1.3vw, 19px)",
                     lineHeight: 1.3,
                     color: DEEP_TEAL,
                     marginBottom: 10,
@@ -194,7 +194,7 @@ export default function PatientJourneySection() {
                   style={{
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 400,
-                    fontSize: 13,
+                    fontSize: "clamp(16px, 1.15vw, 17px)",
                     lineHeight: 1.65,
                     color: DEEP_TEAL,
                     margin: 0,
