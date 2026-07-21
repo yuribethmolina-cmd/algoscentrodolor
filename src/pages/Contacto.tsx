@@ -9,6 +9,7 @@ import OptimizedPicture from "@/components/OptimizedPicture";
 
 // Responsive AVIF/WebP/JPEG srcsets + tiny blurred LQIP + full-res original
 // for the lightbox. Generated at build time by vite-imagetools.
+import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
 import uduzScannerFull from "@/assets/uduz-scanner.jpg?w=1920&format=webp&url";
@@ -51,7 +52,9 @@ const INFO_CARDS = [
   },
 ];
 
-const IMG_TOMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
+const CDN_TOMO_PIC = { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } };
+const IMG_TOMO = { pic: CDN_TOMO_PIC, lqip: undefined, full: tomografiaRealAsset.url };
+const IMG_MAMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
 const IMG_XRAY = { pic: examsXrayPic, lqip: examsXrayLqip, full: examsXrayFull };
 const IMG_ECO  = { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip, full: examsUltrasoundFull };
 
@@ -120,7 +123,7 @@ const STUDY_TYPES = [
     ],
     preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
     duration: "15 - 20 minutos",
-    image: IMG_TOMO,
+    image: IMG_MAMO,
   },
 ];
 
@@ -425,8 +428,7 @@ export default function Contacto() {
               {/* Cinematic scanner image */}
               <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black group">
                 <OptimizedPicture
-                  picture={uduzScannerPic}
-                  placeholder={uduzScannerLqip}
+                  picture={CDN_TOMO_PIC}
                   alt="Tomógrafo UDUZ"
                   className="absolute inset-0 w-full h-full"
                   imgClassName="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out group-hover:scale-105"

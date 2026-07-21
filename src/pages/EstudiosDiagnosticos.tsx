@@ -17,8 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
+import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
 import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
 import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
@@ -42,11 +41,15 @@ const ICON_BY_SLUG: Record<string, LucideIcon> = {
   laboratorio: TestTube,
 };
 
-const IMAGE_BY_SLUG: Record<
-  string,
-  { pic: typeof uduzScannerPic; lqip: string }
-> = {
-  tomografia: { pic: uduzScannerPic, lqip: uduzScannerLqip },
+type Picture = {
+  sources: Record<string, string>;
+  img: { src: string; w: number; h: number };
+};
+
+const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
+  tomografia: {
+    pic: { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } },
+  },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
   "mamografia-3d": { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip },
 };

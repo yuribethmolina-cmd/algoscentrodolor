@@ -16,7 +16,7 @@ export type StudyItem = {
   duration?: string;
   availability: string;
   details: { label: string; value: string }[];
-  image?: { pic: Picture; lqip: string };
+  image?: { pic: Picture; lqip?: string };
 };
 
 interface StudyBentoProps {
