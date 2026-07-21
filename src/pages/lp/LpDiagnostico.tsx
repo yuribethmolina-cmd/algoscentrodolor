@@ -8,8 +8,7 @@ import {
 
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
-import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
+import ecografiaRealAsset from "@/assets/ecografia-real.png.asset.json";
 import experienceTechPic from "@/assets/experience-tech.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import experienceTechLqip from "@/assets/experience-tech.jpg?w=32&blur=6&format=webp&url";
 
@@ -200,12 +199,10 @@ export default function LpDiagnostico() {
 
             {/* Imagen ecografía */}
             <div className="relative h-52 md:h-64 overflow-hidden rounded-none">
-              <OptimizedPicture
-                picture={examsUltrasoundPic}
-                placeholder={examsUltrasoundLqip}
+              <img
+                src={ecografiaRealAsset.url}
                 alt="Estudio de ecografía UDUZ Maracaibo"
-                className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-cover object-[15%_50%]"
+                className="absolute inset-0 w-full h-full object-cover object-[15%_50%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/40 via-transparent to-transparent" />
             </div>

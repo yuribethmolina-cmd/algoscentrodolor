@@ -10,15 +10,13 @@ import OptimizedPicture from "@/components/OptimizedPicture";
 // Responsive AVIF/WebP/JPEG srcsets + tiny blurred LQIP + full-res original
 // for the lightbox. Generated at build time by vite-imagetools.
 import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
+import ecografiaRealAsset from "@/assets/ecografia-real.png.asset.json";
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
 import uduzScannerFull from "@/assets/uduz-scanner.jpg?w=1920&format=webp&url";
 import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
 import examsXrayFull from "@/assets/exams-xray.jpg?w=1920&format=webp&url";
-import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
-import examsUltrasoundFull from "@/assets/exams-ultrasound.jpg?w=1920&format=webp&url";
 import { ALGOS } from "@/config/algos.config";
 
 
@@ -53,10 +51,11 @@ const INFO_CARDS = [
 ];
 
 const CDN_TOMO_PIC = { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } };
+const CDN_ECO_PIC = { sources: {}, img: { src: ecografiaRealAsset.url, w: 0, h: 0 } };
 const IMG_TOMO = { pic: CDN_TOMO_PIC, lqip: undefined, full: tomografiaRealAsset.url };
 const IMG_MAMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
 const IMG_XRAY = { pic: examsXrayPic, lqip: examsXrayLqip, full: examsXrayFull };
-const IMG_ECO  = { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip, full: examsUltrasoundFull };
+const IMG_ECO  = { pic: CDN_ECO_PIC, lqip: undefined, full: ecografiaRealAsset.url };
 
 const EXAM_TILES = [
   { title: "Tomografía", subtitle: "Alta resolución · mismo día", image: IMG_TOMO, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
