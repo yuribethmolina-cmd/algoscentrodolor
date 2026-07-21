@@ -288,7 +288,7 @@ export default function PainTabSection() {
                 }}
               >
                 En ALGOS identificamos el origen exacto de su dolor e
-                intervenimos con precisión guiada por imagen — sin cirugía
+                intervenimos con precisión guiada por imagen, sin cirugía
                 abierta, sin hospitalización, con seguimiento hasta el
                 resultado.
               </p>
