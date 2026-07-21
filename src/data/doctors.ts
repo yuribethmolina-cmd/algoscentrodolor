@@ -97,7 +97,6 @@ export const DOCTORS: Doctor[] = [
     specialty: "Fisiatría, rehabilitación y estudios electromiográficos",
     specialtySlug: "fisiatria",
     schedule: "Miércoles tarde",
-    note: "Los estudios EEG se realizan en UDUZ",
   },
   {
     slug: "dra-gilda-gomez",
