@@ -8,6 +8,15 @@ const DEEP_TEAL = ALGOS.palette.deepTeal;
 const BRAND_TEAL = "#3d8b96";
 const GOLD = "#c69636";
 
+function getInitials(name: string): string {
+  return name
+    .replace(/^(Dr\.|Dra\.|Lic\.)\s+/, "")
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+}
+
 const doctores = DOCTORS.map((d) => ({
   nombre: d.name,
   especialidad: d.specialty,
@@ -76,7 +85,6 @@ export default function TeamSection() {
               fontSize: "clamp(17px, 1.6vw, 20px)",
               lineHeight: 1.7,
               color: DEEP_TEAL,
-              opacity: 0.75,
               maxWidth: "62ch",
             }}
           >
@@ -100,7 +108,6 @@ export default function TeamSection() {
               fontSize: "clamp(16px, 1.4vw, 18px)",
               lineHeight: 1.7,
               color: DEEP_TEAL,
-              opacity: 0.85,
             }}
           >
             Nuestro equipo evalúa y diagnostica el origen del dolor, ejecuta el
@@ -162,8 +169,35 @@ export default function TeamSection() {
                 }}
               />
 
-              {/* Index + meta chips */}
-              <div className="flex items-center justify-between" style={{ marginBottom: 2 }}>
+              {/* Avatar + index row */}
+              <div className="flex items-center justify-between" style={{ marginBottom: 4 }}>
+                <div
+                  aria-hidden="true"
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: "50%",
+                    background: doc.esDireccion
+                      ? `linear-gradient(135deg, ${GOLD} 0%, #e8b95c 100%)`
+                      : `linear-gradient(135deg, ${BRAND_TEAL} 0%, #5eb0bd 100%)`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 700,
+                      fontSize: 15,
+                      color: "#ffffff",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {getInitials(doc.nombre)}
+                  </span>
+                </div>
                 <span
                   style={{
                     fontFamily: "'Sora', sans-serif",
@@ -180,7 +214,7 @@ export default function TeamSection() {
               <h3
                 style={{
                   fontFamily: "'Sora', sans-serif",
-                  fontSize: 16,
+                  fontSize: 17,
                   fontWeight: 600,
                   color: DEEP_TEAL,
                   lineHeight: 1.3,
@@ -190,22 +224,27 @@ export default function TeamSection() {
               >
                 {doc.nombre}
               </h3>
-              <p
+
+              {/* Specialty pill */}
+              <span
                 style={{
+                  alignSelf: "flex-start",
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: 13,
-                  fontWeight: 500,
+                  fontSize: 12,
+                  fontWeight: 600,
                   color: BRAND_TEAL,
-                  lineHeight: 1.4,
-                  margin: 0,
+                  background: `${BRAND_TEAL}14`,
+                  border: `1px solid ${BRAND_TEAL}28`,
+                  padding: "3px 10px",
+                  lineHeight: 1.5,
                 }}
               >
                 {doc.especialidad}
-              </p>
+              </span>
 
               {/* Schedule bar */}
               <div
-                className="flex items-center gap-2 mt-auto"
+                className="flex items-center gap-2"
                 style={{
                   padding: "10px 12px",
                   background: "rgba(26,74,85,0.05)",
@@ -224,7 +263,6 @@ export default function TeamSection() {
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: 12,
                     color: DEEP_TEAL,
-                    opacity: 0.8,
                     lineHeight: 1.35,
                     margin: 0,
                   }}
@@ -237,10 +275,8 @@ export default function TeamSection() {
                 <p
                   style={{
                     fontFamily: "'Manrope', sans-serif",
-                    fontSize: 11,
+                    fontSize: 12,
                     color: DEEP_TEAL,
-                    opacity: 0.55,
-                    fontStyle: "italic",
                     lineHeight: 1.4,
                     margin: 0,
                   }}

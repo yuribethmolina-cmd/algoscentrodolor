@@ -325,10 +325,9 @@ export default function AllianceSection() {
                   <p
                     style={{
                       fontFamily: "'Manrope', system-ui, sans-serif",
-                      fontStyle: "italic",
                       fontSize: "clamp(13px, 1vw, 14px)",
-                      fontWeight: 500,
-                      color: `${GOLD}ee`,
+                      fontWeight: 600,
+                      color: CREAM,
                       lineHeight: 1.5,
                       margin: 0,
                     }}
