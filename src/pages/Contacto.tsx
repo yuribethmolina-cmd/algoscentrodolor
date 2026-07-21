@@ -428,8 +428,7 @@ export default function Contacto() {
               {/* Cinematic scanner image */}
               <div className="col-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden min-h-[320px] bg-black group">
                 <OptimizedPicture
-                  picture={uduzScannerPic}
-                  placeholder={uduzScannerLqip}
+                  picture={CDN_TOMO_PIC}
                   alt="Tomógrafo UDUZ"
                   className="absolute inset-0 w-full h-full"
                   imgClassName="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
