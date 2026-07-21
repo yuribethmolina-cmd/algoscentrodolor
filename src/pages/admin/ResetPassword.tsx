@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export default function AdminResetPassword() {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [ready, setReady] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
