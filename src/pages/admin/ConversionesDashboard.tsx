@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut } from "lucide-react";
+import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut, Users } from "lucide-react";
 
 interface Summary {
   range_days: number;
