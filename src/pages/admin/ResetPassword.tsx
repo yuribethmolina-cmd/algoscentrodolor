@@ -9,16 +9,20 @@ export default function AdminResetPassword() {
   const [ready, setReady] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+  const [resendStatus, setResendStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
 
   useEffect(() => {
     // Supabase auto-processes the recovery token in the URL hash and fires
     // a PASSWORD_RECOVERY event. We wait for a session before enabling the form.
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "PASSWORD_RECOVERY" || session) setReady(true);
+      if (session?.user?.email) setEmail(session.user.email);
     });
 
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) setReady(true);
+      if (data.session?.user?.email) setEmail(data.session.user.email);
     });
 
     return () => sub.subscription.unsubscribe();
