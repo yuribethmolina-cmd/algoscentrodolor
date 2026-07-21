@@ -81,7 +81,7 @@ export default function SedesSection() {
             maxWidth: 640,
           }}
         >
-          Tres sedes en Maracaibo.
+          Dos sedes en Maracaibo.
         </h2>
 
         <div
