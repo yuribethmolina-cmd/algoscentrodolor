@@ -6,63 +6,25 @@ const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 const BRAND_TEAL = "#3d8b96";
-
-const CARD_W = 272; // px — visible on desktop ~4.x cards, mobile ~1.2
 const GAP = 16;
 
-function NavButton({
-  dir,
-  onClick,
-  disabled,
-}: {
-  dir: "prev" | "next";
-  onClick: () => void;
-  disabled: boolean;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={dir === "prev" ? "Anterior" : "Siguiente"}
-      style={{
-        width: 44,
-        height: 44,
-        border: `1px solid ${DEEP_TEAL}30`,
-        background: disabled ? `${DEEP_TEAL}08` : DEEP_TEAL,
-        color: disabled ? `${DEEP_TEAL}40` : CREAM,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: disabled ? "default" : "pointer",
-        transition: "background 200ms ease, color 200ms ease",
-        flexShrink: 0,
-      }}
-    >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        {dir === "prev" ? (
-          <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        ) : (
-          <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        )}
-      </svg>
-    </button>
-  );
-}
+// Card width is calculated to show exactly 4 on desktop (max-w-7xl = 1280px, padding 64*2 = 128 → 1152 usable)
+// 4 cards + 3 gaps: (1152 - 48) / 4 = 276px
+// On smaller screens fewer cards fit → slider scrolls
+const CARD_W = 276;
 
 export default function HomeTeamSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
+  const sliderRef  = useRef<HTMLDivElement>(null);
+  const [visible,  setVisible]  = useState(false);
+  const [canPrev,  setCanPrev]  = useState(false);
+  const [canNext,  setCanNext]  = useState(true);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) { setVisible(true); io.disconnect(); }
-      },
+      ([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect(); } },
       { threshold: 0.08 }
     );
     io.observe(el);
@@ -85,9 +47,10 @@ export default function HomeTeamSection() {
   }, []);
 
   const scroll = (dir: "prev" | "next") => {
-    const s = sliderRef.current;
-    if (!s) return;
-    s.scrollBy({ left: dir === "next" ? CARD_W + GAP : -(CARD_W + GAP), behavior: "smooth" });
+    sliderRef.current?.scrollBy({
+      left: dir === "next" ? CARD_W + GAP : -(CARD_W + GAP),
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -95,23 +58,19 @@ export default function HomeTeamSection() {
       ref={sectionRef}
       id="equipo-home"
       data-section="home-team"
-      style={{ backgroundColor: CREAM, overflow: "hidden" }}
+      style={{ backgroundColor: CREAM }}
     >
-      {/* Hide scrollbar cross-browser */}
       <style>{`#team-slider::-webkit-scrollbar { display: none; }`}</style>
 
+      {/* All content inside the same padded container as the rest of the page */}
       <div
-        style={{
-          paddingTop: "clamp(64px, 8vw, 104px)",
-          paddingBottom: "clamp(64px, 8vw, 104px)",
-        }}
+        className="mx-auto max-w-7xl"
+        style={{ padding: "clamp(64px, 8vw, 96px) clamp(24px, 4vw, 64px)" }}
       >
         {/* Header */}
         <div
-          className="mx-auto max-w-7xl flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
           style={{
-            paddingLeft: "clamp(24px, 4vw, 64px)",
-            paddingRight: "clamp(24px, 4vw, 64px)",
             marginBottom: "clamp(32px, 4vw, 48px)",
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -149,204 +108,260 @@ export default function HomeTeamSection() {
             </h2>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 20 }}>
-            <p
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "clamp(15px, 1.2vw, 17px)",
-                lineHeight: 1.65,
-                color: DEEP_TEAL,
-                margin: 0,
-                maxWidth: "38ch",
-              }}
-            >
-              Especialistas en dolor intervencionista, ortopedia, reumatología,
-              fisiatría y nutrición clínica.
-            </p>
-            {/* Nav + link row */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <NavButton dir="prev" onClick={() => scroll("prev")} disabled={!canPrev} />
-              <NavButton dir="next" onClick={() => scroll("next")} disabled={!canNext} />
-              <Link
-                to="/equipo"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 700,
-                  fontSize: 11,
-                  letterSpacing: "0.24em",
-                  textTransform: "uppercase",
-                  color: DEEP_TEAL,
-                  textDecoration: "none",
-                  borderBottom: `1px solid ${DEEP_TEAL}40`,
-                  paddingBottom: 2,
-                  marginLeft: 4,
-                }}
-              >
-                VER TODOS →
-              </Link>
-            </div>
-          </div>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(15px, 1.2vw, 17px)",
+              lineHeight: 1.65,
+              color: DEEP_TEAL,
+              margin: 0,
+              maxWidth: "36ch",
+            }}
+          >
+            Especialistas en dolor intervencionista, ortopedia, reumatología,
+            fisiatría y nutrición clínica. Un equipo, un criterio clínico.
+          </p>
         </div>
 
-        {/* Slider track — bleeds edge-to-edge on the left-padding side */}
-        <div
-          id="team-slider"
-          ref={sliderRef}
-          style={{
-            display: "flex",
-            gap: GAP,
-            overflowX: "auto",
-            scrollSnapType: "x mandatory",
-            scrollBehavior: "smooth",
-            WebkitOverflowScrolling: "touch" as React.CSSProperties["WebkitOverflowScrolling"],
-            msOverflowStyle: "none",
-            scrollbarWidth: "none",
-            paddingLeft: "clamp(24px, 4vw, 64px)",
-            paddingRight: "clamp(24px, 4vw, 64px)",
-            opacity: visible ? 1 : 0,
-            transition: "opacity 700ms ease 100ms",
-          }}
-        >
-          {DOCTORS.map((doc, i) => (
-            <article
-              key={doc.slug}
-              style={{
-                flexShrink: 0,
-                width: CARD_W,
-                scrollSnapAlign: "start",
-                background: "#ffffff",
-                border: `1px solid ${DEEP_TEAL}10`,
-                display: "flex",
-                flexDirection: "column",
-                overflow: "hidden",
-                transform: visible ? "translateY(0)" : "translateY(24px)",
-                transition: `transform 600ms cubic-bezier(0.16,1,0.3,1) ${80 + i * 60}ms`,
-              }}
-            >
-              {/* Index + text */}
-              <div style={{ padding: "18px 18px 14px" }}>
-                <span
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 700,
-                    fontSize: 11,
-                    letterSpacing: "0.28em",
-                    color: BRAND_TEAL,
-                    display: "block",
-                    marginBottom: 8,
-                  }}
-                >
-                  /{String(i + 1).padStart(2, "0")}
-                </span>
-                <h3
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 700,
-                    fontSize: 16,
-                    lineHeight: 1.25,
-                    color: DEEP_TEAL,
-                    margin: "0 0 5px",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {doc.name}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: BRAND_TEAL,
-                    margin: 0,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {doc.specialty.split(" · ")[0]}
-                </p>
-              </div>
-
-              {/* Photo area */}
-              <div
+        {/* Slider — clips within the container (same margins as rest of page) */}
+        <div style={{ overflow: "hidden" }}>
+          <div
+            id="team-slider"
+            ref={sliderRef}
+            style={{
+              display: "flex",
+              gap: GAP,
+              overflowX: "auto",
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
+              WebkitOverflowScrolling: "touch" as React.CSSProperties["WebkitOverflowScrolling"],
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
+              opacity: visible ? 1 : 0,
+              transition: "opacity 700ms ease 80ms",
+            }}
+          >
+            {DOCTORS.map((doc, i) => (
+              <article
+                key={doc.slug}
                 style={{
-                  position: "relative",
-                  height: 300,
-                  background: `${DEEP_TEAL}08`,
+                  flexShrink: 0,
+                  width: CARD_W,
+                  scrollSnapAlign: "start",
+                  display: "flex",
+                  flexDirection: "column",
+                  background: "#ffffff",
+                  border: `1px solid ${DEEP_TEAL}10`,
                   overflow: "hidden",
+                  transform: visible ? "translateY(0)" : "translateY(24px)",
+                  transition: `transform 600ms cubic-bezier(0.16,1,0.3,1) ${60 + i * 50}ms`,
                 }}
               >
-                {doc.photoSrc ? (
-                  <img
-                    src={doc.photoSrc}
-                    alt={doc.name}
-                    loading="lazy"
+                {/* Text block */}
+                <div style={{ padding: "18px 18px 14px", flexShrink: 0 }}>
+                  <span
                     style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center top",
-                    }}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: `linear-gradient(135deg, ${BRAND_TEAL}18 0%, ${DEEP_TEAL}08 100%)`,
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontWeight: 700,
-                        fontSize: 56,
-                        color: `${DEEP_TEAL}25`,
-                        letterSpacing: "0.05em",
-                      }}
-                    >
-                      {doc.name.replace(/^(Dr\.|Dra\.|Lic\.)\s+/, "").split(" ").slice(0, 2).map(w => w[0]).join("")}
-                    </span>
-                  </div>
-                )}
-
-                {/* Gradient + CTA overlay */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    background: `linear-gradient(to top, ${DEEP_TEAL}dd 0%, transparent 100%)`,
-                    padding: "40px 18px 18px",
-                  }}
-                >
-                  <Link
-                    to={`/equipo/${doc.slug}`}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 700,
                       fontSize: 11,
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      color: CREAM,
-                      textDecoration: "none",
-                      background: BRAND_TEAL,
-                      padding: "9px 16px",
+                      letterSpacing: "0.28em",
+                      color: BRAND_TEAL,
+                      display: "block",
+                      marginBottom: 8,
                     }}
                   >
-                    VER PERFIL <span aria-hidden="true">→</span>
-                  </Link>
+                    /{String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 700,
+                      fontSize: 16,
+                      lineHeight: 1.25,
+                      color: DEEP_TEAL,
+                      margin: "0 0 5px",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {doc.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 13,
+                      fontWeight: 500,
+                      color: BRAND_TEAL,
+                      margin: 0,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {doc.specialty.split(" · ")[0]}
+                  </p>
                 </div>
-              </div>
-            </article>
-          ))}
+
+                {/* Photo — grows to fill all remaining card height */}
+                <div
+                  style={{
+                    position: "relative",
+                    flex: 1,
+                    minHeight: 260,
+                    background: `${DEEP_TEAL}08`,
+                  }}
+                >
+                  {doc.photoSrc ? (
+                    <img
+                      src={doc.photoSrc}
+                      alt={doc.name}
+                      loading="lazy"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center top",
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: `linear-gradient(135deg, ${BRAND_TEAL}18 0%, ${DEEP_TEAL}08 100%)`,
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontWeight: 700,
+                          fontSize: 56,
+                          color: `${DEEP_TEAL}25`,
+                        }}
+                      >
+                        {doc.name
+                          .replace(/^(Dr\.|Dra\.|Lic\.)\s+/, "")
+                          .split(" ")
+                          .slice(0, 2)
+                          .map((w) => w[0])
+                          .join("")}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Gradient + CTA overlay */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      background: `linear-gradient(to top, ${DEEP_TEAL}d8 0%, transparent 55%)`,
+                      padding: "48px 18px 18px",
+                    }}
+                  >
+                    <Link
+                      to={`/equipo/${doc.slug}`}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        fontFamily: "Inter, sans-serif",
+                        fontWeight: 700,
+                        fontSize: 11,
+                        letterSpacing: "0.22em",
+                        textTransform: "uppercase",
+                        color: CREAM,
+                        textDecoration: "none",
+                        background: BRAND_TEAL,
+                        padding: "9px 16px",
+                      }}
+                    >
+                      VER PERFIL <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Nav arrows + link — below the slider */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            marginTop: 24,
+            opacity: visible ? 1 : 0,
+            transition: "opacity 600ms ease 300ms",
+          }}
+        >
+          <button
+            onClick={() => scroll("prev")}
+            disabled={!canPrev}
+            aria-label="Anterior"
+            style={{
+              width: 44,
+              height: 44,
+              border: `1px solid ${DEEP_TEAL}30`,
+              background: canPrev ? DEEP_TEAL : `${DEEP_TEAL}0a`,
+              color: canPrev ? CREAM : `${DEEP_TEAL}35`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: canPrev ? "pointer" : "default",
+              transition: "background 200ms, color 200ms",
+              flexShrink: 0,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          <button
+            onClick={() => scroll("next")}
+            disabled={!canNext}
+            aria-label="Siguiente"
+            style={{
+              width: 44,
+              height: 44,
+              border: `1px solid ${DEEP_TEAL}30`,
+              background: canNext ? DEEP_TEAL : `${DEEP_TEAL}0a`,
+              color: canNext ? CREAM : `${DEEP_TEAL}35`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: canNext ? "pointer" : "default",
+              transition: "background 200ms, color 200ms",
+              flexShrink: 0,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          <Link
+            to="/equipo"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 700,
+              fontSize: 11,
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+              color: DEEP_TEAL,
+              textDecoration: "none",
+              borderBottom: `1px solid ${DEEP_TEAL}40`,
+              paddingBottom: 2,
+              marginLeft: 4,
+            }}
+          >
+            VER TODO EL EQUIPO →
+          </Link>
         </div>
       </div>
     </section>
