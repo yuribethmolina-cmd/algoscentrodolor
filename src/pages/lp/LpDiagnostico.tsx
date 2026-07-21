@@ -199,12 +199,10 @@ export default function LpDiagnostico() {
 
             {/* Imagen ecografía */}
             <div className="relative h-52 md:h-64 overflow-hidden rounded-none">
-              <OptimizedPicture
-                picture={examsUltrasoundPic}
-                placeholder={examsUltrasoundLqip}
+              <img
+                src={ecografiaRealAsset.url}
                 alt="Estudio de ecografía UDUZ Maracaibo"
-                className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-cover object-[15%_50%]"
+                className="absolute inset-0 w-full h-full object-cover object-[15%_50%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/40 via-transparent to-transparent" />
             </div>
