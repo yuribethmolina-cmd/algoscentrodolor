@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut } from "lucide-react";
+import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut, Users } from "lucide-react";
 
 interface Summary {
   range_days: number;
@@ -153,6 +153,12 @@ export default function ConversionesDashboard() {
             </p>
           </div>
           <div className="flex items-center gap-2">
+            <Link
+              to="/admin/citas"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#c69636]/40 bg-[#c69636]/10 text-[#1a4a55] text-sm font-medium hover:bg-[#c69636]/20"
+            >
+              <Users size={15} /> Solicitudes de cita
+            </Link>
             <div className="inline-flex rounded-md border border-[#1a4a55]/20 bg-white overflow-hidden">
               {RANGES.map((r) => (
                 <button

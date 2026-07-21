@@ -46,10 +46,12 @@ import LpDolor from "@/pages/lp/LpDolor";
 
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
+import CitasDashboard from "@/pages/admin/CitasDashboard";
 import AdminLogin from "@/pages/admin/Login";
 import AdminForgotPassword from "@/pages/admin/ForgotPassword";
 import AdminResetPassword from "@/pages/admin/ResetPassword";
 import AdminRoute from "@/components/AdminRoute";
+import Agendar from "@/pages/Agendar";
 
 function wrap(Component: React.ComponentType) {
   return (
@@ -123,6 +125,13 @@ export default function AnimatedRoutes() {
             path="/admin/conversiones"
             element={<AdminRoute>{wrap(ConversionesDashboard)}</AdminRoute>}
           />
+          <Route
+            path="/admin/citas"
+            element={<AdminRoute>{wrap(CitasDashboard)}</AdminRoute>}
+          />
+
+          {/* Public appointment form */}
+          <Route path="/agendar" element={wrap(Agendar)} />
 
           <Route path="*" element={wrap(NotFound)} />
         </Routes>
