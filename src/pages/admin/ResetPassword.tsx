@@ -124,6 +124,34 @@ export default function AdminResetPassword() {
             >
               {status === "loading" ? "Guardando…" : "Guardar contraseña"}
             </button>
+
+            {email ? (
+              <div className="text-center pt-2">
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={resendStatus === "loading"}
+                  className="text-[#f5f0e8]/60 text-xs tracking-wider uppercase hover:text-[#f5f0e8] disabled:opacity-50 transition-colors"
+                >
+                  {resendStatus === "loading"
+                    ? "Reenviando…"
+                    : resendStatus === "sent"
+                      ? "Email reenviado"
+                      : resendStatus === "error"
+                        ? "Error al reenviar"
+                        : "¿No recibiste el email? Reenviar"}
+                </button>
+              </div>
+            ) : (
+              <div className="text-center pt-2">
+                <Link
+                  to="/admin/forgot-password"
+                  className="text-[#f5f0e8]/60 text-xs tracking-wider uppercase hover:text-[#f5f0e8] transition-colors"
+                >
+                  ¿No recibiste el email? Solicitar nuevo enlace
+                </Link>
+              </div>
+            )}
           </form>
         )}
       </div>
