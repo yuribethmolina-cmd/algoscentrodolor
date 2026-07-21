@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
