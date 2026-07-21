@@ -7,6 +7,7 @@ import PainTabSection from "@/components/PainTabSection";
 import PatientJourneySection from "@/components/PatientJourneySection";
 import AllianceSection from "@/components/AllianceSection";
 import AlgosLocationSection from "@/components/AlgosLocationSection";
+import SedesSection from "@/components/SedesSection";
 import HomeTeamSection from "@/components/HomeTeamSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
 import FinalCTA from "@/components/FinalCTA";
