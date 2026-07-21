@@ -125,6 +125,13 @@ export default function AnimatedRoutes() {
             path="/admin/conversiones"
             element={<AdminRoute>{wrap(ConversionesDashboard)}</AdminRoute>}
           />
+          <Route
+            path="/admin/citas"
+            element={<AdminRoute>{wrap(CitasDashboard)}</AdminRoute>}
+          />
+
+          {/* Public appointment form */}
+          <Route path="/agendar" element={wrap(Agendar)} />
 
           <Route path="*" element={wrap(NotFound)} />
         </Routes>
