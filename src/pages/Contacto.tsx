@@ -14,9 +14,9 @@ import ecografiaRealAsset from "@/assets/ecografia-real.png.asset.json";
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
 import uduzScannerFull from "@/assets/uduz-scanner.jpg?w=1920&format=webp&url";
-import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
-import examsXrayFull from "@/assets/exams-xray.jpg?w=1920&format=webp&url";
+import examsXrayPic from "@/assets/rayos-x-real.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import examsXrayLqip from "@/assets/rayos-x-real.webp?w=32&blur=6&format=webp&url";
+import examsXrayFull from "@/assets/rayos-x-real.webp?w=1920&format=webp&url";
 import mamografiaPic from "@/assets/mamografia-3d.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import mamografiaLqip from "@/assets/mamografia-3d.webp?w=32&blur=6&format=webp&url";
 import mamografiaFull from "@/assets/mamografia-3d.webp?w=1920&format=webp&url";
@@ -162,16 +162,23 @@ function StudyTabs() {
 
       {/* Content */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-        {/* Image */}
+        {/* Image — all pre-rendered to avoid per-tab network fetch */}
         <div className="md:col-span-2 relative overflow-hidden min-h-[240px] md:min-h-[380px] bg-black">
-          <OptimizedPicture
-            picture={current.image.pic}
-            placeholder={current.image.lqip}
-            alt={current.label}
-            className="absolute inset-0 w-full h-full"
-            imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
-            sizes="(min-width: 768px) 40vw, 100vw"
-          />
+          {STUDY_TYPES.map((s) => (
+            <div
+              key={s.id}
+              className={`absolute inset-0 transition-opacity duration-300 ${s.id === active ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            >
+              <OptimizedPicture
+                picture={s.image.pic}
+                placeholder={s.image.lqip}
+                alt={s.label}
+                className="absolute inset-0 w-full h-full"
+                imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
+                sizes="(min-width: 768px) 40vw, 100vw"
+              />
+            </div>
+          ))}
 
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f3138]/60 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 p-6 md:p-8">
