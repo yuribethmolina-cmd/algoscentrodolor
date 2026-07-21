@@ -75,16 +75,25 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
           {/* Image / icon panel */}
           <div className="md:col-span-2 relative overflow-hidden min-h-[320px] md:min-h-[380px] bg-black">
-            {current.image ? (
-              <OptimizedPicture
-                picture={current.image.pic}
-                placeholder={current.image.lqip}
-                alt={current.label}
-                className="absolute inset-0 w-full h-full"
-                imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
-                sizes="(min-width: 768px) 40vw, 100vw"
-              />
-            ) : (
+            {/* All images pre-rendered and stacked — avoids network fetch on tab switch */}
+            {items.map((s) =>
+              s.image ? (
+                <div
+                  key={s.id}
+                  className={`absolute inset-0 transition-opacity duration-300 ${s.id === active ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                >
+                  <OptimizedPicture
+                    picture={s.image.pic}
+                    placeholder={s.image.lqip}
+                    alt={s.label}
+                    className="absolute inset-0 w-full h-full"
+                    imgClassName="absolute inset-0 w-full h-full object-cover opacity-75"
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                  />
+                </div>
+              ) : null
+            )}
+            {!current.image && (
               <div
                 className="absolute inset-0"
                 style={{
