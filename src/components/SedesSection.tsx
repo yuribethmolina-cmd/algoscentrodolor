@@ -7,6 +7,22 @@ const TEAL = "#3d8b96";
 
 const SEDES = [
   {
+    nombre: "Sede Av. Sabaneta",
+    direccion: "Av. Sabaneta, Urbanización Urdaneta",
+    detalle: "Torre de consultorios RAB · Detrás de la Clínica Zulia · Piso 1, Consultorio 3 · Maracaibo, Edo. Zulia",
+    telefonos: [
+      { label: "0424-646 7944", href: "tel:+584246467944" },
+      { label: "0412-174 8249", href: "tel:+584121748249" },
+      { label: "0261-800 0476", href: "tel:+582618000476" },
+    ],
+    servicios: [
+      "Consulta médica",
+      "Dolor intervencionista",
+      "Atención por cita previa",
+    ],
+    maps: "https://maps.google.com/?q=Torre+consultorios+RAB,Urbanizacion+Urdaneta,Av+Sabaneta,Maracaibo,Zulia",
+  },
+  {
     nombre: "Sede Zona Sur",
     direccion: "Maracaibo, Zulia",
     detalle: "Dirección exacta próximamente.",
