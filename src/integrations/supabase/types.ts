@@ -41,6 +41,63 @@ export type Database = {
         }
         Relationships: []
       }
+      appointment_requests: {
+        Row: {
+          condition: string | null
+          created_at: string
+          device: string | null
+          email: string | null
+          has_studies: string | null
+          id: string
+          internal_notes: string | null
+          name: string
+          notes: string | null
+          phone: string
+          preferred_date: string | null
+          preferred_shift: string | null
+          source_section: string | null
+          status: Database["public"]["Enums"]["appointment_status"]
+          status_updated_at: string | null
+          status_updated_by: string | null
+        }
+        Insert: {
+          condition?: string | null
+          created_at?: string
+          device?: string | null
+          email?: string | null
+          has_studies?: string | null
+          id?: string
+          internal_notes?: string | null
+          name: string
+          notes?: string | null
+          phone: string
+          preferred_date?: string | null
+          preferred_shift?: string | null
+          source_section?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          status_updated_at?: string | null
+          status_updated_by?: string | null
+        }
+        Update: {
+          condition?: string | null
+          created_at?: string
+          device?: string | null
+          email?: string | null
+          has_studies?: string | null
+          id?: string
+          internal_notes?: string | null
+          name?: string
+          notes?: string | null
+          phone?: string
+          preferred_date?: string | null
+          preferred_shift?: string | null
+          source_section?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          status_updated_at?: string | null
+          status_updated_by?: string | null
+        }
+        Relationships: []
+      }
       conversion_events: {
         Row: {
           condition: string | null
@@ -132,7 +189,13 @@ export type Database = {
       }
     }
     Enums: {
-      [_ in never]: never
+      appointment_status:
+        | "pendiente"
+        | "contactado"
+        | "agendado"
+        | "asistio"
+        | "no_asistio"
+        | "realizado"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -259,6 +322,15 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      appointment_status: [
+        "pendiente",
+        "contactado",
+        "agendado",
+        "asistio",
+        "no_asistio",
+        "realizado",
+      ],
+    },
   },
 } as const
