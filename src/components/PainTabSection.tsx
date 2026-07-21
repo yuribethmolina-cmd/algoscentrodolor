@@ -442,60 +442,72 @@ export default function PainTabSection() {
           >
             TAMBIÉN TRATAMOS
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 12,
+            }}
+          >
             {EXTRA_CONDITIONS.map(({ label, sub, icon }) => (
               <div
                 key={label}
                 style={{
-                  flex: "1 1 240px",
-                  minWidth: 0,
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
-                  gap: 12,
-                  padding: "12px 20px",
-                  border: `1px solid ${DEEP_TEAL}30`,
-                  background: "rgba(255,255,255,0.85)",
-                  backdropFilter: "blur(4px)",
-                  WebkitBackdropFilter: "blur(4px)",
+                  textAlign: "center",
+                  padding: "24px 16px 20px",
+                  background: `${BRAND_TEAL}0f`,
+                  border: `1px solid ${BRAND_TEAL}28`,
+                  gap: 0,
                 }}
               >
-                <span
+                {/* Icon in teal circle */}
+                <div
                   style={{
-                    color: BRAND_TEAL,
-                    flexShrink: 0,
+                    width: 52,
+                    height: 52,
+                    borderRadius: "50%",
+                    background: `${BRAND_TEAL}18`,
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 14,
+                    color: BRAND_TEAL,
+                    flexShrink: 0,
                   }}
                 >
-                  {icon}
-                </span>
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 700,
-                      fontSize: 12,
-                      letterSpacing: "0.06em",
-                      color: DEEP_TEAL,
-                      margin: 0,
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {label}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 400,
-                      fontSize: 13,
-                      color: `${DEEP_TEAL}80`,
-                      margin: "3px 0 0",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {sub}
-                  </p>
+                  {/* Scale up icon SVG via wrapper */}
+                  <span style={{ transform: "scale(1.4)", display: "flex" }}>
+                    {icon}
+                  </span>
                 </div>
+                <p
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(13px, 1vw, 15px)",
+                    letterSpacing: "0.01em",
+                    color: DEEP_TEAL,
+                    margin: "0 0 6px",
+                    lineHeight: 1.25,
+                  }}
+                >
+                  {label}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "clamp(11px, 0.85vw, 13px)",
+                    color: `${DEEP_TEAL}75`,
+                    margin: 0,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {sub}
+                </p>
               </div>
             ))}
           </div>
