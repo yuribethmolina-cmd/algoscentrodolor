@@ -20,8 +20,8 @@ import {
 import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
 import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
-import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
+import mamografiaPic from "@/assets/mamografia-3d.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import mamografiaLqip from "@/assets/mamografia-3d.webp?w=32&blur=6&format=webp&url";
 
 const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
   "neurofisiologia",
@@ -51,7 +51,7 @@ const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
     pic: { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } },
   },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
-  "mamografia-3d": { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip },
+  "mamografia-3d": { pic: mamografiaPic, lqip: mamografiaLqip },
 };
 
 function toStudyItem(d: (typeof DIAGNOSTICS)[number]): StudyItem {
