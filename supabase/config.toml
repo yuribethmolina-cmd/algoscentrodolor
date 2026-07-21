@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.get-conversions-summary]
 verify_jwt = false
+
+[functions.submit-appointment]
+verify_jwt = false
