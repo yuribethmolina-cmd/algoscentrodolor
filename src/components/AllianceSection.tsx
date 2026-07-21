@@ -1,4 +1,5 @@
 import uduzFacade from "@/assets/uduz-facade.webp.asset.json";
+import uduzBanner from "@/assets/uduz-banner.mp4.asset.json";
 
 const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#134F5C";
