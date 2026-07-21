@@ -95,6 +95,18 @@ export default function EstudiosLaboratorio() {
               Los siguientes estudios están disponibles a través de UDUZ, coordinados con el equipo de ALGOS para que su diagnóstico y su tratamiento ocurran en el mismo ecosistema clínico.
             </p>
 
+            <figure className="mb-10">
+              <img
+                src={labImage.url}
+                alt="Toma de muestras para estudio de laboratorio clínico en Maracaibo"
+                loading="lazy"
+                className="w-full h-auto rounded-sm shadow-sm"
+              />
+              <figcaption className="mt-3 font-sans text-deep-teal/70 text-sm">
+                Laboratorio clínico · toma de muestras coordinada con UDUZ
+              </figcaption>
+            </figure>
+
             <div
               className="mb-10"
               style={{
