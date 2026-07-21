@@ -7,8 +7,7 @@ export default function AdminForgotPassword() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function sendResetEmail() {
     setStatus("loading");
     setErrorMsg(null);
 
@@ -23,6 +22,11 @@ export default function AdminForgotPassword() {
     }
 
     setStatus("sent");
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    await sendResetEmail();
   }
 
   return (
