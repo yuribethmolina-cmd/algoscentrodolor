@@ -4,7 +4,6 @@ import photoAntulio  from "@/assets/team/doctor-antulio.png";
 import photoTomas    from "@/assets/team/doctor-tomas.png";
 import photoLeslie   from "@/assets/team/doctor-leslie.png";
 import photoCarolina from "@/assets/team/doctor-carolina.png";
-import photoDoris    from "@/assets/team/doctor-doris.png";
 import photoGilda    from "@/assets/team/doctor-gilda.png";
 import photoDaniel   from "@/assets/team/doctor-daniel.png";
 
@@ -101,15 +100,13 @@ export const DOCTORS: Doctor[] = [
   {
     slug: "dra-doris-meneses",
     name: "Dra. Doris Meneses",
-    specialty: "Traumatología y Ortopedia · Cirugía de mano y miembro superior",
-    specialtySlug: "traumatologia",
+    specialty: "Reumatología",
+    specialtySlug: "reumatologia",
     schedule: "Viernes · 8:00 AM - 12:00 PM",
-    photoSrc: photoDoris,
-    bio: "Traumatóloga Ortopedista con subespecialización en Cirugía de Mano y Miembro Superior. En ALGOS evalúa y trata lesiones y condiciones dolorosas de muñeca, carpo, codo y hombro, con un enfoque funcional orientado a recuperar el movimiento y la calidad de vida.",
+    bio: "Médico Reumatólogo especializado en el diagnóstico y manejo de enfermedades articulares y autoinmunes que cursan con dolor crónico. En ALGOS evalúa pacientes con artritis, fibromialgia, espondiloartritis y otros síndromes reumáticos, coordinando su tratamiento con el equipo intervencionista cuando procede.",
     credentials: [
-      "Médico Traumatóloga Ortopedista",
-      "Especialista en Cirugía de Mano y Miembro Superior",
-      "Policlínica Maracaibo · Piso 3, Consultorio 42",
+      "Médico Reumatólogo",
+      "Especialista en enfermedades articulares y autoinmunes",
     ],
     languages: ["Español"],
   },
