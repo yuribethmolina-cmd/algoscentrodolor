@@ -8,8 +8,7 @@ import {
 
 import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
-import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
+import ecografiaRealAsset from "@/assets/ecografia-real.png.asset.json";
 import experienceTechPic from "@/assets/experience-tech.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import experienceTechLqip from "@/assets/experience-tech.jpg?w=32&blur=6&format=webp&url";
 
