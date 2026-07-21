@@ -148,7 +148,7 @@ export default function EstudiosDiagnosticos() {
                   </span>
                 </div>
                 <h3 className="font-display font-semibold text-[#f5f0e8] text-xl leading-snug">
-                  EMG y EEG se realizan aquí, con nuestra Dra. Carolina.
+                  EMG y EEG se realizan aquí en ALGOS.
                 </h3>
                 <a
                   href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio EMG o EEG con la Dra. Carolina Rodríguez.")}`}

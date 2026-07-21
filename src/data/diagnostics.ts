@@ -84,7 +84,7 @@ export const DIAGNOSTICS: Diagnostic[] = [
     quees: "Estudio que mide cómo viajan las señales por los nervios y cómo responden los músculos.",
     paraque: "Indicado cuando el dolor viene con hormigueo o debilidad. Detecta si un nervio está comprimido, irritado o dañado, y en qué punto.",
     comose: "Se usan pequeños estímulos eléctricos y, en algunos casos, una aguja fina. Es un estudio breve.",
-    disponibilidad: "En ALGOS · Miércoles por la tarde · Dra. Carolina Rodríguez",
+    disponibilidad: "En ALGOS · Miércoles por la tarde · Cita previa",
     grupo: "neurofisiologia",
   },
   {
