@@ -23,6 +23,7 @@ const doctores = DOCTORS.map((d) => ({
   consulta: d.schedule,
   nota: d.note,
   esDireccion: d.isDirector,
+  foto: d.photoSrc,
 }));
 
 
@@ -172,31 +173,34 @@ export default function TeamSection() {
               {/* Avatar + index row */}
               <div className="flex items-center justify-between" style={{ marginBottom: 4 }}>
                 <div
-                  aria-hidden="true"
                   style={{
-                    width: 48,
-                    height: 48,
+                    width: 52,
+                    height: 52,
                     borderRadius: "50%",
+                    overflow: "hidden",
+                    border: doc.esDireccion
+                      ? `2px solid ${GOLD}50`
+                      : `2px solid ${BRAND_TEAL}35`,
+                    flexShrink: 0,
                     background: doc.esDireccion
                       ? `linear-gradient(135deg, ${GOLD} 0%, #e8b95c 100%)`
                       : `linear-gradient(135deg, ${BRAND_TEAL} 0%, #5eb0bd 100%)`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    flexShrink: 0,
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 700,
-                      fontSize: 15,
-                      color: "#ffffff",
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {getInitials(doc.nombre)}
-                  </span>
+                  {doc.foto ? (
+                    <img
+                      src={doc.foto}
+                      alt={doc.nombre}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                    />
+                  ) : (
+                    <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 15, color: "#ffffff" }}>
+                      {getInitials(doc.nombre)}
+                    </span>
+                  )}
                 </div>
                 <span
                   style={{

@@ -7,7 +7,7 @@ import PainTabSection from "@/components/PainTabSection";
 import PatientJourneySection from "@/components/PatientJourneySection";
 import AllianceSection from "@/components/AllianceSection";
 import AlgosLocationSection from "@/components/AlgosLocationSection";
-import TeamSection from "@/components/TeamSection";
+import HomeTeamSection from "@/components/HomeTeamSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
 import FinalCTA from "@/components/FinalCTA";
 import SEOHead from "@/components/SEOHead";
@@ -47,7 +47,7 @@ export default function Index() {
       <PatientJourneySection />
       <HomeFAQSection />
       <AllianceSection />
-      <TeamSection />
+      <HomeTeamSection />
       <AlgosLocationSection />
       <FinalCTA />
       <HomeFooter />
