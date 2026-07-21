@@ -6,15 +6,20 @@ export default function AdminForgotPassword() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [resendLoading, setResendLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
+  async function sendResetEmail() {
+    const isResend = status === "sent";
+    if (isResend) setResendLoading(true);
+    else setStatus("loading");
     setErrorMsg(null);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/admin/reset-password`,
     });
+
+    if (isResend) setResendLoading(false);
+    else setStatus("idle");
 
     if (error) {
       setErrorMsg("No se pudo enviar el correo. Intenta de nuevo.");
@@ -23,6 +28,11 @@ export default function AdminForgotPassword() {
     }
 
     setStatus("sent");
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    await sendResetEmail();
   }
 
   return (
@@ -41,6 +51,14 @@ export default function AdminForgotPassword() {
               Si el correo está registrado, recibirás un enlace para restablecer tu contraseña.
               Revisa tu bandeja de entrada y la carpeta de spam.
             </p>
+            <button
+              type="button"
+              onClick={sendResetEmail}
+              disabled={resendLoading}
+              className="w-full border border-[#c69636]/60 text-[#c69636] hover:bg-[#c69636]/10 disabled:opacity-50 font-bold text-xs tracking-[0.15em] uppercase py-3 transition-colors"
+            >
+              {resendLoading ? "Reenviando…" : "Reenviar email"}
+            </button>
             <Link
               to="/admin/login"
               className="inline-block text-[#c69636] text-sm tracking-wider uppercase hover:underline"

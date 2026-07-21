@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
 export default function AdminResetPassword() {
@@ -9,16 +9,20 @@ export default function AdminResetPassword() {
   const [ready, setReady] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+  const [resendStatus, setResendStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
 
   useEffect(() => {
     // Supabase auto-processes the recovery token in the URL hash and fires
     // a PASSWORD_RECOVERY event. We wait for a session before enabling the form.
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "PASSWORD_RECOVERY" || session) setReady(true);
+      if (session?.user?.email) setEmail(session.user.email);
     });
 
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) setReady(true);
+      if (data.session?.user?.email) setEmail(data.session.user.email);
     });
 
     return () => sub.subscription.unsubscribe();
@@ -48,6 +52,19 @@ export default function AdminResetPassword() {
 
     setStatus("done");
     setTimeout(() => navigate("/admin/conversiones", { replace: true }), 1500);
+  }
+
+  async function handleResend() {
+    if (!email) return;
+    setResendStatus("loading");
+    const { error: resendError } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/admin/reset-password`,
+    });
+    if (resendError) {
+      setResendStatus("error");
+      return;
+    }
+    setResendStatus("sent");
   }
 
   return (
@@ -107,6 +124,34 @@ export default function AdminResetPassword() {
             >
               {status === "loading" ? "Guardando…" : "Guardar contraseña"}
             </button>
+
+            {email ? (
+              <div className="text-center pt-2">
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={resendStatus === "loading"}
+                  className="text-[#f5f0e8]/60 text-xs tracking-wider uppercase hover:text-[#f5f0e8] disabled:opacity-50 transition-colors"
+                >
+                  {resendStatus === "loading"
+                    ? "Reenviando…"
+                    : resendStatus === "sent"
+                      ? "Email reenviado"
+                      : resendStatus === "error"
+                        ? "Error al reenviar"
+                        : "¿No recibiste el email? Reenviar"}
+                </button>
+              </div>
+            ) : (
+              <div className="text-center pt-2">
+                <Link
+                  to="/admin/forgot-password"
+                  className="text-[#f5f0e8]/60 text-xs tracking-wider uppercase hover:text-[#f5f0e8] transition-colors"
+                >
+                  ¿No recibiste el email? Solicitar nuevo enlace
+                </Link>
+              </div>
+            )}
           </form>
         )}
       </div>
