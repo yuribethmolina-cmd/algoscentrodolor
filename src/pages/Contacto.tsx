@@ -56,7 +56,6 @@ const INFO_CARDS = [
 const CDN_TOMO_PIC = { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } };
 const CDN_ECO_PIC = { sources: {}, img: { src: ecografiaRealAsset.url, w: 0, h: 0 } };
 const IMG_TOMO = { pic: CDN_TOMO_PIC, lqip: undefined, full: tomografiaRealAsset.url };
-const IMG_MAMO = { pic: uduzScannerPic, lqip: uduzScannerLqip, full: uduzScannerFull };
 const IMG_XRAY = { pic: examsXrayPic, lqip: examsXrayLqip, full: examsXrayFull };
 const IMG_ECO  = { pic: CDN_ECO_PIC, lqip: undefined, full: ecografiaRealAsset.url };
 const IMG_MAMO = { pic: mamografiaPic, lqip: mamografiaLqip, full: mamografiaFull };
