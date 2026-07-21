@@ -5,7 +5,6 @@ import { DOCTORS } from "@/data/doctors";
 
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
-const BRAND_TEAL = "#3d8b96";
 const GOLD = "#c69636";
 
 const doctores = DOCTORS.map((d) => ({
@@ -20,7 +19,6 @@ const doctores = DOCTORS.map((d) => ({
 export default function TeamSection() {
   const { ref: headerRef, inView: headerIn } = useInViewOnce<HTMLDivElement>(0.12);
   const { ref: gridRef, inView: gridIn } = useInViewOnce<HTMLDivElement>(0.08);
-  const { ref: quoteRef, inView: quoteIn } = useInViewOnce<HTMLDivElement>(0.15);
 
   return (
     <section
