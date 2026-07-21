@@ -8,7 +8,8 @@ export default function AdminForgotPassword() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   async function sendResetEmail() {
-    setStatus("loading");
+    const isResend = status === "sent";
+    if (!isResend) setStatus("loading");
     setErrorMsg(null);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
