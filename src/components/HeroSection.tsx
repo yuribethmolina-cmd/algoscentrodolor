@@ -73,6 +73,14 @@ export default function HeroSection() {
       </Helmet>
 
       {/* Full-bleed video background */}
+      {/* Fallback poster image: visible if the video source is slow or unavailable */}
+      <img
+        src={heroPoster.url}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center md:object-[center_65%]"
+        loading="eager"
+      />
       <video
         key={videoSrc ?? "poster-only"}
         ref={(el) => {
