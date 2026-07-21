@@ -45,6 +45,14 @@ export default function AdminForgotPassword() {
               Si el correo está registrado, recibirás un enlace para restablecer tu contraseña.
               Revisa tu bandeja de entrada y la carpeta de spam.
             </p>
+            <button
+              type="button"
+              onClick={sendResetEmail}
+              disabled={status === "loading"}
+              className="w-full border border-[#c69636]/60 text-[#c69636] hover:bg-[#c69636]/10 disabled:opacity-50 font-bold text-xs tracking-[0.15em] uppercase py-3 transition-colors"
+            >
+              {status === "loading" ? "Reenviando…" : "Reenviar email"}
+            </button>
             <Link
               to="/admin/login"
               className="inline-block text-[#c69636] text-sm tracking-wider uppercase hover:underline"
