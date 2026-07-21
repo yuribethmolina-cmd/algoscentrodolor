@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
-import dolorEspalda from "@/assets/dolor-espalda-1.png";
+import dolorEspalda from "@/assets/dolor-espalda-1.webp";
 import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
 import condRodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
 import condNeuropatiaAsset from "@/assets/cond-neuropatia.jpg.asset.json";
