@@ -18,8 +18,10 @@ import {
 } from "lucide-react";
 
 import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
-import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
+import examsXrayPic from "@/assets/rayos-x-real.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import examsXrayLqip from "@/assets/rayos-x-real.webp?w=32&blur=6&format=webp&url";
+import emgPic from "@/assets/electromiografia.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import emgLqip from "@/assets/electromiografia.webp?w=32&blur=6&format=webp&url";
 import mamografiaPic from "@/assets/mamografia-3d.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import mamografiaLqip from "@/assets/mamografia-3d.webp?w=32&blur=6&format=webp&url";
 import laboratorioPic from "@/assets/laboratorio-clinico.webp?w=640;1024;1600&format=avif;webp&as=picture";
@@ -57,6 +59,7 @@ const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
     pic: { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } },
   },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
+  emg: { pic: emgPic, lqip: emgLqip },
   "mamografia-3d": { pic: mamografiaPic, lqip: mamografiaLqip },
   laboratorio: { pic: laboratorioPic, lqip: laboratorioLqip },
   electrocardiograma: { pic: electrocardiogramaPic, lqip: electrocardiogramaLqip },
