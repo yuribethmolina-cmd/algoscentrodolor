@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ALGOS } from "@/config/algos.config";
 
 const DEEP_TEAL = "#1a4a55";
@@ -89,8 +90,28 @@ const STEPS = [
 ];
 
 export default function PatientJourneySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       data-section="patient-journey"
       style={{ backgroundColor: CREAM, overflow: "hidden" }}
     >
@@ -99,7 +120,14 @@ export default function PatientJourneySection() {
         style={{ padding: "clamp(56px, 7vw, 96px) clamp(24px, 4vw, 64px)" }}
       >
         {/* Header row */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+        <div
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 600ms ease 0ms, transform 600ms cubic-bezier(0.16,1,0.3,1) 0ms",
+          }}
+        >
           <h2
             style={{
               fontFamily: "Inter, sans-serif",
@@ -147,7 +175,7 @@ export default function PatientJourneySection() {
 
         {/* Step cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {STEPS.map(({ number, title, body, icon }) => (
+          {STEPS.map(({ number, title, body, icon }, i) => (
             <div
               key={number}
               style={{
@@ -159,6 +187,9 @@ export default function PatientJourneySection() {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 minHeight: 240,
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(32px)",
+                transition: `opacity 550ms ease ${80 + i * 110}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${80 + i * 110}ms`,
               }}
             >
               {/* Gold accent bar — right edge */}
@@ -173,6 +204,9 @@ export default function PatientJourneySection() {
                   background: GOLD,
                   borderRadius: "2px 0 0 2px",
                   opacity: 0.7,
+                  transform: visible ? "scaleY(1)" : "scaleY(0)",
+                  transformOrigin: "top center",
+                  transition: `transform 500ms cubic-bezier(0.16,1,0.3,1) ${280 + i * 110}ms`,
                 }}
               />
 

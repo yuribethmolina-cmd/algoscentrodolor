@@ -39,24 +39,28 @@ const steps = [
     eyebrow: "DIAGNÓSTICO INTEGRADO",
     title: "Consulta en ALGOS",
     text: "El especialista evalúa tu caso y determina qué imagen necesitas, si es que la necesitas.",
+    benefit: "Sin derivaciones ni coordinaciones entre médicos.",
   },
   {
     number: "02",
     eyebrow: null,
     title: "Imagen el mismo día",
     text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio, en nuestra unidad de diagnóstico integrada.",
+    benefit: "Resultados en horas, no en días ni semanas.",
   },
   {
     number: "03",
     eyebrow: null,
     title: "El mismo equipo interpreta",
     text: "Los resultados los lee el médico que te evaluó. Con tu historia clínica completa. Sin intermediarios.",
+    benefit: "No tienes que repetir tu historia médica.",
   },
   {
     number: "04",
     eyebrow: null,
     title: "Tratamiento en ALGOS",
     text: "Se define el plan y se ejecuta. Todo en el mismo ecosistema clínico.",
+    benefit: "Un plan de dolor claro desde el primer día.",
   },
 ];
 
@@ -300,6 +304,38 @@ export default function AllianceSection() {
                 >
                   {step.text}
                 </p>
+
+                {/* Patient benefit callout */}
+                <div
+                  style={{
+                    marginTop: 4,
+                    paddingTop: 12,
+                    borderTop: `1px solid ${GOLD}30`,
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 8,
+                  }}
+                >
+                  <span
+                    aria-hidden="true"
+                    style={{ color: GOLD, fontSize: 13, lineHeight: 1.5, flexShrink: 0 }}
+                  >
+                    ✓
+                  </span>
+                  <p
+                    style={{
+                      fontFamily: "'Manrope', system-ui, sans-serif",
+                      fontStyle: "italic",
+                      fontSize: "clamp(13px, 1vw, 14px)",
+                      fontWeight: 500,
+                      color: `${GOLD}ee`,
+                      lineHeight: 1.5,
+                      margin: 0,
+                    }}
+                  >
+                    {step.benefit}
+                  </p>
+                </div>
               </div>
 
               {/* Connector (except after last step) */}
