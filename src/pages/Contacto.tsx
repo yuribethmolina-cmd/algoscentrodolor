@@ -123,7 +123,7 @@ const STUDY_TYPES = [
     ],
     preparation: "No usar desodorante, talco ni loción en axilas o mamas el día del estudio. Programar en la primera mitad del ciclo menstrual.",
     duration: "15 - 20 minutos",
-    image: IMG_TOMO,
+    image: IMG_MAMO,
   },
 ];
 
