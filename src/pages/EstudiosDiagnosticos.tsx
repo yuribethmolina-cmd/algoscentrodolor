@@ -41,11 +41,15 @@ const ICON_BY_SLUG: Record<string, LucideIcon> = {
   laboratorio: TestTube,
 };
 
-const IMAGE_BY_SLUG: Record<
-  string,
-  { pic: typeof uduzScannerPic; lqip: string }
-> = {
-  tomografia: { pic: uduzScannerPic, lqip: uduzScannerLqip },
+type Picture = {
+  sources: Record<string, string>;
+  img: { src: string; w: number; h: number };
+};
+
+const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
+  tomografia: {
+    pic: { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } },
+  },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
   "mamografia-3d": { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip },
 };
