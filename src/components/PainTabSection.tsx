@@ -11,12 +11,12 @@ const BRAND_TEAL = "#3d8b96";
 type Tab = "dolor" | "tratamos";
 
 const PAIN_ZONES = [
-  { label: "CABEZA Y CUELLO",   top: "13%", left: "54%" },
-  { label: "HOMBROS",           top: "27%", left: "20%" },
-  { label: "ESPALDA ALTA",      top: "38%", left: "74%" },
-  { label: "LUMBAR Y CIÁTICA",  top: "58%", left: "22%" },
-  { label: "CADERA Y SACRO",    top: "73%", left: "68%" },
-  { label: "DOLOR CRÓNICO",     top: "86%", left: "46%" },
+  { label: "CABEZA Y CUELLO",   top: "12%", left: "58%" },
+  { label: "HOMBROS",           top: "26%", left: "44%" },
+  { label: "ESPALDA ALTA",      top: "40%", left: "74%" },
+  { label: "LUMBAR Y CIÁTICA",  top: "58%", left: "52%" },
+  { label: "CADERA Y SACRO",    top: "74%", left: "70%" },
+  { label: "DOLOR CRÓNICO",     top: "87%", left: "48%" },
 ];
 
 const BENEFITS = [
