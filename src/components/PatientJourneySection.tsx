@@ -196,7 +196,7 @@ export default function PatientJourneySection() {
                     fontWeight: 400,
                     fontSize: 13,
                     lineHeight: 1.65,
-                    color: `${DEEP_TEAL}90`,
+                    color: DEEP_TEAL,
                     margin: 0,
                   }}
                 >

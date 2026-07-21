@@ -436,7 +436,7 @@ export default function PainTabSection() {
               fontWeight: 700,
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: `${DEEP_TEAL}50`,
+              color: DEEP_TEAL,
               marginBottom: 16,
             }}
           >
@@ -447,12 +447,14 @@ export default function PainTabSection() {
               <div
                 key={label}
                 style={{
+                  flex: "1 1 240px",
+                  minWidth: 0,
                   display: "flex",
                   alignItems: "center",
                   gap: 12,
                   padding: "12px 20px",
-                  border: `1px solid ${DEEP_TEAL}18`,
-                  background: "rgba(255,255,255,0.72)",
+                  border: `1px solid ${DEEP_TEAL}30`,
+                  background: "rgba(255,255,255,0.85)",
                   backdropFilter: "blur(4px)",
                   WebkitBackdropFilter: "blur(4px)",
                 }}
@@ -484,9 +486,9 @@ export default function PainTabSection() {
                   <p
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontWeight: 400,
+                      fontWeight: 500,
                       fontSize: 11,
-                      color: `${DEEP_TEAL}80`,
+                      color: DEEP_TEAL,
                       margin: "3px 0 0",
                       lineHeight: 1.3,
                     }}
