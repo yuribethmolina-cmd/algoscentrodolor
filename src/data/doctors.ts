@@ -4,6 +4,7 @@ import photoAntulio  from "@/assets/team/doctor-antulio.png";
 import photoTomas    from "@/assets/team/doctor-tomas.png";
 import photoLeslie   from "@/assets/team/doctor-leslie.png";
 import photoCarolina from "@/assets/team/doctor-carolina.png";
+import photoGilda    from "@/assets/team/doctor-gilda.png";
 
 import photoDaniel   from "@/assets/team/doctor-daniel.png";
 
@@ -142,11 +143,12 @@ export const DOCTORS: Doctor[] = [
   },
   {
     slug: "dra-gilda-gomez",
-    name: "Dra. Gilda Gómez",
-    specialty: "Algología",
+    name: "Dra. Gilda Gómez Neipp",
+    specialty: "Algología, anestesiología y cuidados paliativos",
     specialtySlug: "cuidados-paliativos",
     schedule: "Miércoles · 9:00 AM - 12:00 PM",
-    bio: "Algóloga con más de cuatro décadas en el Hospital Central 'Dr. Urquinaona' de Maracaibo, donde fundó el Servicio de Terapia del Dolor. En ALGOS integra protocolos de algología y cuidados paliativos para pacientes con dolor crónico complejo.",
+    photoSrc: photoGilda,
+    bio: "Anestesióloga y especialista en Terapia del Dolor con más de cuatro décadas en el Hospital Central 'Dr. Urquinaona' de Maracaibo, donde fundó el Servicio de Terapia del Dolor. En ALGOS integra protocolos de algología, manejo del dolor postoperatorio y cuidados paliativos para pacientes con dolor crónico complejo.",
     credentials: [
       "Médico Anestesióloga · Especialista en Terapia del Dolor",
       "Fundadora y Jefa de Terapia del Dolor · Hospital Central 'Dr. Urquinaona', Maracaibo",
