@@ -117,6 +117,8 @@ export default function AnimatedRoutes() {
 
           {/* Internal admin (unlisted) */}
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
+          <Route path="/admin/reset-password" element={<AdminResetPassword />} />
           <Route
             path="/admin/conversiones"
             element={<AdminRoute>{wrap(ConversionesDashboard)}</AdminRoute>}
