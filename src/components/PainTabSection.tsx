@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
 import dolorEspalda from "@/assets/dolor-espalda-1.png";
-import aboutProcedure from "@/assets/about-procedure.jpg";
+import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
+const aboutProcedure = procedimientoFluoroscopiaAsset.url;
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
