@@ -7,7 +7,23 @@ const TEAL = "#3d8b96";
 
 const SEDES = [
   {
-    nombre: "Sede Av. Sabaneta",
+    nombre: "Sede Sector Paraíso",
+    direccion: "Av. 20 con Calle 65, N° 65-02",
+    detalle: "C.C. América, Local 4 · Sector Paraíso · Maracaibo 4005, Edo. Zulia",
+    telefonos: [
+      { label: "0414-680 7886", href: "tel:+584146807886" },
+      { label: "0412-061 7410", href: "tel:+584120617410" },
+    ],
+    servicios: [
+      "Consulta médica",
+      "Dolor intervencionista",
+      "Electromiografía (EMG)",
+      "Electroencefalograma (EEG)",
+    ],
+    maps: "https://maps.google.com/?q=ALGOS+Centro+de+Dolor+Intervencionista,CC+America,Av+20+con+Calle+65,Sector+Paraiso,Maracaibo,Venezuela",
+  },
+  {
+    nombre: "Sede Torre RAB",
     direccion: "Av. Sabaneta, Urbanización Urdaneta",
     detalle: "Torre de consultorios RAB · Detrás de la Clínica Zulia · Piso 1, Consultorio 3 · Maracaibo, Edo. Zulia",
     telefonos: [
@@ -21,30 +37,6 @@ const SEDES = [
       "Atención por cita previa",
     ],
     maps: "https://maps.google.com/?q=Torre+consultorios+RAB,Urbanizacion+Urdaneta,Av+Sabaneta,Maracaibo,Zulia",
-  },
-  {
-    nombre: "Sede Zona Sur",
-    direccion: "Maracaibo, Zulia",
-    detalle: "Dirección exacta próximamente.",
-    servicios: [
-      "Consulta médica",
-      "Tomografía",
-      "Rayos X",
-      "Procedimientos guiados por imagen",
-    ],
-    maps: "https://maps.google.com/?q=Maracaibo+Zona+Sur",
-  },
-  {
-    nombre: "Sede Castillo Plaza",
-    direccion: "Castillo Plaza, Maracaibo, Zulia",
-    detalle: "Dirección exacta próximamente.",
-    servicios: [
-      "Consulta médica",
-      "Estudios cardiológicos",
-      "Neurofisiología (EEG · EMG)",
-      "Laboratorio",
-    ],
-    maps: "https://maps.google.com/?q=Castillo+Plaza+Maracaibo",
   },
 ];
 
@@ -89,7 +81,7 @@ export default function SedesSection() {
             maxWidth: 640,
           }}
         >
-          Tres sedes en Maracaibo.
+          Dos sedes en Maracaibo.
         </h2>
 
         <div
