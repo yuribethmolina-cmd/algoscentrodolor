@@ -439,21 +439,18 @@ export default function AllianceSection() {
             overflow: "hidden",
           }}
         >
-          {/* UDUZ facade image, lazy-loaded, decoded async, low priority.
-              Uses <img> instead of CSS background so the browser can defer
-              the request until the card is close to the viewport. The single
-              WebP (~33KB from CDN) is reused in two positions via srcset
-              sizes; the browser only fetches it once. */}
-          <img
-            src={uduzFacade.url}
-            alt=""
+          {/* UDUZ ambient video background — muted autoplay loop, poster
+              falls back to the facade image for fast first paint. */}
+          <video
+            src={uduzBanner.url}
+            poster={uduzFacade.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
             aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            // @ts-expect-error, fetchpriority is a valid HTML attribute
-            fetchpriority="low"
             className="block md:hidden pointer-events-none select-none"
-            sizes="(max-width: 767px) 100vw, 0px"
             style={{
               position: "absolute",
               top: 0,
@@ -466,19 +463,19 @@ export default function AllianceSection() {
                 "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
               maskImage:
                 "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 65%, transparent 100%)",
-              opacity: 0.28,
+              opacity: 0.35,
             }}
           />
-          <img
-            src={uduzFacade.url}
-            alt=""
+          <video
+            src={uduzBanner.url}
+            poster={uduzFacade.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
             aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            // @ts-expect-error, fetchpriority is a valid HTML attribute
-            fetchpriority="low"
             className="hidden md:block pointer-events-none select-none"
-            sizes="(min-width: 768px) 38vw, 0px"
             style={{
               position: "absolute",
               top: 0,
@@ -491,7 +488,7 @@ export default function AllianceSection() {
                 "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
               maskImage:
                 "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)",
-              opacity: 0.5,
+              opacity: 0.55,
             }}
           />
           <span
