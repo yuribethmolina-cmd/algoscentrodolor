@@ -54,6 +54,19 @@ export default function AdminResetPassword() {
     setTimeout(() => navigate("/admin/conversiones", { replace: true }), 1500);
   }
 
+  async function handleResend() {
+    if (!email) return;
+    setResendStatus("loading");
+    const { error: resendError } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/admin/reset-password`,
+    });
+    if (resendError) {
+      setResendStatus("error");
+      return;
+    }
+    setResendStatus("sent");
+  }
+
   return (
     <div className="min-h-screen bg-[#1a4a55] flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
