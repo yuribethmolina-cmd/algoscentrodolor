@@ -5,6 +5,7 @@ import { DOCTORS } from "@/data/doctors";
 
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
+const BRAND_TEAL = "#3d8b96";
 const GOLD = "#c69636";
 
 const doctores = DOCTORS.map((d) => ({
