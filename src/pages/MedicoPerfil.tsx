@@ -91,6 +91,17 @@ export default function MedicoPerfil() {
                     }}
                     sizes="280px"
                   />
+                ) : doctor.photoSrc ? (
+                  <img
+                    src={doctor.photoSrc}
+                    alt={doctor.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: doctor.photoPosition ?? "center top",
+                    }}
+                  />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center gap-4 text-center px-6">
                     <div

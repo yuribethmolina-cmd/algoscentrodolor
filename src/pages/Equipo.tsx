@@ -93,6 +93,14 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
             style={{ objectPosition: d.photoPosition ?? "center top" }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
           />
+        ) : d.photoSrc ? (
+          <img
+            src={d.photoSrc}
+            alt={d.name}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
+            style={{ objectPosition: d.photoPosition ?? "center top" }}
+          />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6">
             <div className="w-20 h-20 rounded-full bg-[#1a4a55]/[0.06] flex items-center justify-center border border-dashed border-[#1a4a55]/25">
