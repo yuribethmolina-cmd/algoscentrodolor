@@ -49,6 +49,7 @@ export default function Index() {
       <HomeFAQSection />
       <AllianceSection />
       <HomeTeamSection />
+      <SedesSection />
       <AlgosLocationSection />
       <FinalCTA />
       <HomeFooter />
