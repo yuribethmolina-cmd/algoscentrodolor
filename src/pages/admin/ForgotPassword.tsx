@@ -6,15 +6,20 @@ export default function AdminForgotPassword() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [resendLoading, setResendLoading] = useState(false);
 
   async function sendResetEmail() {
     const isResend = status === "sent";
-    if (!isResend) setStatus("loading");
+    if (isResend) setResendLoading(true);
+    else setStatus("loading");
     setErrorMsg(null);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/admin/reset-password`,
     });
+
+    if (isResend) setResendLoading(false);
+    else setStatus("idle");
 
     if (error) {
       setErrorMsg("No se pudo enviar el correo. Intenta de nuevo.");
@@ -49,10 +54,10 @@ export default function AdminForgotPassword() {
             <button
               type="button"
               onClick={sendResetEmail}
-              disabled={status === "loading"}
+              disabled={resendLoading}
               className="w-full border border-[#c69636]/60 text-[#c69636] hover:bg-[#c69636]/10 disabled:opacity-50 font-bold text-xs tracking-[0.15em] uppercase py-3 transition-colors"
             >
-              {status === "loading" ? "Reenviando…" : "Reenviar email"}
+              {resendLoading ? "Reenviando…" : "Reenviar email"}
             </button>
             <Link
               to="/admin/login"
