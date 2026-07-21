@@ -10,10 +10,10 @@ export type Diagnostic = {
 };
 
 export const DIAGNOSTIC_GROUPS = {
-  imagen: { label: "Imagen", description: "Estudios de imagen para el diagnóstico del dolor." },
-  cardiologia: { label: "Cardiología", description: "Estudios cardiológicos ambulatorios." },
-  neurofisiologia: { label: "Neurofisiología", description: "Estudios de nervios y actividad cerebral." },
-  laboratorio: { label: "Laboratorio", description: "Análisis clínicos, en sede o a domicilio." },
+  imagen: { label: "Imagen", description: "Estudios de imagen para el diagnóstico del dolor.", provider: "uduz" as const },
+  cardiologia: { label: "Cardiología", description: "Estudios cardiológicos ambulatorios.", provider: "uduz" as const },
+  neurofisiologia: { label: "Neurofisiología", description: "Estudios de nervios y actividad cerebral.", provider: "algos" as const },
+  laboratorio: { label: "Laboratorio", description: "Análisis clínicos, en sede o a domicilio.", provider: "uduz" as const },
 } as const;
 
 export const DIAGNOSTICS: Diagnostic[] = [
@@ -35,16 +35,6 @@ export const DIAGNOSTICS: Diagnostic[] = [
     paraque: "Útil para evaluar fracturas, columna, tórax y control post-procedimiento.",
     comose: "El estudio es rápido e indoloro. También disponible como servicio a domicilio.",
     disponibilidad: "Sede Zona Sur, Castillo Plaza y a domicilio",
-    grupo: "imagen",
-  },
-  {
-    slug: "mamografia-3d",
-    name: "Mamografía 3D",
-    short: "Estudio mamográfico de última generación.",
-    quees: "Estudio de imagen mamaria tridimensional con mayor detalle que la mamografía convencional.",
-    paraque: "Tamizaje y evaluación diagnóstica de patología mamaria.",
-    comose: "El estudio dura pocos minutos. La compresión es menor que en equipos convencionales.",
-    disponibilidad: "Cita previa",
     grupo: "imagen",
   },
   {
@@ -74,7 +64,7 @@ export const DIAGNOSTICS: Diagnostic[] = [
     quees: "Estudio que registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo.",
     paraque: "Indicado en episodios convulsivos, alteraciones de conciencia y evaluación neurológica.",
     comose: "Se colocan electrodos con gel conductor. El estudio es indoloro y dura entre 30 y 45 minutos.",
-    disponibilidad: "Miércoles por la tarde · Cita previa",
+    disponibilidad: "En ALGOS · Miércoles por la tarde · Cita previa",
     grupo: "neurofisiologia",
   },
   {
@@ -84,7 +74,7 @@ export const DIAGNOSTICS: Diagnostic[] = [
     quees: "Estudio que mide cómo viajan las señales por los nervios y cómo responden los músculos.",
     paraque: "Indicado cuando el dolor viene con hormigueo o debilidad. Detecta si un nervio está comprimido, irritado o dañado, y en qué punto.",
     comose: "Se usan pequeños estímulos eléctricos y, en algunos casos, una aguja fina. Es un estudio breve.",
-    disponibilidad: "Miércoles por la tarde · Cita previa",
+    disponibilidad: "En ALGOS · Miércoles por la tarde · Dra. Carolina Rodríguez",
     grupo: "neurofisiologia",
   },
   {
