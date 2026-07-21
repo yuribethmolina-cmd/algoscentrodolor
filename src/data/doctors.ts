@@ -4,6 +4,7 @@ import photoAntulio  from "@/assets/team/doctor-antulio.png";
 import photoTomas    from "@/assets/team/doctor-tomas.png";
 import photoLeslie   from "@/assets/team/doctor-leslie.png";
 import photoCarolina from "@/assets/team/doctor-carolina.png";
+import photoGilda    from "@/assets/team/doctor-gilda.png";
 
 import photoDaniel   from "@/assets/team/doctor-daniel.png";
 
