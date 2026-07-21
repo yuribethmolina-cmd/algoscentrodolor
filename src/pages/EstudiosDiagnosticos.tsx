@@ -26,6 +26,8 @@ import laboratorioPic from "@/assets/laboratorio-clinico.webp?w=640;1024;1600&fo
 import laboratorioLqip from "@/assets/laboratorio-clinico.webp?w=32&blur=6&format=webp&url";
 import electrocardiogramaPic from "@/assets/electrocardiograma.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import electrocardiogramaLqip from "@/assets/electrocardiograma.webp?w=32&blur=6&format=webp&url";
+import eegPic from "@/assets/electroencefalograma.webp?w=640;1024;1600&format=avif;webp&as=picture";
+import eegLqip from "@/assets/electroencefalograma.webp?w=32&blur=6&format=webp&url";
 
 const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
   "neurofisiologia",
@@ -58,6 +60,7 @@ const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
   "mamografia-3d": { pic: mamografiaPic, lqip: mamografiaLqip },
   laboratorio: { pic: laboratorioPic, lqip: laboratorioLqip },
   electrocardiograma: { pic: electrocardiogramaPic, lqip: electrocardiogramaLqip },
+  eeg: { pic: eegPic, lqip: eegLqip },
 };
 
 function toStudyItem(d: (typeof DIAGNOSTICS)[number]): StudyItem {
