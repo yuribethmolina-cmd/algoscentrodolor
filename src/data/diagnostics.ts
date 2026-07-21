@@ -38,6 +38,16 @@ export const DIAGNOSTICS: Diagnostic[] = [
     grupo: "imagen",
   },
   {
+    slug: "mamografia-3d",
+    name: "Mamografía 3D",
+    short: "Estudio mamográfico de última generación.",
+    quees: "Estudio de imagen mamaria tridimensional con mayor detalle que la mamografía convencional.",
+    paraque: "Tamizaje y evaluación diagnóstica de patología mamaria.",
+    comose: "El estudio dura pocos minutos. La compresión es menor que en la mamografía convencional.",
+    disponibilidad: "Próximamente · En habilitación",
+    grupo: "imagen",
+  },
+  {
     slug: "electrocardiograma",
     name: "Electrocardiograma (ECG)",
     short: "Registro eléctrico del corazón en reposo.",

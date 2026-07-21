@@ -13,6 +13,7 @@ import {
   Zap,
   TestTube,
   MapPin,
+  Baby,
   type LucideIcon,
 } from "lucide-react";
 
@@ -20,6 +21,8 @@ import uduzScannerPic from "@/assets/uduz-scanner.jpg?w=640;1024;1600&format=avi
 import uduzScannerLqip from "@/assets/uduz-scanner.jpg?w=32&blur=6&format=webp&url";
 import examsXrayPic from "@/assets/exams-xray.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import examsXrayLqip from "@/assets/exams-xray.jpg?w=32&blur=6&format=webp&url";
+import examsUltrasoundPic from "@/assets/exams-ultrasound.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import examsUltrasoundLqip from "@/assets/exams-ultrasound.jpg?w=32&blur=6&format=webp&url";
 
 const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
   "neurofisiologia",
@@ -31,6 +34,7 @@ const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
 const ICON_BY_SLUG: Record<string, LucideIcon> = {
   tomografia: Brain,
   "rayos-x": Bone,
+  "mamografia-3d": Baby,
   electrocardiograma: HeartPulse,
   holter: Activity,
   eeg: Waves,
@@ -44,6 +48,7 @@ const IMAGE_BY_SLUG: Record<
 > = {
   tomografia: { pic: uduzScannerPic, lqip: uduzScannerLqip },
   "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
+  "mamografia-3d": { pic: examsUltrasoundPic, lqip: examsUltrasoundLqip },
 };
 
 function toStudyItem(d: (typeof DIAGNOSTICS)[number]): StudyItem {
