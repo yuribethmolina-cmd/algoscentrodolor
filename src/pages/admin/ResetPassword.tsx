@@ -118,14 +118,24 @@ export default function AdminResetPassword() {
               <label className="block text-[#f5f0e8]/70 text-xs tracking-wider uppercase mb-1.5">
                 Confirmar contraseña
               </label>
-              <input
-                type="password"
-                required
-                value={confirm}
-                onChange={(e) => setConfirm(e.target.value)}
-                className="w-full bg-white/10 border border-white/20 text-[#f5f0e8] placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#c69636] transition-colors"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  type={showConfirm ? "text" : "password"}
+                  required
+                  value={confirm}
+                  onChange={(e) => setConfirm(e.target.value)}
+                  className="w-full bg-white/10 border border-white/20 text-[#f5f0e8] placeholder-white/30 px-4 py-3 pr-11 text-sm focus:outline-none focus:border-[#c69636] transition-colors"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirm((s) => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#f5f0e8]/60 hover:text-[#f5f0e8] transition-colors"
+                  aria-label={showConfirm ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  {showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
 
             {error && <p className="text-red-300 text-sm">{error}</p>}
