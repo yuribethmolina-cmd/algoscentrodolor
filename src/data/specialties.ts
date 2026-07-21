@@ -40,6 +40,7 @@ export const SPECIALTIES: Specialty[] = [
     evalua: "Artritis reumatoide, fibromialgia, espondiloartritis, gota.",
     trata: "Manejo farmacológico y coordinación con procedimientos intervencionistas.",
     acompana: "Control periódico y ajuste de terapia según evolución.",
+    aspirational: true,
   },
   {
     slug: "fisiatria",
