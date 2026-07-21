@@ -142,7 +142,7 @@ export const DOCTORS: Doctor[] = [
   },
   {
     slug: "dra-gilda-gomez",
-    name: "Dra. Gilda Gómez Neipp",
+    name: "Dra. Gilda Gómez",
     specialty: "Algología",
     specialtySlug: "cuidados-paliativos",
     schedule: "Miércoles · 9:00 AM - 12:00 PM",
