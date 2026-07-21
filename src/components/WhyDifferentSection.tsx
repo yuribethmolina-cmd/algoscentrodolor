@@ -1,62 +1,72 @@
-import { Search, Target, HeartHandshake } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ALGOS } from "@/config/algos.config";
+import aboutProcedure from "@/assets/about-procedure.jpg";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
+const BRAND_TEAL = "#3d8b96";
 
-const pilares = [
-  {
-    icon: Search,
-    titulo: "Buscamos el origen",
-    texto:
-      "No tratamos síntomas. Identificamos exactamente qué estructura genera su dolor antes de intervenir.",
-  },
-  {
-    icon: Target,
-    titulo: "Intervenimos con precisión",
-    texto:
-      "Procedimientos guiados por imagen, mínimamente invasivos. Actuamos en el punto exacto del problema — no a ciegas, sin cirugía abierta.",
-  },
-  {
-    icon: HeartHandshake,
-    titulo: "Lo acompañamos en el tiempo",
-    texto:
-      "El dolor crónico no desaparece en una sesión. Diseñamos un plan y lo seguimos con usted hasta el resultado.",
-  },
+type Annotation = {
+  label: string;
+  top: string;
+  left: string;
+};
+
+const ANNOTATIONS: Annotation[] = [
+  { label: "Sin hospitalización",  top: "18%", left: "70%" },
+  { label: "Guiado por imagen",    top: "35%", left: "22%" },
+  { label: "Sin cirugía abierta",  top: "52%", left: "62%" },
+  { label: "Recuperación en 24h",  top: "67%", left: "78%" },
+  { label: "Diagnóstico preciso",  top: "80%", left: "30%" },
 ];
 
 export default function WhyDifferentSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       data-section="why-different"
-      style={{
-        backgroundColor: CREAM,
-        paddingTop: "clamp(80px, 10vw, 128px)",
-        paddingBottom: "clamp(80px, 10vw, 128px)",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      style={{ backgroundColor: CREAM, overflow: "hidden" }}
     >
       <div
-        className="mx-auto"
-        style={{
-          maxWidth: 1080,
-          paddingLeft: "clamp(24px, 4vw, 48px)",
-          paddingRight: "clamp(24px, 4vw, 48px)",
-          position: "relative",
-          zIndex: 1,
-        }}
+        className="mx-auto max-w-7xl flex flex-col md:flex-row"
+        style={{ minHeight: "clamp(480px, 58vw, 680px)" }}
       >
-        {/* Header */}
-        <div style={{ marginBottom: "clamp(48px, 6vw, 72px)" }}>
+        {/* LEFT: text column */}
+        <div
+          className="flex flex-col justify-center order-2 md:order-1"
+          style={{
+            flex: "0 0 38%",
+            padding: "clamp(48px, 7vw, 88px) clamp(24px, 4vw, 56px)",
+          }}
+        >
           <p
             style={{
               fontFamily: "Inter, sans-serif",
               fontSize: 11,
               fontWeight: 700,
-              letterSpacing: "0.28em",
+              letterSpacing: "0.3em",
               textTransform: "uppercase",
-              color: DEEP_TEAL,
+              color: BRAND_TEAL,
               marginBottom: 20,
             }}
           >
@@ -64,145 +74,140 @@ export default function WhyDifferentSection() {
           </p>
           <h2
             style={{
-              fontFamily: "'Sora', serif",
-              fontWeight: 600,
-              fontSize: "clamp(32px, 4.2vw, 56px)",
-              lineHeight: 1.15,
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 3.2vw, 48px)",
+              lineHeight: 1.14,
               color: DEEP_TEAL,
+              letterSpacing: "-0.022em",
               marginBottom: 20,
             }}
           >
-            El dolor crónico se maneja. No se abandona.
+            El dolor crónico se maneja.{" "}
+            <em style={{ color: GOLD, fontStyle: "italic" }}>No se abandona.</em>
           </h2>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(14px, 1.15vw, 16px)",
+              lineHeight: 1.74,
+              color: `${DEEP_TEAL}bb`,
+              marginBottom: 36,
+            }}
+          >
+            En ALGOS identificamos el origen exacto de su dolor e intervenimos
+            con precisión guiada por imagen — sin cirugía abierta, sin
+            hospitalización, con seguimiento hasta el resultado.
+          </p>
+          <a
+            href={ALGOS.contact.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 self-start font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_10px_24px_-8px_rgba(61,139,150,0.45)]"
+            style={{
+              fontSize: 12,
+              letterSpacing: "0.22em",
+              background: BRAND_TEAL,
+              color: CREAM,
+              padding: "13px 26px",
+              textDecoration: "none",
+            }}
+          >
+            AGENDE SU CONSULTA
+            <span
+              className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-4 group-hover:w-8"
+              aria-hidden="true"
+            >
+              <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
+            </span>
+          </a>
         </div>
 
-        {/* Cards, 3 columns on desktop, 1 on mobile */}
+        {/* RIGHT: annotated image */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3"
-          style={{ gap: "clamp(14px, 2vw, 22px)" }}
+          className="relative flex-1 overflow-hidden order-1 md:order-2"
+          style={{ minHeight: "clamp(300px, 45vw, 680px)" }}
         >
-          {pilares.map((p, i) => (
+          <img
+            src={aboutProcedure}
+            alt="Procedimiento intervencionista guiado por imagen en ALGOS"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+
+          {/* Left-edge blend into text column */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(to right, ${CREAM}40 0%, transparent 16%)`,
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Floating benefit labels */}
+          {ANNOTATIONS.map((ann, i) => (
             <div
-              key={p.titulo}
-              className="group relative overflow-hidden"
+              key={ann.label}
               style={{
-                padding: "clamp(28px, 3vw, 40px)",
-                background:
-                  "linear-gradient(155deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.55) 100%)",
-                backdropFilter: "blur(14px) saturate(140%)",
-                WebkitBackdropFilter: "blur(14px) saturate(140%)",
-                border: "1px solid rgba(255,255,255,0.6)",
-                borderRadius: 0,
-                boxShadow:
-                  "0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 40px -24px rgba(26,74,85,0.28), 0 2px 6px rgba(26,74,85,0.06)",
-                transition:
-                  "transform 500ms cubic-bezier(0.22,1,0.36,1), box-shadow 500ms ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow =
-                  "0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 60px -28px rgba(26,74,85,0.4), 0 4px 10px rgba(26,74,85,0.08)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 40px -24px rgba(26,74,85,0.28), 0 2px 6px rgba(26,74,85,0.06)";
+                position: "absolute",
+                top: ann.top,
+                left: ann.left,
+                transform: visible
+                  ? "translate(-50%, -50%)"
+                  : "translate(-50%, calc(-50% + 8px))",
+                opacity: visible ? 1 : 0,
+                transition: `opacity 450ms ease ${i * 280}ms, transform 500ms cubic-bezier(0.16,1,0.3,1) ${i * 280}ms`,
+                display: "flex",
+                alignItems: "center",
+                gap: 7,
+                zIndex: 10,
+                pointerEvents: "none",
               }}
             >
-              {/* Ambient corner glow */}
-              <span
-                aria-hidden="true"
+              {/* anchor dot */}
+              <div
                 style={{
-                  position: "absolute",
-                  top: -60,
-                  right: -60,
-                  width: 180,
-                  height: 180,
+                  width: 10,
+                  height: 10,
                   borderRadius: "50%",
-                  background: `radial-gradient(circle, ${GOLD}22 0%, transparent 70%)`,
-                  filter: "blur(20px)",
-                  pointerEvents: "none",
+                  background: BRAND_TEAL,
+                  border: "2px solid white",
+                  boxShadow: `0 0 0 3px ${BRAND_TEAL}40`,
+                  flexShrink: 0,
                 }}
               />
-              {/* Numeral */}
-              <p
+              {/* pill label */}
+              <div
                 style={{
-                  fontFamily: "'Sora', serif",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  letterSpacing: "0.28em",
-                  color: DEEP_TEAL,
-                  margin: "0 0 18px",
-                  position: "relative",
-                }}
-              >
-                0{i + 1}
-              </p>
-              <p.icon
-                style={{ width: 36, height: 36, color: GOLD, marginBottom: 22 }}
-                strokeWidth={1.25}
-              />
-              <h3
-                style={{
-                  fontFamily: "'Sora', serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(17px, 1.5vw, 20px)",
-                  lineHeight: 1.3,
-                  color: DEEP_TEAL,
-                  marginBottom: 12,
-                  position: "relative",
-                }}
-              >
-                {p.titulo}
-              </h3>
-              <p
-                style={{
+                  background: "rgba(255,255,255,0.93)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                  borderRadius: 2,
+                  padding: "6px 12px",
                   fontFamily: "Inter, sans-serif",
-                  fontSize: "clamp(13px, 1.1vw, 15px)",
-                  lineHeight: 1.7,
-                  color: "rgba(26,74,85,0.78)",
-                  margin: 0,
-                  position: "relative",
+                  fontWeight: 700,
+                  fontSize: 11,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: DEEP_TEAL,
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 2px 12px rgba(26,74,85,0.18)",
                 }}
               >
-                {p.texto}
-              </p>
+                {ann.label}
+              </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Ambient background glows */}
-      <span
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "-8%",
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: `radial-gradient(circle, ${GOLD}18 0%, transparent 70%)`,
-          filter: "blur(60px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      <span
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "5%",
-          right: "-6%",
-          width: 380,
-          height: 380,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(61,139,150,0.15) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
     </section>
   );
 }

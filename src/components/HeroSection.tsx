@@ -8,7 +8,6 @@ import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
 
 const HERO_VIDEO_SRC = heroVideo.url;
 
-// Decide whether to load the video based on connection/motion preferences.
 function pickVideoSrc(): string | null {
   if (typeof window === "undefined") return null;
 
@@ -33,13 +32,11 @@ export default function HeroSection() {
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    // Defer the decision to after first paint so the poster shows instantly.
     const node = sectionRef.current;
     if (!node) return;
 
     const load = () => setVideoSrc(pickVideoSrc());
 
-    // Only fetch the video when the hero is actually visible.
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
         (entries) => {
@@ -62,20 +59,20 @@ export default function HeroSection() {
       ref={sectionRef}
       id="hero"
       data-section="hero"
-      className="relative w-full overflow-hidden bg-cream"
-      style={{ height: "min(88dvh, 820px)", minHeight: "560px" }}
+      className="relative w-full overflow-hidden"
+      style={{ height: "100dvh" }}
     >
-      {/* Preload the LCP image (hero video poster) with high priority. */}
       <Helmet>
         <link
           rel="preload"
           as="image"
           href={heroPoster.url}
-          // @ts-ignore, valid HTML attribute, React types lag
+          // @ts-ignore
           fetchpriority="high"
         />
       </Helmet>
-      {/* Full-bleed video background, poster shows instantly, sources lazy-load */}
+
+      {/* Full-bleed video background */}
       <video
         key={videoSrc ?? "poster-only"}
         ref={(el) => {
@@ -86,7 +83,7 @@ export default function HeroSection() {
             if (p && typeof p.catch === "function") p.catch(() => {});
           }
         }}
-        className="hero-bg-video absolute inset-0 w-full h-full object-cover object-center scale-100 md:origin-center md:object-[center_65%]"
+        className="absolute inset-0 w-full h-full object-cover object-center md:object-[center_65%]"
         poster={heroPoster.url}
         width={1920}
         height={1080}
@@ -94,7 +91,7 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        // @ts-ignore, iOS Safari hint
+        // @ts-ignore
         webkit-playsinline="true"
         x5-playsinline="true"
         disableRemotePlayback
@@ -109,46 +106,46 @@ export default function HeroSection() {
         )}
       </video>
 
-      {/* Cream overlay, left to right */}
+      {/* Dark teal overlay — reveals the video, keeps text legible */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#f5f0e8]/95 via-[#f5f0e8]/90 to-[#f5f0e8]/82 md:bg-gradient-to-r md:from-[#f5f0e8]/95 md:via-[#f5f0e8]/70 md:to-[#f5f0e8]/20"
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#1a4a55]/60 via-[#1a4a55]/45 to-[#1a4a55]/65 md:bg-gradient-to-r md:from-[#1a4a55]/78 md:via-[#1a4a55]/40 md:to-[#1a4a55]/08"
       />
-      {/* Bottom fade */}
+      {/* Bottom vignette for scroll indicator */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none bg-gradient-to-t from-[#f5f0e8]/40 to-transparent"
+        className="absolute inset-x-0 bottom-0 h-28 pointer-events-none bg-gradient-to-t from-[#1a4a55]/55 to-transparent"
       />
-
 
       {/* Content */}
       <div className="relative z-10 h-full mx-auto max-w-7xl px-6 md:px-12 lg:px-16 flex items-center">
         <div className="max-w-2xl pt-20 md:pt-0">
           <p
-            className="font-ui font-bold uppercase text-steel-teal"
-            style={{ fontSize: "13px", letterSpacing: "0.3em" }}
+            className="font-ui font-bold uppercase"
+            style={{ fontSize: "13px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.58)" }}
           >
             MARACAIBO · FRENTE A LA FACULTAD DE MEDICINA
           </p>
 
           <AnimatedHeadline
             as="h1"
-            className="font-display font-bold text-deep-teal mt-6"
+            className="font-display font-bold mt-6"
             style={{
               fontSize: "clamp(38px, 5.4vw, 72px)",
               lineHeight: 1.04,
               letterSpacing: "-0.028em",
               maxWidth: "18ch",
+              color: "#f5f0e8",
             }}
             chunks={[
               { text: "El dolor tiene causa. " },
-              { text: "Nosotros la tratamos.", color: "#9a7320", staggerMs: 120 },
+              { text: "Nosotros la tratamos.", color: "#c69636", staggerMs: 120 },
             ]}
           />
 
           <p
             className="font-ui mt-8 max-w-xl"
-            style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "hsl(var(--text-body))" }}
+            style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "rgba(245,240,232,0.8)" }}
           >
             En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
             hasta que pueda retomar lo que le gusta. Sin importar dónde le duele.
@@ -169,14 +166,49 @@ export default function HeroSection() {
             </a>
             <Link
               to="/especialidades"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-deep-teal/50 text-deep-teal/75 md:hover:border-deep-teal md:hover:text-deep-teal font-ui font-semibold uppercase rounded-none transition-[border-color,color] duration-300 active:scale-[0.97] px-7 py-[14px]"
-              style={{ fontSize: "13px", letterSpacing: "0.22em" }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] md:hover:opacity-100"
+              style={{ fontSize: "13px", letterSpacing: "0.22em", borderColor: "rgba(245,240,232,0.4)", color: "rgba(245,240,232,0.72)" }}
             >
               <span>ESPECIALIDADES</span>
             </Link>
           </div>
-
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        aria-hidden="true"
+      >
+        <p
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "10px",
+            fontWeight: 700,
+            letterSpacing: "0.32em",
+            color: "rgba(245,240,232,0.4)",
+            textTransform: "uppercase",
+            margin: 0,
+          }}
+        >
+          DESLICE
+        </p>
+        <svg
+          width="18"
+          height="20"
+          viewBox="0 0 18 20"
+          fill="none"
+          className="animate-bounce"
+          style={{ opacity: 0.4 }}
+        >
+          <path
+            d="M9 2v16M3 12l6 6 6-6"
+            stroke="#f5f0e8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
     </section>
   );
