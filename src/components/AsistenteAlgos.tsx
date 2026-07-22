@@ -198,19 +198,23 @@ export default function AsistenteAlgos() {
     trackWA("chat_asistente", "chat_miniform");
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
+    const waUrl = `${ALGOS.contact.whatsappHref}?text=${text}`;
     let win: Window | null = null;
     try {
-      win = window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+      win = window.open(waUrl, "_blank", "noopener,noreferrer");
     } catch (openErr: any) {
       trackCTA("chat_asistente", `chat_fail:whatsapp:exception_${(openErr?.name || "unknown").slice(0, 40)}`);
-      setFormError("No se pudo abrir WhatsApp. Intenta nuevamente.");
+      setFallbackUrl(waUrl);
+      setFormError("No se pudo abrir WhatsApp automáticamente. Usa el enlace manual de abajo.");
       return;
     }
     if (!win) {
       trackCTA("chat_asistente", "chat_fail:whatsapp:popup_blocked");
-      setFormError("No se pudo abrir WhatsApp. Revisa el bloqueador de pop-ups e intenta de nuevo.");
+      setFallbackUrl(waUrl);
+      setFormError("Tu navegador bloqueó la apertura automática. Usa el enlace manual de abajo.");
       return;
     }
+    setFallbackUrl(null);
 
     setMessages((m) => [
       ...m,
