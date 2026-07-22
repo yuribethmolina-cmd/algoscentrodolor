@@ -99,6 +99,39 @@ export default function AsistenteAlgos() {
     setError(null);
   }
 
+  function submitForm() {
+    const name = formName.trim();
+    const phone = formPhone.trim();
+    if (name.length < 2) {
+      setFormError("Por favor ingresa tu nombre.");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 7) {
+      setFormError("Por favor ingresa un teléfono válido.");
+      return;
+    }
+    setFormError(null);
+    const reason = formReason.trim();
+    const lines = [
+      `Hola, soy ${name}.`,
+      `Mi teléfono: ${phone}.`,
+      reason ? `Motivo: ${reason}` : "Quisiera agendar una cita.",
+    ];
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    setMessages((m) => [
+      ...m,
+      {
+        role: "assistant",
+        content: `¡Listo, ${name}! Abrimos WhatsApp con tus datos para que un especialista te atienda enseguida. Si no se abrió, escríbenos manualmente.`,
+      },
+    ]);
+    setShowForm(false);
+    setFormName("");
+    setFormPhone("");
+    setFormReason("");
+  }
+
   function handleKey(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
