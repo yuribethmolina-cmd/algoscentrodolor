@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import StudyBento, { type StudyItem } from "@/components/StudyBento";
 import { DIAGNOSTICS, DIAGNOSTIC_GROUPS } from "@/data/diagnostics";
@@ -206,7 +205,6 @@ export default function EstudiosDiagnosticos() {
       </main>
 
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

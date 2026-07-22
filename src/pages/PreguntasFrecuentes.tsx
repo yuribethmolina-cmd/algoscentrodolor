@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SEOHead from "@/components/SEOHead";
 import { ALGOS } from "@/config/algos.config";
@@ -140,7 +139,6 @@ export default function PreguntasFrecuentes() {
       </main>
 
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

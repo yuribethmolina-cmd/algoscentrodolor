@@ -3,7 +3,6 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, BadgeCheck, Calendar, Languages, MessageCircle, UserRound } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import SmartImage from "@/components/SmartImage";
 import { getDoctorBySlug } from "@/data/doctors";
 import { SPECIALTIES } from "@/data/specialties";
@@ -515,7 +514,6 @@ export default function MedicoPerfil() {
       </main>
 
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

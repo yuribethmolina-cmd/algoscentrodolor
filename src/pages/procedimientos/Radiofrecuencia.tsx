@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
@@ -98,7 +97,6 @@ export default function Radiofrecuencia() {
         </section>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
       <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );

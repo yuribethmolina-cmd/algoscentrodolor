@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import SEOHead from "@/components/SEOHead";
@@ -86,7 +85,6 @@ export default function Ciatica() {
         </section>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

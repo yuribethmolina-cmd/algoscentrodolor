@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import { SPECIALTIES } from "@/data/specialties";
 import { UserRound } from "lucide-react";
@@ -372,7 +371,6 @@ export default function Especialidades() {
       </main>
 
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

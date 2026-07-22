@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import SEOHead from "@/components/SEOHead";
 import EquipoSpecialtySections from "@/components/EquipoSpecialtySections";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHeroVideo from "@/components/PageHeroVideo";
 import SmartImage from "@/components/SmartImage";
 import { BadgeCheck, Calendar, Search, UserRound, X } from "lucide-react";
@@ -359,7 +358,6 @@ export default function Equipo() {
       </main>
 
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

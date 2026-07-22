@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import PainTabSection from "@/components/PainTabSection";
@@ -53,7 +52,6 @@ export default function Index() {
       <AlgosLocationSection />
       <FinalCTA />
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

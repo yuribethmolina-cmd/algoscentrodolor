@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
@@ -119,7 +118,6 @@ export default function EEG() {
         </section>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
       <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
