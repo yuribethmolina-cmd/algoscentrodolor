@@ -43,12 +43,23 @@ export default function AsistenteAlgos() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [formName, setFormName] = useState("");
-  const [formPhone, setFormPhone] = useState("");
+  const CONTACT_KEY = "algos.chat.contact.v1";
+  const savedContact = (() => {
+    try {
+      const raw = window.localStorage.getItem(CONTACT_KEY);
+      return raw ? (JSON.parse(raw) as { name?: string; phone?: string }) : null;
+    } catch {
+      return null;
+    }
+  })();
+  const [formName, setFormName] = useState(savedContact?.name ?? "");
+  const [formPhone, setFormPhone] = useState(savedContact?.phone ?? "");
   const [formReason, setFormReason] = useState("");
   const [formConsent, setFormConsent] = useState(false);
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+  const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
+  const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
 
 
   const scrollRef = useRef<HTMLDivElement>(null);
