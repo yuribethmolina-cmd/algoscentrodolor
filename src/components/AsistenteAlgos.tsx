@@ -107,16 +107,33 @@ export default function AsistenteAlgos() {
 
     try {
       const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/asistente`;
-      const resp = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-        },
-        body: JSON.stringify({ messages: next }),
-      });
-      const data = await resp.json();
-      if (!resp.ok) throw new Error(data?.error ?? "Error");
+      let resp: Response;
+      try {
+        resp = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          },
+          body: JSON.stringify({ messages: next }),
+        });
+      } catch (netErr: any) {
+        trackCTA("chat_asistente", `chat_fail:network:${(netErr?.name || "fetch_error").slice(0, 40)}`);
+        throw new Error("Sin conexión. Verifica tu internet e intenta de nuevo.");
+      }
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        const reason =
+          resp.status === 429
+            ? "rate_limit"
+            : resp.status === 402
+              ? "credits_exhausted"
+              : resp.status >= 500
+                ? `server_${resp.status}`
+                : `http_${resp.status}`;
+        trackCTA("chat_asistente", `chat_fail:api:${reason}`);
+        throw new Error(data?.error ?? "Error");
+      }
       setMessages((m) => [...m, { role: "assistant", content: data.text ?? "" }]);
     } catch (e: any) {
       setError(e?.message ?? "No pudimos responder. Intenta de nuevo.");
@@ -135,18 +152,27 @@ export default function AsistenteAlgos() {
     const phone = formPhone.trim();
     if (name.length < 2) {
       setFormError("Por favor ingresa tu nombre completo.");
-      trackCTA("chat_asistente", "chat_miniform_abandon_name");
+      trackCTA("chat_asistente", `chat_fail:validation:name_${name.length === 0 ? "empty" : "too_short"}`);
       return;
     }
     const digits = phone.replace(/\D/g, "");
     if (!/^(0[24]\d{8,9})$/.test(digits)) {
       setFormError("Ingresa un teléfono venezolano válido (ej. 0414-680 7886 o 0261-8000476).");
-      trackCTA("chat_asistente", "chat_miniform_abandon_phone");
+      const phoneReason = digits.length === 0
+        ? "empty"
+        : digits.length < 10
+          ? "too_short"
+          : digits.length > 11
+            ? "too_long"
+            : !/^0[24]/.test(digits)
+              ? "bad_prefix"
+              : "invalid_format";
+      trackCTA("chat_asistente", `chat_fail:validation:phone_${phoneReason}`);
       return;
     }
     if (!formConsent) {
       setFormError("Debes autorizar el uso de tus datos para continuar.");
-      trackCTA("chat_asistente", "chat_miniform_abandon_consent");
+      trackCTA("chat_asistente", "chat_fail:validation:consent_missing");
       return;
     }
     setFormError(null);
@@ -159,8 +185,8 @@ export default function AsistenteAlgos() {
         window.localStorage.removeItem(CONTACT_KEY);
         setHasSavedContact(false);
       }
-    } catch {
-      /* noop */
+    } catch (storageErr: any) {
+      trackCTA("chat_asistente", `chat_fail:storage:${(storageErr?.name || "unknown").slice(0, 40)}`);
     }
 
     const reason = formReason.trim();
@@ -171,9 +197,16 @@ export default function AsistenteAlgos() {
     trackWA("chat_asistente", "chat_miniform");
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
-    const win = window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    let win: Window | null = null;
+    try {
+      win = window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    } catch (openErr: any) {
+      trackCTA("chat_asistente", `chat_fail:whatsapp:exception_${(openErr?.name || "unknown").slice(0, 40)}`);
+      setFormError("No se pudo abrir WhatsApp. Intenta nuevamente.");
+      return;
+    }
     if (!win) {
-      trackCTA("chat_asistente", "chat_miniform_whatsapp_blocked");
+      trackCTA("chat_asistente", "chat_fail:whatsapp:popup_blocked");
       setFormError("No se pudo abrir WhatsApp. Revisa el bloqueador de pop-ups e intenta de nuevo.");
       return;
     }
