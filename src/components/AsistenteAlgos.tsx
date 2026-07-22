@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send, Calendar } from "lucide-react";
+import { MessageSquare, X, Send, Calendar, RefreshCw } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 
@@ -43,6 +43,7 @@ export default function AsistenteAlgos() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [lastQuery, setLastQuery] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const CONTACT_KEY = "algos.chat.contact.v1";
   const savedContact = (() => {
@@ -59,6 +60,7 @@ export default function AsistenteAlgos() {
   const [formConsent, setFormConsent] = useState(false);
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+  const [formSubmitting, setFormSubmitting] = useState(false);
   const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
@@ -101,6 +103,7 @@ export default function AsistenteAlgos() {
     const q = text.trim();
     if (!q || loading) return;
     setError(null);
+    setLastQuery(q);
     const next: Msg[] = [...messages, { role: "user", content: q }];
     setMessages(next);
     setInput("");
@@ -136,6 +139,7 @@ export default function AsistenteAlgos() {
         throw new Error(data?.error ?? "Error");
       }
       setMessages((m) => [...m, { role: "assistant", content: data.text ?? "" }]);
+      setLastQuery(null);
     } catch (e: any) {
       setError(e?.message ?? "No pudimos responder. Intenta de nuevo.");
     } finally {
@@ -148,7 +152,7 @@ export default function AsistenteAlgos() {
     setError(null);
   }
 
-  function submitForm() {
+  function submitForm(isRetry = false) {
     const name = formName.trim();
     const phone = formPhone.trim();
     if (name.length < 2) {
@@ -177,6 +181,8 @@ export default function AsistenteAlgos() {
       return;
     }
     setFormError(null);
+    setFormSubmitting(true);
+    setFallbackUrl(null);
 
     try {
       if (rememberMe) {
@@ -191,11 +197,15 @@ export default function AsistenteAlgos() {
     }
 
     const reason = formReason.trim();
-    trackAppointment({
-      condition: reason || "chat_asistente",
-      source: "chat_asistente",
-    });
-    trackWA("chat_asistente", "chat_miniform");
+    if (isRetry) {
+      trackCTA("chat_asistente", "chat_miniform_retry");
+    } else {
+      trackAppointment({
+        condition: reason || "chat_asistente",
+        source: "chat_asistente",
+      });
+      trackWA("chat_asistente", "chat_miniform");
+    }
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     const waUrl = `${ALGOS.contact.whatsappHref}?text=${text}`;
@@ -205,13 +215,15 @@ export default function AsistenteAlgos() {
     } catch (openErr: any) {
       trackCTA("chat_asistente", `chat_fail:whatsapp:exception_${(openErr?.name || "unknown").slice(0, 40)}`);
       setFallbackUrl(waUrl);
-      setFormError("No se pudo abrir WhatsApp automáticamente. Usa el enlace manual de abajo.");
+      setFormError("No se pudo abrir WhatsApp automáticamente. Reintenta o usa el enlace manual de abajo.");
+      setFormSubmitting(false);
       return;
     }
     if (!win) {
       trackCTA("chat_asistente", "chat_fail:whatsapp:popup_blocked");
       setFallbackUrl(waUrl);
-      setFormError("Tu navegador bloqueó la apertura automática. Usa el enlace manual de abajo.");
+      setFormError("Tu navegador bloqueó la apertura automática. Reintenta o usa el enlace manual de abajo.");
+      setFormSubmitting(false);
       return;
     }
     setFallbackUrl(null);
@@ -231,6 +243,7 @@ export default function AsistenteAlgos() {
       setFormName("");
       setFormPhone("");
     }
+    setFormSubmitting(false);
   }
 
   function clearSavedContact() {
@@ -335,7 +348,7 @@ export default function AsistenteAlgos() {
             ))}
 
             {loading && (
-              <div className="flex justify-start">
+              <div className="flex flex-col justify-start gap-1">
                 <div
                   className="px-3.5 py-2.5 rounded-2xl rounded-bl-md text-sm"
                   style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}15` }}
@@ -346,12 +359,28 @@ export default function AsistenteAlgos() {
                     <span className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: TEAL, animationDelay: "240ms" }} />
                   </span>
                 </div>
+                <div className="text-[10px] opacity-70" style={{ color: DEEP_TEAL }}>
+                  Enviando…
+                </div>
               </div>
             )}
 
             {error && (
-              <div className="text-xs px-3 py-2 rounded" style={{ backgroundColor: "#fdecea", color: "#8a2a20" }}>
-                {error}
+              <div className="flex items-start gap-2">
+                <div className="flex-1 text-xs px-3 py-2 rounded" style={{ backgroundColor: "#fdecea", color: "#8a2a20" }}>
+                  {error}
+                </div>
+                {lastQuery && (
+                  <button
+                    onClick={() => send(lastQuery)}
+                    className="shrink-0 flex items-center gap-1 px-2 py-2 rounded text-xs font-semibold text-white"
+                    style={{ backgroundColor: DEEP_TEAL }}
+                    title="Reintentar"
+                  >
+                    <RefreshCw size={12} />
+                    Reintentar
+                  </button>
+                )}
               </div>
             )}
 
@@ -477,8 +506,20 @@ export default function AsistenteAlgos() {
                 Tus datos solo se usarán para atender tu solicitud. No los compartimos con terceros ajenos al proceso de atención.
               </p>
               {formError && (
-                <div className="text-[11px]" style={{ color: "#8a2a20" }}>
-                  {formError}
+                <div className="flex items-start gap-2">
+                  <div className="flex-1 text-[11px]" style={{ color: "#8a2a20" }}>
+                    {formError}
+                  </div>
+                  {!formSubmitting && (
+                    <button
+                      onClick={() => submitForm(true)}
+                      className="shrink-0 flex items-center gap-1 px-2 py-1 rounded text-[10px] font-semibold text-white"
+                      style={{ backgroundColor: DEEP_TEAL }}
+                    >
+                      <RefreshCw size={12} />
+                      Reintentar
+                    </button>
+                  )}
                 </div>
               )}
               {fallbackUrl && (
@@ -495,11 +536,19 @@ export default function AsistenteAlgos() {
               )}
 
               <button
-                onClick={submitForm}
-                className="w-full py-2.5 rounded-lg text-sm font-semibold text-white"
+                onClick={() => submitForm()}
+                disabled={formSubmitting}
+                className="w-full py-2.5 rounded-lg text-sm font-semibold text-white flex items-center justify-center gap-2 disabled:opacity-60"
                 style={{ backgroundColor: DEEP_TEAL }}
               >
-                Enviar por WhatsApp
+                {formSubmitting ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Abriendo WhatsApp…
+                  </>
+                ) : (
+                  "Enviar por WhatsApp"
+                )}
               </button>
               <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
                 Se abrirá WhatsApp con tus datos precargados.
