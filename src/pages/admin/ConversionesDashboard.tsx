@@ -449,3 +449,135 @@ function formatDay(day: string) {
   const d = new Date(day);
   return `${d.getDate()}/${d.getMonth() + 1}`;
 }
+
+function ChatFunnelPanel({ chat }: { chat: ChatFunnel | null }) {
+  if (!chat) return null;
+  const cat = chat.by_category;
+  const rate = chat.conversion_rate_pct;
+  const maxDaily = Math.max(1, ...(chat.daily ?? []).map((d) => d.submits + d.abandons));
+  return (
+    <section className="mt-6 rounded-md border border-[#1a4a55]/15 bg-white p-5">
+      <div className="flex items-center gap-2 mb-4">
+        <Bot size={18} className="text-[#3d8b96]" />
+        <h2 className="font-display font-semibold text-[#1a4a55] text-lg">Chat asistente · embudo</h2>
+      </div>
+
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
+        <MiniStat label="Envíos WhatsApp" value={chat.submits} tone="teal" />
+        <MiniStat
+          label="Tasa de conversión"
+          value={rate == null ? "—" : `${rate}%`}
+          sub={`${chat.submits} enviados · ${chat.abandons_total} abandonos`}
+          tone="gold"
+        />
+        <MiniStat
+          label="Abandonos"
+          value={chat.abandons_total}
+          sub={`${chat.retries} reintentos`}
+          tone="warn"
+        />
+        <MiniStat
+          label="WhatsApp bloqueado"
+          value={cat.whatsapp_blocked + cat.whatsapp_exception}
+          sub={`${chat.fallback_link_clicks} usaron enlace manual`}
+          tone="danger"
+        />
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-5">
+        <div>
+          <h3 className="text-xs uppercase tracking-wider text-[#1a4a55]/60 mb-3">Abandonos por categoría</h3>
+          <div className="space-y-2">
+            <ReasonRow label="Validación (nombre/teléfono/consentimiento)" count={cat.validation} max={chat.abandons_total} />
+            <ReasonRow label="WhatsApp bloqueado por navegador" count={cat.whatsapp_blocked} max={chat.abandons_total} danger />
+            <ReasonRow label="WhatsApp — excepción" count={cat.whatsapp_exception} max={chat.abandons_total} danger />
+            <ReasonRow label="Red / conexión" count={cat.network} max={chat.abandons_total} />
+            <ReasonRow label="API asistente (rate limit / 5xx)" count={cat.api} max={chat.abandons_total} />
+            <ReasonRow label="Almacenamiento local" count={cat.storage} max={chat.abandons_total} />
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-xs uppercase tracking-wider text-[#1a4a55]/60 mb-3">Envíos vs abandonos por día</h3>
+          {chat.daily.length ? (
+            <div className="flex items-end gap-1 h-32">
+              {chat.daily.map((d) => {
+                const total = d.submits + d.abandons;
+                const h = Math.max(4, Math.round((total / maxDaily) * 100));
+                const okH = Math.round((d.submits / Math.max(1, total)) * h);
+                return (
+                  <div key={d.day} className="flex-1 flex flex-col items-center gap-1 min-w-0">
+                    <div className="w-full h-full flex flex-col justify-end rounded-sm overflow-hidden bg-[#1a4a55]/5"
+                      title={`${d.day} · ${d.submits} envíos · ${d.abandons} abandonos`}>
+                      <div className="w-full bg-red-400" style={{ height: `${h - okH}%` }} />
+                      <div className="w-full bg-[#3d8b96]" style={{ height: `${okH}%` }} />
+                    </div>
+                    <span className="text-[10px] text-[#1a4a55]/60 truncate w-full text-center">
+                      {formatDay(d.day)}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-sm text-[#1a4a55]/50 italic">Sin datos en este rango.</p>
+          )}
+          <div className="flex items-center gap-4 mt-3 text-xs text-[#1a4a55]/70">
+            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-[#3d8b96]" /> Envíos</span>
+            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-red-400" /> Abandonos</span>
+          </div>
+        </div>
+      </div>
+
+      {chat.top_reasons.length > 0 && (
+        <details className="mt-5">
+          <summary className="cursor-pointer text-xs font-medium text-[#1a4a55]/70 hover:text-[#1a4a55]">
+            Ver razones exactas ({chat.top_reasons.length})
+          </summary>
+          <div className="mt-3 grid sm:grid-cols-2 gap-1.5 text-xs">
+            {chat.top_reasons.map((r) => (
+              <div key={r.reason} className="flex items-center justify-between border-b border-[#1a4a55]/10 py-1">
+                <code className="text-[#1a4a55]/80 truncate">{r.reason}</code>
+                <span className="font-semibold text-[#1a4a55] tabular-nums">{r.count}</span>
+              </div>
+            ))}
+          </div>
+        </details>
+      )}
+    </section>
+  );
+}
+
+function MiniStat({ label, value, sub, tone }: { label: string; value: number | string; sub?: string; tone: "teal" | "gold" | "warn" | "danger" }) {
+  const toneMap = {
+    teal: { border: "border-[#3d8b96]/30", icon: <MessageCircle size={14} className="text-[#3d8b96]" /> },
+    gold: { border: "border-[#c69636]/40", icon: <CalendarCheck size={14} className="text-[#c69636]" /> },
+    warn: { border: "border-amber-300", icon: <AlertTriangle size={14} className="text-amber-600" /> },
+    danger: { border: "border-red-300", icon: <ShieldAlert size={14} className="text-red-600" /> },
+  }[tone];
+  return (
+    <div className={`rounded-md border ${toneMap.border} bg-white p-3`}>
+      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-[#1a4a55]/70">
+        {toneMap.icon}
+        {label}
+      </div>
+      <div className="mt-1 font-display font-bold text-[#1a4a55] text-2xl tabular-nums">{value}</div>
+      {sub && <div className="text-[11px] text-[#1a4a55]/60 mt-0.5">{sub}</div>}
+    </div>
+  );
+}
+
+function ReasonRow({ label, count, max, danger }: { label: string; count: number; max: number; danger?: boolean }) {
+  const pct = max > 0 ? (count / max) * 100 : 0;
+  return (
+    <div>
+      <div className="flex items-center justify-between text-xs mb-1">
+        <span className="text-[#1a4a55]">{label}</span>
+        <span className="text-[#1a4a55]/60 tabular-nums">{count}</span>
+      </div>
+      <div className="h-1.5 bg-[#1a4a55]/5 rounded-sm overflow-hidden">
+        <div className={danger ? "bg-red-400 h-full" : "bg-[#c69636] h-full"} style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  );
+}
