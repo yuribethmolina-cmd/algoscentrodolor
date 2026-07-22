@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send, Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 
 type Msg = { role: "user" | "assistant"; content: string };
