@@ -232,31 +232,6 @@ export default function Navbar() {
             );
           })}
 
-          <span aria-hidden="true" style={{ width: 1, height: 20, background: `${DEEP_TEAL}30`, flexShrink: 0 }} />
-
-          <a
-            href={WA}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: TEAL,
-              color: CREAM,
-              padding: "9px 16px",
-              fontFamily: "Manrope, system-ui, sans-serif",
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              transition: "background-color 200ms",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = TEAL_HOVER)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TEAL)}
-          >
-            WhatsApp
-          </a>
         </div>
 
         {/* Mobile toggle */}
