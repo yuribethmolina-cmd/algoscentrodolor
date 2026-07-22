@@ -61,6 +61,7 @@ export default function AsistenteAlgos() {
   const [formError, setFormError] = useState<string | null>(null);
   const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
+  const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
 
 
   const scrollRef = useRef<HTMLDivElement>(null);
