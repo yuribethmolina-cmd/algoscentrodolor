@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+
+const REMEMBER_KEY = "algos_admin_remember_email";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [remember, setRemember] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(REMEMBER_KEY);
+      if (saved) {
+        setEmail(saved);
+        setRemember(true);
+      }
+    } catch {}
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -23,6 +36,11 @@ export default function AdminLogin() {
       setLoading(false);
       return;
     }
+
+    try {
+      if (remember) localStorage.setItem(REMEMBER_KEY, email);
+      else localStorage.removeItem(REMEMBER_KEY);
+    } catch {}
 
     navigate("/admin/conversiones", { replace: true });
   }
@@ -75,6 +93,16 @@ export default function AdminLogin() {
               </button>
             </div>
           </div>
+
+          <label className="flex items-center gap-2 text-[#f5f0e8]/80 text-xs cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+              className="h-4 w-4 accent-[#c69636] bg-white/10 border border-white/20"
+            />
+            Recordar mi correo en este dispositivo
+          </label>
 
           {error && (
             <p className="text-red-300 text-sm">{error}</p>
