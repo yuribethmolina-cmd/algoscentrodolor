@@ -48,6 +48,7 @@ export default function CitasDashboard() {
   const [rows, setRows] = useState<AppointmentRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Status | "all">("all");
+  const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [savingNote, setSavingNote] = useState<string | null>(null);
 
