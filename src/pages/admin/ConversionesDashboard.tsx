@@ -343,6 +343,9 @@ export default function ConversionesDashboard() {
           )}
         </Card>
 
+        {/* Chat funnel */}
+        <ChatFunnelPanel chat={chat} />
+
         {/* Audit log */}
         {auditLog.length > 0 && (
           <Card title="Registro de accesos" className="mt-6">
