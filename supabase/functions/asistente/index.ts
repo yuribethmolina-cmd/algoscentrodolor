@@ -1,5 +1,9 @@
 // deno-lint-ignore-file no-explicit-any
-import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+};
 
 const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
 
@@ -91,7 +95,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Truncate to last 20 turns to keep prompts small
     const trimmed = messages.slice(-20).map((m: any) => ({
       role: m.role === "assistant" ? "assistant" : "user",
       content: String(m.content ?? "").slice(0, 2000),
@@ -104,7 +107,7 @@ Deno.serve(async (req) => {
         "Lovable-API-Key": LOVABLE_API_KEY,
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
+        model: "google/gemini-3.6-flash",
         messages: [{ role: "system", content: SYSTEM_PROMPT }, ...trimmed],
       }),
     });
