@@ -141,6 +141,12 @@ export default function CitasDashboard() {
             </p>
           </div>
           <div className="flex gap-2">
+            <Link to="/admin/usuarios" className="p-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5" title="Administradores">
+              <Users size={16} />
+            </Link>
+            <button onClick={exportCSV} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5 text-sm">
+              <Download size={14} /> CSV
+            </button>
             <button onClick={load} className="p-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5">
               <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
             </button>
@@ -149,6 +155,18 @@ export default function CitasDashboard() {
             </button>
           </div>
         </header>
+
+        {/* Search */}
+        <div className="relative mb-4">
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#1a4a55]/40" />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por nombre, teléfono, correo o motivo..."
+            className="w-full pl-9 pr-3 py-2.5 rounded-md border border-[#1a4a55]/20 bg-white text-sm text-[#1a4a55] focus:outline-none focus:border-[#1a4a55]"
+          />
+        </div>
 
         {/* Funnel */}
         <section className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-6">
