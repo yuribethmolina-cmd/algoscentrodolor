@@ -147,6 +147,17 @@ export default function AsistenteAlgos() {
     }
     setFormError(null);
 
+    try {
+      if (rememberMe) {
+        window.localStorage.setItem(CONTACT_KEY, JSON.stringify({ name, phone }));
+        setHasSavedContact(true);
+      } else {
+        window.localStorage.removeItem(CONTACT_KEY);
+        setHasSavedContact(false);
+      }
+    } catch {
+      /* noop */
+    }
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
@@ -159,11 +170,25 @@ export default function AsistenteAlgos() {
       },
     ]);
     setShowForm(false);
-    setFormName("");
-    setFormPhone("");
     setFormReason("");
     setFormConsent(false);
     setFormMessage("");
+    if (!rememberMe) {
+      setFormName("");
+      setFormPhone("");
+    }
+  }
+
+  function clearSavedContact() {
+    try {
+      window.localStorage.removeItem(CONTACT_KEY);
+    } catch {
+      /* noop */
+    }
+    setFormName("");
+    setFormPhone("");
+    setRememberMe(false);
+    setHasSavedContact(false);
   }
 
 
