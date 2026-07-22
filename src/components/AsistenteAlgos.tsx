@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send, Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -42,6 +42,11 @@ export default function AsistenteAlgos() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showForm, setShowForm] = useState(false);
+  const [formName, setFormName] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formReason, setFormReason] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -92,6 +97,39 @@ export default function AsistenteAlgos() {
   function reset() {
     setMessages([WELCOME]);
     setError(null);
+  }
+
+  function submitForm() {
+    const name = formName.trim();
+    const phone = formPhone.trim();
+    if (name.length < 2) {
+      setFormError("Por favor ingresa tu nombre.");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 7) {
+      setFormError("Por favor ingresa un teléfono válido.");
+      return;
+    }
+    setFormError(null);
+    const reason = formReason.trim();
+    const lines = [
+      `Hola, soy ${name}.`,
+      `Mi teléfono: ${phone}.`,
+      reason ? `Motivo: ${reason}` : "Quisiera agendar una cita.",
+    ];
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    setMessages((m) => [
+      ...m,
+      {
+        role: "assistant",
+        content: `¡Listo, ${name}! Abrimos WhatsApp con tus datos para que un especialista te atienda enseguida. Si no se abrió, escríbenos manualmente.`,
+      },
+    ]);
+    setShowForm(false);
+    setFormName("");
+    setFormPhone("");
+    setFormReason("");
   }
 
   function handleKey(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -222,6 +260,71 @@ export default function AsistenteAlgos() {
             )}
           </div>
 
+          {/* Mini appointment form */}
+          {showForm && (
+            <div
+              className="px-4 py-3 space-y-2"
+              style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: CREAM }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold" style={{ color: DEEP_TEAL }}>
+                  Agenda rápida por WhatsApp
+                </div>
+                <button
+                  onClick={() => {
+                    setShowForm(false);
+                    setFormError(null);
+                  }}
+                  className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
+                  style={{ color: DEEP_TEAL }}
+                >
+                  Cancelar
+                </button>
+              </div>
+              <input
+                type="text"
+                value={formName}
+                onChange={(e) => setFormName(e.target.value)}
+                placeholder="Nombre y apellido"
+                className="w-full px-3 py-2 text-sm rounded-lg outline-none"
+                style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+                autoFocus
+              />
+              <input
+                type="tel"
+                inputMode="tel"
+                value={formPhone}
+                onChange={(e) => setFormPhone(e.target.value)}
+                placeholder="Teléfono (ej. 0414-680 7886)"
+                className="w-full px-3 py-2 text-sm rounded-lg outline-none"
+                style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+              />
+              <input
+                type="text"
+                value={formReason}
+                onChange={(e) => setFormReason(e.target.value)}
+                placeholder="Motivo (opcional)"
+                className="w-full px-3 py-2 text-sm rounded-lg outline-none"
+                style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+              />
+              {formError && (
+                <div className="text-[11px]" style={{ color: "#8a2a20" }}>
+                  {formError}
+                </div>
+              )}
+              <button
+                onClick={submitForm}
+                className="w-full py-2.5 rounded-lg text-sm font-semibold text-white"
+                style={{ backgroundColor: DEEP_TEAL }}
+              >
+                Enviar por WhatsApp
+              </button>
+              <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
+                Se abrirá WhatsApp con tus datos precargados.
+              </p>
+            </div>
+          )}
+
           {/* Composer */}
           <div className="px-3 py-3" style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: "white" }}>
             <div className="flex items-end gap-2">
@@ -250,19 +353,21 @@ export default function AsistenteAlgos() {
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-[10px] mt-2 text-center opacity-60" style={{ color: DEEP_TEAL }}>
-              Para agendar, escríbenos por{" "}
-              <a
-                href={`${ALGOS.contact.whatsappHref}?text=Hola%2C%20quisiera%20agendar%20una%20cita`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
+            {!showForm && (
+              <button
+                onClick={() => setShowForm(true)}
+                className="mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition-colors"
+                style={{
+                  backgroundColor: GOLD,
+                  color: DEEP_TEAL,
+                }}
               >
-                WhatsApp
-              </a>
-              .
-            </p>
+                <Calendar size={14} />
+                Agendar rápido por WhatsApp
+              </button>
+            )}
           </div>
+
         </div>
       )}
     </>
