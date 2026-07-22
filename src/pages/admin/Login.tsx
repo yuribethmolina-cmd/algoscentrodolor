@@ -94,6 +94,16 @@ export default function AdminLogin() {
             </div>
           </div>
 
+          <label className="flex items-center gap-2 text-[#f5f0e8]/80 text-xs cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+              className="h-4 w-4 accent-[#c69636] bg-white/10 border border-white/20"
+            />
+            Recordar mi correo en este dispositivo
+          </label>
+
           {error && (
             <p className="text-red-300 text-sm">{error}</p>
           )}
