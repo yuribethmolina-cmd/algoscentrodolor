@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageSquare, X, Send, Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
-import { trackAppointment, trackWA } from "@/lib/analytics";
+import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -135,15 +135,18 @@ export default function AsistenteAlgos() {
     const phone = formPhone.trim();
     if (name.length < 2) {
       setFormError("Por favor ingresa tu nombre completo.");
+      trackCTA("chat_asistente", "chat_miniform_abandon_name");
       return;
     }
     const digits = phone.replace(/\D/g, "");
     if (!/^(0[24]\d{8,9})$/.test(digits)) {
       setFormError("Ingresa un teléfono venezolano válido (ej. 0414-680 7886 o 0261-8000476).");
+      trackCTA("chat_asistente", "chat_miniform_abandon_phone");
       return;
     }
     if (!formConsent) {
       setFormError("Debes autorizar el uso de tus datos para continuar.");
+      trackCTA("chat_asistente", "chat_miniform_abandon_consent");
       return;
     }
     setFormError(null);
@@ -168,7 +171,12 @@ export default function AsistenteAlgos() {
     trackWA("chat_asistente", "chat_miniform");
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
-    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    const win = window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    if (!win) {
+      trackCTA("chat_asistente", "chat_miniform_whatsapp_blocked");
+      setFormError("No se pudo abrir WhatsApp. Revisa el bloqueador de pop-ups e intenta de nuevo.");
+      return;
+    }
 
     setMessages((m) => [
       ...m,
