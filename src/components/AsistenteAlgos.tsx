@@ -137,14 +137,9 @@ export default function AsistenteAlgos() {
     setFormError(null);
 
 
-    const reason = formReason.trim();
-    const lines = [
-      `Hola, soy ${name}.`,
-      `Mi teléfono: ${phone}.`,
-      reason ? `Motivo: ${reason}` : "Quisiera agendar una cita.",
-    ];
-    const text = encodeURIComponent(lines.join("\n"));
+    const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+
     setMessages((m) => [
       ...m,
       {
