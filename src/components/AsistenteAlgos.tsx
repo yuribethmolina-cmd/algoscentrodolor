@@ -107,16 +107,33 @@ export default function AsistenteAlgos() {
 
     try {
       const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/asistente`;
-      const resp = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-        },
-        body: JSON.stringify({ messages: next }),
-      });
-      const data = await resp.json();
-      if (!resp.ok) throw new Error(data?.error ?? "Error");
+      let resp: Response;
+      try {
+        resp = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          },
+          body: JSON.stringify({ messages: next }),
+        });
+      } catch (netErr: any) {
+        trackCTA("chat_asistente", `chat_fail:network:${(netErr?.name || "fetch_error").slice(0, 40)}`);
+        throw new Error("Sin conexión. Verifica tu internet e intenta de nuevo.");
+      }
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        const reason =
+          resp.status === 429
+            ? "rate_limit"
+            : resp.status === 402
+              ? "credits_exhausted"
+              : resp.status >= 500
+                ? `server_${resp.status}`
+                : `http_${resp.status}`;
+        trackCTA("chat_asistente", `chat_fail:api:${reason}`);
+        throw new Error(data?.error ?? "Error");
+      }
       setMessages((m) => [...m, { role: "assistant", content: data.text ?? "" }]);
     } catch (e: any) {
       setError(e?.message ?? "No pudimos responder. Intenta de nuevo.");
