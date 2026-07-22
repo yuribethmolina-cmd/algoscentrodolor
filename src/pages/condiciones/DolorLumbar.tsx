@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import ConditionGallery from "@/components/ConditionGallery";
@@ -73,7 +72,6 @@ export default function DolorLumbar() {
         </section>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }

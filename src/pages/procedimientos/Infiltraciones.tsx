@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
@@ -225,7 +224,6 @@ export default function Infiltraciones() {
         </section>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
       <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );

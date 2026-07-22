@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
@@ -378,7 +377,6 @@ export default function EMG() {
         <CinematicCTA hc={hc} />
       </main>
       <HomeFooter />
-      <WhatsAppButton />
 
       {/* High-contrast toggle */}
       <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
