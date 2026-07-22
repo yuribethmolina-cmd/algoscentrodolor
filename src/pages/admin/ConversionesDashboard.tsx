@@ -55,6 +55,7 @@ export default function ConversionesDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [auditLog, setAuditLog] = useState<AuditEntry[]>([]);
+  const [chat, setChat] = useState<ChatFunnel | null>(null);
 
   async function load() {
     setLoading(true);
