@@ -83,6 +83,12 @@ export default function ConversionesDashboard() {
       .order("created_at", { ascending: false })
       .limit(20);
     if (log) setAuditLog(log as AuditEntry[]);
+
+    const { data: chatRes, error: chatErr } = await supabase.functions.invoke("get-chat-funnel", {
+      body: { days_back: days },
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    });
+    if (!chatErr && chatRes) setChat(chatRes as unknown as ChatFunnel);
   }
 
   useEffect(() => {
