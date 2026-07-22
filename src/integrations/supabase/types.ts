@@ -182,6 +182,7 @@ export type Database = {
     }
     Functions: {
       cleanup_rate_limits: { Args: never; Returns: undefined }
+      get_chat_funnel: { Args: { days_back?: number }; Returns: Json }
       get_conversion_summary: { Args: { days_back?: number }; Returns: Json }
       upsert_rate_limit: {
         Args: { p_ip_hash: string; p_window_key: string }
