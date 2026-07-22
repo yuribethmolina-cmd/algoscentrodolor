@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 type Props = {
   eyebrow: string;
@@ -177,7 +176,6 @@ export default function PlaceholderPage({
         `}</style>
       </main>
       <HomeFooter />
-      <WhatsAppButton />
     </div>
   );
 }
