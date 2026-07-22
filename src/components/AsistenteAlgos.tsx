@@ -43,12 +43,23 @@ export default function AsistenteAlgos() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [formName, setFormName] = useState("");
-  const [formPhone, setFormPhone] = useState("");
+  const CONTACT_KEY = "algos.chat.contact.v1";
+  const savedContact = (() => {
+    try {
+      const raw = window.localStorage.getItem(CONTACT_KEY);
+      return raw ? (JSON.parse(raw) as { name?: string; phone?: string }) : null;
+    } catch {
+      return null;
+    }
+  })();
+  const [formName, setFormName] = useState(savedContact?.name ?? "");
+  const [formPhone, setFormPhone] = useState(savedContact?.phone ?? "");
   const [formReason, setFormReason] = useState("");
   const [formConsent, setFormConsent] = useState(false);
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+  const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
+  const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
 
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -136,6 +147,17 @@ export default function AsistenteAlgos() {
     }
     setFormError(null);
 
+    try {
+      if (rememberMe) {
+        window.localStorage.setItem(CONTACT_KEY, JSON.stringify({ name, phone }));
+        setHasSavedContact(true);
+      } else {
+        window.localStorage.removeItem(CONTACT_KEY);
+        setHasSavedContact(false);
+      }
+    } catch {
+      /* noop */
+    }
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
@@ -148,11 +170,25 @@ export default function AsistenteAlgos() {
       },
     ]);
     setShowForm(false);
-    setFormName("");
-    setFormPhone("");
     setFormReason("");
     setFormConsent(false);
     setFormMessage("");
+    if (!rememberMe) {
+      setFormName("");
+      setFormPhone("");
+    }
+  }
+
+  function clearSavedContact() {
+    try {
+      window.localStorage.removeItem(CONTACT_KEY);
+    } catch {
+      /* noop */
+    }
+    setFormName("");
+    setFormPhone("");
+    setRememberMe(false);
+    setHasSavedContact(false);
   }
 
 
@@ -364,6 +400,25 @@ export default function AsistenteAlgos() {
                   Autorizo que ALGOS use mi nombre y teléfono para contactarme por WhatsApp y agendar mi cita.
                 </span>
               </label>
+              <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="mt-0.5 accent-[#1A4A55]"
+                />
+                <span>Recordar mi nombre y teléfono en este dispositivo para la próxima vez.</span>
+              </label>
+              {hasSavedContact && (
+                <button
+                  type="button"
+                  onClick={clearSavedContact}
+                  className="self-start text-[10px] underline opacity-80 hover:opacity-100"
+                  style={{ color: DEEP_TEAL }}
+                >
+                  Borrar datos guardados
+                </button>
+              )}
               <p className="text-[10px] leading-snug opacity-80" style={{ color: DEEP_TEAL }}>
                 Tus datos solo se usarán para atender tu solicitud. No los compartimos con terceros ajenos al proceso de atención.
               </p>
