@@ -400,6 +400,25 @@ export default function AsistenteAlgos() {
                   Autorizo que ALGOS use mi nombre y teléfono para contactarme por WhatsApp y agendar mi cita.
                 </span>
               </label>
+              <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="mt-0.5 accent-[#1A4A55]"
+                />
+                <span>Recordar mi nombre y teléfono en este dispositivo para la próxima vez.</span>
+              </label>
+              {hasSavedContact && (
+                <button
+                  type="button"
+                  onClick={clearSavedContact}
+                  className="self-start text-[10px] underline opacity-80 hover:opacity-100"
+                  style={{ color: DEEP_TEAL }}
+                >
+                  Borrar datos guardados
+                </button>
+              )}
               <p className="text-[10px] leading-snug opacity-80" style={{ color: DEEP_TEAL }}>
                 Tus datos solo se usarán para atender tu solicitud. No los compartimos con terceros ajenos al proceso de atención.
               </p>
