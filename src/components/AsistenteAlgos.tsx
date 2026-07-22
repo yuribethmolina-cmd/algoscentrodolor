@@ -47,7 +47,9 @@ export default function AsistenteAlgos() {
   const [formPhone, setFormPhone] = useState("");
   const [formReason, setFormReason] = useState("");
   const [formConsent, setFormConsent] = useState(false);
+  const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -66,6 +68,21 @@ export default function AsistenteAlgos() {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [open, messages, loading]);
+
+  // Actualiza la vista previa del mensaje de WhatsApp cuando cambian los datos.
+  useEffect(() => {
+    if (!showForm) return;
+    const name = formName.trim();
+    const phone = formPhone.trim();
+    const reason = formReason.trim();
+    const lines = [
+      name ? `Hola, soy ${name}.` : "Hola, quisiera agendar una cita.",
+      phone ? `Mi teléfono: ${phone}.` : null,
+      reason ? `Motivo: ${reason}` : null,
+    ].filter(Boolean) as string[];
+    setFormMessage(lines.join("\n"));
+  }, [showForm, formName, formPhone, formReason]);
+
 
   async function send(text: string) {
     const q = text.trim();
