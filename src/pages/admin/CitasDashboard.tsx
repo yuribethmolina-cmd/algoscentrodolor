@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft } from "lucide-react";
+import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft, Search, Download, Users } from "lucide-react";
 
 type Status = "pendiente" | "contactado" | "agendado" | "asistio" | "no_asistio" | "realizado";
 
@@ -48,6 +48,7 @@ export default function CitasDashboard() {
   const [rows, setRows] = useState<AppointmentRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Status | "all">("all");
+  const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [savingNote, setSavingNote] = useState<string | null>(null);
 
@@ -81,10 +82,43 @@ export default function CitasDashboard() {
     navigate("/admin/login", { replace: true });
   }
 
-  const filtered = useMemo(
-    () => (filter === "all" ? rows : rows.filter((r) => r.status === filter)),
-    [rows, filter],
-  );
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (filter !== "all" && r.status !== filter) return false;
+      if (!q) return true;
+      return (
+        r.name.toLowerCase().includes(q) ||
+        r.phone.toLowerCase().includes(q) ||
+        (r.email ?? "").toLowerCase().includes(q) ||
+        (r.condition ?? "").toLowerCase().includes(q)
+      );
+    });
+  }, [rows, filter, search]);
+
+  function exportCSV() {
+    const headers = ["Fecha", "Nombre", "Telefono", "Email", "Motivo", "Estudios", "Fecha preferida", "Turno", "Estado", "Origen", "Dispositivo", "Notas paciente", "Notas internas"];
+    const escape = (v: unknown) => {
+      const s = v == null ? "" : String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const lines = [headers.join(",")];
+    filtered.forEach((r) => {
+      lines.push([
+        new Date(r.created_at).toISOString(),
+        r.name, r.phone, r.email ?? "", r.condition ?? "", r.has_studies ?? "",
+        r.preferred_date ?? "", r.preferred_shift ?? "", STATUS_LABEL[r.status],
+        r.source_section ?? "", r.device ?? "", r.notes ?? "", r.internal_notes ?? "",
+      ].map(escape).join(","));
+    });
+    const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `citas-algos-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   const funnel = useMemo(() => {
     const counts: Record<Status, number> = { pendiente: 0, contactado: 0, agendado: 0, asistio: 0, no_asistio: 0, realizado: 0 };
@@ -107,6 +141,12 @@ export default function CitasDashboard() {
             </p>
           </div>
           <div className="flex gap-2">
+            <Link to="/admin/usuarios" className="p-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5" title="Administradores">
+              <Users size={16} />
+            </Link>
+            <button onClick={exportCSV} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5 text-sm">
+              <Download size={14} /> CSV
+            </button>
             <button onClick={load} className="p-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5">
               <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
             </button>
@@ -115,6 +155,18 @@ export default function CitasDashboard() {
             </button>
           </div>
         </header>
+
+        {/* Search */}
+        <div className="relative mb-4">
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#1a4a55]/40" />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por nombre, teléfono, correo o motivo..."
+            className="w-full pl-9 pr-3 py-2.5 rounded-md border border-[#1a4a55]/20 bg-white text-sm text-[#1a4a55] focus:outline-none focus:border-[#1a4a55]"
+          />
+        </div>
 
         {/* Funnel */}
         <section className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-6">
