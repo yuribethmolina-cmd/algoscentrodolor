@@ -1,7 +1,27 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut, Users } from "lucide-react";
+import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut, Users, Bot, AlertTriangle, ShieldAlert } from "lucide-react";
+
+interface ChatFunnel {
+  range_days: number;
+  submits: number;
+  appointments_logged: number;
+  retries: number;
+  fallback_link_clicks: number;
+  abandons_total: number;
+  conversion_rate_pct: number | null;
+  by_category: {
+    validation: number;
+    whatsapp_blocked: number;
+    whatsapp_exception: number;
+    network: number;
+    api: number;
+    storage: number;
+  };
+  top_reasons: Array<{ reason: string; count: number }>;
+  daily: Array<{ day: string; submits: number; abandons: number }>;
+}
 
 interface Summary {
   range_days: number;
