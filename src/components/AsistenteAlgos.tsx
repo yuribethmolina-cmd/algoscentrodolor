@@ -283,12 +283,14 @@ export default function AsistenteAlgos() {
                   onClick={() => {
                     setShowForm(false);
                     setFormError(null);
+                    setFormConsent(false);
                   }}
                   className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
                   style={{ color: DEEP_TEAL }}
                 >
                   Cancelar
                 </button>
+
               </div>
               <input
                 type="text"
@@ -316,11 +318,26 @@ export default function AsistenteAlgos() {
                 className="w-full px-3 py-2 text-sm rounded-lg outline-none"
                 style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
               />
+              <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
+                <input
+                  type="checkbox"
+                  checked={formConsent}
+                  onChange={(e) => setFormConsent(e.target.checked)}
+                  className="mt-0.5 accent-[#1A4A55]"
+                />
+                <span>
+                  Autorizo que ALGOS use mi nombre y teléfono para contactarme por WhatsApp y agendar mi cita.
+                </span>
+              </label>
+              <p className="text-[10px] leading-snug opacity-80" style={{ color: DEEP_TEAL }}>
+                Tus datos solo se usarán para atender tu solicitud. No los compartimos con terceros ajenos al proceso de atención.
+              </p>
               {formError && (
                 <div className="text-[11px]" style={{ color: "#8a2a20" }}>
                   {formError}
                 </div>
               )}
+
               <button
                 onClick={submitForm}
                 className="w-full py-2.5 rounded-lg text-sm font-semibold text-white"
