@@ -61,6 +61,7 @@ export default function AsistenteAlgos() {
   const [formError, setFormError] = useState<string | null>(null);
   const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
+  const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
 
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -197,19 +198,23 @@ export default function AsistenteAlgos() {
     trackWA("chat_asistente", "chat_miniform");
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
+    const waUrl = `${ALGOS.contact.whatsappHref}?text=${text}`;
     let win: Window | null = null;
     try {
-      win = window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+      win = window.open(waUrl, "_blank", "noopener,noreferrer");
     } catch (openErr: any) {
       trackCTA("chat_asistente", `chat_fail:whatsapp:exception_${(openErr?.name || "unknown").slice(0, 40)}`);
-      setFormError("No se pudo abrir WhatsApp. Intenta nuevamente.");
+      setFallbackUrl(waUrl);
+      setFormError("No se pudo abrir WhatsApp automáticamente. Usa el enlace manual de abajo.");
       return;
     }
     if (!win) {
       trackCTA("chat_asistente", "chat_fail:whatsapp:popup_blocked");
-      setFormError("No se pudo abrir WhatsApp. Revisa el bloqueador de pop-ups e intenta de nuevo.");
+      setFallbackUrl(waUrl);
+      setFormError("Tu navegador bloqueó la apertura automática. Usa el enlace manual de abajo.");
       return;
     }
+    setFallbackUrl(null);
 
     setMessages((m) => [
       ...m,
@@ -475,6 +480,18 @@ export default function AsistenteAlgos() {
                 <div className="text-[11px]" style={{ color: "#8a2a20" }}>
                   {formError}
                 </div>
+              )}
+              {fallbackUrl && (
+                <a
+                  href={fallbackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
+                  className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
+                  style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
+                >
+                  Abrir WhatsApp manualmente →
+                </a>
               )}
 
               <button
