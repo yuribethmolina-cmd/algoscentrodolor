@@ -373,7 +373,10 @@ export default function AsistenteAlgos() {
                 </div>
                 {lastQuery && (
                   <button
-                    onClick={() => send(lastQuery)}
+                    onClick={() => {
+                      trackCTA("chat_asistente", "chat_retry_last_message");
+                      send(lastQuery);
+                    }}
                     className="shrink-0 flex items-center gap-1 px-2 py-2 rounded text-xs font-semibold text-white"
                     style={{ backgroundColor: DEEP_TEAL }}
                     title="Reintentar"
