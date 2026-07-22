@@ -300,12 +300,14 @@ export default function AsistenteAlgos() {
                     setShowForm(false);
                     setFormError(null);
                     setFormConsent(false);
+                    setFormMessage("");
                   }}
                   className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
                   style={{ color: DEEP_TEAL }}
                 >
                   Cancelar
                 </button>
+
 
               </div>
               <input
