@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.submit-appointment]
 verify_jwt = false
+
+[functions.asistente]
+verify_jwt = false

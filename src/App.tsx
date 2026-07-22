@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import CookieBanner from "./components/CookieBanner";
+import AsistenteAlgos from "./components/AsistenteAlgos";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AnimatedRoutes />
+        <AsistenteAlgos />
         <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
