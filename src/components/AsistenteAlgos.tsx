@@ -481,6 +481,18 @@ export default function AsistenteAlgos() {
                   {formError}
                 </div>
               )}
+              {fallbackUrl && (
+                <a
+                  href={fallbackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
+                  className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
+                  style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
+                >
+                  Abrir WhatsApp manualmente →
+                </a>
+              )}
 
               <button
                 onClick={submitForm}
