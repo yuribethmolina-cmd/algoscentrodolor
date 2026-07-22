@@ -46,7 +46,9 @@ export default function AsistenteAlgos() {
   const [formName, setFormName] = useState("");
   const [formPhone, setFormPhone] = useState("");
   const [formReason, setFormReason] = useState("");
+  const [formConsent, setFormConsent] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -111,7 +113,12 @@ export default function AsistenteAlgos() {
       setFormError("Ingresa un teléfono venezolano válido (ej. 0414-680 7886 o 0261-8000476).");
       return;
     }
+    if (!formConsent) {
+      setFormError("Debes autorizar el uso de tus datos para continuar.");
+      return;
+    }
     setFormError(null);
+
 
     const reason = formReason.trim();
     const lines = [
