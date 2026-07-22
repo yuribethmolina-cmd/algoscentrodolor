@@ -150,6 +150,7 @@ export default function AsistenteAlgos() {
   function reset() {
     setMessages([WELCOME]);
     setError(null);
+    setLastQuery(null);
   }
 
   function submitForm(isRetry = false) {
