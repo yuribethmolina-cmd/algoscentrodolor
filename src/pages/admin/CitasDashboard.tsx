@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft } from "lucide-react";
+import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft, Search, Download, Users } from "lucide-react";
 
 type Status = "pendiente" | "contactado" | "agendado" | "asistio" | "no_asistio" | "realizado";
 
