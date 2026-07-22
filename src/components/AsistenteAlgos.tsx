@@ -152,7 +152,9 @@ export default function AsistenteAlgos() {
     setFormPhone("");
     setFormReason("");
     setFormConsent(false);
+    setFormMessage("");
   }
+
 
 
   function handleKey(e: React.KeyboardEvent<HTMLTextAreaElement>) {
