@@ -47,7 +47,9 @@ export default function AsistenteAlgos() {
   const [formPhone, setFormPhone] = useState("");
   const [formReason, setFormReason] = useState("");
   const [formConsent, setFormConsent] = useState(false);
+  const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -66,6 +68,21 @@ export default function AsistenteAlgos() {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [open, messages, loading]);
+
+  // Actualiza la vista previa del mensaje de WhatsApp cuando cambian los datos.
+  useEffect(() => {
+    if (!showForm) return;
+    const name = formName.trim();
+    const phone = formPhone.trim();
+    const reason = formReason.trim();
+    const lines = [
+      name ? `Hola, soy ${name}.` : "Hola, quisiera agendar una cita.",
+      phone ? `Mi teléfono: ${phone}.` : null,
+      reason ? `Motivo: ${reason}` : null,
+    ].filter(Boolean) as string[];
+    setFormMessage(lines.join("\n"));
+  }, [showForm, formName, formPhone, formReason]);
+
 
   async function send(text: string) {
     const q = text.trim();
@@ -120,14 +137,9 @@ export default function AsistenteAlgos() {
     setFormError(null);
 
 
-    const reason = formReason.trim();
-    const lines = [
-      `Hola, soy ${name}.`,
-      `Mi teléfono: ${phone}.`,
-      reason ? `Motivo: ${reason}` : "Quisiera agendar una cita.",
-    ];
-    const text = encodeURIComponent(lines.join("\n"));
+    const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+
     setMessages((m) => [
       ...m,
       {
@@ -140,7 +152,9 @@ export default function AsistenteAlgos() {
     setFormPhone("");
     setFormReason("");
     setFormConsent(false);
+    setFormMessage("");
   }
+
 
 
   function handleKey(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -286,12 +300,14 @@ export default function AsistenteAlgos() {
                     setShowForm(false);
                     setFormError(null);
                     setFormConsent(false);
+                    setFormMessage("");
                   }}
                   className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
                   style={{ color: DEEP_TEAL }}
                 >
                   Cancelar
                 </button>
+
 
               </div>
               <input
@@ -320,7 +336,24 @@ export default function AsistenteAlgos() {
                 className="w-full px-3 py-2 text-sm rounded-lg outline-none"
                 style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
               />
+              <div>
+                <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: DEEP_TEAL }}>
+                  Mensaje para WhatsApp
+                </label>
+                <textarea
+                  value={formMessage}
+                  onChange={(e) => setFormMessage(e.target.value)}
+                  placeholder="Aquí aparecerá el mensaje que se enviará por WhatsApp..."
+                  rows={3}
+                  className="w-full px-3 py-2 text-sm rounded-lg outline-none resize-none"
+                  style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+                />
+                <p className="text-[10px] mt-1 opacity-70" style={{ color: DEEP_TEAL }}>
+                  Puedes editar el mensaje antes de enviarlo.
+                </p>
+              </div>
               <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
+
                 <input
                   type="checkbox"
                   checked={formConsent}
