@@ -160,6 +160,13 @@ export default function AsistenteAlgos() {
       /* noop */
     }
 
+    const reason = formReason.trim();
+    trackAppointment({
+      condition: reason || "chat_asistente",
+      source: "chat_asistente",
+    });
+    trackWA("chat_asistente", "chat_miniform");
+
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
 
