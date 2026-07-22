@@ -103,14 +103,16 @@ export default function AsistenteAlgos() {
     const name = formName.trim();
     const phone = formPhone.trim();
     if (name.length < 2) {
-      setFormError("Por favor ingresa tu nombre.");
+      setFormError("Por favor ingresa tu nombre completo.");
       return;
     }
-    if (phone.replace(/\D/g, "").length < 7) {
-      setFormError("Por favor ingresa un teléfono válido.");
+    const digits = phone.replace(/\D/g, "");
+    if (!/^(0[24]\d{8,9})$/.test(digits)) {
+      setFormError("Ingresa un teléfono venezolano válido (ej. 0414-680 7886 o 0261-8000476).");
       return;
     }
     setFormError(null);
+
     const reason = formReason.trim();
     const lines = [
       `Hola, soy ${name}.`,
