@@ -139,7 +139,9 @@ export default function AsistenteAlgos() {
     setFormName("");
     setFormPhone("");
     setFormReason("");
+    setFormConsent(false);
   }
+
 
   function handleKey(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
