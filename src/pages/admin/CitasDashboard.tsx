@@ -82,10 +82,43 @@ export default function CitasDashboard() {
     navigate("/admin/login", { replace: true });
   }
 
-  const filtered = useMemo(
-    () => (filter === "all" ? rows : rows.filter((r) => r.status === filter)),
-    [rows, filter],
-  );
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (filter !== "all" && r.status !== filter) return false;
+      if (!q) return true;
+      return (
+        r.name.toLowerCase().includes(q) ||
+        r.phone.toLowerCase().includes(q) ||
+        (r.email ?? "").toLowerCase().includes(q) ||
+        (r.condition ?? "").toLowerCase().includes(q)
+      );
+    });
+  }, [rows, filter, search]);
+
+  function exportCSV() {
+    const headers = ["Fecha", "Nombre", "Telefono", "Email", "Motivo", "Estudios", "Fecha preferida", "Turno", "Estado", "Origen", "Dispositivo", "Notas paciente", "Notas internas"];
+    const escape = (v: unknown) => {
+      const s = v == null ? "" : String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const lines = [headers.join(",")];
+    filtered.forEach((r) => {
+      lines.push([
+        new Date(r.created_at).toISOString(),
+        r.name, r.phone, r.email ?? "", r.condition ?? "", r.has_studies ?? "",
+        r.preferred_date ?? "", r.preferred_shift ?? "", STATUS_LABEL[r.status],
+        r.source_section ?? "", r.device ?? "", r.notes ?? "", r.internal_notes ?? "",
+      ].map(escape).join(","));
+    });
+    const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `citas-algos-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   const funnel = useMemo(() => {
     const counts: Record<Status, number> = { pendiente: 0, contactado: 0, agendado: 0, asistio: 0, no_asistio: 0, realizado: 0 };
