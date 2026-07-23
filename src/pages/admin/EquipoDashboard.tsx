@@ -351,6 +351,64 @@ function EditModal({
             </div>
           </div>
 
+          {/* CV / credencial en PDF */}
+          <div className="rounded-md border border-[#1a4a55]/15 bg-[#f5f0e8]/40 p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <FileText size={16} className="text-[#c69636]" />
+              <span className="text-xs font-semibold text-[#1a4a55] uppercase tracking-wider">CV / credencial (PDF)</span>
+            </div>
+            {editing.cv_url ? (
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <a
+                  href={editing.cv_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#1a4a55] hover:underline"
+                >
+                  <Download size={13} />
+                  {editing.cv_filename || "Ver CV actual"}
+                </a>
+                <button
+                  onClick={() => set({ cv_url: "", cv_filename: "" })}
+                  className="text-xs text-red-600 hover:underline ml-2"
+                >
+                  Quitar
+                </button>
+              </div>
+            ) : (
+              <p className="text-xs text-[#1a4a55]/60 italic mb-3">Sin CV cargado.</p>
+            )}
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="inline-flex items-center gap-2 cursor-pointer text-sm bg-[#c69636] text-white px-3 py-2 rounded-md hover:bg-[#a97e2c]">
+                <Upload size={14} />
+                {uploadingCV ? "Subiendo..." : editing.cv_url ? "Reemplazar PDF" : "Subir PDF"}
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  className="hidden"
+                  onChange={async (e) => {
+                    const f = e.target.files?.[0];
+                    if (!f) return;
+                    setUploadingCV(true);
+                    const url = await uploadCV(f);
+                    setUploadingCV(false);
+                    if (url) set({ cv_url: url, cv_filename: f.name });
+                    e.target.value = "";
+                  }}
+                />
+              </label>
+              <input
+                type="text"
+                value={editing.cv_filename ?? ""}
+                onChange={(e) => set({ cv_filename: e.target.value })}
+                placeholder="Nombre visible del archivo (ej: CV-Dr-Rodriguez.pdf)"
+                className="flex-1 min-w-[220px] px-3 py-2 border border-[#1a4a55]/20 rounded-md text-sm"
+              />
+            </div>
+            <p className="text-[11px] text-[#1a4a55]/50 mt-2">Máx. 15 MB · solo PDF · aparecerá como botón de descarga en el perfil público.</p>
+          </div>
+
+
           <Field label="Nombre completo *" value={editing.name} onChange={(v) => set({ name: v })} />
           <Field
             label="Slug (URL única)"
