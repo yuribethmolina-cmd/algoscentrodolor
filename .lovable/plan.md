@@ -1,88 +1,61 @@
-# Plan · Nivel 1 (tracking ampliado) + AI Bot ALGOS
+## Panel de edición del equipo médico
 
-Dos entregables. El primero se implementa ahora. El segundo es solo el plan para que lo apruebes antes de construirlo.
+### Qué construir
 
----
+Un panel en `/admin/equipo` (protegido, junto a los demás admin) donde puedes:
 
-## Parte 1 — Nivel 1: capturar más datos del formulario de cita
+- **Ver** la lista completa del equipo (activos + próximos)
+- **Editar** cualquier miembro: foto, nombre, cargo, especialidad, horario, bio, credenciales, idiomas
+- **Crear** nuevos miembros (tanto médicos reales como "próximamente")
+- **Eliminar** miembros
+- **Reordenar** con arrastrar/subir-bajar
+- **Subir foto** directamente desde el navegador (se guarda en almacenamiento)
 
-**Objetivo:** saber quién agendó, cómo contactarlo, y darle seguimiento manual desde el panel.
+Los cambios se reflejan inmediatamente en:
+- Sección "Equipo" del home
+- Página `/equipo`
+- Perfiles individuales `/equipo/:slug`
 
-### Cambios en el formulario (`/agendar`)
-Agregar campos obligatorios/opcionales:
-- **Nombre completo** (obligatorio)
-- **Teléfono / WhatsApp** (obligatorio, validación VE)
-- **Email** (opcional)
-- **Fecha preferida** (opcional, selector)
-- **Turno preferido** (mañana / tarde)
-- **Notas adicionales** (opcional, textarea corto)
+### Modelo de datos
 
-Los campos actuales (condición, estudios previos) se mantienen.
+Una sola tabla `team_members` que reemplaza los archivos estáticos `team.ts` y `doctors.ts`. Contiene los campos de ambos:
 
-### Backend
-Nueva tabla `appointment_requests` en Lovable Cloud:
-```
-id, created_at, name, phone, email, condition,
-has_studies, preferred_date, preferred_shift, notes,
-source_section, device, status ('pendiente'|'contactado'|
-'agendado'|'asistio'|'no_asistio'|'realizado'),
-status_updated_at, status_updated_by, internal_notes
-```
+- **Identidad**: `slug`, `name`, `kind` (`doctor` real o `aspirational` próximamente)
+- **Cargo**: `role`, `specialty`, `specialty_slug`, `is_director`
+- **Presentación**: `bio`, `credentials[]`, `languages[]`, `schedule`, `note`
+- **Foto**: `photo_url` (URL pública del almacenamiento) + `photo_position`
+- **Home**: `group_id` (01/02/03), `display_order`, `profile_line` (texto corto para próximos)
+- **Ubicación**: `city`, `country`
 
-- RLS: insert público via edge function (rate-limited), select/update solo admins.
-- Edge function `submit-appointment` reemplaza el envío directo actual: valida con Zod, guarda en DB, y devuelve el link de WhatsApp con el mensaje prellenado (comportamiento actual preservado).
+Bucket público `team-photos` para las imágenes. Solo admins pueden escribir; lectura pública.
 
-### Panel admin
-Nueva ruta `/admin/citas`:
-- Tabla ordenada por fecha, con filtros por estado y condición.
-- Cada fila: cambiar estado con dropdown, agregar notas internas, botón "abrir WhatsApp con este paciente".
-- Contador de conversión: enviadas → contactadas → asistieron → realizadas.
+### Cómo llega a las páginas
 
-### Analytics
-El dashboard `/admin/conversiones` gana una tarjeta nueva: **funnel de conversión real** (no solo envíos).
+Nuevo hook `useTeamMembers()` con React Query. Un `TeamDataProvider` en la raíz precarga y cachea. Cada consumidor pasa de importar `DOCTORS`/`TEAM` a leer del hook.
 
----
+Se conservan los tipos `Doctor` y `TeamMember` como proyecciones derivadas para no reescribir los componentes de presentación.
 
-## Parte 2 — Plan del AI Bot de ALGOS (solo plan, no se construye aún)
+Mientras el request inicial se resuelve, se muestran los datos actuales como fallback estático (siembra inicial idéntica a `doctors.ts` y `team.ts`), así no hay pantalla en blanco en la primera carga.
 
-**Objetivo:** asistente conversacional en el sitio que responde dudas de pacientes, orienta sobre condiciones/procedimientos, y ayuda a agendar.
+### Seguridad
 
-### Alcance del bot
-Un asistente de **solo lectura + captación**, no da diagnóstico médico. Responde sobre:
-- Qué condiciones tratamos y síntomas típicos
-- En qué consiste cada procedimiento (ozono, radiofrecuencia, infiltraciones, EMG, EEG)
-- Qué esperar antes/durante/después
-- Cuándo consultar
-- Ubicación, horarios, sedes, contacto
-- Cuando detecta intención de agendar → recolecta datos y crea un `appointment_request`
+- Bucket público solo lectura; escritura requiere sesión admin.
+- Tabla `team_members`: lectura pública (anon+authenticated), escritura solo si `has_role(auth.uid(),'admin')`.
+- Foto sube desde el cliente directo al bucket (con sesión admin), sin edge function.
 
-**No hace:** diagnosticar, recetar, dar dosis, opinar sobre estudios subidos, sustituir consulta.
+### Alcance técnico
 
-### Arquitectura técnica
-- **Modelo:** `google/gemini-3-flash-preview` vía Lovable AI Gateway (rápido, barato, buena calidad en español).
-- **Backend:** edge function `chat` que hace `streamText` del AI SDK con:
-  - System prompt con identidad ALGOS, tono, límites clínicos, y política de derivación a médico.
-  - **Tools MCP existentes** (ya hay `list_conditions`, `get_condition`, `list_procedures`, `list_team`, `clinic_info` en `src/lib/mcp/`) → el modelo consulta la fuente de verdad en vez de alucinar.
-  - Tool nuevo `create_appointment_request` que escribe en la tabla del Nivel 1.
-- **Frontend:** botón flotante estilo chat (esquina inferior izquierda, para no chocar con el botón de WhatsApp). Al abrir, panel lateral con AI Elements.
-- **Persistencia:** una conversación por sesión de navegador en `localStorage` (sin threads, sin login). No guardamos historial en DB salvo que aprobemos analytics de chat.
-- **Rate limit:** por IP hash, reutilizando la infra de `rate_limits`.
+- 1 migración: tabla + índices + RLS + grants + bucket + policies + seed.
+- 1 hook `useTeamMembers()` + provider.
+- 1 página admin `AdminEquipo.tsx` (lista + editor lateral + subida de foto).
+- Refactor de 5 archivos para leer del hook: `TeamSection.tsx`, `HomeTeamSection.tsx`, `Equipo.tsx`, `MedicoPerfil.tsx`, `EquipoSpecialtySections.tsx` (y `EspecialidadesSection.tsx` si depende).
+- Ruta protegida en `AnimatedRoutes.tsx` y enlace desde el resto de dashboards admin.
+- Se dejan `team.ts` y `doctors.ts` como fuente de la **siembra inicial** y del fallback estático, pero ya no como fuente de verdad.
 
-### Decisiones que necesito de ti antes de construir
-1. **Nombre y personalidad del bot** — ¿"Asistente ALGOS", un nombre propio (ej. "Vera"), tono cercano o formal?
-2. **Ubicación visual** — flotante siempre visible, o solo aparece en ciertas páginas.
-3. **¿Puede agendar directamente?** — o siempre termina derivando al WhatsApp humano.
-4. **Idiomas** — solo español, o también inglés para pacientes internacionales.
-5. **Disclaimer médico** — texto exacto que quieres que aparezca al abrir el chat.
+### Fuera de alcance
 
-### Costo estimado
-Gemini 3 Flash vía Lovable AI: fracción de céntimo por conversación típica. Con 500 conversaciones/mes, costo mensual insignificante frente al valor de captación.
+- No se modifica `specialties.ts` (los slugs de especialidad siguen fijos como catálogo).
+- No se agregan campos que no existan hoy en `team.ts`/`doctors.ts`.
+- Sin historial de cambios ni versionado — es sobrescritura directa.
 
-### Fases sugeridas
-1. Nivel 1 (esta iteración).
-2. Bot MVP: responde preguntas + deriva a WhatsApp.
-3. Bot avanzado: crea `appointment_request` directamente + panel de conversaciones en admin.
-
----
-
-**Confírmame:** ¿arranco con Parte 1 completa, y me respondes las 5 preguntas de la Parte 2 para dejar el plan del bot cerrado?
+¿Procedo?

@@ -140,6 +140,66 @@ export type Database = {
         }
         Relationships: []
       }
+      doctors: {
+        Row: {
+          active: boolean
+          bio: string | null
+          created_at: string
+          credentials: string[]
+          display_order: number
+          id: string
+          is_director: boolean
+          languages: string[]
+          name: string
+          note: string | null
+          photo_position: string | null
+          photo_url: string | null
+          schedule: string
+          slug: string
+          specialty: string
+          specialty_slug: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          bio?: string | null
+          created_at?: string
+          credentials?: string[]
+          display_order?: number
+          id?: string
+          is_director?: boolean
+          languages?: string[]
+          name: string
+          note?: string | null
+          photo_position?: string | null
+          photo_url?: string | null
+          schedule?: string
+          slug: string
+          specialty: string
+          specialty_slug: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          bio?: string | null
+          created_at?: string
+          credentials?: string[]
+          display_order?: number
+          id?: string
+          is_director?: boolean
+          languages?: string[]
+          name?: string
+          note?: string | null
+          photo_position?: string | null
+          photo_url?: string | null
+          schedule?: string
+          slug?: string
+          specialty?: string
+          specialty_slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string

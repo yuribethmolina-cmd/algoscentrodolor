@@ -8,19 +8,14 @@ import PageHeroVideo from "@/components/PageHeroVideo";
 import SmartImage from "@/components/SmartImage";
 import { BadgeCheck, Calendar, Search, UserRound, X } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
-import { DOCTORS, type Doctor as DoctorData } from "@/data/doctors";
+import { type Doctor as DoctorData } from "@/data/doctors";
+import { useDoctors } from "@/hooks/useDoctors";
 import { SPECIALTIES } from "@/data/specialties";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20agendar%20una%20consulta.";
 
 type Doctor = DoctorData;
-const DOCTORES: Doctor[] = DOCTORS;
-
-// Solo mostrar chips de especialidades que tengan al menos un especialista.
-const AVAILABLE_SPECIALTIES = SPECIALTIES.filter((s) =>
-  DOCTORES.some((d) => d.specialtySlug === s.slug),
-);
 
 function FilterChip({
   label,
@@ -194,6 +189,10 @@ function DoctorCard({ d, index }: { d: Doctor; index: number }) {
 }
 
 export default function Equipo() {
+  const { doctors: DOCTORES } = useDoctors();
+  const AVAILABLE_SPECIALTIES = SPECIALTIES.filter((s) =>
+    DOCTORES.some((d) => d.specialtySlug === s.slug),
+  );
   const [specialty, setSpecialty] = useState<string>("all");
   const [query, setQuery] = useState<string>("");
 
@@ -207,7 +206,7 @@ export default function Equipo() {
         d.specialty.toLowerCase().includes(q);
       return matchesSpecialty && matchesQuery;
     });
-  }, [specialty, query]);
+  }, [specialty, query, DOCTORES]);
 
   return (
     <div className="min-h-screen bg-cream">

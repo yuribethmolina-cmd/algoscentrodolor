@@ -4,7 +4,7 @@ import { ArrowLeft, BadgeCheck, Calendar, Languages, MessageCircle, UserRound } 
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SmartImage from "@/components/SmartImage";
-import { getDoctorBySlug } from "@/data/doctors";
+import { useDoctor } from "@/hooks/useDoctors";
 import { SPECIALTIES } from "@/data/specialties";
 import { buildWhatsAppUrl, type VisitType } from "@/lib/whatsapp";
 
@@ -19,12 +19,13 @@ function specialtyLabel(slug: string) {
 
 export default function MedicoPerfil() {
   const { slug = "" } = useParams<{ slug: string }>();
-  const doctor = getDoctorBySlug(slug);
+  const { doctor, isLoading } = useDoctor(slug);
   const [visitType, setVisitType] = useState<VisitType>("primera-vez");
 
-  if (!doctor) {
+  if (!doctor && !isLoading) {
     return <Navigate to="/equipo" replace />;
   }
+  if (!doctor) return null;
 
   const firstName = doctor.name.split(" ").slice(0, 2).join(" ");
   const waHref = buildWhatsAppUrl({ doctor, visitType });
