@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { ChevronLeft, LogOut, RefreshCw, Plus, Trash2, ArrowUp, ArrowDown, Upload, X, Save, Users } from "lucide-react";
+import { ChevronLeft, LogOut, RefreshCw, Plus, Trash2, ArrowUp, ArrowDown, Upload, X, Save, Users, FileText, Download } from "lucide-react";
 import { toast } from "sonner";
 
 type DoctorRow = {
@@ -20,6 +20,8 @@ type DoctorRow = {
   languages: string[];
   display_order: number;
   active: boolean;
+  cv_url: string | null;
+  cv_filename: string | null;
 };
 
 const SPECIALTY_SLUGS = [
@@ -47,6 +49,8 @@ const EMPTY: Partial<DoctorRow> = {
   languages: ["Español"],
   display_order: 100,
   active: true,
+  cv_url: "",
+  cv_filename: "",
 };
 
 function slugify(s: string) {
@@ -118,8 +122,28 @@ export default function EquipoDashboard() {
       contentType: file.type,
     });
     if (upErr) { toast.error(`Subida falló: ${upErr.message}`); return null; }
-    // Signed URL válido 10 años (bucket es privado por política del workspace)
     const { data, error } = await supabase.storage.from("team-photos").createSignedUrl(key, 60 * 60 * 24 * 365 * 10);
+    if (error || !data) { toast.error("No se pudo firmar la URL"); return null; }
+    return data.signedUrl;
+  }
+
+  async function uploadCV(file: File): Promise<string | null> {
+    if (file.type !== "application/pdf") {
+      toast.error("El archivo debe ser un PDF");
+      return null;
+    }
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error("El PDF debe pesar menos de 15 MB");
+      return null;
+    }
+    const key = `${crypto.randomUUID()}.pdf`;
+    const { error: upErr } = await supabase.storage.from("team-cvs").upload(key, file, {
+      cacheControl: "31536000",
+      upsert: false,
+      contentType: "application/pdf",
+    });
+    if (upErr) { toast.error(`Subida falló: ${upErr.message}`); return null; }
+    const { data, error } = await supabase.storage.from("team-cvs").createSignedUrl(key, 60 * 60 * 24 * 365 * 10);
     if (error || !data) { toast.error("No se pudo firmar la URL"); return null; }
     return data.signedUrl;
   }
@@ -147,6 +171,8 @@ export default function EquipoDashboard() {
       languages: editing.languages ?? [],
       display_order: editing.display_order ?? 100,
       active: editing.active !== false,
+      cv_url: editing.cv_url || null,
+      cv_filename: editing.cv_filename || null,
     };
     const q = editing.id
       ? await supabase.from("doctors").update(payload).eq("id", editing.id)
@@ -248,6 +274,7 @@ export default function EquipoDashboard() {
           onSave={save}
           saving={saving}
           uploadPhoto={uploadPhoto}
+          uploadCV={uploadCV}
         />
       )}
     </div>
@@ -255,15 +282,17 @@ export default function EquipoDashboard() {
 }
 
 function EditModal({
-  editing, setEditing, onSave, saving, uploadPhoto,
+  editing, setEditing, onSave, saving, uploadPhoto, uploadCV,
 }: {
   editing: Partial<DoctorRow>;
   setEditing: (v: Partial<DoctorRow> | null) => void;
   onSave: () => void;
   saving: boolean;
   uploadPhoto: (f: File) => Promise<string | null>;
+  uploadCV: (f: File) => Promise<string | null>;
 }) {
   const [uploading, setUploading] = useState(false);
+  const [uploadingCV, setUploadingCV] = useState(false);
   const set = (patch: Partial<DoctorRow>) => setEditing({ ...editing, ...patch });
 
   return (
@@ -321,6 +350,64 @@ function EditModal({
               />
             </div>
           </div>
+
+          {/* CV / credencial en PDF */}
+          <div className="rounded-md border border-[#1a4a55]/15 bg-[#f5f0e8]/40 p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <FileText size={16} className="text-[#c69636]" />
+              <span className="text-xs font-semibold text-[#1a4a55] uppercase tracking-wider">CV / credencial (PDF)</span>
+            </div>
+            {editing.cv_url ? (
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <a
+                  href={editing.cv_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#1a4a55] hover:underline"
+                >
+                  <Download size={13} />
+                  {editing.cv_filename || "Ver CV actual"}
+                </a>
+                <button
+                  onClick={() => set({ cv_url: "", cv_filename: "" })}
+                  className="text-xs text-red-600 hover:underline ml-2"
+                >
+                  Quitar
+                </button>
+              </div>
+            ) : (
+              <p className="text-xs text-[#1a4a55]/60 italic mb-3">Sin CV cargado.</p>
+            )}
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="inline-flex items-center gap-2 cursor-pointer text-sm bg-[#c69636] text-white px-3 py-2 rounded-md hover:bg-[#a97e2c]">
+                <Upload size={14} />
+                {uploadingCV ? "Subiendo..." : editing.cv_url ? "Reemplazar PDF" : "Subir PDF"}
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  className="hidden"
+                  onChange={async (e) => {
+                    const f = e.target.files?.[0];
+                    if (!f) return;
+                    setUploadingCV(true);
+                    const url = await uploadCV(f);
+                    setUploadingCV(false);
+                    if (url) set({ cv_url: url, cv_filename: f.name });
+                    e.target.value = "";
+                  }}
+                />
+              </label>
+              <input
+                type="text"
+                value={editing.cv_filename ?? ""}
+                onChange={(e) => set({ cv_filename: e.target.value })}
+                placeholder="Nombre visible del archivo (ej: CV-Dr-Rodriguez.pdf)"
+                className="flex-1 min-w-[220px] px-3 py-2 border border-[#1a4a55]/20 rounded-md text-sm"
+              />
+            </div>
+            <p className="text-[11px] text-[#1a4a55]/50 mt-2">Máx. 15 MB · solo PDF · aparecerá como botón de descarga en el perfil público.</p>
+          </div>
+
 
           <Field label="Nombre completo *" value={editing.name} onChange={(v) => set({ name: v })} />
           <Field

@@ -41,6 +41,10 @@ export type Doctor = {
   credentials?: string[];
   /** Idiomas de atención. */
   languages?: string[];
+  /** URL firmada del CV / credencial en PDF (para descarga desde el perfil). */
+  cvUrl?: string;
+  /** Nombre visible del archivo del CV. */
+  cvFilename?: string;
 };
 
 /**

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, BadgeCheck, Calendar, Languages, MessageCircle, UserRound } from "lucide-react";
+import { ArrowLeft, BadgeCheck, Calendar, Download, Languages, MessageCircle, UserRound } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SmartImage from "@/components/SmartImage";
@@ -311,6 +311,24 @@ export default function MedicoPerfil() {
                   >
                     Credenciales completas próximamente.
                   </p>
+                )}
+
+                {doctor.cvUrl && (
+                  <a
+                    href={doctor.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={doctor.cvFilename || undefined}
+                    className="mt-5 inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-colors"
+                    style={{
+                      background: DEEP_TEAL,
+                      color: CREAM,
+                      fontFamily: "'Manrope', sans-serif",
+                    }}
+                  >
+                    <Download size={15} />
+                    Descargar CV / credencial (PDF)
+                  </a>
                 )}
               </div>
 
