@@ -312,6 +312,24 @@ export default function MedicoPerfil() {
                     Credenciales completas próximamente.
                   </p>
                 )}
+
+                {doctor.cvUrl && (
+                  <a
+                    href={doctor.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={doctor.cvFilename || undefined}
+                    className="mt-5 inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-colors"
+                    style={{
+                      background: DEEP_TEAL,
+                      color: CREAM,
+                      fontFamily: "'Manrope', sans-serif",
+                    }}
+                  >
+                    <Download size={15} />
+                    Descargar CV / credencial (PDF)
+                  </a>
+                )}
               </div>
 
               {doctor.languages && doctor.languages.length > 0 && (
