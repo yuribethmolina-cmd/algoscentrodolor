@@ -274,6 +274,7 @@ export default function EquipoDashboard() {
           onSave={save}
           saving={saving}
           uploadPhoto={uploadPhoto}
+          uploadCV={uploadCV}
         />
       )}
     </div>
