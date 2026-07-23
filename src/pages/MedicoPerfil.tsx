@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, BadgeCheck, Calendar, Languages, MessageCircle, UserRound } from "lucide-react";
+import { ArrowLeft, BadgeCheck, Calendar, Download, Languages, MessageCircle, UserRound } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SmartImage from "@/components/SmartImage";
