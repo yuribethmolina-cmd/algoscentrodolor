@@ -19,6 +19,8 @@ export type DoctorRow = {
   languages: string[];
   display_order: number;
   active: boolean;
+  cv_url: string | null;
+  cv_filename: string | null;
 };
 
 export function rowToDoctor(row: DoctorRow): Doctor {
@@ -35,6 +37,8 @@ export function rowToDoctor(row: DoctorRow): Doctor {
     bio: row.bio || undefined,
     credentials: row.credentials || [],
     languages: row.languages || [],
+    cvUrl: row.cv_url || undefined,
+    cvFilename: row.cv_filename || undefined,
   };
 }
 
