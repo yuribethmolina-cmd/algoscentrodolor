@@ -1,21 +1,22 @@
 import { defineTool } from "@lovable.dev/mcp-js";
-import { ALGOS } from "@/config/algos.config";
 
+// Inlined so the bundled edge function doesn't resolve the @/ alias.
 const INFO = {
-  name: ALGOS.brand.fullName,
+  name: "ALGOS · Centro de Dolor Intervencionista",
   positioning:
     "Primer centro especializado en dolor intervencionista del Estado Zulia, Venezuela.",
   location: {
-    city: ALGOS.location.city,
-    state: ALGOS.location.state,
-    country: ALGOS.location.country,
-    address: ALGOS.location.full,
+    city: "Maracaibo",
+    state: "Zulia",
+    country: "Venezuela",
+    address:
+      "Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005",
   },
   contact: {
-    whatsapp: ALGOS.contact.whatsappHref,
-    email: ALGOS.contact.email,
+    whatsapp: "https://wa.me/584146807886",
+    email: "info@algoscentrodolor.com",
   },
-  website: ALGOS.brand.website,
+  website: "https://algoscentrodolor.com",
   alliance: {
     partner: "UDUZ",
     url: "https://www.instagram.com/uduz_maracaibo/reels/",
