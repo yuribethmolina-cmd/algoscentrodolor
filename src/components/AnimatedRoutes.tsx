@@ -48,6 +48,7 @@ import LpDolor from "@/pages/lp/LpDolor";
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
 import CitasDashboard from "@/pages/admin/CitasDashboard";
 import UsuariosDashboard from "@/pages/admin/UsuariosDashboard";
+import EquipoDashboard from "@/pages/admin/EquipoDashboard";
 import AdminLogin from "@/pages/admin/Login";
 import AdminForgotPassword from "@/pages/admin/ForgotPassword";
 import AdminResetPassword from "@/pages/admin/ResetPassword";
@@ -134,6 +135,11 @@ export default function AnimatedRoutes() {
             path="/admin/usuarios"
             element={<AdminRoute>{wrap(UsuariosDashboard)}</AdminRoute>}
           />
+          <Route
+            path="/admin/equipo"
+            element={<AdminRoute>{wrap(EquipoDashboard)}</AdminRoute>}
+          />
+
 
 
           {/* Public appointment form */}
