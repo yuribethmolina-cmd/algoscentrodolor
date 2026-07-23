@@ -957,21 +957,20 @@ var list_team_default = defineTool4({
 
 // src/lib/mcp/tools/clinic-info.ts
 import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.20.0";
-import { ALGOS } from "npm:@/config/algos.config";
 var INFO = {
-  name: ALGOS.brand.fullName,
+  name: "ALGOS \xB7 Centro de Dolor Intervencionista",
   positioning: "Primer centro especializado en dolor intervencionista del Estado Zulia, Venezuela.",
   location: {
-    city: ALGOS.location.city,
-    state: ALGOS.location.state,
-    country: ALGOS.location.country,
-    address: ALGOS.location.full
+    city: "Maracaibo",
+    state: "Zulia",
+    country: "Venezuela",
+    address: "Av. 20 con Calle 65, N\xB0 65-02 \xB7 C.C. Am\xE9rica, Local 4 \xB7 Sector Para\xEDso, Maracaibo 4005"
   },
   contact: {
-    whatsapp: ALGOS.contact.whatsappHref,
-    email: ALGOS.contact.email
+    whatsapp: "https://wa.me/584146807886",
+    email: "info@algoscentrodolor.com"
   },
-  website: ALGOS.brand.website,
+  website: "https://algoscentrodolor.com",
   alliance: {
     partner: "UDUZ",
     url: "https://www.instagram.com/uduz_maracaibo/reels/",
