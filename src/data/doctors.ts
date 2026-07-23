@@ -105,6 +105,19 @@ export const DOCTORS: Doctor[] = [
   {
     slug: "dra-doris-meneses",
     name: "Dra. Doris Meneses",
+    specialty: "Cirujano de mano",
+    specialtySlug: "traumatologia",
+    schedule: "Viernes · 8:00 AM - 12:00 PM",
+    bio: "Cirujana de mano con formación en traumatología y ortopedia. En ALGOS evalúa y trata patologías de mano, muñeca y nervios periféricos que causan dolor o limitación funcional, coordinando su abordaje con el equipo intervencionista cuando procede.",
+    credentials: [
+      "Cirujana de mano",
+      "Formación en traumatología y ortopedia",
+    ],
+    languages: ["Español"],
+  },
+  {
+    slug: "dra-jannine-viloria",
+    name: "Dra. Jannine Viloria",
     specialty: "Reumatología",
     specialtySlug: "reumatologia",
     schedule: "Viernes · 8:00 AM - 12:00 PM",

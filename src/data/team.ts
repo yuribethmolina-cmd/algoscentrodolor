@@ -91,8 +91,8 @@ const TEAM: TeamMember[] = [
   },
   {
     type: 'aspirational',
-    slug: 'dra-doris-meneses',
-    roleAsName: 'Dra. Doris Meneses · Reumatología',
+    slug: 'dra-jannine-viloria',
+    roleAsName: 'Dra. Jannine Viloria · Reumatología',
     profileLine: 'Reumatóloga especialista en enfermedades articulares y autoinmunes. Perfil completo próximamente.',
     city: 'Maracaibo',
     group: '01',

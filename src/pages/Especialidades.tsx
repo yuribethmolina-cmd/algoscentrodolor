@@ -26,7 +26,7 @@ const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
     { name: "Dr. Tomás Iragorry" },
     { name: "Dr. Miguel Guevara" },
   ],
-  "reumatologia": [{ name: "Dra. Doris Meneses" }],
+  "reumatologia": [{ name: "Dra. Jannine Viloria" }],
   "fisiatria": [
     { name: "Dra. Leslie Ramírez" },
     { name: "Dra. Carolina Rodríguez" },
