@@ -49,6 +49,8 @@ const EMPTY: Partial<DoctorRow> = {
   languages: ["Español"],
   display_order: 100,
   active: true,
+  cv_url: "",
+  cv_filename: "",
 };
 
 function slugify(s: string) {
