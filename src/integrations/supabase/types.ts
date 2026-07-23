@@ -146,6 +146,8 @@ export type Database = {
           bio: string | null
           created_at: string
           credentials: string[]
+          cv_filename: string | null
+          cv_url: string | null
           display_order: number
           id: string
           is_director: boolean
@@ -165,6 +167,8 @@ export type Database = {
           bio?: string | null
           created_at?: string
           credentials?: string[]
+          cv_filename?: string | null
+          cv_url?: string | null
           display_order?: number
           id?: string
           is_director?: boolean
@@ -184,6 +188,8 @@ export type Database = {
           bio?: string | null
           created_at?: string
           credentials?: string[]
+          cv_filename?: string | null
+          cv_url?: string | null
           display_order?: number
           id?: string
           is_director?: boolean
