@@ -13,7 +13,8 @@ import {
   Zap,
 } from "lucide-react";
 import patientPain from "@/assets/tx-miofascial.jpg";
-import { getDoctorsBySpecialty, type Doctor } from "@/data/doctors";
+import { useDoctors } from "@/hooks/useDoctors";
+import type { Doctor } from "@/data/doctors";
 import { assertSpecialtySlug } from "@/data/validate";
 
 const DEEP_TEAL = "#1a4a55";
@@ -109,6 +110,7 @@ const CARE_PATHS: CarePath[] = [
 
 
 export default function EspecialidadesSection() {
+  const { doctors: allDoctors } = useDoctors();
   const [activeSlug, setActiveSlug] = useState<Doctor["specialtySlug"] | "all">("all");
   const visible = activeSlug === "all"
     ? CARE_PATHS
@@ -226,7 +228,7 @@ export default function EspecialidadesSection() {
           >
             {visible.map((item) => {
               const Icon = item.icon;
-              const doctors = getDoctorsBySpecialty(item.specialtySlug).map((d) => d.name);
+              const doctors = allDoctors.filter((d) => d.specialtySlug === item.specialtySlug).map((d) => d.name);
               return (
                 <Link
                   key={item.pain}

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { DOCTORS } from "@/data/doctors";
+import { useDoctors } from "@/hooks/useDoctors";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
@@ -14,6 +14,7 @@ const GAP = 16;
 const CARD_W = 276;
 
 export default function HomeTeamSection() {
+  const { doctors } = useDoctors();
   const sectionRef = useRef<HTMLElement>(null);
   const sliderRef  = useRef<HTMLDivElement>(null);
   const [visible,  setVisible]  = useState(false);
@@ -141,7 +142,7 @@ export default function HomeTeamSection() {
               transition: "opacity 700ms ease 80ms",
             }}
           >
-            {DOCTORS.map((doc, i) => (
+            {doctors.map((doc, i) => (
               <article
                 key={doc.slug}
                 style={{

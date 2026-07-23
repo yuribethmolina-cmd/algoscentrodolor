@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import { SPECIALTIES } from "@/data/specialties";
-import { DOCTORS } from "@/data/doctors";
+import { useDoctors } from "@/hooks/useDoctors";
 
 /**
  * Secciones SEO por especialidad: cada especialidad tiene su propio H2,
@@ -9,6 +9,7 @@ import { DOCTORS } from "@/data/doctors";
  * Se renderiza en /equipo y /pacientes/equipo.
  */
 export default function EquipoSpecialtySections() {
+  const { doctors: DOCTORS } = useDoctors();
   const specialties = SPECIALTIES.filter((s) =>
     DOCTORS.some((d) => d.specialtySlug === s.slug),
   );

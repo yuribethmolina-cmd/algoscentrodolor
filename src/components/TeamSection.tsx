@@ -1,7 +1,7 @@
 import { useInViewOnce } from "@/lib/animations";
 import { Calendar } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
-import { DOCTORS } from "@/data/doctors";
+import { useDoctors } from "@/hooks/useDoctors";
 
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
@@ -17,17 +17,17 @@ function getInitials(name: string): string {
     .join("");
 }
 
-const doctores = DOCTORS.map((d) => ({
-  nombre: d.name,
-  especialidad: d.specialty,
-  consulta: d.schedule,
-  nota: d.note,
-  esDireccion: d.isDirector,
-  foto: d.photoSrc,
-}));
-
 
 export default function TeamSection() {
+  const { doctors } = useDoctors();
+  const doctores = doctors.map((d) => ({
+    nombre: d.name,
+    especialidad: d.specialty,
+    consulta: d.schedule,
+    nota: d.note,
+    esDireccion: d.isDirector,
+    foto: d.photoSrc,
+  }));
   const { ref: headerRef, inView: headerIn } = useInViewOnce<HTMLDivElement>(0.12);
   const { ref: gridRef, inView: gridIn } = useInViewOnce<HTMLDivElement>(0.08);
 
