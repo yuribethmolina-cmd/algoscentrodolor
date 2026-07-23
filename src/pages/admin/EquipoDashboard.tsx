@@ -113,6 +113,20 @@ export default function EquipoDashboard() {
     else { toast.success("Eliminado"); await load(); }
   }
 
+  async function uploadPhoto(file: File): Promise<string | null> {
+    const ext = file.name.split(".").pop() || "jpg";
+    const key = `${crypto.randomUUID()}.${ext}`;
+    const { error: upErr } = await supabase.storage.from("team-photos").upload(key, file, {
+      cacheControl: "31536000",
+      upsert: false,
+      contentType: file.type,
+    });
+    if (upErr) { toast.error(`Subida falló: ${upErr.message}`); return null; }
+    const { data, error } = await supabase.storage.from("team-photos").createSignedUrl(key, 60 * 60 * 24 * 365 * 10);
+    if (error || !data) { toast.error("No se pudo firmar la URL"); return null; }
+    return data.signedUrl;
+  }
+
   async function uploadCV(file: File): Promise<string | null> {
     if (file.type !== "application/pdf") {
       toast.error("El archivo debe ser un PDF");
