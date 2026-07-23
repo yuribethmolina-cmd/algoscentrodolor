@@ -11,6 +11,7 @@ import {
   Html,
   Link,
   Preview,
+  Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 
@@ -22,36 +23,39 @@ interface SignupEmailProps {
 }
 
 export const SignupEmail = ({
-  siteName,
   siteUrl,
   recipient,
   confirmationUrl,
 }: SignupEmailProps) => (
-  <Html lang="en" dir="ltr">
+  <Html lang="es" dir="ltr">
     <Head />
-    <Preview>Confirm your email for {siteName}</Preview>
+    <Preview>Confirma tu correo para acceder al panel de ALGOS</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Confirm your email</Heading>
-        <Text style={text}>
-          Thanks for signing up for{' '}
-          <Link href={siteUrl} style={link}>
-            <strong>{siteName}</strong>
-          </Link>
-          !
-        </Text>
-        <Text style={text}>
-          Please confirm your email address (
-          <Link href={`mailto:${recipient}`} style={link}>
-            {recipient}
-          </Link>
-          ) by clicking the button below:
-        </Text>
-        <Button style={button} href={confirmationUrl}>
-          Verify Email
-        </Button>
-        <Text style={footer}>
-          If you didn't create an account, you can safely ignore this email.
+        <Section style={header}>
+          <Text style={brand}>ALGOS</Text>
+          <Text style={tagline}>Centro de Dolor Intervencionista</Text>
+        </Section>
+        <Section style={card}>
+          <Heading style={h1}>Confirma tu correo</Heading>
+          <Text style={text}>
+            Gracias por registrarte en el panel interno de{' '}
+            <Link href={siteUrl} style={link}>ALGOS</Link>.
+          </Text>
+          <Text style={text}>
+            Confirma tu dirección{' '}
+            <Link href={`mailto:${recipient}`} style={link}>{recipient}</Link>{' '}
+            haciendo clic en el botón:
+          </Text>
+          <Button style={button} href={confirmationUrl}>
+            Confirmar correo
+          </Button>
+          <Text style={footer}>
+            Si no creaste esta cuenta, puedes ignorar este mensaje.
+          </Text>
+        </Section>
+        <Text style={brandFooter}>
+          ALGOS · Maracaibo, Venezuela
         </Text>
       </Container>
     </Body>
@@ -60,27 +64,62 @@ export const SignupEmail = ({
 
 export default SignupEmail
 
-const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
-const container = { padding: '20px 25px' }
+const main = { backgroundColor: '#ffffff', fontFamily: 'Inter, Helvetica, Arial, sans-serif' }
+const container = { padding: '32px 20px', maxWidth: '560px', margin: '0 auto' }
+const header = { textAlign: 'center' as const, padding: '0 0 24px' }
+const brand = {
+  fontSize: '28px',
+  fontWeight: '600' as const,
+  color: '#1a4a55',
+  letterSpacing: '6px',
+  margin: '0',
+}
+const tagline = {
+  fontSize: '10px',
+  fontWeight: '500' as const,
+  color: '#c69636',
+  letterSpacing: '3px',
+  textTransform: 'uppercase' as const,
+  margin: '4px 0 0',
+}
+const card = {
+  backgroundColor: '#f5f0e8',
+  borderRadius: '6px',
+  padding: '36px 32px',
+  borderTop: '3px solid #c69636',
+}
 const h1 = {
   fontSize: '22px',
-  fontWeight: 'bold' as const,
-  color: '#000000',
+  fontWeight: '600' as const,
+  color: '#1a4a55',
   margin: '0 0 20px',
 }
 const text = {
-  fontSize: '14px',
-  color: '#55575d',
-  lineHeight: '1.5',
-  margin: '0 0 25px',
+  fontSize: '15px',
+  color: '#2a3d43',
+  lineHeight: '1.6',
+  margin: '0 0 20px',
 }
-const link = { color: 'inherit', textDecoration: 'underline' }
+const link = { color: '#1a4a55', fontWeight: 600 as const, textDecoration: 'underline' }
 const button = {
-  backgroundColor: '#000000',
-  color: '#ffffff',
+  backgroundColor: '#c69636',
+  color: '#1a4a55',
   fontSize: '14px',
-  borderRadius: '8px',
-  padding: '12px 20px',
+  fontWeight: 'bold' as const,
+  letterSpacing: '1.5px',
+  textTransform: 'uppercase' as const,
+  borderRadius: '4px',
+  padding: '14px 28px',
   textDecoration: 'none',
+  display: 'inline-block',
+  margin: '8px 0 4px',
 }
-const footer = { fontSize: '12px', color: '#999999', margin: '30px 0 0' }
+const footer = { fontSize: '13px', color: '#5a6b6f', margin: '28px 0 0', lineHeight: '1.5' }
+const brandFooter = {
+  fontSize: '11px',
+  color: '#8a9599',
+  textAlign: 'center' as const,
+  letterSpacing: '1.5px',
+  textTransform: 'uppercase' as const,
+  margin: '24px 0 0',
+}
