@@ -7,6 +7,11 @@ import { SPECIALTIES } from "@/data/specialties";
 import { UserRound } from "lucide-react";
 import drAtilioAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
 import teamDanielAsset from "@/assets/daniel-rodriguez.png.asset.json";
+import antulioAsset from "@/assets/team/antulio-parra.png.asset.json";
+import tomasAsset from "@/assets/team/tomas-iragorry.png.asset.json";
+import carolinaAsset from "@/assets/team/carolina-rodriguez.png.asset.json";
+import leslieAsset from "@/assets/team/leslie-ramirez.png.asset.json";
+import gildaAsset from "@/assets/team/gilda-gomez.png.asset.json";
 const drAtilio = drAtilioAsset.url;
 const teamDaniel = teamDanielAsset.url;
 
@@ -22,21 +27,22 @@ const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
     { name: "Dr. Atilio Rodríguez", photo: drAtilio, photoPosition: "center top" },
   ],
   "traumatologia": [
-    { name: "Dr. Antulio Parra" },
-    { name: "Dr. Tomás Iragorry" },
+    { name: "Dr. Antulio Parra", photo: antulioAsset.url, photoPosition: "center top" },
+    { name: "Dr. Tomás Iragorry", photo: tomasAsset.url, photoPosition: "center top" },
     { name: "Dr. Miguel Guevara" },
   ],
   "reumatologia": [{ name: "Dra. Jannine Viloria" }],
   "fisiatria": [
-    { name: "Dra. Leslie Ramírez" },
-    { name: "Dra. Carolina Rodríguez" },
+    { name: "Dra. Leslie Ramírez", photo: leslieAsset.url, photoPosition: "center top" },
+    { name: "Dra. Carolina Rodríguez", photo: carolinaAsset.url, photoPosition: "center top" },
   ],
-  "cuidados-paliativos": [{ name: "Dra. Gilda Gómez Neipp" }],
+  "cuidados-paliativos": [{ name: "Dra. Gilda Gómez Neipp", photo: gildaAsset.url, photoPosition: "center top" }],
   "psicologia": [],
   "nutricion": [
     { name: "Lic. Daniel Rodríguez", photo: teamDaniel, photoPosition: "center 20%" },
   ],
 };
+
 
 
 export default function Especialidades() {
