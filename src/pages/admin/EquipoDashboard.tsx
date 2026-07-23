@@ -20,6 +20,8 @@ type DoctorRow = {
   languages: string[];
   display_order: number;
   active: boolean;
+  cv_url: string | null;
+  cv_filename: string | null;
 };
 
 const SPECIALTY_SLUGS = [
