@@ -282,15 +282,17 @@ export default function EquipoDashboard() {
 }
 
 function EditModal({
-  editing, setEditing, onSave, saving, uploadPhoto,
+  editing, setEditing, onSave, saving, uploadPhoto, uploadCV,
 }: {
   editing: Partial<DoctorRow>;
   setEditing: (v: Partial<DoctorRow> | null) => void;
   onSave: () => void;
   saving: boolean;
   uploadPhoto: (f: File) => Promise<string | null>;
+  uploadCV: (f: File) => Promise<string | null>;
 }) {
   const [uploading, setUploading] = useState(false);
+  const [uploadingCV, setUploadingCV] = useState(false);
   const set = (patch: Partial<DoctorRow>) => setEditing({ ...editing, ...patch });
 
   return (
