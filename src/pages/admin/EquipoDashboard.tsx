@@ -113,17 +113,23 @@ export default function EquipoDashboard() {
     else { toast.success("Eliminado"); await load(); }
   }
 
-  async function uploadPhoto(file: File): Promise<string | null> {
-    const ext = file.name.split(".").pop() || "jpg";
-    const key = `${crypto.randomUUID()}.${ext}`;
-    const { error: upErr } = await supabase.storage.from("team-photos").upload(key, file, {
+  async function uploadCV(file: File): Promise<string | null> {
+    if (file.type !== "application/pdf") {
+      toast.error("El archivo debe ser un PDF");
+      return null;
+    }
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error("El PDF debe pesar menos de 15 MB");
+      return null;
+    }
+    const key = `${crypto.randomUUID()}.pdf`;
+    const { error: upErr } = await supabase.storage.from("team-cvs").upload(key, file, {
       cacheControl: "31536000",
       upsert: false,
-      contentType: file.type,
+      contentType: "application/pdf",
     });
     if (upErr) { toast.error(`Subida falló: ${upErr.message}`); return null; }
-    // Signed URL válido 10 años (bucket es privado por política del workspace)
-    const { data, error } = await supabase.storage.from("team-photos").createSignedUrl(key, 60 * 60 * 24 * 365 * 10);
+    const { data, error } = await supabase.storage.from("team-cvs").createSignedUrl(key, 60 * 60 * 24 * 365 * 10);
     if (error || !data) { toast.error("No se pudo firmar la URL"); return null; }
     return data.signedUrl;
   }
@@ -151,6 +157,8 @@ export default function EquipoDashboard() {
       languages: editing.languages ?? [],
       display_order: editing.display_order ?? 100,
       active: editing.active !== false,
+      cv_url: editing.cv_url || null,
+      cv_filename: editing.cv_filename || null,
     };
     const q = editing.id
       ? await supabase.from("doctors").update(payload).eq("id", editing.id)
