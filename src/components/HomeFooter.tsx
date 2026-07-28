@@ -178,9 +178,9 @@ export default function HomeFooter() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = STEEL_TEAL)}
               >
-                <strong style={{ fontWeight: 700 }}>UDUZ Paraíso</strong> · misma zona
+                <strong style={{ fontWeight: 700 }}>UDUZ</strong> &nbsp;· misma zona
                 <br />
-                Tomografía · desde $25
+                Tomografía&nbsp;
 
               </a>
             </div>
