@@ -8,7 +8,7 @@ import { UserRound } from "lucide-react";
 import drAtilioAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
 import teamDanielAsset from "@/assets/daniel-rodriguez.png.asset.json";
 import antulioAsset from "@/assets/team/antulio-parra.png.asset.json";
-import tomasAsset from "@/assets/team/tomas-iragorry.png.asset.json";
+import photoTomas from "@/assets/team/doctor-tomas.webp";
 import carolinaAsset from "@/assets/team/carolina-rodriguez.png.asset.json";
 import leslieAsset from "@/assets/team/leslie-ramirez.png.asset.json";
 import gildaAsset from "@/assets/team/gilda-gomez.png.asset.json";
@@ -28,7 +28,7 @@ const SPECIALTY_TO_DOCTORS: Record<string, Specialist[]> = {
   ],
   "traumatologia": [
     { name: "Dr. Antulio Parra", photo: antulioAsset.url, photoPosition: "center top" },
-    { name: "Dr. Tomás Iragorry", photo: tomasAsset.url, photoPosition: "center top" },
+    { name: "Dr. Tomás Iragorry", photo: photoTomas, photoPosition: "center top" },
     { name: "Dr. Miguel Guevara" },
   ],
   "reumatologia": [{ name: "Dra. Jannine Viloria" }],
