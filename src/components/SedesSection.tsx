@@ -9,7 +9,7 @@ const SEDES = [
   {
     nombre: "Sede Sector Paraíso",
     direccion: "Av. 20 con Calle 65, N° 65-02",
-    detalle: "C.C. América, Local 4 · Sector Paraíso · Maracaibo 4005, Edo. Zulia",
+    detalle: "C.C. América, Local 4 · Sector Paraíso · Maracaibo 4005, Edo. Zulia\nPunto de referencia: Frente a la maternidad Castillo Plaza",
     telefonos: [
       { label: "0414-680 7886", href: "tel:+584146807886" },
       { label: "0412-061 7410", href: "tel:+584120617410" },
@@ -123,6 +123,7 @@ export default function SedesSection() {
                       fontSize: 12,
                       color: "rgba(26,74,85,0.5)",
                       marginTop: 4,
+                      whiteSpace: "pre-line",
                     }}
                   >
                     {s.detalle}
