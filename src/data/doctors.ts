@@ -90,7 +90,6 @@ export const DOCTORS: Doctor[] = [
       "Médico Traumatólogo Ortopedista",
       "Miembro · Sociedad Venezolana de Cirugía Ortopédica y Traumatológica (SVCOT)",
       "Fellowship en Traumatología Deportiva",
-      "",
       "Entrenamiento en Ecografía Músculo-Esquelética",
     ],
     languages: ["Español"],
