@@ -123,6 +123,7 @@ export default function SedesSection() {
                       fontSize: 12,
                       color: "rgba(26,74,85,0.5)",
                       marginTop: 4,
+                      whiteSpace: "pre-line",
                     }}
                   >
                     {s.detalle}
