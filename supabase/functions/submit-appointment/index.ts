@@ -183,6 +183,31 @@ Deno.serve(async (req) => {
       }),
     );
 
+    // Aviso por Telegram si está habilitado en el panel
+    if (settings?.telegram_enabled && settings.telegram_bot_token && settings.telegram_chat_id) {
+      const text = [
+        "🩺 *Nueva solicitud de cita — ALGOS*",
+        `👤 ${row.name}`,
+        `📞 ${row.phone}`,
+        row.email ? `✉️ ${row.email}` : null,
+        row.condition ? `🧾 ${row.condition}` : null,
+        row.preferred_date ? `📅 ${row.preferred_date} ${row.preferred_shift ?? ""}`.trim() : null,
+        row.notes ? `📝 ${row.notes}` : null,
+      ].filter(Boolean).join("\n");
+
+      try {
+        const tg = await fetch(`https://api.telegram.org/bot${settings.telegram_bot_token}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: settings.telegram_chat_id, text, parse_mode: "Markdown" }),
+        });
+        if (!tg.ok) console.error("telegram notify failed", tg.status, await tg.text());
+      } catch (tgErr) {
+        console.error("telegram notify error", tgErr);
+      }
+    }
+
+
     // Confirmación al paciente (si dejó email)
     if (row.email) {
       const { error: confirmError } = await supabase.functions.invoke("send-transactional-email", {
