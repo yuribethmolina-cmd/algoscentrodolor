@@ -14,11 +14,10 @@ type Annotation = {
 };
 
 const ANNOTATIONS: Annotation[] = [
-  { label: "Sin hospitalización",  top: "18%", left: "70%" },
-  { label: "Guiado por imagen",    top: "35%", left: "22%" },
-  { label: "Sin cirugía abierta",  top: "52%", left: "62%" },
-  { label: "Recuperación en 24h",  top: "67%", left: "78%" },
-  { label: "Diagnóstico preciso",  top: "80%", left: "30%" },
+  { label: "Procedimiento mínimamente invasivo", top: "18%", left: "62%" },
+  { label: "Guiado por imagen",                  top: "38%", left: "22%" },
+  { label: "Recuperación pronta",                top: "60%", left: "70%" },
+  { label: "Diagnóstico preciso",                top: "80%", left: "30%" },
 ];
 
 export default function WhyDifferentSection() {
@@ -96,8 +95,8 @@ export default function WhyDifferentSection() {
             }}
           >
             En ALGOS identificamos el origen exacto de su dolor e intervenimos
-            con precisión guiada por imagen — sin cirugía abierta, sin
-            hospitalización, con seguimiento hasta el resultado.
+            con procedimientos mínimamente invasivos guiados por imagen, con
+            seguimiento hasta el resultado.
           </p>
           <a
             href={ALGOS.contact.whatsappHref}

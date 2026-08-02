@@ -3,7 +3,7 @@ import { Play, CheckCircle2 } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 
 const benefits = [
-  "Sin cirugía abierta ni hospitalización",
+  "Procedimiento mínimamente invasivo",
   "Guiado por imagen en tiempo real",
   "Recuperación en días, no meses",
 ];
