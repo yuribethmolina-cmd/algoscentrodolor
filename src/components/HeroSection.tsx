@@ -179,6 +179,49 @@ export default function HeroSection() {
                 <span>ESPECIALIDADES</span>
               </Link>
             </div>
+
+            {/* Most-searched procedures — direct entry for high-intent visitors */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mt-8">
+              <p
+                className="font-ui font-bold uppercase shrink-0"
+                style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
+              >
+                Más solicitados
+              </p>
+              {([
+                { label: "Electromiografía", to: "/procedimientos/emg" },
+                { label: "Electroencefalograma", to: "/procedimientos/eeg" },
+              ] as const).map(({ label, to }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="inline-flex items-center gap-1.5 transition-[color,border-color] duration-200 md:hover:text-[#c69636] md:hover:[border-bottom-color:#c69636]"
+                  style={{
+                    fontFamily: "Inter, system-ui, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "rgba(245,240,232,0.88)",
+                    textDecoration: "none",
+                    borderBottom: "1px solid rgba(245,240,232,0.32)",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: 5,
+                      height: 5,
+                      borderRadius: "50%",
+                      backgroundColor: "#c69636",
+                      flexShrink: 0,
+                    }}
+                    aria-hidden="true"
+                  />
+                  {label}
+                  <span aria-hidden="true" style={{ opacity: 0.55, fontSize: "12px" }}>→</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
