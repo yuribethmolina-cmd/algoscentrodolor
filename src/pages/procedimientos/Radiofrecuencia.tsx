@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import PageHero from "@/components/PageHero";
@@ -6,7 +5,6 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgMain from "@/assets/sala-procedimientos.jpg";
 import imgProc from "@/assets/about-procedure.jpg";
 import { ALGOS } from "@/config/algos.config";
@@ -15,9 +13,8 @@ import SEOHead from "@/components/SEOHead";
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20los%20procedimientos%20disponibles.";
 
 export default function Radiofrecuencia() {
-  const [hc, setHc] = useState(false);
   return (
-    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+    <div className="min-h-screen bg-cream">
       <Navbar />
       <SEOHead
         title="Radiofrecuencia para el dolor — Maracaibo | ALGOS"
@@ -97,7 +94,6 @@ export default function Radiofrecuencia() {
         </section>
       </main>
       <HomeFooter />
-      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

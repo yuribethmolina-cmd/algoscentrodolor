@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
@@ -6,7 +5,6 @@ import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import { motion } from "framer-motion";
 import imgMainAsset from "@/assets/eeg-procedimiento.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
@@ -15,9 +13,8 @@ const imgMain = imgMainAsset.url;
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20Electroencefalograma%20(EEG).";
 
 export default function EEG() {
-  const [hc, setHc] = useState(false);
   return (
-    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+    <div className="min-h-screen bg-cream">
       <SEOHead
         title="Electroencefalograma en Maracaibo | EEG | ALGOS"
         description="Electroencefalograma (EEG) en Maracaibo. Estudio no invasivo de la actividad eléctrica del cerebro para evaluación de convulsiones, epilepsia, desmayos y seguimiento neurológico."
@@ -118,7 +115,6 @@ export default function EEG() {
         </section>
       </main>
       <HomeFooter />
-      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

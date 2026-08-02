@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
-import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
@@ -268,10 +267,10 @@ function CinematicCTA({ hc }: { hc: boolean }) {
 
 /* ================ Page ================ */
 export default function EMG() {
-  const [hc, setHc] = useState(false);
+  const hc = false;
 
   return (
-    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+    <div className="min-h-screen bg-cream">
       <SEOHead
         title="Electromiografía en Maracaibo | EMG y conducción nerviosa | ALGOS"
         description="Electromiografía (EMG) y estudios de conducción nerviosa en Maracaibo. Diagnóstico de neuropatías, ciática, síndrome del túnel carpiano y compresión de nervios. Interpretación por especialista."
@@ -378,8 +377,6 @@ export default function EMG() {
       </main>
       <HomeFooter />
 
-      {/* High-contrast toggle */}
-      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

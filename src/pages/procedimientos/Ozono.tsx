@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import PageHero from "@/components/PageHero";
@@ -6,7 +5,6 @@ import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import ozonoAsset from "@/assets/proc-ozono.jpg.asset.json";
 import ozonoAgujaAsset from "@/assets/ozono-intradiscal-aguja.png.asset.json";
 import ozonoDiagramaAsset from "@/assets/ozono-infiltracion-diagrama.png.asset.json";
@@ -19,9 +17,8 @@ import SEOHead from "@/components/SEOHead";
 const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20información%20sobre%20el%20ozono%20para%20hernia%20discal.";
 
 export default function Ozono() {
-  const [hc, setHc] = useState(false);
   return (
-    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+    <div className="min-h-screen bg-cream">
       <Navbar />
       <SEOHead
         title="Ozono para hernia discal — Tratamiento en Maracaibo | ALGOS"
@@ -162,7 +159,6 @@ export default function Ozono() {
         </section>
       </main>
       <HomeFooter />
-      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }

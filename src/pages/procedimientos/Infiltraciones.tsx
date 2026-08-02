@@ -1,10 +1,8 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureSplitBlock from "@/components/procedimiento/ProcedureSplitBlock";
 import ProcedureIntro from "@/components/procedimiento/ProcedureIntro";
-import HighContrastToggle from "@/components/procedimiento/HighContrastToggle";
 import infiltracionesVideo from "@/assets/infiltraciones-video.mp4.asset.json";
 import imgBloqueoFacetario from "@/assets/infiltracion-bloqueo-facetario.webp.asset.json";
 import imgRodillaEco from "@/assets/infiltracion-rodilla-eco.webp.asset.json";
@@ -31,9 +29,8 @@ const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
 export default function Infiltraciones() {
-  const [hc, setHc] = useState(false);
   return (
-    <div className={`min-h-screen ${hc ? "procedure-hc" : "bg-cream"}`}>
+    <div className="min-h-screen bg-cream">
       <Navbar />
       <SEOHead
         title="Infiltraciones y bloqueos — Dolor sin cirugía en Maracaibo | ALGOS"
@@ -224,7 +221,6 @@ export default function Infiltraciones() {
         </section>
       </main>
       <HomeFooter />
-      <HighContrastToggle enabled={hc} onToggle={() => setHc((v) => !v)} />
     </div>
   );
 }
