@@ -198,9 +198,9 @@ function ManifestoPanel({ hc }: { hc: boolean }) {
           className="font-sans font-light text-cream leading-[1.2] md:leading-[1.1] tracking-[-0.02em]"
           style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
         >
-          No trate <span className="text-algos-gold">a ciegas</span>.
+          No tratamos <span className="text-algos-gold">a ciegas</span>.
           <br />
-          Vea el nervio primero.
+          Vemos el nervio primero.
         </motion.p>
         <div className="mt-8 md:mt-10 flex items-center gap-4">
           <span className="h-px w-10 bg-algos-gold" />
