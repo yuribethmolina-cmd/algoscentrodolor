@@ -293,6 +293,54 @@ export type Database = {
         }
         Relationships: []
       }
+      notification_settings: {
+        Row: {
+          email_enabled: boolean
+          email_recipients: string[]
+          id: number
+          telegram_bot_token: string | null
+          telegram_chat_id: string | null
+          telegram_enabled: boolean
+          twilio_account_sid: string | null
+          twilio_auth_token: string | null
+          twilio_enabled: boolean
+          twilio_from: string | null
+          twilio_to: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          email_enabled?: boolean
+          email_recipients?: string[]
+          id?: number
+          telegram_bot_token?: string | null
+          telegram_chat_id?: string | null
+          telegram_enabled?: boolean
+          twilio_account_sid?: string | null
+          twilio_auth_token?: string | null
+          twilio_enabled?: boolean
+          twilio_from?: string | null
+          twilio_to?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          email_enabled?: boolean
+          email_recipients?: string[]
+          id?: number
+          telegram_bot_token?: string | null
+          telegram_chat_id?: string | null
+          telegram_enabled?: boolean
+          twilio_account_sid?: string | null
+          twilio_auth_token?: string | null
+          twilio_enabled?: boolean
+          twilio_from?: string | null
+          twilio_to?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       rate_limits: {
         Row: {
           count: number

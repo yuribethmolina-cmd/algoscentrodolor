@@ -136,8 +136,20 @@ Deno.serve(async (req) => {
       source: "form_agendar",
     });
 
-    // Notificar por email a recepción (no bloquea la respuesta si falla)
-    const notifyRecipients = ["info@algoscentrodolor.com", "recepcionalgos@algoscentrodolor.com"];
+    // Configuración de notificaciones (panel /admin/configuracion)
+    const { data: settings } = await supabase
+      .from("notification_settings")
+      .select("*")
+      .eq("id", 1)
+      .maybeSingle();
+
+    const emailEnabled = settings?.email_enabled ?? true;
+    const notifyRecipients: string[] = emailEnabled
+      ? (settings?.email_recipients?.length
+          ? settings.email_recipients
+          : ["info@algoscentrodolor.com", "recepcionalgos@algoscentrodolor.com"])
+      : [];
+
     const templateData = {
       name: row.name,
       phone: row.phone,
@@ -170,6 +182,31 @@ Deno.serve(async (req) => {
         else if (r.value?.error) console.error("notify email error", r.value.error);
       }),
     );
+
+    // Aviso por Telegram si está habilitado en el panel
+    if (settings?.telegram_enabled && settings.telegram_bot_token && settings.telegram_chat_id) {
+      const text = [
+        "🩺 *Nueva solicitud de cita — ALGOS*",
+        `👤 ${row.name}`,
+        `📞 ${row.phone}`,
+        row.email ? `✉️ ${row.email}` : null,
+        row.condition ? `🧾 ${row.condition}` : null,
+        row.preferred_date ? `📅 ${row.preferred_date} ${row.preferred_shift ?? ""}`.trim() : null,
+        row.notes ? `📝 ${row.notes}` : null,
+      ].filter(Boolean).join("\n");
+
+      try {
+        const tg = await fetch(`https://api.telegram.org/bot${settings.telegram_bot_token}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: settings.telegram_chat_id, text, parse_mode: "Markdown" }),
+        });
+        if (!tg.ok) console.error("telegram notify failed", tg.status, await tg.text());
+      } catch (tgErr) {
+        console.error("telegram notify error", tgErr);
+      }
+    }
+
 
     // Confirmación al paciente (si dejó email)
     if (row.email) {

@@ -50,6 +50,7 @@ import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
 import CitasDashboard from "@/pages/admin/CitasDashboard";
 import UsuariosDashboard from "@/pages/admin/UsuariosDashboard";
 import EquipoDashboard from "@/pages/admin/EquipoDashboard";
+import ConfiguracionDashboard from "@/pages/admin/ConfiguracionDashboard";
 import AdminLogin from "@/pages/admin/Login";
 import AdminForgotPassword from "@/pages/admin/ForgotPassword";
 import AdminResetPassword from "@/pages/admin/ResetPassword";
@@ -142,6 +143,11 @@ export default function AnimatedRoutes() {
             path="/admin/equipo"
             element={<AdminRoute>{wrap(EquipoDashboard)}</AdminRoute>}
           />
+          <Route
+            path="/admin/configuracion"
+            element={<AdminRoute>{wrap(ConfiguracionDashboard)}</AdminRoute>}
+          />
+
 
 
 
