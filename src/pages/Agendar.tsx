@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ALGOS } from "@/config/algos.config";
-import { CheckCircle2, Loader2, MessageCircle } from "lucide-react";
+import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const CONDITIONS = [
@@ -79,6 +79,13 @@ export default function Agendar() {
       />
       <main className="min-h-screen bg-[#f5f0e8] py-16 px-4">
         <div className="mx-auto max-w-xl">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-[#1a4a55]/70 hover:text-[#1a4a55] text-sm mb-6"
+            style={{ minHeight: 44 }}
+          >
+            <ArrowLeft size={18} /> Volver al inicio
+          </Link>
           <p className="text-[#c69636] font-medium text-xs tracking-[0.25em] uppercase mb-3">AGENDAR CITA</p>
           <h1 className="font-display font-bold text-[#1a4a55] text-3xl md:text-4xl mb-3">
             Cuéntanos sobre tu dolor
