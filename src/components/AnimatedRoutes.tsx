@@ -43,6 +43,7 @@ import BlogPage from "@/pages/Blog";
 // Landing pages (Google Ads — sin nav, sin PageTransition)
 import LpDiagnostico from "@/pages/lp/LpDiagnostico";
 import LpDolor from "@/pages/lp/LpDolor";
+import Unsubscribe from "@/pages/Unsubscribe";
 
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
@@ -114,6 +115,8 @@ export default function AnimatedRoutes() {
           <Route path="/instituciones" element={<Navigate to="/" replace />} />
           <Route path="/instituciones/*" element={<Navigate to="/" replace />} />
           <Route path="/blog" element={wrap(BlogPage)} />
+
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
 
           {/* Landing pages (Google Ads) */}
           <Route path="/lp/diagnostico" element={<LpDiagnostico />} />

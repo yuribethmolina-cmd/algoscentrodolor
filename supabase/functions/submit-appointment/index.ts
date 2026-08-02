@@ -136,7 +136,42 @@ Deno.serve(async (req) => {
       source: "form_agendar",
     });
 
+    // Notificar por email a recepción (no bloquea la respuesta si falla)
+    const notifyRecipients = ["info@algoscentrodolor.com", "recepcionalgos@algoscentrodolor.com"];
+    const templateData = {
+      name: row.name,
+      phone: row.phone,
+      email: row.email ?? undefined,
+      condition: row.condition ?? undefined,
+      hasStudies: row.has_studies ?? undefined,
+      preferredDate: row.preferred_date ?? undefined,
+      preferredShift: row.preferred_shift ?? undefined,
+      notes: row.notes ?? undefined,
+      sourceSection: row.source_section ?? undefined,
+      device: row.device ?? undefined,
+      createdAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
+    };
+
+    await Promise.allSettled(
+      notifyRecipients.map((to) =>
+        supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "nueva-cita",
+            recipientEmail: to,
+            idempotencyKey: `nueva-cita-${inserted.id}-${to}`,
+            templateData,
+          },
+        }),
+      ),
+    ).then((results) =>
+      results.forEach((r) => {
+        if (r.status === "rejected") console.error("notify email failed", r.reason);
+        else if (r.value?.error) console.error("notify email error", r.value.error);
+      }),
+    );
+
     return new Response(JSON.stringify({ ok: true, id: inserted.id }), {
+
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
