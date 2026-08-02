@@ -136,8 +136,20 @@ Deno.serve(async (req) => {
       source: "form_agendar",
     });
 
-    // Notificar por email a recepción (no bloquea la respuesta si falla)
-    const notifyRecipients = ["info@algoscentrodolor.com", "recepcionalgos@algoscentrodolor.com"];
+    // Configuración de notificaciones (panel /admin/configuracion)
+    const { data: settings } = await supabase
+      .from("notification_settings")
+      .select("*")
+      .eq("id", 1)
+      .maybeSingle();
+
+    const emailEnabled = settings?.email_enabled ?? true;
+    const notifyRecipients: string[] = emailEnabled
+      ? (settings?.email_recipients?.length
+          ? settings.email_recipients
+          : ["info@algoscentrodolor.com", "recepcionalgos@algoscentrodolor.com"])
+      : [];
+
     const templateData = {
       name: row.name,
       phone: row.phone,
