@@ -116,6 +116,8 @@ export default function AnimatedRoutes() {
           <Route path="/instituciones/*" element={<Navigate to="/" replace />} />
           <Route path="/blog" element={wrap(BlogPage)} />
 
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
+
           {/* Landing pages (Google Ads) */}
           <Route path="/lp/diagnostico" element={<LpDiagnostico />} />
           <Route path="/lp/dolor" element={<LpDolor />} />
