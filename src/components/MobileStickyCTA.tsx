@@ -43,6 +43,7 @@ export default function MobileStickyCTA() {
           href={WA}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => { if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Contact'); }}
           className="flex-1 inline-flex items-center justify-center gap-2 active:scale-[0.97] transition-transform"
           style={{
             minHeight: 48,

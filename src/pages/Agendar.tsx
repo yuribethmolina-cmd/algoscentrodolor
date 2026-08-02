@@ -59,6 +59,7 @@ export default function Agendar() {
       if (!data?.ok) throw new Error(data?.error || "No se pudo enviar. Intenta de nuevo.");
 
       trackAppointment({ condition: condition || undefined, hasStudies: hasStudies || undefined, source: "form_agendar" });
+      if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Schedule');
 
       const waUrl = buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
