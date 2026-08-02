@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ALGOS } from "@/config/algos.config";
-import { CheckCircle2, Loader2, MessageCircle } from "lucide-react";
+import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const CONDITIONS = [
