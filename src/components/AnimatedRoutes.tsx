@@ -143,6 +143,11 @@ export default function AnimatedRoutes() {
             path="/admin/equipo"
             element={<AdminRoute>{wrap(EquipoDashboard)}</AdminRoute>}
           />
+          <Route
+            path="/admin/configuracion"
+            element={<AdminRoute>{wrap(ConfiguracionDashboard)}</AdminRoute>}
+          />
+
 
 
 
