@@ -181,13 +181,14 @@ export default function HeroSection() {
             </div>
 
             {/* Most-searched procedures — direct entry for high-intent visitors */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mt-8">
+            <div className="flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
               <p
-                className="font-ui font-bold uppercase shrink-0"
+                className="font-ui font-bold uppercase"
                 style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
               >
                 Más solicitados
               </p>
+              <div className="flex items-center gap-5 flex-wrap">
               {([
                 { label: "Electromiografía", to: "/procedimientos/emg" },
                 { label: "Electroencefalograma", to: "/procedimientos/eeg" },
@@ -221,6 +222,7 @@ export default function HeroSection() {
                   <span aria-hidden="true" style={{ opacity: 0.55, fontSize: "12px" }}>→</span>
                 </Link>
               ))}
+              </div>
             </div>
           </div>
         </div>
