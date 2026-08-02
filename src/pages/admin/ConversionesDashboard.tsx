@@ -198,6 +198,12 @@ export default function ConversionesDashboard() {
             >
               <ShieldAlert size={15} /> Admins
             </Link>
+            <Link
+              to="/admin/configuracion"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#1a4a55]/20 bg-white text-[#1a4a55] text-sm font-medium hover:bg-[#1a4a55]/5"
+            >
+              <ShieldAlert size={15} /> Notificaciones
+            </Link>
             <div className="inline-flex rounded-md border border-[#1a4a55]/20 bg-white overflow-hidden">
               {RANGES.map((r) => (
                 <button
