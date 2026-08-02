@@ -7,6 +7,8 @@ import {
   Head,
   Heading,
   Html,
+  Button,
+  Hr,
   Link,
   Preview,
   Section,
@@ -26,6 +28,7 @@ interface NuevaCitaProps {
   sourceSection?: string
   device?: string
   createdAt?: string
+  appointmentId?: string
 }
 
 const Row = ({ label, value }: { label: string; value?: string }) => (
@@ -47,6 +50,7 @@ const NuevaCitaEmail = ({
   sourceSection,
   device,
   createdAt,
+  appointmentId,
 }: NuevaCitaProps) => {
   const waPhone = (phone ?? '').replace(/\D/g, '')
   return (
@@ -61,29 +65,48 @@ const NuevaCitaEmail = ({
           </Section>
           <Section style={card}>
             <Heading style={h1}>Nueva solicitud de cita</Heading>
+            <Text style={lead}>
+              {name ?? 'Un paciente'} solicitó una cita
+              {condition ? ` por ${condition}` : ''}. Contáctalo y marca el estado en el panel.
+            </Text>
+
+            <Text style={subhead}>Datos del paciente</Text>
             <Row label="Paciente" value={name} />
             <Row label="Teléfono" value={phone} />
             <Row label="Email" value={email} />
+
+            <Hr style={hr} />
+
+            <Text style={subhead}>Motivo y preferencias</Text>
             <Row label="Motivo" value={condition} />
             <Row label="Estudios previos" value={hasStudies} />
             <Row label="Fecha preferida" value={preferredDate} />
             <Row label="Turno" value={preferredShift} />
             <Row label="Notas" value={notes} />
-            <Row label="Origen" value={sourceSection} />
+
+            <Hr style={hr} />
+
+            <Text style={subhead}>Origen</Text>
+            <Row label="Sección" value={sourceSection} />
             <Row label="Dispositivo" value={device} />
             <Row label="Recibida" value={createdAt} />
+
+            <Section style={ctaWrap}>
+              <Button
+                href={`https://algoscentrodolor.com/admin/citas${appointmentId ? `?id=${appointmentId}` : ''}`}
+                style={button}
+              >
+                Abrir panel y marcar estado
+              </Button>
+            </Section>
+
             {waPhone.length >= 7 && (
-              <Text style={row}>
+              <Text style={rowCenter}>
                 <Link href={`https://wa.me/${waPhone}`} style={link}>
-                  Escribir por WhatsApp
+                  Escribir al paciente por WhatsApp
                 </Link>
               </Text>
             )}
-            <Text style={row}>
-              <Link href="https://algoscentrodolor.com/admin/citas" style={link}>
-                Ver en el panel de citas
-              </Link>
-            </Text>
           </Section>
           <Text style={brandFooter}>ALGOS · Maracaibo, Venezuela</Text>
         </Container>
@@ -109,6 +132,7 @@ export const template = {
     sourceSection: 'form_agendar',
     device: 'mobile',
     createdAt: '2026-08-02 09:15',
+    appointmentId: '00000000-0000-0000-0000-000000000000',
   },
 } satisfies TemplateEntry
 
@@ -128,4 +152,19 @@ const row = { fontSize: '14px', color: '#1A4A55', margin: '0 0 8px', lineHeight:
 const rowLabel = { color: '#3D8B96', fontWeight: 600 }
 const rowValue = { color: '#1A4A55' }
 const link = { color: '#C69636', fontWeight: 600 }
+const lead = { fontSize: '14px', color: '#1A4A55', lineHeight: '21px', margin: '0 0 16px' }
+const subhead = { fontSize: '12px', fontWeight: 700, color: '#3D8B96', textTransform: 'uppercase' as const, letterSpacing: '0.4px', margin: '0 0 8px' }
+const hr = { borderColor: '#E5E0D6', margin: '16px 0' }
+const ctaWrap = { textAlign: 'center' as const, margin: '20px 0 8px' }
+const button = {
+  backgroundColor: '#1A4A55',
+  color: '#ffffff',
+  fontSize: '15px',
+  fontWeight: 600,
+  padding: '14px 24px',
+  borderRadius: '10px',
+  textDecoration: 'none',
+  display: 'inline-block',
+}
+const rowCenter = { fontSize: '14px', textAlign: 'center' as const, margin: '4px 0 0' }
 const brandFooter = { fontSize: '12px', color: '#3D8B96', marginTop: '16px' }

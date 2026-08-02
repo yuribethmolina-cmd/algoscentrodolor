@@ -150,6 +150,7 @@ Deno.serve(async (req) => {
       sourceSection: row.source_section ?? undefined,
       device: row.device ?? undefined,
       createdAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
+      appointmentId: inserted.id,
     };
 
     await Promise.allSettled(
