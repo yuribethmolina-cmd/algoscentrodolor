@@ -170,6 +170,25 @@ Deno.serve(async (req) => {
       }),
     );
 
+    // Confirmación al paciente (si dejó email)
+    if (row.email) {
+      const { error: confirmError } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "confirmacion-cita",
+          recipientEmail: row.email,
+          idempotencyKey: `confirmacion-cita-${inserted.id}`,
+          templateData: {
+            name: row.name,
+            phone: row.phone,
+            condition: row.condition ?? undefined,
+            preferredDate: row.preferred_date ?? undefined,
+            preferredShift: row.preferred_shift ?? undefined,
+          },
+        },
+      });
+      if (confirmError) console.error("confirmation email error", confirmError);
+    }
+
     return new Response(JSON.stringify({ ok: true, id: inserted.id }), {
 
       status: 200,

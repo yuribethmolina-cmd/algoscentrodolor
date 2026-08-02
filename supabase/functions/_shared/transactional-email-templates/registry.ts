@@ -9,7 +9,9 @@ export interface TemplateEntry {
 }
 
 import { template as nuevaCita } from './nueva-cita.tsx'
+import { template as confirmacionCita } from './confirmacion-cita.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'nueva-cita': nuevaCita,
+  'confirmacion-cita': confirmacionCita,
 }
