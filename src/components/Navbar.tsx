@@ -316,6 +316,26 @@ export default function Navbar() {
             );
           })}
 
+          <Link
+            to="/agendar"
+            style={{
+              backgroundColor: GOLD,
+              color: DEEP_TEAL,
+              padding: "14px 22px",
+              fontFamily: "Manrope, system-ui, sans-serif",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              marginTop: 10,
+              display: "block",
+              textAlign: "center",
+            }}
+          >
+            Agendar cita
+          </Link>
+
           <a
             href={WA}
             target="_blank"

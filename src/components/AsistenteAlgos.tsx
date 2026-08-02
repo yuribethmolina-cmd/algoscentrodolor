@@ -275,7 +275,7 @@ export default function AsistenteAlgos() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Abrir asistente ALGOS"
-          className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full px-4 py-3 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
+          className="fixed bottom-24 md:bottom-6 left-6 z-50 flex items-center gap-2 rounded-full px-4 py-3 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
           style={{ backgroundColor: DEEP_TEAL }}
         >
           <MessageSquare size={22} />

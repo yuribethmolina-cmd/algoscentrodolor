@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import CookieBanner from "./components/CookieBanner";
 import AsistenteAlgos from "./components/AsistenteAlgos";
+import MobileStickyCTA from "./components/MobileStickyCTA";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <BrowserRouter>
         <AnimatedRoutes />
         <AsistenteAlgos />
+        <MobileStickyCTA />
         <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
