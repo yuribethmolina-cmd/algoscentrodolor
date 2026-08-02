@@ -25,9 +25,9 @@ export default function CookieBanner() {
     <div
       role="region"
       aria-label="Aviso de cookies"
+      className="bottom-[92px] md:bottom-5"
       style={{
         position: "fixed",
-        bottom: 20,
         left: "50%",
         transform: "translateX(-50%)",
         zIndex: 9999,

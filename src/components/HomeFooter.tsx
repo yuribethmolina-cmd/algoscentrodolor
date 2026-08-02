@@ -161,10 +161,10 @@ export default function HomeFooter() {
             </div>
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>TELÉFONOS</p>
-              <a href="tel:+584146807886" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
+              <a href="tel:+584146807886" style={{ ...blockValue, textDecoration: "none", display: "block", padding: "8px 0", minHeight: 44 }}>
                 0414-680 7886 · Solo mensajes
               </a>
-              <a href="tel:+584120617410" style={{ ...blockValue, textDecoration: "none", display: "block" }}>
+              <a href="tel:+584120617410" style={{ ...blockValue, textDecoration: "none", display: "block", padding: "8px 0", minHeight: 44 }}>
                 0412-061 7410 · Solo llamadas
               </a>
             </div>
