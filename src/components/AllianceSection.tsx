@@ -583,7 +583,7 @@ export default function AllianceSection() {
             }}
           >
             {[
-              { k: "Dirección", v: "Av. 4001, Maracaibo · Sector Paraíso" },
+              { k: "Dirección", v: "Av. 20 con calle 65, C.C. La America Maracaibo · Sector Paraíso" },
               {
                 k: "Teléfono",
                 v: (
