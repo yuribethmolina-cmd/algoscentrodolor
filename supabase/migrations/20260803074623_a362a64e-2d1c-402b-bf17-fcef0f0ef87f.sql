@@ -1,0 +1,1 @@
+UPDATE public.doctors SET photo_url = '/__l5e/assets-v1/c9ed6830-8612-449b-9fcd-d008fda8cfc1/dr-miguel-guevara.png' WHERE slug = 'dr-miguel-guevara';
