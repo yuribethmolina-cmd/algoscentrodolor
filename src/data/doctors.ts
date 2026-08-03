@@ -88,6 +88,38 @@ export const DOCTORS: Doctor[] = [
     ],
     languages: ["Español"],
   },
+  {
+    slug: "dr-tomas-iragorry",
+    name: "Dr. Tomás Iragorry",
+    specialty: "Traumatología y Ortopedia",
+    specialtySlug: "traumatologia",
+    schedule: "Lunes, martes y miércoles · 8:00 AM - 12:00 PM",
+    photoSrc: photoTomas,
+    bio: "Traumatólogo Ortopedista con Fellowship en Traumatología Deportiva, entrenamiento en ecografía músculo-esquelétic. Miembro activo de la SVCOT, aporta al equipo de ALGOS un enfoque de alta precisión para lesiones del aparato locomotor tanto en pacientes deportivos como en dolor crónico musculoesquelético.",
+    credentials: [
+      "Médico Traumatólogo Ortopedista",
+      "Miembro · Sociedad Venezolana de Cirugía Ortopédica y Traumatológica (SVCOT)",
+      "Fellowship en Traumatología Deportiva",
+      "Entrenamiento en Ecografía Músculo-Esquelética",
+    ],
+    languages: ["Español"],
+  },
+  {
+    slug: "dr-miguel-guevara",
+    name: "Dr. Miguel Guevara",
+    specialty: "Traumatología y Ortopedia",
+    specialtySlug: "traumatologia",
+    schedule: "Lunes · 8:00 AM - 10:00 AM",
+    bio: "Médico Traumatólogo Ortopedista enfocado en patología de miembro superior e inferior y valoración de pie y tobillo. En ALGOS atiende patologías dolorosas de hombro, codo, muñeca, mano, cadera y rodilla, en coordinación con el equipo intervencionista.",
+    credentials: [
+      "Médico Traumatólogo Ortopedista",
+      "Traumatología general",
+      "Patología de miembro superior e inferior",
+      "Reemplazos articulares",
+      "Valoración de pie y tobillo",
+    ],
+    languages: ["Español"],
+  },
 
   {
     slug: "dra-doris-meneses",
