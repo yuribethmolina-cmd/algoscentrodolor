@@ -77,6 +77,16 @@ export const DOCTORS: Doctor[] = [
     specialtySlug: "traumatologia",
     schedule: "Martes y jueves · 8:00 AM - 11:00 AM",
     photoSrc: photoAntulio,
+    bio: "Médico Traumatólogo Ortopedista con amplia trayectoria en Maracaibo. En ALGOS evalúa patologías dolorosas del aparato locomotor —hombro, codo, muñeca, mano, cadera, rodilla, pie y tobillo— y coordina con el equipo intervencionista cuando el caso lo amerita.",
+    credentials: [
+      "Médico Traumatólogo Ortopedista",
+      "Traumatología general",
+      "Ortopedia infantil",
+      "Patología de miembro superior e inferior",
+      "Reemplazos articulares",
+      "Valoración de pie y tobillo",
+    ],
+    languages: ["Español"],
   },
   {
     slug: "dr-tomas-iragorry",
@@ -100,7 +110,17 @@ export const DOCTORS: Doctor[] = [
     specialty: "Traumatología y Ortopedia",
     specialtySlug: "traumatologia",
     schedule: "Lunes · 8:00 AM - 10:00 AM",
+    bio: "Médico Traumatólogo Ortopedista enfocado en patología de miembro superior e inferior y valoración de pie y tobillo. En ALGOS atiende patologías dolorosas de hombro, codo, muñeca, mano, cadera y rodilla, en coordinación con el equipo intervencionista.",
+    credentials: [
+      "Médico Traumatólogo Ortopedista",
+      "Traumatología general",
+      "Patología de miembro superior e inferior",
+      "Reemplazos articulares",
+      "Valoración de pie y tobillo",
+    ],
+    languages: ["Español"],
   },
+
   {
     slug: "dra-doris-meneses",
     name: "Dra. Doris Meneses",
