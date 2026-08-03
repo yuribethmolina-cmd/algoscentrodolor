@@ -1,4 +1,5 @@
 import drAtilioAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
+import drGuevaraAsset from "@/assets/dr-miguel-guevara.png.asset.json";
 import photoAtilio   from "@/assets/team/doctor-atilio.webp";
 import photoAntulio  from "@/assets/team/doctor-antulio.webp";
 import photoTomas    from "@/assets/team/doctor-tomas.webp";
@@ -110,6 +111,7 @@ export const DOCTORS: Doctor[] = [
     specialty: "Traumatología y Ortopedia",
     specialtySlug: "traumatologia",
     schedule: "Lunes · 8:00 AM - 10:00 AM",
+    photoSrc: drGuevaraAsset.url,
     bio: "Médico Traumatólogo Ortopedista enfocado en patología de miembro superior e inferior y valoración de pie y tobillo. En ALGOS atiende patologías dolorosas de hombro, codo, muñeca, mano, cadera y rodilla, en coordinación con el equipo intervencionista.",
     credentials: [
       "Médico Traumatólogo Ortopedista",
