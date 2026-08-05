@@ -69,7 +69,7 @@ export default function LpDolor() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
 
             {/* Text */}
-            <div className="flex flex-col justify-center px-6 md:px-12 py-16 md:py-24 order-2 lg:order-1">
+            <div className="flex flex-col justify-center px-6 md:px-12 py-16 md:py-24 order-1">
               <p className="text-[#3d8b96] font-medium text-xs tracking-[0.28em] uppercase mb-5">
                 DOLOR INTERVENCIONISTA · MARACAIBO
               </p>
@@ -91,7 +91,7 @@ export default function LpDolor() {
             </div>
 
             {/* Imagen dolor + card Dr. Atilio */}
-            <div className="relative min-h-[380px] lg:min-h-0 overflow-hidden order-1 lg:order-2 bg-[#1a4a55]">
+            <div className="relative min-h-[380px] lg:min-h-0 overflow-hidden order-2 bg-[#1a4a55]">
               <OptimizedPicture
                 picture={dolorLumbarPic}
                 placeholder={dolorLumbarLqip}

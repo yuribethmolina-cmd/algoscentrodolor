@@ -16,7 +16,7 @@ const WA_UDUZ = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera coordinar un estudio diagnóstico."
 )}`;
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
-  "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar un electromiograma (EMG) o electrocardiograma (ECG)."
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar un estudio de neurofisiología (EMG o EEG) en ALGOS."
 )}`;
 
 const UDUZ_STUDIES = [
@@ -24,12 +24,12 @@ const UDUZ_STUDIES = [
   { slug: "rayos-x", name: "Rayos X", short: "Radiografía en sede o a domicilio.", icon: Bone },
   { slug: "mamografia-3d", name: "Mamografía 3D", short: "Estudio mamográfico de última generación.", icon: Baby },
   { slug: "holter", name: "Holter", short: "Monitoreo cardíaco continuo de 24 horas.", icon: Activity },
-  { slug: "eeg", name: "Electroencefalograma (EEG)", short: "Registro de la actividad eléctrica cerebral.", icon: Waves },
   { slug: "laboratorio", name: "Laboratorio clínico", short: "Análisis de sangre, orina y más. En sede o a domicilio.", icon: TestTube },
 ];
 
 const ALGOS_STUDIES = [
   { slug: "emg", name: "Electromiografía (EMG)", short: "Mide cómo viajan las señales por nervios y músculos. Detecta compresión o daño nervioso.", icon: Zap },
+  { slug: "eeg", name: "Electroencefalograma (EEG)", short: "Registro de la actividad eléctrica cerebral. Para convulsiones, mareos o seguimiento neurológico.", icon: Waves },
   { slug: "ecg", name: "Electrocardiograma (ECG)", short: "Registro eléctrico del corazón en reposo. Indoloro y rápido.", icon: HeartPulse },
 ];
 
@@ -44,7 +44,7 @@ export default function LpDiagnostico() {
         <meta name="robots" content="noindex, nofollow" />
       </SEOHead>
 
-      <LpHeader waHref={WA_UDUZ} waLabel="Coordinar estudio" />
+      <LpHeader waHref={WA_ALGOS} waLabel="Agendar EMG / EEG" />
 
       <main className="pt-24">
         {/* Hero — split layout */}
@@ -58,7 +58,7 @@ export default function LpDiagnostico() {
               </p>
               <h1 className="font-display font-bold text-[#1a4a55] text-4xl md:text-5xl leading-[1.08] tracking-tight mb-6">
                 Tomografía, Rayos X 24/7<br />
-                Laboratorio Clinico y más ,&nbsp;en Maracaibo.
+                y Laboratorio Clínico en Maracaibo.
               </h1>
               <p className="font-sans text-[#1a4a55]/70 text-base md:text-lg leading-relaxed mb-10 max-w-md">
                 A través de nuestra alianza con UDUZ ofrecemos imagen, cardiología y laboratorio. La mayoría de estudios no requieren consulta previa.
