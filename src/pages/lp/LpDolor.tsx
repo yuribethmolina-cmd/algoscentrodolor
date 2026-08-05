@@ -16,8 +16,12 @@ const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
 )}`;
 
-const WA_DIAGNOSTICOS = `https://wa.me/584146807886?text=${encodeURIComponent(
-  "Hola, me contacto desde algoscentrodolor.com. Quisiera información sobre estudios diagnósticos (EMG o EEG) y consultar el precio."
+const WA_EMG = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar una Electromiografía (EMG)."
+)}`;
+
+const WA_EEG = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar un Electroencefalograma (EEG)."
 )}`;
 
 const DIAGNOSTICOS = [
