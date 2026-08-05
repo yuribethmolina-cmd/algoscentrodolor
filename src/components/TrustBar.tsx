@@ -74,6 +74,21 @@ export default function TrustBar() {
         <div
           style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", maxWidth: 340, marginTop: 4 }}
         >
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(26,74,85,0.12)" }} />
+            <p style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 10,
+              fontWeight: 800,
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+              color: "#c69636",
+              margin: 0,
+            }}>
+              En ALGOS
+            </p>
+            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(26,74,85,0.12)" }} />
+          </div>
           {[
             { label: "Electromiografía (EMG)", text: "Hola ALGOS, me interesa agendar una Electromiografía (EMG)." },
             { label: "Electroencefalograma (EEG)", text: "Hola ALGOS, me interesa agendar un Electroencefalograma (EEG)." },
