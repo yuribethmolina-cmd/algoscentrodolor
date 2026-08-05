@@ -300,12 +300,6 @@ export default function LpDolor() {
                         {d.paraque}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 pt-1 border-t border-[#1a4a55]/8">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3d8b96] shrink-0" />
-                      <span className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide">
-                        {d.disponibilidad}
-                      </span>
-                    </div>
                   </div>
                 );
               })}
