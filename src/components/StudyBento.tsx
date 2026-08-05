@@ -23,6 +23,8 @@ interface StudyBentoProps {
   eyebrow: string;
   title: string;
   items: StudyItem[];
+  ctaHref?: string;
+  ctaLabel?: string;
 }
 
 /**
@@ -30,7 +32,7 @@ interface StudyBentoProps {
  * bento tabs across the top, and a two-column detail below (image or
  * gradient icon tile + clinical info).
  */
-export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
+export default function StudyBento({ eyebrow, title, items, ctaHref, ctaLabel }: StudyBentoProps) {
   const [active, setActive] = useState(items[0]?.id);
   const current = items.find((s) => s.id === active) ?? items[0];
   if (!current) return null;
@@ -64,8 +66,8 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
                     : "text-[#f5f0e8]/50 hover:text-[#f5f0e8]/80 hover:bg-[#E0F4F7]/[0.03]"
                 }`}
               >
-                <TabIcon className="w-4 h-4" strokeWidth={1.5} />
-                <span className="hidden sm:inline">{s.label}</span>
+                <TabIcon className="w-4 h-4 shrink-0" strokeWidth={1.5} />
+                <span className="truncate max-w-[90px] sm:max-w-none">{s.label}</span>
               </button>
             );
           })}
@@ -142,11 +144,23 @@ export default function StudyBento({ eyebrow, title, items }: StudyBentoProps) {
               ))}
             </div>
 
-            <div className="border-t border-[#E0F4F7]/20 pt-6 flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8DC63F]" />
-              <span className="font-ui text-[11px] tracking-[0.22em] text-[#f5f0e8] uppercase font-semibold">
-                {current.availability}
-              </span>
+            <div className="border-t border-[#E0F4F7]/20 pt-6 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8DC63F]" />
+                <span className="font-ui text-[11px] tracking-[0.22em] text-[#f5f0e8] uppercase font-semibold">
+                  {current.availability}
+                </span>
+              </div>
+              {ctaHref && (
+                <a
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-ui font-bold uppercase text-[11px] tracking-[0.18em] bg-[#c69636] hover:bg-[#f5f0e8] text-[#1a4a55] px-5 py-3 transition-colors"
+                >
+                  {ctaLabel ?? "Agendar"}
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { ALGOS } from "@/config/algos.config";
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
@@ -149,6 +150,8 @@ export default function EstudiosDiagnosticos() {
                     eyebrow={group.label}
                     title={group.description}
                     items={items}
+                    ctaHref={isAlgos ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio de neurofisiología (EMG o EEG).")}` : undefined}
+                    ctaLabel={isAlgos ? "Agendar en ALGOS" : undefined}
                   />
                 </div>
               );
