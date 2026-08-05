@@ -13,8 +13,8 @@ export default function TrustBar() {
         backgroundColor: CREAM,
         borderTop: "1px solid rgba(26, 74, 85, 0.12)",
         borderBottom: "1px solid rgba(26, 74, 85, 0.12)",
-        paddingTop: "clamp(28px, 3.5vw, 40px)",
-        paddingBottom: "clamp(28px, 3.5vw, 40px)",
+        paddingTop: "clamp(18px, 3.5vw, 40px)",
+        paddingBottom: "clamp(18px, 3.5vw, 40px)",
       }}
     >
       <div
