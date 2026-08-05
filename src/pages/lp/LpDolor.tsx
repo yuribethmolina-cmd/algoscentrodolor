@@ -2,7 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import { OptimizedPicture } from "@/components/OptimizedPicture";
 import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
-import { Zap, Radio, Droplets, Activity, ExternalLink } from "lucide-react";
+import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves } from "lucide-react";
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
@@ -16,6 +16,29 @@ const drAtilioPortrait = drAtilioPortraitAsset.url;
 const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
 )}`;
+
+const WA_DIAGNOSTICOS = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera información sobre estudios diagnósticos (EMG o EEG) y consultar el precio."
+)}`;
+
+const DIAGNOSTICOS = [
+  {
+    icon: Zap,
+    slug: "emg",
+    name: "Electromiografía (EMG)",
+    disponibilidad: "Miércoles por la tarde · Cita previa",
+    quees: "Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos.",
+    paraque: "Indicada cuando el dolor viene con hormigueo, adormecimiento o debilidad. Detecta si un nervio está comprimido, irritado o dañado.",
+  },
+  {
+    icon: Waves,
+    slug: "eeg",
+    name: "Electroencefalograma (EEG)",
+    disponibilidad: "Miércoles por la tarde · Cita previa",
+    quees: "Registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo. Indoloro, dura 30–45 min.",
+    paraque: "Indicado en episodios convulsivos, mareos frecuentes, alteraciones de conciencia y evaluación neurológica.",
+  },
+];
 
 const PROCEDURES = [
   {
@@ -226,6 +249,71 @@ export default function LpDolor() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Estudios diagnósticos ALGOS — EMG + EEG */}
+        <section className="bg-[#f5f0e8] px-6 py-16 md:py-20 border-t border-[#1a4a55]/10">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-1 h-6 bg-[#c69636] block rounded-full" />
+              <p className="font-sans font-semibold text-[#1a4a55] text-xs uppercase tracking-widest">
+                Estudios diagnósticos · Solo en ALGOS
+              </p>
+            </div>
+            <p className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight mb-2 ml-4">
+              ¿Tu médico te pidió un estudio de nervios?
+            </p>
+            <p className="font-sans text-[#1a4a55]/65 text-sm md:text-base leading-relaxed mb-10 ml-4 max-w-xl">
+              Realizamos electromiografía y electroencefalograma en ALGOS, con cita previa.
+              Sin necesidad de ir a un hospital.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+              {DIAGNOSTICOS.map((d) => {
+                const Icon = d.icon;
+                return (
+                  <div
+                    key={d.slug}
+                    className="bg-white border border-[#c69636]/30 p-6 flex flex-col gap-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
+                      </div>
+                      <p className="font-sans font-bold text-[#1a4a55] text-base leading-tight">
+                        {d.name}
+                      </p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
+                        <span className="font-semibold text-[#1a4a55]">Qué es: </span>
+                        {d.quees}
+                      </p>
+                      <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
+                        <span className="font-semibold text-[#1a4a55]">Para qué: </span>
+                        {d.paraque}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 pt-1 border-t border-[#1a4a55]/8">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3d8b96] shrink-0" />
+                      <span className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide">
+                        {d.disponibilidad}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <a
+              href={WA_DIAGNOSTICOS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors"
+            >
+              Consultar precio y agendar estudio
+            </a>
           </div>
         </section>
 
