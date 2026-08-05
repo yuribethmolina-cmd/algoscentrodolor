@@ -69,6 +69,62 @@ export default function TrustBar() {
           </a>
 
         </div>
+
+        {/* EMG + EEG — estudios propios de ALGOS */}
+        <div
+          className="flex flex-wrap items-center justify-center"
+          style={{ gap: 10, marginTop: 4 }}
+        >
+          <a
+            href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar una Electromiografía (EMG).")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 7,
+              fontFamily: "Inter, sans-serif",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#1a4a55",
+              border: "1px solid rgba(198,150,54,0.5)",
+              backgroundColor: "rgba(198,150,54,0.08)",
+              padding: "8px 14px",
+              textDecoration: "none",
+              transition: "background-color 180ms ease",
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#c69636", flexShrink: 0 }} />
+            Electromiografía (EMG)
+          </a>
+          <a
+            href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un Electroencefalograma (EEG).")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 7,
+              fontFamily: "Inter, sans-serif",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#1a4a55",
+              border: "1px solid rgba(198,150,54,0.5)",
+              backgroundColor: "rgba(198,150,54,0.08)",
+              padding: "8px 14px",
+              textDecoration: "none",
+              transition: "background-color 180ms ease",
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#c69636", flexShrink: 0 }} />
+            Electroencefalograma (EEG)
+          </a>
+        </div>
+
       </div>
     </section>
   );
