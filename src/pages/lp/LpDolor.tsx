@@ -16,8 +16,12 @@ const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
 )}`;
 
-const WA_DIAGNOSTICOS = `https://wa.me/584146807886?text=${encodeURIComponent(
-  "Hola, me contacto desde algoscentrodolor.com. Quisiera información sobre estudios diagnósticos (EMG o EEG) y consultar el precio."
+const WA_EMG = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar una Electromiografía (EMG)."
+)}`;
+
+const WA_EEG = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar un Electroencefalograma (EEG)."
 )}`;
 
 const DIAGNOSTICOS = [
@@ -305,14 +309,26 @@ export default function LpDolor() {
               })}
             </div>
 
-            <a
-              href={WA_DIAGNOSTICOS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors"
-            >
-              Consultar precio y agendar estudio
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a
+                href={WA_EMG}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+              >
+                <Zap className="w-4 h-4" strokeWidth={1.5} />
+                Agendar Electromiografía
+              </a>
+              <a
+                href={WA_EEG}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-8 py-4 transition-colors"
+              >
+                <Waves className="w-4 h-4" strokeWidth={1.5} />
+                Agendar Electroencefalograma
+              </a>
+            </div>
           </div>
         </section>
 
