@@ -83,7 +83,7 @@ export default function HeroSection() {
 
       {/* ── MOBILE HERO — cream split layout (hidden sm+) ──────────────── */}
       <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full">
-        <div className="px-6 pt-16 pb-8">
+        <div className="px-6 pt-24 pb-8">
           <p
             className="font-ui font-bold uppercase mb-5"
             style={{ fontSize: "11px", letterSpacing: "0.3em", color: "#3d8b96" }}
