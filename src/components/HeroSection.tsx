@@ -5,10 +5,8 @@ import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
-import heroMobileVideo from "@/assets/hero-mobile.mp4.asset.json";
 
 const HERO_VIDEO_SRC = heroVideo.url;
-const HERO_MOBILE_VIDEO_SRC = heroMobileVideo.url;
 
 function pickVideoSrc(): string | null {
   if (typeof window === "undefined") return null;
