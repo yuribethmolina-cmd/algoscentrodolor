@@ -85,7 +85,7 @@ export default function TrustBar() {
               color: "#c69636",
               margin: 0,
             }}>
-              En ALGOS
+              ESTUDIOS DIAGNÓSTICOS QUE OFRECEMOS EN ALGOS
             </p>
             <div style={{ flex: 1, height: 1, backgroundColor: "rgba(26,74,85,0.12)" }} />
           </div>
