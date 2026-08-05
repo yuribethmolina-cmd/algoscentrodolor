@@ -261,15 +261,17 @@ export default function LpDolor() {
             <div className="flex items-center gap-3 mb-3">
               <span className="w-1 h-6 bg-[#c69636] block rounded-full" />
               <p className="font-sans font-semibold text-[#1a4a55] text-xs uppercase tracking-widest">
-                Estudios diagnósticos · Solo en ALGOS
+                Estudios diagnósticos · Disponibles en ALGOS
               </p>
             </div>
-            <p className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight mb-2 ml-4">
-              ¿Tu médico te pidió un estudio de nervios?
+            <p className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight mb-3 ml-4">
+              Electromiografía y Electroencefalograma en Maracaibo
             </p>
-            <p className="font-sans text-[#1a4a55]/65 text-sm md:text-base leading-relaxed mb-10 ml-4 max-w-xl">
-              Realizamos electromiografía y electroencefalograma en ALGOS, con cita previa.
-              Sin necesidad de ir a un hospital.
+            <p className="font-sans text-[#1a4a55]/65 text-sm md:text-base leading-relaxed mb-10 ml-4 max-w-2xl">
+              Dos estudios ambulatorios, indoloros y guiados por especialistas, para identificar
+              si el origen de su dolor, hormigueo, mareo o episodio neurológico viene de los
+              nervios, músculos o cerebro. Resultados interpretados en ALGOS, sin necesidad de
+              ir a un hospital.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
