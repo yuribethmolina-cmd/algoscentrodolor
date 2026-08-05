@@ -383,14 +383,48 @@ export default function AllianceSection() {
           ))}
         </div>
 
-        {/* ── CTA ─────────────────────────────────────────────── */}
-        <div style={{ textAlign: "center", marginBottom: "clamp(56px, 7vw, 80px)" }}>
+        {/* ── CTAs dual: ALGOS (EMG/EEG) + UDUZ ──────────────────── */}
+        <div
+          className="flex flex-col sm:flex-row"
+          style={{ gap: 12, marginBottom: "clamp(56px, 7vw, 80px)" }}
+        >
+          {/* ALGOS — EMG y EEG */}
+          <a
+            href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio de electromiografía (EMG) o electroencefalograma (EEG).")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              flex: 1,
+              fontFamily: "'Manrope', system-ui, sans-serif",
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: DEEP_TEAL,
+              backgroundColor: GOLD,
+              padding: "16px 24px",
+              borderRadius: 0,
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+              transition: "background-color 200ms ease",
+            }}
+          >
+            <span style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.22em", opacity: 0.7 }}>EN ALGOS</span>
+              Agendar EMG o EEG
+            </span>
+          </a>
+
+          {/* UDUZ — imagen, cardiología, laboratorio */}
           <a
             href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto"
             style={{
+              flex: 1,
               fontFamily: "'Manrope', system-ui, sans-serif",
               fontSize: 13,
               fontWeight: 700,
@@ -398,27 +432,20 @@ export default function AllianceSection() {
               textTransform: "uppercase",
               color: CREAM,
               backgroundColor: UDUZ_TEAL,
-              padding: "16px 32px",
+              padding: "16px 24px",
               borderRadius: 0,
               textDecoration: "none",
-              display: "inline-flex",
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: 12,
-              transition: "background-color 200ms ease, transform 200ms ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = UDUZ_GREEN;
-              e.currentTarget.style.color = UDUZ_TEAL;
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = UDUZ_TEAL;
-              e.currentTarget.style.color = CREAM;
-              e.currentTarget.style.transform = "translateY(0)";
+              gap: 10,
+              transition: "background-color 200ms ease",
             }}
           >
-            Agendar estudio diagnóstico <span aria-hidden="true">→</span>
+            <span style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.22em", opacity: 0.7 }}>VÍA UDUZ</span>
+              Tomografía, Rayos X y más
+            </span>
           </a>
         </div>
 
