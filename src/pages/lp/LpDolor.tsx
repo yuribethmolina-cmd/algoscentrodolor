@@ -2,6 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import { OptimizedPicture } from "@/components/OptimizedPicture";
 import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
+import { trackWA } from "@/lib/analytics";
 import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves, Clock, ClipboardList, FileCheck } from "lucide-react";
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
@@ -319,6 +320,8 @@ export default function LpDolor() {
                 href={WA_EMG}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics="manual"
+                onClick={() => trackWA("lp-dolor-estudios", "solicitar_emg")}
                 className="flex-1 inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
               >
                 <Zap className="w-4 h-4" strokeWidth={1.5} />
@@ -328,6 +331,8 @@ export default function LpDolor() {
                 href={WA_EEG}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics="manual"
+                onClick={() => trackWA("lp-dolor-estudios", "solicitar_eeg")}
                 className="flex-1 inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
               >
                 <Waves className="w-4 h-4" strokeWidth={1.5} />
@@ -398,6 +403,8 @@ export default function LpDolor() {
                   href={WA_EMG}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-detalle-emg", "solicitar_emg")}
                   className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
                 >
                   <Zap className="w-4 h-4" strokeWidth={1.5} />
@@ -450,6 +457,8 @@ export default function LpDolor() {
                   href={WA_EEG}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-detalle-eeg", "solicitar_eeg")}
                   className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
                 >
                   <Waves className="w-4 h-4" strokeWidth={1.5} />

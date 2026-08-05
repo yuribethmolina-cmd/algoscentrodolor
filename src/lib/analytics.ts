@@ -110,6 +110,7 @@ export function installWAClickTracker() {
     const target = e.target as Element;
     const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
     if (!anchor) return;
+    if (anchor.dataset.analytics === "manual") return;
     const href = anchor.getAttribute("href") ?? "";
     if (!href.includes("wa.me")) return;
     const section = getSectionFromElement(anchor);
