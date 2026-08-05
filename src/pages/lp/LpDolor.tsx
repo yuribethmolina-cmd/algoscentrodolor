@@ -403,6 +403,8 @@ export default function LpDolor() {
                   href={WA_EMG}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-detalle-emg", "solicitar_emg")}
                   className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
                 >
                   <Zap className="w-4 h-4" strokeWidth={1.5} />
