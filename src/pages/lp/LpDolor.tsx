@@ -6,8 +6,8 @@ import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves } from "luci
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
-import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
+import algosFacadeAsset from "@/assets/algos-facade.webp.asset.json";
+
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";
 import drAtilioPortraitAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
@@ -234,18 +234,18 @@ export default function LpDolor() {
                 </div>
               </div>
 
-              {/* Sala de procedimientos image */}
+              {/* Fachada ALGOS */}
               <div className="relative h-72 lg:h-full min-h-[280px] overflow-hidden">
-                <OptimizedPicture
-                  picture={salaProcedimientosPic}
-                  placeholder={salaProcedimientosLqip}
-                  alt="Sala de procedimientos ALGOS Maracaibo"
-                  className="absolute inset-0 w-full h-full"
-                  imgClassName="w-full h-full object-cover"
+                <img
+                  src={algosFacadeAsset.url}
+                  alt="Fachada de ALGOS Centro de Dolor Intervencionista en Maracaibo"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="font-sans text-white/90 text-xs">Sala de procedimientos · ALGOS Centro de Dolor</p>
+                  <p className="font-sans text-white/90 text-xs">Sede ALGOS Centro de Dolor · Maracaibo</p>
                 </div>
               </div>
             </div>
