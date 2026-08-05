@@ -229,10 +229,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          className="flex flex-col items-center gap-2 pb-6 md:pb-8 pt-2"
-          aria-hidden="true"
+        {/* Scroll indicator — tappable, moves the visitor into the first section */}
+        <button
+          type="button"
+          onClick={scrollToNextSection}
+          aria-label="Ver cómo tratamos el dolor"
+          className="flex flex-col items-center gap-2 pb-6 md:pb-8 pt-2 mx-auto transition-opacity duration-300 md:hover:opacity-100"
         >
           <p
             style={{
@@ -240,12 +242,12 @@ export default function HeroSection() {
               fontSize: "10px",
               fontWeight: 700,
               letterSpacing: "0.32em",
-              color: "rgba(245,240,232,0.4)",
+              color: "rgba(245,240,232,0.72)",
               textTransform: "uppercase",
               margin: 0,
             }}
           >
-            DESLICE
+            CÓMO TRATAMOS SU DOLOR
           </p>
           <svg
             width="18"
@@ -253,7 +255,8 @@ export default function HeroSection() {
             viewBox="0 0 18 20"
             fill="none"
             className="animate-bounce"
-            style={{ opacity: 0.4 }}
+            style={{ opacity: 0.7 }}
+            aria-hidden="true"
           >
             <path
               d="M9 2v16M3 12l6 6 6-6"
@@ -263,7 +266,7 @@ export default function HeroSection() {
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </section>
   );
