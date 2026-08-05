@@ -57,13 +57,18 @@ export default function HeroSection() {
     load();
   }, []);
 
+  function scrollToNextSection() {
+    const next = sectionRef.current?.nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
     <section
       ref={sectionRef}
       id="hero"
       data-section="hero"
       className="relative flex flex-col w-full overflow-hidden"
-      style={{ height: "100dvh", minHeight: "100dvh" }}
+      style={{ height: "min(100dvh, 780px)", minHeight: "560px" }}
     >
       <Helmet>
         <link
