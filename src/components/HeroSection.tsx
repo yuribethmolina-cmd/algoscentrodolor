@@ -5,10 +5,8 @@ import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
-import heroMobileVideo from "@/assets/hero-mobile.mp4.asset.json";
 
 const HERO_VIDEO_SRC = heroVideo.url;
-const HERO_MOBILE_VIDEO_SRC = heroMobileVideo.url;
 
 function pickVideoSrc(): string | null {
   if (typeof window === "undefined") return null;
@@ -27,7 +25,9 @@ function pickVideoSrc(): string | null {
   }
 
   const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
-  return isMobile ? HERO_MOBILE_VIDEO_SRC : HERO_VIDEO_SRC;
+  // On phones the poster alone carries the hero: it paints immediately and
+  // avoids competing with the CTA for bandwidth on mobile connections.
+  return isMobile ? null : HERO_VIDEO_SRC;
 }
 
 export default function HeroSection() {
@@ -57,13 +57,18 @@ export default function HeroSection() {
     load();
   }, []);
 
+  function scrollToNextSection() {
+    const next = sectionRef.current?.nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
     <section
       ref={sectionRef}
       id="hero"
       data-section="hero"
       className="relative flex flex-col w-full overflow-hidden"
-      style={{ height: "100dvh", minHeight: "100dvh" }}
+      style={{ height: "min(100dvh, 780px)", minHeight: "560px" }}
     >
       <Helmet>
         <link
@@ -126,22 +131,22 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1 min-h-0 mx-auto max-w-7xl w-full px-6 md:px-12 lg:px-16">
         <div className="flex-1 flex flex-col justify-center min-h-0">
-          <div className="max-w-2xl pt-20 md:pt-0">
+          <div className="max-w-2xl pt-16 md:pt-0">
             <p
               className="font-ui font-bold uppercase"
-              style={{ fontSize: "13px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.58)" }}
+              style={{ fontSize: "12px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.7)" }}
             >
               MARACAIBO · FRENTE A LA FACULTAD DE MEDICINA
             </p>
 
             <AnimatedHeadline
               as="h1"
-              className="font-display font-bold mt-6"
+              className="font-display font-bold mt-4 md:mt-6"
               style={{
-                fontSize: "clamp(32px, 5.4vw, 72px)",
+                fontSize: "clamp(34px, 5.6vw, 72px)",
                 lineHeight: 1.04,
                 letterSpacing: "-0.028em",
-                maxWidth: "22ch",
+                maxWidth: "20ch",
                 color: "#f5f0e8",
               }}
               chunks={[
@@ -151,44 +156,45 @@ export default function HeroSection() {
             />
 
             <p
-              className="font-ui mt-8 max-w-xl"
-              style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "rgba(245,240,232,0.8)" }}
+              className="font-ui mt-4 md:mt-7 max-w-lg"
+              style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.55, color: "rgba(245,240,232,0.9)" }}
             >
-              En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
-              hasta que pueda retomar lo que le gusta. Sin importar dónde le duele.
+              Encontramos el origen de su dolor y lo tratamos. Evaluación con el
+              especialista, sin orden médica previa.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-9">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mt-6 md:mt-9">
               <a
                 href={ALGOS.contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Contact'); }}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px] min-h-[52px]"
-                style={{ fontSize: "13px", letterSpacing: "0.22em" }}
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none shadow-[0_10px_30px_-12px_rgba(0,0,0,0.55)] transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[18px] min-h-[56px]"
+                style={{ fontSize: "13.5px", letterSpacing: "0.2em" }}
               >
-                <span>AGENDE SU CONSULTA</span>
+                <span>AGENDE POR WHATSAPP</span>
                 <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
                   <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
                 </span>
               </a>
               <Link
                 to="/especialidades"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] md:hover:opacity-100"
-                style={{ fontSize: "13px", letterSpacing: "0.22em", borderColor: "rgba(245,240,232,0.4)", color: "rgba(245,240,232,0.72)" }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
+                style={{ fontSize: "12.5px", letterSpacing: "0.2em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.8)" }}
               >
-                <span>ESPECIALIDADES</span>
+                <span>VER ESPECIALIDADES</span>
               </Link>
             </div>
 
             {/* Most-searched procedures — direct entry for high-intent visitors */}
-            <div className="flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
+            <div className="hidden sm:flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
               <p
                 className="font-ui font-bold uppercase"
                 style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
               >
                 Más solicitados
               </p>
+
               <div className="flex items-center gap-5 flex-wrap">
               {([
                 { label: "Electromiografía", to: "/procedimientos/emg" },
@@ -228,10 +234,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          className="flex flex-col items-center gap-2 pb-6 md:pb-8 pt-2"
-          aria-hidden="true"
+        {/* Scroll indicator — tappable, moves the visitor into the first section */}
+        <button
+          type="button"
+          onClick={scrollToNextSection}
+          aria-label="Ver cómo tratamos el dolor"
+          className="flex flex-col items-center gap-2 pb-6 md:pb-8 pt-2 mx-auto transition-opacity duration-300 md:hover:opacity-100"
         >
           <p
             style={{
@@ -239,12 +247,12 @@ export default function HeroSection() {
               fontSize: "10px",
               fontWeight: 700,
               letterSpacing: "0.32em",
-              color: "rgba(245,240,232,0.4)",
+              color: "rgba(245,240,232,0.72)",
               textTransform: "uppercase",
               margin: 0,
             }}
           >
-            DESLICE
+            CÓMO TRATAMOS SU DOLOR
           </p>
           <svg
             width="18"
@@ -252,7 +260,8 @@ export default function HeroSection() {
             viewBox="0 0 18 20"
             fill="none"
             className="animate-bounce"
-            style={{ opacity: 0.4 }}
+            style={{ opacity: 0.7 }}
+            aria-hidden="true"
           >
             <path
               d="M9 2v16M3 12l6 6 6-6"
@@ -262,7 +271,7 @@ export default function HeroSection() {
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </section>
   );
