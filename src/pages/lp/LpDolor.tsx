@@ -27,7 +27,6 @@ const DIAGNOSTICOS = [
     slug: "emg",
     name: "Electromiografía (EMG)",
     precio: "$100",
-    disponibilidad: "Miércoles por la tarde · Cita previa",
     quees: "Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos.",
     paraque: "Indicada cuando el dolor viene con hormigueo, adormecimiento o debilidad. Detecta si un nervio está comprimido, irritado o dañado.",
   },
@@ -36,7 +35,6 @@ const DIAGNOSTICOS = [
     slug: "eeg",
     name: "Electroencefalograma (EEG)",
     precio: "$70",
-    disponibilidad: "Miércoles por la tarde · Cita previa",
     quees: "Registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo. Indoloro, dura 30–45 min.",
     paraque: "Indicado en episodios convulsivos, mareos frecuentes, alteraciones de conciencia y evaluación neurológica.",
   },
@@ -301,12 +299,6 @@ export default function LpDolor() {
                         <span className="font-semibold text-[#1a4a55]">Para qué: </span>
                         {d.paraque}
                       </p>
-                    </div>
-                    <div className="flex items-center gap-2 pt-1 border-t border-[#1a4a55]/8">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3d8b96] shrink-0" />
-                      <span className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide">
-                        {d.disponibilidad}
-                      </span>
                     </div>
                   </div>
                 );
