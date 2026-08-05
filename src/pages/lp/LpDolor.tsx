@@ -2,12 +2,12 @@ import SEOHead from "@/components/SEOHead";
 import { OptimizedPicture } from "@/components/OptimizedPicture";
 import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
-import { trackWA } from "@/lib/analytics";
-import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves, Clock, ClipboardList, FileCheck, MapPin } from "lucide-react";
+import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves } from "lucide-react";
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
-import algosFacadeAsset from "@/assets/algos-facade.webp.asset.json";
+import salaProcedimientosPic from "@/assets/sala-procedimientos.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import salaProcedimientosLqip from "@/assets/sala-procedimientos.jpg?w=32&blur=6&format=webp&url";
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";
 import drAtilioPortraitAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
@@ -17,12 +17,8 @@ const WA_ALGOS = `https://wa.me/584146807886?text=${encodeURIComponent(
   "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar una consulta por dolor crónico."
 )}`;
 
-const WA_EMG = `https://wa.me/584146807886?text=${encodeURIComponent(
-  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar una Electromiografía (EMG)."
-)}`;
-
-const WA_EEG = `https://wa.me/584146807886?text=${encodeURIComponent(
-  "Hola, me contacto desde algoscentrodolor.com. Quisiera información y precio para agendar un Electroencefalograma (EEG)."
+const WA_DIAGNOSTICOS = `https://wa.me/584146807886?text=${encodeURIComponent(
+  "Hola, me contacto desde algoscentrodolor.com. Quisiera agendar un estudio diagnóstico (EMG o EEG) en ALGOS."
 )}`;
 
 const DIAGNOSTICOS = [
@@ -30,6 +26,7 @@ const DIAGNOSTICOS = [
     icon: Zap,
     slug: "emg",
     name: "Electromiografía (EMG)",
+    precio: "$100",
     disponibilidad: "Miércoles por la tarde · Cita previa",
     quees: "Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos.",
     paraque: "Indicada cuando el dolor viene con hormigueo, adormecimiento o debilidad. Detecta si un nervio está comprimido, irritado o dañado.",
@@ -38,6 +35,7 @@ const DIAGNOSTICOS = [
     icon: Waves,
     slug: "eeg",
     name: "Electroencefalograma (EEG)",
+    precio: "$70",
     disponibilidad: "Miércoles por la tarde · Cita previa",
     quees: "Registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo. Indoloro, dura 30–45 min.",
     paraque: "Indicado en episodios convulsivos, mareos frecuentes, alteraciones de conciencia y evaluación neurológica.",
@@ -238,18 +236,18 @@ export default function LpDolor() {
                 </div>
               </div>
 
-              {/* Fachada ALGOS */}
-              <div className="relative h-72 lg:h-full min-h-[280px] overflow-hidden bg-[#1a4a55]">
-                <img
-                  src={algosFacadeAsset.url}
-                  alt="Fachada de ALGOS Centro de Dolor Intervencionista en Maracaibo"
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
+              {/* Sala de procedimientos image */}
+              <div className="relative h-72 lg:h-full min-h-[280px] overflow-hidden">
+                <OptimizedPicture
+                  picture={salaProcedimientosPic}
+                  placeholder={salaProcedimientosLqip}
+                  alt="Sala de procedimientos ALGOS Maracaibo"
+                  className="absolute inset-0 w-full h-full"
+                  imgClassName="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="font-sans text-white/90 text-xs">Sede ALGOS Centro de Dolor · Maracaibo</p>
+                  <p className="font-sans text-white/90 text-xs">Sala de procedimientos · ALGOS Centro de Dolor</p>
                 </div>
               </div>
             </div>
@@ -262,17 +260,15 @@ export default function LpDolor() {
             <div className="flex items-center gap-3 mb-3">
               <span className="w-1 h-6 bg-[#c69636] block rounded-full" />
               <p className="font-sans font-semibold text-[#1a4a55] text-xs uppercase tracking-widest">
-                Estudios diagnósticos · Disponibles en ALGOS
+                Estudios diagnósticos · Solo en ALGOS
               </p>
             </div>
-            <p className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight mb-3 ml-4">
-              Electromiografía y Electroencefalograma en Maracaibo
+            <p className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight mb-2 ml-4">
+              ¿Tu médico te pidió un estudio de nervios?
             </p>
-            <p className="font-sans text-[#1a4a55]/65 text-sm md:text-base leading-relaxed mb-10 ml-4 max-w-2xl">
-              Dos estudios ambulatorios, indoloros y guiados por especialistas, para identificar
-              si el origen de su dolor, hormigueo, mareo o episodio neurológico viene de los
-              nervios, músculos o cerebro. Resultados interpretados en ALGOS, sin necesidad de
-              ir a un hospital.
+            <p className="font-sans text-[#1a4a55]/65 text-sm md:text-base leading-relaxed mb-10 ml-4 max-w-xl">
+              Realizamos electromiografía y electroencefalograma en ALGOS, con cita previa.
+              Sin necesidad de ir a un hospital.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
@@ -283,13 +279,18 @@ export default function LpDolor() {
                     key={d.slug}
                     className="bg-white border border-[#c69636]/30 p-6 flex flex-col gap-4"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
+                        </div>
+                        <p className="font-sans font-bold text-[#1a4a55] text-base leading-tight">
+                          {d.name}
+                        </p>
                       </div>
-                      <p className="font-sans font-bold text-[#1a4a55] text-base leading-tight">
-                        {d.name}
-                      </p>
+                      <span className="font-display font-bold text-[#c69636] text-xl shrink-0">
+                        {d.precio}
+                      </span>
                     </div>
                     <div className="space-y-2">
                       <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
@@ -312,239 +313,14 @@ export default function LpDolor() {
               })}
             </div>
 
-            <p className="font-sans font-semibold text-[#1a4a55] text-sm ml-4 mb-4">
-              ¿Cuál estudio necesita? Escríbanos por WhatsApp y le confirmamos disponibilidad.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 ml-4">
-              <a
-                href={WA_EMG}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-analytics="manual"
-                onClick={() => trackWA("lp-dolor-estudios", "solicitar_emg")}
-                className="flex-1 inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
-              >
-                <Zap className="w-4 h-4" strokeWidth={1.5} />
-                Solicitar EMG — nervios y músculos
-              </a>
-              <a
-                href={WA_EEG}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-analytics="manual"
-                onClick={() => trackWA("lp-dolor-estudios", "solicitar_eeg")}
-                className="flex-1 inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
-              >
-                <Waves className="w-4 h-4" strokeWidth={1.5} />
-                Solicitar EEG — cerebro y ondas
-              </a>
-            </div>
-            <p className="font-sans text-[#1a4a55]/55 text-xs ml-4 mt-3">
-              Atención con cita previa · Miércoles por la tarde en ALGOS · Resultados interpretados por especialistas
-            </p>
-          </div>
-        </section>
-
-        {/* Detalle de estudios: qué esperar, preparación y pasos siguientes */}
-        <section className="bg-white px-6 py-16 md:py-20 border-t border-[#1a4a55]/10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="font-sans font-semibold text-[#3d8b96] text-xs uppercase tracking-widest mb-3">
-                ¿Qué esperar del estudio?
-              </p>
-              <h2 className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight">
-                Duración, preparación y próximos pasos
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Electromiografía */}
-              <div className="border border-[#1a4a55]/10 bg-[#f5f0e8]/40 p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                    <Zap className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display font-bold text-[#1a4a55] text-xl">
-                    Electromiografía (EMG)
-                  </h3>
-                </div>
-
-                <ul className="space-y-5">
-                  <li className="flex gap-4">
-                    <Clock className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Duración</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        Aproximadamente 30 a 45 minutos. El tiempo varía según la cantidad de nervios y músculos a evaluar.
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <ClipboardList className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Preparación</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        Llegar con la piel limpia, sin cremas ni lociones en la zona a estudiar. Evite el uso de alcohol o sedantes antes del estudio. Traiga la orden médica si la tiene.
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <FileCheck className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Tras el resultado</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        El especialista le explica si hay una compresión, irritación o daño nervioso, y le recomienda el tratamiento más adecuado, que puede ser desde fisioterapia hasta un procedimiento intervencionista.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-
-                <a
-                  href={WA_EMG}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics="manual"
-                  onClick={() => trackWA("lp-dolor-detalle-emg", "solicitar_emg")}
-                  className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
-                >
-                  <Zap className="w-4 h-4" strokeWidth={1.5} />
-                  Solicitar EMG
-                </a>
-              </div>
-
-              {/* Electroencefalograma */}
-              <div className="border border-[#1a4a55]/10 bg-[#f5f0e8]/40 p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                    <Waves className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display font-bold text-[#1a4a55] text-xl">
-                    Electroencefalograma (EEG)
-                  </h3>
-                </div>
-
-                <ul className="space-y-5">
-                  <li className="flex gap-4">
-                    <Clock className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Duración</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        Entre 30 y 45 minutos. Es indoloro: se colocan electrodos sobre el cuero cabelludo para registrar la actividad cerebral.
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <ClipboardList className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Preparación</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        Venir con el cabello limpio y seco, sin gel, spray ni aceites. Evite cafeína y bebidas energizantes el día del estudio. Traiga la orden médica si la tiene.
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <FileCheck className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
-                    <div>
-                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Tras el resultado</p>
-                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
-                        El médico especialista analiza la actividad cerebral y le indica si se requiere tratamiento neurológico, ajuste de medicación o estudios adicionales.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-
-                <a
-                  href={WA_EEG}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics="manual"
-                  onClick={() => trackWA("lp-dolor-detalle-eeg", "solicitar_eeg")}
-                  className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
-                >
-                  <Waves className="w-4 h-4" strokeWidth={1.5} />
-                  Solicitar EEG
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Sedes donde se realizan los estudios */}
-        <section className="bg-[#f5f0e8] px-6 py-16 md:py-20 border-t border-[#1a4a55]/10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-10">
-              <p className="font-sans font-semibold text-[#3d8b96] text-xs uppercase tracking-widest mb-3">
-                Atención con cita previa
-              </p>
-              <h2 className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight">
-                Sedes donde realizamos los estudios
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white border border-[#1a4a55]/10 p-6 md:p-8">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="font-display font-bold text-[#1a4a55] text-lg">
-                      ALGOS Centro de Dolor Intervencionista
-                    </p>
-                    <p className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide mt-0.5">
-                      Sede Sector Paraíso
-                    </p>
-                  </div>
-                </div>
-                <address className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed not-italic">
-                  Av. 20 con Calle 65, N° 65-02<br />
-                  C.C. América, Local 4<br />
-                  Sector Paraíso, Diagonal a la Facultad de Medicina
-                </address>
-                <a
-                  href={WA_EMG}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics="manual"
-                  onClick={() => trackWA("lp-dolor-sede-paraiso", "solicitar_emg")}
-                  className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-3 transition-colors"
-                >
-                  <Zap className="w-4 h-4" strokeWidth={1.5} />
-                  Solicitar EMG / EEG aquí
-                </a>
-              </div>
-
-              <div className="bg-white border border-[#1a4a55]/10 p-6 md:p-8">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="font-display font-bold text-[#1a4a55] text-lg">
-                      Torre Médica RAB
-                    </p>
-                    <p className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide mt-0.5">
-                      Sede Torre RAB
-                    </p>
-                  </div>
-                </div>
-                <address className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed not-italic">
-                  Calle 9, detrás de Clínica Zulia<br />
-                  Piso 1, Consultorio 1-03
-                </address>
-                <a
-                  href={WA_EEG}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics="manual"
-                  onClick={() => trackWA("lp-dolor-sede-rab", "solicitar_eeg")}
-                  className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-3 transition-colors"
-                >
-                  <Waves className="w-4 h-4" strokeWidth={1.5} />
-                  Solicitar EMG / EEG aquí
-                </a>
-              </div>
-            </div>
+            <a
+              href={WA_DIAGNOSTICOS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors"
+            >
+              Consultar precio y agendar estudio
+            </a>
           </div>
         </section>
 
