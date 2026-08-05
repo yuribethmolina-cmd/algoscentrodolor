@@ -252,7 +252,7 @@ export default function HeroSection() {
         {/* Content */}
         <div className="relative z-10 flex flex-col flex-1 min-h-0 mx-auto max-w-7xl w-full px-6 md:px-12 lg:px-16">
           <div className="flex-1 flex flex-col justify-center min-h-0">
-            <div className="max-w-2xl pt-16 md:pt-0">
+            <div className="max-w-2xl pt-20 md:pt-20">
               <p
                 className="font-ui font-bold uppercase"
                 style={{ fontSize: "12px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.7)" }}
