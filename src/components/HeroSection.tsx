@@ -27,7 +27,9 @@ function pickVideoSrc(): string | null {
   }
 
   const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
-  return isMobile ? HERO_MOBILE_VIDEO_SRC : HERO_VIDEO_SRC;
+  // On phones the poster alone carries the hero: it paints immediately and
+  // avoids competing with the CTA for bandwidth on mobile connections.
+  return isMobile ? null : HERO_VIDEO_SRC;
 }
 
 export default function HeroSection() {
