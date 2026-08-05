@@ -109,7 +109,7 @@ export default function LpDolor() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors w-fit"
               >
-                Agendar consulta por WhatsApp
+                Agendar consulta
               </a>
             </div>
 
@@ -229,7 +229,7 @@ export default function LpDolor() {
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors"
                   >
-                    Agendar consulta por WhatsApp
+                    Agendar consulta
                   </a>
                 </div>
               </div>
