@@ -2,7 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import { OptimizedPicture } from "@/components/OptimizedPicture";
 import LpHeader from "./LpHeader";
 import algosLogoDark from "@/assets/algos-logo-v2.png";
-import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves } from "lucide-react";
+import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves, Clock, ClipboardList, FileCheck } from "lucide-react";
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
