@@ -247,7 +247,6 @@ export default function LpDolor() {
                   <p className="font-sans text-white/90 text-xs">Sede ALGOS Centro de Dolor · Maracaibo</p>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </section>
