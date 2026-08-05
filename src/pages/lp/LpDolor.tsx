@@ -340,6 +340,126 @@ export default function LpDolor() {
           </div>
         </section>
 
+        {/* Detalle de estudios: qué esperar, preparación y pasos siguientes */}
+        <section className="bg-white px-6 py-16 md:py-20 border-t border-[#1a4a55]/10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="font-sans font-semibold text-[#3d8b96] text-xs uppercase tracking-widest mb-3">
+                ¿Qué esperar del estudio?
+              </p>
+              <h2 className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight">
+                Duración, preparación y próximos pasos
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Electromiografía */}
+              <div className="border border-[#1a4a55]/10 bg-[#f5f0e8]/40 p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                    <Zap className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display font-bold text-[#1a4a55] text-xl">
+                    Electromiografía (EMG)
+                  </h3>
+                </div>
+
+                <ul className="space-y-5">
+                  <li className="flex gap-4">
+                    <Clock className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Duración</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        Aproximadamente 30 a 45 minutos. El tiempo varía según la cantidad de nervios y músculos a evaluar.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <ClipboardList className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Preparación</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        Llegar con la piel limpia, sin cremas ni lociones en la zona a estudiar. Evite el uso de alcohol o sedantes antes del estudio. Traiga la orden médica si la tiene.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <FileCheck className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Tras el resultado</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        El especialista le explica si hay una compresión, irritación o daño nervioso, y le recomienda el tratamiento más adecuado, que puede ser desde fisioterapia hasta un procedimiento intervencionista.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+
+                <a
+                  href={WA_EMG}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
+                >
+                  <Zap className="w-4 h-4" strokeWidth={1.5} />
+                  Solicitar EMG
+                </a>
+              </div>
+
+              {/* Electroencefalograma */}
+              <div className="border border-[#1a4a55]/10 bg-[#f5f0e8]/40 p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                    <Waves className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display font-bold text-[#1a4a55] text-xl">
+                    Electroencefalograma (EEG)
+                  </h3>
+                </div>
+
+                <ul className="space-y-5">
+                  <li className="flex gap-4">
+                    <Clock className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Duración</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        Entre 30 y 45 minutos. Es indoloro: se colocan electrodos sobre el cuero cabelludo para registrar la actividad cerebral.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <ClipboardList className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Preparación</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        Venir con el cabello limpio y seco, sin gel, spray ni aceites. Evite cafeína y bebidas energizantes el día del estudio. Traiga la orden médica si la tiene.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <FileCheck className="w-5 h-5 text-[#c69636] shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <div>
+                      <p className="font-sans font-semibold text-[#1a4a55] text-sm mb-1">Tras el resultado</p>
+                      <p className="font-sans text-[#1a4a55]/65 text-sm leading-relaxed">
+                        El médico especialista analiza la actividad cerebral y le indica si se requiere tratamiento neurológico, ajuste de medicación o estudios adicionales.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+
+                <a
+                  href={WA_EEG}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
+                >
+                  <Waves className="w-4 h-4" strokeWidth={1.5} />
+                  Solicitar EEG
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Imagen cinemática — procedimiento */}
         <div className="relative h-52 md:h-64 overflow-hidden">
           <OptimizedPicture
