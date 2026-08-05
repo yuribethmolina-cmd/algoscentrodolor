@@ -126,22 +126,22 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1 min-h-0 mx-auto max-w-7xl w-full px-6 md:px-12 lg:px-16">
         <div className="flex-1 flex flex-col justify-center min-h-0">
-          <div className="max-w-2xl pt-20 md:pt-0">
+          <div className="max-w-2xl pt-16 md:pt-0">
             <p
               className="font-ui font-bold uppercase"
-              style={{ fontSize: "13px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.58)" }}
+              style={{ fontSize: "12px", letterSpacing: "0.3em", color: "rgba(245,240,232,0.7)" }}
             >
               MARACAIBO · FRENTE A LA FACULTAD DE MEDICINA
             </p>
 
             <AnimatedHeadline
               as="h1"
-              className="font-display font-bold mt-6"
+              className="font-display font-bold mt-4 md:mt-6"
               style={{
-                fontSize: "clamp(32px, 5.4vw, 72px)",
+                fontSize: "clamp(34px, 5.6vw, 72px)",
                 lineHeight: 1.04,
                 letterSpacing: "-0.028em",
-                maxWidth: "22ch",
+                maxWidth: "20ch",
                 color: "#f5f0e8",
               }}
               chunks={[
@@ -151,44 +151,45 @@ export default function HeroSection() {
             />
 
             <p
-              className="font-ui mt-8 max-w-xl"
-              style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.62, color: "rgba(245,240,232,0.8)" }}
+              className="font-ui mt-4 md:mt-7 max-w-lg"
+              style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.55, color: "rgba(245,240,232,0.9)" }}
             >
-              En ALGOS buscamos el origen de su dolor, lo tratamos y lo acompañamos
-              hasta que pueda retomar lo que le gusta. Sin importar dónde le duele.
+              Encontramos el origen de su dolor y lo tratamos. Evaluación con el
+              especialista, sin orden médica previa.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-9">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mt-6 md:mt-9">
               <a
                 href={ALGOS.contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Contact'); }}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[16px] min-h-[52px]"
-                style={{ fontSize: "13px", letterSpacing: "0.22em" }}
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none shadow-[0_10px_30px_-12px_rgba(0,0,0,0.55)] transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[18px] min-h-[56px]"
+                style={{ fontSize: "13.5px", letterSpacing: "0.2em" }}
               >
-                <span>AGENDE SU CONSULTA</span>
+                <span>AGENDE POR WHATSAPP</span>
                 <span className="inline-block overflow-hidden transition-[width] duration-300 ease-out w-5 group-hover:w-9" aria-hidden>
                   <span className="block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
                 </span>
               </a>
               <Link
                 to="/especialidades"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] md:hover:opacity-100"
-                style={{ fontSize: "13px", letterSpacing: "0.22em", borderColor: "rgba(245,240,232,0.4)", color: "rgba(245,240,232,0.72)" }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
+                style={{ fontSize: "12.5px", letterSpacing: "0.2em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.8)" }}
               >
-                <span>ESPECIALIDADES</span>
+                <span>VER ESPECIALIDADES</span>
               </Link>
             </div>
 
             {/* Most-searched procedures — direct entry for high-intent visitors */}
-            <div className="flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
+            <div className="hidden sm:flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
               <p
                 className="font-ui font-bold uppercase"
                 style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
               >
                 Más solicitados
               </p>
+
               <div className="flex items-center gap-5 flex-wrap">
               {([
                 { label: "Electromiografía", to: "/procedimientos/emg" },
