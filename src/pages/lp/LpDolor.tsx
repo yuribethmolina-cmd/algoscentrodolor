@@ -457,6 +457,8 @@ export default function LpDolor() {
                   href={WA_EEG}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-detalle-eeg", "solicitar_eeg")}
                   className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-4 transition-colors"
                 >
                   <Waves className="w-4 h-4" strokeWidth={1.5} />
