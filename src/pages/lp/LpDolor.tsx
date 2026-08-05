@@ -469,6 +469,85 @@ export default function LpDolor() {
           </div>
         </section>
 
+        {/* Sedes donde se realizan los estudios */}
+        <section className="bg-[#f5f0e8] px-6 py-16 md:py-20 border-t border-[#1a4a55]/10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="font-sans font-semibold text-[#3d8b96] text-xs uppercase tracking-widest mb-3">
+                Atención con cita previa
+              </p>
+              <h2 className="font-display font-bold text-[#1a4a55] text-2xl md:text-3xl leading-tight">
+                Sedes donde realizamos los estudios
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white border border-[#1a4a55]/10 p-6 md:p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-[#1a4a55] text-lg">
+                      ALGOS Centro de Dolor Intervencionista
+                    </p>
+                    <p className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide mt-0.5">
+                      Sede Sector Paraíso
+                    </p>
+                  </div>
+                </div>
+                <address className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed not-italic">
+                  Av. 20 con Calle 65, N° 65-02<br />
+                  C.C. América, Local 4<br />
+                  Sector Paraíso, Diagonal a la Facultad de Medicina
+                </address>
+                <a
+                  href={WA_EMG}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-sede-paraiso", "solicitar_emg")}
+                  className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-3 transition-colors"
+                >
+                  <Zap className="w-4 h-4" strokeWidth={1.5} />
+                  Solicitar EMG / EEG aquí
+                </a>
+              </div>
+
+              <div className="bg-white border border-[#1a4a55]/10 p-6 md:p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#c69636]" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-[#1a4a55] text-lg">
+                      Torre Médica RAB
+                    </p>
+                    <p className="font-sans text-[#3d8b96] text-xs font-semibold uppercase tracking-wide mt-0.5">
+                      Sede Torre RAB
+                    </p>
+                  </div>
+                </div>
+                <address className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed not-italic">
+                  Calle 9, detrás de Clínica Zulia<br />
+                  Piso 1, Consultorio 1-03
+                </address>
+                <a
+                  href={WA_EEG}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-analytics="manual"
+                  onClick={() => trackWA("lp-dolor-sede-rab", "solicitar_eeg")}
+                  className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-6 py-3 transition-colors"
+                >
+                  <Waves className="w-4 h-4" strokeWidth={1.5} />
+                  Solicitar EMG / EEG aquí
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Imagen cinemática — procedimiento */}
         <div className="relative h-52 md:h-64 overflow-hidden">
           <OptimizedPicture
