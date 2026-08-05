@@ -70,57 +70,6 @@ export default function TrustBar() {
 
         </div>
 
-        {/* EMG + EEG — estudios propios de ALGOS */}
-        <div
-          style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%", maxWidth: 340, marginTop: 4 }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(26,74,85,0.12)" }} />
-            <p style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 10,
-              fontWeight: 800,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: "#c69636",
-              margin: 0,
-            }}>
-              ESTUDIOS DIAGNÓSTICOS QUE OFRECEMOS EN ALGOS
-            </p>
-            <div style={{ flex: 1, height: 1, backgroundColor: "rgba(26,74,85,0.12)" }} />
-          </div>
-          {[
-            { label: "Electromiografía (EMG)", text: "Hola ALGOS, me interesa agendar una Electromiografía (EMG)." },
-            { label: "Electroencefalograma (EEG)", text: "Hola ALGOS, me interesa agendar un Electroencefalograma (EEG)." },
-          ].map(({ label, text }) => (
-            <a
-              key={label}
-              href={`https://wa.me/584146807886?text=${encodeURIComponent(text)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 7,
-                width: "100%",
-                fontFamily: "Inter, sans-serif",
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "#1a4a55",
-                border: "1px solid rgba(198,150,54,0.5)",
-                backgroundColor: "rgba(198,150,54,0.08)",
-                padding: "10px 14px",
-                textDecoration: "none",
-              }}
-            >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#c69636", flexShrink: 0 }} />
-              {label}
-            </a>
-          ))}
-        </div>
 
       </div>
     </section>

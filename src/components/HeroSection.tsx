@@ -187,7 +187,7 @@ export default function HeroSection() {
             </div>
 
             {/* Most-searched procedures — direct entry for high-intent visitors */}
-            <div className="hidden sm:flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
+            <div className="flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
               <p
                 className="font-ui font-bold uppercase"
                 style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
