@@ -136,11 +136,11 @@ export default function PatientJourneySection() {
               lineHeight: 1.1,
               letterSpacing: "-0.024em",
               color: DEEP_TEAL,
-              maxWidth: "18ch",
+              maxWidth: "28ch",
               margin: 0,
             }}
           >
-            Tu camino de regreso{" "}
+            Tu camino de regreso a usted antes que padeciera ese dolor{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>empieza aquí.</em>
           </h2>
 
