@@ -140,7 +140,7 @@ export default function PatientJourneySection() {
               margin: 0,
             }}
           >
-            Tu camino de regreso a usted antes que padeciera ese dolor{" "}
+            Volver a ser quien eras antes del dolor{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>empieza aquí.</em>
           </h2>
 
