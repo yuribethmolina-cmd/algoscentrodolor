@@ -13,6 +13,11 @@ import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 export default function MobileStickyCTA() {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
+  const hours = useBusinessHours();
+  const waHref = withHoursContext(
+    ALGOS.contact.whatsappHref,
+    "Hola, quisiera agendar una consulta en ALGOS."
+  );
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 320);
