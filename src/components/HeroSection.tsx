@@ -52,6 +52,21 @@ export default function HeroSection() {
     "Hola, quisiera agendar una consulta en ALGOS."
   );
 
+  // A/B test: posición del CTA de WhatsApp en el hero móvil
+  const [variant, setVariant] = useState<Variant>("a");
+  useEffect(() => {
+    const v = getVariant("hero_cta");
+    setVariant(v);
+    if (window.matchMedia?.("(max-width: 767px)").matches) {
+      trackCTA(`hero_mobile_${v}`, `ab_hero_cta:${v}:view`);
+    }
+  }, []);
+
+  function handleMobileWA() {
+    trackWA(`hero_mobile_${variant}`, `ab_hero_cta:${variant}`);
+    trackContact();
+  }
+
 
   useEffect(() => {
     const node = sectionRef.current;
