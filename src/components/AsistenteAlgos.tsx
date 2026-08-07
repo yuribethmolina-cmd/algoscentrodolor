@@ -77,6 +77,7 @@ export default function AsistenteAlgos() {
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
   const [isOffHours, setIsOffHours] = useState(false);
   const [leadSaving, setLeadSaving] = useState(false);
+  const [confirmation, setConfirmation] = useState<LeadConfirmation | null>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
