@@ -116,10 +116,11 @@ export default function HeroSection() {
 
           <p
             className="font-ui mt-4"
-            style={{ fontSize: "16px", lineHeight: 1.55, color: "rgba(26,74,85,0.72)", maxWidth: "38ch" }}
+            style={{ fontSize: "16px", lineHeight: 1.55, color: "rgba(26,74,85,0.72)", maxWidth: "36ch" }}
           >
-            Encontramos el origen de su dolor y lo tratamos. Evaluación con el
-            especialista, sin orden médica previa.
+            Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
+            buscamos la causa y le decimos con claridad qué se puede hacer. No
+            necesita orden médica.
           </p>
 
           <div className="flex flex-col gap-3 mt-7">
