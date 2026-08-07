@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send, Calendar, RefreshCw } from "lucide-react";
+import { MessageSquare, X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
-import { isWithinBusinessHours } from "@/lib/businessHours";
+import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
 
 
 
@@ -33,6 +33,46 @@ const SHIFT_LABELS: Record<string, string> = {
   tarde: "Tarde (12:00 M – 4:00 PM)",
   cualquiera: "Cualquier horario",
 };
+
+export type LeadConfirmation = {
+  name: string;
+  phone: string;
+  reason: string;
+  shift: string;
+  context: "off_hours" | "whatsapp_fallback";
+  /** Código corto para que el paciente lo mencione al equipo. */
+  reference: string;
+  /** Cuándo se recibió la solicitud. */
+  receivedAt: string;
+  /** Ventana estimada de respuesta. */
+  replyWindow: string;
+  /** Estado estimado del trámite. */
+  status: string;
+};
+
+function buildReference(date = new Date()): string {
+  const d = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Caracas",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(date)
+    .replace(/\D/g, "");
+  const rand = Math.floor(1000 + Math.random() * 9000);
+  return `ALG-${d}-${rand}`;
+}
+
+function formatCaracasTime(date = new Date()): string {
+  return new Intl.DateTimeFormat("es-VE", {
+    timeZone: "America/Caracas",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(date);
+}
 
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
@@ -77,6 +117,7 @@ export default function AsistenteAlgos() {
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
   const [isOffHours, setIsOffHours] = useState(false);
   const [leadSaving, setLeadSaving] = useState(false);
+  const [confirmation, setConfirmation] = useState<LeadConfirmation | null>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -252,6 +293,22 @@ export default function AsistenteAlgos() {
       const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
       if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
       trackAppointment({ condition: reason || "chat_asistente", source: `chat_asistente_${context}` });
+      const now = new Date();
+      const open = isWithinBusinessHours(now);
+      setConfirmation({
+        name,
+        phone,
+        reason,
+        shift: formShift ? SHIFT_LABELS[formShift] ?? formShift : "Sin preferencia",
+        context,
+        reference: buildReference(now),
+        receivedAt: formatCaracasTime(now),
+        replyWindow: open
+          ? "Hoy, dentro del horario de atención"
+          : `${nextOpeningLabel(now)} (${BUSINESS_HOURS.label})`,
+        status: "Recibida — pendiente de confirmación",
+      });
+      trackCTA("chat_asistente", `chat_lead_confirmation_shown:${context}`);
       setMessages((m) => [
         ...m,
         {
@@ -502,7 +559,80 @@ export default function AsistenteAlgos() {
             )}
           </div>
 
+          {/* Confirmación de solicitud guardada */}
+          {confirmation && (
+            <div
+              className="px-4 py-3 space-y-3"
+              style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: "white" }}
+              role="status"
+              aria-live="polite"
+            >
+              <div className="flex items-start gap-2">
+                <span
+                  className="flex items-center justify-center rounded-full shrink-0"
+                  style={{ width: 26, height: 26, backgroundColor: `${TEAL}1A`, color: TEAL }}
+                  aria-hidden
+                >
+                  <Check size={15} />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold" style={{ color: DEEP_TEAL }}>
+                    Solicitud recibida, {confirmation.name.split(" ")[0]}
+                  </p>
+                  <p className="text-[11px] leading-snug opacity-75" style={{ color: DEEP_TEAL }}>
+                    {confirmation.context === "off_hours"
+                      ? "La registramos fuera del horario de atención y quedó de primera en la cola."
+                      : "La registramos porque no se pudo abrir WhatsApp."}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                className="rounded-lg p-3 space-y-2"
+                style={{ backgroundColor: CREAM, border: `1px solid ${DEEP_TEAL}15` }}
+              >
+                {[
+                  { label: "Estado estimado", value: confirmation.status },
+                  { label: "Tiempo de respuesta", value: confirmation.replyWindow },
+                  { label: "Recibida", value: confirmation.receivedAt },
+                  { label: "Disponibilidad", value: confirmation.shift },
+                  { label: "Le contactamos al", value: confirmation.phone },
+                  { label: "Referencia", value: confirmation.reference },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-start justify-between gap-3">
+                    <span
+                      className="text-[10px] uppercase tracking-wider shrink-0 opacity-70"
+                      style={{ color: DEEP_TEAL }}
+                    >
+                      {row.label}
+                    </span>
+                    <span
+                      className="text-[11.5px] font-semibold text-right"
+                      style={{ color: DEEP_TEAL }}
+                    >
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[10.5px] leading-snug opacity-70" style={{ color: DEEP_TEAL }}>
+                Guarde su referencia: puede mencionarla al equipo para ubicar su solicitud más rápido.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setConfirmation(null)}
+                className="w-full py-2.5 rounded-lg text-sm font-semibold"
+                style={{ backgroundColor: DEEP_TEAL, color: CREAM }}
+              >
+                Entendido
+              </button>
+            </div>
+          )}
+
           {/* Mini appointment form */}
+
           {showForm && (
             <div
               className="px-4 py-3 space-y-2"
