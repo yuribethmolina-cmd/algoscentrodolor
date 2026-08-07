@@ -293,6 +293,22 @@ export default function AsistenteAlgos() {
       const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
       if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
       trackAppointment({ condition: reason || "chat_asistente", source: `chat_asistente_${context}` });
+      const now = new Date();
+      const open = isWithinBusinessHours(now);
+      setConfirmation({
+        name,
+        phone,
+        reason,
+        shift: formShift ? SHIFT_LABELS[formShift] ?? formShift : "Sin preferencia",
+        context,
+        reference: buildReference(now),
+        receivedAt: formatCaracasTime(now),
+        replyWindow: open
+          ? "Hoy, dentro del horario de atención"
+          : `${nextOpeningLabel(now)} (${BUSINESS_HOURS.label})`,
+        status: "Recibida — pendiente de confirmación",
+      });
+      trackCTA("chat_asistente", `chat_lead_confirmation_shown:${context}`);
       setMessages((m) => [
         ...m,
         {
