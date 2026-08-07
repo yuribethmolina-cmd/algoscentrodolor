@@ -126,12 +126,6 @@ export default function HeroSection() {
             >
               AGENDE POR WHATSAPP →
             </a>
-            <p
-              className="font-ui text-center"
-              style={{ fontSize: "13px", lineHeight: 1.5, color: "rgba(26,74,85,0.68)", maxWidth: "34ch" }}
-            >
-              Al hacer clic se abre WhatsApp. Nuestro equipo le confirmará fecha y hora en minutos.
-            </p>
             <Link
               to="/especialidades"
               className="inline-flex items-center justify-center border font-ui font-semibold uppercase w-full active:scale-[0.97]"
