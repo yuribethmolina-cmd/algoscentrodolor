@@ -41,6 +41,12 @@ function trackContact() {
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const hours = useBusinessHours();
+  const waHref = withHoursContext(
+    ALGOS.contact.whatsappHref,
+    "Hola, quisiera agendar una consulta en ALGOS."
+  );
+
 
   useEffect(() => {
     const node = sectionRef.current;
