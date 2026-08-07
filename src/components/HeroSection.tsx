@@ -129,13 +129,13 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackContact}
-              className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-bold uppercase w-full active:scale-[0.97]"
-              style={{ fontSize: "13px", letterSpacing: "0.2em", paddingTop: 15, paddingBottom: 15 }}
+              className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-semibold w-full active:scale-[0.97]"
+              style={{ fontSize: "15px", letterSpacing: "0.02em", paddingTop: 15, paddingBottom: 15 }}
             >
               <span>{hours.ctaLabel} →</span>
               <span
-                className="inline-flex items-center gap-1.5 normal-case font-semibold mt-1"
-                style={{ fontSize: "10.5px", letterSpacing: "0.04em", opacity: 0.92 }}
+                className="inline-flex items-center gap-1.5 normal-case font-medium mt-1"
+                style={{ fontSize: "11.5px", letterSpacing: "0.02em", opacity: 0.92 }}
               >
                 <span
                   className="inline-block rounded-full"
@@ -151,7 +151,7 @@ export default function HeroSection() {
             </a>
             <p
               className="font-ui text-center"
-              style={{ fontSize: "11.5px", lineHeight: 1.45, color: "rgba(26,74,85,0.62)" }}
+              style={{ fontSize: "12.5px", lineHeight: 1.45, color: "rgba(26,74,85,0.62)" }}
             >
               {hours.helperText}
             </p>
