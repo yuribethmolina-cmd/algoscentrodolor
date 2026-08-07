@@ -124,15 +124,37 @@ export default function HeroSection() {
 
           <div className="flex flex-col gap-3 mt-7">
             <a
-              href={ALGOS.contact.whatsappHref}
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackContact}
-              className="inline-flex items-center justify-center gap-2 bg-[#3d8b96] text-[#f5f0e8] font-ui font-bold uppercase w-full active:scale-[0.97]"
-              style={{ fontSize: "13px", letterSpacing: "0.2em", paddingTop: 18, paddingBottom: 18 }}
+              className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-bold uppercase w-full active:scale-[0.97]"
+              style={{ fontSize: "13px", letterSpacing: "0.2em", paddingTop: 15, paddingBottom: 15 }}
             >
-              AGENDE POR WHATSAPP →
+              <span>{hours.ctaLabel} →</span>
+              <span
+                className="inline-flex items-center gap-1.5 normal-case font-semibold mt-1"
+                style={{ fontSize: "10.5px", letterSpacing: "0.04em", opacity: 0.92 }}
+              >
+                <span
+                  className="inline-block rounded-full"
+                  style={{
+                    width: 7,
+                    height: 7,
+                    backgroundColor: hours.isOpen ? "#7ee2a8" : "#f0c14b",
+                  }}
+                  aria-hidden
+                />
+                {hours.statusLabel}
+              </span>
             </a>
+            <p
+              className="font-ui text-center"
+              style={{ fontSize: "11.5px", lineHeight: 1.45, color: "rgba(26,74,85,0.62)" }}
+            >
+              {hours.helperText}
+            </p>
+
             <Link
               to="/especialidades"
               className="inline-flex items-center justify-center border font-ui font-semibold uppercase w-full active:scale-[0.97]"
