@@ -47,6 +47,44 @@ export default function Index() {
       </SEOHead>
       <Navbar />
       <HeroSection />
+
+      {/* Señal humana: equipo real detrás del centro */}
+      <section className="sm:hidden bg-[#f5f0e8]" style={{ padding: "24px 0 32px" }}>
+        <div className="px-6 flex items-center gap-4">
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              overflow: "hidden",
+              border: `2px solid ${GOLD}`,
+              flexShrink: 0,
+            }}
+          >
+            <img
+              src={atilioPhoto.url}
+              alt="Dr. Atilio Rodríguez"
+              loading="eager"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+            />
+          </div>
+          <div>
+            <p
+              className="font-ui"
+              style={{ fontSize: "14.5px", lineHeight: 1.45, color: DEEP_TEAL, margin: 0, maxWidth: "32ch" }}
+            >
+              “Detrás de cada consulta hay un equipo que conoce su caso por nombre.”
+            </p>
+            <p
+              className="font-ui mt-1"
+              style={{ fontSize: "12px", color: "rgba(26,74,85,0.62)", margin: 0 }}
+            >
+              Dr. Atilio Rodríguez · Director Médico
+            </p>
+          </div>
+        </div>
+      </section>
+
       <TrustBar />
       <PainTabSection />
       <PatientJourneySection />
