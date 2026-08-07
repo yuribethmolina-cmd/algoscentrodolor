@@ -158,17 +158,17 @@ export default function HeroSection() {
 
             <Link
               to="/especialidades"
-              className="inline-flex items-center justify-center border font-ui font-semibold uppercase w-full active:scale-[0.97]"
+              className="inline-flex items-center justify-center border font-ui font-semibold w-full active:scale-[0.97]"
               style={{
-                fontSize: "12px",
-                letterSpacing: "0.18em",
+                fontSize: "13px",
+                letterSpacing: "0.01em",
                 borderColor: "rgba(26,74,85,0.28)",
-                color: "rgba(26,74,85,0.7)",
+                color: "rgba(26,74,85,0.8)",
                 paddingTop: 14,
                 paddingBottom: 14,
               }}
             >
-              VER ESPECIALIDADES
+              Ver especialidades
             </Link>
           </div>
 
@@ -344,10 +344,10 @@ export default function HeroSection() {
                 </a>
                 <Link
                   to="/especialidades"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
-                  style={{ fontSize: "12.5px", letterSpacing: "0.2em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.8)" }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
+                  style={{ fontSize: "13.5px", letterSpacing: "0.01em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.85)" }}
                 >
-                  <span>VER ESPECIALIDADES</span>
+                  <span>Ver especialidades</span>
                 </Link>
               </div>
               <p
