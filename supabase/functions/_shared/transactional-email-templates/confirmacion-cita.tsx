@@ -62,6 +62,23 @@ const ConfirmacionCitaEmail = ({
           <Row label="Fecha preferida" value={preferredDate} />
           <Row label="Turno preferido" value={preferredShift} />
 
+          <Text style={subhead}>Próximos pasos</Text>
+          <Text style={step}>
+            <span style={stepNum}>1. </span>
+            Una persona de nuestro equipo te llama o te escribe por WhatsApp para
+            confirmar día y hora (horario de atención: lunes a viernes, 7:00 a. m. a 4:00 p. m.).
+          </Text>
+          <Text style={step}>
+            <span style={stepNum}>2. </span>
+            Si ya tienes estudios (resonancia, tomografía, radiografías o informes),
+            tenlos a mano: nos ayudan a orientar mejor tu consulta.
+          </Text>
+          <Text style={step}>
+            <span style={stepNum}>3. </span>
+            El día de la consulta evaluamos tu caso y te explicamos, en palabras claras,
+            las opciones de tratamiento para tu dolor.
+          </Text>
+
           <Text style={paragraph}>
             ¿Necesitas algo antes? Escríbenos por{' '}
             <Link href="https://wa.me/584146807886" style={link}>
@@ -115,6 +132,8 @@ const subhead = { fontSize: '13px', fontWeight: 700, color: '#3D8B96', margin: '
 const row = { fontSize: '14px', color: '#1A4A55', margin: '0 0 8px', lineHeight: '20px' }
 const rowLabel = { color: '#3D8B96', fontWeight: 600 }
 const rowValue = { color: '#1A4A55' }
+const step = { fontSize: '14px', color: '#1A4A55', margin: '0 0 10px', lineHeight: '21px' }
+const stepNum = { color: '#C69636', fontWeight: 700 }
 const link = { color: '#C69636', fontWeight: 600 }
 const note = { fontSize: '12px', color: '#3D8B96', marginTop: '14px' }
 const brandFooter = { fontSize: '12px', color: '#3D8B96', marginTop: '6px' }
