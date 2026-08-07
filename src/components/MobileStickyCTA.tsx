@@ -3,10 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, CalendarDays } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { trackCTA } from "@/lib/analytics";
+import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 
-const WA =
-  ALGOS.contact.whatsappHref +
-  "?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20en%20ALGOS.";
 
 /**
  * Mobile-only sticky conversion bar. Appears after the user scrolls past the
