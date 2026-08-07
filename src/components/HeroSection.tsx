@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
+import heroMobilePain from "@/assets/hero-mobile-pain.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
 
 const HERO_VIDEO_SRC = heroVideo.url;
@@ -216,10 +217,10 @@ export default function HeroSection() {
 
         {/* Poster image — full width below content */}
         <img
-          src={heroPoster.url}
-          alt="ALGOS Centro de Dolor Intervencionista Maracaibo"
+          src={heroMobilePain.url}
+          alt="Persona sujetándose la zona lumbar por dolor de espalda"
           className="w-full object-cover"
-          style={{ height: "260px", objectPosition: "center 65%" }}
+          style={{ height: "260px", objectPosition: "center center" }}
           loading="eager"
         />
       </section>
