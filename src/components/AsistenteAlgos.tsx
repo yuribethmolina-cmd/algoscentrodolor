@@ -570,6 +570,18 @@ export default function AsistenteAlgos() {
                 className="w-full px-3 py-2 text-sm rounded-lg outline-none"
                 style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
               />
+              <select
+                value={formShift}
+                onChange={(e) => setFormShift(e.target.value)}
+                className="w-full px-3 py-2 text-sm rounded-lg outline-none"
+                style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+                aria-label="Disponibilidad"
+              >
+                <option value="">Disponibilidad (opcional)</option>
+                <option value="manana">Mañana (7:00 AM – 12:00 M)</option>
+                <option value="tarde">Tarde (12:00 M – 4:00 PM)</option>
+                <option value="cualquiera">Cualquier horario</option>
+              </select>
               <div>
                 <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: DEEP_TEAL }}>
                   {isOffHours ? "Mensaje o comentario adicional" : "Mensaje para WhatsApp"}
