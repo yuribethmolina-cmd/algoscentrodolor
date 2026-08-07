@@ -265,8 +265,22 @@ Deno.serve(async (req) => {
           },
         },
       });
-      if (confirmError) console.error("confirmation email error", confirmError);
+      if (confirmError) {
+        console.error("confirmation email error", confirmError);
+        audit("email", "confirmacion-cita", row.email, "failed", confirmError.message ?? String(confirmError));
+      } else {
+        audit("email", "confirmacion-cita", row.email, "sent");
+      }
     }
+
+    if (auditEntries.length > 0) {
+      const { error: auditError } = await supabase
+        .from("appointment_notification_log")
+        .insert(auditEntries);
+      if (auditError) console.error("notification audit insert error", auditError);
+    }
+
+
 
     return new Response(JSON.stringify({ ok: true, id: inserted.id }), {
 
