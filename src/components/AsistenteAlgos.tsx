@@ -620,14 +620,16 @@ export default function AsistenteAlgos() {
                 {formSubmitting ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Abriendo WhatsApp…
+                    {isOffHours ? "Guardando solicitud…" : "Abriendo WhatsApp…"}
                   </>
                 ) : (
-                  "Enviar por WhatsApp"
+                  isOffHours ? "Dejar mis datos" : "Enviar por WhatsApp"
                 )}
               </button>
               <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
-                Se abrirá WhatsApp con tus datos precargados.
+                {isOffHours
+                  ? "Guardaremos tu solicitud y te contactaremos en el siguiente día hábil."
+                  : "Se abrirá WhatsApp con tus datos precargados."}
               </p>
             </div>
           )}
