@@ -79,7 +79,7 @@ export default function Index() {
               className="font-ui mt-1"
               style={{ fontSize: "12px", color: "rgba(26,74,85,0.62)", margin: 0 }}
             >
-              Dr. Atilio Rodríguez · Director Médico
+              Dr. Atilio Rodríguez · Neurocirujano de ALGOS
             </p>
           </div>
         </div>
