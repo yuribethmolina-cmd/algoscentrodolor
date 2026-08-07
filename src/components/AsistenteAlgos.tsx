@@ -490,6 +490,7 @@ export default function AsistenteAlgos() {
                     setFormError(null);
                     setFormConsent(false);
                     setFormMessage("");
+                    setIsOffHours(false);
                   }}
                   className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
                   style={{ color: DEEP_TEAL }}
