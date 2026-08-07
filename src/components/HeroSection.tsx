@@ -120,7 +120,7 @@ export default function HeroSection() {
       ) : (
       <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full" data-section="hero_mobile_a">
 
-        <div className="px-6 pt-24 pb-8">
+        <div className="px-6 pt-24 pb-8 text-center">
           <p
             className="font-ui font-bold uppercase mb-5"
             style={{ fontSize: "11px", letterSpacing: "0.3em", color: "#3d8b96" }}
@@ -130,7 +130,7 @@ export default function HeroSection() {
 
           <AnimatedHeadline
             as="h1"
-            className="font-display font-bold"
+            className="font-display font-bold text-center mx-auto"
             style={{
               fontSize: "clamp(32px, 9vw, 44px)",
               lineHeight: 1.06,
@@ -145,7 +145,7 @@ export default function HeroSection() {
           />
 
           <p
-            className="font-ui mt-4"
+            className="font-ui mt-4 text-center mx-auto"
             style={{ fontSize: "16px", lineHeight: 1.55, color: "rgba(26,74,85,0.72)", maxWidth: "36ch" }}
           >
             Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
@@ -165,7 +165,7 @@ export default function HeroSection() {
             >
               <span>{hours.ctaLabel} →</span>
               <span
-                className="inline-flex items-center gap-1.5 normal-case font-medium mt-1"
+                className="inline-flex items-center justify-center gap-1.5 normal-case font-medium mt-1"
                 style={{ fontSize: "11.5px", letterSpacing: "0.02em", opacity: 0.92 }}
               >
                 <span
@@ -205,12 +205,12 @@ export default function HeroSection() {
 
           <div className="flex flex-col gap-2.5 mt-7">
             <p
-              className="font-ui font-bold uppercase"
+              className="font-ui font-bold uppercase text-center"
               style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
             >
               Más solicitados
             </p>
-            <div className="flex items-center gap-5 flex-wrap">
+            <div className="flex items-center justify-center gap-5 flex-wrap">
               {MAS_SOLICITADOS.map(({ label, to }) => (
                 <Link
                   key={to}
@@ -244,6 +244,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+
 
         {/* Poster image — full width below content */}
         <img

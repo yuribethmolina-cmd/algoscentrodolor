@@ -25,7 +25,7 @@ export default function HeroMobileVariantB({
 }: Props) {
   return (
     <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full" data-ab-variant="b">
-      <div className="px-6 pt-24 pb-8">
+      <div className="px-6 pt-24 pb-8 text-center">
         <p
           className="font-ui font-bold uppercase mb-4"
           style={{ fontSize: "11px", letterSpacing: "0.3em", color: "#3d8b96" }}
@@ -35,7 +35,7 @@ export default function HeroMobileVariantB({
 
         <AnimatedHeadline
           as="h1"
-          className="font-display font-bold"
+          className="font-display font-bold text-center mx-auto"
           style={{
             fontSize: "clamp(30px, 8.4vw, 40px)",
             lineHeight: 1.06,
@@ -51,7 +51,7 @@ export default function HeroMobileVariantB({
 
         {/* CTA por encima del pliegue */}
         <div className="mt-6">
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center justify-center gap-2 mb-3">
             <span className="relative flex" style={{ width: 8, height: 8 }} aria-hidden>
               <span
                 className="absolute inline-flex w-full h-full rounded-full opacity-70 animate-ping"
@@ -98,7 +98,7 @@ export default function HeroMobileVariantB({
 
         {/* Mensaje empático debajo del CTA */}
         <p
-          className="font-ui mt-8"
+          className="font-ui mt-8 text-center mx-auto"
           style={{ fontSize: "15.5px", lineHeight: 1.55, color: "rgba(26,74,85,0.78)", maxWidth: "36ch" }}
         >
           Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
@@ -121,7 +121,7 @@ export default function HeroMobileVariantB({
           Ver especialidades
         </Link>
 
-        <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(26,74,85,0.12)" }}>
+        <div className="mt-8 pt-6 text-center" style={{ borderTop: "1px solid rgba(26,74,85,0.12)" }}>
           <p
             className="font-ui font-bold uppercase mb-3"
             style={{ fontSize: "10px", letterSpacing: "0.28em", color: "#c69636" }}
@@ -151,6 +151,7 @@ export default function HeroMobileVariantB({
           </div>
         </div>
       </div>
+
 
       <img
         src={posterUrl}
