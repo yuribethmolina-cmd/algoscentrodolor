@@ -51,6 +51,7 @@ export default function Index() {
       <HomeTeamSection />
       <SedesSection />
       <AlgosLocationSection />
+      <InstagramSection />
       <FinalCTA />
       <HomeFooter />
     </div>
