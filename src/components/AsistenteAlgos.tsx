@@ -527,18 +527,24 @@ export default function AsistenteAlgos() {
               />
               <div>
                 <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: DEEP_TEAL }}>
-                  Mensaje para WhatsApp
+                  {isOffHours ? "Mensaje o comentario adicional" : "Mensaje para WhatsApp"}
                 </label>
                 <textarea
                   value={formMessage}
                   onChange={(e) => setFormMessage(e.target.value)}
-                  placeholder="Aquí aparecerá el mensaje que se enviará por WhatsApp..."
+                  placeholder={
+                    isOffHours
+                      ? "Ej. días y horarios en los que prefieres ser contactado…"
+                      : "Aquí aparecerá el mensaje que se enviará por WhatsApp…"
+                  }
                   rows={3}
                   className="w-full px-3 py-2 text-sm rounded-lg outline-none resize-none"
                   style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
                 />
                 <p className="text-[10px] mt-1 opacity-70" style={{ color: DEEP_TEAL }}>
-                  Puedes editar el mensaje antes de enviarlo.
+                  {isOffHours
+                    ? "Opcional. Nuestro equipo te contactará por WhatsApp."
+                    : "Puedes editar el mensaje antes de enviarlo."}
                 </p>
               </div>
               <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
