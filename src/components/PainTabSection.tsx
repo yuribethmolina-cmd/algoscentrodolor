@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
-import dolorEspalda from "@/assets/pain-anatomy.png.asset.json";
+import dolorEspalda from "@/assets/dolor-espalda-1.webp";
 import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
 import condRodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
 import condNeuropatiaAsset from "@/assets/cond-neuropatia.jpg.asset.json";
@@ -348,8 +348,8 @@ export default function PainTabSection() {
         >
           {activeTab === "dolor" ? (
             <AnnotatedPanel
-              src={dolorEspalda.url}
-              alt="Anatomía de la columna y nervios que ALGOS evalúa y trata"
+              src={dolorEspalda}
+              alt="Zonas de dolor que ALGOS trata: cabeza, cuello, espalda, lumbar, cadera"
               annotations={PAIN_ZONES}
               visible={visible}
             />
