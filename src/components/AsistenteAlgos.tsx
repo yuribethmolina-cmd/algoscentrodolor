@@ -656,17 +656,42 @@ export default function AsistenteAlgos() {
                 </div>
               )}
               {fallbackUrl && (
-                <a
-                  href={fallbackUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
-                  className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
-                  style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
-                >
-                  Abrir WhatsApp manualmente →
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href={fallbackUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
+                    className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
+                    style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
+                  >
+                    Abrir WhatsApp manualmente →
+                  </a>
+                  <button
+                    type="button"
+                    onClick={submitLead}
+                    disabled={leadSaving}
+                    className="w-full py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                    style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}40` }}
+                  >
+                    {leadSaving ? (
+                      <>
+                        <span
+                          className="w-4 h-4 border-2 rounded-full animate-spin"
+                          style={{ borderColor: `${DEEP_TEAL}30`, borderTopColor: DEEP_TEAL }}
+                        />
+                        Guardando solicitud…
+                      </>
+                    ) : (
+                      "No pude contactar por WhatsApp — dejar mis datos"
+                    )}
+                  </button>
+                  <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
+                    Guardamos tu solicitud y te llamamos o escribimos nosotros.
+                  </p>
+                </div>
               )}
+
 
               <button
                 onClick={() => submitForm()}
