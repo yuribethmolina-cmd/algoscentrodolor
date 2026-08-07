@@ -12,6 +12,10 @@ import HomeFAQSection from "@/components/HomeFAQSection";
 import InstagramSection from "@/components/InstagramSection";
 import FinalCTA from "@/components/FinalCTA";
 import SEOHead from "@/components/SEOHead";
+import atilioPhoto from "@/assets/Atilio_foto_cortada.png.asset.json";
+
+const DEEP_TEAL = "#1a4a55";
+const GOLD = "#c69636";
 
 const HOME_FAQS = [
   { q: "¿Cómo sé si ALGOS puede ayudarme?", a: "Si tiene dolor que no cede con reposo, medicamentos o fisioterapia, es candidato a una evaluación. No importa dónde le duele, lo evaluamos y le decimos con honestidad qué opciones existen." },
