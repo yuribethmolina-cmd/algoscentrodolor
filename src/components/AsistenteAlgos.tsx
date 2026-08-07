@@ -44,6 +44,12 @@ const SUGGESTIONS = [
   "¿Cómo agendo una cita?",
 ];
 
+const SHIFT_LABELS: Record<string, string> = {
+  manana: "Mañana (7:00 AM – 12:00 M)",
+  tarde: "Tarde (12:00 M – 4:00 PM)",
+  cualquiera: "Cualquier horario",
+};
+
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
   try {
@@ -77,6 +83,7 @@ export default function AsistenteAlgos() {
   const [formName, setFormName] = useState(savedContact?.name ?? "");
   const [formPhone, setFormPhone] = useState(savedContact?.phone ?? "");
   const [formReason, setFormReason] = useState("");
+  const [formShift, setFormShift] = useState("");
   const [formConsent, setFormConsent] = useState(false);
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
@@ -85,6 +92,7 @@ export default function AsistenteAlgos() {
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
   const [isOffHours, setIsOffHours] = useState(false);
+  const [leadSaving, setLeadSaving] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -173,13 +181,13 @@ export default function AsistenteAlgos() {
     setLastQuery(null);
   }
 
-  async function submitForm(isRetry = false) {
+  function validateForm(): { name: string; phone: string } | null {
     const name = formName.trim();
     const phone = formPhone.trim();
     if (name.length < 2) {
       setFormError("Por favor ingresa tu nombre completo.");
       trackCTA("chat_asistente", `chat_fail:validation:name_${name.length === 0 ? "empty" : "too_short"}`);
-      return;
+      return null;
     }
     const digits = phone.replace(/\D/g, "");
     if (!/^(0[24]\d{8,9})$/.test(digits)) {
@@ -194,17 +202,18 @@ export default function AsistenteAlgos() {
               ? "bad_prefix"
               : "invalid_format";
       trackCTA("chat_asistente", `chat_fail:validation:phone_${phoneReason}`);
-      return;
+      return null;
     }
     if (!formConsent) {
       setFormError("Debes autorizar el uso de tus datos para continuar.");
       trackCTA("chat_asistente", "chat_fail:validation:consent_missing");
-      return;
+      return null;
     }
     setFormError(null);
-    setFormSubmitting(true);
-    setFallbackUrl(null);
+    return { name, phone };
+  }
 
+  function persistContact(name: string, phone: string) {
     try {
       if (rememberMe) {
         window.localStorage.setItem(CONTACT_KEY, JSON.stringify({ name, phone }));
@@ -216,53 +225,95 @@ export default function AsistenteAlgos() {
     } catch (storageErr: any) {
       trackCTA("chat_asistente", `chat_fail:storage:${(storageErr?.name || "unknown").slice(0, 40)}`);
     }
+  }
+
+  function resetForm() {
+    setShowForm(false);
+    setFormReason("");
+    setFormShift("");
+    setFormConsent(false);
+    setFormMessage("");
+    setFallbackUrl(null);
+    if (!rememberMe) {
+      setFormName("");
+      setFormPhone("");
+    }
+  }
+
+  /** Guarda el lead en el backend (fuera de horario o cuando WhatsApp falla). */
+  async function saveLead(context: "off_hours" | "whatsapp_fallback"): Promise<boolean> {
+    const valid = validateForm();
+    if (!valid) return false;
+    const { name, phone } = valid;
+    persistContact(name, phone);
+    const reason = formReason.trim();
+    const noteParts = [
+      formMessage.trim(),
+      formShift ? `Disponibilidad: ${SHIFT_LABELS[formShift] ?? formShift}` : "",
+      context === "whatsapp_fallback"
+        ? "El paciente no logró contactar por WhatsApp."
+        : "Solicitud desde el Asistente ALGOS (fuera de horario WhatsApp).",
+    ].filter(Boolean);
+
+    try {
+      const payload = {
+        name,
+        phone,
+        condition: reason || "chat_asistente",
+        preferred_shift: formShift || null,
+        notes: noteParts.join("\n"),
+        source_section: "chat_asistente",
+        device: window.innerWidth < 768 ? "mobile" : "desktop",
+      };
+      const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
+      if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
+      trackAppointment({ condition: reason || "chat_asistente", source: `chat_asistente_${context}` });
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          content:
+            context === "off_hours"
+              ? `¡Gracias, ${name}! Recibimos tus datos. En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Nuestro equipo te contactará al iniciar el siguiente día hábil para confirmar tu cita.`
+              : `¡Gracias, ${name}! Guardamos tu solicitud de cita. Nuestro equipo te contactará al ${phone} para confirmar fecha y hora.`,
+        },
+      ]);
+      resetForm();
+      return true;
+    } catch (submitErr: any) {
+      trackCTA("chat_asistente", `chat_fail:${context}_submit:${(submitErr?.name || "error").slice(0, 40)}`);
+      setFormError("No se pudo guardar tu solicitud. Intenta de nuevo en unos segundos.");
+      return false;
+    }
+  }
+
+  async function submitLead() {
+    setLeadSaving(true);
+    trackCTA("chat_asistente", "chat_lead_form_submit");
+    await saveLead("whatsapp_fallback");
+    setLeadSaving(false);
+  }
+
+  async function submitForm(isRetry = false) {
+    const valid = validateForm();
+    if (!valid) return;
+    const { name, phone } = valid;
+    setFormSubmitting(true);
+    setFallbackUrl(null);
+    persistContact(name, phone);
 
     const reason = formReason.trim();
     if (isRetry) {
       trackCTA("chat_asistente", "chat_miniform_retry");
     }
 
-    const withinHours = isWithinBusinessHours();
-
-    if (!withinHours) {
-      // Fuera de horario: guardar solicitud y notificar en el chat.
+    if (!isWithinBusinessHours()) {
       trackCTA("chat_asistente", "chat_miniform_off_hours");
-      try {
-        const payload = {
-          name,
-          phone,
-          condition: reason || "chat_asistente",
-          notes: formMessage.trim() || "Solicitud desde el Asistente ALGOS (fuera de horario WhatsApp).",
-          source_section: "chat_asistente",
-          device: window.innerWidth < 768 ? "mobile" : "desktop",
-        };
-        const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
-        if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
-        trackAppointment({ condition: reason || "chat_asistente", source: "chat_asistente_off_hours" });
-        setMessages((m) => [
-          ...m,
-          {
-            role: "assistant",
-            content: `¡Gracias, ${name}! Recibimos tus datos. En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Nuestro equipo te contactará al iniciar el siguiente día hábil para confirmar tu cita.`,
-          },
-        ]);
-      } catch (submitErr: any) {
-        trackCTA("chat_asistente", `chat_fail:off_hours_submit:${(submitErr?.name || "error").slice(0, 40)}`);
-        setFormError("No se pudo guardar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp en horario hábil.");
-        setFormSubmitting(false);
-        return;
-      }
-      setShowForm(false);
-      setFormReason("");
-      setFormConsent(false);
-      setFormMessage("");
-      if (!rememberMe) {
-        setFormName("");
-        setFormPhone("");
-      }
+      await saveLead("off_hours");
       setFormSubmitting(false);
       return;
     }
+
 
     // Dentro de horario: abrir WhatsApp como antes.
     if (!isRetry) {
@@ -301,14 +352,7 @@ export default function AsistenteAlgos() {
         content: `¡Listo, ${name}! Abrimos WhatsApp con tus datos para que un especialista te atienda enseguida. Si no se abrió, escríbenos manualmente.`,
       },
     ]);
-    setShowForm(false);
-    setFormReason("");
-    setFormConsent(false);
-    setFormMessage("");
-    if (!rememberMe) {
-      setFormName("");
-      setFormPhone("");
-    }
+    resetForm();
     setFormSubmitting(false);
   }
 
@@ -526,6 +570,18 @@ export default function AsistenteAlgos() {
                 className="w-full px-3 py-2 text-sm rounded-lg outline-none"
                 style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
               />
+              <select
+                value={formShift}
+                onChange={(e) => setFormShift(e.target.value)}
+                className="w-full px-3 py-2 text-sm rounded-lg outline-none"
+                style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
+                aria-label="Disponibilidad"
+              >
+                <option value="">Disponibilidad (opcional)</option>
+                <option value="manana">Mañana (7:00 AM – 12:00 M)</option>
+                <option value="tarde">Tarde (12:00 M – 4:00 PM)</option>
+                <option value="cualquiera">Cualquier horario</option>
+              </select>
               <div>
                 <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: DEEP_TEAL }}>
                   {isOffHours ? "Mensaje o comentario adicional" : "Mensaje para WhatsApp"}
@@ -600,17 +656,42 @@ export default function AsistenteAlgos() {
                 </div>
               )}
               {fallbackUrl && (
-                <a
-                  href={fallbackUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
-                  className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
-                  style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
-                >
-                  Abrir WhatsApp manualmente →
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href={fallbackUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTA("chat_asistente", "chat_miniform_fallback_link")}
+                    className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold underline"
+                    style={{ backgroundColor: GOLD, color: DEEP_TEAL }}
+                  >
+                    Abrir WhatsApp manualmente →
+                  </a>
+                  <button
+                    type="button"
+                    onClick={submitLead}
+                    disabled={leadSaving}
+                    className="w-full py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                    style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}40` }}
+                  >
+                    {leadSaving ? (
+                      <>
+                        <span
+                          className="w-4 h-4 border-2 rounded-full animate-spin"
+                          style={{ borderColor: `${DEEP_TEAL}30`, borderTopColor: DEEP_TEAL }}
+                        />
+                        Guardando solicitud…
+                      </>
+                    ) : (
+                      "No pude contactar por WhatsApp — dejar mis datos"
+                    )}
+                  </button>
+                  <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
+                    Guardamos tu solicitud y te llamamos o escribimos nosotros.
+                  </p>
+                </div>
               )}
+
 
               <button
                 onClick={() => submitForm()}
