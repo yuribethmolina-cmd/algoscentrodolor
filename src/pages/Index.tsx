@@ -9,6 +9,7 @@ import AlgosLocationSection from "@/components/AlgosLocationSection";
 import SedesSection from "@/components/SedesSection";
 import HomeTeamSection from "@/components/HomeTeamSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
+import InstagramSection from "@/components/InstagramSection";
 import FinalCTA from "@/components/FinalCTA";
 import SEOHead from "@/components/SEOHead";
 
@@ -50,6 +51,7 @@ export default function Index() {
       <HomeTeamSection />
       <SedesSection />
       <AlgosLocationSection />
+      <InstagramSection />
       <FinalCTA />
       <HomeFooter />
     </div>
