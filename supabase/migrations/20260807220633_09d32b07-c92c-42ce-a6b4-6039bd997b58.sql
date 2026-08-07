@@ -1,0 +1,1 @@
+delete from public.appointment_requests where id = '9e32698f-04bd-41c2-b796-aa6222a4b399';
