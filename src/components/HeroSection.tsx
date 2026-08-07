@@ -116,10 +116,11 @@ export default function HeroSection() {
 
           <p
             className="font-ui mt-4"
-            style={{ fontSize: "16px", lineHeight: 1.55, color: "rgba(26,74,85,0.72)", maxWidth: "38ch" }}
+            style={{ fontSize: "16px", lineHeight: 1.55, color: "rgba(26,74,85,0.72)", maxWidth: "36ch" }}
           >
-            Encontramos el origen de su dolor y lo tratamos. Evaluación con el
-            especialista, sin orden médica previa.
+            Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
+            buscamos la causa y le decimos con claridad qué se puede hacer. No
+            necesita orden médica.
           </p>
 
           <div className="flex flex-col gap-3 mt-7">
@@ -128,13 +129,13 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackContact}
-              className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-bold uppercase w-full active:scale-[0.97]"
-              style={{ fontSize: "13px", letterSpacing: "0.2em", paddingTop: 15, paddingBottom: 15 }}
+              className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-semibold w-full active:scale-[0.97]"
+              style={{ fontSize: "15px", letterSpacing: "0.02em", paddingTop: 15, paddingBottom: 15 }}
             >
               <span>{hours.ctaLabel} →</span>
               <span
-                className="inline-flex items-center gap-1.5 normal-case font-semibold mt-1"
-                style={{ fontSize: "10.5px", letterSpacing: "0.04em", opacity: 0.92 }}
+                className="inline-flex items-center gap-1.5 normal-case font-medium mt-1"
+                style={{ fontSize: "11.5px", letterSpacing: "0.02em", opacity: 0.92 }}
               >
                 <span
                   className="inline-block rounded-full"
@@ -150,24 +151,24 @@ export default function HeroSection() {
             </a>
             <p
               className="font-ui text-center"
-              style={{ fontSize: "11.5px", lineHeight: 1.45, color: "rgba(26,74,85,0.62)" }}
+              style={{ fontSize: "12.5px", lineHeight: 1.45, color: "rgba(26,74,85,0.62)" }}
             >
               {hours.helperText}
             </p>
 
             <Link
               to="/especialidades"
-              className="inline-flex items-center justify-center border font-ui font-semibold uppercase w-full active:scale-[0.97]"
+              className="inline-flex items-center justify-center border font-ui font-semibold w-full active:scale-[0.97]"
               style={{
-                fontSize: "12px",
-                letterSpacing: "0.18em",
+                fontSize: "13px",
+                letterSpacing: "0.01em",
                 borderColor: "rgba(26,74,85,0.28)",
-                color: "rgba(26,74,85,0.7)",
+                color: "rgba(26,74,85,0.8)",
                 paddingTop: 14,
                 paddingBottom: 14,
               }}
             >
-              VER ESPECIALIDADES
+              Ver especialidades
             </Link>
           </div>
 
@@ -309,8 +310,9 @@ export default function HeroSection() {
                 className="font-ui mt-4 md:mt-7 max-w-lg"
                 style={{ fontSize: "clamp(16px, 4.2vw, 19px)", lineHeight: 1.55, color: "rgba(245,240,232,0.9)" }}
               >
-                Encontramos el origen de su dolor y lo tratamos. Evaluación con el
-                especialista, sin orden médica previa.
+                Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
+                buscamos la causa y le decimos con claridad qué se puede hacer. No
+                necesita orden médica.
               </p>
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mt-6 md:mt-9">
@@ -319,8 +321,8 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={trackContact}
-                  className="group w-full sm:w-auto inline-flex flex-col items-center justify-center bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-bold uppercase rounded-none shadow-[0_10px_30px_-12px_rgba(0,0,0,0.55)] transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[15px] min-h-[56px]"
-                  style={{ fontSize: "13.5px", letterSpacing: "0.2em" }}
+                  className="group w-full sm:w-auto inline-flex flex-col items-center justify-center bg-[#3d8b96] md:hover:bg-[#4a9ca8] text-cream font-ui font-semibold rounded-none shadow-[0_10px_30px_-12px_rgba(0,0,0,0.55)] transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)] active:scale-[0.97] px-8 py-[15px] min-h-[56px]"
+                  style={{ fontSize: "14.5px", letterSpacing: "0.02em" }}
                 >
                   <span className="inline-flex items-center gap-2">
                     <span>{hours.ctaLabel}</span>
@@ -329,8 +331,8 @@ export default function HeroSection() {
                     </span>
                   </span>
                   <span
-                    className="inline-flex items-center gap-1.5 normal-case font-semibold mt-1"
-                    style={{ fontSize: "11px", letterSpacing: "0.04em", opacity: 0.92 }}
+                    className="inline-flex items-center gap-1.5 normal-case font-medium mt-1"
+                    style={{ fontSize: "11.5px", letterSpacing: "0.02em", opacity: 0.92 }}
                   >
                     <span
                       className="inline-block rounded-full"
@@ -342,15 +344,15 @@ export default function HeroSection() {
                 </a>
                 <Link
                   to="/especialidades"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold uppercase rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
-                  style={{ fontSize: "12.5px", letterSpacing: "0.2em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.8)" }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border font-ui font-semibold rounded-none transition-[border-color,color,opacity] duration-300 active:scale-[0.97] px-7 py-[14px] min-h-[48px] md:hover:opacity-100"
+                  style={{ fontSize: "13.5px", letterSpacing: "0.01em", borderColor: "rgba(245,240,232,0.45)", color: "rgba(245,240,232,0.85)" }}
                 >
-                  <span>VER ESPECIALIDADES</span>
+                  <span>Ver especialidades</span>
                 </Link>
               </div>
               <p
                 className="font-ui mt-3"
-                style={{ fontSize: "12px", lineHeight: 1.45, color: "rgba(245,240,232,0.72)", maxWidth: "42ch" }}
+                style={{ fontSize: "12.5px", lineHeight: 1.45, color: "rgba(245,240,232,0.72)", maxWidth: "42ch" }}
               >
                 {hours.helperText}
               </p>
