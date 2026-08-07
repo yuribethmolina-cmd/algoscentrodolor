@@ -352,14 +352,7 @@ export default function AsistenteAlgos() {
         content: `¡Listo, ${name}! Abrimos WhatsApp con tus datos para que un especialista te atienda enseguida. Si no se abrió, escríbenos manualmente.`,
       },
     ]);
-    setShowForm(false);
-    setFormReason("");
-    setFormConsent(false);
-    setFormMessage("");
-    if (!rememberMe) {
-      setFormName("");
-      setFormPhone("");
-    }
+    resetForm();
     setFormSubmitting(false);
   }
 
