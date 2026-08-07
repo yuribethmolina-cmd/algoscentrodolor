@@ -158,7 +158,8 @@ export default function HeroSection() {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={trackContact}
+              onClick={handleMobileWA}
+
               className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-semibold w-full active:scale-[0.97]"
               style={{ fontSize: "15px", letterSpacing: "0.02em", paddingTop: 15, paddingBottom: 15 }}
             >
