@@ -3,10 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, CalendarDays } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { trackCTA } from "@/lib/analytics";
+import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 
-const WA =
-  ALGOS.contact.whatsappHref +
-  "?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20en%20ALGOS.";
 
 /**
  * Mobile-only sticky conversion bar. Appears after the user scrolls past the
@@ -15,6 +13,11 @@ const WA =
 export default function MobileStickyCTA() {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
+  const hours = useBusinessHours();
+  const waHref = withHoursContext(
+    ALGOS.contact.whatsappHref,
+    "Hola, quisiera agendar una consulta en ALGOS."
+  );
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 320);
@@ -40,11 +43,11 @@ export default function MobileStickyCTA() {
     >
       <div className="flex items-stretch gap-2 px-3 py-2.5">
         <a
-          href={WA}
+          href={waHref}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => { if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Contact'); }}
-          className="flex-1 inline-flex items-center justify-center gap-2 active:scale-[0.97] transition-transform"
+          className="flex-1 inline-flex flex-col items-center justify-center gap-0.5 active:scale-[0.97] transition-transform"
           style={{
             minHeight: 48,
             backgroundColor: ALGOS.palette.brandTeal,
@@ -56,9 +59,23 @@ export default function MobileStickyCTA() {
             textTransform: "uppercase",
           }}
         >
-          <MessageCircle size={17} aria-hidden />
-          WhatsApp
+          <span className="inline-flex items-center gap-2">
+            <MessageCircle size={17} aria-hidden />
+            WhatsApp
+          </span>
+          <span
+            className="inline-flex items-center gap-1"
+            style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: "0.02em", textTransform: "none", opacity: 0.95 }}
+          >
+            <span
+              className="inline-block rounded-full"
+              style={{ width: 6, height: 6, backgroundColor: hours.isOpen ? "#7ee2a8" : "#f0c14b" }}
+              aria-hidden
+            />
+            {hours.statusLabel}
+          </span>
         </a>
+
         <Link
           to="/agendar"
           onClick={() => trackCTA("sticky_mobile_cta", "agendar")}
