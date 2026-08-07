@@ -27,7 +27,7 @@ Que el paciente venezolano que entra desde el celular entienda en 3 segundos qu�
 - Se elimina la etiqueta "Fuera de horario" como texto principal.
 
 ### 3. Microcopy debajo del botón
-- En horario: "Le contesta una persona de nuestro equipo, no un robot. Escriba su nombre y qué le duele."
+- En horario: "Le contesta una persona de nuestro equipo, no un robot. Escriba su nombre y cuéntenos qué le molesta."
 - Fuera de horario: "Deje su mensaje ahora. Mañana [o el lunes] a las 7:00 AM lo leemos de primero y le confirmamos su cita."
 - El día se calcula con la lógica de horarios que ya existe.
 
