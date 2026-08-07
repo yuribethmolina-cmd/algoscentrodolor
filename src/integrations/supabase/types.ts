@@ -41,6 +41,50 @@ export type Database = {
         }
         Relationships: []
       }
+      appointment_notification_log: {
+        Row: {
+          appointment_id: string | null
+          channel: string
+          created_at: string
+          error_message: string | null
+          id: string
+          kind: string
+          metadata: Json | null
+          recipient: string | null
+          status: string
+        }
+        Insert: {
+          appointment_id?: string | null
+          channel: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          kind: string
+          metadata?: Json | null
+          recipient?: string | null
+          status: string
+        }
+        Update: {
+          appointment_id?: string | null
+          channel?: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          kind?: string
+          metadata?: Json | null
+          recipient?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointment_notification_log_appointment_id_fkey"
+            columns: ["appointment_id"]
+            isOneToOne: false
+            referencedRelation: "appointment_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       appointment_requests: {
         Row: {
           condition: string | null
