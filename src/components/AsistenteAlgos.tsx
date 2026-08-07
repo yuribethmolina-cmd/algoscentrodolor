@@ -3,7 +3,7 @@ import { MessageSquare, X, Send, Calendar, RefreshCw } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
-import { isWithinBusinessHours } from "@/lib/businessHours";
+import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
 
 
 
