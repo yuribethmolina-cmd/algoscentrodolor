@@ -165,7 +165,27 @@ Deno.serve(async (req) => {
       appointmentId: inserted.id,
     };
 
-    await Promise.allSettled(
+    const auditEntries: Record<string, unknown>[] = [];
+    const audit = (
+      channel: string,
+      kind: string,
+      recipient: string | null,
+      status: "sent" | "failed",
+      errorMessage?: string,
+      metadata?: Record<string, unknown>,
+    ) => {
+      auditEntries.push({
+        appointment_id: inserted.id,
+        channel,
+        kind,
+        recipient,
+        status,
+        error_message: errorMessage ? String(errorMessage).slice(0, 1000) : null,
+        metadata: metadata ?? null,
+      });
+    };
+
+    const notifyResults = await Promise.allSettled(
       notifyRecipients.map((to) =>
         supabase.functions.invoke("send-transactional-email", {
           body: {
@@ -176,12 +196,25 @@ Deno.serve(async (req) => {
           },
         }),
       ),
-    ).then((results) =>
-      results.forEach((r) => {
-        if (r.status === "rejected") console.error("notify email failed", r.reason);
-        else if (r.value?.error) console.error("notify email error", r.value.error);
-      }),
     );
+    notifyResults.forEach((r, i) => {
+      const to = notifyRecipients[i];
+      if (r.status === "rejected") {
+        console.error("notify email failed", r.reason);
+        audit("email", "nueva-cita", to, "failed", String(r.reason));
+      } else if (r.value?.error) {
+        console.error("notify email error", r.value.error);
+        audit("email", "nueva-cita", to, "failed", r.value.error.message ?? String(r.value.error));
+      } else {
+        audit("email", "nueva-cita", to, "sent", undefined, {
+          idempotency_key: `nueva-cita-${inserted.id}-${to}`,
+        });
+      }
+    });
+
+    if (!emailEnabled) {
+      audit("email", "nueva-cita", null, "failed", "email notifications disabled in settings");
+    }
 
     // Aviso por Telegram si está habilitado en el panel
     if (settings?.telegram_enabled && settings.telegram_bot_token && settings.telegram_chat_id) {
@@ -201,11 +234,19 @@ Deno.serve(async (req) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ chat_id: settings.telegram_chat_id, text, parse_mode: "Markdown" }),
         });
-        if (!tg.ok) console.error("telegram notify failed", tg.status, await tg.text());
+        if (!tg.ok) {
+          const detail = await tg.text();
+          console.error("telegram notify failed", tg.status, detail);
+          audit("telegram", "nueva-cita", settings.telegram_chat_id, "failed", `${tg.status} ${detail}`);
+        } else {
+          audit("telegram", "nueva-cita", settings.telegram_chat_id, "sent");
+        }
       } catch (tgErr) {
         console.error("telegram notify error", tgErr);
+        audit("telegram", "nueva-cita", settings.telegram_chat_id, "failed", String(tgErr));
       }
     }
+
 
 
     // Confirmación al paciente (si dejó email)
