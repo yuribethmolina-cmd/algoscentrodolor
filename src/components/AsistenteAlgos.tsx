@@ -1,7 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageSquare, X, Send, Calendar, RefreshCw } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
+
+function getCaracasParts(date: Date) {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Caracas",
+    weekday: "short",
+    hour: "numeric",
+    hour12: false,
+  }).formatToParts(date);
+}
+
+function isWithinBusinessHours(): boolean {
+  const parts = getCaracasParts(new Date());
+  const weekday = parts.find((p) => p.type === "weekday")?.value;
+  const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "-1", 10);
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const dayIndex = weekdays.indexOf(weekday || "");
+  return dayIndex >= 1 && dayIndex <= 5 && hour >= 7 && hour < 16;
+}
+
 
 type Msg = { role: "user" | "assistant"; content: string };
 
