@@ -481,8 +481,8 @@ export default function AsistenteAlgos() {
               style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: CREAM }}
             >
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold" style={{ color: DEEP_TEAL }}>
-                  Agenda rápida por WhatsApp
+              <div className="text-xs font-semibold" style={{ color: DEEP_TEAL }}>
+                  {isOffHours ? "Déjanos tus datos para agendar" : "Agenda rápida por WhatsApp"}
                 </div>
                 <button
                   onClick={() => {
