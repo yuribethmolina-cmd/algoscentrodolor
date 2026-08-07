@@ -1,0 +1,1 @@
+update public.notification_settings set email_recipients = array['info@algoscentrodolor.com','recepcion.algos@algoscentrodolor.com'] where id = 1;
