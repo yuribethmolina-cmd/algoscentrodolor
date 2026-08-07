@@ -1,35 +1,28 @@
+# Plan: mensaje alternativo fuera del horario de WhatsApp
+
 ## Objetivo
+Cuando el usuario intente agendar por WhatsApp fuera del horario de atención (lunes a viernes, 7:00 AM a 4:00 PM), mostrar un mensaje alternativo que invite a dejar datos o programar para el siguiente día hábil, en lugar de abrir WhatsApp directamente.
 
-Completar el perfil clínico de **Dr. Antulio Parra** y **Dr. Miguel Guevara** con las áreas de atención del post de Instagram. Sin datos de contacto ni consultorio externo.
+## Alcance
+- Componente del asistente: `src/components/AsistenteAlgos.tsx`
+- Guardar la solicitud como cita si cae fuera de horario, usando el flujo existente (`submit-appointment`).
 
-## Estado actual (verificado)
+## Detalles técnicos
+1. **Horario de atención por WhatsApp:** lunes a viernes, 7:00 a 16:00 (hora de Venezuela, UTC-4).
+2. **Función de validación:** `isWithinBusinessHours()` que compare la hora actual contra ese rango en la zona horaria local del centro.
+3. **Puntos de intervención:**
+   - Al pulsar "Agendar rápido por WhatsApp" en el composer.
+   - Al enviar el mini-formulario del asistente.
+4. **Comportamiento fuera de horario:**
+   - No abrir `wa.me`.
+   - Mostrar mensaje del asistente explicando el horario y ofreciendo dejar datos.
+   - Si el formulario ya tiene datos, enviar la solicitud como cita a través de `submit-appointment` con el evento de seguimiento correspondiente.
+5. **Mensaje propuesto:**
+   > "Estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tu nombre y teléfono y te contactamos al iniciar el siguiente día hábil."
+6. **Tracking:** registrar eventos `chat_asistente:off_hours` y `chat_asistente:off_hours_form` en analytics para distinguir conversiones fuera de horario.
+7. **Edge case:** si el usuario ya completó el formulario, mantener el botón de acción como "Dejar mis datos".
 
-Ambos existen en la tabla `doctors` y en `src/data/doctors.ts` con solo nombre, especialidad ("Traumatología y Ortopedia") y horario ALGOS. `bio`, `credentials` y `languages` están vacíos, por lo que sus páginas `/equipo/<slug>` se ven mínimas.
-
-## Contenido a agregar
-
-Áreas tomadas del post (comunes a ambos traumatólogos):
-- Traumatología general
-- Ortopedia infantil
-- Patología de miembro superior e inferior
-- Reemplazos articulares
-- Valoración de pie y tobillo
-- Patologías dolorosas de hombro, codo, muñeca, mano, cadera, rodilla y pie
-
-**Dr. Antulio Parra** — bio breve: traumatólogo ortopedista con amplia trayectoria en Maracaibo; en ALGOS evalúa patologías dolorosas del aparato locomotor y coordina con el equipo intervencionista cuando el caso lo amerita.
-
-**Dr. Miguel Guevara** — bio breve equivalente, con énfasis en patología de miembro superior e inferior y valoración de pie y tobillo.
-
-Credenciales para ambos: "Médico Traumatólogo Ortopedista", "Ortopedia infantil", "Reemplazos articulares", "Patología de miembro superior e inferior", "Valoración de pie y tobillo". Idiomas: Español.
-
-## Cambios técnicos
-
-1. `src/data/doctors.ts` — agregar `bio`, `credentials` y `languages` a las entradas `dr-antulio-parra` y `dr-miguel-guevara` (se mantienen los horarios ALGOS actuales, no los del post).
-2. Migración/actualización en la tabla `doctors` con los mismos valores, para que el panel `/admin/equipo` y `useDoctors` reflejen lo mismo.
-3. Verificar que `/equipo`, `/equipo/dr-antulio-parra`, `/equipo/dr-miguel-guevara` y `/especialidades` rendericen sin errores.
-
-## Fuera de alcance
-
-- Dra. Grace Viloria (no está en el equipo).
-- Teléfonos, consultorio y dirección del post.
-- Fotos nuevas (la imagen subida es captura de Instagram, no sirve como retrato).
+## No incluye
+- Cambios en el backend del asistente.
+- Cambios en el horario de atención de los especialistas.
+- Cambios visuales mayores del chat.
