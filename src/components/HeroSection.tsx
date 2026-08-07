@@ -307,13 +307,6 @@ export default function HeroSection() {
                 </Link>
               </div>
 
-              <p
-                className="font-ui mt-3"
-                style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(245,240,232,0.72)", maxWidth: "36ch" }}
-              >
-                Al hacer clic se abre WhatsApp. Nuestro equipo le confirmará fecha y hora en minutos.
-              </p>
-
               {/* Most-searched procedures */}
               <div className="flex flex-col gap-2.5 mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
                 <p
