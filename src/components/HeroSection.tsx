@@ -4,9 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
+import { getVariant, type Variant } from "@/lib/abTest";
+import { trackCTA, trackWA } from "@/lib/analytics";
+import HeroMobileVariantB from "./HeroMobileVariantB";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroMobilePain from "@/assets/hero-mobile-pain.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
+
 
 const HERO_VIDEO_SRC = heroVideo.url;
 
@@ -47,6 +51,21 @@ export default function HeroSection() {
     ALGOS.contact.whatsappHref,
     "Hola, quisiera agendar una consulta en ALGOS."
   );
+
+  // A/B test: posición del CTA de WhatsApp en el hero móvil
+  const [variant, setVariant] = useState<Variant>("a");
+  useEffect(() => {
+    const v = getVariant("hero_cta");
+    setVariant(v);
+    if (window.matchMedia?.("(max-width: 767px)").matches) {
+      trackCTA(`hero_mobile_${v}`, `ab_hero_cta:${v}:view`);
+    }
+  }, []);
+
+  function handleMobileWA() {
+    trackWA(`hero_mobile_${variant}`, `ab_hero_cta:${variant}`);
+    trackContact();
+  }
 
 
   useEffect(() => {
@@ -89,8 +108,18 @@ export default function HeroSection() {
         />
       </Helmet>
 
-      {/* ── MOBILE HERO — cream split layout (hidden sm+) ──────────────── */}
-      <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full">
+      {/* ── MOBILE HERO — A/B test: variante B sube el CTA ─────────────── */}
+      {variant === "b" ? (
+        <HeroMobileVariantB
+          waHref={waHref}
+          hours={hours}
+          posterUrl={heroMobilePain.url}
+          onWhatsAppClick={handleMobileWA}
+          masSolicitados={MAS_SOLICITADOS}
+        />
+      ) : (
+      <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full" data-section="hero_mobile_a">
+
         <div className="px-6 pt-24 pb-8">
           <p
             className="font-ui font-bold uppercase mb-5"
@@ -129,7 +158,8 @@ export default function HeroSection() {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={trackContact}
+              onClick={handleMobileWA}
+
               className="inline-flex flex-col items-center justify-center bg-[#3d8b96] text-[#f5f0e8] font-ui font-semibold w-full active:scale-[0.97]"
               style={{ fontSize: "15px", letterSpacing: "0.02em", paddingTop: 15, paddingBottom: 15 }}
             >
@@ -224,6 +254,8 @@ export default function HeroSection() {
           loading="eager"
         />
       </section>
+      )}
+
 
       {/* ── DESKTOP HERO — full-bleed video (hidden below sm) ──────────── */}
       <section
