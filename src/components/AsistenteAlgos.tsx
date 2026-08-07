@@ -84,7 +84,7 @@ export default function AsistenteAlgos() {
   const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
-
+  const [isOffHours, setIsOffHours] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
