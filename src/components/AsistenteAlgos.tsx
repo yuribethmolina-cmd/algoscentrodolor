@@ -1,7 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageSquare, X, Send, Calendar, RefreshCw } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
+
+function getCaracasParts(date: Date) {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Caracas",
+    weekday: "short",
+    hour: "numeric",
+    hour12: false,
+  }).formatToParts(date);
+}
+
+function isWithinBusinessHours(): boolean {
+  const parts = getCaracasParts(new Date());
+  const weekday = parts.find((p) => p.type === "weekday")?.value;
+  const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "-1", 10);
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const dayIndex = weekdays.indexOf(weekday || "");
+  return dayIndex >= 1 && dayIndex <= 5 && hour >= 7 && hour < 16;
+}
+
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -64,7 +84,7 @@ export default function AsistenteAlgos() {
   const [rememberMe, setRememberMe] = useState(Boolean(savedContact));
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
-
+  const [isOffHours, setIsOffHours] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -153,7 +173,7 @@ export default function AsistenteAlgos() {
     setLastQuery(null);
   }
 
-  function submitForm(isRetry = false) {
+  async function submitForm(isRetry = false) {
     const name = formName.trim();
     const phone = formPhone.trim();
     if (name.length < 2) {
@@ -200,7 +220,52 @@ export default function AsistenteAlgos() {
     const reason = formReason.trim();
     if (isRetry) {
       trackCTA("chat_asistente", "chat_miniform_retry");
-    } else {
+    }
+
+    const withinHours = isWithinBusinessHours();
+
+    if (!withinHours) {
+      // Fuera de horario: guardar solicitud y notificar en el chat.
+      trackCTA("chat_asistente", "chat_miniform_off_hours");
+      try {
+        const payload = {
+          name,
+          phone,
+          condition: reason || "chat_asistente",
+          notes: formMessage.trim() || "Solicitud desde el Asistente ALGOS (fuera de horario WhatsApp).",
+          source_section: "chat_asistente",
+          device: window.innerWidth < 768 ? "mobile" : "desktop",
+        };
+        const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
+        if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
+        trackAppointment({ condition: reason || "chat_asistente", source: "chat_asistente_off_hours" });
+        setMessages((m) => [
+          ...m,
+          {
+            role: "assistant",
+            content: `¡Gracias, ${name}! Recibimos tus datos. En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Nuestro equipo te contactará al iniciar el siguiente día hábil para confirmar tu cita.`,
+          },
+        ]);
+      } catch (submitErr: any) {
+        trackCTA("chat_asistente", `chat_fail:off_hours_submit:${(submitErr?.name || "error").slice(0, 40)}`);
+        setFormError("No se pudo guardar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp en horario hábil.");
+        setFormSubmitting(false);
+        return;
+      }
+      setShowForm(false);
+      setFormReason("");
+      setFormConsent(false);
+      setFormMessage("");
+      if (!rememberMe) {
+        setFormName("");
+        setFormPhone("");
+      }
+      setFormSubmitting(false);
+      return;
+    }
+
+    // Dentro de horario: abrir WhatsApp como antes.
+    if (!isRetry) {
       trackAppointment({
         condition: reason || "chat_asistente",
         source: "chat_asistente",
@@ -246,6 +311,7 @@ export default function AsistenteAlgos() {
     }
     setFormSubmitting(false);
   }
+
 
   function clearSavedContact() {
     try {
@@ -415,8 +481,8 @@ export default function AsistenteAlgos() {
               style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: CREAM }}
             >
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold" style={{ color: DEEP_TEAL }}>
-                  Agenda rápida por WhatsApp
+              <div className="text-xs font-semibold" style={{ color: DEEP_TEAL }}>
+                  {isOffHours ? "Déjanos tus datos para agendar" : "Agenda rápida por WhatsApp"}
                 </div>
                 <button
                   onClick={() => {
@@ -424,6 +490,7 @@ export default function AsistenteAlgos() {
                     setFormError(null);
                     setFormConsent(false);
                     setFormMessage("");
+                    setIsOffHours(false);
                   }}
                   className="text-[10px] uppercase tracking-wider opacity-70 hover:opacity-100"
                   style={{ color: DEEP_TEAL }}
@@ -461,18 +528,24 @@ export default function AsistenteAlgos() {
               />
               <div>
                 <label className="block text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: DEEP_TEAL }}>
-                  Mensaje para WhatsApp
+                  {isOffHours ? "Mensaje o comentario adicional" : "Mensaje para WhatsApp"}
                 </label>
                 <textarea
                   value={formMessage}
                   onChange={(e) => setFormMessage(e.target.value)}
-                  placeholder="Aquí aparecerá el mensaje que se enviará por WhatsApp..."
+                  placeholder={
+                    isOffHours
+                      ? "Ej. días y horarios en los que prefieres ser contactado…"
+                      : "Aquí aparecerá el mensaje que se enviará por WhatsApp…"
+                  }
                   rows={3}
                   className="w-full px-3 py-2 text-sm rounded-lg outline-none resize-none"
                   style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}25` }}
                 />
                 <p className="text-[10px] mt-1 opacity-70" style={{ color: DEEP_TEAL }}>
-                  Puedes editar el mensaje antes de enviarlo.
+                  {isOffHours
+                    ? "Opcional. Nuestro equipo te contactará por WhatsApp."
+                    : "Puedes editar el mensaje antes de enviarlo."}
                 </p>
               </div>
               <label className="flex items-start gap-2 text-[11px] leading-snug" style={{ color: DEEP_TEAL }}>
@@ -548,14 +621,16 @@ export default function AsistenteAlgos() {
                 {formSubmitting ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Abriendo WhatsApp…
+                    {isOffHours ? "Guardando solicitud…" : "Abriendo WhatsApp…"}
                   </>
                 ) : (
-                  "Enviar por WhatsApp"
+                  isOffHours ? "Dejar mis datos" : "Enviar por WhatsApp"
                 )}
               </button>
               <p className="text-[10px] text-center opacity-70" style={{ color: DEEP_TEAL }}>
-                Se abrirá WhatsApp con tus datos precargados.
+                {isOffHours
+                  ? "Guardaremos tu solicitud y te contactaremos en el siguiente día hábil."
+                  : "Se abrirá WhatsApp con tus datos precargados."}
               </p>
             </div>
           )}
@@ -590,7 +665,21 @@ export default function AsistenteAlgos() {
             </div>
             {!showForm && (
               <button
-                onClick={() => setShowForm(true)}
+                onClick={() => {
+                  const offHours = !isWithinBusinessHours();
+                  setIsOffHours(offHours);
+                  if (offHours) {
+                    trackCTA("chat_asistente", "chat_off_hours_prompt_opened");
+                    setMessages((m) => [
+                      ...m,
+                      {
+                        role: "assistant",
+                        content: "En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tus datos y te contactamos al siguiente día hábil para agendar tu cita.",
+                      },
+                    ]);
+                  }
+                  setShowForm(true);
+                }}
                 className="mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition-colors"
                 style={{
                   backgroundColor: GOLD,
