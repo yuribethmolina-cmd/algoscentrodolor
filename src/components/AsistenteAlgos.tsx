@@ -173,7 +173,7 @@ export default function AsistenteAlgos() {
     setLastQuery(null);
   }
 
-  function submitForm(isRetry = false) {
+  async function submitForm(isRetry = false) {
     const name = formName.trim();
     const phone = formPhone.trim();
     if (name.length < 2) {
@@ -220,7 +220,52 @@ export default function AsistenteAlgos() {
     const reason = formReason.trim();
     if (isRetry) {
       trackCTA("chat_asistente", "chat_miniform_retry");
-    } else {
+    }
+
+    const withinHours = isWithinBusinessHours();
+
+    if (!withinHours) {
+      // Fuera de horario: guardar solicitud y notificar en el chat.
+      trackCTA("chat_asistente", "chat_miniform_off_hours");
+      try {
+        const payload = {
+          name,
+          phone,
+          condition: reason || "chat_asistente",
+          notes: formMessage.trim() || "Solicitud desde el Asistente ALGOS (fuera de horario WhatsApp).",
+          source_section: "chat_asistente",
+          device: window.innerWidth < 768 ? "mobile" : "desktop",
+        };
+        const { data, error: submitErr } = await supabase.functions.invoke("submit-appointment", { body: payload });
+        if (submitErr || !data?.ok) throw new Error(submitErr?.message || data?.error || "No se pudo guardar");
+        trackAppointment({ condition: reason || "chat_asistente", source: "chat_asistente_off_hours" });
+        setMessages((m) => [
+          ...m,
+          {
+            role: "assistant",
+            content: `¡Gracias, ${name}! Recibimos tus datos. En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Nuestro equipo te contactará al iniciar el siguiente día hábil para confirmar tu cita.`,
+          },
+        ]);
+      } catch (submitErr: any) {
+        trackCTA("chat_asistente", `chat_fail:off_hours_submit:${(submitErr?.name || "error").slice(0, 40)}`);
+        setFormError("No se pudo guardar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp en horario hábil.");
+        setFormSubmitting(false);
+        return;
+      }
+      setShowForm(false);
+      setFormReason("");
+      setFormConsent(false);
+      setFormMessage("");
+      if (!rememberMe) {
+        setFormName("");
+        setFormPhone("");
+      }
+      setFormSubmitting(false);
+      return;
+    }
+
+    // Dentro de horario: abrir WhatsApp como antes.
+    if (!isRetry) {
       trackAppointment({
         condition: reason || "chat_asistente",
         source: "chat_asistente",
@@ -266,6 +311,7 @@ export default function AsistenteAlgos() {
     }
     setFormSubmitting(false);
   }
+
 
   function clearSavedContact() {
     try {
