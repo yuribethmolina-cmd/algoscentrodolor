@@ -36,18 +36,15 @@ export function isWithinBusinessHours(date = new Date()): boolean {
 export function nextOpeningLabel(date = new Date()): string {
   const { dayIndex, hour } = readClock(date);
   const beforeOpening = dayIndex >= 1 && dayIndex <= 5 && hour < BUSINESS_HOURS.startHour;
-  if (beforeOpening) return "Respondemos hoy desde las 7:00 AM";
-  if (dayIndex === 5 || dayIndex === 6 || dayIndex === 0) return "Respondemos el lunes desde las 7:00 AM";
-  return "Respondemos mañana desde las 7:00 AM";
+  if (beforeOpening) return "Hoy a las 7:00 AM";
+  if (dayIndex === 5 || dayIndex === 6 || dayIndex === 0) return "El lunes a las 7:00 AM";
+  return "Mañana a las 7:00 AM";
 }
 
 export type BusinessHoursState = {
   isOpen: boolean;
-  /** "Abierto ahora" / "Fuera de horario" */
   statusLabel: string;
-  /** Microcopy contextual para mostrar bajo el botón. */
   helperText: string;
-  /** Texto sugerido para el botón de WhatsApp. */
   ctaLabel: string;
   scheduleLabel: string;
 };
@@ -56,11 +53,11 @@ export function getBusinessHoursState(date = new Date()): BusinessHoursState {
   const isOpen = isWithinBusinessHours(date);
   return {
     isOpen,
-    statusLabel: isOpen ? "Abierto ahora" : "Fuera de horario",
+    statusLabel: isOpen ? "Le respondemos ahora" : "Le respondemos apenas abramos",
     helperText: isOpen
-      ? "Estamos atendiendo por WhatsApp. Le confirmamos fecha y hora."
-      : `${nextOpeningLabel(date)}. Puede dejar su mensaje ahora y lo tomamos primero.`,
-    ctaLabel: isOpen ? "AGENDE POR WHATSAPP" : "ESCRÍBANOS POR WHATSAPP",
+      ? "Le contesta una persona de nuestro equipo, no un robot. Escriba su nombre y cuéntenos qué le molesta."
+      : `Deje su mensaje ahora. ${nextOpeningLabel(date)} lo leemos de primero y le confirmamos su cita.`,
+    ctaLabel: "Escríbanos por WhatsApp",
     scheduleLabel: BUSINESS_HOURS.label,
   };
 }
@@ -88,7 +85,7 @@ export function useBusinessHours(): BusinessHoursState {
 export function withHoursContext(waHref: string, message: string, date = new Date()): string {
   const suffix = isWithinBusinessHours(date)
     ? ""
-    : " (Escribo fuera del horario de atención, agradezco su respuesta al abrir.)";
+    : " (Escribo fuera del horario de atención; agradezco su respuesta al abrir.)";
   const [base] = waHref.split("?");
   return `${base}?text=${encodeURIComponent(message + suffix)}`;
 }
