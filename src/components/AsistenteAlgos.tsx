@@ -44,6 +44,12 @@ const SUGGESTIONS = [
   "¿Cómo agendo una cita?",
 ];
 
+const SHIFT_LABELS: Record<string, string> = {
+  manana: "Mañana (7:00 AM – 12:00 M)",
+  tarde: "Tarde (12:00 M – 4:00 PM)",
+  cualquiera: "Cualquier horario",
+};
+
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
   try {
