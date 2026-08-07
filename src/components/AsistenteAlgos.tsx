@@ -559,7 +559,80 @@ export default function AsistenteAlgos() {
             )}
           </div>
 
+          {/* Confirmación de solicitud guardada */}
+          {confirmation && (
+            <div
+              className="px-4 py-3 space-y-3"
+              style={{ borderTop: `1px solid ${DEEP_TEAL}15`, backgroundColor: "white" }}
+              role="status"
+              aria-live="polite"
+            >
+              <div className="flex items-start gap-2">
+                <span
+                  className="flex items-center justify-center rounded-full shrink-0"
+                  style={{ width: 26, height: 26, backgroundColor: `${TEAL}1A`, color: TEAL }}
+                  aria-hidden
+                >
+                  <Check size={15} />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold" style={{ color: DEEP_TEAL }}>
+                    Solicitud recibida, {confirmation.name.split(" ")[0]}
+                  </p>
+                  <p className="text-[11px] leading-snug opacity-75" style={{ color: DEEP_TEAL }}>
+                    {confirmation.context === "off_hours"
+                      ? "La registramos fuera del horario de atención y quedó de primera en la cola."
+                      : "La registramos porque no se pudo abrir WhatsApp."}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                className="rounded-lg p-3 space-y-2"
+                style={{ backgroundColor: CREAM, border: `1px solid ${DEEP_TEAL}15` }}
+              >
+                {[
+                  { label: "Estado estimado", value: confirmation.status },
+                  { label: "Tiempo de respuesta", value: confirmation.replyWindow },
+                  { label: "Recibida", value: confirmation.receivedAt },
+                  { label: "Disponibilidad", value: confirmation.shift },
+                  { label: "Le contactamos al", value: confirmation.phone },
+                  { label: "Referencia", value: confirmation.reference },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-start justify-between gap-3">
+                    <span
+                      className="text-[10px] uppercase tracking-wider shrink-0 opacity-70"
+                      style={{ color: DEEP_TEAL }}
+                    >
+                      {row.label}
+                    </span>
+                    <span
+                      className="text-[11.5px] font-semibold text-right"
+                      style={{ color: DEEP_TEAL }}
+                    >
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[10.5px] leading-snug opacity-70" style={{ color: DEEP_TEAL }}>
+                Guarde su referencia: puede mencionarla al equipo para ubicar su solicitud más rápido.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setConfirmation(null)}
+                className="w-full py-2.5 rounded-lg text-sm font-semibold"
+                style={{ backgroundColor: DEEP_TEAL, color: CREAM }}
+              >
+                Entendido
+              </button>
+            </div>
+          )}
+
           {/* Mini appointment form */}
+
           {showForm && (
             <div
               className="px-4 py-3 space-y-2"
