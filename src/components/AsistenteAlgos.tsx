@@ -77,6 +77,7 @@ export default function AsistenteAlgos() {
   const [formName, setFormName] = useState(savedContact?.name ?? "");
   const [formPhone, setFormPhone] = useState(savedContact?.phone ?? "");
   const [formReason, setFormReason] = useState("");
+  const [formShift, setFormShift] = useState("");
   const [formConsent, setFormConsent] = useState(false);
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
@@ -85,6 +86,7 @@ export default function AsistenteAlgos() {
   const [hasSavedContact, setHasSavedContact] = useState(Boolean(savedContact));
   const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
   const [isOffHours, setIsOffHours] = useState(false);
+  const [leadSaving, setLeadSaving] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
