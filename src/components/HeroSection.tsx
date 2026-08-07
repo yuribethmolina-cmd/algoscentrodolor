@@ -89,8 +89,18 @@ export default function HeroSection() {
         />
       </Helmet>
 
-      {/* ── MOBILE HERO — cream split layout (hidden sm+) ──────────────── */}
-      <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full">
+      {/* ── MOBILE HERO — A/B test: variante B sube el CTA ─────────────── */}
+      {variant === "b" ? (
+        <HeroMobileVariantB
+          waHref={waHref}
+          hours={hours}
+          posterUrl={heroMobilePain.url}
+          onWhatsAppClick={handleMobileWA}
+          masSolicitados={MAS_SOLICITADOS}
+        />
+      ) : (
+      <section className="sm:hidden bg-[#f5f0e8] flex flex-col w-full" data-section="hero_mobile_a">
+
         <div className="px-6 pt-24 pb-8">
           <p
             className="font-ui font-bold uppercase mb-5"
