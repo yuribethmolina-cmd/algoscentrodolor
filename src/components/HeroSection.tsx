@@ -4,9 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
 import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
+import { getVariant, type Variant } from "@/lib/abTest";
+import { trackCTA, trackWA } from "@/lib/analytics";
+import HeroMobileVariantB from "./HeroMobileVariantB";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroMobilePain from "@/assets/hero-mobile-pain.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
+
 
 const HERO_VIDEO_SRC = heroVideo.url;
 
@@ -234,6 +238,8 @@ export default function HeroSection() {
           loading="eager"
         />
       </section>
+      )}
+
 
       {/* ── DESKTOP HERO — full-bleed video (hidden below sm) ──────────── */}
       <section
