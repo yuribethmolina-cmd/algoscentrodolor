@@ -55,24 +55,23 @@ export default function MobileStickyCTA() {
             fontFamily: "Manrope, system-ui, sans-serif",
             fontSize: 13,
             fontWeight: 700,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
+            letterSpacing: "0.02em",
           }}
         >
           <span className="inline-flex items-center gap-2">
             <MessageCircle size={17} aria-hidden />
-            WhatsApp
+            Escribir
           </span>
           <span
             className="inline-flex items-center gap-1"
-            style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: "0.02em", textTransform: "none", opacity: 0.95 }}
+            style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: "0.02em", opacity: 0.95 }}
           >
             <span
               className="inline-block rounded-full"
               style={{ width: 6, height: 6, backgroundColor: hours.isOpen ? "#7ee2a8" : "#f0c14b" }}
               aria-hidden
             />
-            {hours.statusLabel}
+            {hours.isOpen ? "Respondemos ahora" : "Respondemos al abrir"}
           </span>
         </a>
 
@@ -87,12 +86,11 @@ export default function MobileStickyCTA() {
             fontFamily: "Manrope, system-ui, sans-serif",
             fontSize: 13,
             fontWeight: 700,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
+            letterSpacing: "0.02em",
           }}
         >
           <CalendarDays size={17} aria-hidden />
-          Agendar
+          Pedir cita
         </Link>
       </div>
     </div>
