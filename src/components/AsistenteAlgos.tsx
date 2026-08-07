@@ -656,7 +656,21 @@ export default function AsistenteAlgos() {
             </div>
             {!showForm && (
               <button
-                onClick={() => setShowForm(true)}
+                onClick={() => {
+                  const offHours = !isWithinBusinessHours();
+                  setIsOffHours(offHours);
+                  if (offHours) {
+                    trackCTA("chat_asistente", "chat_off_hours_prompt_opened");
+                    setMessages((m) => [
+                      ...m,
+                      {
+                        role: "assistant",
+                        content: "En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tus datos y te contactamos al siguiente día hábil para agendar tu cita.",
+                      },
+                    ]);
+                  }
+                  setShowForm(true);
+                }}
                 className="mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition-colors"
                 style={{
                   backgroundColor: GOLD,
