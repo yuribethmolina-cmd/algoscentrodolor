@@ -34,6 +34,46 @@ const SHIFT_LABELS: Record<string, string> = {
   cualquiera: "Cualquier horario",
 };
 
+export type LeadConfirmation = {
+  name: string;
+  phone: string;
+  reason: string;
+  shift: string;
+  context: "off_hours" | "whatsapp_fallback";
+  /** Código corto para que el paciente lo mencione al equipo. */
+  reference: string;
+  /** Cuándo se recibió la solicitud. */
+  receivedAt: string;
+  /** Ventana estimada de respuesta. */
+  replyWindow: string;
+  /** Estado estimado del trámite. */
+  status: string;
+};
+
+function buildReference(date = new Date()): string {
+  const d = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Caracas",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(date)
+    .replace(/\D/g, "");
+  const rand = Math.floor(1000 + Math.random() * 9000);
+  return `ALG-${d}-${rand}`;
+}
+
+function formatCaracasTime(date = new Date()): string {
+  return new Intl.DateTimeFormat("es-VE", {
+    timeZone: "America/Caracas",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(date);
+}
+
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
   try {
