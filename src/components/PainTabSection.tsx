@@ -348,8 +348,8 @@ export default function PainTabSection() {
         >
           {activeTab === "dolor" ? (
             <AnnotatedPanel
-              src={dolorEspalda}
-              alt="Zonas de dolor que ALGOS trata: cabeza, cuello, espalda, lumbar, cadera"
+              src={dolorEspalda.url}
+              alt="Anatomía de la columna y nervios que ALGOS evalúa y trata"
               annotations={PAIN_ZONES}
               visible={visible}
             />
