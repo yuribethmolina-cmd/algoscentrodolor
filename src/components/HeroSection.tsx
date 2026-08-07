@@ -3,6 +3,7 @@ import { ALGOS } from "@/config/algos.config";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AnimatedHeadline } from "@/lib/animations";
+import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroVideo from "../../public/videos/hero-home.mp4.asset.json";
 
