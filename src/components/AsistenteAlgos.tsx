@@ -490,25 +490,10 @@ export default function AsistenteAlgos() {
               aria-live="polite"
             >
               <div className="flex items-start gap-2.5">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden border-2"
-                  style={{ borderColor: GOLD, backgroundColor: CREAM }}
-                >
-                  <img
-                    src={assistantAvatar.url}
-                    alt=""
-                    width={32}
-                    height={32}
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                  <span className="text-xs font-bold" style={{ color: DEEP_TEAL }}>A</span>
-                </div>
+                <AvatarWithFallback size={32} />
                 <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
               </div>
+
               <button
                 onClick={() => {
                   setShowTooltip(false);
