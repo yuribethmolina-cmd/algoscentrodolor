@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send, Calendar, RefreshCw, Check } from "lucide-react";
+import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
+
 import { ALGOS } from "@/config/algos.config";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
