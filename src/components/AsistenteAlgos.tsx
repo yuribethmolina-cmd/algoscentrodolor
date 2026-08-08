@@ -532,12 +532,7 @@ export default function AsistenteAlgos() {
           )}
           <button
             onClick={() => {
-              setShowTooltip(false);
-              try {
-                window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
-              } catch {
-                /* noop */
-              }
+              dismissTooltip();
               setOpen(true);
             }}
             aria-label="Abrir asistente ALGOS"
