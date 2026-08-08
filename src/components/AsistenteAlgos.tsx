@@ -124,7 +124,9 @@ function loadMessages(): Msg[] {
 export default function AsistenteAlgos() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(() => loadMessages());
+  const [hasStarted, setHasStarted] = useState(() => messages.some((m) => m.role === "user"));
   const [input, setInput] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState<string | null>(null);
