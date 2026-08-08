@@ -25,12 +25,12 @@ const WELCOME: Msg = {
     "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
 };
 
-const SUGGESTIONS = [
-  "¿Qué especialidades tienen?",
-  "¿Cuánto cuesta el EEG o EMG?",
-  "¿Cómo agendo una cita?",
-  "¿Dónde están ubicados?",
-];
+const QUICK_ACTIONS = [
+  { id: "cita", label: "Pedir cita", icon: Calendar, type: "form" as const },
+  { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
+  { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
+] as const;
+
 
 const SHIFT_LABELS: Record<string, string> = {
   manana: "Mañana (7:00 AM – 12:00 M)",
