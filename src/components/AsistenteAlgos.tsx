@@ -25,12 +25,12 @@ const WELCOME: Msg = {
     "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
 };
 
-const SUGGESTIONS = [
-  "¿Qué especialidades tienen?",
-  "¿Cuánto cuesta el EEG o EMG?",
-  "¿Cómo agendo una cita?",
-  "¿Dónde están ubicados?",
-];
+const QUICK_ACTIONS = [
+  { id: "cita", label: "Pedir cita", icon: Calendar, type: "form" as const },
+  { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
+  { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
+] as const;
+
 
 const SHIFT_LABELS: Record<string, string> = {
   manana: "Mañana (7:00 AM – 12:00 M)",
@@ -124,7 +124,12 @@ function loadMessages(): Msg[] {
 export default function AsistenteAlgos() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(() => loadMessages());
+  const [hasStarted, setHasStarted] = useState(() =>
+    messages.some((m) => m.role === "user") || messages.length > 1
+  );
   const [input, setInput] = useState("");
+
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState<string | null>(null);
@@ -222,12 +227,14 @@ export default function AsistenteAlgos() {
   async function send(text: string) {
     const q = text.trim();
     if (!q || loading) return;
+    setHasStarted(true);
     setError(null);
     setLastQuery(q);
     const next: Msg[] = [...messages, { role: "user", content: q }];
     setMessages(next);
     setInput("");
     setLoading(true);
+
 
     try {
       const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/asistente`;
@@ -269,9 +276,48 @@ export default function AsistenteAlgos() {
 
   function reset() {
     setMessages([WELCOME]);
+    setHasStarted(false);
     setError(null);
     setLastQuery(null);
   }
+
+
+  function openAppointmentForm() {
+    const offHours = !isWithinBusinessHours();
+    setIsOffHours(offHours);
+    if (offHours) {
+      trackCTA("chat_asistente", "chat_off_hours_prompt_opened");
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          content:
+            "En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tus datos y te contactamos al siguiente día hábil para agendar tu cita.",
+        },
+      ]);
+    }
+    setShowForm(true);
+  }
+
+  function openWhatsApp(prefill = "Hola, quisiera información sobre ALGOS.") {
+    trackWA("chat_asistente", "chat_quick_whatsapp");
+    const text = encodeURIComponent(prefill);
+    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+  }
+
+  function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
+    setHasStarted(true);
+    if (action.type === "form") {
+      openAppointmentForm();
+    } else if (action.type === "whatsapp") {
+      openWhatsApp();
+    } else if (action.type === "message" && action.message) {
+      send(action.message);
+    }
+  }
+
+
+
 
   function validateForm(): { name: string; phone: string } | null {
     const name = formName.trim();
@@ -654,24 +700,30 @@ export default function AsistenteAlgos() {
               </div>
             )}
 
-            {messages.length <= 1 && !loading && (
-              <div className="pt-2 flex flex-wrap gap-2">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => send(s)}
-                    className="text-xs px-3 py-1.5 rounded-full transition-colors"
-                    style={{
-                      backgroundColor: "white",
-                      color: DEEP_TEAL,
-                      border: `1px solid ${DEEP_TEAL}30`,
-                    }}
-                  >
-                    {s}
-                  </button>
-                ))}
+            {!hasStarted && !loading && (
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-2">
+                {QUICK_ACTIONS.map((action) => {
+                  const Icon = action.icon;
+                  return (
+                    <button
+                      key={action.id}
+                      onClick={() => handleQuickAction(action)}
+                      className="text-xs px-3 py-2.5 sm:py-1.5 rounded-full transition-colors flex items-center justify-center sm:justify-start gap-1.5"
+                      style={{
+                        backgroundColor: "white",
+                        color: DEEP_TEAL,
+                        border: `1px solid ${DEEP_TEAL}30`,
+                      }}
+                    >
+                      {Icon && <Icon size={12} />}
+                      {action.label}
+                    </button>
+                  );
+                })}
               </div>
             )}
+
+
           </div>
 
           {/* Confirmación de solicitud guardada */}
@@ -975,21 +1027,7 @@ export default function AsistenteAlgos() {
             </div>
             {!showForm && (
               <button
-                onClick={() => {
-                  const offHours = !isWithinBusinessHours();
-                  setIsOffHours(offHours);
-                  if (offHours) {
-                    trackCTA("chat_asistente", "chat_off_hours_prompt_opened");
-                    setMessages((m) => [
-                      ...m,
-                      {
-                        role: "assistant",
-                        content: "En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tus datos y te contactamos al siguiente día hábil para agendar tu cita.",
-                      },
-                    ]);
-                  }
-                  setShowForm(true);
-                }}
+                onClick={() => openAppointmentForm()}
                 className="mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition-colors"
                 style={{
                   backgroundColor: GOLD,
@@ -1000,6 +1038,7 @@ export default function AsistenteAlgos() {
                 Agendar rápido por WhatsApp
               </button>
             )}
+
           </div>
 
         </div>
