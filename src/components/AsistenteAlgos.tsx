@@ -309,8 +309,9 @@ export default function AsistenteAlgos() {
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
     setHasStarted(true);
-    if (action.type === "form") {
-      openAppointmentForm();
+    if (action.type === "link") {
+      trackCTA("chat_asistente", "pedir_cita_agendar", action.href);
+      navigate(action.href);
     } else if (action.type === "whatsapp") {
       openWhatsApp();
     } else if (action.type === "message" && action.message) {
