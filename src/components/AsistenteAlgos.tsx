@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, X, Send, Calendar, RefreshCw, Check } from "lucide-react";
+import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
+
 import { ALGOS } from "@/config/algos.config";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
+import assistantAvatar from "@/assets/ai-assistant-avatar-v2.png.asset.json";
+
+
 
 
 
@@ -74,6 +78,35 @@ function formatCaracasTime(date = new Date()): string {
   }).format(date);
 }
 
+function AvatarWithFallback({ size = 44, className = "" }: { size?: number; className?: string }) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  return (
+    <div
+      className={`rounded-full flex items-center justify-center overflow-hidden border-2 shrink-0 ${className}`}
+      style={{ width: size, height: size, borderColor: GOLD, backgroundColor: CREAM }}
+    >
+      {!failed && (
+        <img
+          src={assistantAvatar.url}
+          alt="Asistente ALGOS"
+          width={size}
+          height={size}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          loading="eager"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
+      )}
+      {(!loaded || failed) && (
+        <span className="font-bold" style={{ color: DEEP_TEAL, fontSize: Math.max(12, size * 0.35) }}>
+          A
+        </span>
+      )}
+    </div>
+  );
+}
+
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
   try {
@@ -87,6 +120,7 @@ function loadMessages(): Msg[] {
   return [WELCOME];
 }
 
+
 export default function AsistenteAlgos() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(() => loadMessages());
@@ -95,6 +129,14 @@ export default function AsistenteAlgos() {
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return window.localStorage.getItem("algos.asistente.tooltip_closed") !== "1";
+    } catch {
+      return true;
+    }
+  });
   const CONTACT_KEY = "algos.chat.contact.v1";
   const savedContact = (() => {
     try {
@@ -122,6 +164,7 @@ export default function AsistenteAlgos() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+
   useEffect(() => {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
@@ -137,6 +180,20 @@ export default function AsistenteAlgos() {
     }
   }, [open, messages, loading]);
 
+  // Auto-ocultar el tooltip de invitación después de unos segundos.
+  useEffect(() => {
+    if (!showTooltip) return;
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+      try {
+        window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+      } catch {
+        /* noop */
+      }
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [showTooltip]);
+
   // Actualiza la vista previa del mensaje de WhatsApp cuando cambian los datos.
   useEffect(() => {
     if (!showForm) return;
@@ -150,6 +207,7 @@ export default function AsistenteAlgos() {
     ].filter(Boolean) as string[];
     setFormMessage(lines.join("\n"));
   }, [showForm, formName, formPhone, formReason]);
+
 
 
   async function send(text: string) {
@@ -423,18 +481,74 @@ export default function AsistenteAlgos() {
     <>
       {/* Floating trigger */}
       {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          aria-label="Abrir asistente ALGOS"
-          className="fixed bottom-24 md:bottom-6 left-6 z-50 flex items-center gap-2 rounded-full px-4 py-3 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
-          style={{ backgroundColor: DEEP_TEAL }}
-        >
-          <MessageSquare size={22} />
-          <span className="hidden sm:inline text-sm font-semibold tracking-wide">
-            Asistente ALGOS
-          </span>
-        </button>
+        <div className="fixed bottom-24 md:bottom-6 left-6 z-[70] flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
+
+          {showTooltip && (
+            <div
+              className="relative order-1 md:order-2 max-w-[260px] sm:max-w-[300px] rounded-2xl px-4 py-3 shadow-2xl text-sm leading-snug animate-fade-in"
+              style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
+              role="status"
+              aria-live="polite"
+            >
+              <div className="flex items-start gap-2.5">
+                <AvatarWithFallback size={32} />
+                <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
+              </div>
+
+              <button
+                onClick={() => {
+                  setShowTooltip(false);
+                  try {
+                    window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+                  } catch {
+                    /* noop */
+                  }
+                }}
+                aria-label="Cerrar invitación"
+                className="absolute top-1.5 right-1.5 p-1 rounded-full opacity-60 hover:opacity-100"
+                style={{ color: DEEP_TEAL }}
+              >
+                <X size={12} />
+              </button>
+              <span
+                className="absolute w-3 h-3 rotate-45 bottom-[-6px] left-6 md:hidden"
+                style={{ backgroundColor: "white", borderRight: `1px solid ${DEEP_TEAL}20`, borderBottom: `1px solid ${DEEP_TEAL}20` }}
+                aria-hidden
+              />
+              <span
+                className="absolute w-3 h-3 rotate-45 hidden md:block left-[-6px] top-1/2 -translate-y-1/2"
+                style={{ backgroundColor: "white", borderTop: `1px solid ${DEEP_TEAL}20`, borderLeft: `1px solid ${DEEP_TEAL}20` }}
+                aria-hidden
+              />
+
+
+            </div>
+          )}
+          <button
+            onClick={() => {
+              setShowTooltip(false);
+              try {
+                window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+              } catch {
+                /* noop */
+              }
+              setOpen(true);
+            }}
+            aria-label="Abrir asistente ALGOS"
+            className="group relative order-2 md:order-1 flex items-center gap-2 rounded-full pl-1.5 pr-4 py-1.5 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
+            style={{ backgroundColor: DEEP_TEAL }}
+          >
+            <span className="absolute inset-0 rounded-full animate-ping opacity-25" style={{ backgroundColor: GOLD }} />
+            <AvatarWithFallback size={44} className="relative" />
+            <span className="hidden sm:inline text-sm font-semibold tracking-wide">
+              Asistente ALGOS
+            </span>
+
+          </button>
+        </div>
       )}
+
+
 
       {/* Panel */}
       {open && (
