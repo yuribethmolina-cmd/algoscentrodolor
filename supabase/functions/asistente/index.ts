@@ -84,7 +84,7 @@ Trabajamos en alianza con **UDUZ Maracaibo** para diagnóstico por imagen (tomog
 Las citas se agendan escribiendo por WhatsApp al +58 414-680 7886. También pueden completar el formulario en /agendar.
 `;
 
-const SYSTEM_PROMPT = \`Eres el **Asistente ALGOS**, asistente virtual del Centro de Dolor Intervencionista ALGOS en Maracaibo, Venezuela.
+const SYSTEM_PROMPT = `Eres el **Asistente ALGOS**, asistente virtual del Centro de Dolor Intervencionista ALGOS en Maracaibo, Venezuela.
 
 ## Tu rol
 Ayudas a pacientes y visitantes con información sobre:
@@ -110,8 +110,8 @@ Ayudas a pacientes y visitantes con información sobre:
 - Termina con un CTA claro cuando el tema lo amerite (ej: "¿Quiere que le paso el enlace para escribirnos por WhatsApp?").
 
 ## Base de conocimiento
-\${KNOWLEDGE}
-\`;
+${KNOWLEDGE}
+`;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
