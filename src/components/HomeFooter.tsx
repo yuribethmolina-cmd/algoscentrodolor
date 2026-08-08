@@ -32,7 +32,6 @@ const algos: Link[] = [
 const legal: Link[] = [
   { label: "Aviso legal", href: "/aviso-legal" },
   { label: "Privacidad", href: "/privacidad" },
-  { label: "Cookies", href: "/politica-cookies" },
 ];
 
 const eyebrow: React.CSSProperties = {
