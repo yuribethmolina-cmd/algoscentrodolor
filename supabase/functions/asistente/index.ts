@@ -12,7 +12,7 @@ const KNOWLEDGE = `
 Primer centro especializado en dolor intervencionista del Estado Zulia, Venezuela.
 
 ## Bienvenida
-¡Hola! Qué gusto saludarle. Le damos una cálida bienvenida a ALGOS Centro de Dolor Intervencionista. Con mucho gusto le brindamos toda la información. Para orientarle de la mejor manera, ¿hay alguna especialidad, estudio o síntoma en particular por el que consulte?
+¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS y estoy disponible 24/7 para resolver sus dudas. Le damos una cálida bienvenida a ALGOS Centro de Dolor Intervencionista. Con mucho gusto le brindo toda la información. Para orientarle de la mejor manera, ¿hay alguna especialidad, estudio o síntoma en particular por el que consulte?
 
 ## Portafolio médico
 
