@@ -531,26 +531,11 @@ export default function AsistenteAlgos() {
             style={{ backgroundColor: DEEP_TEAL }}
           >
             <span className="absolute inset-0 rounded-full animate-ping opacity-25" style={{ backgroundColor: GOLD }} />
-            <div
-              className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden border-2 shrink-0"
-              style={{ borderColor: GOLD, backgroundColor: CREAM }}
-            >
-              <img
-                src={assistantAvatar.url}
-                alt="Asistente ALGOS"
-                width={44}
-                height={44}
-                className="w-full h-full object-cover"
-                loading="eager"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
-              />
-              <span className="text-sm font-bold" style={{ color: DEEP_TEAL }}>A</span>
-            </div>
+            <AvatarWithFallback size={44} className="relative" />
             <span className="hidden sm:inline text-sm font-semibold tracking-wide">
               Asistente ALGOS
             </span>
+
           </button>
         </div>
       )}
