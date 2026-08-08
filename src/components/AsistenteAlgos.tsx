@@ -18,14 +18,14 @@ const GOLD = ALGOS.palette.gold;
 const WELCOME: Msg = {
   role: "assistant",
   content:
-    "¡Hola! Soy el Asistente ALGOS 👋 Puedo ayudarte con información sobre nuestros servicios, especialistas, horarios y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, te conectamos con un especialista por WhatsApp._\n\n¿En qué puedo ayudarte?",
+    "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy aquí para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
 };
 
 const SUGGESTIONS = [
-  "¿Qué tratan en ALGOS?",
-  "¿Dónde están ubicados?",
-  "Horarios de especialistas",
+  "¿Qué especialidades tienen?",
+  "¿Cuánto cuesta el EEG o EMG?",
   "¿Cómo agendo una cita?",
+  "¿Dónde están ubicados?",
 ];
 
 const SHIFT_LABELS: Record<string, string> = {
