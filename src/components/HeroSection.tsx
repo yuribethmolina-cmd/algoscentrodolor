@@ -146,7 +146,7 @@ export default function HeroSection() {
 
           <p
             className="font-ui mt-4 text-center mx-auto"
-            style={{ fontSize: "16px", lineHeight: 1.62, color: "rgba(26,74,85,0.76)", maxWidth: "34ch", textWrap: "balance" }}
+            style={{ fontSize: "17.5px", lineHeight: 1.65, color: "rgba(26,74,85,0.82)", maxWidth: "35ch", textWrap: "balance" }}
           >
             Sabemos lo que es vivir con dolor todos los días. Aquí lo escuchamos,
             buscamos la causa y le decimos con claridad qué se puede hacer. No
