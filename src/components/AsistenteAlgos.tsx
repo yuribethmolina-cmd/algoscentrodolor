@@ -273,6 +273,40 @@ export default function AsistenteAlgos() {
     setLastQuery(null);
   }
 
+  function openAppointmentForm() {
+    const offHours = !isWithinBusinessHours();
+    setIsOffHours(offHours);
+    if (offHours) {
+      trackCTA("chat_asistente", "chat_off_hours_prompt_opened");
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          content:
+            "En este momento estamos fuera del horario de atención por WhatsApp (lunes a viernes, 7:00 AM a 4:00 PM). Déjanos tus datos y te contactamos al siguiente día hábil para agendar tu cita.",
+        },
+      ]);
+    }
+    setShowForm(true);
+  }
+
+  function openWhatsApp(prefill = "Hola, quisiera información sobre ALGOS.") {
+    trackWA("chat_asistente", "chat_quick_whatsapp");
+    const text = encodeURIComponent(prefill);
+    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+  }
+
+  function handleQuickAction(type: "form" | "whatsapp" | "message", message?: string) {
+    if (type === "form") {
+      openAppointmentForm();
+    } else if (type === "whatsapp") {
+      openWhatsApp();
+    } else if (type === "message" && message) {
+      send(message);
+    }
+  }
+
+
   function validateForm(): { name: string; phone: string } | null {
     const name = formName.trim();
     const phone = formPhone.trim();
