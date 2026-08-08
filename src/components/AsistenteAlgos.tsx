@@ -449,18 +449,78 @@ export default function AsistenteAlgos() {
     <>
       {/* Floating trigger */}
       {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          aria-label="Abrir asistente ALGOS"
-          className="fixed bottom-24 md:bottom-6 left-6 z-50 flex items-center gap-2 rounded-full px-4 py-3 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
-          style={{ backgroundColor: DEEP_TEAL }}
-        >
-          <MessageSquare size={22} />
-          <span className="hidden sm:inline text-sm font-semibold tracking-wide">
-            Asistente ALGOS
-          </span>
-        </button>
+        <div className="fixed bottom-24 md:bottom-6 left-6 z-50 flex flex-col items-start gap-2">
+          {showTooltip && (
+            <div
+              className="relative max-w-[260px] sm:max-w-[280px] mb-2 rounded-2xl px-4 py-3 shadow-xl text-sm leading-snug animate-in fade-in zoom-in duration-300"
+              style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
+              role="status"
+              aria-live="polite"
+            >
+              <div className="flex items-start gap-2">
+                <img
+                  src={assistantAvatar.url}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="rounded-full shrink-0 object-cover"
+                  loading="eager"
+                />
+                <span>¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
+              </div>
+              <button
+                onClick={() => {
+                  setShowTooltip(false);
+                  try {
+                    window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+                  } catch {
+                    /* noop */
+                  }
+                }}
+                aria-label="Cerrar invitación"
+                className="absolute top-1 right-1 p-1 rounded-full opacity-60 hover:opacity-100"
+                style={{ color: DEEP_TEAL }}
+              >
+                <X size={12} />
+              </button>
+              <span
+                className="absolute -bottom-1.5 left-6 w-3 h-3 rotate-45"
+                style={{ backgroundColor: "white", borderRight: `1px solid ${DEEP_TEAL}20`, borderBottom: `1px solid ${DEEP_TEAL}20` }}
+                aria-hidden
+              />
+            </div>
+          )}
+          <button
+            onClick={() => {
+              setShowTooltip(false);
+              try {
+                window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+              } catch {
+                /* noop */
+              }
+              setOpen(true);
+            }}
+            aria-label="Abrir asistente ALGOS"
+            className="group relative flex items-center gap-2 rounded-full px-2 pr-4 py-2 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
+            style={{ backgroundColor: DEEP_TEAL }}
+          >
+            <span className="absolute inset-0 rounded-full animate-ping opacity-25" style={{ backgroundColor: GOLD }} />
+            <img
+              src={assistantAvatar.url}
+              alt="Asistente ALGOS"
+              width={40}
+              height={40}
+              className="relative rounded-full object-cover border-2"
+              style={{ borderColor: GOLD }}
+              loading="eager"
+            />
+            <span className="hidden sm:inline text-sm font-semibold tracking-wide">
+              Asistente ALGOS
+            </span>
+          </button>
+        </div>
       )}
+
 
       {/* Panel */}
       {open && (
