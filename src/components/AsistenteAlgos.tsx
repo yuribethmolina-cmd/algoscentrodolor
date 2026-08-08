@@ -129,12 +129,13 @@ export default function AsistenteAlgos() {
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(() => {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipDismissed, setTooltipDismissed] = useState(() => {
     if (typeof window === "undefined") return true;
     try {
-      return window.localStorage.getItem("algos.asistente.tooltip_closed") !== "1";
+      return window.localStorage.getItem("algos.asistente.tooltip_closed") === "1";
     } catch {
-      return true;
+      return false;
     }
   });
   const CONTACT_KEY = "algos.chat.contact.v1";
@@ -180,19 +181,27 @@ export default function AsistenteAlgos() {
     }
   }, [open, messages, loading]);
 
-  // Auto-ocultar el tooltip de invitación después de unos segundos.
+  // Mostrar el saludo poco después de cargar y mantenerlo el tiempo suficiente
+  // para que se alcance a leer. El auto-ocultado no marca el mensaje como visto.
   useEffect(() => {
-    if (!showTooltip) return;
-    const timer = setTimeout(() => {
-      setShowTooltip(false);
-      try {
-        window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
-      } catch {
-        /* noop */
-      }
-    }, 8000);
-    return () => clearTimeout(timer);
-  }, [showTooltip]);
+    if (tooltipDismissed || open) return;
+    const showTimer = setTimeout(() => setShowTooltip(true), 1200);
+    const hideTimer = setTimeout(() => setShowTooltip(false), 1200 + 20000);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [tooltipDismissed, open]);
+
+  function dismissTooltip() {
+    setShowTooltip(false);
+    setTooltipDismissed(true);
+    try {
+      window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+    } catch {
+      /* noop */
+    }
+  }
 
   // Actualiza la vista previa del mensaje de WhatsApp cuando cambian los datos.
   useEffect(() => {
