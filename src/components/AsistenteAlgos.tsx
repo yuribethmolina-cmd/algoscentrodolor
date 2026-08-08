@@ -271,9 +271,11 @@ export default function AsistenteAlgos() {
 
   function reset() {
     setMessages([WELCOME]);
+    setHasStarted(false);
     setError(null);
     setLastQuery(null);
   }
+
 
   function openAppointmentForm() {
     const offHours = !isWithinBusinessHours();
