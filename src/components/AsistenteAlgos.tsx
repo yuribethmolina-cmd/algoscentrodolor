@@ -303,6 +303,7 @@ export default function AsistenteAlgos() {
   }
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
+    setHasStarted(true);
     if (action.type === "form") {
       openAppointmentForm();
     } else if (action.type === "whatsapp") {
@@ -311,6 +312,7 @@ export default function AsistenteAlgos() {
       send(action.message);
     }
   }
+
 
 
 
