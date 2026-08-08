@@ -148,6 +148,20 @@ export default function AsistenteAlgos() {
     }
   }, [open, messages, loading]);
 
+  // Auto-ocultar el tooltip de invitación después de unos segundos.
+  useEffect(() => {
+    if (!showTooltip) return;
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+      try {
+        window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
+      } catch {
+        /* noop */
+      }
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [showTooltip]);
+
   // Actualiza la vista previa del mensaje de WhatsApp cuando cambian los datos.
   useEffect(() => {
     if (!showForm) return;
@@ -161,6 +175,7 @@ export default function AsistenteAlgos() {
     ].filter(Boolean) as string[];
     setFormMessage(lines.join("\n"));
   }, [showForm, formName, formPhone, formReason]);
+
 
 
   async function send(text: string) {
