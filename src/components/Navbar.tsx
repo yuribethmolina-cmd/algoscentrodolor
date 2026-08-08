@@ -232,6 +232,23 @@ export default function Navbar() {
             );
           })}
 
+          <Link
+            to="/agendar"
+            style={{
+              backgroundColor: GOLD,
+              color: DEEP_TEAL,
+              padding: "12px 20px",
+              fontFamily: "Manrope, system-ui, sans-serif",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Pedir cita
+          </Link>
         </div>
 
         {/* Mobile toggle */}
