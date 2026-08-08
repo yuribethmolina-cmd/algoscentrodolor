@@ -494,7 +494,7 @@ export default function AsistenteAlgos() {
 
           {showTooltip && (
             <div
-              className="relative order-1 md:order-2 max-w-[220px] sm:max-w-[300px] rounded-2xl px-3.5 py-3 shadow-2xl text-sm leading-snug animate-fade-in"
+              className="relative order-1 md:order-2 w-[268px] max-w-[78vw] sm:w-auto sm:max-w-[300px] rounded-2xl px-3.5 py-3 pr-7 shadow-2xl text-sm leading-snug animate-fade-in"
               style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
               role="status"
               aria-live="polite"
@@ -507,14 +507,7 @@ export default function AsistenteAlgos() {
 
 
               <button
-                onClick={() => {
-                  setShowTooltip(false);
-                  try {
-                    window.localStorage.setItem("algos.asistente.tooltip_closed", "1");
-                  } catch {
-                    /* noop */
-                  }
-                }}
+                onClick={dismissTooltip}
                 aria-label="Cerrar invitación"
                 className="absolute top-1.5 right-1.5 p-1 rounded-full opacity-60 hover:opacity-100"
                 style={{ color: DEEP_TEAL }}
