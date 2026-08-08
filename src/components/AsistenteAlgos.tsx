@@ -27,7 +27,7 @@ const WELCOME: Msg = {
 };
 
 const QUICK_ACTIONS = [
-  { id: "cita", label: "Pedir cita", icon: Calendar, type: "form" as const },
+  { id: "cita", label: "Pedir cita", icon: Calendar, type: "link" as const, href: "/agendar" },
   { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
   { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
 ] as const;
