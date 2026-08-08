@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 
 import { ALGOS } from "@/config/algos.config";
