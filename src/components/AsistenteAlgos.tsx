@@ -453,7 +453,8 @@ export default function AsistenteAlgos() {
         <div className="fixed bottom-24 md:bottom-6 left-6 z-50 flex flex-col items-start gap-2">
           {showTooltip && (
             <div
-              className="relative max-w-[260px] sm:max-w-[280px] mb-2 rounded-2xl px-4 py-3 shadow-xl text-sm leading-snug animate-in fade-in zoom-in duration-300"
+              className="relative max-w-[260px] sm:max-w-[280px] mb-2 rounded-2xl px-4 py-3 shadow-xl text-sm leading-snug animate-fade-in"
+
               style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
               role="status"
               aria-live="polite"
