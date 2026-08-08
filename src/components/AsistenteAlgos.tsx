@@ -97,6 +97,14 @@ export default function AsistenteAlgos() {
   const [error, setError] = useState<string | null>(null);
   const [lastQuery, setLastQuery] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return window.localStorage.getItem("algos.asistente.tooltip_closed") !== "1";
+    } catch {
+      return true;
+    }
+  });
   const CONTACT_KEY = "algos.chat.contact.v1";
   const savedContact = (() => {
     try {
@@ -123,6 +131,7 @@ export default function AsistenteAlgos() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
 
   useEffect(() => {
     try {
