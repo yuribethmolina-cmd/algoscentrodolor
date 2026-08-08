@@ -23,7 +23,7 @@ const GOLD = ALGOS.palette.gold;
 const WELCOME: Msg = {
   role: "assistant",
   content:
-    "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
+    "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Aunque escribas en cualquier momento, te responderemos enseguida dentro de nuestro horario de atención (lunes a viernes, 7:00 AM a 4:00 PM). Fuera de ese horario, te contactamos al siguiente día hábil._\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
 };
 
 const QUICK_ACTIONS = [
