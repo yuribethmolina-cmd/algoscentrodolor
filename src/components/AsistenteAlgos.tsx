@@ -502,7 +502,7 @@ export default function AsistenteAlgos() {
 
               <div className="flex items-start gap-2.5">
                 <AvatarWithFallback size={32} />
-                <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios. <span className="block mt-1.5 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span></span>
+                <span className="pt-0.5">¡Hola! Estoy disponible 24/7 para responder las preguntas que tengas sobre nuestros servicios. <span className="block mt-1.5 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span></span>
               </div>
 
 
