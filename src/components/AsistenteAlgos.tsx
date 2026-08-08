@@ -23,7 +23,7 @@ const GOLD = ALGOS.palette.gold;
 const WELCOME: Msg = {
   role: "assistant",
   content:
-    "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
+    "¡Hola! Qué gusto saludarle. Soy el Asistente ALGOS — estoy disponible 24/7 para resolver sus dudas sobre especialidades, estudios, procedimientos y sedes en Maracaibo.\n\n_Aunque escribas en cualquier momento, te responderemos enseguida dentro de nuestro horario de atención (lunes a viernes, 7:00 AM a 4:00 PM). Fuera de ese horario, te contactamos al siguiente día hábil._\n\n_Este asistente no diagnostica ni reemplaza una consulta médica. Para evaluar síntomas o agendar, le conectamos con un especialista por WhatsApp._\n\n¿Hay alguna especialidad, estudio o síntoma en particular por el que consulte?",
 };
 
 const QUICK_ACTIONS = [
@@ -552,7 +552,11 @@ export default function AsistenteAlgos() {
 
               <div className="flex items-start gap-2.5">
                 <AvatarWithFallback size={32} />
-                <span className="pt-0.5">¡Hola! Estoy disponible 24/7 para responder las preguntas que tengas sobre nuestros servicios. <span className="block mt-1.5 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span></span>
+                <div className="pt-0.5 space-y-1">
+                  <span>¡Hola! Estoy disponible 24/7 para responder las preguntas que tengas sobre nuestros servicios.</span>
+                  <span className="block text-xs opacity-80">Respuesta inmediata en horario de atención (lun–vie, 7am–4pm). Fuera de horario te contactamos al siguiente día hábil.</span>
+                  <span className="block mt-1 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span>
+                </div>
               </div>
 
 
@@ -621,7 +625,7 @@ export default function AsistenteAlgos() {
               </div>
               <div>
                 <div className="text-sm font-semibold leading-tight">Asistente ALGOS</div>
-                <div className="text-[10px] opacity-80">Disponible 24/7 · Información general · No diagnostica</div>
+                <div className="text-[10px] opacity-90">Disponible 24/7 · Respuesta inmediata en horario de atención · No diagnostica</div>
               </div>
             </div>
             <div className="flex items-center gap-1">
