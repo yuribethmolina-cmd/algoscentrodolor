@@ -78,6 +78,35 @@ function formatCaracasTime(date = new Date()): string {
   }).format(date);
 }
 
+function AvatarWithFallback({ size = 44, className = "" }: { size?: number; className?: string }) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  return (
+    <div
+      className={`rounded-full flex items-center justify-center overflow-hidden border-2 shrink-0 ${className}`}
+      style={{ width: size, height: size, borderColor: GOLD, backgroundColor: CREAM }}
+    >
+      {!failed && (
+        <img
+          src={assistantAvatar.url}
+          alt="Asistente ALGOS"
+          width={size}
+          height={size}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          loading="eager"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
+      )}
+      {(!loaded || failed) && (
+        <span className="font-bold" style={{ color: DEEP_TEAL, fontSize: Math.max(12, size * 0.35) }}>
+          A
+        </span>
+      )}
+    </div>
+  );
+}
+
 function loadMessages(): Msg[] {
   if (typeof window === "undefined") return [WELCOME];
   try {
@@ -90,6 +119,7 @@ function loadMessages(): Msg[] {
   }
   return [WELCOME];
 }
+
 
 export default function AsistenteAlgos() {
   const [open, setOpen] = useState(false);
