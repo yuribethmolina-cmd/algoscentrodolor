@@ -510,10 +510,11 @@ export default function AsistenteAlgos() {
                 <X size={12} />
               </button>
               <span
-                className="absolute -bottom-1.5 left-6 md:left-auto md:right-full md:top-1/2 md:-translate-y-1/2 md:bottom-auto md:w-3 md:h-3 md:rotate-45 w-3 h-3 rotate-45"
+                className="absolute w-3 h-3 rotate-45 bottom-[-6px] left-6 md:left-[-6px] md:top-1/2 md:-translate-y-1/2 md:bottom-auto"
                 style={{ backgroundColor: "white", borderRight: `1px solid ${DEEP_TEAL}20`, borderBottom: `1px solid ${DEEP_TEAL}20` }}
                 aria-hidden
               />
+
             </div>
           )}
           <button
