@@ -698,14 +698,14 @@ export default function AsistenteAlgos() {
             )}
 
             {!hasStarted && !loading && (
-              <div className="pt-2 flex flex-wrap gap-2">
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-2">
                 {QUICK_ACTIONS.map((action) => {
                   const Icon = action.icon;
                   return (
                     <button
                       key={action.id}
                       onClick={() => handleQuickAction(action)}
-                      className="text-xs px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5"
+                      className="text-xs px-3 py-2.5 sm:py-1.5 rounded-full transition-colors flex items-center justify-center sm:justify-start gap-1.5"
                       style={{
                         backgroundColor: "white",
                         color: DEEP_TEAL,
@@ -719,6 +719,7 @@ export default function AsistenteAlgos() {
                 })}
               </div>
             )}
+
 
           </div>
 
