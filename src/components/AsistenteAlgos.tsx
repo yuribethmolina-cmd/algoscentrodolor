@@ -123,6 +123,7 @@ function loadMessages(): Msg[] {
 
 
 export default function AsistenteAlgos() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(() => loadMessages());
   const [hasStarted, setHasStarted] = useState(() =>
