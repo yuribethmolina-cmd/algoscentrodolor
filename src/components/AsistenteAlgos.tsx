@@ -311,6 +311,7 @@ export default function AsistenteAlgos() {
     setHasStarted(true);
     if (action.type === "link") {
       trackCTA("chat_asistente", "pedir_cita_agendar", action.href);
+      setOpen(false);
       navigate(action.href);
     } else if (action.type === "whatsapp") {
       openWhatsApp();
