@@ -481,19 +481,20 @@ export default function AsistenteAlgos() {
     <>
       {/* Floating trigger */}
       {!open && (
-        <div className="fixed bottom-24 md:bottom-6 left-6 z-[70] flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
+        <div className="fixed bottom-24 md:bottom-6 right-6 md:left-6 md:right-auto z-[70] flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
 
           {showTooltip && (
             <div
-              className="relative order-1 md:order-2 max-w-[260px] sm:max-w-[300px] rounded-2xl px-4 py-3 shadow-2xl text-sm leading-snug animate-fade-in"
+              className="relative order-1 md:order-2 max-w-[230px] sm:max-w-[300px] rounded-2xl px-4 py-3 shadow-2xl text-sm leading-snug animate-fade-in"
               style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
               role="status"
               aria-live="polite"
             >
               <div className="flex items-start gap-2.5">
                 <AvatarWithFallback size={32} />
-                <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
+                <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios. <span className="block mt-1.5 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span></span>
               </div>
+
 
               <button
                 onClick={() => {
