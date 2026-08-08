@@ -552,7 +552,11 @@ export default function AsistenteAlgos() {
 
               <div className="flex items-start gap-2.5">
                 <AvatarWithFallback size={32} />
-                <span className="pt-0.5">¡Hola! Estoy disponible 24/7 para responder las preguntas que tengas sobre nuestros servicios. <span className="block mt-1.5 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span></span>
+                <div className="pt-0.5 space-y-1">
+                  <span>¡Hola! Estoy disponible 24/7 para responder las preguntas que tengas sobre nuestros servicios.</span>
+                  <span className="block text-xs opacity-80">Respuesta inmediata en horario de atención (lun–vie, 7am–4pm). Fuera de horario te contactamos al siguiente día hábil.</span>
+                  <span className="block mt-1 font-medium" style={{ color: GOLD }}>Pregunta por citas, WhatsApp o estudios.</span>
+                </div>
               </div>
 
 
