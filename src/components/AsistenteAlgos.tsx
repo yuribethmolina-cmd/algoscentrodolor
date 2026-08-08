@@ -481,7 +481,7 @@ export default function AsistenteAlgos() {
     <>
       {/* Floating trigger */}
       {!open && (
-        <div className="fixed bottom-6 right-4 md:right-6 md:left-6 md:left-auto z-[70] flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
+        <div className="fixed bottom-[104px] right-4 md:bottom-6 md:right-6 md:left-6 md:left-auto z-[70] flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
 
           {showTooltip && (
             <div
