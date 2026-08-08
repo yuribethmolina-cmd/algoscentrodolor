@@ -690,22 +690,27 @@ export default function AsistenteAlgos() {
 
             {messages.length <= 1 && !loading && (
               <div className="pt-2 flex flex-wrap gap-2">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => send(s)}
-                    className="text-xs px-3 py-1.5 rounded-full transition-colors"
-                    style={{
-                      backgroundColor: "white",
-                      color: DEEP_TEAL,
-                      border: `1px solid ${DEEP_TEAL}30`,
-                    }}
-                  >
-                    {s}
-                  </button>
-                ))}
+                {QUICK_ACTIONS.map((action) => {
+                  const Icon = action.icon;
+                  return (
+                    <button
+                      key={action.id}
+                      onClick={() => handleQuickAction(action.type, action.message)}
+                      className="text-xs px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5"
+                      style={{
+                        backgroundColor: "white",
+                        color: DEEP_TEAL,
+                        border: `1px solid ${DEEP_TEAL}30`,
+                      }}
+                    >
+                      {Icon && <Icon size={12} />}
+                      {action.label}
+                    </button>
+                  );
+                })}
               </div>
             )}
+
           </div>
 
           {/* Confirmación de solicitud guardada */}
