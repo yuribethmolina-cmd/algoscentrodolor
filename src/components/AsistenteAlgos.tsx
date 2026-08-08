@@ -696,7 +696,7 @@ export default function AsistenteAlgos() {
                   return (
                     <button
                       key={action.id}
-                      onClick={() => handleQuickAction(action.type, action.message)}
+                      onClick={() => handleQuickAction(action)}
                       className="text-xs px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5"
                       style={{
                         backgroundColor: "white",
