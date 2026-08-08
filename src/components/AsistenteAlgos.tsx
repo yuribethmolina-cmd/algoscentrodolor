@@ -5,7 +5,8 @@ import { ALGOS } from "@/config/algos.config";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
-import assistantAvatar from "@/assets/ai-assistant-avatar.png.asset.json";
+import assistantAvatar from "@/assets/ai-assistant-avatar-v2.png.asset.json";
+
 
 
 
