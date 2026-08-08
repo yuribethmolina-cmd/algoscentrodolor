@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 
 import { ALGOS } from "@/config/algos.config";
@@ -26,7 +27,7 @@ const WELCOME: Msg = {
 };
 
 const QUICK_ACTIONS = [
-  { id: "cita", label: "Pedir cita", icon: Calendar, type: "form" as const },
+  { id: "cita", label: "Pedir cita", icon: Calendar, type: "link" as const, href: "/agendar" },
   { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
   { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
 ] as const;
@@ -122,6 +123,7 @@ function loadMessages(): Msg[] {
 
 
 export default function AsistenteAlgos() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(() => loadMessages());
   const [hasStarted, setHasStarted] = useState(() =>
@@ -307,8 +309,10 @@ export default function AsistenteAlgos() {
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
     setHasStarted(true);
-    if (action.type === "form") {
-      openAppointmentForm();
+    if (action.type === "link") {
+      trackCTA("chat_asistente", "pedir_cita_agendar", action.href);
+      setOpen(false);
+      navigate(action.href);
     } else if (action.type === "whatsapp") {
       openWhatsApp();
     } else if (action.type === "message" && action.message) {
