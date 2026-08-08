@@ -451,25 +451,33 @@ export default function AsistenteAlgos() {
     <>
       {/* Floating trigger */}
       {!open && (
-        <div className="fixed bottom-24 md:bottom-6 left-6 z-50 flex flex-col items-start gap-2">
+        <div className="fixed bottom-24 md:bottom-6 left-6 z-50 flex flex-col md:flex-row md:items-center gap-3 md:gap-3">
           {showTooltip && (
             <div
-              className="relative max-w-[260px] sm:max-w-[280px] mb-2 rounded-2xl px-4 py-3 shadow-xl text-sm leading-snug animate-fade-in"
-
+              className="relative order-1 md:order-2 max-w-[260px] sm:max-w-[300px] rounded-2xl px-4 py-3 shadow-2xl text-sm leading-snug animate-fade-in"
               style={{ backgroundColor: "white", color: DEEP_TEAL, border: `1px solid ${DEEP_TEAL}20` }}
               role="status"
               aria-live="polite"
             >
-              <div className="flex items-start gap-2">
-                <img
-                  src={assistantAvatar.url}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="rounded-full shrink-0 object-cover"
-                  loading="eager"
-                />
-                <span>¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
+              <div className="flex items-start gap-2.5">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden border-2"
+                  style={{ borderColor: GOLD, backgroundColor: CREAM }}
+                >
+                  <img
+                    src={assistantAvatar.url}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <span className="text-xs font-bold" style={{ color: DEEP_TEAL }}>A</span>
+                </div>
+                <span className="pt-0.5">¡Hola! Estoy aquí para responder las preguntas que tengas sobre nuestros servicios.</span>
               </div>
               <button
                 onClick={() => {
@@ -481,13 +489,13 @@ export default function AsistenteAlgos() {
                   }
                 }}
                 aria-label="Cerrar invitación"
-                className="absolute top-1 right-1 p-1 rounded-full opacity-60 hover:opacity-100"
+                className="absolute top-1.5 right-1.5 p-1 rounded-full opacity-60 hover:opacity-100"
                 style={{ color: DEEP_TEAL }}
               >
                 <X size={12} />
               </button>
               <span
-                className="absolute -bottom-1.5 left-6 w-3 h-3 rotate-45"
+                className="absolute -bottom-1.5 left-6 md:left-auto md:right-full md:top-1/2 md:-translate-y-1/2 md:bottom-auto md:w-3 md:h-3 md:rotate-45 w-3 h-3 rotate-45"
                 style={{ backgroundColor: "white", borderRight: `1px solid ${DEEP_TEAL}20`, borderBottom: `1px solid ${DEEP_TEAL}20` }}
                 aria-hidden
               />
@@ -504,25 +512,34 @@ export default function AsistenteAlgos() {
               setOpen(true);
             }}
             aria-label="Abrir asistente ALGOS"
-            className="group relative flex items-center gap-2 rounded-full px-2 pr-4 py-2 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
+            className="group relative order-2 md:order-1 flex items-center gap-2 rounded-full pl-1.5 pr-4 py-1.5 text-white shadow-lg transition-all duration-200 active:scale-95 md:hover:shadow-xl md:hover:scale-105"
             style={{ backgroundColor: DEEP_TEAL }}
           >
             <span className="absolute inset-0 rounded-full animate-ping opacity-25" style={{ backgroundColor: GOLD }} />
-            <img
-              src={assistantAvatar.url}
-              alt="Asistente ALGOS"
-              width={40}
-              height={40}
-              className="relative rounded-full object-cover border-2"
-              style={{ borderColor: GOLD }}
-              loading="eager"
-            />
+            <div
+              className="relative w-11 h-11 rounded-full flex items-center justify-center overflow-hidden border-2 shrink-0"
+              style={{ borderColor: GOLD, backgroundColor: CREAM }}
+            >
+              <img
+                src={assistantAvatar.url}
+                alt="Asistente ALGOS"
+                width={44}
+                height={44}
+                className="w-full h-full object-cover"
+                loading="eager"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                }}
+              />
+              <span className="text-sm font-bold" style={{ color: DEEP_TEAL }}>A</span>
+            </div>
             <span className="hidden sm:inline text-sm font-semibold tracking-wide">
               Asistente ALGOS
             </span>
           </button>
         </div>
       )}
+
 
 
       {/* Panel */}
