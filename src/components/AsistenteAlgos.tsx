@@ -571,7 +571,7 @@ export default function AsistenteAlgos() {
               </div>
               <div>
                 <div className="text-sm font-semibold leading-tight">Asistente ALGOS</div>
-                <div className="text-[10px] opacity-80">Información general · No diagnostica</div>
+                <div className="text-[10px] opacity-80">Disponible 24/7 · Información general · No diagnostica</div>
               </div>
             </div>
             <div className="flex items-center gap-1">
