@@ -224,12 +224,14 @@ export default function AsistenteAlgos() {
   async function send(text: string) {
     const q = text.trim();
     if (!q || loading) return;
+    setHasStarted(true);
     setError(null);
     setLastQuery(q);
     const next: Msg[] = [...messages, { role: "user", content: q }];
     setMessages(next);
     setInput("");
     setLoading(true);
+
 
     try {
       const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/asistente`;
