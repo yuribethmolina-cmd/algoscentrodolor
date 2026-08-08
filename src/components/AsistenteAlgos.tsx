@@ -697,7 +697,7 @@ export default function AsistenteAlgos() {
               </div>
             )}
 
-            {messages.length <= 1 && !loading && (
+            {!hasStarted && !loading && (
               <div className="pt-2 flex flex-wrap gap-2">
                 {QUICK_ACTIONS.map((action) => {
                   const Icon = action.icon;
