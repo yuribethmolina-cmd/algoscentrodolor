@@ -296,15 +296,16 @@ export default function AsistenteAlgos() {
     window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
   }
 
-  function handleQuickAction(type: "form" | "whatsapp" | "message", message?: string) {
-    if (type === "form") {
+  function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
+    if (action.type === "form") {
       openAppointmentForm();
-    } else if (type === "whatsapp") {
+    } else if (action.type === "whatsapp") {
       openWhatsApp();
-    } else if (type === "message" && message) {
-      send(message);
+    } else if (action.type === "message" && action.message) {
+      send(action.message);
     }
   }
+
 
 
   function validateForm(): { name: string; phone: string } | null {
