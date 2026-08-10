@@ -447,6 +447,9 @@ export type Database = {
       }
       whatsapp_leads: {
         Row: {
+          assigned_at: string | null
+          assigned_email: string | null
+          assigned_to: string | null
           created_at: string
           cta_label: string | null
           device: string | null
@@ -465,6 +468,9 @@ export type Database = {
           updated_by: string | null
         }
         Insert: {
+          assigned_at?: string | null
+          assigned_email?: string | null
+          assigned_to?: string | null
           created_at?: string
           cta_label?: string | null
           device?: string | null
@@ -483,6 +489,9 @@ export type Database = {
           updated_by?: string | null
         }
         Update: {
+          assigned_at?: string | null
+          assigned_email?: string | null
+          assigned_to?: string | null
           created_at?: string
           cta_label?: string | null
           device?: string | null
@@ -519,6 +528,13 @@ export type Database = {
       }
       get_chat_funnel: { Args: { days_back?: number }; Returns: Json }
       get_conversion_summary: { Args: { days_back?: number }; Returns: Json }
+      list_lead_assignees: {
+        Args: never
+        Returns: {
+          email: string
+          user_id: string
+        }[]
+      }
       move_to_dlq: {
         Args: {
           dlq_name: string
