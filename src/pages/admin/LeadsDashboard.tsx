@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, LogOut, ChevronLeft, Search, Download, MessageCircle } from "lucide-react";
+import { RefreshCw, LogOut, ChevronLeft, Search, Download, MessageCircle, UserCheck, Clock } from "lucide-react";
 
 type Status = "nuevo" | "contactado" | "agendado" | "perdido" | "spam";
 
@@ -19,6 +19,14 @@ interface LeadRow {
   patient_name: string | null;
   patient_phone: string | null;
   internal_notes: string | null;
+  assigned_to: string | null;
+  assigned_email: string | null;
+  assigned_at: string | null;
+}
+
+interface Assignee {
+  user_id: string;
+  email: string;
 }
 
 const STATUS_LABEL: Record<Status, string> = {
@@ -47,6 +55,9 @@ export default function LeadsDashboard() {
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [saving, setSaving] = useState<string | null>(null);
+  const [assignees, setAssignees] = useState<Assignee[]>([]);
+  const [me, setMe] = useState<string | null>(null);
+  const [onlyMine, setOnlyMine] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -61,7 +72,18 @@ export default function LeadsDashboard() {
 
   useEffect(() => {
     load();
+    supabase.auth.getUser().then(({ data }) => setMe(data.user?.id ?? null));
+    supabase.rpc("list_lead_assignees").then(({ data }) => setAssignees((data as Assignee[]) ?? []));
   }, []);
+
+  async function assign(id: string, userId: string) {
+    const email = assignees.find((a) => a.user_id === userId)?.email ?? null;
+    await patch(id, {
+      assigned_to: userId || null,
+      assigned_email: userId ? email : null,
+      assigned_at: userId ? new Date().toISOString() : null,
+    });
+  }
 
   async function patch(id: string, values: Partial<LeadRow>) {
     setSaving(id);
@@ -79,11 +101,12 @@ export default function LeadsDashboard() {
     const q = search.trim().toLowerCase();
     return rows.filter((r) => {
       if (filter !== "all" && r.status !== filter) return false;
+      if (onlyMine && r.assigned_to !== me) return false;
       if (!q) return true;
       return [r.source_code, r.section_label, r.cta_label, r.reason, r.patient_name, r.patient_phone]
         .some((v) => (v ?? "").toLowerCase().includes(q));
     });
-  }, [rows, filter, search]);
+  }, [rows, filter, search, onlyMine, me]);
 
   const counts = useMemo(() => {
     const c: Record<Status, number> = { nuevo: 0, contactado: 0, agendado: 0, perdido: 0, spam: 0 };
@@ -103,8 +126,30 @@ export default function LeadsDashboard() {
     return [...map.entries()].sort((a, b) => b[1].total - a[1].total).slice(0, 8);
   }, [rows]);
 
+  const pending = useMemo(
+    () =>
+      filtered
+        .filter((r) => r.status === "nuevo")
+        .sort((a, b) => +new Date(a.created_at) - +new Date(b.created_at)),
+    [filtered],
+  );
+
+  const workload = useMemo(() => {
+    const map = new Map<string, number>();
+    rows.forEach((r) => {
+      if (r.status !== "nuevo") return;
+      const key = r.assigned_email || "Sin responsable";
+      map.set(key, (map.get(key) ?? 0) + 1);
+    });
+    return [...map.entries()].sort((a, b) => b[1] - a[1]);
+  }, [rows]);
+
+  function hoursSince(iso: string) {
+    return Math.floor((Date.now() - +new Date(iso)) / 3_600_000);
+  }
+
   function exportCSV() {
-    const headers = ["Fecha", "Codigo origen", "Seccion", "CTA", "Motivo", "Pagina", "Dispositivo", "Estado", "Paciente", "Telefono", "Notas"];
+    const headers = ["Fecha", "Codigo origen", "Seccion", "CTA", "Motivo", "Pagina", "Dispositivo", "Estado", "Responsable", "Paciente", "Telefono", "Notas"];
     const escape = (v: unknown) => {
       const s = v == null ? "" : String(v);
       return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -114,7 +159,7 @@ export default function LeadsDashboard() {
       lines.push([
         new Date(r.created_at).toISOString(), r.source_code, r.section_label ?? r.section ?? "",
         r.cta_label ?? "", r.reason ?? "", r.path ?? "", r.device ?? "",
-        STATUS_LABEL[r.status], r.patient_name ?? "", r.patient_phone ?? "", r.internal_notes ?? "",
+        STATUS_LABEL[r.status], r.assigned_email ?? "", r.patient_name ?? "", r.patient_phone ?? "", r.internal_notes ?? "",
       ].map(escape).join(","));
     });
     const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
