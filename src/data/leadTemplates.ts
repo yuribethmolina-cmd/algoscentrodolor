@@ -91,8 +91,10 @@ export const LEAD_TEMPLATES: Record<LeadTemplateStatus, LeadTemplate[]> = {
 
 export function renderTemplate(body: string, vars: TemplateVars): string {
   return body
-    .replace(/\{nombre\}/g, vars.nombre?.trim() || "¿cómo está?")
+    .replace(/\{nombre\}/g, vars.nombre?.trim() || "")
     .replace(/\{ref\}/g, vars.ref)
     .replace(/\{seccion\}/g, vars.seccion?.trim() || "nuestra página")
-    .replace(/\{motivo\}/g, vars.motivo?.trim() || "su dolor");
+    .replace(/\{motivo\}/g, vars.motivo?.trim() || "su dolor")
+    .replace(/Hola\s+([,.])/g, "Hola$1");
 }
+
