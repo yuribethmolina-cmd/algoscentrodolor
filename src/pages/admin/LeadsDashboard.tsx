@@ -386,6 +386,8 @@ export default function LeadsDashboard() {
                           />
                           {saving === r.id && <span className="text-xs text-[#1a4a55]/50">Guardando...</span>}
                         </div>
+                        <LeadTimeline leadId={r.id} refCode={r.source_code} />
+
                       </div>
                     )}
                   </li>
