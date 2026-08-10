@@ -337,6 +337,47 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_messages: {
+        Row: {
+          body: string
+          created_at: string
+          created_by: string | null
+          direction: string
+          id: string
+          lead_id: string
+          occurred_at: string
+          ref_code: string | null
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          created_by?: string | null
+          direction?: string
+          id?: string
+          lead_id: string
+          occurred_at?: string
+          ref_code?: string | null
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          created_by?: string | null
+          direction?: string
+          id?: string
+          lead_id?: string
+          occurred_at?: string
+          ref_code?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_messages_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "whatsapp_leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notification_settings: {
         Row: {
           email_enabled: boolean
