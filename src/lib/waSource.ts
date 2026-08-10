@@ -29,15 +29,90 @@ export function buildSourceCode(section?: string, label?: string): string {
   return parts.join("-");
 }
 
-/** Añade el código de origen al mensaje prellenado de un enlace de WhatsApp. */
-export function withSourceCode(url: string, code: string): string {
+/** Nombre legible de la sección de origen, para que el equipo lo lea en el chat. */
+const SECTION_LABELS: Record<string, string> = {
+  hero: "Portada",
+  hero_mobile_a: "Portada (móvil)",
+  hero_mobile_b: "Portada (móvil)",
+  sticky_mobile_cta: "Barra fija móvil",
+  "mobile-navigation": "Menú móvil",
+  conditions: "Condiciones que tratamos",
+  "pain-tab": "Tipos de dolor",
+  "patient-journey": "Ruta del paciente",
+  "why-different": "Por qué somos diferentes",
+  alliance: "Alianza UDUZ",
+  "home-team": "Equipo médico",
+  team: "Equipo médico",
+  location: "Sedes",
+  stats: "Resultados",
+  cta: "Contacto",
+  "final-cta": "Contacto final",
+  chat_asistente: "Asistente virtual",
+};
+
+/** Motivo de consulta según la página en la que está el paciente. */
+const PATH_REASONS: Array<[RegExp, string]> = [
+  [/^\/procedimientos\/emg/, "una Electromiografía (EMG)"],
+  [/^\/procedimientos\/eeg/, "un Electroencefalograma (EEG)"],
+  [/^\/procedimientos\/ozono/, "el tratamiento con ozono para hernia discal"],
+  [/^\/procedimientos\/radiofrecuencia/, "el tratamiento con radiofrecuencia"],
+  [/^\/procedimientos\/infiltraciones/, "las infiltraciones y bloqueos"],
+  [/^\/procedimientos/, "los procedimientos de ALGOS"],
+  [/^\/condiciones\/hernia-discal/, "la hernia discal"],
+  [/^\/condiciones\/dolor-lumbar/, "el dolor lumbar"],
+  [/^\/condiciones\/dolor-cervical/, "el dolor cervical"],
+  [/^\/condiciones\/cefaleas/, "las cefaleas"],
+  [/^\/condiciones\/ciatica/, "la ciática"],
+  [/^\/condiciones\/neuropatia-diabetica/, "la neuropatía diabética"],
+  [/^\/condiciones\/dolor-tras-cirugia/, "el dolor que persiste tras una cirugía"],
+  [/^\/condiciones/, "mi dolor"],
+  [/^\/estudios-laboratorio/, "los estudios de laboratorio"],
+  [/^\/estudios/, "los estudios diagnósticos"],
+  [/^\/equipo/, "una consulta con su equipo médico"],
+  [/^\/tratamientos/, "sus tratamientos"],
+  [/^\/preguntas-frecuentes/, "sus servicios"],
+  [/^\/lp\/diagnostico/, "un estudio diagnóstico"],
+  [/^\/lp\/dolor/, "el tratamiento de mi dolor"],
+  [/^\/contacto/, "sus servicios"],
+];
+
+export function sectionLabel(section?: string): string {
+  if (!section || section === "unknown") return "";
+  return SECTION_LABELS[section] ?? "";
+}
+
+/** Motivo por defecto según la ruta actual. */
+export function reasonForPath(pathname?: string): string {
+  const path = pathname ?? (typeof window !== "undefined" ? window.location.pathname : "/");
+  for (const [pattern, reason] of PATH_REASONS) {
+    if (pattern.test(path)) return reason;
+  }
+  return "sus servicios";
+}
+
+/** Mensaje preconfigurado con el motivo de consulta y la sección de origen. */
+export function buildPrefilledMessage(section?: string, pathname?: string): string {
+  const reason = reasonForPath(pathname);
+  const label = sectionLabel(section);
+  const base = `Hola, quisiera información sobre ${reason}.`;
+  return label ? `${base} (Vengo de la sección "${label}" de la web.)` : base;
+}
+
+/**
+ * Añade el mensaje preconfigurado (si falta) y el código de origen
+ * al enlace de WhatsApp.
+ */
+export function withSourceCode(url: string, code: string, section?: string): string {
   if (!url || !code) return url;
   try {
     const parsed = new URL(url, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
     const current = parsed.searchParams.get("text") ?? "";
     if (current.includes("[Ref:")) return url;
-    const message = current ? `${current}\n\n[Ref: ${code}]` : `Hola, quisiera información.\n\n[Ref: ${code}]`;
-    parsed.searchParams.set("text", message);
+
+    const body = current.trim() || buildPrefilledMessage(section);
+    const label = sectionLabel(section);
+    const ref = label ? `[Ref: ${code} · ${label}]` : `[Ref: ${code}]`;
+    parsed.searchParams.set("text", `${body}\n\n${ref}`);
     return parsed.toString();
   } catch {
     return url;
@@ -47,5 +122,6 @@ export function withSourceCode(url: string, code: string): string {
 /** Atajo: construye el código y lo estampa en la URL. */
 export function stampWhatsAppUrl(url: string, section?: string, label?: string): { url: string; code: string } {
   const code = buildSourceCode(section, label);
-  return { url: withSourceCode(url, code), code };
+  return { url: withSourceCode(url, code, section), code };
 }
+
