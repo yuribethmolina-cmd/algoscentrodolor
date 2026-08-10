@@ -200,7 +200,8 @@ export default function LeadsDashboard() {
           </div>
         </header>
 
-        <div className="relative mb-4">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <div className="relative flex-1 min-w-[240px]">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#1a4a55]/40" />
           <input
             type="search"
@@ -209,6 +210,13 @@ export default function LeadsDashboard() {
             placeholder="Buscar por código de origen, sección, paciente o teléfono..."
             className="w-full pl-9 pr-3 py-2.5 rounded-md border border-[#1a4a55]/20 bg-white text-sm text-[#1a4a55] focus:outline-none focus:border-[#1a4a55]"
           />
+          </div>
+          <button
+            onClick={() => setOnlyMine((v) => !v)}
+            className={`inline-flex items-center gap-1.5 px-3 py-2.5 rounded-md border text-sm font-medium transition-colors ${onlyMine ? "border-[#1a4a55] bg-[#1a4a55] text-white" : "border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5"}`}
+          >
+            <UserCheck size={15} /> Solo míos
+          </button>
         </div>
 
         <section className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
@@ -222,6 +230,56 @@ export default function LeadsDashboard() {
               <div className="font-display font-bold text-[#1a4a55] text-2xl tabular-nums">{counts[s]}</div>
             </button>
           ))}
+        </section>
+
+        {/* Cola de pendientes de contacto */}
+        <section className="rounded-md border border-[#c69636]/40 bg-[#c69636]/5 p-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 className="font-display font-bold text-[#1a4a55] text-lg inline-flex items-center gap-2">
+              <Clock size={18} /> Pendientes de contacto
+              <span className="text-sm font-normal text-[#1a4a55]/60 tabular-nums">({pending.length})</span>
+            </h2>
+            <p className="text-xs text-[#1a4a55]/60">Del más antiguo al más reciente · asignación automática equitativa</p>
+          </div>
+          {pending.length === 0 ? (
+            <p className="text-sm text-[#1a4a55]/60 italic">Todo contactado. No hay leads en espera.</p>
+          ) : (
+            <ul className="space-y-2">
+              {pending.slice(0, 8).map((r) => {
+                const h = hoursSince(r.created_at);
+                return (
+                  <li key={r.id} className="flex flex-wrap items-center gap-2 rounded-md bg-white border border-[#1a4a55]/10 px-3 py-2">
+                    <span className="font-mono text-xs bg-[#1a4a55]/5 border border-[#1a4a55]/15 rounded px-1.5 py-0.5 text-[#1a4a55]">
+                      {r.source_code}
+                    </span>
+                    <span className="text-sm text-[#1a4a55]/80 flex-1 min-w-[120px]">
+                      {r.section_label || r.section || "Sin sección"}
+                      {r.device ? ` · ${r.device}` : ""}
+                    </span>
+                    <span className={`text-xs tabular-nums px-2 py-0.5 rounded-full border ${h >= 24 ? "bg-red-100 text-red-800 border-red-300" : h >= 4 ? "bg-amber-100 text-amber-800 border-amber-300" : "bg-emerald-100 text-emerald-800 border-emerald-300"}`}>
+                      {h < 1 ? "hace minutos" : `${h} h en espera`}
+                    </span>
+                    <span className="text-xs text-[#1a4a55]/60 truncate max-w-[180px]">
+                      {r.assigned_email ?? "Sin responsable"}
+                    </span>
+                    <button
+                      onClick={() => patch(r.id, { status: "contactado" })}
+                      className="text-xs rounded-md bg-[#3d8b96] hover:bg-[#4a9ca8] text-white px-2.5 py-1.5"
+                    >
+                      Marcar contactado
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+          {workload.length > 0 && (
+            <div className="mt-3 pt-3 border-t border-[#1a4a55]/10 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#1a4a55]/70">
+              {workload.map(([who, n]) => (
+                <span key={who}>{who}: <strong className="tabular-nums">{n}</strong> pendientes</span>
+              ))}
+            </div>
+          )}
         </section>
 
         {bySection.length > 0 && (
@@ -265,6 +323,9 @@ export default function LeadsDashboard() {
                           {r.reason && <span>· {r.reason}</span>}
                           {r.device && <span>· {r.device}</span>}
                           {r.patient_name && <span className="font-semibold text-[#1a4a55]">· {r.patient_name}</span>}
+                          <span className="inline-flex items-center gap-1 text-[#1a4a55]/60">
+                            <UserCheck size={13} /> {r.assigned_email ?? "Sin responsable"}
+                          </span>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -289,6 +350,19 @@ export default function LeadsDashboard() {
                         <div className="space-y-2">
                           <div><strong>Página:</strong> {r.path ?? "—"}</div>
                           <div><strong>Botón:</strong> {r.cta_label ?? "—"}</div>
+                          <div>
+                            <label className="block text-xs font-semibold text-[#1a4a55] mb-1">Responsable</label>
+                            <select
+                              value={r.assigned_to ?? ""}
+                              onChange={(e) => assign(r.id, e.target.value)}
+                              className="w-full rounded-md border border-[#1a4a55]/20 bg-white px-2 py-1.5 text-sm text-[#1a4a55]"
+                            >
+                              <option value="">Sin responsable</option>
+                              {assignees.map((a) => (
+                                <option key={a.user_id} value={a.user_id}>{a.email}</option>
+                              ))}
+                            </select>
+                          </div>
                           <input
                             defaultValue={r.patient_name ?? ""}
                             onBlur={(e) => patch(r.id, { patient_name: e.target.value })}
