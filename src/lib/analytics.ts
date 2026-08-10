@@ -108,14 +108,30 @@ export function trackAppointment(payload: AppointmentPayload = {}) {
 }
 
 export function installWAClickTracker() {
-  document.addEventListener("click", (e) => {
-    const target = e.target as Element;
-    const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
-    if (!anchor) return;
-    if (anchor.dataset.analytics === "manual") return;
-    const href = anchor.getAttribute("href") ?? "";
-    if (!href.includes("wa.me")) return;
-    const section = getSectionFromElement(anchor);
-    trackWA(section, anchor.textContent?.trim() || "whatsapp");
-  });
+  document.addEventListener(
+    "click",
+    (e) => {
+      const target = e.target as Element;
+      const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") ?? "";
+      if (!href.includes("wa.me")) return;
+      // No estampar mensajes salientes del panel admin hacia pacientes.
+      const isAdmin = typeof window !== "undefined" && window.location.pathname.startsWith("/admin");
+      const section = getSectionFromElement(anchor);
+      const label = anchor.dataset.waLabel || anchor.textContent?.trim() || "whatsapp";
+
+      let code: string | undefined;
+      if (!isAdmin) {
+        const stamped = stampWhatsAppUrl(anchor.href, section, label);
+        code = stamped.code;
+        anchor.href = stamped.url;
+      }
+
+      if (anchor.dataset.analytics === "manual" || isAdmin) return;
+      trackWA(section, label, code);
+    },
+    true,
+  );
 }
+
