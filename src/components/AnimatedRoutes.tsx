@@ -48,6 +48,7 @@ import Unsubscribe from "@/pages/Unsubscribe";
 // Internal admin
 import ConversionesDashboard from "@/pages/admin/ConversionesDashboard";
 import CitasDashboard from "@/pages/admin/CitasDashboard";
+import LeadsDashboard from "@/pages/admin/LeadsDashboard";
 import UsuariosDashboard from "@/pages/admin/UsuariosDashboard";
 import EquipoDashboard from "@/pages/admin/EquipoDashboard";
 import ConfiguracionDashboard from "@/pages/admin/ConfiguracionDashboard";
@@ -134,6 +135,10 @@ export default function AnimatedRoutes() {
           <Route
             path="/admin/citas"
             element={<AdminRoute>{wrap(CitasDashboard)}</AdminRoute>}
+          />
+          <Route
+            path="/admin/leads"
+            element={<AdminRoute>{wrap(LeadsDashboard)}</AdminRoute>}
           />
           <Route
             path="/admin/usuarios"

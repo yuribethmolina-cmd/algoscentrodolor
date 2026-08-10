@@ -85,6 +85,24 @@ Deno.serve(async (req) => {
     };
 
     const { error } = await supabase.from("conversion_events").insert(row);
+
+    // Cada clic a WhatsApp genera además un lead rastreable por su código de origen.
+    if (event_type === "whatsapp_click") {
+      const source_code = clean(body.source_code, 80);
+      if (source_code) {
+        const { error: leadErr } = await supabase.from("whatsapp_leads").insert({
+          source_code,
+          section: row.section,
+          section_label: clean(body.section_label, 80),
+          cta_label: row.label,
+          reason: clean(body.reason, 120),
+          path: row.path,
+          device: row.device,
+          referrer: row.referrer,
+        });
+        if (leadErr) console.error("lead insert error", leadErr);
+      }
+    }
     if (error) {
       console.error("insert error", error);
       return new Response(JSON.stringify({ error: error.message }), {

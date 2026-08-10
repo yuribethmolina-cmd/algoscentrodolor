@@ -445,6 +445,63 @@ export type Database = {
         }
         Relationships: []
       }
+      whatsapp_leads: {
+        Row: {
+          created_at: string
+          cta_label: string | null
+          device: string | null
+          id: string
+          internal_notes: string | null
+          path: string | null
+          patient_name: string | null
+          patient_phone: string | null
+          reason: string | null
+          referrer: string | null
+          section: string | null
+          section_label: string | null
+          source_code: string
+          status: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          cta_label?: string | null
+          device?: string | null
+          id?: string
+          internal_notes?: string | null
+          path?: string | null
+          patient_name?: string | null
+          patient_phone?: string | null
+          reason?: string | null
+          referrer?: string | null
+          section?: string | null
+          section_label?: string | null
+          source_code: string
+          status?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          cta_label?: string | null
+          device?: string | null
+          id?: string
+          internal_notes?: string | null
+          path?: string | null
+          patient_name?: string | null
+          patient_phone?: string | null
+          reason?: string | null
+          referrer?: string | null
+          section?: string | null
+          section_label?: string | null
+          source_code?: string
+          status?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
