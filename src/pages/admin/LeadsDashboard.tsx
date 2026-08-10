@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { RefreshCw, LogOut, ChevronLeft, Search, Download, MessageCircle, UserCheck, Clock } from "lucide-react";
+import LeadTimeline from "@/components/admin/LeadTimeline";
+
 
 type Status = "nuevo" | "contactado" | "agendado" | "perdido" | "spam";
 
@@ -386,6 +388,8 @@ export default function LeadsDashboard() {
                           />
                           {saving === r.id && <span className="text-xs text-[#1a4a55]/50">Guardando...</span>}
                         </div>
+                        <LeadTimeline leadId={r.id} refCode={r.source_code} />
+
                       </div>
                     )}
                   </li>
