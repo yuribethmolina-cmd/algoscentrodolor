@@ -1,6 +1,8 @@
 declare function gtag(...args: unknown[]): void;
 
 import { supabase } from "@/integrations/supabase/client";
+import { stampWhatsAppUrl } from "@/lib/waSource";
+
 
 function isMobile(): boolean {
   return typeof window !== "undefined" && window.innerWidth < 768;
@@ -45,12 +47,13 @@ function sendInternal(payload: InternalPayload) {
   }
 }
 
-export function trackWA(section: string, label = "whatsapp") {
+export function trackWA(section: string, label = "whatsapp", sourceCode?: string) {
   if (typeof gtag !== "undefined") {
     gtag("event", "whatsapp_click", {
       event_category: "conversion",
       event_label: label,
       section,
+      source_code: sourceCode,
       device: device(),
     });
     gtag("event", "generate_lead", {
@@ -59,8 +62,9 @@ export function trackWA(section: string, label = "whatsapp") {
       section,
     });
   }
-  sendInternal({ event_type: "whatsapp_click", section, label });
+  sendInternal({ event_type: "whatsapp_click", section, label, source: sourceCode });
 }
+
 
 export function trackCTA(section: string, label: string, destination = "") {
   if (typeof gtag !== "undefined") {
@@ -106,14 +110,30 @@ export function trackAppointment(payload: AppointmentPayload = {}) {
 }
 
 export function installWAClickTracker() {
-  document.addEventListener("click", (e) => {
-    const target = e.target as Element;
-    const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
-    if (!anchor) return;
-    if (anchor.dataset.analytics === "manual") return;
-    const href = anchor.getAttribute("href") ?? "";
-    if (!href.includes("wa.me")) return;
-    const section = getSectionFromElement(anchor);
-    trackWA(section, anchor.textContent?.trim() || "whatsapp");
-  });
+  document.addEventListener(
+    "click",
+    (e) => {
+      const target = e.target as Element;
+      const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") ?? "";
+      if (!href.includes("wa.me")) return;
+      // No estampar mensajes salientes del panel admin hacia pacientes.
+      const isAdmin = typeof window !== "undefined" && window.location.pathname.startsWith("/admin");
+      const section = getSectionFromElement(anchor);
+      const label = anchor.dataset.waLabel || anchor.textContent?.trim() || "whatsapp";
+
+      let code: string | undefined;
+      if (!isAdmin) {
+        const stamped = stampWhatsAppUrl(anchor.href, section, label);
+        code = stamped.code;
+        anchor.href = stamped.url;
+      }
+
+      if (anchor.dataset.analytics === "manual" || isAdmin) return;
+      trackWA(section, label, code);
+    },
+    true,
+  );
 }
+
