@@ -1,6 +1,8 @@
 declare function gtag(...args: unknown[]): void;
 
 import { supabase } from "@/integrations/supabase/client";
+import { stampWhatsAppUrl } from "@/lib/waSource";
+
 
 function isMobile(): boolean {
   return typeof window !== "undefined" && window.innerWidth < 768;
