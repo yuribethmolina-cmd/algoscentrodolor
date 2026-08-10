@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { MessageCircle, CalendarCheck, Smartphone, Monitor, RefreshCw, Download, LogOut, Users, Bot, AlertTriangle, ShieldAlert } from "lucide-react";
+import AttributionSection from "@/components/admin/AttributionSection";
+
 
 interface ChatFunnel {
   range_days: number;
