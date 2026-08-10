@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 
 import { ALGOS } from "@/config/algos.config";
+import { stampWhatsAppUrl } from "@/lib/waSource";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
@@ -302,9 +303,14 @@ export default function AsistenteAlgos() {
   }
 
   function openWhatsApp(prefill = "Hola, quisiera información sobre ALGOS.") {
-    trackWA("chat_asistente", "chat_quick_whatsapp");
     const text = encodeURIComponent(prefill);
-    window.open(`${ALGOS.contact.whatsappHref}?text=${text}`, "_blank", "noopener,noreferrer");
+    const { url, code } = stampWhatsAppUrl(
+      `${ALGOS.contact.whatsappHref}?text=${text}`,
+      "chat_asistente",
+      "chat_quick_whatsapp",
+    );
+    trackWA("chat_asistente", "chat_quick_whatsapp", code);
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
@@ -479,11 +485,15 @@ export default function AsistenteAlgos() {
         condition: reason || "chat_asistente",
         source: "chat_asistente",
       });
-      trackWA("chat_asistente", "chat_miniform");
     }
 
     const text = encodeURIComponent(formMessage.trim() || "Hola, quisiera agendar una cita.");
-    const waUrl = `${ALGOS.contact.whatsappHref}?text=${text}`;
+    const { url: waUrl, code: waCode } = stampWhatsAppUrl(
+      `${ALGOS.contact.whatsappHref}?text=${text}`,
+      "chat_asistente",
+      "chat_miniform",
+    );
+    trackWA("chat_asistente", "chat_miniform", waCode);
     let win: Window | null = null;
     try {
       win = window.open(waUrl, "_blank", "noopener,noreferrer");
