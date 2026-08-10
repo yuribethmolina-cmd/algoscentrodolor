@@ -404,7 +404,10 @@ export default function ConversionesDashboard() {
           </Card>
         )}
 
+        <AttributionSection days={days} />
+
         <p className="text-xs text-[#1a4a55]/50 mt-8">
+
           Datos en tiempo real desde Supabase. Rango: últimos {days} día{days === 1 ? "" : "s"}.
         </p>
       </div>
