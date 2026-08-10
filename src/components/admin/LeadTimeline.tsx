@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowDownLeft, ArrowUpRight, Info, Send } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight, Info, Send, Copy, Check, MessageCircle } from "lucide-react";
+import { LEAD_TEMPLATES, renderTemplate, type LeadTemplateStatus } from "@/data/leadTemplates";
 
 type Direction = "entrante" | "saliente" | "sistema";
 
@@ -12,18 +13,39 @@ interface LeadMessage {
   ref_code: string | null;
 }
 
+interface Props {
+  leadId: string;
+  refCode: string;
+  status: LeadTemplateStatus;
+  patientName?: string | null;
+  patientPhone?: string | null;
+  sectionLabel?: string | null;
+  reason?: string | null;
+}
+
 const DIRECTION_META: Record<Direction, { label: string; box: string; icon: typeof Info }> = {
   entrante: { label: "Paciente", box: "bg-emerald-50 border-emerald-200", icon: ArrowDownLeft },
   saliente: { label: "ALGOS", box: "bg-blue-50 border-blue-200", icon: ArrowUpRight },
   sistema: { label: "Sistema", box: "bg-[#1a4a55]/5 border-[#1a4a55]/15", icon: Info },
 };
 
-export default function LeadTimeline({ leadId, refCode }: { leadId: string; refCode: string }) {
+export default function LeadTimeline({
+  leadId,
+  refCode,
+  status,
+  patientName,
+  patientPhone,
+  sectionLabel,
+  reason,
+}: Props) {
   const [items, setItems] = useState<LeadMessage[]>([]);
   const [loading, setLoading] = useState(true);
   const [body, setBody] = useState("");
   const [direction, setDirection] = useState<Direction>("entrante");
   const [sending, setSending] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const templates = useMemo(() => LEAD_TEMPLATES[status] ?? [], [status]);
 
   const load = async () => {
     const { data } = await supabase
@@ -40,6 +62,35 @@ export default function LeadTimeline({ leadId, refCode }: { leadId: string; refC
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [leadId]);
+
+  const applyTemplate = (id: string) => {
+    const tpl = templates.find((t) => t.id === id);
+    if (!tpl) return;
+    setDirection("saliente");
+    setBody(
+      renderTemplate(tpl.body, {
+        nombre: patientName,
+        ref: refCode,
+        seccion: sectionLabel,
+        motivo: reason,
+      })
+    );
+  };
+
+  const copy = async () => {
+    if (!body.trim()) return;
+    await navigator.clipboard.writeText(body);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
+
+  const openWhatsApp = () => {
+    const digits = (patientPhone ?? "").replace(/\D/g, "");
+    const url = digits
+      ? `https://wa.me/${digits}?text=${encodeURIComponent(body)}`
+      : `https://wa.me/?text=${encodeURIComponent(body)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   const add = async () => {
     const text = body.trim();
@@ -97,6 +148,26 @@ export default function LeadTimeline({ leadId, refCode }: { leadId: string; refC
         </ol>
       )}
 
+      {templates.length > 0 && (
+        <div className="mb-2">
+          <span className="block text-[11px] font-semibold uppercase tracking-wide text-[#1a4a55]/70 mb-1">
+            Plantillas de seguimiento
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {templates.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => applyTemplate(t.id)}
+                className="rounded-full border border-[#1a4a55]/20 bg-white px-3 py-1 text-xs font-medium text-[#1a4a55] hover:bg-[#1a4a55]/5"
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start">
         <select
           value={direction}
@@ -110,17 +181,39 @@ export default function LeadTimeline({ leadId, refCode }: { leadId: string; refC
         <textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          placeholder="Pega o resume el mensaje de WhatsApp..."
-          className="flex-1 rounded-md border border-[#1a4a55]/20 bg-white p-2 text-sm min-h-[60px]"
+          placeholder="Elige una plantilla o escribe el mensaje..."
+          className="flex-1 rounded-md border border-[#1a4a55]/20 bg-white p-2 text-sm min-h-[90px]"
         />
+      </div>
+
+      <div className="mt-2 flex flex-wrap gap-2">
         <button
           onClick={add}
           disabled={sending || !body.trim()}
-          className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#1a4a55] px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 rounded-md bg-[#1a4a55] px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
         >
-          <Send size={14} /> {sending ? "Guardando..." : "Agregar"}
+          <Send size={14} /> {sending ? "Guardando..." : "Registrar en historial"}
+        </button>
+        <button
+          onClick={copy}
+          disabled={!body.trim()}
+          className="inline-flex items-center gap-1.5 rounded-md border border-[#1a4a55]/20 bg-white px-3 py-2 text-sm font-medium text-[#1a4a55] disabled:opacity-50"
+        >
+          {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? "Copiado" : "Copiar"}
+        </button>
+        <button
+          onClick={openWhatsApp}
+          disabled={!body.trim()}
+          className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-800 disabled:opacity-50"
+        >
+          <MessageCircle size={14} /> Abrir en WhatsApp
         </button>
       </div>
+      {!patientPhone && (
+        <p className="mt-1 text-[11px] text-[#1a4a55]/50 italic">
+          Agrega el teléfono del paciente para que WhatsApp abra directo en su chat.
+        </p>
+      )}
     </div>
   );
 }
