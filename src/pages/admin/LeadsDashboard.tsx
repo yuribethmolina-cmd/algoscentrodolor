@@ -388,7 +388,16 @@ export default function LeadsDashboard() {
                           />
                           {saving === r.id && <span className="text-xs text-[#1a4a55]/50">Guardando...</span>}
                         </div>
-                        <LeadTimeline leadId={r.id} refCode={r.source_code} />
+                        <LeadTimeline
+                          leadId={r.id}
+                          refCode={r.source_code}
+                          status={r.status}
+                          patientName={r.patient_name}
+                          patientPhone={r.patient_phone}
+                          sectionLabel={r.section_label ?? r.section}
+                          reason={r.reason}
+                        />
+
 
                       </div>
                     )}
