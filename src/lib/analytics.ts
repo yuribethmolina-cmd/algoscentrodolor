@@ -1,7 +1,7 @@
 declare function gtag(...args: unknown[]): void;
 
 import { supabase } from "@/integrations/supabase/client";
-import { stampWhatsAppUrl } from "@/lib/waSource";
+import { stampWhatsAppUrl, sectionLabel, reasonForPath } from "@/lib/waSource";
 
 
 function isMobile(): boolean {
@@ -30,6 +30,9 @@ interface InternalPayload {
   has_studies?: string;
   source?: string;
   label?: string;
+  source_code?: string;
+  section_label?: string;
+  reason?: string;
 }
 
 function sendInternal(payload: InternalPayload) {
@@ -48,6 +51,8 @@ function sendInternal(payload: InternalPayload) {
 }
 
 export function trackWA(section: string, label = "whatsapp", sourceCode?: string) {
+  const sectionName = sectionLabel(section);
+  const reason = reasonForPath();
   if (typeof gtag !== "undefined") {
     gtag("event", "whatsapp_click", {
       event_category: "conversion",
@@ -62,7 +67,15 @@ export function trackWA(section: string, label = "whatsapp", sourceCode?: string
       section,
     });
   }
-  sendInternal({ event_type: "whatsapp_click", section, label, source: sourceCode });
+  sendInternal({
+    event_type: "whatsapp_click",
+    section,
+    label,
+    source: sourceCode,
+    source_code: sourceCode,
+    section_label: sectionName || undefined,
+    reason,
+  });
 }
 
 
