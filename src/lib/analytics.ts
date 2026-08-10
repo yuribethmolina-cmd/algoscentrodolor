@@ -45,12 +45,13 @@ function sendInternal(payload: InternalPayload) {
   }
 }
 
-export function trackWA(section: string, label = "whatsapp") {
+export function trackWA(section: string, label = "whatsapp", sourceCode?: string) {
   if (typeof gtag !== "undefined") {
     gtag("event", "whatsapp_click", {
       event_category: "conversion",
       event_label: label,
       section,
+      source_code: sourceCode,
       device: device(),
     });
     gtag("event", "generate_lead", {
@@ -59,8 +60,9 @@ export function trackWA(section: string, label = "whatsapp") {
       section,
     });
   }
-  sendInternal({ event_type: "whatsapp_click", section, label });
+  sendInternal({ event_type: "whatsapp_click", section, label, source: sourceCode });
 }
+
 
 export function trackCTA(section: string, label: string, destination = "") {
   if (typeof gtag !== "undefined") {
