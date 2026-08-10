@@ -35,13 +35,6 @@ interface Summary {
   top_conditions: Array<{ condition: string; count: number }>;
 }
 
-interface AuditEntry {
-  id: string;
-  user_email: string | null;
-  action: string;
-  metadata: Record<string, unknown> | null;
-  created_at: string;
-}
 
 const RANGES = [
   { label: "24h", days: 1 },
@@ -56,7 +49,7 @@ export default function ConversionesDashboard() {
   const [data, setData] = useState<Summary | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [auditLog, setAuditLog] = useState<AuditEntry[]>([]);
+  
   const [chat, setChat] = useState<ChatFunnel | null>(null);
 
   async function load() {
@@ -78,13 +71,6 @@ export default function ConversionesDashboard() {
     }
     setLoading(false);
 
-    // Load recent audit log (last 20 entries)
-    const { data: log } = await supabase
-      .from("admin_audit_log")
-      .select("id, user_email, action, metadata, created_at")
-      .order("created_at", { ascending: false })
-      .limit(20);
-    if (log) setAuditLog(log as AuditEntry[]);
 
     const { data: chatRes, error: chatErr } = await supabase.functions.invoke("get-chat-funnel", {
       body: { days_back: days },
@@ -372,39 +358,6 @@ export default function ConversionesDashboard() {
         {/* Chat funnel */}
         <ChatFunnelPanel chat={chat} />
 
-        {/* Audit log */}
-        {auditLog.length > 0 && (
-          <Card title="Registro de accesos" className="mt-6">
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs text-[#1a4a55]">
-                <thead>
-                  <tr className="border-b border-[#1a4a55]/10 text-left">
-                    <th className="pb-2 font-semibold pr-4">Fecha</th>
-                    <th className="pb-2 font-semibold pr-4">Usuario</th>
-                    <th className="pb-2 font-semibold pr-4">Acción</th>
-                    <th className="pb-2 font-semibold">Detalle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {auditLog.map((entry) => (
-                    <tr key={entry.id} className="border-b border-[#1a4a55]/5 last:border-0">
-                      <td className="py-2 pr-4 text-[#1a4a55]/60 whitespace-nowrap tabular-nums">
-                        {new Date(entry.created_at).toLocaleString("es-VE")}
-                      </td>
-                      <td className="py-2 pr-4 text-[#1a4a55]/70 truncate max-w-[12rem]">
-                        {entry.user_email ?? "—"}
-                      </td>
-                      <td className="py-2 pr-4">{entry.action}</td>
-                      <td className="py-2 text-[#1a4a55]/50">
-                        {entry.metadata ? JSON.stringify(entry.metadata) : "—"}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        )}
 
         <AttributionSection days={days} />
 
