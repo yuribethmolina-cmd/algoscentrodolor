@@ -261,8 +261,8 @@ export default function LeadsDashboard() {
                     <span className={`text-xs tabular-nums px-2 py-0.5 rounded-full border ${h >= 24 ? "bg-red-100 text-red-800 border-red-300" : h >= 4 ? "bg-amber-100 text-amber-800 border-amber-300" : "bg-emerald-100 text-emerald-800 border-emerald-300"}`}>
                       {h < 1 ? "hace minutos" : `${h} h en espera`}
                     </span>
-                    <span className="text-xs text-[#1a4a55]/60 truncate max-w-[180px]">
-                      {r.assigned_email ?? "Sin responsable"}
+                    <span className="text-xs text-[#1a4a55]/60 truncate max-w-[220px]">
+                      Responsable: {r.assigned_email ?? "sin asignar"}
                     </span>
                     <button
                       onClick={() => patch(r.id, { status: "contactado" })}
@@ -326,7 +326,7 @@ export default function LeadsDashboard() {
                           {r.device && <span>· {r.device}</span>}
                           {r.patient_name && <span className="font-semibold text-[#1a4a55]">· {r.patient_name}</span>}
                           <span className="inline-flex items-center gap-1 text-[#1a4a55]/60">
-                            <UserCheck size={13} /> {r.assigned_email ?? "Sin responsable"}
+                            <UserCheck size={13} /> Responsable: {r.assigned_email ?? "sin asignar"}
                           </span>
                         </div>
                       </div>
