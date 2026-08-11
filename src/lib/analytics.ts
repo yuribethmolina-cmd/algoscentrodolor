@@ -39,8 +39,10 @@ interface InternalPayload {
 
 function sendInternal(payload: InternalPayload) {
   try {
+    const attribution = getAttribution();
     const body = {
       ...payload,
+      ...attribution,
       device: payload.device ?? device(),
       path: typeof window !== "undefined" ? window.location.pathname : undefined,
       referrer: typeof document !== "undefined" ? document.referrer : undefined,
@@ -51,6 +53,18 @@ function sendInternal(payload: InternalPayload) {
     console.warn("analytics send failed", err);
   }
 }
+
+/** Eventos del embudo del formulario de cita: vista, inicio, error y envío. */
+export type FormStep = "form_view" | "form_start" | "form_error" | "form_success";
+
+export function trackFormStep(step: FormStep, detail?: string, section = "form_agendar") {
+  const label = detail ? `${step}:${detail}` : step;
+  if (typeof gtag !== "undefined") {
+    gtag("event", step, { event_category: "funnel", event_label: label, section, device: device() });
+  }
+  sendInternal({ event_type: "cta_click", section, label, source: section });
+}
+
 
 export function trackWA(section: string, label = "whatsapp", sourceCode?: string) {
   const sectionName = sectionLabel(section);
