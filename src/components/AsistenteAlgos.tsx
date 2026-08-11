@@ -302,8 +302,8 @@ export default function AsistenteAlgos() {
     setShowForm(true);
   }
 
-  function openWhatsApp(prefill = "Hola, quisiera información sobre ALGOS.") {
-    const text = encodeURIComponent(prefill);
+  function openWhatsApp(prefill?: string) {
+    const text = encodeURIComponent(prefill ?? buildPrefilledMessage("chat_asistente"));
     const { url, code } = stampWhatsAppUrl(
       `${ALGOS.contact.whatsappHref}?text=${text}`,
       "chat_asistente",
