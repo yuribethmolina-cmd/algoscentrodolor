@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 
 import { ALGOS } from "@/config/algos.config";
-import { stampWhatsAppUrl } from "@/lib/waSource";
+import { stampWhatsAppUrl, buildPrefilledMessage } from "@/lib/waSource";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
@@ -302,8 +302,8 @@ export default function AsistenteAlgos() {
     setShowForm(true);
   }
 
-  function openWhatsApp(prefill = "Hola, quisiera información sobre ALGOS.") {
-    const text = encodeURIComponent(prefill);
+  function openWhatsApp(prefill?: string) {
+    const text = encodeURIComponent(prefill ?? buildPrefilledMessage("chat_asistente"));
     const { url, code } = stampWhatsAppUrl(
       `${ALGOS.contact.whatsappHref}?text=${text}`,
       "chat_asistente",
