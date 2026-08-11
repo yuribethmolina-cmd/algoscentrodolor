@@ -72,6 +72,15 @@ Deno.serve(async (req) => {
       });
     }
 
+    const attribution = {
+      utm_source: clean(body.utm_source, 120),
+      utm_medium: clean(body.utm_medium, 120),
+      utm_campaign: clean(body.utm_campaign, 120),
+      utm_content: clean(body.utm_content, 120),
+      utm_term: clean(body.utm_term, 120),
+      landing_path: clean(body.landing_path, 250),
+    };
+
     const row = {
       event_type,
       section: clean(body.section, 80),
@@ -82,6 +91,7 @@ Deno.serve(async (req) => {
       label: clean(body.label, 120),
       path: clean(body.path, 250),
       referrer: clean(body.referrer, 250),
+      ...attribution,
     };
 
     const { error } = await supabase.from("conversion_events").insert(row);
@@ -99,10 +109,12 @@ Deno.serve(async (req) => {
           path: row.path,
           device: row.device,
           referrer: row.referrer,
+          ...attribution,
         });
         if (leadErr) console.error("lead insert error", leadErr);
       }
     }
+
     if (error) {
       console.error("insert error", error);
       return new Response(JSON.stringify({ error: error.message }), {
