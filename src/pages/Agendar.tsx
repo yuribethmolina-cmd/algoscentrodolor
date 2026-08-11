@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { trackAppointment } from "@/lib/analytics";
+import { trackAppointment, trackFormStep } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ALGOS } from "@/config/algos.config";
 import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+
 
 const CONDITIONS = [
   "Dolor lumbar",
