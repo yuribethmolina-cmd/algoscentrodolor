@@ -75,7 +75,13 @@ export default function LeadsDashboard() {
   useEffect(() => {
     load();
     supabase.auth.getUser().then(({ data }) => setMe(data.user?.id ?? null));
-    supabase.rpc("list_lead_assignees").then(({ data }) => setAssignees((data as Assignee[]) ?? []));
+    supabase.functions
+      .invoke("admin-users", { method: "GET" })
+      .then(({ data, error }) => {
+        if (error) return;
+        const admins = (data as { admins?: Array<{ id: string; email: string | null }> } | null)?.admins ?? [];
+        setAssignees(admins.map((a) => ({ user_id: a.id, email: a.email ?? "" })));
+      });
   }, []);
 
   async function assign(id: string, userId: string) {
