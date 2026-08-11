@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { trackAppointment } from "@/lib/analytics";
+import { trackAppointment, trackFormStep } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ALGOS } from "@/config/algos.config";
 import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+
 
 const CONDITIONS = [
   "Dolor lumbar",
@@ -32,12 +33,29 @@ export default function Agendar() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null); // WhatsApp URL after success
+  const started = useRef(false);
+
+  useEffect(() => {
+    trackFormStep("form_view");
+  }, []);
+
+  function onFieldStart(field: string) {
+    if (started.current) return;
+    started.current = true;
+    trackFormStep("form_start", field);
+  }
+
+  function fail(msg: string, reason: string) {
+    trackFormStep("form_error", reason);
+    setError(msg);
+    return undefined;
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    if (name.trim().length < 2) return setError("Ingresa tu nombre completo.");
-    if (phone.replace(/\D/g, "").length < 7) return setError("Ingresa un teléfono válido.");
+    if (name.trim().length < 2) return fail("Ingresa tu nombre completo.", "validation:name");
+    if (phone.replace(/\D/g, "").length < 7) return fail("Ingresa un teléfono válido.", "validation:phone");
 
     setLoading(true);
     try {
@@ -59,17 +77,20 @@ export default function Agendar() {
       if (!data?.ok) throw new Error(data?.error || "No se pudo enviar. Intenta de nuevo.");
 
       trackAppointment({ condition: condition || undefined, hasStudies: hasStudies || undefined, source: "form_agendar" });
+      trackFormStep("form_success", condition || "sin_condicion");
       if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Schedule');
 
       const waUrl = buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
+      trackFormStep("form_error", "submit");
       setError(msg);
     } finally {
       setLoading(false);
     }
   }
+
 
   return (
     <>
@@ -119,13 +140,14 @@ export default function Agendar() {
               </div>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
+            <form onSubmit={onSubmit} onFocus={(e) => { const el = e.target as HTMLElement & { type?: string }; onFieldStart(el.getAttribute("name") || el.type || "campo"); }} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
               <Field label="Nombre completo *">
-                <input value={name} onChange={(e) => setName(e.target.value)} className={inputCls} required maxLength={120} />
+                <input name="nombre" value={name} onChange={(e) => setName(e.target.value)} className={inputCls} required maxLength={120} />
               </Field>
               <Field label="Teléfono / WhatsApp *" hint="Ej: 0414-680 7886">
-                <input value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} required inputMode="tel" maxLength={30} />
+                <input name="telefono" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} required inputMode="tel" maxLength={30} />
               </Field>
+
               <Field label="Email (opcional)">
                 <input value={email} onChange={(e) => setEmail(e.target.value)} className={inputCls} type="email" maxLength={200} />
               </Field>

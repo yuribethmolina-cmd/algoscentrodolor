@@ -151,10 +151,16 @@ export type Database = {
           has_studies: string | null
           id: string
           label: string | null
+          landing_path: string | null
           path: string | null
           referrer: string | null
           section: string | null
           source: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
           condition?: string | null
@@ -164,10 +170,16 @@ export type Database = {
           has_studies?: string | null
           id?: string
           label?: string | null
+          landing_path?: string | null
           path?: string | null
           referrer?: string | null
           section?: string | null
           source?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
           condition?: string | null
@@ -177,10 +189,16 @@ export type Database = {
           has_studies?: string | null
           id?: string
           label?: string | null
+          landing_path?: string | null
           path?: string | null
           referrer?: string | null
           section?: string | null
           source?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
       }
@@ -496,6 +514,7 @@ export type Database = {
           device: string | null
           id: string
           internal_notes: string | null
+          landing_path: string | null
           path: string | null
           patient_name: string | null
           patient_phone: string | null
@@ -507,6 +526,11 @@ export type Database = {
           status: string
           updated_at: string
           updated_by: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
           assigned_at?: string | null
@@ -517,6 +541,7 @@ export type Database = {
           device?: string | null
           id?: string
           internal_notes?: string | null
+          landing_path?: string | null
           path?: string | null
           patient_name?: string | null
           patient_phone?: string | null
@@ -528,6 +553,11 @@ export type Database = {
           status?: string
           updated_at?: string
           updated_by?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
           assigned_at?: string | null
@@ -538,6 +568,7 @@ export type Database = {
           device?: string | null
           id?: string
           internal_notes?: string | null
+          landing_path?: string | null
           path?: string | null
           patient_name?: string | null
           patient_phone?: string | null
@@ -549,6 +580,11 @@ export type Database = {
           status?: string
           updated_at?: string
           updated_by?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
       }
