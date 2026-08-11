@@ -94,8 +94,8 @@ export function reasonForPath(pathname?: string): string {
 export function buildPrefilledMessage(section?: string, pathname?: string): string {
   const reason = reasonForPath(pathname);
   const label = sectionLabel(section);
-  const base = `Hola, quisiera información sobre ${reason}.`;
-  return label ? `${base} (Vengo de la sección "${label}" de la web.)` : base;
+  const base = `Hola, mi nombre es __________ y quiero información sobre ${reason}.\nLo que me está molestando es: __________`;
+  return label ? `${base}\n(Vengo de la sección "${label}" de la web.)` : base;
 }
 
 /**
