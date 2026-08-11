@@ -33,12 +33,29 @@ export default function Agendar() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null); // WhatsApp URL after success
+  const started = useRef(false);
+
+  useEffect(() => {
+    trackFormStep("form_view");
+  }, []);
+
+  function onFieldStart(field: string) {
+    if (started.current) return;
+    started.current = true;
+    trackFormStep("form_start", field);
+  }
+
+  function fail(msg: string, reason: string) {
+    trackFormStep("form_error", reason);
+    setError(msg);
+    return undefined;
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    if (name.trim().length < 2) return setError("Ingresa tu nombre completo.");
-    if (phone.replace(/\D/g, "").length < 7) return setError("Ingresa un teléfono válido.");
+    if (name.trim().length < 2) return fail("Ingresa tu nombre completo.", "validation:name");
+    if (phone.replace(/\D/g, "").length < 7) return fail("Ingresa un teléfono válido.", "validation:phone");
 
     setLoading(true);
     try {
@@ -60,17 +77,20 @@ export default function Agendar() {
       if (!data?.ok) throw new Error(data?.error || "No se pudo enviar. Intenta de nuevo.");
 
       trackAppointment({ condition: condition || undefined, hasStudies: hasStudies || undefined, source: "form_agendar" });
+      trackFormStep("form_success", condition || "sin_condicion");
       if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Schedule');
 
       const waUrl = buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
+      trackFormStep("form_error", "submit");
       setError(msg);
     } finally {
       setLoading(false);
     }
   }
+
 
   return (
     <>
