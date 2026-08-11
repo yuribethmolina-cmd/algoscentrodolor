@@ -140,13 +140,14 @@ export default function Agendar() {
               </div>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
+            <form onSubmit={onSubmit} onFocus={(e) => onFieldStart((e.target as HTMLElement).getAttribute("name") || (e.target as HTMLInputElement).type || "campo")} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
               <Field label="Nombre completo *">
-                <input value={name} onChange={(e) => setName(e.target.value)} className={inputCls} required maxLength={120} />
+                <input name="nombre" value={name} onChange={(e) => setName(e.target.value)} className={inputCls} required maxLength={120} />
               </Field>
               <Field label="Teléfono / WhatsApp *" hint="Ej: 0414-680 7886">
-                <input value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} required inputMode="tel" maxLength={30} />
+                <input name="telefono" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} required inputMode="tel" maxLength={30} />
               </Field>
+
               <Field label="Email (opcional)">
                 <input value={email} onChange={(e) => setEmail(e.target.value)} className={inputCls} type="email" maxLength={200} />
               </Field>
