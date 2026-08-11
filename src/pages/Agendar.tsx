@@ -140,7 +140,7 @@ export default function Agendar() {
               </div>
             </div>
           ) : (
-            <form onSubmit={onSubmit} onFocus={(e) => onFieldStart((e.target as HTMLElement).getAttribute("name") || (e.target as HTMLInputElement).type || "campo")} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
+            <form onSubmit={onSubmit} onFocus={(e) => { const el = e.target as HTMLElement & { type?: string }; onFieldStart(el.getAttribute("name") || el.type || "campo"); }} className="space-y-5 rounded-lg bg-white border border-[#1a4a55]/15 p-6 md:p-8">
               <Field label="Nombre completo *">
                 <input name="nombre" value={name} onChange={(e) => setName(e.target.value)} className={inputCls} required maxLength={120} />
               </Field>
