@@ -605,13 +605,6 @@ export type Database = {
       }
       get_chat_funnel: { Args: { days_back?: number }; Returns: Json }
       get_conversion_summary: { Args: { days_back?: number }; Returns: Json }
-      list_lead_assignees: {
-        Args: never
-        Returns: {
-          email: string
-          user_id: string
-        }[]
-      }
       move_to_dlq: {
         Args: {
           dlq_name: string
