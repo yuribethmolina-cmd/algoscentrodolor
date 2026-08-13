@@ -101,7 +101,7 @@ export default function Agendar() {
 
       const studyId = studyIdFromLabel(condition);
       const waUrl = studyId
-        ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name))}`
+        ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name, "form-agendar"))}`
         : buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
       setConfirmStudy(studyId); // show preparation confirmation before redirect
