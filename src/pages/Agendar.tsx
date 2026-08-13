@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackFormStep } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { buildStudyMessage, studyIdFromLabel, type StudyId } from "@/lib/waSource";
+import { buildStudyMessage, studyIdFromLabel, STUDY_WA, type StudyId } from "@/lib/waSource";
 
 import { ALGOS } from "@/config/algos.config";
 import { CheckCircle2, Loader2, MessageCircle, ArrowLeft, FileText } from "lucide-react";
