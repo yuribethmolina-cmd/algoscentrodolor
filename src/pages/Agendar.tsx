@@ -51,6 +51,7 @@ export default function Agendar() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null); // WhatsApp URL after success
+  const [confirmStudy, setConfirmStudy] = useState<StudyId | null>(null); // intermediate confirmation
   const started = useRef(false);
 
   useEffect(() => {
