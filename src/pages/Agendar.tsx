@@ -186,17 +186,16 @@ export default function Agendar() {
                   href={done || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setConfirmStudy(null)}
                   className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-semibold px-6 py-3 transition-colors"
                 >
                   <MessageCircle size={18} /> Continuar a WhatsApp
                 </a>
                 <button
                   type="button"
-                  onClick={() => setConfirmStudy(null)}
+                  onClick={() => { setConfirmStudy(null); setDone(null); }}
                   className="w-full inline-flex items-center justify-center gap-2 rounded-md border border-[#1a4a55]/20 text-[#1a4a55] font-medium px-6 py-3 hover:bg-[#1a4a55]/5 transition-colors"
                 >
-                  Volver al resumen final
+                  Editar solicitud
                 </button>
               </div>
             </div>
