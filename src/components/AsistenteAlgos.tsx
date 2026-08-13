@@ -337,6 +337,11 @@ export default function AsistenteAlgos() {
   }
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
+    if (action.type === "studies") {
+      setShowStudies(true);
+      trackCTA("chat_asistente", "quick_estudios_menu");
+      return;
+    }
     setHasStarted(true);
     if (action.type === "link") {
       trackCTA("chat_asistente", "pedir_cita_agendar", action.href);
@@ -344,10 +349,16 @@ export default function AsistenteAlgos() {
       navigate(action.href);
     } else if (action.type === "whatsapp") {
       openWhatsApp();
-    } else if (action.type === "message" && action.message) {
-      send(action.message);
     }
   }
+
+  function handleStudyOption(option: (typeof STUDY_OPTIONS)[number]) {
+    setHasStarted(true);
+    setShowStudies(false);
+    trackCTA("chat_asistente", `estudio_${option.id}`);
+    send(option.message);
+  }
+
 
 
 
