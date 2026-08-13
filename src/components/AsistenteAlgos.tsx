@@ -359,7 +359,9 @@ export default function AsistenteAlgos() {
     setShowStudies(false);
     trackCTA("chat_asistente", `estudio_${option.id}`);
     send(option.message);
+    openWhatsApp(buildStudyMessage(option.id as StudyId));
   }
+
 
 
 
