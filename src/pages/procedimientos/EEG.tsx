@@ -80,7 +80,7 @@ export default function EEG() {
 
         <ProcedureDetails
           facts={[
-            { label: "Precio", value: "$70 · previa cita" },
+            { label: "Inversión", value: "Consultar por WhatsApp · previa cita" },
             { label: "Horario", value: "Lun a vie · 7:00 am" },
             { label: "Duración", value: "30 a 45 min" },
             { label: "Anestesia", value: "No requiere" },
