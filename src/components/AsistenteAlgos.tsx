@@ -154,6 +154,8 @@ export default function AsistenteAlgos() {
     messages.some((m) => m.role === "user") || messages.length > 1
   );
   const [input, setInput] = useState("");
+  const [showStudies, setShowStudies] = useState(false);
+
 
 
   const [loading, setLoading] = useState(false);
