@@ -118,18 +118,21 @@ export function buildPrefilledMessage(section?: string, pathname?: string): stri
 /** Estudios de neurofisiología con su texto prellenado para WhatsApp. */
 export type StudyId = "emg" | "eeg" | "eeg-sedacion";
 
-export const STUDY_WA: Record<StudyId, { label: string; detail: string; note?: string }> = {
+export const STUDY_WA: Record<StudyId, { label: string; detail: string; code: string; note?: string }> = {
   emg: {
     label: "Electromiografía (EMG)",
     detail: "miembros superiores y/o inferiores",
+    code: "EMG",
   },
   eeg: {
     label: "Electroencefalograma (EEG)",
     detail: "estudio de actividad cerebral",
+    code: "EEG",
   },
   "eeg-sedacion": {
     label: "Electroencefalograma con sedación",
     detail: "requiere preparación y acompañante",
+    code: "EEG-SED",
     note: "Indicado cuando el paciente no puede permanecer quieto (niños o casos especiales). Requiere previa cita, horas de ayuno y acompañante adulto.",
   },
 };
@@ -143,8 +146,21 @@ export function studyIdFromLabel(label?: string): StudyId | null {
   return entry ?? null;
 }
 
-/** Mensaje prellenado específico para un estudio diagnóstico. */
-export function buildStudyMessage(study: StudyId, name?: string): string {
+/**
+ * Código de seguimiento propio de cada estudio.
+ * Formato: ALG-<ESTUDIO>-<ORIGEN>-<D>   Ej.: ALG-EEG-SED-CHAT-M
+ */
+export function buildStudyCode(study: StudyId, origin?: string): string {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const parts = ["ALG", STUDY_WA[study].code];
+  const org = normalize(origin ?? "", 12);
+  if (org) parts.push(org);
+  parts.push(isMobile ? "M" : "D");
+  return parts.join("-");
+}
+
+/** Mensaje prellenado específico para un estudio diagnóstico, con su código de seguimiento. */
+export function buildStudyMessage(study: StudyId, name?: string, origin = "agendar"): string {
   const { label, detail, note } = STUDY_WA[study];
   const who = name?.trim() ? name.trim() : "__________";
   let msg = `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n`;
@@ -152,8 +168,10 @@ export function buildStudyMessage(study: StudyId, name?: string): string {
     msg += `Nota de preparación: ${note}\n`;
   }
   msg += `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`;
+  msg += `\n\n[Ref: ${buildStudyCode(study, origin)} · ${label}]`;
   return msg;
 }
+
 
 
 
