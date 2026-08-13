@@ -228,7 +228,7 @@ export default function Agendar() {
                   {studyIdFromLabel(condition) && (
                     <a
                       href={`${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(
-                        buildStudyMessage(studyIdFromLabel(condition)!, name),
+                        buildStudyMessage(studyIdFromLabel(condition)!, name, "form-nota"),
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
