@@ -26,7 +26,7 @@ const pillars = [
   {
     icon: Users,
     title: "Accesibilidad Real",
-    description: "Calidad sin exclusión. Precios pensados para el mercado real del Zulia.",
+    description: "Calidad sin exclusión. Pensado para el mercado real del Zulia.",
   },
   {
     icon: Heart,

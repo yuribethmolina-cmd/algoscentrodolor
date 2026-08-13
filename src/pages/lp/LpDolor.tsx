@@ -304,7 +304,7 @@ export default function LpDolor() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-[#c69636] hover:bg-[#1a4a55] text-white font-sans font-bold uppercase text-[13px] tracking-[0.16em] px-10 py-4 transition-colors"
             >
-              Consultar precio y agendar estudio
+              Consultar por WhatsApp y agendar estudio
             </a>
           </div>
         </section>
