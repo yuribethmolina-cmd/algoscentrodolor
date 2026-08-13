@@ -9,6 +9,7 @@ import imgHeroAsset from "@/assets/emg-aguja-pie.jpeg.asset.json";
 import imgPiernaAsset from "@/assets/emg-pierna.webp.asset.json";
 import imgBrazoAsset from "@/assets/emg-conduccion-brazo.jpg.asset.json";
 import { ALGOS } from "@/config/algos.config";
+import { EMG_FAQ } from "@/data/studyFaqs";
 const imgHero = imgHeroAsset.url;
 const imgPierna = imgPiernaAsset.url;
 const imgBrazo = imgBrazoAsset.url;
@@ -365,12 +366,7 @@ export default function EMG() {
             { title: "Electromiografía con aguja", description: "Se introduce una aguja muy fina en algunos músculos para registrar su actividad. Puede molestar un poco, pero es tolerable y dura pocos minutos por músculo." },
             { title: "Interpretación", description: "El especialista revisa los registros y le explica el hallazgo. Recibe un informe que orienta al médico tratante." },
           ]}
-          faq={[
-            { question: "¿Duele el estudio?", answer: "Los estímulos eléctricos son breves e incómodos, pero no dolorosos. La aguja fina puede causar una molestia leve por músculo evaluado. La mayoría lo tolera bien." },
-            { question: "¿Puedo manejar después del estudio?", answer: "Sí. No queda con sedación ni anestesia. Puede retomar sus actividades normales de inmediato." },
-            { question: "¿Necesito ayuno?", answer: "No. Coma normal antes del estudio." },
-            { question: "¿Cuándo tengo el resultado?", answer: "El informe se entrega en pocos días, con la interpretación del especialista." },
-          ]}
+          faq={EMG_FAQ}
         />
 
         <CinematicCTA hc={hc} />

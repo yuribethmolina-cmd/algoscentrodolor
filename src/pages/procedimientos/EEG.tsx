@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
+import { EEG_FAQ, EEG_SEDACION_FAQ } from "@/data/studyFaqs";
 import PageHero from "@/components/PageHero";
 import ProcedureDetails from "@/components/procedimiento/ProcedureDetails";
 import ProcedureHeroImage from "@/components/procedimiento/ProcedureHeroImage";
@@ -94,12 +95,7 @@ export default function EEG() {
             { title: "Registro de la actividad", description: "Debe estar acostado, tranquilo, con los ojos cerrados o abiertos según le indiquemos. Puede que le pidamos respirar profundo o mirar una luz que parpadea." },
             { title: "Retiro y entrega", description: "Retiramos los electrodos, puede lavarse el cabello en casa. El informe lo entrega el neurólogo con la interpretación del estudio." },
           ]}
-          faq={[
-            { question: "¿Duele el estudio?", answer: "No. Los electrodos solo registran señales, no envían corriente. La sensación es únicamente el contacto de la pasta sobre el cuero cabelludo." },
-            { question: "¿Necesito estar en ayunas?", answer: "No. Puede desayunar normal. Solo evite bebidas con cafeína las horas previas si el médico se lo indicó." },
-            { question: "¿Puedo tomar mis medicamentos?", answer: "Sí, salvo indicación distinta del especialista que ordenó el estudio. Nunca suspenda un anticonvulsivante sin consultar." },
-            { question: "¿Cuándo entregan el resultado?", answer: "El informe con la interpretación del neurólogo se entrega en pocos días. Le avisamos apenas esté listo." },
-          ]}
+          faq={[...EEG_FAQ, ...EEG_SEDACION_FAQ.map((f) => ({ question: `Con sedación: ${f.question}`, answer: f.answer }))]}
         />
 
 
