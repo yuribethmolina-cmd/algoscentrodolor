@@ -19,6 +19,22 @@ const CONDITIONS = [
   "Otro",
 ];
 
+const STUDIES = [
+  "Electromiografía (EMG)",
+  "Electroencefalograma (EEG)",
+  "Electroencefalograma con sedación",
+];
+
+const STUDY_NOTES: Record<string, string> = {
+  "Electromiografía (EMG)":
+    "Estudio de nervios y músculos (miembros superiores e inferiores). Se realiza con previa cita. Te confirmamos disponibilidad y costo por WhatsApp.",
+  "Electroencefalograma (EEG)":
+    "Estudio no invasivo de la actividad cerebral. Se realiza con previa cita. Te confirmamos disponibilidad y costo por WhatsApp.",
+  "Electroencefalograma con sedación":
+    "Indicado cuando el paciente no puede permanecer quieto (niños o casos especiales). Requiere previa cita y preparación: te indicamos por WhatsApp las horas de ayuno, el acompañante requerido y el costo.",
+};
+
+
 type Shift = "manana" | "tarde" | "cualquiera";
 
 export default function Agendar() {
