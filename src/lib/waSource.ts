@@ -118,7 +118,7 @@ export function buildPrefilledMessage(section?: string, pathname?: string): stri
 /** Estudios de neurofisiología con su texto prellenado para WhatsApp. */
 export type StudyId = "emg" | "eeg" | "eeg-sedacion";
 
-export const STUDY_WA: Record<StudyId, { label: string; detail: string }> = {
+export const STUDY_WA: Record<StudyId, { label: string; detail: string; note?: string }> = {
   emg: {
     label: "Electromiografía (EMG)",
     detail: "miembros superiores y/o inferiores",
@@ -130,6 +130,7 @@ export const STUDY_WA: Record<StudyId, { label: string; detail: string }> = {
   "eeg-sedacion": {
     label: "Electroencefalograma con sedación",
     detail: "requiere preparación y acompañante",
+    note: "Indicado cuando el paciente no puede permanecer quieto (niños o casos especiales). Requiere previa cita, horas de ayuno y acompañante adulto.",
   },
 };
 
@@ -144,12 +145,14 @@ export function studyIdFromLabel(label?: string): StudyId | null {
 
 /** Mensaje prellenado específico para un estudio diagnóstico. */
 export function buildStudyMessage(study: StudyId, name?: string): string {
-  const { label, detail } = STUDY_WA[study];
+  const { label, detail, note } = STUDY_WA[study];
   const who = name?.trim() ? name.trim() : "__________";
-  return (
-    `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n` +
-    `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`
-  );
+  let msg = `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n`;
+  if (note) {
+    msg += `Nota de preparación: ${note}\n`;
+  }
+  msg += `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`;
+  return msg;
 }
 
 

@@ -1,0 +1,1 @@
+DELETE FROM public.appointment_requests WHERE name = 'Verificación EEG' AND phone = '0414-1111111';
