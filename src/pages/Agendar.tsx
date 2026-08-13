@@ -104,6 +104,7 @@ export default function Agendar() {
         ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name))}`
         : buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
+      setConfirmStudy(studyId); // show preparation confirmation before redirect
 
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
@@ -112,6 +113,10 @@ export default function Agendar() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function onConfirmToWhatsApp() {
+    setConfirmStudy(null); // hide confirmation, reveal success + WhatsApp CTA
   }
 
 
