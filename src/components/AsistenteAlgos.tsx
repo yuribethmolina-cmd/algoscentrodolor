@@ -30,8 +30,31 @@ const WELCOME: Msg = {
 const QUICK_ACTIONS = [
   { id: "cita", label: "Pedir cita", icon: Calendar, type: "link" as const, href: "/agendar" },
   { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
-  { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
+  { id: "estudios", label: "Consultar estudios", icon: null, type: "studies" as const },
 ] as const;
+
+/** Estudios de neurofisiología que se pueden consultar desde el asistente. */
+const STUDY_OPTIONS = [
+  {
+    id: "emg",
+    label: "Electromiografía (EMG)",
+    message:
+      "Quiero información sobre la Electromiografía (EMG): en qué consiste, cómo prepararme y cómo agendar.",
+  },
+  {
+    id: "eeg",
+    label: "Electroencefalograma (EEG)",
+    message:
+      "Quiero información sobre el Electroencefalograma (EEG): en qué consiste, cómo prepararme y cómo agendar.",
+  },
+  {
+    id: "eeg-sedacion",
+    label: "Electroencefalograma con sedación",
+    message:
+      "Quiero información sobre el Electroencefalograma con sedación: cuándo se indica, qué preparación requiere (ayuno, acompañante) y cómo agendar.",
+  },
+] as const;
+
 
 
 const SHIFT_LABELS: Record<string, string> = {
@@ -131,6 +154,8 @@ export default function AsistenteAlgos() {
     messages.some((m) => m.role === "user") || messages.length > 1
   );
   const [input, setInput] = useState("");
+  const [showStudies, setShowStudies] = useState(false);
+
 
 
   const [loading, setLoading] = useState(false);
@@ -314,6 +339,11 @@ export default function AsistenteAlgos() {
   }
 
   function handleQuickAction(action: (typeof QUICK_ACTIONS)[number]) {
+    if (action.type === "studies") {
+      setShowStudies(true);
+      trackCTA("chat_asistente", "quick_estudios_menu");
+      return;
+    }
     setHasStarted(true);
     if (action.type === "link") {
       trackCTA("chat_asistente", "pedir_cita_agendar", action.href);
@@ -321,10 +351,16 @@ export default function AsistenteAlgos() {
       navigate(action.href);
     } else if (action.type === "whatsapp") {
       openWhatsApp();
-    } else if (action.type === "message" && action.message) {
-      send(action.message);
     }
   }
+
+  function handleStudyOption(option: (typeof STUDY_OPTIONS)[number]) {
+    setHasStarted(true);
+    setShowStudies(false);
+    trackCTA("chat_asistente", `estudio_${option.id}`);
+    send(option.message);
+  }
+
 
 
 
@@ -740,6 +776,32 @@ export default function AsistenteAlgos() {
                 })}
               </div>
             )}
+
+            {!hasStarted && !loading && showStudies && (
+              <div className="pt-2 space-y-2">
+                <p className="text-xs" style={{ color: `${DEEP_TEAL}CC` }}>
+                  ¿Sobre cuál estudio quieres información?
+                </p>
+                <div className="flex flex-col sm:flex-row flex-wrap gap-2">
+                  {STUDY_OPTIONS.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => handleStudyOption(option)}
+                      className="text-xs px-3 py-2.5 sm:py-1.5 rounded-full transition-colors text-left"
+                      style={{
+                        backgroundColor: `${DEEP_TEAL}0D`,
+                        color: DEEP_TEAL,
+                        border: `1px solid ${DEEP_TEAL}40`,
+                      }}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+
 
 
           </div>
