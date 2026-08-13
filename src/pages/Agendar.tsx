@@ -8,6 +8,7 @@ import { buildStudyMessage, studyIdFromLabel, STUDY_WA, type StudyId } from "@/l
 import { ALGOS } from "@/config/algos.config";
 import { CheckCircle2, Loader2, MessageCircle, ArrowLeft, FileText } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import StudyFaqSection from "@/components/StudyFaqSection";
 
 
 const CONDITIONS = [
@@ -282,6 +283,8 @@ export default function Agendar() {
               </p>
             </form>
           )}
+
+          <StudyFaqSection className="mt-14" />
         </div>
       </main>
     </>
