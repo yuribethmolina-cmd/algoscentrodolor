@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { X, Send, Calendar, RefreshCw, Check } from "lucide-react";
 
 import { ALGOS } from "@/config/algos.config";
-import { stampWhatsAppUrl, buildPrefilledMessage } from "@/lib/waSource";
+import { stampWhatsAppUrl, buildPrefilledMessage, buildStudyMessage, type StudyId } from "@/lib/waSource";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackWA, trackCTA } from "@/lib/analytics";
 import { isWithinBusinessHours, nextOpeningLabel, BUSINESS_HOURS } from "@/lib/businessHours";
