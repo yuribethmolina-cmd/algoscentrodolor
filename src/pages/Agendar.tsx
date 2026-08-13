@@ -115,9 +115,6 @@ export default function Agendar() {
     }
   }
 
-  function onConfirmToWhatsApp() {
-    setConfirmStudy(null); // hide confirmation, reveal success + WhatsApp CTA
-  }
 
 
   return (
