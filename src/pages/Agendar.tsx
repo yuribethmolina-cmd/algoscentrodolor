@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackFormStep } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildStudyMessage, studyIdFromLabel } from "@/lib/waSource";
+
 import { ALGOS } from "@/config/algos.config";
 import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
@@ -96,8 +98,12 @@ export default function Agendar() {
       trackFormStep("form_success", condition || "sin_condicion");
       if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Schedule');
 
-      const waUrl = buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
+      const studyId = studyIdFromLabel(condition);
+      const waUrl = studyId
+        ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name))}`
+        : buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
+
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
       trackFormStep("form_error", "submit");
@@ -179,10 +185,23 @@ export default function Agendar() {
                 </select>
               </Field>
               {STUDY_NOTES[condition] && (
-                <p className="rounded-md border border-[#3d8b96]/30 bg-[#3d8b96]/5 p-3 text-sm text-[#1a4a55]">
-                  {STUDY_NOTES[condition]}
-                </p>
+                <div className="rounded-md border border-[#3d8b96]/30 bg-[#3d8b96]/5 p-3 space-y-3">
+                  <p className="text-sm text-[#1a4a55]">{STUDY_NOTES[condition]}</p>
+                  {studyIdFromLabel(condition) && (
+                    <a
+                      href={`${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(
+                        buildStudyMessage(studyIdFromLabel(condition)!, name),
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-md bg-[#1a4a55] hover:bg-[#3d8b96] text-white text-sm font-semibold px-4 py-2 transition-colors"
+                    >
+                      <MessageCircle size={16} /> Consultar por WhatsApp
+                    </a>
+                  )}
+                </div>
               )}
+
 
               <Field label="¿Tienes estudios previos (RM, TAC, EMG)?">
                 <div className="flex gap-3">

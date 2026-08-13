@@ -115,6 +115,45 @@ export function buildPrefilledMessage(section?: string, pathname?: string): stri
   return label ? `${base}\n(Vengo de la sección "${label}" de la web.)` : base;
 }
 
+/** Estudios de neurofisiología con su texto prellenado para WhatsApp. */
+export type StudyId = "emg" | "eeg" | "eeg-sedacion";
+
+export const STUDY_WA: Record<StudyId, { label: string; detail: string }> = {
+  emg: {
+    label: "Electromiografía (EMG)",
+    detail: "miembros superiores y/o inferiores",
+  },
+  eeg: {
+    label: "Electroencefalograma (EEG)",
+    detail: "estudio de actividad cerebral",
+  },
+  "eeg-sedacion": {
+    label: "Electroencefalograma con sedación",
+    detail: "requiere preparación y acompañante",
+  },
+};
+
+/** Devuelve el id del estudio a partir de su nombre visible. */
+export function studyIdFromLabel(label?: string): StudyId | null {
+  if (!label) return null;
+  const entry = (Object.keys(STUDY_WA) as StudyId[]).find(
+    (id) => STUDY_WA[id].label.toLowerCase() === label.trim().toLowerCase(),
+  );
+  return entry ?? null;
+}
+
+/** Mensaje prellenado específico para un estudio diagnóstico. */
+export function buildStudyMessage(study: StudyId, name?: string): string {
+  const { label, detail } = STUDY_WA[study];
+  const who = name?.trim() ? name.trim() : "__________";
+  return (
+    `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n` +
+    `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`
+  );
+}
+
+
+
 
 /**
  * Añade el mensaje preconfigurado (si falta) y el código de origen
