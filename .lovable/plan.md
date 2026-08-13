@@ -1,33 +1,27 @@
-Plan: Reemplazar la imagen de dolor de espalda por anatomía médica en la sección "Todo lo que te puede doler" (mobile/desktop)
+# Actualización de precios de estudios: ocultar precios públicos y canalizar a WhatsApp
 
-Objetivo
---------
-La imagen actual de la sección pain-tab muestra una mujer con dolor de espalda/cuello. Se quiere una imagen de anatomía médica que ayude al paciente a identificar su dolor y entender que ALGOS ataca la causa anatómica, no solo el síntoma.
+## Resumen
+Dr. Atilio compartió los precios actualizados de EMG/EEG, pero pidió explícitamente **no publicar la tasa ni el precio** en la web para que todo se canalice por WhatsApp. Esta tarea elimina los precios visibles del sitio, actualiza el asistente para que nunca los mencione y dirige a los pacientes a escribir por WhatsApp. Es una medida temporal ("al menos por unos días").
 
-Cambios propuestos
-------------------
-1. Reemplazar el asset de `dolor-espalda-1.webp` en `src/components/PainTabSection.tsx` por una imagen de anatomía médica que muestre la columna vertebral, nervios ciáticos o zonas de dolor cervical/lumbar.
+## Cambios propuestos
 
-2. Opciones de asset a evaluar (ya existen en el proyecto):
-   - `src/assets/ciatica-anatomia.jpeg` — anatomía del nervio ciático, útil para dolor lumbar/cadera.
-   - `src/assets/cond-cervical.jpg` — anatomía cervical, conecta con dolor de cabeza, cuello y hombros.
-   - `src/assets/cond-lumbar.jpg` — anatomía lumbar, conecta con dolor de espalda baja y ciática.
-   Si ninguna encaja visualmente con el diseño de la sección, generar una nueva imagen de anatomía médica de cuerpo completo (posterior) con zonas de dolor resaltadas en tonos teal y gold, sobre fondo claro compatible con el cream de la sección.
+### 1. Página de Electromiografía (EMG)
+- Reemplazar la fila de detalle `Precio: $100 · previa cita` por un texto que invite a consultar por WhatsApp, manteniendo la mención de "previa cita".
 
-3. Ajustar el tratamiento visual de la imagen:
-   - Mantener o suavizar el gradiente de la izquierda para que el texto "Todo lo que te puede doler" siga legible.
-   - Si la imagen es muy técnica/fría, aplicar un overlay cálido o un color grading que la acerque a la paleta ALGOS (teal #1A4A55, gold #C69636) y evite que se vea como un diagrama de textbook.
-   - Revisar las annotations flotantes (PAIN_ZONES) para que no queden sobre áreas muy oscuras o muy claras.
+### 2. Página de Electroencefalograma (EEG)
+- Reemplazar la fila de detalle `Precio: $70 · previa cita` por un texto que invite a consultar por WhatsApp, manteniendo la mención de "previa cita".
 
-4. Revisar el texto alternativo (alt) para que describa correctamente la imagen médica y mantenga accesibilidad.
+### 3. Landing page `/lp/dolor`
+- Eliminar las etiquetas de precio (`$100` y `$70`) de las tarjetas de EMG y EEG.
+- Ajustar el CTA del bloque diagnóstico para que sea consistente con el nuevo mensaje: consultar precio y agendar por WhatsApp.
 
-5. Verificar en ambos tabs:
-   - Tab "dolor": imagen de anatomía médica con zonas de dolor.
-   - Tab "tratamos": se mantiene la imagen del procedimiento guiado por imagen (sin cambios).
+### 4. Asistente virtual ALGOS
+- Actualizar la base de conocimiento del Edge Function `supabase/functions/asistente/index.ts` para reflejar los nuevos precios internos como **uso interno/no publicar**.
+- Cambiar la regla del system prompt que ordena "usar precios exactos" a una regla que prohíbe compartir precios o tasas en el chat y redirige siempre a WhatsApp.
+- Eliminar el ejemplo de formato que menciona poner precios en negritas.
+- Asegurar que el asistente sepa mencionar que los estudios requieren cita previa y que el pago se canaliza por WhatsApp.
 
-Validación
-----------
-- Screenshot mobile y desktop de la sección pain-tab con el nuevo asset.
-- Confirmar que el texto superpuesto sigue legible.
-- Verificar que las annotations flotantes se vean y no se pierdan en el nuevo fondo.
-- Revisar Lighthouse/accessibility por contraste de texto sobre imagen.
+## Verificación
+- Revisar que no queden precios de EMG/EEG visibles en las páginas públicas.
+- Revisar que el asistente no cite precios en sus respuestas.
+- Confirmar que los CTAs de WhatsApp y los formularios de agendamiento continúan funcionando.
