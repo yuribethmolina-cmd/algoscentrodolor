@@ -30,8 +30,31 @@ const WELCOME: Msg = {
 const QUICK_ACTIONS = [
   { id: "cita", label: "Pedir cita", icon: Calendar, type: "link" as const, href: "/agendar" },
   { id: "whatsapp", label: "Contactar por WhatsApp", icon: null, type: "whatsapp" as const },
-  { id: "estudios", label: "Consultar estudios", icon: null, type: "message" as const, message: "¿Qué estudios diagnósticos realizan?" },
+  { id: "estudios", label: "Consultar estudios", icon: null, type: "studies" as const },
 ] as const;
+
+/** Estudios de neurofisiología que se pueden consultar desde el asistente. */
+const STUDY_OPTIONS = [
+  {
+    id: "emg",
+    label: "Electromiografía (EMG)",
+    message:
+      "Quiero información sobre la Electromiografía (EMG): en qué consiste, cómo prepararme y cómo agendar.",
+  },
+  {
+    id: "eeg",
+    label: "Electroencefalograma (EEG)",
+    message:
+      "Quiero información sobre el Electroencefalograma (EEG): en qué consiste, cómo prepararme y cómo agendar.",
+  },
+  {
+    id: "eeg-sedacion",
+    label: "Electroencefalograma con sedación",
+    message:
+      "Quiero información sobre el Electroencefalograma con sedación: cuándo se indica, qué preparación requiere (ayuno, acompañante) y cómo agendar.",
+  },
+] as const;
+
 
 
 const SHIFT_LABELS: Record<string, string> = {
