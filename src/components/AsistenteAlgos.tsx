@@ -777,6 +777,32 @@ export default function AsistenteAlgos() {
               </div>
             )}
 
+            {!hasStarted && !loading && showStudies && (
+              <div className="pt-2 space-y-2">
+                <p className="text-xs" style={{ color: `${DEEP_TEAL}CC` }}>
+                  ¿Sobre cuál estudio quieres información?
+                </p>
+                <div className="flex flex-col sm:flex-row flex-wrap gap-2">
+                  {STUDY_OPTIONS.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => handleStudyOption(option)}
+                      className="text-xs px-3 py-2.5 sm:py-1.5 rounded-full transition-colors text-left"
+                      style={{
+                        backgroundColor: `${DEEP_TEAL}0D`,
+                        color: DEEP_TEAL,
+                        border: `1px solid ${DEEP_TEAL}40`,
+                      }}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+
+
 
           </div>
 
