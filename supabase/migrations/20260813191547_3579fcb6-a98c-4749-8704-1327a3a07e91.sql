@@ -1,0 +1,1 @@
+DELETE FROM public.appointment_requests WHERE name = 'Prueba Confirmación' AND phone = '04140000000';

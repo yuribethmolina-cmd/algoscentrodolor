@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAppointment, trackFormStep } from "@/lib/analytics";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { buildStudyMessage, studyIdFromLabel } from "@/lib/waSource";
+import { buildStudyMessage, studyIdFromLabel, STUDY_WA, type StudyId } from "@/lib/waSource";
 
 import { ALGOS } from "@/config/algos.config";
-import { CheckCircle2, Loader2, MessageCircle, ArrowLeft } from "lucide-react";
+import { CheckCircle2, Loader2, MessageCircle, ArrowLeft, FileText } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 
@@ -51,6 +51,7 @@ export default function Agendar() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null); // WhatsApp URL after success
+  const [confirmStudy, setConfirmStudy] = useState<StudyId | null>(null); // intermediate confirmation
   const started = useRef(false);
 
   useEffect(() => {
@@ -103,6 +104,7 @@ export default function Agendar() {
         ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name))}`
         : buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
+      setConfirmStudy(studyId); // show preparation confirmation before redirect
 
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
@@ -112,6 +114,7 @@ export default function Agendar() {
       setLoading(false);
     }
   }
+
 
 
   return (
@@ -138,7 +141,7 @@ export default function Agendar() {
             Completa el formulario y te contactaremos por WhatsApp para coordinar tu evaluación con el equipo de ALGOS.
           </p>
 
-          {done ? (
+          {done && !confirmStudy ? (
             <div className="rounded-lg bg-white border border-[#3d8b96]/30 p-8 text-center">
               <CheckCircle2 className="mx-auto text-[#3d8b96] mb-3" size={48} />
               <h2 className="font-display font-semibold text-[#1a4a55] text-xl mb-2">
@@ -159,6 +162,41 @@ export default function Agendar() {
                 <Link to="/" className="text-[#1a4a55]/60 hover:text-[#1a4a55] text-sm underline">
                   Volver al inicio
                 </Link>
+              </div>
+            </div>
+          ) : confirmStudy ? (
+            <div className="rounded-lg bg-white border border-[#3d8b96]/30 p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="rounded-full bg-[#3d8b96]/10 p-2">
+                  <FileText className="text-[#3d8b96]" size={24} />
+                </div>
+                <h2 className="font-display font-semibold text-[#1a4a55] text-xl">
+                  Confirma tu solicitud
+                </h2>
+              </div>
+              <p className="text-[#1a4a55]/80 mb-5">
+                Gracias, <strong className="text-[#1a4a55]">{name.split(" ")[0]}</strong>. Revisa el resumen de tu estudio antes de continuar a WhatsApp.
+              </p>
+              <div className="rounded-md border border-[#3d8b96]/30 bg-[#3d8b96]/5 p-4 mb-6">
+                <h3 className="font-semibold text-[#1a4a55] mb-2">{STUDY_WA[confirmStudy].label}</h3>
+                <p className="text-sm text-[#1a4a55]/80 leading-relaxed">{STUDY_NOTES[STUDY_WA[confirmStudy].label]}</p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <a
+                  href={done || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#1a4a55] hover:bg-[#3d8b96] text-white font-semibold px-6 py-3 transition-colors"
+                >
+                  <MessageCircle size={18} /> Continuar a WhatsApp
+                </a>
+                <button
+                  type="button"
+                  onClick={() => { setConfirmStudy(null); setDone(null); }}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-md border border-[#1a4a55]/20 text-[#1a4a55] font-medium px-6 py-3 hover:bg-[#1a4a55]/5 transition-colors"
+                >
+                  Editar solicitud
+                </button>
               </div>
             </div>
           ) : (
