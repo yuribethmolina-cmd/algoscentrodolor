@@ -96,8 +96,12 @@ export default function Agendar() {
       trackFormStep("form_success", condition || "sin_condicion");
       if (typeof (window as any).fbq === 'function') (window as any).fbq('track', 'Schedule');
 
-      const waUrl = buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
+      const studyId = studyIdFromLabel(condition);
+      const waUrl = studyId
+        ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildStudyMessage(studyId, name))}`
+        : buildWhatsAppUrl({ specialty: condition || undefined, visitType: "primera-vez" });
       setDone(waUrl);
+
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Error al enviar";
       trackFormStep("form_error", "submit");
