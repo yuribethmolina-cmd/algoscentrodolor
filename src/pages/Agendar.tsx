@@ -170,9 +170,20 @@ export default function Agendar() {
               <Field label="¿Qué te trae a consulta?">
                 <select value={condition} onChange={(e) => setCondition(e.target.value)} className={inputCls}>
                   <option value="">Selecciona una opción</option>
-                  {CONDITIONS.map((c) => <option key={c} value={c}>{c}</option>)}
+                  <optgroup label="Dolor / condición">
+                    {CONDITIONS.map((c) => <option key={c} value={c}>{c}</option>)}
+                  </optgroup>
+                  <optgroup label="Estudios diagnósticos">
+                    {STUDIES.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </optgroup>
                 </select>
               </Field>
+              {STUDY_NOTES[condition] && (
+                <p className="rounded-md border border-[#3d8b96]/30 bg-[#3d8b96]/5 p-3 text-sm text-[#1a4a55]">
+                  {STUDY_NOTES[condition]}
+                </p>
+              )}
+
               <Field label="¿Tienes estudios previos (RM, TAC, EMG)?">
                 <div className="flex gap-3">
                   {(["si", "no"] as const).map((v) => (
