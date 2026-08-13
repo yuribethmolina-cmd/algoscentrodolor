@@ -90,13 +90,31 @@ export function reasonForPath(pathname?: string): string {
   return "sus servicios";
 }
 
+/** Rutas donde el paciente suele necesitar precio y disponibilidad (solo por WhatsApp). */
+const PRICING_PATHS = [
+  /^\/procedimientos\/emg/,
+  /^\/procedimientos\/eeg/,
+  /^\/estudios/,
+  /^\/estudios-laboratorio/,
+  /^\/lp\/diagnostico/,
+];
+
+function needsPricingLine(pathname?: string): boolean {
+  const path = pathname ?? (typeof window !== "undefined" ? window.location.pathname : "/");
+  return PRICING_PATHS.some((p) => p.test(path));
+}
+
 /** Mensaje preconfigurado con el motivo de consulta y la sección de origen. */
 export function buildPrefilledMessage(section?: string, pathname?: string): string {
   const reason = reasonForPath(pathname);
   const label = sectionLabel(section);
-  const base = `Hola, mi nombre es __________ y quiero información sobre ${reason}.\nEscribo porque estoy interesado/a en: __________`;
+  let base = `Hola, mi nombre es __________ y quiero información sobre ${reason}.\nEscribo porque estoy interesado/a en: __________`;
+  if (needsPricingLine(pathname) || section === "estudios") {
+    base += `\n¿Me pueden indicar el costo y la disponibilidad con previa cita?`;
+  }
   return label ? `${base}\n(Vengo de la sección "${label}" de la web.)` : base;
 }
+
 
 /**
  * Añade el mensaje preconfigurado (si falta) y el código de origen
