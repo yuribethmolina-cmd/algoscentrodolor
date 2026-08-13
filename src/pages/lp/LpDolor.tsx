@@ -26,7 +26,6 @@ const DIAGNOSTICOS = [
     icon: Zap,
     slug: "emg",
     name: "Electromiografía (EMG)",
-    precio: "$100",
     quees: "Mide cómo viajan las señales eléctricas por los nervios y cómo responden los músculos.",
     paraque: "Indicada cuando el dolor viene con hormigueo, adormecimiento o debilidad. Detecta si un nervio está comprimido, irritado o dañado.",
   },
@@ -34,7 +33,6 @@ const DIAGNOSTICOS = [
     icon: Waves,
     slug: "eeg",
     name: "Electroencefalograma (EEG)",
-    precio: "$70",
     quees: "Registra la actividad eléctrica del cerebro mediante electrodos en el cuero cabelludo. Indoloro, dura 30–45 min.",
     paraque: "Indicado en episodios convulsivos, mareos frecuentes, alteraciones de conciencia y evaluación neurológica.",
   },
@@ -277,18 +275,13 @@ export default function LpDolor() {
                     key={d.slug}
                     className="bg-white border border-[#c69636]/30 p-6 flex flex-col gap-4"
                   >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 bg-[#1a4a55] flex items-center justify-center shrink-0">
-                          <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
-                        </div>
-                        <p className="font-sans font-bold text-[#1a4a55] text-base leading-tight">
-                          {d.name}
-                        </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 bg-[#1a4a55] flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-[#c69636]" strokeWidth={1.5} />
                       </div>
-                      <span className="font-display font-bold text-[#c69636] text-xl shrink-0">
-                        {d.precio}
-                      </span>
+                      <p className="font-sans font-bold text-[#1a4a55] text-base leading-tight">
+                        {d.name}
+                      </p>
                     </div>
                     <div className="space-y-2">
                       <p className="font-sans text-[#1a4a55]/70 text-sm leading-relaxed">
