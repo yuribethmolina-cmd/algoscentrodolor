@@ -18,13 +18,25 @@ function normalize(value: string, maxLen: number): string {
     .replace(/-+$/g, "");
 }
 
+/** Quita palabras repetidas o de relleno para que el código quede corto y legible. */
+function compactCode(value: string, maxWords: number): string {
+  const stop = new Set(["CHAT", "WHA", "WHATSAPP", "QUICK", "CTA", "BTN", "ASISTENTE"]);
+  const words: string[] = [];
+  for (const w of value.split("-")) {
+    if (!w || words.includes(w)) continue;
+    words.push(w);
+  }
+  const filtered = words.filter((w) => !stop.has(w));
+  return (filtered.length ? filtered : words).slice(0, maxWords).join("-");
+}
+
 export function buildSourceCode(section?: string, label?: string): string {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const parts = ["ALG"];
   const sec = normalize(section ?? "", 14);
   const lbl = normalize(label ?? "", 14);
-  if (sec) parts.push(sec);
-  if (lbl && lbl !== sec) parts.push(lbl);
+  const body = compactCode([sec, lbl].filter(Boolean).join("-"), 2);
+  const parts = ["ALG"];
+  if (body) parts.push(body);
   parts.push(isMobile ? "M" : "D");
   return parts.join("-");
 }
