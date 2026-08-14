@@ -18,13 +18,48 @@ function normalize(value: string, maxLen: number): string {
     .replace(/-+$/g, "");
 }
 
+/** Quita palabras repetidas o de relleno para que el código quede corto y legible. */
+function compactCode(value: string, maxWords: number): string {
+  const stop = new Set(["CHAT", "WHA", "WHATSAPP", "QUICK", "CTA", "BTN", "ASISTENTE"]);
+  const words: string[] = [];
+  for (const w of value.split("-")) {
+    if (!w || words.includes(w)) continue;
+    words.push(w);
+  }
+  const filtered = words.filter((w) => !stop.has(w));
+  return (filtered.length ? filtered : words).slice(0, maxWords).join("-");
+}
+
+/** Códigos cortos por sección, para que el [Ref] sea legible. */
+const SECTION_CODES: Record<string, string> = {
+  chat_asistente: "ASIST",
+  hero: "HERO",
+  hero_mobile_a: "HERO",
+  hero_mobile_b: "HERO",
+  sticky_mobile_cta: "STICKY",
+  "mobile-navigation": "MENU",
+  conditions: "COND",
+  "pain-tab": "DOLOR",
+  "patient-journey": "RUTA",
+  "why-different": "DIFF",
+  alliance: "UDUZ",
+  "home-team": "EQUIPO",
+  team: "EQUIPO",
+  location: "SEDES",
+  stats: "STATS",
+  cta: "CTA",
+  "final-cta": "CTA-FIN",
+};
+
 export function buildSourceCode(section?: string, label?: string): string {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const parts = ["ALG"];
-  const sec = normalize(section ?? "", 14);
+  const sec = SECTION_CODES[section ?? ""] ?? normalize(section ?? "", 14);
   const lbl = normalize(label ?? "", 14);
-  if (sec) parts.push(sec);
-  if (lbl && lbl !== sec) parts.push(lbl);
+  const body = SECTION_CODES[section ?? ""]
+    ? sec
+    : compactCode([sec, lbl].filter(Boolean).join("-"), 2);
+  const parts = ["ALG"];
+  if (body) parts.push(body);
   parts.push(isMobile ? "M" : "D");
   return parts.join("-");
 }
@@ -107,12 +142,11 @@ function needsPricingLine(pathname?: string): boolean {
 /** Mensaje preconfigurado con el motivo de consulta y la sección de origen. */
 export function buildPrefilledMessage(section?: string, pathname?: string): string {
   const reason = reasonForPath(pathname);
-  const label = sectionLabel(section);
-  let base = `Hola, mi nombre es __________ y quiero información sobre ${reason}.\nEscribo porque estoy interesado/a en: __________`;
+  let base = `Hola, buen día. Quiero información sobre ${reason}.`;
   if (needsPricingLine(pathname) || section === "estudios") {
-    base += `\n¿Me pueden indicar el costo y la disponibilidad con previa cita?`;
+    base += `\n¿Me pueden indicar el costo y la disponibilidad?`;
   }
-  return label ? `${base}\n(Vengo de la sección "${label}" de la web.)` : base;
+  return `${base}\nMi nombre es:`;
 }
 
 /** Estudios de neurofisiología con su texto prellenado para WhatsApp. */
@@ -161,14 +195,12 @@ export function buildStudyCode(study: StudyId, origin?: string): string {
 
 /** Mensaje prellenado específico para un estudio diagnóstico, con su código de seguimiento. */
 export function buildStudyMessage(study: StudyId, name?: string, origin = "agendar"): string {
-  const { label, detail, note } = STUDY_WA[study];
-  const who = name?.trim() ? name.trim() : "__________";
-  let msg = `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n`;
-  if (note) {
-    msg += `Nota de preparación: ${note}\n`;
-  }
-  msg += `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`;
-  msg += `\n\n[Ref: ${buildStudyCode(study, origin)} · ${label}]`;
+  const { label, detail } = STUDY_WA[study];
+  const who = name?.trim();
+  let msg = `Hola, buen día. Quiero información sobre ${label} (${detail}).`;
+  msg += `\n¿Me pueden indicar el costo, la preparación y la disponibilidad?`;
+  msg += who ? `\nMi nombre es: ${who}` : `\nMi nombre es:`;
+  msg += `\n\nRef: ${buildStudyCode(study, origin)}`;
   return msg;
 }
 
@@ -185,12 +217,10 @@ export function withSourceCode(url: string, code: string, section?: string): str
   try {
     const parsed = new URL(url, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
     const current = parsed.searchParams.get("text") ?? "";
-    if (current.includes("[Ref:")) return url;
+    if (current.includes("[Ref:") || /(^|\n)Ref: /.test(current)) return url;
 
     const body = current.trim() || buildPrefilledMessage(section);
-    const label = sectionLabel(section);
-    const ref = label ? `[Ref: ${code} · ${label}]` : `[Ref: ${code}]`;
-    parsed.searchParams.set("text", `${body}\n\n${ref}`);
+    parsed.searchParams.set("text", `${body}\n\nRef: ${code}`);
     return parsed.toString();
   } catch {
     return url;
