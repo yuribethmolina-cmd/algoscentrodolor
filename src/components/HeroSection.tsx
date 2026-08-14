@@ -6,6 +6,7 @@ import { AnimatedHeadline } from "@/lib/animations";
 import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
 import { getVariant, type Variant } from "@/lib/abTest";
 import { trackCTA, trackWA } from "@/lib/analytics";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 import HeroMobileVariantB from "./HeroMobileVariantB";
 import heroPoster from "@/assets/hero-poster.jpg.asset.json";
 import heroMobilePain from "@/assets/hero-mobile-pain.jpg.asset.json";
@@ -47,10 +48,8 @@ export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const hours = useBusinessHours();
-  const waHref = withHoursContext(
-    ALGOS.contact.whatsappHref,
-    "Hola, quisiera agendar una consulta en ALGOS."
-  );
+  const { url: genericWaUrl } = buildGenericWhatsAppUrl("hero", "escribir_whatsapp");
+  const waHref = withHoursContext(genericWaUrl);
 
   // A/B test: posición del CTA de WhatsApp en el hero móvil
   const [variant, setVariant] = useState<Variant>("a");
