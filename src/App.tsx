@@ -19,6 +19,7 @@ const App = () => (
         <AnimatedRoutes />
         <AsistenteAlgos />
         <MobileStickyCTA />
+        <WhatsAppReasonDialog />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
