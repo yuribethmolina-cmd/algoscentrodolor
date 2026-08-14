@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 import aboutProcedure from "@/assets/about-procedure.jpg";
 
 const DEEP_TEAL = "#1a4a55";

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 import dolorEspalda from "@/assets/dolor-espalda-1.webp";
 import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
 import condRodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";

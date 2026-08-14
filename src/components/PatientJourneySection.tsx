@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
