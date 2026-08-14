@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import AsistenteAlgos from "./components/AsistenteAlgos";
 import MobileStickyCTA from "./components/MobileStickyCTA";
+import WhatsAppReasonDialog from "./components/WhatsAppReasonDialog";
 
 const queryClient = new QueryClient();
 
