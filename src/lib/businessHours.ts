@@ -81,11 +81,21 @@ export function useBusinessHours(): BusinessHoursState {
   return state;
 }
 
-/** Añade contexto de horario al mensaje prellenado de WhatsApp. */
-export function withHoursContext(waHref: string, message: string, date = new Date()): string {
+/** Añade contexto de horario antes del código de referencia en un enlace de WhatsApp. */
+export function withHoursContext(waHref: string, date = new Date()): string {
   const suffix = isWithinBusinessHours(date)
     ? ""
     : " (Escribo fuera del horario de atención; agradezco su respuesta al abrir.)";
-  const [base] = waHref.split("?");
-  return `${base}?text=${encodeURIComponent(message + suffix)}`;
+  try {
+    const parsed = new URL(waHref, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
+    const full = parsed.searchParams.get("text") ?? "";
+    const [message, ref = ""] = full.split(/\n\nRef: /);
+    const body = (message || "").trim();
+    if (!body && !suffix) return waHref;
+    const nextBody = body + (suffix ? `${body.endsWith(".") ? "" : "."}${suffix}` : "");
+    parsed.searchParams.set("text", ref ? `${nextBody}\n\nRef: ${ref}` : nextBody);
+    return parsed.toString();
+  } catch {
+    return waHref;
+  }
 }

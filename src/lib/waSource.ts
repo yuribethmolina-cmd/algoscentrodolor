@@ -1,3 +1,5 @@
+import { ALGOS } from "@/config/algos.config";
+
 /**
  * Código de origen para clics de WhatsApp.
  * Permite identificar desde qué sección o CTA llegó cada paciente
@@ -139,10 +141,19 @@ function needsPricingLine(pathname?: string): boolean {
   return PRICING_PATHS.some((p) => p.test(path));
 }
 
+/** Mensaje abierto y humano para CTAs genéricos que no asumen un tema específico. */
+export function buildGenericPrefilledMessage(): string {
+  return `Hola, buen día. Tengo una consulta y me gustaría que me orienten.\nMi nombre es:`;
+}
+
 /** Mensaje preconfigurado con el motivo de consulta y la sección de origen. */
-export function buildPrefilledMessage(section?: string, pathname?: string): string {
+export function buildPrefilledMessage(section?: string, pathname?: string, generic = false): string {
+  if (generic) return buildGenericPrefilledMessage();
   const reason = reasonForPath(pathname);
-  let base = `Hola, buen día. Quiero información sobre ${reason}.`;
+  const isGeneric = reason === "sus servicios";
+  let base = isGeneric
+    ? `Hola, buen día. Tengo una consulta y me gustaría que me orienten.`
+    : `Hola, buen día. Quiero información sobre ${reason}.`;
   if (needsPricingLine(pathname) || section === "estudios") {
     base += `\n¿Me pueden indicar el costo y la disponibilidad?`;
   }
@@ -208,19 +219,21 @@ export function buildStudyMessage(study: StudyId, name?: string, origin = "agend
 
 
 
+
 /**
  * Añade el mensaje preconfigurado (si falta) y el código de origen
- * al enlace de WhatsApp.
+ * al enlace de WhatsApp. Permite pasar un cuerpo de mensaje explícito
+ * para CTAs genéricos que no deben depender de la ruta actual.
  */
-export function withSourceCode(url: string, code: string, section?: string): string {
+export function withSourceCode(url: string, code: string, section?: string, body?: string): string {
   if (!url || !code) return url;
   try {
     const parsed = new URL(url, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
     const current = parsed.searchParams.get("text") ?? "";
     if (current.includes("[Ref:") || /(^|\n)Ref: /.test(current)) return url;
 
-    const body = current.trim() || buildPrefilledMessage(section);
-    parsed.searchParams.set("text", `${body}\n\nRef: ${code}`);
+    const message = body ?? (current.trim() || buildPrefilledMessage(section));
+    parsed.searchParams.set("text", `${message}\n\nRef: ${code}`);
     return parsed.toString();
   } catch {
     return url;
@@ -231,5 +244,14 @@ export function withSourceCode(url: string, code: string, section?: string): str
 export function stampWhatsAppUrl(url: string, section?: string, label?: string): { url: string; code: string } {
   const code = buildSourceCode(section, label);
   return { url: withSourceCode(url, code, section), code };
+}
+
+/** URL genérica de WhatsApp con mensaje abierto y código de origen. */
+export function buildGenericWhatsAppUrl(section?: string, label?: string): { url: string; code: string } {
+  const code = buildSourceCode(section, label);
+  return {
+    url: withSourceCode(ALGOS.contact.whatsappHref, code, section, buildGenericPrefilledMessage()),
+    code,
+  };
 }
 

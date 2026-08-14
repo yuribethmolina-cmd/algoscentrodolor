@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 import dolorEspalda from "@/assets/dolor-espalda-1.webp";
 import procedimientoFluoroscopiaAsset from "@/assets/procedimiento-fluoroscopia.png.asset.json";
 import condRodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
@@ -316,7 +317,7 @@ export default function PainTabSection() {
           )}
 
           <a
-            href={ALGOS.contact.whatsappHref}
+            href={buildGenericWhatsAppUrl("pain-tab", "agendar_consulta").url}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 self-start font-ui font-bold uppercase rounded-none transition-[background-color,transform,box-shadow] duration-300 md:hover:-translate-y-0.5 md:hover:shadow-[0_10px_24px_-8px_rgba(61,139,150,0.45)]"

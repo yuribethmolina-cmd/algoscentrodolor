@@ -3,8 +3,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import algosLogoFull from "@/assets/algos-logo-v2.png";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
-const WA = ALGOS.contact.whatsappHref + "?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.";
+const WA = buildGenericWhatsAppUrl("mobile-navigation", "escribir_whatsapp").url;
 const CREAM = ALGOS.palette.cream;
 const DEEP_TEAL = ALGOS.palette.deepTeal;
 const GOLD = ALGOS.palette.gold;

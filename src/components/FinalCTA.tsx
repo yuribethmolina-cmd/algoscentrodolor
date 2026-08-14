@@ -2,6 +2,7 @@ import { useDrawSVG, AnimatedHeadline } from "@/lib/animations";
 import BackdropImage from "@/components/atmosphere/BackdropImage";
 import algosSignalIcon from "@/assets/algos-signal-icon.png";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
 // Unsplash · "warm window light, calm interior", atmospheric, no people
 const FINAL_BG =
@@ -13,7 +14,7 @@ const GOLD = ALGOS.palette.gold;
 const BRAND_TEAL = ALGOS.palette.brandTeal;
 const BRAND_TEAL_HOVER = ALGOS.palette.brandTealHover;
 
-const WHATSAPP_HREF = ALGOS.contact.whatsappHref;
+const WHATSAPP_HREF = buildGenericWhatsAppUrl("final-cta", "agendar_consulta").url;
 
 type ContactOption = {
   label: string;
@@ -22,7 +23,7 @@ type ContactOption = {
 };
 
 const contactOptions: ContactOption[] = [
-  { label: "WHATSAPP · LLAMADAS", value: ALGOS.contact.whatsappDisplay, href: ALGOS.contact.whatsappHref },
+  { label: "WHATSAPP · LLAMADAS", value: ALGOS.contact.whatsappDisplay, href: WHATSAPP_HREF },
   { label: "SOLO LLAMADAS", value: ALGOS.contact.phone2Display, href: ALGOS.contact.phone2Href },
   { label: "CORREO ELECTRÓNICO", value: ALGOS.contact.email, href: ALGOS.contact.emailHref },
 ];

@@ -3,6 +3,7 @@ import imgTechPic from "@/assets/experience-tech.jpg?w=480;800&format=webp;jpg&a
 import imgSalaPic from "@/assets/sala-procedimientos.jpg?w=480;800&format=webp;jpg&as=picture";
 import imgProcPic from "@/assets/about-procedure.jpg?w=480;800&format=webp;jpg&as=picture";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 const imgTech = imgTechPic.img.src;
 const imgSala = imgSalaPic.img.src;
 const imgProc = imgProcPic.img.src;
@@ -12,7 +13,7 @@ const TEAL = ALGOS.palette.brandTeal;
 const GOLD = ALGOS.palette.gold;
 const CREAM = ALGOS.palette.cream;
 const STEEL = ALGOS.palette.steel;
-const WA_URL = ALGOS.contact.whatsappHref;
+const WA_URL = buildGenericWhatsAppUrl("services", "escribir_whatsapp").url;
 
 const SVC_PHOTOS: Record<string, string> = {
   "01": imgTech,

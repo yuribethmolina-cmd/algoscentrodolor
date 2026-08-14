@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
@@ -145,7 +146,7 @@ export default function PatientJourneySection() {
           </h2>
 
           <a
-            href={ALGOS.contact.whatsappHref}
+            href={buildGenericWhatsAppUrl("patient-journey", "agendar_consulta").url}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 self-start sm:self-auto shrink-0"

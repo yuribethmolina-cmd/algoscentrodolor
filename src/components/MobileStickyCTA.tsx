@@ -4,6 +4,7 @@ import { MessageCircle, CalendarDays } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { trackCTA } from "@/lib/analytics";
 import { useBusinessHours, withHoursContext } from "@/lib/businessHours";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
 
 /**
@@ -14,10 +15,8 @@ export default function MobileStickyCTA() {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
   const hours = useBusinessHours();
-  const waHref = withHoursContext(
-    ALGOS.contact.whatsappHref,
-    "Hola, quisiera agendar una consulta en ALGOS."
-  );
+  const { url: genericWaUrl } = buildGenericWhatsAppUrl("sticky_mobile_cta", "escribir_whatsapp");
+  const waHref = withHoursContext(genericWaUrl);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 320);

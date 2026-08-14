@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ALGOS } from "@/config/algos.config";
 import { useInViewOnce } from "@/lib/animations";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 import lumbarAsset from "@/assets/cond-lumbar.jpg.asset.json";
 import cervicalAsset from "@/assets/cond-cervical.jpg.asset.json";
 import rodillaAsset from "@/assets/cond-rodilla.jpg.asset.json";
@@ -90,7 +91,7 @@ const painCards: PainCard[] = [
   },
 ];
 
-const WHATSAPP_URL = ALGOS.contact.whatsappHref;
+const WHATSAPP_URL = buildGenericWhatsAppUrl("conditions", "escribir_whatsapp").url;
 
 export default function ConditionsSection() {
   const [openId, setOpenId] = useState<number | null>(null);
