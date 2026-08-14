@@ -146,7 +146,7 @@ export default function PatientJourneySection() {
           </h2>
 
           <a
-            href={ALGOS.contact.whatsappHref}
+            href={buildGenericWhatsAppUrl("patient-journey", "agendar_consulta").url}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 self-start sm:self-auto shrink-0"

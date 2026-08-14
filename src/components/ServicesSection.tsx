@@ -13,7 +13,7 @@ const TEAL = ALGOS.palette.brandTeal;
 const GOLD = ALGOS.palette.gold;
 const CREAM = ALGOS.palette.cream;
 const STEEL = ALGOS.palette.steel;
-const WA_URL = ALGOS.contact.whatsappHref;
+const WA_URL = buildGenericWhatsAppUrl("services", "escribir_whatsapp").url;
 
 const SVC_PHOTOS: Record<string, string> = {
   "01": imgTech,
