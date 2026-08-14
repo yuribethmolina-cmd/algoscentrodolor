@@ -30,11 +30,34 @@ function compactCode(value: string, maxWords: number): string {
   return (filtered.length ? filtered : words).slice(0, maxWords).join("-");
 }
 
+/** Códigos cortos por sección, para que el [Ref] sea legible. */
+const SECTION_CODES: Record<string, string> = {
+  chat_asistente: "ASIST",
+  hero: "HERO",
+  hero_mobile_a: "HERO",
+  hero_mobile_b: "HERO",
+  sticky_mobile_cta: "STICKY",
+  "mobile-navigation": "MENU",
+  conditions: "COND",
+  "pain-tab": "DOLOR",
+  "patient-journey": "RUTA",
+  "why-different": "DIFF",
+  alliance: "UDUZ",
+  "home-team": "EQUIPO",
+  team: "EQUIPO",
+  location: "SEDES",
+  stats: "STATS",
+  cta: "CTA",
+  "final-cta": "CTA-FIN",
+};
+
 export function buildSourceCode(section?: string, label?: string): string {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const sec = normalize(section ?? "", 14);
+  const sec = SECTION_CODES[section ?? ""] ?? normalize(section ?? "", 14);
   const lbl = normalize(label ?? "", 14);
-  const body = compactCode([sec, lbl].filter(Boolean).join("-"), 2);
+  const body = SECTION_CODES[section ?? ""]
+    ? sec
+    : compactCode([sec, lbl].filter(Boolean).join("-"), 2);
   const parts = ["ALG"];
   if (body) parts.push(body);
   parts.push(isMobile ? "M" : "D");
