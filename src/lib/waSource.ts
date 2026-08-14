@@ -204,49 +204,95 @@ export function buildStudyCode(study: StudyId, origin?: string): string {
   return parts.join("-");
 }
 
-/** Mensaje prellenado específico para un estudio diagnóstico, con su código de seguimiento. */
+/** Mensaje prellenado específico para un estudio diagnóstico. El código queda interno. */
 export function buildStudyMessage(study: StudyId, name?: string, origin = "agendar"): string {
   const { label, detail } = STUDY_WA[study];
   const who = name?.trim();
   let msg = `Hola, buen día. Quiero información sobre ${label} (${detail}).`;
   msg += `\n¿Me pueden indicar el costo, la preparación y la disponibilidad?`;
   msg += who ? `\nMi nombre es: ${who}` : `\nMi nombre es:`;
-  msg += `\n\nRef: ${buildStudyCode(study, origin)}`;
   return msg;
 }
 
+/** Motivos que el paciente puede elegir antes de abrir WhatsApp. */
+export type WaReasonId = "emg" | "eeg" | "eeg-sedacion" | "consulta" | "precios" | "otro";
 
+export const WA_REASONS: Array<{ id: WaReasonId; label: string; hint: string }> = [
+  { id: "emg", label: "Electromiografía (EMG)", hint: "Miembros superiores y/o inferiores" },
+  { id: "eeg", label: "Electroencefalograma (EEG)", hint: "Estudio de actividad cerebral" },
+  { id: "eeg-sedacion", label: "EEG con sedación", hint: "Niños o casos especiales" },
+  { id: "consulta", label: "Consulta con un doctor", hint: "Evaluación con un especialista" },
+  { id: "precios", label: "Costos y disponibilidad", hint: "Precios y fechas disponibles" },
+  { id: "otro", label: "Otra pregunta", hint: "Cuéntenos en sus palabras" },
+];
 
+const REASON_CODES: Record<WaReasonId, string> = {
+  emg: "EMG",
+  eeg: "EEG",
+  "eeg-sedacion": "EEG-SED",
+  consulta: "CONSULTA",
+  precios: "PRECIOS",
+  otro: "OTRO",
+};
 
+/** Mensaje prellenado según el motivo elegido por el paciente. */
+export function buildReasonMessage(reason: WaReasonId): string {
+  if (reason === "emg" || reason === "eeg" || reason === "eeg-sedacion") {
+    return buildStudyMessage(reason as StudyId);
+  }
+  if (reason === "consulta") {
+    return `Hola, buen día. Quiero agendar una consulta con un especialista de ALGOS.\nMi nombre es:`;
+  }
+  if (reason === "precios") {
+    return `Hola, buen día. Quiero información sobre costos y disponibilidad.\n¿Me pueden orientar?\nMi nombre es:`;
+  }
+  return buildGenericPrefilledMessage();
+}
 
+/** Código interno (no visible para el paciente) del motivo elegido. */
+export function buildReasonCode(reason: WaReasonId, section?: string): string {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const sec = SECTION_CODES[section ?? ""] ?? normalize(section ?? "", 10);
+  const parts = ["ALG", REASON_CODES[reason]];
+  if (sec) parts.push(sec);
+  parts.push(isMobile ? "M" : "D");
+  return parts.join("-");
+}
+
+/** URL de WhatsApp para un motivo elegido, con su código interno de seguimiento. */
+export function buildReasonWhatsAppUrl(reason: WaReasonId, section?: string): { url: string; code: string } {
+  const code = buildReasonCode(reason, section);
+  const url = `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent(buildReasonMessage(reason))}`;
+  return { url, code };
+}
 
 /**
- * Añade el mensaje preconfigurado (si falta) y el código de origen
- * al enlace de WhatsApp. Permite pasar un cuerpo de mensaje explícito
- * para CTAs genéricos que no deben depender de la ruta actual.
+ * Añade el mensaje preconfigurado (si falta) al enlace de WhatsApp.
+ * El código de origen se conserva solo para analítica interna: nunca se
+ * incluye en el texto que ve el paciente.
  */
 export function withSourceCode(url: string, code: string, section?: string, body?: string): string {
   if (!url || !code) return url;
   try {
     const parsed = new URL(url, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
     const current = parsed.searchParams.get("text") ?? "";
-    if (current.includes("[Ref:") || /(^|\n)Ref: /.test(current)) return url;
-
-    const message = body ?? (current.trim() || buildPrefilledMessage(section));
-    parsed.searchParams.set("text", `${message}\n\nRef: ${code}`);
+    const message = (body ?? (current.trim() || buildPrefilledMessage(section)))
+      .replace(/\n*\[?Ref:[^\]\n]*\]?\s*$/i, "")
+      .trim();
+    parsed.searchParams.set("text", message);
     return parsed.toString();
   } catch {
     return url;
   }
 }
 
-/** Atajo: construye el código y lo estampa en la URL. */
+/** Atajo: construye el código y prellena el mensaje en la URL. */
 export function stampWhatsAppUrl(url: string, section?: string, label?: string): { url: string; code: string } {
   const code = buildSourceCode(section, label);
   return { url: withSourceCode(url, code, section), code };
 }
 
-/** URL genérica de WhatsApp con mensaje abierto y código de origen. */
+/** URL genérica de WhatsApp con mensaje abierto y código de origen interno. */
 export function buildGenericWhatsAppUrl(section?: string, label?: string): { url: string; code: string } {
   const code = buildSourceCode(section, label);
   return {
@@ -254,4 +300,5 @@ export function buildGenericWhatsAppUrl(section?: string, label?: string): { url
     code,
   };
 }
+
 
