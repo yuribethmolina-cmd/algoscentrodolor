@@ -91,7 +91,7 @@ const painCards: PainCard[] = [
   },
 ];
 
-const WHATSAPP_URL = ALGOS.contact.whatsappHref;
+const WHATSAPP_URL = buildGenericWhatsAppUrl("conditions", "escribir_whatsapp").url;
 
 export default function ConditionsSection() {
   const [openId, setOpenId] = useState<number | null>(null);
