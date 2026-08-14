@@ -149,6 +149,11 @@ export function installWAClickTracker() {
       if (!href.includes("wa.me")) return;
       // No estampar mensajes salientes del panel admin hacia pacientes.
       const isAdmin = typeof window !== "undefined" && window.location.pathname.startsWith("/admin");
+      const path = typeof window !== "undefined" ? window.location.pathname : "";
+      // Los CTAs genéricos abren primero el selector de motivo, que registra el evento.
+      const handledByReasonDialog =
+        !isAdmin && !path.startsWith("/agendar") && anchor.dataset.waDirect === undefined;
+      if (handledByReasonDialog) return;
       const section = getSectionFromElement(anchor);
       const label = anchor.dataset.waLabel || anchor.textContent?.trim() || "whatsapp";
 
