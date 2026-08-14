@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, MessageCircle, ShieldCheck } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
+import { buildGenericWhatsAppUrl } from "@/lib/waSource";
 
-const WHATSAPP_NUMBER = ALGOS.contact.whatsappNumber;
+const WHATSAPP_URL = buildGenericWhatsAppUrl("cta", "escribir_whatsapp").url;
 
 export default function CTASection() {
   return (
