@@ -142,12 +142,11 @@ function needsPricingLine(pathname?: string): boolean {
 /** Mensaje preconfigurado con el motivo de consulta y la sección de origen. */
 export function buildPrefilledMessage(section?: string, pathname?: string): string {
   const reason = reasonForPath(pathname);
-  const label = sectionLabel(section);
-  let base = `Hola, mi nombre es __________ y quiero información sobre ${reason}.\nEscribo porque estoy interesado/a en: __________`;
+  let base = `Hola, buen día. Quiero información sobre ${reason}.`;
   if (needsPricingLine(pathname) || section === "estudios") {
-    base += `\n¿Me pueden indicar el costo y la disponibilidad con previa cita?`;
+    base += `\n¿Me pueden indicar el costo y la disponibilidad?`;
   }
-  return label ? `${base}\n(Vengo de la sección "${label}" de la web.)` : base;
+  return `${base}\nMi nombre es:`;
 }
 
 /** Estudios de neurofisiología con su texto prellenado para WhatsApp. */
