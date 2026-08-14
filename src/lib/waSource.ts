@@ -195,14 +195,12 @@ export function buildStudyCode(study: StudyId, origin?: string): string {
 
 /** Mensaje prellenado específico para un estudio diagnóstico, con su código de seguimiento. */
 export function buildStudyMessage(study: StudyId, name?: string, origin = "agendar"): string {
-  const { label, detail, note } = STUDY_WA[study];
-  const who = name?.trim() ? name.trim() : "__________";
-  let msg = `Hola, mi nombre es ${who} y quiero información sobre ${label} (${detail}).\n`;
-  if (note) {
-    msg += `Nota de preparación: ${note}\n`;
-  }
-  msg += `¿Me pueden indicar el costo, la preparación y la disponibilidad con previa cita?`;
-  msg += `\n\n[Ref: ${buildStudyCode(study, origin)} · ${label}]`;
+  const { label, detail } = STUDY_WA[study];
+  const who = name?.trim();
+  let msg = `Hola, buen día. Quiero información sobre ${label} (${detail}).`;
+  msg += `\n¿Me pueden indicar el costo, la preparación y la disponibilidad?`;
+  msg += who ? `\nMi nombre es: ${who}` : `\nMi nombre es:`;
+  msg += `\n\nRef: ${buildStudyCode(study, origin)}`;
   return msg;
 }
 
