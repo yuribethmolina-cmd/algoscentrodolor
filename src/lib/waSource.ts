@@ -217,12 +217,10 @@ export function withSourceCode(url: string, code: string, section?: string): str
   try {
     const parsed = new URL(url, typeof window !== "undefined" ? window.location.origin : "https://algoscentrodolor.com");
     const current = parsed.searchParams.get("text") ?? "";
-    if (current.includes("[Ref:")) return url;
+    if (current.includes("[Ref:") || /(^|\n)Ref: /.test(current)) return url;
 
     const body = current.trim() || buildPrefilledMessage(section);
-    const label = sectionLabel(section);
-    const ref = label ? `[Ref: ${code} · ${label}]` : `[Ref: ${code}]`;
-    parsed.searchParams.set("text", `${body}\n\n${ref}`);
+    parsed.searchParams.set("text", `${body}\n\nRef: ${code}`);
     return parsed.toString();
   } catch {
     return url;
