@@ -100,6 +100,8 @@ Deno.serve(async (req) => {
     if (event_type === "whatsapp_click") {
       const source_code = clean(body.source_code, 80);
       if (source_code) {
+        const patient_name = clean(body.patient_name, 80);
+        const patient_phone = clean(body.patient_phone, 40);
         const { error: leadErr } = await supabase.from("whatsapp_leads").insert({
           source_code,
           section: row.section,
@@ -109,11 +111,14 @@ Deno.serve(async (req) => {
           path: row.path,
           device: row.device,
           referrer: row.referrer,
+          patient_name,
+          patient_phone,
           ...attribution,
         });
         if (leadErr) console.error("lead insert error", leadErr);
       }
     }
+
 
     if (error) {
       console.error("insert error", error);
