@@ -104,10 +104,12 @@ export default function WhatsAppReasonDialog() {
               className="font-display"
               style={{ color: ALGOS.palette.deepTeal, fontSize: 19, fontWeight: 700, lineHeight: 1.2 }}
             >
-              ¿Sobre qué quiere que le orientemos?
+              {reason ? "¿A quién atendemos?" : "¿Sobre qué quiere que le orientemos?"}
             </h2>
             <p style={{ color: "rgba(26,74,85,0.72)", fontSize: 13.5, marginTop: 6 }}>
-              Así lo atendemos más rápido.
+              {reason
+                ? "Déjenos su nombre y teléfono. Si el chat se corta, le escribimos nosotros."
+                : "Así lo atendemos más rápido."}
             </p>
           </div>
           <button
@@ -121,31 +123,89 @@ export default function WhatsAppReasonDialog() {
           </button>
         </div>
 
-        <div className="px-4 pb-2 flex flex-col gap-2">
-          {WA_REASONS.map((r) => (
+        {!reason ? (
+          <div className="px-4 pb-2 flex flex-col gap-2">
+            {WA_REASONS.map((r) => (
+              <button
+                key={r.id}
+                type="button"
+                onClick={() => pick(r.id)}
+                className="w-full flex items-center justify-between gap-3 text-left transition-colors active:scale-[0.99]"
+                style={{
+                  minHeight: 60,
+                  padding: "12px 16px",
+                  border: "1px solid rgba(26,74,85,0.16)",
+                  backgroundColor: "rgba(255,255,255,0.6)",
+                  color: ALGOS.palette.deepTeal,
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(61,139,150,0.10)")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.6)")}
+              >
+                <span className="flex flex-col gap-0.5">
+                  <span style={{ fontSize: 15, fontWeight: 700 }}>{r.label}</span>
+                  <span style={{ fontSize: 12.5, color: "rgba(26,74,85,0.68)" }}>{r.hint}</span>
+                </span>
+                <ChevronRight size={18} aria-hidden style={{ opacity: 0.6 }} />
+              </button>
+            ))}
+          </div>
+        ) : (
+          <form
+            className="px-4 pb-2 flex flex-col gap-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              goToWhatsApp();
+            }}
+          >
+            <label className="flex flex-col gap-1" style={{ color: ALGOS.palette.deepTeal }}>
+              <span style={{ fontSize: 12.5, fontWeight: 700 }}>Su nombre</span>
+              <input
+                autoFocus
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Ej.: María Pérez"
+                className="w-full px-3 py-3 text-base outline-none focus:border-[#3d8b96]"
+                style={{ border: "1px solid rgba(26,74,85,0.2)", backgroundColor: "#fff" }}
+              />
+            </label>
+            <label className="flex flex-col gap-1" style={{ color: ALGOS.palette.deepTeal }}>
+              <span style={{ fontSize: 12.5, fontWeight: 700 }}>Su teléfono (WhatsApp)</span>
+              <input
+                type="tel"
+                inputMode="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="0414 000 0000"
+                className="w-full px-3 py-3 text-base outline-none focus:border-[#3d8b96]"
+                style={{ border: "1px solid rgba(26,74,85,0.2)", backgroundColor: "#fff" }}
+              />
+            </label>
             <button
-              key={r.id}
-              type="button"
-              onClick={() => pick(r.id)}
-              className="w-full flex items-center justify-between gap-3 text-left transition-colors active:scale-[0.99]"
-              style={{
-                minHeight: 60,
-                padding: "12px 16px",
-                border: "1px solid rgba(26,74,85,0.16)",
-                backgroundColor: "rgba(255,255,255,0.6)",
-                color: ALGOS.palette.deepTeal,
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(61,139,150,0.10)")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.6)")}
+              type="submit"
+              className="w-full text-white font-semibold transition-opacity hover:opacity-90"
+              style={{ minHeight: 52, backgroundColor: "#25863f", fontSize: 15.5 }}
             >
-              <span className="flex flex-col gap-0.5">
-                <span style={{ fontSize: 15, fontWeight: 700 }}>{r.label}</span>
-                <span style={{ fontSize: 12.5, color: "rgba(26,74,85,0.68)" }}>{r.hint}</span>
-              </span>
-              <ChevronRight size={18} aria-hidden style={{ opacity: 0.6 }} />
+              Abrir WhatsApp
             </button>
-          ))}
-        </div>
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => setReason(null)}
+                style={{ fontSize: 12.5, color: "rgba(26,74,85,0.7)" }}
+              >
+                ← Cambiar motivo
+              </button>
+              <button
+                type="button"
+                onClick={goToWhatsApp}
+                style={{ fontSize: 12.5, color: "rgba(26,74,85,0.7)", textDecoration: "underline" }}
+              >
+                Prefiero no dejar mis datos
+              </button>
+            </div>
+          </form>
+        )}
+
 
         <div
           className="flex items-center gap-2 px-5 pt-3 pb-4"
