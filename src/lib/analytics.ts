@@ -35,6 +35,8 @@ interface InternalPayload {
   source_code?: string;
   section_label?: string;
   reason?: string;
+  patient_name?: string;
+  patient_phone?: string;
 }
 
 function sendInternal(payload: InternalPayload) {
@@ -66,7 +68,12 @@ export function trackFormStep(step: FormStep, detail?: string, section = "form_a
 }
 
 
-export function trackWA(section: string, label = "whatsapp", sourceCode?: string) {
+export interface WaContact {
+  name?: string;
+  phone?: string;
+}
+
+export function trackWA(section: string, label = "whatsapp", sourceCode?: string, contact?: WaContact) {
   const sectionName = sectionLabel(section);
   const reason = reasonForPath();
   if (typeof gtag !== "undefined") {
@@ -91,6 +98,8 @@ export function trackWA(section: string, label = "whatsapp", sourceCode?: string
     source_code: sourceCode,
     section_label: sectionName || undefined,
     reason,
+    patient_name: contact?.name?.trim() || undefined,
+    patient_phone: contact?.phone?.trim() || undefined,
   });
 }
 
