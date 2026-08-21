@@ -365,7 +365,51 @@ export default function LeadsDashboard() {
           </section>
         )}
 
-        <div className="rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden">
+        {view === "citas" && (
+          <div className="rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden mb-6">
+            {citas.length === 0 ? (
+              <p className="p-8 text-center text-sm text-[#1a4a55]/50 italic">
+                {loading ? "Cargando..." : "Sin solicitudes de cita todavía."}
+              </p>
+            ) : (
+              <ul className="divide-y divide-[#1a4a55]/10">
+                {citas.map((c) => (
+                  <li key={c.id} className="p-4 flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <span className="font-semibold text-[#1a4a55]">{c.name}</span>
+                        <span className="text-xs px-2 py-0.5 rounded-full border border-[#1a4a55]/20 text-[#1a4a55]/70">
+                          {c.status}
+                        </span>
+                        <span className="text-xs text-[#1a4a55]/50 tabular-nums">
+                          {new Date(c.created_at).toLocaleString("es-VE", { dateStyle: "short", timeStyle: "short" })}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#1a4a55]/80">
+                        <span>{c.phone}</span>
+                        {c.email && <span>· {c.email}</span>}
+                        {c.condition && <span>· {c.condition}</span>}
+                        {c.preferred_date && <span>· prefiere {c.preferred_date} {c.preferred_shift ?? ""}</span>}
+                        {c.source_section && <span>· {c.source_section}</span>}
+                      </div>
+                    </div>
+                    <a
+                      href={waHref(c.phone, `Hola ${c.name}, le saluda el equipo de ALGOS — Centro de Dolor Intervencionista. Recibimos su solicitud de cita.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-wa-direct
+                      className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
+                    >
+                      <MessageCircle size={13} /> Escribir
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+
+        <div className={`rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden ${view === "citas" ? "hidden" : ""}`}>
           {filtered.length === 0 ? (
             <p className="p-8 text-center text-sm text-[#1a4a55]/50 italic">
               {loading ? "Cargando..." : "Sin leads en este filtro."}
