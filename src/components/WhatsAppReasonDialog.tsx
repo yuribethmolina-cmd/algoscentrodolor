@@ -13,10 +13,16 @@ import { trackWA } from "@/lib/analytics";
 export default function WhatsAppReasonDialog() {
   const [open, setOpen] = useState(false);
   const [section, setSection] = useState("unknown");
+  const [reason, setReason] = useState<WaReasonId | null>(null);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const hours = useBusinessHours();
   const panelRef = useRef<HTMLDivElement | null>(null);
 
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => {
+    setOpen(false);
+    setReason(null);
+  }, []);
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -46,12 +52,25 @@ export default function WhatsAppReasonDialog() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open, close]);
 
-  function pick(reason: WaReasonId) {
+  function pick(id: WaReasonId) {
+    setReason(id);
+  }
+
+  function goToWhatsApp() {
+    if (!reason) return;
     const { url, code } = buildReasonWhatsAppUrl(reason, section);
-    trackWA(section, `motivo:${reason}`, code);
+    const who = name.trim();
+    const tel = phone.trim();
+    trackWA(section, `motivo:${reason}`, code, { name: who, phone: tel });
     if (typeof (window as any).fbq === "function") (window as any).fbq("track", "Contact");
+    const base = withHoursContext(url);
+    const withName = who
+      ? base.replace(/Mi%20nombre%20es%3A/, `Mi%20nombre%20es%3A%20${encodeURIComponent(who)}`)
+      : base;
+    setName("");
+    setPhone("");
     close();
-    window.open(withHoursContext(url), "_blank", "noopener,noreferrer");
+    window.open(withName, "_blank", "noopener,noreferrer");
   }
 
   if (!open) return null;
