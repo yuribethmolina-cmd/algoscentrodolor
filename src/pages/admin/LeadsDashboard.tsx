@@ -26,6 +26,19 @@ interface LeadRow {
   assigned_at: string | null;
 }
 
+interface Cita {
+  id: string;
+  created_at: string;
+  name: string;
+  phone: string;
+  email: string | null;
+  condition: string | null;
+  preferred_date: string | null;
+  preferred_shift: string | null;
+  status: string;
+  source_section: string | null;
+}
+
 interface Assignee {
   user_id: string;
   email: string;
@@ -60,6 +73,8 @@ export default function LeadsDashboard() {
   const [assignees, setAssignees] = useState<Assignee[]>([]);
   const [me, setMe] = useState<string | null>(null);
   const [onlyMine, setOnlyMine] = useState(false);
+  const [view, setView] = useState<"contacto" | "clic" | "citas">("contacto");
+  const [citas, setCitas] = useState<Cita[]>([]);
 
   async function load() {
     setLoading(true);
@@ -69,7 +84,19 @@ export default function LeadsDashboard() {
       .order("created_at", { ascending: false })
       .limit(500);
     setRows((data as LeadRow[]) ?? []);
+    const { data: citasData } = await supabase
+      .from("appointment_requests")
+      .select("id, created_at, name, phone, email, condition, preferred_date, preferred_shift, status, source_section")
+      .order("created_at", { ascending: false })
+      .limit(300);
+    setCitas((citasData as Cita[]) ?? []);
     setLoading(false);
+  }
+
+  function waHref(phone?: string | null, text?: string) {
+    const digits = (phone ?? "").replace(/\D/g, "");
+    const full = digits.length <= 11 && digits.startsWith("0") ? `58${digits.slice(1)}` : digits;
+    return `https://wa.me/${full}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
   }
 
   useEffect(() => {
@@ -108,19 +135,30 @@ export default function LeadsDashboard() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return rows.filter((r) => {
+      const hasContact = Boolean((r.patient_phone ?? "").trim() || (r.patient_name ?? "").trim());
+      if (view === "contacto" && !hasContact) return false;
+      if (view === "clic" && hasContact) return false;
       if (filter !== "all" && r.status !== filter) return false;
       if (onlyMine && r.assigned_to !== me) return false;
       if (!q) return true;
       return [r.source_code, r.section_label, r.cta_label, r.reason, r.patient_name, r.patient_phone]
         .some((v) => (v ?? "").toLowerCase().includes(q));
     });
-  }, [rows, filter, search, onlyMine, me]);
+  }, [rows, filter, search, onlyMine, me, view]);
 
   const counts = useMemo(() => {
     const c: Record<Status, number> = { nuevo: 0, contactado: 0, agendado: 0, perdido: 0, spam: 0 };
     rows.forEach((r) => { if (c[r.status] !== undefined) c[r.status]++; });
     return c;
   }, [rows]);
+
+  const viewCounts = useMemo(() => {
+    let conDatos = 0;
+    rows.forEach((r) => {
+      if ((r.patient_phone ?? "").trim() || (r.patient_name ?? "").trim()) conDatos++;
+    });
+    return { contacto: conDatos, clic: rows.length - conDatos, citas: citas.length };
+  }, [rows, citas]);
 
   const bySection = useMemo(() => {
     const map = new Map<string, { total: number; agendados: number }>();
@@ -226,6 +264,29 @@ export default function LeadsDashboard() {
             <UserCheck size={15} /> Solo míos
           </button>
         </div>
+
+        <div className="flex flex-wrap gap-2 mb-5">
+          {([
+            ["contacto", `Leads con datos (${viewCounts.contacto})`],
+            ["clic", `Solo clics sin datos (${viewCounts.clic})`],
+            ["citas", `Citas por formulario (${viewCounts.citas})`],
+          ] as const).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setView(key)}
+              className={`px-3.5 py-2 rounded-md border text-sm font-medium transition-colors ${view === key ? "border-[#1a4a55] bg-[#1a4a55] text-white" : "border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {view === "clic" && (
+          <p className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/70">
+            Estas personas tocaron el botón de WhatsApp pero no dejaron nombre ni teléfono.
+            No hay forma de escribirles: sirven solo como medida de interés por sección.
+          </p>
+        )}
 
         <section className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
           {STATUSES.map((s) => (
@@ -337,6 +398,17 @@ export default function LeadsDashboard() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
+                        {r.patient_phone && (
+                          <a
+                            href={waHref(r.patient_phone, `Hola ${r.patient_name ?? ""}, le saluda el equipo de ALGOS — Centro de Dolor Intervencionista.`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-wa-direct
+                            className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
+                          >
+                            <MessageCircle size={13} /> Escribir
+                          </a>
+                        )}
                         <select
                           value={r.status}
                           onChange={(e) => patch(r.id, { status: e.target.value as Status })}
