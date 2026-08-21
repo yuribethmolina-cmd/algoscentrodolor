@@ -26,6 +26,19 @@ interface LeadRow {
   assigned_at: string | null;
 }
 
+interface Cita {
+  id: string;
+  created_at: string;
+  name: string;
+  phone: string;
+  email: string | null;
+  condition: string | null;
+  preferred_date: string | null;
+  preferred_shift: string | null;
+  status: string;
+  source_section: string | null;
+}
+
 interface Assignee {
   user_id: string;
   email: string;
@@ -60,6 +73,8 @@ export default function LeadsDashboard() {
   const [assignees, setAssignees] = useState<Assignee[]>([]);
   const [me, setMe] = useState<string | null>(null);
   const [onlyMine, setOnlyMine] = useState(false);
+  const [view, setView] = useState<"contacto" | "clic" | "citas">("contacto");
+  const [citas, setCitas] = useState<Cita[]>([]);
 
   async function load() {
     setLoading(true);
@@ -69,7 +84,19 @@ export default function LeadsDashboard() {
       .order("created_at", { ascending: false })
       .limit(500);
     setRows((data as LeadRow[]) ?? []);
+    const { data: citasData } = await supabase
+      .from("appointment_requests")
+      .select("id, created_at, name, phone, email, condition, preferred_date, preferred_shift, status, source_section")
+      .order("created_at", { ascending: false })
+      .limit(300);
+    setCitas((citasData as Cita[]) ?? []);
     setLoading(false);
+  }
+
+  function waHref(phone?: string | null, text?: string) {
+    const digits = (phone ?? "").replace(/\D/g, "");
+    const full = digits.length <= 11 && digits.startsWith("0") ? `58${digits.slice(1)}` : digits;
+    return `https://wa.me/${full}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
   }
 
   useEffect(() => {
@@ -108,19 +135,30 @@ export default function LeadsDashboard() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return rows.filter((r) => {
+      const hasContact = Boolean((r.patient_phone ?? "").trim() || (r.patient_name ?? "").trim());
+      if (view === "contacto" && !hasContact) return false;
+      if (view === "clic" && hasContact) return false;
       if (filter !== "all" && r.status !== filter) return false;
       if (onlyMine && r.assigned_to !== me) return false;
       if (!q) return true;
       return [r.source_code, r.section_label, r.cta_label, r.reason, r.patient_name, r.patient_phone]
         .some((v) => (v ?? "").toLowerCase().includes(q));
     });
-  }, [rows, filter, search, onlyMine, me]);
+  }, [rows, filter, search, onlyMine, me, view]);
 
   const counts = useMemo(() => {
     const c: Record<Status, number> = { nuevo: 0, contactado: 0, agendado: 0, perdido: 0, spam: 0 };
     rows.forEach((r) => { if (c[r.status] !== undefined) c[r.status]++; });
     return c;
   }, [rows]);
+
+  const viewCounts = useMemo(() => {
+    let conDatos = 0;
+    rows.forEach((r) => {
+      if ((r.patient_phone ?? "").trim() || (r.patient_name ?? "").trim()) conDatos++;
+    });
+    return { contacto: conDatos, clic: rows.length - conDatos, citas: citas.length };
+  }, [rows, citas]);
 
   const bySection = useMemo(() => {
     const map = new Map<string, { total: number; agendados: number }>();
@@ -227,6 +265,29 @@ export default function LeadsDashboard() {
           </button>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-5">
+          {([
+            ["contacto", `Leads con datos (${viewCounts.contacto})`],
+            ["clic", `Solo clics sin datos (${viewCounts.clic})`],
+            ["citas", `Citas por formulario (${viewCounts.citas})`],
+          ] as const).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setView(key)}
+              className={`px-3.5 py-2 rounded-md border text-sm font-medium transition-colors ${view === key ? "border-[#1a4a55] bg-[#1a4a55] text-white" : "border-[#1a4a55]/20 bg-white text-[#1a4a55] hover:bg-[#1a4a55]/5"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {view === "clic" && (
+          <p className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/70">
+            Estas personas tocaron el botón de WhatsApp pero no dejaron nombre ni teléfono.
+            No hay forma de escribirles: sirven solo como medida de interés por sección.
+          </p>
+        )}
+
         <section className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
           {STATUSES.map((s) => (
             <button
@@ -304,7 +365,51 @@ export default function LeadsDashboard() {
           </section>
         )}
 
-        <div className="rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden">
+        {view === "citas" && (
+          <div className="rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden mb-6">
+            {citas.length === 0 ? (
+              <p className="p-8 text-center text-sm text-[#1a4a55]/50 italic">
+                {loading ? "Cargando..." : "Sin solicitudes de cita todavía."}
+              </p>
+            ) : (
+              <ul className="divide-y divide-[#1a4a55]/10">
+                {citas.map((c) => (
+                  <li key={c.id} className="p-4 flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <span className="font-semibold text-[#1a4a55]">{c.name}</span>
+                        <span className="text-xs px-2 py-0.5 rounded-full border border-[#1a4a55]/20 text-[#1a4a55]/70">
+                          {c.status}
+                        </span>
+                        <span className="text-xs text-[#1a4a55]/50 tabular-nums">
+                          {new Date(c.created_at).toLocaleString("es-VE", { dateStyle: "short", timeStyle: "short" })}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#1a4a55]/80">
+                        <span>{c.phone}</span>
+                        {c.email && <span>· {c.email}</span>}
+                        {c.condition && <span>· {c.condition}</span>}
+                        {c.preferred_date && <span>· prefiere {c.preferred_date} {c.preferred_shift ?? ""}</span>}
+                        {c.source_section && <span>· {c.source_section}</span>}
+                      </div>
+                    </div>
+                    <a
+                      href={waHref(c.phone, `Hola ${c.name}, le saluda el equipo de ALGOS — Centro de Dolor Intervencionista. Recibimos su solicitud de cita.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-wa-direct
+                      className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
+                    >
+                      <MessageCircle size={13} /> Escribir
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+
+        <div className={`rounded-md border border-[#1a4a55]/15 bg-white overflow-hidden ${view === "citas" ? "hidden" : ""}`}>
           {filtered.length === 0 ? (
             <p className="p-8 text-center text-sm text-[#1a4a55]/50 italic">
               {loading ? "Cargando..." : "Sin leads en este filtro."}
@@ -337,6 +442,17 @@ export default function LeadsDashboard() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
+                        {r.patient_phone && (
+                          <a
+                            href={waHref(r.patient_phone, `Hola ${r.patient_name ?? ""}, le saluda el equipo de ALGOS — Centro de Dolor Intervencionista.`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-wa-direct
+                            className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
+                          >
+                            <MessageCircle size={13} /> Escribir
+                          </a>
+                        )}
                         <select
                           value={r.status}
                           onChange={(e) => patch(r.id, { status: e.target.value as Status })}
