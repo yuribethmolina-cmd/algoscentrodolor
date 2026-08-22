@@ -153,7 +153,7 @@ export default function HomeFooter() {
                 <br />
                 C.C. América, Local 4
                 <br />
-                Sector Paraíso · Maracaibo 4005
+                Sector Paraíso · Maracaibo 4001
                 <br />
                 Estado Zulia, Venezuela
               </p>

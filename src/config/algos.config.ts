@@ -21,10 +21,10 @@ export const ALGOS = {
     sector: "Sector Paraíso",
     city: "Maracaibo",
     state: "Zulia",
-    postalCode: "4005",
+    postalCode: "4001",
     country: "Venezuela",
     countryCode: "VE",
-    full: "Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005",
+    full: "Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4001",
     mapsQuery: "ALGOS Centro de Dolor Intervencionista, CC América, Av. 20 con Calle 65, Sector Paraíso, Maracaibo, Venezuela",
   },
   palette: {
