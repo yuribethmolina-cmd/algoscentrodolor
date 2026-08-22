@@ -195,7 +195,7 @@ export default function AlgosLocationSection() {
                     <>
                       Av. 20 con Calle 65, N° 65-02<br />
                       <span style={{ color: "rgba(245,240,232,0.65)" }}>
-                        C.C. América, Local 4 · Sector Paraíso, Maracaibo 4005
+                        C.C. América, Local 4 · Sector Paraíso, Maracaibo 4001
                       </span>
                     </>
                   ),

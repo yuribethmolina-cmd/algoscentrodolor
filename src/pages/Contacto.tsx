@@ -31,7 +31,7 @@ const INFO_CARDS = [
     Icon: MapPin,
     label: "01 · UBICACIÓN",
     title: "Ubicación",
-    lines: ["Av. 20 con Calle 65, N° 65-02", "C.C. América, Local 4 · Sector Paraíso", "Maracaibo 4005"],
+    lines: ["Av. 20 con Calle 65, N° 65-02", "C.C. América, Local 4 · Sector Paraíso", "Maracaibo 4001"],
   },
   {
     Icon: Clock,
