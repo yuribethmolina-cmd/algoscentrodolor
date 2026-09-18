@@ -160,33 +160,44 @@ Deno.serve(async (req) => {
     }
 
     const dayKey = new Date().toISOString().slice(0, 10)
-    let status = 'sent'
-    let errorMessage: string | null = null
+    const results: { to: string; status: string }[] = []
 
-    try {
-      const result = await sendTemplateEmail('resumen-leads-diario', to, {
-        templateData,
-        idempotencyKey: `resumen-leads-${dayKey}-${hours}-${to}`,
+    for (const to of recipients) {
+      let status = 'sent'
+      let errorMessage: string | null = null
+
+      try {
+        const result = await sendTemplateEmail('resumen-leads-diario', to, {
+          templateData,
+          idempotencyKey: `resumen-leads-${dayKey}-${hours}-${to}`,
+        })
+        if (!result.sent) status = 'suppressed'
+      } catch (error) {
+        status = 'failed'
+        errorMessage = error instanceof Error ? error.message : String(error)
+        console.error(`daily-leads-digest send failed for ${to}`, errorMessage)
+      }
+
+      const { error: logError } = await supabase.from('email_send_log').insert({
+        template_name: 'resumen-leads-diario',
+        recipient_email: to,
+        status,
+        error_message: errorMessage,
       })
-      if (!result.sent) status = 'suppressed'
-    } catch (error) {
-      status = 'failed'
-      errorMessage = error instanceof Error ? error.message : String(error)
-      console.error('daily-leads-digest send failed', errorMessage)
+      if (logError) console.error('email_send_log insert failed', logError.message)
+
+      results.push({ to, status })
     }
 
-    const { error: logError } = await supabase.from('email_send_log').insert({
-      template_name: 'resumen-leads-diario',
-      recipient_email: to,
-      status,
-      error_message: errorMessage,
-    })
-    if (logError) console.error('email_send_log insert failed', logError.message)
+    const overall = results.some((r) => r.status === 'sent')
+      ? 'sent'
+      : results[0]?.status ?? 'failed'
 
     return new Response(
       JSON.stringify({
-        status,
+        status: overall,
         hours,
+        recipients: results,
         leads_with_data: templateData.leadsWithData.length,
         appointments: templateData.appointments.length,
         anonymous: anonymous.length,
