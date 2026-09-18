@@ -37,6 +37,34 @@ function windowKey(): string {
     .slice(0, 12);
 }
 
+async function sendAndLog(
+  templateName: string,
+  to: string,
+  templateData: Record<string, unknown>,
+  idempotencyKey: string,
+): Promise<void> {
+  let status: "sent" | "suppressed" | "failed";
+  let errorMessage: string | null = null;
+  try {
+    const result = await sendTemplateEmail(templateName, to, { templateData, idempotencyKey });
+    status = result.sent ? "sent" : "suppressed";
+  } catch (e) {
+    status = "failed";
+    errorMessage = (e instanceof Error ? e.message : String(e)).slice(0, 1000);
+    console.error("email send failed", { templateName, error: errorMessage });
+  }
+
+  const { error: logError } = await supabase.from("email_send_log").insert({
+    template_name: templateName,
+    recipient_email: to,
+    status,
+    error_message: errorMessage,
+  });
+  if (logError) console.error("email_send_log insert error", logError);
+}
+
+
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
