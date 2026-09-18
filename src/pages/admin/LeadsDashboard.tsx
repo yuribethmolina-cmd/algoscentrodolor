@@ -336,11 +336,22 @@ export default function LeadsDashboard() {
         </div>
 
         {view === "clic" && (
-          <p className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/70">
-            Estas personas tocaron el botón de WhatsApp pero no dejaron nombre ni teléfono.
-            No hay forma de escribirles: sirven solo como medida de interés por sección.
-          </p>
+          <div className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/80">
+            <p className="mb-2">
+              Estas personas tocaron el botón de WhatsApp y no dejaron nombre ni teléfono, así que no
+              podemos escribirles nosotros. Sí sabemos por qué escribieron y desde dónde: si te llega
+              un mensaje sin datos, aquí puedes ver qué estaban preguntando a esa hora.
+            </p>
+            {byMotivo.length > 0 && (
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#1a4a55]/70 pt-2 border-t border-[#1a4a55]/10">
+                {byMotivo.map(([motivo, n]) => (
+                  <span key={motivo}>{motivo}: <strong className="tabular-nums">{n}</strong></span>
+                ))}
+              </div>
+            )}
+          </div>
         )}
+
 
         <section className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
           {STATUSES.map((s) => (
