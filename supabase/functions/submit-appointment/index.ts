@@ -285,27 +285,27 @@ Deno.serve(async (req) => {
 
     // Confirmación al paciente (si dejó email)
     if (row.email) {
-      const { error: confirmError } = await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "confirmacion-cita",
-          recipientEmail: row.email,
-          idempotencyKey: `confirmacion-cita-${inserted.id}`,
-          templateData: {
-            name: row.name,
-            phone: row.phone,
-            condition: row.condition ?? undefined,
-            preferredDate: row.preferred_date ?? undefined,
-            preferredShift: row.preferred_shift ?? undefined,
-          },
+      const confirmResult = await sendAndLog(
+        "confirmacion-cita",
+        row.email,
+        {
+          name: row.name,
+          phone: row.phone,
+          condition: row.condition ?? undefined,
+          preferredDate: row.preferred_date ?? undefined,
+          preferredShift: row.preferred_shift ?? undefined,
         },
-      });
-      if (confirmError) {
-        console.error("confirmation email error", confirmError);
-        audit("email", "confirmacion-cita", row.email, "failed", confirmError.message ?? String(confirmError));
+        `confirmacion-cita-${inserted.id}`,
+      );
+      if (confirmResult.status === "failed") {
+        audit("email", "confirmacion-cita", row.email, "failed", confirmResult.error);
+      } else if (confirmResult.status === "suppressed") {
+        audit("email", "confirmacion-cita", row.email, "failed", "recipient suppressed");
       } else {
         audit("email", "confirmacion-cita", row.email, "sent");
       }
     }
+
 
     if (auditEntries.length > 0) {
       const { error: auditError } = await supabase
