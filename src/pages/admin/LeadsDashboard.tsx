@@ -475,15 +475,21 @@ export default function LeadsDashboard() {
                             {new Date(r.created_at).toLocaleString("es-VE", { dateStyle: "short", timeStyle: "short" })}
                           </span>
                         </div>
+                        {r.patient_name && (
+                          <div className="font-semibold text-[#1a4a55] text-base mb-0.5">{r.patient_name}</div>
+                        )}
                         <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#1a4a55]/80">
-                          <span className="inline-flex items-center gap-1"><MessageCircle size={13} /> {r.section_label || r.section || "Sin sección"}</span>
-                          {r.reason && <span>· {r.reason}</span>}
-                          {r.device && <span>· {r.device}</span>}
-                          {r.patient_name && <span className="font-semibold text-[#1a4a55]">· {r.patient_name}</span>}
+                          <span className="inline-flex items-center gap-1 font-medium text-[#1a4a55]">
+                            <MessageCircle size={13} /> Pregunta por: {motivoOf(r)}
+                          </span>
+                          <span>· Estaba en: {pageOf(r)}</span>
+                          <span>· {sectionOf(r)}</span>
+                          {r.device && <span>· {r.device === "mobile" ? "Desde el teléfono" : "Desde computadora"}</span>}
                           <span className="inline-flex items-center gap-1 text-[#1a4a55]/60">
                             <UserCheck size={13} /> Responsable: {r.assigned_email ?? "sin asignar"}
                           </span>
                         </div>
+
                       </div>
                       <div className="flex items-center gap-2">
                         {r.patient_phone && (
