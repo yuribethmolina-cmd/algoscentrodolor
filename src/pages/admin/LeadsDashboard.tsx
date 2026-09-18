@@ -207,7 +207,7 @@ export default function LeadsDashboard() {
   const bySection = useMemo(() => {
     const map = new Map<string, { total: number; agendados: number }>();
     rows.forEach((r) => {
-      const key = r.section_label || r.section || "Sin sección";
+      const key = sectionOf(r);
       const entry = map.get(key) ?? { total: 0, agendados: 0 };
       entry.total++;
       if (r.status === "agendado") entry.agendados++;
@@ -215,6 +215,16 @@ export default function LeadsDashboard() {
     });
     return [...map.entries()].sort((a, b) => b[1].total - a[1].total).slice(0, 8);
   }, [rows]);
+
+  const byMotivo = useMemo(() => {
+    const map = new Map<string, number>();
+    filtered.forEach((r) => {
+      const key = motivoOf(r);
+      map.set(key, (map.get(key) ?? 0) + 1);
+    });
+    return [...map.entries()].sort((a, b) => b[1] - a[1]);
+  }, [filtered]);
+
 
   const pending = useMemo(
     () =>
