@@ -219,32 +219,32 @@ Deno.serve(async (req) => {
       });
     };
 
-    const notifyResults = await Promise.allSettled(
+    const notifyResults = await Promise.all(
       notifyRecipients.map((to) =>
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "nueva-cita",
-            recipientEmail: to,
-            idempotencyKey: `nueva-cita-${inserted.id}-${to}`,
-            templateData,
-          },
-        }),
+        sendAndLog(
+          "nueva-cita",
+          to,
+          templateData,
+          `nueva-cita-${inserted.id}-${to}`,
+        ),
       ),
     );
     notifyResults.forEach((r, i) => {
       const to = notifyRecipients[i];
-      if (r.status === "rejected") {
-        console.error("notify email failed", r.reason);
-        audit("email", "nueva-cita", to, "failed", String(r.reason));
-      } else if (r.value?.error) {
-        console.error("notify email error", r.value.error);
-        audit("email", "nueva-cita", to, "failed", r.value.error.message ?? String(r.value.error));
+      const idempotencyKey = `nueva-cita-${inserted.id}-${to}`;
+      if (r.status === "failed") {
+        audit("email", "nueva-cita", to, "failed", r.error);
+      } else if (r.status === "suppressed") {
+        audit("email", "nueva-cita", to, "failed", "recipient suppressed", {
+          idempotency_key: idempotencyKey,
+        });
       } else {
         audit("email", "nueva-cita", to, "sent", undefined, {
-          idempotency_key: `nueva-cita-${inserted.id}-${to}`,
+          idempotency_key: idempotencyKey,
         });
       }
     });
+
 
     if (!emailEnabled) {
       audit("email", "nueva-cita", null, "failed", "email notifications disabled in settings");
