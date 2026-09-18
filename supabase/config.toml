@@ -15,3 +15,6 @@ project_id = "jdxzsocqbobguimsbhng"
     verify_jwt = false
   [functions.handle-email-events]
     verify_jwt = false
+  [functions.daily-leads-digest]
+    verify_jwt = true
+
