@@ -1,5 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { sendTemplateEmail } from "../_shared/transactional-email-templates/send-email.ts";
+
 
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL")!,
@@ -34,6 +36,34 @@ function windowKey(): string {
     .replace(/[^0-9]/g, "")
     .slice(0, 12);
 }
+
+async function sendAndLog(
+  templateName: string,
+  to: string,
+  templateData: Record<string, unknown>,
+  idempotencyKey: string,
+): Promise<void> {
+  let status: "sent" | "suppressed" | "failed";
+  let errorMessage: string | null = null;
+  try {
+    const result = await sendTemplateEmail(templateName, to, { templateData, idempotencyKey });
+    status = result.sent ? "sent" : "suppressed";
+  } catch (e) {
+    status = "failed";
+    errorMessage = (e instanceof Error ? e.message : String(e)).slice(0, 1000);
+    console.error("email send failed", { templateName, error: errorMessage });
+  }
+
+  const { error: logError } = await supabase.from("email_send_log").insert({
+    template_name: templateName,
+    recipient_email: to,
+    status,
+    error_message: errorMessage,
+  });
+  if (logError) console.error("email_send_log insert error", logError);
+}
+
+
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -151,16 +181,15 @@ Deno.serve(async (req) => {
 
             await Promise.allSettled(
               recipients.map((to) =>
-                supabase.functions.invoke("send-transactional-email", {
-                  body: {
-                    templateName: "nuevo-lead",
-                    recipientEmail: to,
-                    idempotencyKey: `nuevo-lead-${leadRow?.id ?? source_code}-${to}`,
-                    templateData,
-                  },
-                }),
+                sendAndLog(
+                  "nuevo-lead",
+                  to,
+                  templateData,
+                  `nuevo-lead-${leadRow?.id ?? source_code}-${to}`,
+                ),
               ),
             );
+
           } catch (notifyErr) {
             console.error("lead notify error", notifyErr);
           }

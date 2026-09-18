@@ -1,5 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { sendTemplateEmail } from "../_shared/transactional-email-templates/send-email.ts";
+
 
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL")!,
@@ -58,6 +60,38 @@ function windowKey(): string {
     .replace(/[^0-9]/g, "")
     .slice(0, 12);
 }
+
+type SendOutcome = { status: "sent" | "suppressed" | "failed"; error?: string };
+
+async function sendAndLog(
+  templateName: string,
+  to: string,
+  templateData: Record<string, unknown>,
+  idempotencyKey: string,
+): Promise<SendOutcome> {
+  let status: SendOutcome["status"];
+  let errorMessage: string | null = null;
+  try {
+    const result = await sendTemplateEmail(templateName, to, { templateData, idempotencyKey });
+    status = result.sent ? "sent" : "suppressed";
+  } catch (e) {
+    status = "failed";
+    errorMessage = (e instanceof Error ? e.message : String(e)).slice(0, 1000);
+    console.error("email send failed", { templateName, error: errorMessage });
+  }
+
+  const { error: logError } = await supabase.from("email_send_log").insert({
+    template_name: templateName,
+    recipient_email: to,
+    status,
+    error_message: errorMessage,
+  });
+  if (logError) console.error("email_send_log insert error", logError);
+
+  return { status, error: errorMessage ?? undefined };
+}
+
+
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
@@ -185,32 +219,32 @@ Deno.serve(async (req) => {
       });
     };
 
-    const notifyResults = await Promise.allSettled(
+    const notifyResults = await Promise.all(
       notifyRecipients.map((to) =>
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "nueva-cita",
-            recipientEmail: to,
-            idempotencyKey: `nueva-cita-${inserted.id}-${to}`,
-            templateData,
-          },
-        }),
+        sendAndLog(
+          "nueva-cita",
+          to,
+          templateData,
+          `nueva-cita-${inserted.id}-${to}`,
+        ),
       ),
     );
     notifyResults.forEach((r, i) => {
       const to = notifyRecipients[i];
-      if (r.status === "rejected") {
-        console.error("notify email failed", r.reason);
-        audit("email", "nueva-cita", to, "failed", String(r.reason));
-      } else if (r.value?.error) {
-        console.error("notify email error", r.value.error);
-        audit("email", "nueva-cita", to, "failed", r.value.error.message ?? String(r.value.error));
+      const idempotencyKey = `nueva-cita-${inserted.id}-${to}`;
+      if (r.status === "failed") {
+        audit("email", "nueva-cita", to, "failed", r.error);
+      } else if (r.status === "suppressed") {
+        audit("email", "nueva-cita", to, "failed", "recipient suppressed", {
+          idempotency_key: idempotencyKey,
+        });
       } else {
         audit("email", "nueva-cita", to, "sent", undefined, {
-          idempotency_key: `nueva-cita-${inserted.id}-${to}`,
+          idempotency_key: idempotencyKey,
         });
       }
     });
+
 
     if (!emailEnabled) {
       audit("email", "nueva-cita", null, "failed", "email notifications disabled in settings");
@@ -251,27 +285,27 @@ Deno.serve(async (req) => {
 
     // Confirmación al paciente (si dejó email)
     if (row.email) {
-      const { error: confirmError } = await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "confirmacion-cita",
-          recipientEmail: row.email,
-          idempotencyKey: `confirmacion-cita-${inserted.id}`,
-          templateData: {
-            name: row.name,
-            phone: row.phone,
-            condition: row.condition ?? undefined,
-            preferredDate: row.preferred_date ?? undefined,
-            preferredShift: row.preferred_shift ?? undefined,
-          },
+      const confirmResult = await sendAndLog(
+        "confirmacion-cita",
+        row.email,
+        {
+          name: row.name,
+          phone: row.phone,
+          condition: row.condition ?? undefined,
+          preferredDate: row.preferred_date ?? undefined,
+          preferredShift: row.preferred_shift ?? undefined,
         },
-      });
-      if (confirmError) {
-        console.error("confirmation email error", confirmError);
-        audit("email", "confirmacion-cita", row.email, "failed", confirmError.message ?? String(confirmError));
+        `confirmacion-cita-${inserted.id}`,
+      );
+      if (confirmResult.status === "failed") {
+        audit("email", "confirmacion-cita", row.email, "failed", confirmResult.error);
+      } else if (confirmResult.status === "suppressed") {
+        audit("email", "confirmacion-cita", row.email, "failed", "recipient suppressed");
       } else {
         audit("email", "confirmacion-cita", row.email, "sent");
       }
     }
+
 
     if (auditEntries.length > 0) {
       const { error: auditError } = await supabase
