@@ -257,10 +257,11 @@ export default function LeadsDashboard() {
     const lines = [headers.join(",")];
     filtered.forEach((r) => {
       lines.push([
-        new Date(r.created_at).toISOString(), r.source_code, r.section_label ?? r.section ?? "",
-        r.cta_label ?? "", r.reason ?? "", r.path ?? "", r.device ?? "",
+        new Date(r.created_at).toISOString(), r.source_code, sectionOf(r),
+        motivoOf(r), pageOf(r), r.device ?? "",
         STATUS_LABEL[r.status], r.assigned_email ?? "", r.patient_name ?? "", r.patient_phone ?? "", r.internal_notes ?? "",
       ].map(escape).join(","));
+
     });
     const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
