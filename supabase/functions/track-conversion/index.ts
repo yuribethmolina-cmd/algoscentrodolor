@@ -181,16 +181,15 @@ Deno.serve(async (req) => {
 
             await Promise.allSettled(
               recipients.map((to) =>
-                supabase.functions.invoke("send-transactional-email", {
-                  body: {
-                    templateName: "nuevo-lead",
-                    recipientEmail: to,
-                    idempotencyKey: `nuevo-lead-${leadRow?.id ?? source_code}-${to}`,
-                    templateData,
-                  },
-                }),
+                sendAndLog(
+                  "nuevo-lead",
+                  to,
+                  templateData,
+                  `nuevo-lead-${leadRow?.id ?? source_code}-${to}`,
+                ),
               ),
             );
+
           } catch (notifyErr) {
             console.error("lead notify error", notifyErr);
           }
