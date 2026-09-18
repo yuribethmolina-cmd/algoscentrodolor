@@ -62,6 +62,50 @@ const STATUS_COLOR: Record<Status, string> = {
 
 const STATUSES: Status[] = ["nuevo", "contactado", "agendado", "perdido", "spam"];
 
+const MOTIVO_LABEL: Record<string, string> = {
+  "motivo:emg": "Electromiografía (EMG)",
+  "motivo:eeg": "Electroencefalograma (EEG)",
+  "motivo:eeg_sedacion": "EEG con sedación",
+  "motivo:consulta": "Consulta con un doctor",
+  "motivo:precios": "Precios",
+  "motivo:otro": "Otra pregunta",
+  chat_quick_whatsapp: "Escribió desde el asistente",
+};
+
+const PAGE_LABEL: Record<string, string> = {
+  "/": "Inicio",
+  "/procedimientos/emg": "Electromiografía (EMG)",
+  "/procedimientos/eeg": "Electroencefalograma (EEG)",
+  "/estudios-laboratorio": "Estudios de laboratorio",
+  "/agendar": "Pedir cita",
+  "/contacto": "Contacto",
+  "/equipo": "Equipo médico",
+  "/lp/dolor": "Página de dolor",
+  "/lp/diagnostico": "Página de diagnóstico",
+};
+
+function motivoOf(r: LeadRow): string {
+  const fromCta = r.cta_label ? MOTIVO_LABEL[r.cta_label] : undefined;
+  if (fromCta) return fromCta;
+  if (r.reason) {
+    const clean = r.reason.replace(/^(una|un|los|las|el|la)\s+/i, "");
+    return clean.charAt(0).toUpperCase() + clean.slice(1);
+  }
+  return "No indicó el motivo";
+}
+
+function pageOf(r: LeadRow): string {
+  if (!r.path) return "Página no registrada";
+  return PAGE_LABEL[r.path] ?? r.path;
+}
+
+function sectionOf(r: LeadRow): string {
+  if (r.section_label) return r.section_label;
+  if (!r.section || r.section === "unknown") return "Sección no identificada";
+  return r.section;
+}
+
+
 export default function LeadsDashboard() {
   const navigate = useNavigate();
   const [rows, setRows] = useState<LeadRow[]>([]);
@@ -163,7 +207,7 @@ export default function LeadsDashboard() {
   const bySection = useMemo(() => {
     const map = new Map<string, { total: number; agendados: number }>();
     rows.forEach((r) => {
-      const key = r.section_label || r.section || "Sin sección";
+      const key = sectionOf(r);
       const entry = map.get(key) ?? { total: 0, agendados: 0 };
       entry.total++;
       if (r.status === "agendado") entry.agendados++;
@@ -171,6 +215,16 @@ export default function LeadsDashboard() {
     });
     return [...map.entries()].sort((a, b) => b[1].total - a[1].total).slice(0, 8);
   }, [rows]);
+
+  const byMotivo = useMemo(() => {
+    const map = new Map<string, number>();
+    filtered.forEach((r) => {
+      const key = motivoOf(r);
+      map.set(key, (map.get(key) ?? 0) + 1);
+    });
+    return [...map.entries()].sort((a, b) => b[1] - a[1]);
+  }, [filtered]);
+
 
   const pending = useMemo(
     () =>
@@ -195,7 +249,7 @@ export default function LeadsDashboard() {
   }
 
   function exportCSV() {
-    const headers = ["Fecha", "Codigo origen", "Seccion", "CTA", "Motivo", "Pagina", "Dispositivo", "Estado", "Responsable", "Paciente", "Telefono", "Notas"];
+    const headers = ["Fecha", "Codigo origen", "Seccion", "Motivo", "Pagina", "Dispositivo", "Estado", "Responsable", "Paciente", "Telefono", "Notas"];
     const escape = (v: unknown) => {
       const s = v == null ? "" : String(v);
       return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -203,10 +257,11 @@ export default function LeadsDashboard() {
     const lines = [headers.join(",")];
     filtered.forEach((r) => {
       lines.push([
-        new Date(r.created_at).toISOString(), r.source_code, r.section_label ?? r.section ?? "",
-        r.cta_label ?? "", r.reason ?? "", r.path ?? "", r.device ?? "",
+        new Date(r.created_at).toISOString(), r.source_code, sectionOf(r),
+        motivoOf(r), pageOf(r), r.device ?? "",
         STATUS_LABEL[r.status], r.assigned_email ?? "", r.patient_name ?? "", r.patient_phone ?? "", r.internal_notes ?? "",
       ].map(escape).join(","));
+
     });
     const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -282,11 +337,22 @@ export default function LeadsDashboard() {
         </div>
 
         {view === "clic" && (
-          <p className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/70">
-            Estas personas tocaron el botón de WhatsApp pero no dejaron nombre ni teléfono.
-            No hay forma de escribirles: sirven solo como medida de interés por sección.
-          </p>
+          <div className="mb-5 rounded-md border border-[#1a4a55]/15 bg-white px-4 py-3 text-sm text-[#1a4a55]/80">
+            <p className="mb-2">
+              Estas personas tocaron el botón de WhatsApp y no dejaron nombre ni teléfono, así que no
+              podemos escribirles nosotros. Sí sabemos por qué escribieron y desde dónde: si te llega
+              un mensaje sin datos, aquí puedes ver qué estaban preguntando a esa hora.
+            </p>
+            {byMotivo.length > 0 && (
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#1a4a55]/70 pt-2 border-t border-[#1a4a55]/10">
+                {byMotivo.map(([motivo, n]) => (
+                  <span key={motivo}>{motivo}: <strong className="tabular-nums">{n}</strong></span>
+                ))}
+              </div>
+            )}
+          </div>
         )}
+
 
         <section className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
           {STATUSES.map((s) => (
@@ -322,9 +388,10 @@ export default function LeadsDashboard() {
                       {r.source_code}
                     </span>
                     <span className="text-sm text-[#1a4a55]/80 flex-1 min-w-[120px]">
-                      {r.section_label || r.section || "Sin sección"}
-                      {r.device ? ` · ${r.device}` : ""}
+                      {r.patient_name ? `${r.patient_name} · ` : ""}
+                      {motivoOf(r)} · {pageOf(r)}
                     </span>
+
                     <span className={`text-xs tabular-nums px-2 py-0.5 rounded-full border ${h >= 24 ? "bg-red-100 text-red-800 border-red-300" : h >= 4 ? "bg-amber-100 text-amber-800 border-amber-300" : "bg-emerald-100 text-emerald-800 border-emerald-300"}`}>
                       {h < 1 ? "hace minutos" : `${h} h en espera`}
                     </span>
@@ -431,15 +498,21 @@ export default function LeadsDashboard() {
                             {new Date(r.created_at).toLocaleString("es-VE", { dateStyle: "short", timeStyle: "short" })}
                           </span>
                         </div>
+                        {r.patient_name && (
+                          <div className="font-semibold text-[#1a4a55] text-base mb-0.5">{r.patient_name}</div>
+                        )}
                         <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#1a4a55]/80">
-                          <span className="inline-flex items-center gap-1"><MessageCircle size={13} /> {r.section_label || r.section || "Sin sección"}</span>
-                          {r.reason && <span>· {r.reason}</span>}
-                          {r.device && <span>· {r.device}</span>}
-                          {r.patient_name && <span className="font-semibold text-[#1a4a55]">· {r.patient_name}</span>}
+                          <span className="inline-flex items-center gap-1 font-medium text-[#1a4a55]">
+                            <MessageCircle size={13} /> Pregunta por: {motivoOf(r)}
+                          </span>
+                          <span>· Estaba en: {pageOf(r)}</span>
+                          <span>· {sectionOf(r)}</span>
+                          {r.device && <span>· {r.device === "mobile" ? "Desde el teléfono" : "Desde computadora"}</span>}
                           <span className="inline-flex items-center gap-1 text-[#1a4a55]/60">
                             <UserCheck size={13} /> Responsable: {r.assigned_email ?? "sin asignar"}
                           </span>
                         </div>
+
                       </div>
                       <div className="flex items-center gap-2">
                         {r.patient_phone && (
