@@ -249,7 +249,7 @@ export default function LeadsDashboard() {
   }
 
   function exportCSV() {
-    const headers = ["Fecha", "Codigo origen", "Seccion", "CTA", "Motivo", "Pagina", "Dispositivo", "Estado", "Responsable", "Paciente", "Telefono", "Notas"];
+    const headers = ["Fecha", "Codigo origen", "Seccion", "Motivo", "Pagina", "Dispositivo", "Estado", "Responsable", "Paciente", "Telefono", "Notas"];
     const escape = (v: unknown) => {
       const s = v == null ? "" : String(v);
       return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
