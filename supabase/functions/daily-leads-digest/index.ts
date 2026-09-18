@@ -76,6 +76,11 @@ function timeLabel(iso: string): string {
   })
 }
 
+const DEFAULT_RECIPIENTS = [
+  'info@algoscentrodolor.com',
+  'recepcion.algos@algoscentrodolor.com',
+]
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -84,9 +89,9 @@ Deno.serve(async (req) => {
   try {
     const body = await req.json().catch(() => ({}))
     const hours = Number(body?.hours) > 0 ? Number(body.hours) : 24
-    const to = typeof body?.to === 'string' && body.to.includes('@')
-      ? body.to
-      : 'info@algoscentrodolor.com'
+    const recipients = typeof body?.to === 'string' && body.to.includes('@')
+      ? [body.to]
+      : DEFAULT_RECIPIENTS
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
