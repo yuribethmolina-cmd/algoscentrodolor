@@ -102,20 +102,69 @@ Deno.serve(async (req) => {
       if (source_code) {
         const patient_name = clean(body.patient_name, 80);
         const patient_phone = clean(body.patient_phone, 40);
-        const { error: leadErr } = await supabase.from("whatsapp_leads").insert({
-          source_code,
-          section: row.section,
-          section_label: clean(body.section_label, 80),
-          cta_label: row.label,
-          reason: clean(body.reason, 120),
-          path: row.path,
-          device: row.device,
-          referrer: row.referrer,
-          patient_name,
-          patient_phone,
-          ...attribution,
-        });
+        const section_label = clean(body.section_label, 80);
+        const reason = clean(body.reason, 120);
+        const { data: leadRow, error: leadErr } = await supabase
+          .from("whatsapp_leads")
+          .insert({
+            source_code,
+            section: row.section,
+            section_label,
+            cta_label: row.label,
+            reason,
+            path: row.path,
+            device: row.device,
+            referrer: row.referrer,
+            patient_name,
+            patient_phone,
+            ...attribution,
+          })
+          .select("id")
+          .single();
         if (leadErr) console.error("lead insert error", leadErr);
+
+        // Aviso por email solo cuando el paciente dejó datos de contacto.
+        if (!leadErr && (patient_name || patient_phone)) {
+          try {
+            const { data: settings } = await supabase
+              .from("notification_settings")
+              .select("email_enabled, email_recipients")
+              .eq("id", 1)
+              .maybeSingle();
+
+            const recipients: string[] = (settings?.email_enabled ?? true)
+              ? (settings?.email_recipients?.length
+                  ? settings.email_recipients
+                  : ["info@algoscentrodolor.com"])
+              : [];
+
+            const templateData = {
+              name: patient_name ?? undefined,
+              phone: patient_phone ?? undefined,
+              reason: reason ?? undefined,
+              sectionLabel: section_label ?? undefined,
+              device: row.device ?? undefined,
+              path: row.path ?? undefined,
+              sourceCode: source_code,
+              createdAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
+            };
+
+            await Promise.allSettled(
+              recipients.map((to) =>
+                supabase.functions.invoke("send-transactional-email", {
+                  body: {
+                    templateName: "nuevo-lead",
+                    recipientEmail: to,
+                    idempotencyKey: `nuevo-lead-${leadRow?.id ?? source_code}-${to}`,
+                    templateData,
+                  },
+                }),
+              ),
+            );
+          } catch (notifyErr) {
+            console.error("lead notify error", notifyErr);
+          }
+        }
       }
     }
 
