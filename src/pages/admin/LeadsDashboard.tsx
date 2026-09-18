@@ -62,6 +62,50 @@ const STATUS_COLOR: Record<Status, string> = {
 
 const STATUSES: Status[] = ["nuevo", "contactado", "agendado", "perdido", "spam"];
 
+const MOTIVO_LABEL: Record<string, string> = {
+  "motivo:emg": "Electromiografía (EMG)",
+  "motivo:eeg": "Electroencefalograma (EEG)",
+  "motivo:eeg_sedacion": "EEG con sedación",
+  "motivo:consulta": "Consulta con un doctor",
+  "motivo:precios": "Precios",
+  "motivo:otro": "Otra pregunta",
+  chat_quick_whatsapp: "Escribió desde el asistente",
+};
+
+const PAGE_LABEL: Record<string, string> = {
+  "/": "Inicio",
+  "/procedimientos/emg": "Electromiografía (EMG)",
+  "/procedimientos/eeg": "Electroencefalograma (EEG)",
+  "/estudios-laboratorio": "Estudios de laboratorio",
+  "/agendar": "Pedir cita",
+  "/contacto": "Contacto",
+  "/equipo": "Equipo médico",
+  "/lp/dolor": "Página de dolor",
+  "/lp/diagnostico": "Página de diagnóstico",
+};
+
+function motivoOf(r: LeadRow): string {
+  const fromCta = r.cta_label ? MOTIVO_LABEL[r.cta_label] : undefined;
+  if (fromCta) return fromCta;
+  if (r.reason) {
+    const clean = r.reason.replace(/^(una|un|los|las|el|la)\s+/i, "");
+    return clean.charAt(0).toUpperCase() + clean.slice(1);
+  }
+  return "No indicó el motivo";
+}
+
+function pageOf(r: LeadRow): string {
+  if (!r.path) return "Página no registrada";
+  return PAGE_LABEL[r.path] ?? r.path;
+}
+
+function sectionOf(r: LeadRow): string {
+  if (r.section_label) return r.section_label;
+  if (!r.section || r.section === "unknown") return "Sección no identificada";
+  return r.section;
+}
+
+
 export default function LeadsDashboard() {
   const navigate = useNavigate();
   const [rows, setRows] = useState<LeadRow[]>([]);
