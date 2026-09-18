@@ -10,7 +10,6 @@ import {
   Heading,
   Html,
   Preview,
-  Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 
@@ -19,30 +18,28 @@ interface MagicLinkEmailProps {
   confirmationUrl: string
 }
 
-export const MagicLinkEmail = ({ confirmationUrl }: MagicLinkEmailProps) => (
-  <Html lang="es" dir="ltr">
-    <Head />
-    <Preview>Tu enlace de acceso al panel ALGOS</Preview>
+export const MagicLinkEmail = ({
+  siteName,
+  confirmationUrl,
+}: MagicLinkEmailProps) => (
+  <Html lang="en" dir="ltr">
+    <Head>
+      <style>{darkModeCss}</style>
+    </Head>
+    <Preview>Your login link for {siteName}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Section style={header}>
-          <Text style={brand}>ALGOS</Text>
-          <Text style={tagline}>Centro de Dolor Intervencionista</Text>
-        </Section>
-        <Section style={card}>
-          <Heading style={h1}>Tu enlace de acceso</Heading>
-          <Text style={text}>
-            Haz clic en el botón para acceder al panel interno de ALGOS.
-            Este enlace expira en unos minutos por seguridad.
-          </Text>
-          <Button style={button} href={confirmationUrl}>
-            Iniciar sesión
-          </Button>
-          <Text style={footer}>
-            Si no solicitaste este enlace, puedes ignorar este mensaje.
-          </Text>
-        </Section>
-        <Text style={brandFooter}>ALGOS · Maracaibo, Venezuela</Text>
+        <Heading style={h1}>Your login link</Heading>
+        <Text style={text}>
+          Click the button below to log in to {siteName}. This link will expire
+          shortly.
+        </Text>
+        <Button className="dm-btn" style={button} href={confirmationUrl}>
+          Log In
+        </Button>
+        <Text style={footer}>
+          If you didn't request this link, you can safely ignore this email.
+        </Text>
       </Container>
     </Body>
   </Html>
@@ -50,26 +47,35 @@ export const MagicLinkEmail = ({ confirmationUrl }: MagicLinkEmailProps) => (
 
 export default MagicLinkEmail
 
-const main = { backgroundColor: '#ffffff', fontFamily: 'Inter, Helvetica, Arial, sans-serif' }
-const container = { padding: '32px 20px', maxWidth: '560px', margin: '0 auto' }
-const header = { textAlign: 'center' as const, padding: '0 0 24px' }
-const brand = { fontSize: '28px', fontWeight: '600' as const, color: '#1a4a55', letterSpacing: '6px', margin: '0' }
-const tagline = { fontSize: '10px', fontWeight: '500' as const, color: '#c69636', letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '4px 0 0' }
-const card = { backgroundColor: '#f5f0e8', borderRadius: '6px', padding: '36px 32px', borderTop: '3px solid #c69636' }
-const h1 = { fontSize: '22px', fontWeight: '600' as const, color: '#1a4a55', margin: '0 0 20px' }
-const text = { fontSize: '15px', color: '#2a3d43', lineHeight: '1.6', margin: '0 0 20px' }
-const button = {
-  backgroundColor: '#c69636',
-  color: '#1a4a55',
-  fontSize: '14px',
+const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
+const container = { padding: '20px 25px' }
+const h1 = {
+  fontSize: '22px',
   fontWeight: 'bold' as const,
-  letterSpacing: '1.5px',
-  textTransform: 'uppercase' as const,
-  borderRadius: '4px',
-  padding: '14px 28px',
-  textDecoration: 'none',
-  display: 'inline-block',
-  margin: '8px 0 4px',
+  color: '#000000',
+  margin: '0 0 20px',
 }
-const footer = { fontSize: '13px', color: '#5a6b6f', margin: '28px 0 0', lineHeight: '1.5' }
-const brandFooter = { fontSize: '11px', color: '#8a9599', textAlign: 'center' as const, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '24px 0 0' }
+const text = {
+  fontSize: '14px',
+  color: '#55575d',
+  lineHeight: '1.5',
+  margin: '0 0 25px',
+}
+const button = {
+  backgroundColor: '#000000',
+  color: '#ffffff',
+  fontSize: '14px',
+  border: '1px solid #000000',
+  borderRadius: '8px',
+  padding: '12px 20px',
+  textDecoration: 'none',
+}
+const footer = { fontSize: '12px', color: '#999999', margin: '30px 0 0' }
+// Rendered as a text child, which React may HTML-escape: keep this CSS free of >, &, and quotes.
+const darkModeCss = `
+  @media (prefers-color-scheme: dark) {
+    .dm-btn { background-color: #ffffff !important; color: #000000 !important; }
+  }
+  [data-ogsc] .dm-btn { background-color: #ffffff !important; color: #000000 !important; }
+  [data-ogsb] .dm-btn { background-color: #ffffff !important; color: #000000 !important; }
+`
