@@ -387,9 +387,10 @@ export default function LeadsDashboard() {
                       {r.source_code}
                     </span>
                     <span className="text-sm text-[#1a4a55]/80 flex-1 min-w-[120px]">
-                      {r.section_label || r.section || "Sin sección"}
-                      {r.device ? ` · ${r.device}` : ""}
+                      {r.patient_name ? `${r.patient_name} · ` : ""}
+                      {motivoOf(r)} · {pageOf(r)}
                     </span>
+
                     <span className={`text-xs tabular-nums px-2 py-0.5 rounded-full border ${h >= 24 ? "bg-red-100 text-red-800 border-red-300" : h >= 4 ? "bg-amber-100 text-amber-800 border-amber-300" : "bg-emerald-100 text-emerald-800 border-emerald-300"}`}>
                       {h < 1 ? "hace minutos" : `${h} h en espera`}
                     </span>
