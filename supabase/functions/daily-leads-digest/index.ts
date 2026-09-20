@@ -86,6 +86,18 @@ Deno.serve(async (req) => {
     return new Response('ok', { headers: corsHeaders })
   }
 
+  const cronToken = Deno.env.get('DIGEST_CRON_TOKEN')
+  const providedToken =
+    req.headers.get('x-digest-token') ??
+    (req.headers.get('authorization') ?? '').replace(/^Bearer\s+/i, '')
+  if (!cronToken || providedToken !== cronToken) {
+    return new Response(JSON.stringify({ error: 'unauthorized' }), {
+      status: 401,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
+
+
   try {
     const body = await req.json().catch(() => ({}))
     const hours = Number(body?.hours) > 0 ? Number(body.hours) : 24
