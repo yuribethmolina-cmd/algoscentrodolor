@@ -16,5 +16,5 @@ project_id = "jdxzsocqbobguimsbhng"
   [functions.handle-email-events]
     verify_jwt = false
   [functions.daily-leads-digest]
-    verify_jwt = true
+    verify_jwt = false
 
