@@ -190,6 +190,7 @@ Deno.serve(async (req) => {
             const templateData = {
               name: patient_name ?? undefined,
               phone: patient_phone ?? undefined,
+              email: patient_email ?? undefined,
               reason: reason ?? undefined,
               sectionLabel: section_label ?? undefined,
               device: row.device ?? undefined,
