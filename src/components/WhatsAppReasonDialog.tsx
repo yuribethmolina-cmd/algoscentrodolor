@@ -16,6 +16,7 @@ export default function WhatsAppReasonDialog() {
   const [reason, setReason] = useState<WaReasonId | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const hours = useBusinessHours();
   const panelRef = useRef<HTMLDivElement | null>(null);
 
@@ -61,7 +62,8 @@ export default function WhatsAppReasonDialog() {
     const { url, code } = buildReasonWhatsAppUrl(reason, section);
     const who = name.trim();
     const tel = phone.trim();
-    trackWA(section, `motivo:${reason}`, code, { name: who, phone: tel });
+    const mail = email.trim();
+    trackWA(section, `motivo:${reason}`, code, { name: who, phone: tel, email: mail });
     if (typeof (window as any).fbq === "function") (window as any).fbq("track", "Contact");
     const base = withHoursContext(url);
     const withName = who
@@ -69,6 +71,7 @@ export default function WhatsAppReasonDialog() {
       : base;
     setName("");
     setPhone("");
+    setEmail("");
     close();
     window.open(withName, "_blank", "noopener,noreferrer");
   }
@@ -179,6 +182,21 @@ export default function WhatsAppReasonDialog() {
                 className="w-full px-3 py-3 text-base outline-none focus:border-[#3d8b96]"
                 style={{ border: "1px solid rgba(26,74,85,0.2)", backgroundColor: "#fff" }}
               />
+            </label>
+            <label className="flex flex-col gap-1" style={{ color: ALGOS.palette.deepTeal }}>
+              <span style={{ fontSize: 12.5, fontWeight: 700 }}>Su correo (opcional)</span>
+              <input
+                type="email"
+                inputMode="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="nombre@correo.com"
+                className="w-full px-3 py-3 text-base outline-none focus:border-[#3d8b96]"
+                style={{ border: "1px solid rgba(26,74,85,0.2)", backgroundColor: "#fff" }}
+              />
+              <span style={{ fontSize: 11.5, color: "rgba(26,74,85,0.6)" }}>
+                Solo para enviarle información del centro y cómo llegar.
+              </span>
             </label>
             <button
               type="submit"

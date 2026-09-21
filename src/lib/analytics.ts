@@ -37,6 +37,7 @@ interface InternalPayload {
   reason?: string;
   patient_name?: string;
   patient_phone?: string;
+  patient_email?: string;
 }
 
 function sendInternal(payload: InternalPayload) {
@@ -71,6 +72,7 @@ export function trackFormStep(step: FormStep, detail?: string, section = "form_a
 export interface WaContact {
   name?: string;
   phone?: string;
+  email?: string;
 }
 
 export function trackWA(section: string, label = "whatsapp", sourceCode?: string, contact?: WaContact) {
@@ -100,6 +102,7 @@ export function trackWA(section: string, label = "whatsapp", sourceCode?: string
     reason,
     patient_name: contact?.name?.trim() || undefined,
     patient_phone: contact?.phone?.trim() || undefined,
+    patient_email: contact?.email?.trim() || undefined,
   });
 }
 

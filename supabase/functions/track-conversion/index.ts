@@ -132,6 +132,11 @@ Deno.serve(async (req) => {
       if (source_code) {
         const patient_name = clean(body.patient_name, 80);
         const patient_phone = clean(body.patient_phone, 40);
+        const rawEmail = clean(body.patient_email, 120);
+        const patient_email =
+          rawEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)
+            ? rawEmail.toLowerCase()
+            : null;
         const section_label = clean(body.section_label, 80);
         const reason = clean(body.reason, 120);
         const { data: leadRow, error: leadErr } = await supabase
@@ -147,14 +152,28 @@ Deno.serve(async (req) => {
             referrer: row.referrer,
             patient_name,
             patient_phone,
+            patient_email,
             ...attribution,
           })
           .select("id")
           .single();
         if (leadErr) console.error("lead insert error", leadErr);
 
+        // Correo de agradecimiento al paciente que dejó su email.
+        if (!leadErr && patient_email) {
+          await sendAndLog(
+            "gracias-lead",
+            patient_email,
+            {
+              name: patient_name ?? undefined,
+              reason: reason ?? undefined,
+            },
+            `gracias-lead-${leadRow?.id ?? source_code}`,
+          );
+        }
+
         // Aviso por email solo cuando el paciente dejó datos de contacto.
-        if (!leadErr && (patient_name || patient_phone)) {
+        if (!leadErr && (patient_name || patient_phone || patient_email)) {
           try {
             const { data: settings } = await supabase
               .from("notification_settings")
@@ -171,6 +190,7 @@ Deno.serve(async (req) => {
             const templateData = {
               name: patient_name ?? undefined,
               phone: patient_phone ?? undefined,
+              email: patient_email ?? undefined,
               reason: reason ?? undefined,
               sectionLabel: section_label ?? undefined,
               device: row.device ?? undefined,

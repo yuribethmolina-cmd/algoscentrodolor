@@ -19,6 +19,7 @@ import type { TemplateEntry } from './registry.ts'
 interface NuevoLeadProps {
   name?: string
   phone?: string
+  email?: string
   reason?: string
   sectionLabel?: string
   device?: string
@@ -44,6 +45,7 @@ function waDigits(phone?: string): string {
 const NuevoLeadEmail = ({
   name,
   phone,
+  email,
   reason,
   sectionLabel,
   device,
@@ -72,6 +74,7 @@ const NuevoLeadEmail = ({
             <Text style={subhead}>Datos del paciente</Text>
             <Row label="Paciente" value={name} />
             <Row label="Teléfono" value={phone} />
+            <Row label="Correo" value={email} />
             <Row label="Interés" value={reason} />
 
             <Hr style={hr} />
