@@ -19,6 +19,7 @@ import type { TemplateEntry } from './registry.ts'
 interface NuevoLeadProps {
   name?: string
   phone?: string
+  email?: string
   reason?: string
   sectionLabel?: string
   device?: string
@@ -44,34 +45,13 @@ function waDigits(phone?: string): string {
 const NuevoLeadEmail = ({
   name,
   phone,
+  email,
   reason,
-  sectionLabel,
-  device,
-  path,
-  sourceCode,
-  createdAt,
-}: NuevoLeadProps) => {
-  const wa = waDigits(phone)
-  return (
-    <Html lang="es" dir="ltr">
-      <Head />
-      <Preview>{`Nuevo lead por WhatsApp: ${name ?? 'paciente'}`}</Preview>
-      <Body style={main}>
-        <Container style={container}>
-          <Section style={header}>
-            <Text style={brand}>ALGOS</Text>
-            <Text style={tagline}>Centro de Dolor Intervencionista</Text>
-          </Section>
-          <Section style={card}>
-            <Heading style={h1}>Nuevo lead por WhatsApp</Heading>
-            <Text style={lead}>
-              {name ?? 'Un paciente'} dejó sus datos antes de abrir WhatsApp
-              {reason ? ` y preguntó por ${reason}` : ''}. Si no escribe al chat, escríbele tú.
-            </Text>
-
+...
             <Text style={subhead}>Datos del paciente</Text>
             <Row label="Paciente" value={name} />
             <Row label="Teléfono" value={phone} />
+            <Row label="Correo" value={email} />
             <Row label="Interés" value={reason} />
 
             <Hr style={hr} />
