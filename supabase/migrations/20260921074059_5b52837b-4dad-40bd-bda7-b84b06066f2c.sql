@@ -1,0 +1,1 @@
+ALTER TABLE public.whatsapp_leads ADD COLUMN IF NOT EXISTS patient_email text;

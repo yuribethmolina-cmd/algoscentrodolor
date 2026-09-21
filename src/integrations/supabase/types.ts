@@ -516,6 +516,7 @@ export type Database = {
           internal_notes: string | null
           landing_path: string | null
           path: string | null
+          patient_email: string | null
           patient_name: string | null
           patient_phone: string | null
           reason: string | null
@@ -543,6 +544,7 @@ export type Database = {
           internal_notes?: string | null
           landing_path?: string | null
           path?: string | null
+          patient_email?: string | null
           patient_name?: string | null
           patient_phone?: string | null
           reason?: string | null
@@ -570,6 +572,7 @@ export type Database = {
           internal_notes?: string | null
           landing_path?: string | null
           path?: string | null
+          patient_email?: string | null
           patient_name?: string | null
           patient_phone?: string | null
           reason?: string | null
