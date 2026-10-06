@@ -154,7 +154,7 @@ export default function HomeTeamSection() {
               transition: "opacity 700ms ease 80ms",
             }}
           >
-            {doctors.map((doc, i) => (
+            {orderedDoctors.map((doc, i) => (
               <article
                 key={doc.slug}
                 style={{
