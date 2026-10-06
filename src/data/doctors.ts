@@ -1,5 +1,6 @@
 import drAtilioAsset from "@/assets/Atilio_foto_cortada.png.asset.json";
 import drGuevaraAsset from "@/assets/dr-miguel-guevara.png.asset.json";
+import drBrettAsset from "@/assets/dr-miguel-brett.png.asset.json";
 import photoAtilio   from "@/assets/team/doctor-atilio.webp";
 import photoAntulio  from "@/assets/team/doctor-antulio.webp";
 import photoTomas    from "@/assets/team/doctor-tomas.webp";
@@ -193,6 +194,22 @@ export const DOCTORS: Doctor[] = [
       "Jefa · Unidad de Dolor, Dpto. de Anestesiología · Hospital Central Maracaibo",
       "Directora Médica · Hospice de Venezuela · Dolor Oncológico y Cuidados Paliativos (2009–2013)",
       "Coordinadora · Entrenamiento Avanzado en Dolor para Anestesiólogos · Universidad del Zulia",
+    ],
+    languages: ["Español"],
+  },
+  {
+    slug: "dr-miguel-brett",
+    name: "Dr. Miguel Brett",
+    specialty: "Anestesiología · Medicina del Dolor y Cuidados Paliativos",
+    specialtySlug: "cuidados-paliativos",
+    schedule: "Viernes · 8:00 AM - 5:00 PM",
+    photoSrc: drBrettAsset.url,
+    bio: "Médico Anestesiólogo egresado de la UNEFM, con subespecialidad en Medicina del Dolor y Cuidados Paliativos (UCV). Formado además en terapia neural, kinesiología y ortomolecular. Fundador del Centro de Dolor Teanestesio en Punto Fijo, llega a ALGOS con un enfoque integral: ciencia y empatía para que vivir con dolor deje de ser una opción.",
+    credentials: [
+      "Médico Anestesiólogo · UNEFM",
+      "Subespecialidad en Medicina del Dolor y Cuidados Paliativos · UCV",
+      "Terapia neural, kinesiología y ortomolecular",
+      "Fundador, Centro de Dolor Teanestesio · Punto Fijo",
     ],
     languages: ["Español"],
   },
