@@ -15,6 +15,18 @@ const CARD_W = 276;
 
 export default function HomeTeamSection() {
   const { doctors } = useDoctors();
+
+  const orderedDoctors = useMemo(() => {
+    const priority = ["dr-atilio-rodriguez", "dr-miguel-brett", "dra-gilda-gomez"];
+    return [...doctors].sort((a, b) => {
+      const ia = priority.indexOf(a.slug);
+      const ib = priority.indexOf(b.slug);
+      if (ia === -1 && ib === -1) return 0;
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
+  }, [doctors]);
   const sectionRef = useRef<HTMLElement>(null);
   const sliderRef  = useRef<HTMLDivElement>(null);
   const [visible,  setVisible]  = useState(false);
