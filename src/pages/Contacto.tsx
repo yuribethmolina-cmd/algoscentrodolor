@@ -61,7 +61,7 @@ const IMG_ECO  = { pic: CDN_ECO_PIC, lqip: undefined, full: ecografiaRealAsset.u
 const IMG_MAMO = { pic: mamografiaPic, lqip: mamografiaLqip, full: mamografiaFull };
 
 const EXAM_TILES = [
-  { title: "Tomografía", subtitle: "Alta resolución · mismo día", image: IMG_TOMO, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { title: "Tomografía", subtitle: "Alta resolución · resultados en pocos días", image: IMG_TOMO, span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
   { title: "Rayos X", subtitle: "Interpretación por el mismo equipo", image: IMG_XRAY, span: "col-span-1 md:col-span-2" },
   { title: "Ecografía", subtitle: "Doppler · obstétrica · musculoesquelética", image: IMG_ECO, span: "col-span-1 md:col-span-2" },
 ];
@@ -450,7 +450,7 @@ export default function Contacto() {
                     TECNOLOGÍA
                   </p>
                   <h4 className="font-display font-semibold text-[#f5f0e8] text-2xl md:text-3xl leading-tight max-w-md">
-                    Equipos de última generación, resultados el mismo día.
+                    Equipos de última generación, informe listo en pocos días.
                   </h4>
                 </div>
               </div>

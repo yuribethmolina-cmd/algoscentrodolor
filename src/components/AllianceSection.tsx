@@ -45,9 +45,9 @@ const steps = [
   {
     number: "02",
     eyebrow: null,
-    title: "Imagen el mismo día",
+    title: "Estudios de imagen en UDUZ",
     text: "Tomografía, Rayos X, Mamografía 3D, Ecografía o Laboratorio — directamente en UDUZ, nuestra alianza diagnóstica.",
-    benefit: "Resultados en horas, no en días ni semanas.",
+    benefit: "El informe suele estar listo en unos 3 días.",
   },
   {
     number: "03",

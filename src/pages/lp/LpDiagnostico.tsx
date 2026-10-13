@@ -247,8 +247,8 @@ export default function LpDiagnostico() {
               <p className="font-sans text-[#f5f0e8]/55 text-xs">La mayoría de estudios se coordinan directamente por WhatsApp</p>
             </div>
             <div>
-              <p className="font-sans font-bold text-[#f5f0e8] text-sm mb-1">Resultados el mismo día</p>
-              <p className="font-sans text-[#f5f0e8]/55 text-xs">Imagen y laboratorio con entrega rápida</p>
+              <p className="font-sans font-bold text-[#f5f0e8] text-sm mb-1">Resultados en pocos días</p>
+              <p className="font-sans text-[#f5f0e8]/55 text-xs">El informe suele estar listo en unos 3 días</p>
             </div>
             <div>
               <p className="font-sans font-bold text-[#f5f0e8] text-sm mb-1">Equipo médico familiar</p>
