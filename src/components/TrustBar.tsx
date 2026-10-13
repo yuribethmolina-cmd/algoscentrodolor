@@ -5,10 +5,18 @@ const CREAM = "#f5f0e8";
 const DEEP_TEAL = "#1a4a55";
 const GOLD_DEEP = "#9a7320";
 
-/**
- * Trust bar, surfaces institutional alliances directly under the hero
- * so visitors immediately see the diagnostic partner (UDUZ).
- */
+const CARD: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#fff",
+  border: "1px solid rgba(26, 74, 85, 0.08)",
+  borderRadius: 12,
+  height: "clamp(56px, 6.4vw, 68px)",
+  padding: "0 clamp(18px, 2.6vw, 28px)",
+  boxShadow: "0 1px 3px rgba(26, 74, 85, 0.05)",
+};
+
 export default function TrustBar() {
   return (
     <section
@@ -27,7 +35,7 @@ export default function TrustBar() {
           maxWidth: 1280,
           paddingLeft: "clamp(20px, 4vw, 48px)",
           paddingRight: "clamp(20px, 4vw, 48px)",
-          gap: 22,
+          gap: 20,
         }}
       >
         <p
@@ -46,7 +54,7 @@ export default function TrustBar() {
 
         <div
           className="flex flex-wrap items-center justify-center"
-          style={{ gap: "clamp(28px, 5vw, 64px)", rowGap: 24 }}
+          style={{ gap: "clamp(14px, 2.4vw, 24px)", rowGap: 14 }}
         >
           {/* UDUZ */}
           <a
@@ -54,58 +62,54 @@ export default function TrustBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              transition: "opacity 200ms ease",
-              opacity: 0.92,
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.92")}
+            style={CARD}
           >
             <img
               src="/logos/uduz-logo.svg"
               alt="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
-              width={180}
-              height={48}
-              style={{ height: "clamp(36px, 4.2vw, 48px)", width: "auto", display: "block" }}
+              width={170}
+              height={45}
+              style={{ height: "clamp(32px, 3.6vw, 40px)", width: "auto", display: "block" }}
             />
           </a>
 
           {/* Hospital Clínico de Maracaibo — próxima sede */}
-          <img
-            src={hospitalClinicoLogo.url}
-            alt="Hospital Clínico de Maracaibo"
-            width={48}
-            height={48}
-            style={{
-              height: "clamp(36px, 4.2vw, 48px)",
-              width: "auto",
-              display: "block",
-              borderRadius: 6,
-            }}
-          />
+          <div style={CARD}>
+            <img
+              src={hospitalClinicoLogo.url}
+              alt="Hospital Clínico de Maracaibo"
+              width={48}
+              height={48}
+              style={{
+                height: "clamp(38px, 4.2vw, 46px)",
+                width: "auto",
+                display: "block",
+                borderRadius: 6,
+              }}
+            />
+          </div>
 
-          {/* CDD Radioterapia Maracaibo — logo blanco, necesita fondo oscuro */}
-          <span
-            aria-label="CDD Radioterapia Maracaibo"
+          {/* CDD Radioterapia Maracaibo — logo blanco sobre bloque teal */}
+          <div
             style={{
               display: "inline-flex",
               alignItems: "center",
+              justifyContent: "center",
               backgroundColor: DEEP_TEAL,
-              borderRadius: 8,
-              padding: "10px 16px",
+              borderRadius: 12,
+              height: "clamp(56px, 6.4vw, 68px)",
+              padding: "0 clamp(18px, 2.6vw, 28px)",
+              boxShadow: "0 1px 3px rgba(26, 74, 85, 0.15)",
             }}
           >
             <img
               src={cddMaracaiboLogo.url}
               alt="CDD Radioterapia Maracaibo"
-              width={130}
-              height={77}
-              style={{ height: "clamp(28px, 3.2vw, 38px)", width: "auto", display: "block" }}
+              width={120}
+              height={71}
+              style={{ height: "clamp(24px, 2.8vw, 32px)", width: "auto", display: "block" }}
             />
-          </span>
-
+          </div>
         </div>
 
         <p
