@@ -1,4 +1,8 @@
+import hospitalClinicoLogo from "@/assets/logo-hospital-clinico.png.asset.json";
+import cddMaracaiboLogo from "@/assets/logo-cdd-maracaibo.png.asset.json";
+
 const CREAM = "#f5f0e8";
+const DEEP_TEAL = "#1a4a55";
 const GOLD_DEEP = "#9a7320";
 
 /**
