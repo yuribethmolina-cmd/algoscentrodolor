@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft, Search, Download, Users } from "lucide-react";
+import { RefreshCw, LogOut, MessageCircle, Phone, Mail, ChevronLeft, Search, Download, Users, Share2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { buildAppointmentShareUrl } from "@/lib/appointmentShare";
 
 type Status = "pendiente" | "contactado" | "agendado" | "asistio" | "no_asistio" | "realizado";
 
@@ -212,7 +214,7 @@ export default function CitasDashboard() {
                           {r.preferred_date && <span>· {r.preferred_date} {r.preferred_shift ?? ""}</span>}
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <select
                           value={r.status}
                           onChange={(e) => updateStatus(r.id, e.target.value as Status)}
@@ -228,6 +230,17 @@ export default function CitasDashboard() {
                         >
                           <MessageCircle size={14} /> WhatsApp
                         </a>
+                        <Button asChild variant="outline" size="sm">
+                          <a
+                            href={buildAppointmentShareUrl(r)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Compartir cita de ${r.name} por WhatsApp`}
+                            title="Compartir cita por WhatsApp"
+                          >
+                            <Share2 size={14} /> Compartir cita
+                          </a>
+                        </Button>
                         <button
                           onClick={() => setExpanded(isOpen ? null : r.id)}
                           className="text-sm text-[#1a4a55]/60 hover:text-[#1a4a55] px-2 py-1"
