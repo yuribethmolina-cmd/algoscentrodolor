@@ -181,7 +181,7 @@ Deno.serve(async (req) => {
     const notifyRecipients: string[] = emailEnabled
         ? (settings?.email_recipients?.length
             ? settings.email_recipients
-            : ["info@algoscentrodolor.com", "algos.recepcion@algoscentrodolor.com"])
+            : ["algosrecepcion@gmail.com"])
       : [];
 
     const templateData = {
