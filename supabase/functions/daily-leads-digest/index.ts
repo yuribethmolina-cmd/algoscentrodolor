@@ -78,6 +78,9 @@ function timeLabel(iso: string): string {
 
 const DEFAULT_RECIPIENTS = [
   'algosrecepcion@gmail.com',
+  'luisrodriguezag@gmail.com',
+  'yuribeth.molina@gmail.com',
+  'atilio.j.rodriguez.c@gmail.com',
 ]
 
 Deno.serve(async (req) => {
