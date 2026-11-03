@@ -17,8 +17,8 @@ export default function EEG() {
   return (
     <div className="min-h-screen bg-cream">
       <SEOHead
-        title="Electroencefalograma en Maracaibo | EEG | ALGOS"
-        description="Electroencefalograma (EEG) en Maracaibo. Estudio no invasivo de la actividad eléctrica del cerebro para evaluación de convulsiones, epilepsia, desmayos y seguimiento neurológico."
+        title="Electroencefalograma (EEG) en Maracaibo | ALGOS"
+        description="Electroencefalograma en Maracaibo: estudio no invasivo de la actividad cerebral para evaluación de convulsiones y epilepsia. Coordina tu cita por WhatsApp."
         canonical="https://algoscentrodolor.com/procedimientos/eeg"
       >
         <meta name="keywords" content="electroencefalograma Maracaibo, EEG Maracaibo, estudio cerebral Maracaibo, neurofisiología Maracaibo, epilepsia Maracaibo, electroencefalograma Zulia" />

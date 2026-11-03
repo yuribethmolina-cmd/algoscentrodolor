@@ -39,8 +39,8 @@ export default function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <SEOHead
-        title="ALGOS · Centro de Dolor Intervencionista en Maracaibo"
-        description="Primer centro especializado en dolor intervencionista del Zulia. Infiltraciones, bloqueos, radiofrecuencia, ozono, EMG y EEG guiados por imagen."
+        title="ALGOS | Centro de Dolor Intervencionista en Maracaibo"
+        description="En ALGOS escuchamos tu caso y evaluamos la causa de tu dolor. Centro de dolor intervencionista en Maracaibo. Electromiografía y electroencefalograma. Pide cita."
         canonical="https://algoscentrodolor.com/"
       >
         <script type="application/ld+json">{JSON.stringify(HOME_FAQ_LD)}</script>
