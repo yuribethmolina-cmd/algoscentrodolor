@@ -235,8 +235,8 @@ export default function LpDolor() {
               {/* Fachada ALGOS */}
               <div className="relative h-72 lg:h-full min-h-[280px] overflow-hidden">
                 <img
-                  src={algosFacadeAsset.url}
-                  alt="Fachada de ALGOS Centro de Dolor Intervencionista en Maracaibo"
+                  src={sedeConsultorioAsset.url}
+                  alt="Entrada de ALGOS Centro de Dolor Intervencionista en el Hospital Clínico de Maracaibo"
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover object-center"

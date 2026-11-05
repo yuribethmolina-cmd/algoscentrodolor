@@ -99,8 +99,8 @@ export default function AlgosLocationSection() {
           {/* Facade image, shimmer applied automatically by imageWatcher + index.css */}
           <div className="relative min-h-[320px] md:min-h-[420px] lg:min-h-[520px] overflow-hidden">
             <img
-              src={algosFacade.url}
-              alt="Fachada de ALGOS, Centro de Dolor Intervencionista, Maracaibo"
+              src={sedeEntrada.url}
+              alt="Entrada de ALGOS en el Hospital Clínico de Maracaibo, con letreros de ALGOS Centro de Dolor Intervencionista y Unidad de Neurocirugía"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: "left center" }}
               loading="lazy"
