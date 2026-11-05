@@ -78,9 +78,6 @@ Para agendar, solicita siempre: nombre del paciente, fecha de nacimiento, cédul
 - **Electromiografía (EMG)** — estudio diagnóstico.
 - **Electroencefalograma (EEG)** — estudio diagnóstico.
 
-## Alianza con UDUZ
-Trabajamos en alianza con **UDUZ Maracaibo** para diagnóstico por imagen (tomografía, ecografía, rayos X 24/7) y laboratorio clínico. Flujo: el paciente entra por ALGOS, se diagnostica en UDUZ, y el procedimiento se realiza en ALGOS.
-
 ## Agendamiento
 Las citas se agendan escribiendo por WhatsApp al +58 414-680 7886. También pueden completar el formulario en /agendar.
 `;

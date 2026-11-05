@@ -1,13 +1,12 @@
 # ALGOS · Clínica del Dolor
 
-> Primer centro de dolor intervencionista del Zulia (Maracaibo, Venezuela). Especialidades médicas y estudios diagnósticos (imagen, cardiología, neurofisiología, laboratorio) bajo un mismo techo. Servicios a domicilio disponibles.
+> Primer centro de dolor intervencionista del Zulia (Maracaibo, Venezuela). Especialidades médicas y estudios diagnósticos de neurofisiología (EMG y EEG). Servicios a domicilio disponibles.
 
 ## Pages
 
 - [Inicio](/): evaluación, diagnóstico y tratamiento del dolor en Maracaibo
 - [Especialidades médicas](/especialidades): neurocirugía, traumatología, reumatología, fisiatría, radiología intervencionista, cuidados paliativos, oncología médica, psiquiatría y nutrición
-- [Estudios diagnósticos](/estudios-diagnosticos): tomografía, rayos X, mamografía 3D, ECG, Holter, EEG, EMG y laboratorio en Maracaibo
-- [Estudios de laboratorio](/estudios-laboratorio): estudios de laboratorio disponibles vía alianza institucional
+- [Estudios diagnósticos](/estudios-diagnosticos): electromiografía (EMG) y electroencefalograma (EEG) en Maracaibo
 - [Equipo médico](/equipo): equipo multidisciplinario de la clínica
 - [Contacto](/contacto): formulario y datos de contacto
 - [Preguntas frecuentes](/preguntas-frecuentes): información sobre procedimientos y consulta

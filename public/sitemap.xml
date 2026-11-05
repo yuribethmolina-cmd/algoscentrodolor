@@ -28,13 +28,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://algoscentrodolor.com/estudios-laboratorio</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Procedimientos -->
   <url>
     <loc>https://algoscentrodolor.com/procedimientos/infiltraciones-y-bloqueos</loc>
