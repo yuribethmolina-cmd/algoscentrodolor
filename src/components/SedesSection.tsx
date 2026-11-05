@@ -115,8 +115,9 @@ export default function SedesSection() {
                     display: "block",
                     width: "calc(100% + 56px)",
                     margin: "-32px -28px 22px",
-                    height: 190,
+                    aspectRatio: "16 / 10",
                     objectFit: "cover",
+                    objectPosition: "center 30%",
                   }}
                 />
               )}
