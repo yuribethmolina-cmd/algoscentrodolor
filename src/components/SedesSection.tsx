@@ -22,6 +22,8 @@ const SEDES = [
       "Electroencefalograma (EEG)",
     ],
     maps: "https://maps.google.com/?q=ALGOS+Centro+de+Dolor+Intervencionista,Hospital+Clinico+de+Maracaibo,Av+15+Delicias,Urb+La+Trinidad,Maracaibo,Zulia",
+    imagen: sedeHospital.url,
+    imagenAlt: "Entrada de ALGOS en el Hospital Clínico de Maracaibo",
   },
   {
     nombre: "Sede Torre RAB",
