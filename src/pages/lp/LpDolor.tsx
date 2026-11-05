@@ -243,7 +243,7 @@ export default function LpDolor() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a4a55]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="font-sans text-white/90 text-xs">Sede ALGOS Centro de Dolor · Maracaibo</p>
+                  <p className="font-sans text-white/90 text-xs">Sede ALGOS · Hospital Clínico de Maracaibo</p>
                 </div>
               </div>
             </div>

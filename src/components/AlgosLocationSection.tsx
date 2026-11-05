@@ -137,7 +137,7 @@ export default function AlgosLocationSection() {
                   margin: 0,
                 }}
               >
-                Maracaibo - frente a la facultad de medicina
+                Sede principal · Hospital Clínico de Maracaibo
               </p>
             </div>
           </div>
