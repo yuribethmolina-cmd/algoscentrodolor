@@ -31,7 +31,7 @@ const INFO_CARDS = [
     Icon: MapPin,
     label: "01 · UBICACIÓN",
     title: "Ubicación",
-    lines: ["Av. 20 con Calle 65, N° 65-02", "C.C. América, Local 4 · Sector Paraíso", "Maracaibo 4001"],
+    lines: ["Av. 15 Delicias", "Edif. Hospital Clínico · Urb. La Trinidad", "Maracaibo, Estado Zulia"],
   },
   {
     Icon: Clock,
@@ -464,8 +464,8 @@ export default function Contacto() {
                   <MapPin className="w-4 h-4 text-[#8DC63F]" strokeWidth={1.75} />
                 </div>
                 <p className="font-sans text-[#f5f0e8] text-[15px] leading-snug">
-                  Av. 4001, Maracaibo<br />
-                  <span className="text-[#f5f0e8]/70">Sector Paraíso</span>
+                  Av. 15 Delicias, Maracaibo<br />
+                  <span className="text-[#f5f0e8]/70">Edif. Hospital Clínico · Urb. La Trinidad</span>
                 </p>
               </div>
 

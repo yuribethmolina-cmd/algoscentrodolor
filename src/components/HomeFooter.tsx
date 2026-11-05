@@ -149,11 +149,11 @@ export default function HomeFooter() {
             <div style={{ marginBottom: 16 }}>
               <p style={blockLabel}>DIRECCIÓN</p>
               <p style={blockValue}>
-                Av. 20 con Calle 65, N° 65-02
+                Av. 15 Delicias
                 <br />
-                C.C. América, Local 4
+                Edif. Hospital Clínico
                 <br />
-                Sector Paraíso · Maracaibo 4001
+                Urb. La Trinidad · Maracaibo
                 <br />
                 Estado Zulia, Venezuela
               </p>

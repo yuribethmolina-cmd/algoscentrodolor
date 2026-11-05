@@ -81,8 +81,8 @@ export default function AlgosLocationSection() {
               color: "rgba(245,240,232,0.72)",
             }}
           >
-            Centro de Dolor Intervencionista en el CC América. Fácil acceso, estacionamiento
-            propio y consultorios equipados para procedimientos guiados por imagen.
+            Centro de Dolor Intervencionista en el Hospital Clínico de Maracaibo. Fácil acceso
+            y consultorios equipados para procedimientos guiados por imagen.
           </p>
         </div>
 
@@ -193,9 +193,9 @@ export default function AlgosLocationSection() {
                   label: "Dirección",
                   value: (
                     <>
-                      Av. 20 con Calle 65, N° 65-02<br />
+                      Av. 15 Delicias<br />
                       <span style={{ color: "rgba(245,240,232,0.65)" }}>
-                        C.C. América, Local 4 · Sector Paraíso, Maracaibo 4001
+                        Edif. Hospital Clínico · Urb. La Trinidad, Maracaibo
                       </span>
                     </>
                   ),

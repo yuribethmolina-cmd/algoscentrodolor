@@ -7,9 +7,9 @@ const TEAL = "#3d8b96";
 
 const SEDES = [
   {
-    nombre: "Sede Sector Paraíso",
-    direccion: "Av. 20 con Calle 65, N° 65-02",
-    detalle: "C.C. América, Local 4 · Sector Paraíso · Maracaibo 4001, Edo. Zulia\nPunto de referencia: Frente a la maternidad Castillo Plaza",
+    nombre: "Sede Hospital Clínico",
+    direccion: "Av. 15 Delicias",
+    detalle: "Edif. Hospital Clínico · Urb. La Trinidad · Maracaibo, Edo. Zulia\nPunto de referencia: Diagonal a la Facultad de Medicina",
     telefonos: [
       { label: "0414-680 7886", href: "tel:+584146807886" },
       { label: "0412-061 7410", href: "tel:+584120617410" },
@@ -20,12 +20,12 @@ const SEDES = [
       "Electromiografía (EMG)",
       "Electroencefalograma (EEG)",
     ],
-    maps: "https://maps.google.com/?q=ALGOS+Centro+de+Dolor+Intervencionista,CC+America,Av+20+con+Calle+65,Sector+Paraiso,Maracaibo,Venezuela",
+    maps: "https://maps.google.com/?q=ALGOS+Centro+de+Dolor+Intervencionista,Hospital+Clinico+de+Maracaibo,Av+15+Delicias,Urb+La+Trinidad,Maracaibo,Zulia",
   },
   {
     nombre: "Sede Torre RAB",
     direccion: "Av. Sabaneta, Urbanización Urdaneta",
-    detalle: "Torre de consultorios RAB · Detrás de la Clínica Zulia · Piso 1, Consultorio 3 · Maracaibo, Edo. Zulia",
+    detalle: "Torre de consultorios RAB · Clínica Zulia · Piso 1, Consultorio 3 · Maracaibo, Edo. Zulia",
     telefonos: [
       { label: "0424-646 7944", href: "tel:+584246467944" },
       { label: "0412-174 8249", href: "tel:+584121748249" },

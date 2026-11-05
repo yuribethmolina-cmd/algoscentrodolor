@@ -10,8 +10,12 @@ const INFO = {
     state: "Zulia",
     country: "Venezuela",
     address:
-      "Av. 20 con Calle 65, N° 65-02 · C.C. América, Local 4 · Sector Paraíso, Maracaibo 4001",
+      "Av. 15 Delicias, Edif. Hospital Clínico, Urb. La Trinidad, Maracaibo, Zulia",
   },
+  sedes: [
+    "Sede Hospital Clínico (principal) — Av. 15 Delicias, Edif. Hospital Clínico, Urb. La Trinidad, Maracaibo, Zulia",
+    "Sede Torre RAB — Av. Sabaneta, Urb. Urdaneta, Torre de consultorios RAB (Clínica Zulia), Piso 1, Consultorio 3, Maracaibo, Zulia",
+  ],
   contact: {
     whatsapp: "https://wa.me/584146807886",
     email: "info@algoscentrodolor.com",

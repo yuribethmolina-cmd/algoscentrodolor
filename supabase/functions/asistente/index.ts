@@ -40,7 +40,7 @@ Primer centro especializado en dolor intervencionista del Estado Zulia, Venezuel
 - Sitio: https://algoscentrodolor.com
 
 ## Sedes en Maracaibo
-1. **Sede Sector Paraíso** — Av. 20 con Calle 65, N° 65-02. C.C. América, Local 4. Sector Paraíso, Maracaibo 4005.
+1. **Sede Hospital Clínico (principal)** — Av. 15 Delicias, Edif. Hospital Clínico, Urb. La Trinidad, Maracaibo. Tel: 0414-6807886 / 0412-0617410.
 2. **Sede Torre RAB** — Av. Sabaneta, Urb. Urdaneta, Torre de consultorios RAB (detrás de Clínica Zulia), Piso 1, Consultorio 3. Tel: 0424-6467944 / 0412-1748249 / 0261-8000476.
 
 ## Especialistas y horarios de consulta

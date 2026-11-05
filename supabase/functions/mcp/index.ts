@@ -964,8 +964,12 @@ var INFO = {
     city: "Maracaibo",
     state: "Zulia",
     country: "Venezuela",
-    address: "Av. 20 con Calle 65, N\xB0 65-02 \xB7 C.C. Am\xE9rica, Local 4 \xB7 Sector Para\xEDso, Maracaibo 4001"
+    address: "Av. 15 Delicias, Edif. Hospital Cl\xEDnico, Urb. La Trinidad, Maracaibo, Zulia"
   },
+  sedes: [
+    "Sede Hospital Cl\xEDnico (principal) \u2014 Av. 15 Delicias, Edif. Hospital Cl\xEDnico, Urb. La Trinidad, Maracaibo, Zulia",
+    "Sede Torre RAB \u2014 Av. Sabaneta, Urb. Urdaneta, Torre de consultorios RAB (Cl\xEDnica Zulia), Piso 1, Consultorio 3, Maracaibo, Zulia"
+  ],
   contact: {
     whatsapp: "https://wa.me/584146807886",
     email: "info@algoscentrodolor.com"
