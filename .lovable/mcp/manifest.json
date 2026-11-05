@@ -88,7 +88,7 @@
       {
         "name": "clinic_info",
         "title": "Información de la clínica",
-        "description": "Devuelve datos institucionales de ALGOS: ubicación, contacto oficial, sitio web y alianza estratégica con UDUZ.",
+        "description": "Devuelve datos institucionales de ALGOS: ubicación, contacto oficial y sitio web.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

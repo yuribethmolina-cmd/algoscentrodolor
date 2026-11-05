@@ -28,7 +28,7 @@ interface StudyBentoProps {
 }
 
 /**
- * UDUZ-inspired cinematic tabs: dark teal shell, verde-amarillo accents,
+ * Cinematic tabs: dark teal shell, verde-amarillo accents,
  * bento tabs across the top, and a two-column detail below (image or
  * gradient icon tile + clinical info).
  */

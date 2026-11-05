@@ -974,17 +974,12 @@ var INFO = {
     whatsapp: "https://wa.me/584146807886",
     email: "info@algoscentrodolor.com"
   },
-  website: "https://algoscentrodolor.com",
-  alliance: {
-    partner: "UDUZ",
-    url: "https://www.instagram.com/uduz_maracaibo/reels/",
-    role: "Diagn\xF3stico por imagen y electrodiagn\xF3stico (EEG, EMG). El paciente entra por ALGOS, se diagnostica en UDUZ y el procedimiento se realiza en ALGOS."
-  }
+  website: "https://algoscentrodolor.com"
 };
 var clinic_info_default = defineTool5({
   name: "clinic_info",
   title: "Informaci\xF3n de la cl\xEDnica",
-  description: "Devuelve datos institucionales de ALGOS: ubicaci\xF3n, contacto oficial, sitio web y alianza estrat\xE9gica con UDUZ.",
+  description: "Devuelve datos institucionales de ALGOS: ubicaci\xF3n, contacto oficial y sitio web.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

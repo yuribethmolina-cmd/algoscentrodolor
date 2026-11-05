@@ -23,7 +23,6 @@ const procedimientos: Link[] = [
 ];
 
 const algos: Link[] = [
-  { label: "Estudios y laboratorio", href: "/estudios-laboratorio" },
   { label: "Equipo", href: "/equipo" },
   { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   { label: "Contacto", href: "/contacto" },
@@ -165,22 +164,6 @@ export default function HomeFooter() {
               </a>
               <a href="tel:+584120617410" style={{ ...blockValue, textDecoration: "none", display: "block", padding: "8px 0", minHeight: 44 }}>
                 0412-061 7410 · Solo llamadas
-              </a>
-            </div>
-            <div style={{ marginBottom: 16 }}>
-              <p style={blockLabel}>RED DIAGNÓSTICA</p>
-              <a
-                href="https://www.instagram.com/uduz_maracaibo/reels/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ ...blockValue, color: STEEL_TEAL, textDecoration: "none", display: "block" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = STEEL_TEAL)}
-              >
-                <strong style={{ fontWeight: 700 }}>UDUZ</strong> &nbsp;· misma zona
-                <br />
-                Tomografía&nbsp;
-
               </a>
             </div>
             <div style={{ marginBottom: 16 }}>

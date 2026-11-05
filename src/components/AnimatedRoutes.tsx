@@ -13,7 +13,6 @@ import AvisoLegalPage from "@/pages/AvisoLegal";
 import PoliticaCookiesPage from "@/pages/PoliticaCookies";
 
 // New pages per brief v2
-import EstudiosLaboratorio from "@/pages/EstudiosLaboratorio";
 import PreguntasFrecuentes from "@/pages/PreguntasFrecuentes";
 import Especialidades from "@/pages/Especialidades";
 import EstudiosDiagnosticos from "@/pages/EstudiosDiagnosticos";
@@ -41,7 +40,6 @@ import TratamientoDetalle from "@/pages/TratamientoDetalle";
 import BlogPage from "@/pages/Blog";
 
 // Landing pages (Google Ads — sin nav, sin PageTransition)
-import LpDiagnostico from "@/pages/lp/LpDiagnostico";
 import LpDolor from "@/pages/lp/LpDolor";
 
 // Internal admin
@@ -94,7 +92,7 @@ export default function AnimatedRoutes() {
           <Route path="/procedimientos" element={<Navigate to="/procedimientos/infiltraciones-y-bloqueos" replace />} />
 
           {/* Main pages */}
-          <Route path="/estudios-laboratorio" element={wrap(EstudiosLaboratorio)} />
+          <Route path="/estudios-laboratorio" element={<Navigate to="/estudios-diagnosticos" replace />} />
           <Route path="/estudios-diagnosticos" element={wrap(EstudiosDiagnosticos)} />
           <Route path="/especialidades" element={wrap(Especialidades)} />
           <Route path="/equipo" element={wrap(EquipoPage)} />
@@ -119,7 +117,7 @@ export default function AnimatedRoutes() {
 
 
           {/* Landing pages (Google Ads) */}
-          <Route path="/lp/diagnostico" element={<LpDiagnostico />} />
+          <Route path="/lp/diagnostico" element={<Navigate to="/estudios-diagnosticos" replace />} />
           <Route path="/lp/dolor" element={<LpDolor />} />
 
           {/* Internal admin (unlisted) */}

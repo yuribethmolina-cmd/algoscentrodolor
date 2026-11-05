@@ -4,51 +4,18 @@ import HomeFooter from "@/components/HomeFooter";
 import SEOHead from "@/components/SEOHead";
 import StudyBento, { type StudyItem } from "@/components/StudyBento";
 import { DIAGNOSTICS, DIAGNOSTIC_GROUPS } from "@/data/diagnostics";
-import {
-  Brain,
-  Bone,
-  HeartPulse,
-  Activity,
-  Waves,
-  Zap,
-  TestTube,
-  MapPin,
-  Baby,
-  type LucideIcon,
-} from "lucide-react";
+import { Activity, MapPin, Waves, Zap, type LucideIcon } from "lucide-react";
 
-import tomografiaRealAsset from "@/assets/tomografia-real.png.asset.json";
-import examsXrayPic from "@/assets/rayos-x-real.webp?w=640;1024;1600&format=avif;webp&as=picture";
-import examsXrayLqip from "@/assets/rayos-x-real.webp?w=32&blur=6&format=webp&url";
 import emgPic from "@/assets/electromiografia.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import emgLqip from "@/assets/electromiografia.webp?w=32&blur=6&format=webp&url";
-import holterPic from "@/assets/holter.webp?w=640;1024;1600&format=avif;webp&as=picture";
-import holterLqip from "@/assets/holter.webp?w=32&blur=6&format=webp&url";
-import mamografiaPic from "@/assets/mamografia-3d.webp?w=640;1024;1600&format=avif;webp&as=picture";
-import mamografiaLqip from "@/assets/mamografia-3d.webp?w=32&blur=6&format=webp&url";
-import laboratorioPic from "@/assets/laboratorio-clinico.webp?w=640;1024;1600&format=avif;webp&as=picture";
-import laboratorioLqip from "@/assets/laboratorio-clinico.webp?w=32&blur=6&format=webp&url";
-import electrocardiogramaPic from "@/assets/electrocardiograma.webp?w=640;1024;1600&format=avif;webp&as=picture";
-import electrocardiogramaLqip from "@/assets/electrocardiograma.webp?w=32&blur=6&format=webp&url";
 import eegPic from "@/assets/electroencefalograma.webp?w=640;1024;1600&format=avif;webp&as=picture";
 import eegLqip from "@/assets/electroencefalograma.webp?w=32&blur=6&format=webp&url";
 
-const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
-  "neurofisiologia",
-  "imagen",
-  "cardiologia",
-  "laboratorio",
-];
+const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = ["neurofisiologia"];
 
 const ICON_BY_SLUG: Record<string, LucideIcon> = {
-  tomografia: Brain,
-  "rayos-x": Bone,
-  "mamografia-3d": Baby,
-  electrocardiograma: HeartPulse,
-  holter: Activity,
   eeg: Waves,
   emg: Zap,
-  laboratorio: TestTube,
 };
 
 type Picture = {
@@ -57,15 +24,7 @@ type Picture = {
 };
 
 const IMAGE_BY_SLUG: Record<string, { pic: Picture; lqip?: string }> = {
-  tomografia: {
-    pic: { sources: {}, img: { src: tomografiaRealAsset.url, w: 0, h: 0 } },
-  },
-  "rayos-x": { pic: examsXrayPic, lqip: examsXrayLqip },
   emg: { pic: emgPic, lqip: emgLqip },
-  holter: { pic: holterPic, lqip: holterLqip },
-  "mamografia-3d": { pic: mamografiaPic, lqip: mamografiaLqip },
-  laboratorio: { pic: laboratorioPic, lqip: laboratorioLqip },
-  electrocardiograma: { pic: electrocardiogramaPic, lqip: electrocardiogramaLqip },
   eeg: { pic: eegPic, lqip: eegLqip },
 };
 
@@ -90,10 +49,10 @@ export default function EstudiosDiagnosticos() {
     <div className="min-h-screen bg-cream">
       <SEOHead
         title="Electromiografía, Electroencefalograma y estudios diagnósticos en Maracaibo | ALGOS"
-        description="Estudios diagnósticos en Maracaibo: electromiografía (EMG) y electroencefalograma (EEG) en ALGOS, y tomografía, rayos X, electrocardiograma, Holter y laboratorio vía UDUZ."
+        description="Electromiografía (EMG) y electroencefalograma (EEG) en Maracaibo, realizados en ALGOS Centro de Dolor Intervencionista. Coordina tu estudio por WhatsApp."
         canonical="https://algoscentrodolor.com/estudios-diagnosticos"
       >
-        <meta name="keywords" content="electromiografía Maracaibo, EMG Maracaibo, electroencefalograma Maracaibo, EEG Maracaibo, tomografía Maracaibo, Holter Maracaibo, electrocardiograma Maracaibo, estudios diagnósticos Zulia, neurofisiología Maracaibo, laboratorio Maracaibo" />
+        <meta name="keywords" content="electromiografía Maracaibo, EMG Maracaibo, electroencefalograma Maracaibo, EEG Maracaibo, estudios diagnósticos Zulia, neurofisiología Maracaibo" />
       </SEOHead>
       <Navbar />
 
@@ -104,24 +63,23 @@ export default function EstudiosDiagnosticos() {
             aria-hidden
             className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full opacity-[0.08] blur-3xl"
             style={{
-              background: "radial-gradient(circle, #8DC63F 0%, transparent 70%)",
+              background: "radial-gradient(circle, #c69636 0%, transparent 70%)",
             }}
           />
           <div className="container mx-auto max-w-6xl px-6 md:px-12 relative">
-            <p className="text-[#8DC63F] font-medium text-xs tracking-[0.28em] uppercase mb-5">
+            <p className="text-[#c69636] font-medium text-xs tracking-[0.28em] uppercase mb-5">
               ESTUDIOS DIAGNÓSTICOS
             </p>
             <h1 className="font-display font-bold text-[#f5f0e8] text-4xl md:text-6xl leading-[1.05] tracking-tight max-w-3xl mb-6">
-              Electromiografía, tomografía, Holter y más en Maracaibo.
+              Electromiografía y electroencefalograma en Maracaibo.
             </h1>
             <p className="font-sans text-[#f5f0e8]/80 text-base md:text-lg leading-relaxed max-w-2xl">
-              EMG y EEG se realizan aquí en ALGOS. Imagen, cardiología y
-              laboratorio los coordinamos directamente con UDUZ.
+              Los estudios de EMG y EEG se realizan aquí en ALGOS, con cita previa y los resultados los interpreta el mismo equipo que le evaluó.
             </p>
           </div>
         </section>
 
-        {/* Groups, cinematic UDUZ-style bento tabs */}
+        {/* Groups, cinematic bento tabs */}
         <section className="bg-[#134F5C] pb-20 md:pb-28">
           <div className="container mx-auto max-w-6xl px-6 md:px-12 flex flex-col gap-16 md:gap-24">
             {GROUP_ORDER.map((groupKey) => {
@@ -130,78 +88,52 @@ export default function EstudiosDiagnosticos() {
                 toStudyItem,
               );
               if (items.length === 0) return null;
-              const isAlgos = group.provider === "algos";
               return (
                 <div key={groupKey}>
                   <div className="flex items-center gap-2 mb-3">
                     <MapPin
                       className="w-3.5 h-3.5"
                       strokeWidth={2.5}
-                      style={{ color: isAlgos ? "#c69636" : "#8DC63F" }}
+                      style={{ color: "#c69636" }}
                     />
                     <span
                       className="text-xs font-bold uppercase tracking-[0.22em]"
-                      style={{ color: isAlgos ? "#c69636" : "#8DC63F" }}
+                      style={{ color: "#c69636" }}
                     >
-                      {isAlgos ? "En ALGOS" : "Vía UDUZ"}
+                      En ALGOS
                     </span>
                   </div>
                   <StudyBento
                     eyebrow={group.label}
                     title={group.description}
                     items={items}
-                    ctaHref={isAlgos ? `${ALGOS.contact.whatsappHref}?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio de neurofisiología (EMG o EEG).")}` : undefined}
-                    ctaLabel={isAlgos ? "Agendar en ALGOS" : undefined}
+                    ctaHref={`${ALGOS.contact.whatsappHref}?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio de neurofisiología (EMG o EEG).")}`}
+                    ctaLabel="Agendar en ALGOS"
                   />
                 </div>
               );
             })}
 
-            {/* CTA doble: ALGOS (EMG/EEG) + UDUZ (imagen, cardio, lab) */}
-            <div className="grid md:grid-cols-2 gap-6 pt-4">
-              {/* CTA ALGOS */}
-              <div className="bg-[#1B6B78] p-8 flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#c69636]" strokeWidth={2.5} />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#c69636]">
-                    En ALGOS
-                  </span>
-                </div>
-                <h3 className="font-display font-semibold text-[#f5f0e8] text-xl leading-snug">
-                  EMG y EEG se realizan aquí en ALGOS.
-                </h3>
-                <a
-                  href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio EMG o EEG con la Dra. Carolina Rodríguez.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 self-start bg-[#c69636] hover:bg-[#f5f0e8] hover:text-[#1a4a55] text-[#1a4a55] font-sans font-bold uppercase text-[12px] tracking-[0.18em] px-6 py-3.5 transition-colors"
-                >
-                  <Activity className="w-3.5 h-3.5" strokeWidth={2} />
-                  Agendar en ALGOS
-                </a>
+            {/* CTA ALGOS */}
+            <div className="bg-[#1B6B78] p-8 flex flex-col gap-4 pt-4">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#c69636]" strokeWidth={2.5} />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#c69636]">
+                  En ALGOS
+                </span>
               </div>
-
-              {/* CTA UDUZ */}
-              <div className="bg-[#1B6B78] p-8 flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#8DC63F]" strokeWidth={2.5} />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8DC63F]">
-                    Vía UDUZ
-                  </span>
-                </div>
-                <h3 className="font-display font-semibold text-[#f5f0e8] text-xl leading-snug">
-                  Imagen, cardiología y laboratorio los coordinamos con UDUZ.
-                </h3>
-                <a
-                  href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola, me refieren desde ALGOS Centro de Dolor. Quisiera coordinar un estudio diagnóstico con UDUZ.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 self-start bg-[#8DC63F] hover:bg-[#f5f0e8] hover:text-[#1a4a55] text-[#1a4a55] font-sans font-bold uppercase text-[12px] tracking-[0.18em] px-6 py-3.5 transition-colors"
-                >
-                  <Activity className="w-3.5 h-3.5" strokeWidth={2} />
-                  Coordinar con UDUZ
-                </a>
-              </div>
+              <h3 className="font-display font-semibold text-[#f5f0e8] text-xl leading-snug">
+                EMG y EEG se realizan aquí en ALGOS.
+              </h3>
+              <a
+                href={`https://wa.me/584146807886?text=${encodeURIComponent("Hola ALGOS, me interesa agendar un estudio EMG o EEG.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 self-start bg-[#c69636] hover:bg-[#f5f0e8] hover:text-[#1a4a55] text-[#1a4a55] font-sans font-bold uppercase text-[12px] tracking-[0.18em] px-6 py-3.5 transition-colors"
+              >
+                <Activity className="w-3.5 h-3.5" strokeWidth={2} />
+                Agendar en ALGOS
+              </a>
             </div>
           </div>
         </section>

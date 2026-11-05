@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import PainTabSection from "@/components/PainTabSection";
 import PatientJourneySection from "@/components/PatientJourneySection";
-import AllianceSection from "@/components/AllianceSection";
 import AlgosLocationSection from "@/components/AlgosLocationSection";
 import SedesSection from "@/components/SedesSection";
 import HomeTeamSection from "@/components/HomeTeamSection";
@@ -89,7 +88,6 @@ export default function Index() {
       <PainTabSection />
       <PatientJourneySection />
       <HomeFAQSection />
-      <AllianceSection />
       <HomeTeamSection />
       <SedesSection />
       <AlgosLocationSection />

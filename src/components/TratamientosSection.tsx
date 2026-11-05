@@ -43,7 +43,6 @@ type Card = {
   indication: string;
   technique: string;
   svg: React.ReactNode;
-  uduzRef?: string;
 };
 
 const strokeCream = CREAM;
@@ -122,7 +121,6 @@ const cards: Card[] = [
       "Para dolor lumbar con irradiación a la pierna (ciática) causado por hernia discal o compresión de raíz nerviosa.",
     technique:
       "bloqueo radicular guiado por fluoroscopia o tomografía · ambulatorio · anestesia local.",
-    uduzRef: "Rayos X lumbar y tomografía disponibles en UDUZ Paraíso",
 
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
@@ -150,7 +148,6 @@ const cards: Card[] = [
       "Para dolor radicular cervical con compromiso de raíz nerviosa específica, irradiación a hombro o brazo.",
     technique:
       "infiltración perirradicular guiada por fluoroscopia o tomografía · ambulatorio.",
-    uduzRef: "Tomografía cervical disponible 24/7 en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 78 14 L 102 14 L 106 22 L 74 22 Z" fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -180,7 +177,6 @@ const cards: Card[] = [
       "Para dolor, hormigueo o adormecimiento en pies y manos causado por daño en nervios periféricos, frecuentemente asociado a diabetes.",
     technique:
       "EMG diagnóstico · bloqueo de nervio periférico guiado por ecografía · ambulatorio.",
-    uduzRef: "EMG disponible en ALGOS · Ecografía en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <path d="M 18 32 Q 50 56, 70 70 Q 92 86, 110 84 Q 130 82, 150 92" fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -206,7 +202,6 @@ const cards: Card[] = [
       "Para tendinopatías, bursitis, infiltraciones articulares periféricas. Diagnóstico dinámico en la misma sesión.",
     technique:
       "ecógrafo portátil · visualización en tiempo real · ambulatorio.",
-    uduzRef: "Ecografía diagnóstica previa disponible en UDUZ Paraíso",
     svg: (
       <svg viewBox="0 0 180 140" className="w-full h-[160px]" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <rect x={56} y={14} width={68} height={14} rx={3} fill="none" stroke={strokeCream} strokeWidth={1.5} />
@@ -600,30 +595,6 @@ function TratamientoCard({ card, image }: { card: Card; image?: { pic: PictureIm
       >
         <strong style={{ color: GOLD, fontWeight: 700 }}>Técnica:</strong> {card.technique}
       </p>
-      {card.uduzRef && (
-        <a
-          href="https://www.instagram.com/uduz_maracaibo/reels/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: 12,
-            fontWeight: 700,
-            color: GOLD,
-            letterSpacing: "0.03em",
-            lineHeight: 1.55,
-            marginTop: 10,
-            padding: "10px 12px",
-            borderLeft: `3px solid ${GOLD}`,
-            backgroundColor: "rgba(198, 150, 54, 0.08)",
-            display: "block",
-            textDecoration: "none",
-            borderRadius: 4,
-          }}
-        >
-          {card.uduzRef} →
-        </a>
-      )}
 
     </article>
   );

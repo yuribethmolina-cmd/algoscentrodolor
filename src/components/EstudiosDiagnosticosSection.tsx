@@ -7,10 +7,7 @@ const GOLD = "#c69636";
 const CREAM = "#f5f0e8";
 
 const GROUP_ORDER: Array<keyof typeof DIAGNOSTIC_GROUPS> = [
-  "imagen",
-  "cardiologia",
   "neurofisiologia",
-  "laboratorio",
 ];
 
 export default function EstudiosDiagnosticosSection() {
@@ -68,8 +65,8 @@ export default function EstudiosDiagnosticosSection() {
             marginBottom: 48,
           }}
         >
-          Imagen, cardiología, neurofisiología y laboratorio. Todo lo que
-          necesita para llegar al diagnóstico y comenzar el tratamiento.
+          Estudios de neurofisiología en la propia sede: electromiografía
+          (EMG) y electroencefalograma (EEG), con cita previa.
         </p>
 
         <div
