@@ -56,23 +56,6 @@ export default function TrustBar() {
           className="flex flex-wrap items-center justify-center"
           style={{ gap: "clamp(14px, 2.4vw, 24px)", rowGap: 14 }}
         >
-          {/* UDUZ */}
-          <a
-            href="https://www.instagram.com/uduz_maracaibo/reels/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
-            style={CARD}
-          >
-            <img
-              src="/logos/uduz-logo.svg"
-              alt="UDUZ, Unidad de Diagnóstico Universitaria del Zulia"
-              width={170}
-              height={45}
-              style={{ height: "clamp(32px, 3.6vw, 40px)", width: "auto", display: "block" }}
-            />
-          </a>
-
           {/* Hospital Clínico de Maracaibo — sede principal */}
           <div style={CARD}>
             <img
