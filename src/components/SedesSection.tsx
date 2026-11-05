@@ -1,5 +1,6 @@
 import { MapPin, Phone } from "lucide-react";
 import sedeHospital from "@/assets/sede-hospital-clinico-consultorio.jpeg.asset.json";
+import sedeTorreRab from "@/assets/torre-rab.png.asset.json";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
@@ -40,8 +41,8 @@ const SEDES = [
       "Atención por cita previa",
     ],
     maps: "https://maps.google.com/?q=Torre+consultorios+RAB,Urbanizacion+Urdaneta,Av+Sabaneta,Maracaibo,Zulia",
-    imagen: null,
-    imagenAlt: null,
+    imagen: sedeTorreRab.url,
+    imagenAlt: "Fachada de la Torre RAB de Clínica Zulia en Maracaibo",
   },
 ];
 
@@ -106,20 +107,15 @@ export default function SedesSection() {
               }}
             >
               {s.imagen && (
-                <img
-                  src={s.imagen}
-                  alt={s.imagenAlt}
-                  loading="lazy"
-                  decoding="async"
-                  style={{
-                    display: "block",
-                    width: "calc(100% + 56px)",
-                    margin: "-32px -28px 22px",
-                    aspectRatio: "16 / 10",
-                    objectFit: "cover",
-                    objectPosition: "center 30%",
-                  }}
-                />
+                <div className="-mx-7 -mt-8 mb-[22px] aspect-[4/5] bg-card">
+                  <img
+                    src={s.imagen}
+                    alt={s.imagenAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="block h-full w-full object-contain"
+                  />
+                </div>
               )}
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 12 }}>
                 <MapPin size={18} color={TEAL} style={{ flexShrink: 0, marginTop: 3 }} />
