@@ -1,4 +1,5 @@
 import { MapPin, Phone } from "lucide-react";
+import sedeHospital from "@/assets/sede-hospital-clinico-consultorio.jpeg.asset.json";
 
 const DEEP_TEAL = "#1a4a55";
 const GOLD = "#c69636";
@@ -21,6 +22,8 @@ const SEDES = [
       "Electroencefalograma (EEG)",
     ],
     maps: "https://maps.google.com/?q=ALGOS+Centro+de+Dolor+Intervencionista,Hospital+Clinico+de+Maracaibo,Av+15+Delicias,Urb+La+Trinidad,Maracaibo,Zulia",
+    imagen: sedeHospital.url,
+    imagenAlt: "Entrada de ALGOS en el Hospital Clínico de Maracaibo",
   },
   {
     nombre: "Sede Torre RAB",
@@ -37,6 +40,8 @@ const SEDES = [
       "Atención por cita previa",
     ],
     maps: "https://maps.google.com/?q=Torre+consultorios+RAB,Urbanizacion+Urdaneta,Av+Sabaneta,Maracaibo,Zulia",
+    imagen: null,
+    imagenAlt: null,
   },
 ];
 
@@ -100,6 +105,21 @@ export default function SedesSection() {
                 border: "1px solid rgba(26,74,85,0.1)",
               }}
             >
+              {s.imagen && (
+                <img
+                  src={s.imagen}
+                  alt={s.imagenAlt}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    display: "block",
+                    width: "calc(100% + 56px)",
+                    margin: "-32px -28px 22px",
+                    height: 190,
+                    objectFit: "cover",
+                  }}
+                />
+              )}
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 12 }}>
                 <MapPin size={18} color={TEAL} style={{ flexShrink: 0, marginTop: 3 }} />
                 <div>
