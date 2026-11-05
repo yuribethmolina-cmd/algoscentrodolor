@@ -6,7 +6,7 @@ import { Zap, Radio, Droplets, Activity, ExternalLink, Brain, Waves } from "luci
 
 import dolorLumbarPic from "@/assets/lp-dolor-lumbar.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import dolorLumbarLqip from "@/assets/lp-dolor-lumbar.jpg?w=32&blur=6&format=webp&url";
-import algosFacadeAsset from "@/assets/algos-facade.webp.asset.json";
+import sedeConsultorioAsset from "@/assets/sede-hospital-clinico-consultorio.jpeg.asset.json";
 
 import aboutProcedurePic from "@/assets/about-procedure.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import aboutProcedureLqip from "@/assets/about-procedure.jpg?w=32&blur=6&format=webp&url";

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import algosFacade from "@/assets/algos-facade.webp.asset.json";
+import sedeEntrada from "@/assets/sede-hospital-clinico-entrada.jpeg.asset.json";
 import { MapPin, Navigation, Clock, Phone, MessageCircle } from "lucide-react";
 import { ALGOS } from "@/config/algos.config";
 import { buildWhatsAppUrl, type VisitType } from "@/lib/whatsapp";
