@@ -103,6 +103,21 @@ export default function SedesSection() {
                 border: "1px solid rgba(26,74,85,0.1)",
               }}
             >
+              {s.imagen && (
+                <img
+                  src={s.imagen}
+                  alt={s.imagenAlt}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    display: "block",
+                    width: "calc(100% + 56px)",
+                    margin: "-32px -28px 22px",
+                    height: 190,
+                    objectFit: "cover",
+                  }}
+                />
+              )}
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 12 }}>
                 <MapPin size={18} color={TEAL} style={{ flexShrink: 0, marginTop: 3 }} />
                 <div>
