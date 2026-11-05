@@ -40,6 +40,8 @@ const SEDES = [
       "Atención por cita previa",
     ],
     maps: "https://maps.google.com/?q=Torre+consultorios+RAB,Urbanizacion+Urdaneta,Av+Sabaneta,Maracaibo,Zulia",
+    imagen: null,
+    imagenAlt: null,
   },
 ];
 
