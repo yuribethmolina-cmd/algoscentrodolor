@@ -73,7 +73,7 @@ export default function TrustBar() {
             />
           </a>
 
-          {/* Hospital Clínico de Maracaibo — próxima sede */}
+          {/* Hospital Clínico de Maracaibo — sede principal */}
           <div style={CARD}>
             <img
               src={hospitalClinicoLogo.url}
@@ -124,7 +124,7 @@ export default function TrustBar() {
             textAlign: "center",
           }}
         >
-          Próximamente · Nueva sede en el Hospital Clínico de Maracaibo · Av. 15 Delicias, Urb. La Trinidad
+          Sede principal · Hospital Clínico de Maracaibo · Av. 15 Delicias, Urb. La Trinidad
         </p>
 
       </div>
