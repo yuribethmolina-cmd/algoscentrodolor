@@ -22,7 +22,7 @@ interface GraciasLeadProps {
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' +
   encodeURIComponent(
-    'ALGOS Centro de Dolor Intervencionista, CC América, Av. 20 con Calle 65, Sector Paraíso, Maracaibo, Venezuela',
+    'ALGOS Centro de Dolor Intervencionista, Hospital Clínico de Maracaibo, Av. 15 Delicias, Urb. La Trinidad, Maracaibo, Venezuela',
   )
 
 const GraciasLeadEmail = ({ name, reason }: GraciasLeadProps) => (
@@ -62,11 +62,11 @@ const GraciasLeadEmail = ({ name, reason }: GraciasLeadProps) => (
 
           <Text style={subhead}>Dónde estamos</Text>
           <Text style={address}>
-            Av. 20 con Calle 65, N° 65-02
+            Av. 15 Delicias
             <br />
-            C.C. América, Local 4
+            Edif. Hospital Clínico
             <br />
-            Sector Paraíso · Maracaibo 4001
+            Urb. La Trinidad · Maracaibo
             <br />
             Estado Zulia, Venezuela
           </Text>
