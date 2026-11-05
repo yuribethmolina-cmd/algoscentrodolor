@@ -44,7 +44,6 @@ const SECTION_CODES: Record<string, string> = {
   "pain-tab": "DOLOR",
   "patient-journey": "RUTA",
   "why-different": "DIFF",
-  alliance: "UDUZ",
   "home-team": "EQUIPO",
   team: "EQUIPO",
   location: "SEDES",
@@ -77,7 +76,6 @@ const SECTION_LABELS: Record<string, string> = {
   "pain-tab": "Tipos de dolor",
   "patient-journey": "Ruta del paciente",
   "why-different": "Por qué somos diferentes",
-  alliance: "Alianza UDUZ",
   "home-team": "Equipo médico",
   team: "Equipo médico",
   location: "Sedes",
@@ -103,7 +101,6 @@ const PATH_REASONS: Array<[RegExp, string]> = [
   [/^\/condiciones\/neuropatia-diabetica/, "la neuropatía diabética"],
   [/^\/condiciones\/dolor-tras-cirugia/, "el dolor que persiste tras una cirugía"],
   [/^\/condiciones/, "mi dolor"],
-  [/^\/estudios-laboratorio/, "los estudios de laboratorio"],
   [/^\/estudios/, "los estudios diagnósticos"],
   [/^\/equipo/, "una consulta con su equipo médico"],
   [/^\/tratamientos/, "sus tratamientos"],
@@ -132,8 +129,6 @@ const PRICING_PATHS = [
   /^\/procedimientos\/emg/,
   /^\/procedimientos\/eeg/,
   /^\/estudios/,
-  /^\/estudios-laboratorio/,
-  /^\/lp\/diagnostico/,
 ];
 
 function needsPricingLine(pathname?: string): boolean {

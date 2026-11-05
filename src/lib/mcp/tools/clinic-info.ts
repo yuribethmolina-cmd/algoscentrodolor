@@ -21,18 +21,13 @@ const INFO = {
     email: "info@algoscentrodolor.com",
   },
   website: "https://algoscentrodolor.com",
-  alliance: {
-    partner: "UDUZ",
-    url: "https://www.instagram.com/uduz_maracaibo/reels/",
-    role: "Diagnóstico por imagen y electrodiagnóstico (EEG, EMG). El paciente entra por ALGOS, se diagnostica en UDUZ y el procedimiento se realiza en ALGOS.",
-  },
 };
 
 export default defineTool({
   name: "clinic_info",
   title: "Información de la clínica",
   description:
-    "Devuelve datos institucionales de ALGOS: ubicación, contacto oficial, sitio web y alianza estratégica con UDUZ.",
+    "Devuelve datos institucionales de ALGOS: ubicación, contacto oficial y sitio web.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

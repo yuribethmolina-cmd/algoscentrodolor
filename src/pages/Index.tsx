@@ -88,7 +88,6 @@ export default function Index() {
       <PainTabSection />
       <PatientJourneySection />
       <HomeFAQSection />
-      <AllianceSection />
       <HomeTeamSection />
       <SedesSection />
       <AlgosLocationSection />
